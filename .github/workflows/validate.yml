@@ -1,0 +1,233 @@
+name: Validate Repository
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install numpy pandas
+
+      - name: Verify core pipeline files
+        run: |
+          echo "=== Core Pipeline Check ==="
+          missing=0
+          for f in \
+            "tools/pipeline/higgins_decomposition_12step.py" \
+            "tools/pipeline/hs_codes.py" \
+            "tools/pipeline/hs_reporter.py" \
+            "tools/pipeline/higgins_transcendental_pretest.py"; do
+            if [ -f "$f" ]; then
+              size=$(stat --format=%s "$f")
+              kb=$((size / 1024))
+              echo "  OK: $f (${kb} KB)"
+            else
+              echo "  MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ $missing -gt 0 ]; then
+            echo "ERROR: $missing core pipeline file(s) missing"
+            exit 1
+          fi
+          echo "All core pipeline files present."
+
+      - name: Verify locale files
+        run: |
+          echo "=== Locale Check ==="
+          missing=0
+          for lang in en zh hi pt it; do
+            f="tools/pipeline/locales/${lang}.json"
+            if [ -f "$f" ]; then
+              echo "  OK: $f"
+            else
+              echo "  MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ $missing -gt 0 ]; then
+            echo "ERROR: $missing locale file(s) missing"
+            exit 1
+          fi
+          echo "All 5 locale files present."
+
+      - name: Verify control plane files
+        run: |
+          echo "=== Control Plane Check ==="
+          missing=0
+          for f in \
+            "ai-refresh/HS_MACHINE_MANIFEST.json" \
+            "ai-refresh/HS_ADMIN.json" \
+            "ai-refresh/HS_SYSTEM_INVENTORY.json" \
+            "ai-refresh/HS_GITHUB_CONFIG.json"; do
+            if [ -f "$f" ]; then
+              echo "  OK: $f"
+            else
+              echo "  MISSING: $f"
+              missing=$((missing + 1))
+            fi
+          done
+          if [ $missing -gt 0 ]; then
+            echo "ERROR: $missing control plane file(s) missing"
+            exit 1
+          fi
+          echo "All control plane files present."
+
+      - name: Verify root documents
+        run: |
+          echo "=== Root Documents Check ==="
+          for f in README.md EXECUTIVE_SUMMARY.md CITATION.cff LICENSE .gitignore; do
+            if [ -f "$f" ]; then
+              echo "  OK: $f"
+            else
+              echo "  MISSING: $f"
+              exit 1
+            fi
+          done
+          echo "All root documents present."
+
+      - name: Verify reference standards
+        run: |
+          echo "=== Reference Standards Check ==="
+          for f in \
+            "docs/reference/Hs_Reference_Standard_Library.md" \
+            "docs/reference/Hs_Natural_Pairs_Baseline.md" \
+            "experiments/Hs-21_Reference_Standards/Hs-21_reference_library.json" \
+            "experiments/Hs-22_Natural_Pairs/Hs-22_pair_library.json"; do
+            if [ -f "$f" ]; then
+              echo "  OK: $f"
+            else
+              echo "  MISSING: $f"
+              exit 1
+            fi
+          done
+          echo "All reference standards present."
+
+      - name: Verify interactive tools
+        run: |
+          echo "=== Interactive Tools Check ==="
+          count=0
+          for html in tools/interactive/*.html; do
+            if [ -f "$html" ]; then
+              size=$(stat --format=%s "$html")
+              kb=$((size / 1024))
+              echo "  OK: $(basename $html) (${kb} KB)"
+              count=$((count + 1))
+            fi
+          done
+          echo "Total interactive tools: $count"
+          if [ $count -lt 3 ]; then
+            echo "WARNING: Expected at least 3 interactive tools"
+          fi
+
+      - name: Verify experiment results
+        run: |
+          echo "=== Experiment Results Check ==="
+          count=0
+          missing=0
+          for dir in experiments/Hs-*/; do
+            exp=$(basename "$dir")
+            result=$(find "$dir" -name "*_results.json" | head -1)
+            if [ -n "$result" ]; then
+              echo "  OK: $exp"
+              count=$((count + 1))
+            else
+              echo "  MISSING RESULTS: $exp"
+              missing=$((missing + 1))
+            fi
+          done
+          echo ""
+          echo "Experiments with results: $count"
+          echo "Experiments missing results: $missing"
+          if [ $missing -gt 5 ]; then
+            echo "ERROR: Too many experiments missing results"
+            exit 1
+          fi
+
+      - name: Run pipeline smoke test
+        run: |
+          echo "=== Pipeline Smoke Test ==="
+          cd tools/pipeline
+          python3 -c "
+          import numpy as np
+          from higgins_decomposition_12step import HigginsDecomposition
+
+          # Minimal test: 5 observations, 3 carriers
+          data = np.array([
+              [0.5, 0.3, 0.2],
+              [0.4, 0.4, 0.2],
+              [0.3, 0.5, 0.2],
+              [0.45, 0.35, 0.2],
+              [0.35, 0.45, 0.2]
+          ])
+
+          hd = HigginsDecomposition('SMOKE', 'Smoke Test', 'TEST',
+              carriers=['A', 'B', 'C'])
+          hd.load_data(data)
+          result = hd.run_full_extended()
+
+          # Verify core outputs exist
+          assert 'steps' in result, 'Missing steps in result'
+          assert 'extended' in result, 'Missing extended in result'
+          assert result['extended']['universal']['claim_status']['htp_classification'] in ['NATURAL', 'INVESTIGATE', 'FLAG'], 'Invalid HTP classification'
+
+          # Verify diagnostic codes
+          from hs_codes import generate_codes
+          codes = generate_codes(result)
+          assert len(codes) > 0, 'No diagnostic codes generated'
+
+          # Verify reporter
+          from hs_reporter import report
+          for lang in ['en', 'zh', 'hi', 'pt', 'it']:
+              rpt = report(codes, lang=lang)
+              assert len(rpt) > 100, f'Report too short for language {lang}'
+
+          print('Pipeline smoke test: PASSED')
+          print(f'  Codes generated: {len(codes)}')
+          print(f'  Classification: {result[\"extended\"][\"universal\"][\"claim_status\"][\"htp_classification\"]}')
+          print(f'  All 5 languages verified')
+          "
+          echo "Smoke test complete."
+
+      - name: Verify JSON integrity
+        run: |
+          echo "=== JSON Integrity Check ==="
+          errors=0
+          for jsonfile in $(find . -name '*.json' -not -path './.git/*' | sort); do
+            if python3 -c "import json; json.load(open('$jsonfile'))" 2>/dev/null; then
+              true  # silent pass
+            else
+              echo "  INVALID JSON: $jsonfile"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "ERROR: $errors invalid JSON file(s)"
+            exit 1
+          fi
+          echo "All JSON files valid."
+
+      - name: Summary
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "  Hˢ Repository Validation: PASSED"
+          echo "=========================================="
+          echo ""
+          echo "  Pipeline: $(wc -l < tools/pipeline/higgins_decomposition_12step.py) lines"
+          echo "  Codes: $(python3 -c 'import json; print(len(json.load(open("tools/pipeline/locales/en.json"))))'  ) entries"
+          echo "  Experiments: $(ls -d experiments/Hs-*/ 2>/dev/null | wc -l)"
+          echo "  Languages: 5 (en, zh, hi, pt, it)"
+          echo ""

@@ -8,7 +8,23 @@ Higgins Decomposition reads the geometric fingerprint of any compositional syste
 
 **Validated:** 17 domains, 28 systems, 44 orders of magnitude. 15 reference standards. 59 diagnostic codes. 5 languages.
 
-**Conference:** CoDaWork 2026, Coimbra, Portugal (June 2026)
+**Conference:** [CoDaWork 2026 package](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) — Coimbra, Portugal (June 2026)
+
+| Canonical Count | Value |
+|---|---|
+| Physical domains | 17 |
+| Distinct systems | 28 |
+| Reference standards | 15 |
+| Total DUTs | 43 |
+| Transcendental constants | 35 |
+| Conjugate pairs | 13 |
+| Diagnostic codes | 59 |
+| Languages | 5 (en, zh, hi, pt, it) |
+| Scale range | 10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude) |
+| Pipeline version | 1.0 Extended |
+| Deterministic | Yes (Gauge R&R bit-identical) |
+
+**Start here:** [README](README.md) → [CoDaWork strategy](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Character Analysis](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) → [Reference Standards](docs/reference/Hs_Reference_Standard_Library.md) → [Interactive theorem demo](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html)
 
 ---
 
@@ -128,6 +144,22 @@ higgins-decomposition/
     │   └── locales/              # 5 language files
     └── interactive/              # 4 HTML tools (open in browser)
 ```
+
+---
+
+## Claim Tiers
+
+Every finding in this repository carries an explicit status:
+
+| Tier | Meaning | Example |
+|------|---------|---------|
+| **Core science** | Proven or strongly evidenced | Gauge R&R determinism, EXP-03 δ = 5.87 × 10⁻⁶ |
+| **Validated companion** | Strong secondary result | Per-carrier decomposition, transfer entropy |
+| **Engineering control** | Integrity and trust layer | Input guards, adversarial robustness, reference standards |
+| **Point of interest** | Noteworthy, not yet canonical | Euler-family resonance, conversation drift |
+| **Exploratory** | Interesting, requires more evidence | Transcendental Naturalness Hypothesis |
+
+If a finding does not state its tier, treat it as exploratory until verified.
 
 ---
 

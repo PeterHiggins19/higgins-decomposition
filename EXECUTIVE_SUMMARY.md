@@ -355,3 +355,44 @@ contradictions are where discoveries live.
 *The instrument reads the data. The governance reads the instrument.*
 *The loop stays open. The trajectory stays on course.*
 
+
+## April 25, 2026 — WAYPOINT: LAUNCHED
+
+**Repository live at:** https://github.com/PeterHiggins19/higgins-decomposition
+
+**Post-launch review (ChatGPT):**
+- Structure: "very good and appropriately minimal"
+- Control plane: "excellent; this is the strongest part of the repo"
+- Tool presentation: "strong and much clearer than HUF as a front door"
+- CoDaWork readiness: "substantially improved, with the right conference strategy"
+- Verdict: "the repo already knows what it is"
+
+**Three fixes applied from review:**
+1. Canonical count table added to README (single source for all numbers)
+2. CoDaWork package link made visible from README top level
+3. Claim tier table added to README (5 tiers visible to every reader)
+
+**Reading path added:** README → CoDaWork strategy → Character Analysis →
+Reference Standards → Interactive theorem demo
+
+**Current position:** Repository is live and public. Structure verified by
+independent review. README presents a clear, professional face.
+
+**Next waypoint:** CODAWORK PREPARATION — Final conference materials,
+poster design, talk rehearsal, live demo preparation.
+
+**Gate conditions:**
+1. All interactive tools verified working in browser
+2. Poster content finalised
+3. Talk slides created (8 slides, 15 minutes)
+4. Live demo script tested
+5. Printed reference standard library available
+
+**Drift boundary:** Major structural changes to the repository before CoDaWork
+would be drift. Content additions (new experiments, new languages) are acceptable
+if they follow the acceptance criteria and are documented in this log.
+
+---
+
+*Waypoint declared: LAUNCHED — April 25, 2026*
+*The instrument reads. The expert decides. The loop stays open.*
