@@ -1,0 +1,26 @@
+Hˢ 诊断报告
+============================================================
+
+代码总数: 32
+  错误:       0
+  警告:     1
+  发现: 6
+  校准信号: 1
+  信息:  24
+
+── 警告 ──
+  [S9-EIF-WRN] EITT不变性：在一个或多个压缩比下失败。
+
+── 发现 ──
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (8)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=15.041186, drift_direction=increasing, max_shift_carrier=Gamma)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Gamma), cv=79.506896)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Recoil), cv=52.524068)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Gamma/Recoil), cv=193.410307)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

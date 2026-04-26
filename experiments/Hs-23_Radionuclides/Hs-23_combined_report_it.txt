@@ -1,0 +1,30 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+Codici totali: 36
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 10
+  Segnali di calibrazione: 1
+  Informazioni:  24
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (32)
+  [S9-STL-DIS] S9-STL-DIS (5)
+  [S9-SPK-DIS] S9-SPK-DIS (1)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (26)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.753070, drift_direction=decreasing, max_shift_carrier=Gamma)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=77.844312)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=53.430148)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=203.371462)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=31, near_zero_carriers=['Gamma', 'Recoil'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

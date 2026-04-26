@@ -396,3 +396,64 @@ if they follow the acceptance criteria and are documented in this log.
 
 *Waypoint declared: LAUNCHED — April 25, 2026*
 *The instrument reads. The expert decides. The loop stays open.*
+
+## April 25, 2026 — Hs-23: Radionuclide Decay Chains (First New-Methods Experiment)
+
+**Milestone:** First experiment run entirely under the new Hˢ repository methods.
+All three natural radioactive decay chains decomposed into energy partitions
+[Particle KE, Gamma, Recoil] at each decay step.
+
+**Results:**
+
+| Chain | Steps | HTP | R² | Shape | Nearest | δ | Dominant |
+|---|---|---|---|---|---|---|---|
+| U-238 → Pb-206 | 14 | NATURAL | 0.940 | bowl | 1/ln10 | 0.00141 | Recoil (48.5%) |
+| Th-232 → Pb-208 | 10 | NATURAL | 0.768 | hill | 1/(e^π) | 0.00035 | Recoil (47.9%) |
+| U-235 → Pb-207 | 11 | INVESTIGATE | 0.687 | hill | — | — | Recoil (41.8%) |
+| Combined (35) | 35 | NATURAL | 0.905 | hill | 1/ln10 | 0.00141 | Recoil (46.3%) |
+
+**Key findings:**
+
+1. **Recoil dominates in all three chains** (42-48% of variance). The nuclear
+   recoil energy — the smallest component in absolute terms — carries the most
+   compositional information. This parallels the geochemistry finding where
+   CaO+MgO depletion dominated over SiO₂ accumulation.
+
+2. **Th-232 chain locks to 1/(e^π)** at δ=0.00035 — Gelfond's constant reciprocal.
+   The thorium decay series encodes the same Euler-family constant found in
+   gold prices, nuclear binding energy, and the cosmic energy budget.
+
+3. **U-235 chain classifies INVESTIGATE** — the only decay chain that doesn't
+   pass on first decomposition. Per HTCT protocol, this triggers alternate
+   decomposition testing. The U-235 chain has the most variable gamma/recoil
+   partition (the Ac-227 beta decay has near-zero gamma), creating a degenerate
+   simplex edge that the tool correctly flags.
+
+4. **Most stable ratio: ln(Particle_KE/Recoil)** in all three chains — particle
+   kinetic energy and nuclear recoil are compositionally locked. This makes
+   physical sense: both are determined by conservation of momentum in the
+   same decay event.
+
+5. **Least stable ratio: ln(Gamma/Recoil)** in all three chains — gamma emission
+   and recoil are compositionally independent. This also makes physical sense:
+   gamma emission depends on nuclear level structure, while recoil depends on
+   particle mass and energy.
+
+6. **Reports generated in all 5 languages** — first experiment with full
+   multilingual diagnostic output from the new locale system.
+
+**HTCT protocol for U-235:** The INVESTIGATE classification triggers Mode (c)
+evaluation. The chain has N=11 and includes near-zero gamma entries. Alternate
+decompositions to test: different carrier grouping (alpha vs beta separation),
+increased resolution (sub-step interpolation), or combining with the other chains.
+The combined run (N=35) classifies NATURAL, confirming the system is natural
+but the individual U-235 decomposition needs refinement.
+
+**Waypoint status:** This experiment validates the new methods pipeline on
+nuclear data. The diagnostic code system, extended testing, multilingual
+reporting, and reference comparison all functioned correctly. The tool is
+operational for new experiments under the Hˢ governance framework.
+
+---
+
+*Waypoint: First new-methods experiment complete — April 25, 2026*

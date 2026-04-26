@@ -1,0 +1,29 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+Codici totali: 34
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 9
+  Segnali di calibrazione: 1
+  Informazioni:  23
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.000351)
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(e^pi), delta=0.000351)
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (5)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.866446, drift_direction=decreasing, max_shift_carrier=Particle_KE)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=82.814459)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=53.607378)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=250.009533)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

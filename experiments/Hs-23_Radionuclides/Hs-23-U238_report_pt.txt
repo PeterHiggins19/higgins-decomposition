@@ -1,0 +1,26 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+Total de códigos: 32
+  Erros:       0
+  Avisos:     1
+  Descobertas: 6
+  Sinais de calibração: 1
+  Informação:  24
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (8)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=15.041186, drift_direction=increasing, max_shift_carrier=Gamma)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Gamma), cv=79.506896)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Recoil), cv=52.524068)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Recoil), cv=193.410307)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

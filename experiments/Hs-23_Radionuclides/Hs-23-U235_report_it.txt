@@ -1,0 +1,29 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+Codici totali: 33
+  Errori:       0
+  Avvisi:     2
+  Scoperte: 8
+  Segnali di calibrazione: 1
+  Informazioni:  22
+
+── AVVISI ──
+  [S8-FLG-WRN] S8-FLG-WRN
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-SPK-DIS] S9-SPK-DIS (1)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (6)
+  [XU-DRU-DIS] Deriva in aumento — il sistema sta evolvendo. (variance_ratio_2nd_to_1st=1.774010, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=70.468834)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=53.290481)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=172.157424)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

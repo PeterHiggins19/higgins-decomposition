@@ -1,0 +1,221 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-23-U235",
+  "name": "Radionuclide U-235 \u2192 Pb-207",
+  "domain": "NUCLEAR",
+  "carriers": [
+    "Particle_KE",
+    "Gamma",
+    "Recoil"
+  ],
+  "D": 3,
+  "N": 11,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Natural radioactive decay chain U-235 \u2192 Pb-207. Energy partition at each decay step into particle kinetic energy (alpha/beta), gamma radiation, and nuclear recoil. Source: Nuclear Data Sheets (NNDC Brookhaven)."
+  },
+  "data_hash_sha256_16": "87e05506ec314358",
+  "run_timestamp": "2026-04-26T03:13:28.584926Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-23-U235: Radionuclide U-235 \u2192 Pb-207: 3-part simplex, carriers=['Particle_KE', 'Gamma', 'Recoil']",
+    "step2_n_samples": 11,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Particle_KE",
+      "Gamma",
+      "Recoil"
+    ],
+    "data_hash_sha256_16": "87e05506ec314358",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      4.143876766199692,
+      -0.7673843049491477,
+      -3.376492461250544
+    ],
+    "step4_clr_std_per_part": [
+      1.9972792022716381,
+      2.3153268070667483,
+      2.5926507536943655
+    ],
+    "step5_sigma2_range": [
+      2.8224495850110287,
+      16.071700365980696
+    ],
+    "step5_sigma2_final": 16.071700365980696,
+    "step6_pll_coeffs": [
+      -0.14520830682293417,
+      2.8720065759804236,
+      0.5437945446168561
+    ],
+    "step6_pll_R2": 0.6867583609206367,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      9.889264047002921,
+      14.744810231916441
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 0,
+    "step7_squeeze_closest": null,
+    "step7_squeeze_mean": 11.580279576054213,
+    "step7_cancellation": false,
+    "step8_entropy_range": [
+      2.6971290773424042e-05,
+      0.5143821821771519
+    ],
+    "step8_entropy_mean": 0.17924742936298668,
+    "step8_entropy_cv": 90.52945563464993,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.19716947517020803,
+        "H_mean_decimated": 0.13837508653167596,
+        "variation_pct": 29.81921445384858,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.17005454961886823,
+        "H_mean_decimated": 0.08885080775185403,
+        "variation_pct": 47.75158444687935,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 8,
+      "stalls": 1,
+      "spikes": 1,
+      "reversals": 6
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.0590266772927764,
+      0.18859435379820166
+    ],
+    "step11_complex_range_im": [
+      -0.0060778978486229545,
+      0.010029055515219779
+    ],
+    "step12_radius_range": [
+      0.011113986154970123,
+      0.18867294701943468
+    ],
+    "step12_theta_range": [
+      -3.0389856061802196,
+      3.0931762376657703
+    ],
+    "step9_angular_velocity_std": 1.8112641252645203
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          3.989124211826831,
+          5.360738223521904,
+          6.721837930631961
+        ],
+        "carrier_pct": [
+          24.820797557119057,
+          33.355140411086126,
+          41.82406203179481
+        ],
+        "dominant_carrier": "Recoil",
+        "dominant_pct": 41.82406203179481
+      },
+      "match_density": {
+        "density": 0.0,
+        "concentration": 0.0,
+        "total_matches": 0,
+        "n_constants_hit": 0,
+        "dominant_constant": null,
+        "trajectory_length": 22.429949804207347
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            11.977886940065513,
+            16.06118606139568
+          ],
+          [
+            11.977886940065513,
+            0.0,
+            20.17602809648089
+          ],
+          [
+            16.06118606139568,
+            20.17602809648089,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          4.143876766199692,
+          -0.7673843049491477,
+          -3.376492461250544
+        ],
+        "clr_stds": [
+          1.9972792022716381,
+          2.3153268070667483,
+          2.5926507536943655
+        ],
+        "aitchison_distance_mean": 5.225172703391544
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.7740096021203737,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "Particle_KE",
+        "max_shift_magnitude": 0.009999488463419026
+      },
+      "claim_status": {
+        "htp_classification": "INVESTIGATE",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.6867583609206367,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Recoil",
+        "sources": [
+          "Particle_KE",
+          "Gamma"
+        ],
+        "I_source1_target": 1.594166699118017,
+        "I_source2_target": 1.6417347121875212,
+        "redundancy": 1.594166699118017,
+        "unique_source1": 0.0,
+        "unique_source2": 0.0475680130695042,
+        "dominant": "redundancy"
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Particle_KE/Gamma)": {
+            "mean": 4.911261071148839,
+            "std": 3.4609083981038147,
+            "cv": 70.4688337265329
+          },
+          "ln(Particle_KE/Recoil)": {
+            "mean": 7.520369227450235,
+            "std": 4.00764095964143,
+            "cv": 53.29048133718046
+          },
+          "ln(Gamma/Recoil)": {
+            "mean": 2.6091081563013963,
+            "std": 4.4917733799114234,
+            "cv": 172.15742356494889
+          }
+        },
+        "most_stable": "ln(Particle_KE/Recoil)",
+        "least_stable": "ln(Gamma/Recoil)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  }
+}
