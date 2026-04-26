@@ -1,0 +1,263 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-13",
+  "name": "Steel Stress-Strain",
+  "domain": "MATTER",
+  "carriers": [
+    "Elastic",
+    "Plastic",
+    "Thermal"
+  ],
+  "D": 3,
+  "N": 80,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": null
+  },
+  "data_hash_sha256_16": "d36b949f9fa60c90",
+  "run_timestamp": "2026-04-25T06:03:01.969659Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-13: Steel Stress-Strain: 3-part simplex, carriers=['Elastic', 'Plastic', 'Thermal']",
+    "step2_n_samples": 80,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Elastic",
+      "Plastic",
+      "Thermal"
+    ],
+    "data_hash_sha256_16": "d36b949f9fa60c90",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.31037535888696893,
+      0.47583776105930947,
+      -0.7862131199462785
+    ],
+    "step4_clr_std_per_part": [
+      0.6321076366373978,
+      0.5508743240256927,
+      1.1821145952548373
+    ],
+    "step5_sigma2_range": [
+      1.9505321678657765,
+      7.972208857071414
+    ],
+    "step5_sigma2_final": 2.100417501480588,
+    "step6_pll_coeffs": [
+      0.0010826699519544689,
+      -0.10515962601706182,
+      4.216076928900529
+    ],
+    "step6_pll_R2": 0.4809278568642642,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      48.564950854701586,
+      1.6625408941918267
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 35,
+    "step7_squeeze_closest": {
+      "time_index": 70,
+      "sigma2_A": 2.0787287132437515,
+      "constant": "ln_phi",
+      "constant_value": 0.48121182505960347,
+      "test_type": "reciprocal",
+      "test_value": 0.48106325449247794,
+      "delta": 0.00014857056712552774
+    },
+    "step7_squeeze_mean": 2.281784907047762,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.6323923666864995,
+      0.9999999999999998
+    ],
+    "step8_entropy_mean": 0.8931179832639329,
+    "step8_entropy_cv": 13.109043904443762,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.8931179832639329,
+        "H_mean_decimated": 0.8895191518790734,
+        "variation_pct": 0.40295139637737887,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.8931179832639329,
+        "H_mean_decimated": 0.8890805906848621,
+        "variation_pct": 0.45205590467632983,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.8931179832639329,
+        "H_mean_decimated": 0.8889532517804142,
+        "variation_pct": 0.4663136966852393,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 2,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.02871422381178179,
+      0.011627905036875164
+    ],
+    "step11_complex_range_im": [
+      -0.1896697084817547,
+      0.23171189941015224
+    ],
+    "step12_radius_range": [
+      0.006052996066019258,
+      0.23200097064855052
+    ],
+    "step12_theta_range": [
+      -1.7181534175108157,
+      1.8535003293755559
+    ],
+    "step9_angular_velocity_std": 0.3317405731370049
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.3995600642953165,
+          0.30346252087076386,
+          1.3973949163145076
+        ],
+        "carrier_pct": [
+          19.022887783674715,
+          14.447723876650837,
+          66.52938833967444
+        ],
+        "dominant_carrier": "Thermal",
+        "dominant_pct": 66.52938833967444
+      },
+      "match_density": {
+        "density": 5.67117366245065,
+        "concentration": 0.6032653061224491,
+        "total_matches": 35,
+        "n_constants_hit": 8,
+        "dominant_constant": "ln_phi",
+        "trajectory_length": 6.171562022820451
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.008650254017653078,
+            3.290447440348885
+          ],
+          [
+            0.008650254017653075,
+            0.0,
+            3.002154810075228
+          ],
+          [
+            3.290447440348885,
+            3.0021548100752278,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.31037535888696893,
+          0.47583776105930947,
+          -0.7862131199462785
+        ],
+        "clr_stds": [
+          0.6321076366373978,
+          0.5508743240256927,
+          1.1821145952548373
+        ],
+        "aitchison_distance_mean": 1.514808241859591
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.048501922691356766,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Thermal",
+        "max_shift_magnitude": 0.27129375903165975
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.4809278568642642,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Thermal",
+        "sources": [
+          "Elastic",
+          "Plastic"
+        ],
+        "I_source1_target": 1.960891411496908,
+        "I_source2_target": 1.87293107271002,
+        "redundancy": 1.87293107271002,
+        "unique_source1": 0.08796033878688814,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "Elastic->Plastic": 0.0,
+          "Elastic->Thermal": 0.0,
+          "Plastic->Elastic": 0.0,
+          "Plastic->Thermal": 0.0,
+          "Thermal->Elastic": 0.0,
+          "Thermal->Plastic": 0.0
+        },
+        "dominant_flow": "Elastic->Plastic",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 2.100417501480588,
+        "shuffled_sigma2": 2.1004175014805884,
+        "order_matters": false,
+        "relative_difference": 2.1142901805808768e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 7,
+        "near_zero_carriers": [
+          "Thermal"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Elastic/Plastic)": {
+            "mean": -0.1654624021723404,
+            "std": 0.09300674178602902,
+            "cv": 56.21019673651065
+          },
+          "ln(Elastic/Thermal)": {
+            "mean": 1.0965884788332474,
+            "std": 1.81395905145317,
+            "cv": 165.4183940892023
+          },
+          "ln(Plastic/Thermal)": {
+            "mean": 1.2620508810055877,
+            "std": 1.7326727359992793,
+            "cv": 137.2902441634291
+          }
+        },
+        "most_stable": "ln(Elastic/Plastic)",
+        "least_stable": "ln(Elastic/Thermal)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

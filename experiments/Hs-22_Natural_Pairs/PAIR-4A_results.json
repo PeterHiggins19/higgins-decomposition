@@ -1,0 +1,250 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-4A",
+  "name": "GW150914",
+  "domain": "GRAVITY",
+  "carriers": [
+    "h+",
+    "hx",
+    "noise"
+  ],
+  "D": 3,
+  "N": 40,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Binary black hole merger"
+  },
+  "data_hash_sha256_16": "4f37f92c65d2808c",
+  "run_timestamp": "2026-04-25T10:54:39.882490Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-4A: GW150914: 3-part simplex, carriers=['h+', 'hx', 'noise']",
+    "step2_n_samples": 40,
+    "step2_D": 3,
+    "step2_carriers": [
+      "h+",
+      "hx",
+      "noise"
+    ],
+    "data_hash_sha256_16": "4f37f92c65d2808c",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.5812687513190063,
+      0.4631042441214686,
+      -1.044372995440475
+    ],
+    "step4_clr_std_per_part": [
+      0.7853914480516792,
+      0.8110802977722767,
+      0.5977272930449181
+    ],
+    "step5_sigma2_range": [
+      1.4533146758154143,
+      2.254665103847515
+    ],
+    "step5_sigma2_final": 1.6319688929578837,
+    "step6_pll_coeffs": [
+      -6.765421561920485e-05,
+      -0.007038138403431243,
+      1.8575556365612906
+    ],
+    "step6_pll_R2": 0.38349664247408466,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      -52.015519942214375,
+      2.040601850801162
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 24,
+    "step7_squeeze_closest": {
+      "time_index": 3,
+      "sigma2_A": 1.6204151260785058,
+      "constant": "1/phi",
+      "constant_value": 0.6180339887498948,
+      "test_type": "reciprocal",
+      "test_value": 0.6171258117171834,
+      "delta": 0.0009081770327113992
+    },
+    "step7_squeeze_mean": 1.67670669574877,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.18057617197080097,
+      0.9937695823219154
+    ],
+    "step8_entropy_mean": 0.7128416421038241,
+    "step8_entropy_cv": 23.91972024807271,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.7128416421038241,
+        "H_mean_decimated": 0.7117947951565252,
+        "variation_pct": 0.1468554704813905,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.7128416421038241,
+        "H_mean_decimated": 0.7281928468025637,
+        "variation_pct": 2.1535224364044314,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.7128416421038241,
+        "H_mean_decimated": 0.8284412726604706,
+        "variation_pct": 16.216733665484952,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 25,
+      "stalls": 3,
+      "spikes": 0,
+      "reversals": 22
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.46095886600146335,
+      0.4322626909571006
+    ],
+    "step11_complex_range_im": [
+      -0.07360640526217738,
+      0.19034431566767335
+    ],
+    "step12_radius_range": [
+      0.03218890005203447,
+      0.4645914548830396
+    ],
+    "step12_theta_range": [
+      -3.0961637195656655,
+      3.1118548495940415
+    ],
+    "step9_angular_velocity_std": 1.0013513343045009
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.6168397266727134,
+          0.6578512494343651,
+          0.35727791685080545
+        ],
+        "carrier_pct": [
+          37.79727232145424,
+          40.31028117466344,
+          21.892446503882333
+        ],
+        "dominant_carrier": "hx",
+        "dominant_pct": 40.31028117466344
+      },
+      "match_density": {
+        "density": 9.694898185385302,
+        "concentration": 0.14930555555555555,
+        "total_matches": 24,
+        "n_constants_hit": 10,
+        "dominant_constant": "1/phi",
+        "trajectory_length": 2.4755288339365036
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            2.1921040353633514,
+            1.2903840376126725
+          ],
+          [
+            2.192104035363352,
+            0.0,
+            1.4134186058976284
+          ],
+          [
+            1.2903840376126725,
+            1.4134186058976284,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.5812687513190063,
+          0.4631042441214686,
+          -1.044372995440475
+        ],
+        "clr_stds": [
+          0.7853914480516792,
+          0.8110802977722767,
+          0.5977272930449181
+        ],
+        "aitchison_distance_mean": 1.604218633824643
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.8040533661534658,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "h+",
+        "max_shift_magnitude": 0.10842967444690588
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.38349664247408466,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "noise",
+        "sources": [
+          "h+",
+          "hx"
+        ],
+        "I_source1_target": 1.7068632760021092,
+        "I_source2_target": 1.711172053471354,
+        "redundancy": 1.7068632760021092,
+        "unique_source1": 0.0,
+        "unique_source2": 0.00430877746924474,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 1.6319688929578837,
+        "shuffled_sigma2": 1.6319688929578842,
+        "order_matters": false,
+        "relative_difference": 2.7211867319674657e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 1,
+        "near_zero_carriers": [
+          "hx"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(h+/hx)": {
+            "mean": 0.11816450719753786,
+            "std": 1.480575575701339,
+            "cv": 1252.9782510972036
+          },
+          "ln(h+/noise)": {
+            "mean": 1.6256417467594815,
+            "std": 1.135950719711323,
+            "cv": 69.87706374886731
+          },
+          "ln(hx/noise)": {
+            "mean": 1.5074772395619433,
+            "std": 1.188872829993868,
+            "cv": 78.86506003495892
+          }
+        },
+        "most_stable": "ln(h+/noise)",
+        "least_stable": "ln(h+/hx)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

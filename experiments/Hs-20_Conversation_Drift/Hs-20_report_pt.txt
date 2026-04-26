@@ -1,0 +1,30 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+Total de códigos: 38
+  Erros:       0
+  Avisos:     1
+  Descobertas: 13
+  Sinais de calibração: 0
+  Informação:  24
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(2pi), delta=0.000197)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(2pi), delta=0.000197)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (15)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (13)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=2.333145, drift_direction=increasing, max_shift_carrier=Engineering)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Theory/Engineering), cv=798.727239)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Theory/Documentation), cv=128.017418)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Theory/Discovery), cv=188.497811)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Engineering/Documentation), cv=131.333062)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Engineering/Discovery), cv=252.700392)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Documentation/Discovery), cv=444.994907)
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

@@ -1,0 +1,48 @@
+{
+  "repository": {
+    "name": "higgins-decomposition",
+    "display_name": "Higgins Decomposition",
+    "owner": "PeterHiggins19",
+    "url": "https://github.com/PeterHiggins19/higgins-decomposition",
+    "pages_url": "https://peterhiggins19.github.io/higgins-decomposition/",
+    "visibility": "public",
+    "license": "CC-BY-4.0",
+    "default_branch": "main"
+  },
+  "description": {
+    "short": "Higgins Decomposition (Hˢ) — compositional inference on the simplex. A deterministic 12-step pipeline for reading the geometric fingerprint of any compositional system.",
+    "one_line_seo": "A mathematical tool for compositional data analysis — reads structure on the simplex without creating or destroying it",
+    "about": "Compositional inference engine operating on the Aitchison simplex. 17 domains tested, 44 orders of magnitude, 5 languages."
+  },
+  "topics": [
+    "compositional-data",
+    "compositional-data-analysis",
+    "simplex",
+    "log-ratio",
+    "aitchison-geometry",
+    "decomposition",
+    "entropy",
+    "information-theory",
+    "mathematical-analysis",
+    "data-analysis",
+    "python",
+    "codawork"
+  ],
+  "social_preview": {
+    "note": "Create an image showing the Hˢ symbol with the tagline. Recommended: 1280x640px, dark background, gold Hˢ symbol, subtitle 'Compositional Inference on the Simplex'."
+  },
+  "seo_notes": {
+    "hausdorff_disambiguation": "The symbol Hˢ may overlap with the Hausdorff measure H^s in fractal geometry. This is a different mathematical domain (measure theory vs compositional data analysis). The README explicitly defines Hˢ on first use to prevent confusion.",
+    "unity_avoidance": "The parent project was called 'Higgins Unity Framework' which was confused with the Unity game engine. This repository uses 'Higgins Decomposition' exclusively — no reference to 'Unity' in the name, description, or primary documentation.",
+    "game_engine_keywords_to_avoid": [
+      "unity",
+      "game",
+      "engine",
+      "3D",
+      "rendering",
+      "plugin",
+      "asset",
+      "SDK"
+    ]
+  }
+}

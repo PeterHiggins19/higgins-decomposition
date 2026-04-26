@@ -1,0 +1,122 @@
+{
+  "_meta": {
+    "type": "Hs_EXTENSION_PREDICTIONS",
+    "version": "1.0",
+    "created": "2026-04-25",
+    "author": "Peter Higgins / Claude",
+    "purpose": "Pre-run predictions for three key extensions. To be compared against actual results after the full rerun. Correct predictions validate the tool's interpretability. Surprises reveal new information."
+  },
+  "extension_1_per_carrier_contribution": {
+    "what_it_reveals": "Which carrier is actually driving the variance trajectory. Currently σ²_A is reported as a single scalar — this breaks it into per-carrier percentages. The dominant carrier IS the story of the system.",
+    "why_coda_needs_it": "CoDa practitioners routinely compute variation matrices but rarely track which carrier dominates the CUMULATIVE variance trajectory over time. This connects static CoDa structure to dynamic Hˢ diagnostics. A geochemist seeing 'SiO2 drives 60% of variance' immediately knows the differentiation signal lives in silica, not alumina.",
+    "predictions": {
+      "Hs-01_Gold_Silver": {
+        "predicted_dominant": "Gold",
+        "predicted_pct": "~55-65%",
+        "reasoning": "Gold is the scarcer, more volatile carrier. Silver smooths. The ratio swings are driven by gold price movements.",
+        "surprise_if": "Silver dominates — would mean silver supply/demand drives the ratio more than gold."
+      },
+      "Hs-02_US_Energy": {
+        "predicted_dominant": "Renewable",
+        "predicted_pct": "~50-70%",
+        "reasoning": "The energy transition story IS the renewable growth. Fossil decline is the mirror. Nuclear is near-constant (driver-like).",
+        "surprise_if": "Fossil dominates — would mean the decline signal is stronger than the growth signal in CLR space."
+      },
+      "Hs-03_Nuclear_SEMF": {
+        "predicted_dominant": "Sym+Pairing",
+        "predicted_pct": "~40-50%",
+        "reasoning": "The symmetry+pairing term changes most dramatically across the nuclear chart. Volume scales linearly with A (smooth). Surface+Coulomb grows sublinearly. But Sym+Pairing has the (A-2Z)² term that swings wildly with neutron excess.",
+        "surprise_if": "Volume dominates — would contradict nuclear physics understanding of where binding energy variation lives."
+      },
+      "Hs-04_Bessel_Acoustics": {
+        "predicted_dominant": "Mid",
+        "predicted_pct": "~40-55%",
+        "reasoning": "The mid-frequency band captures the directivity transition from omnidirectional (low ka) to beaming (high ka). That transition IS the Bessel function's main structural feature.",
+        "surprise_if": "Low dominates — would mean the near-field omnidirectional regime has more compositional variance than the transition."
+      },
+      "Hs-05_Geochemistry": {
+        "predicted_dominant": "SiO2",
+        "predicted_pct": "~50-65%",
+        "reasoning": "SiO2 increases from 45% to 75% across the basalt-to-rhyolite series. That is the largest single-carrier change. CaO+MgO decreases correspondingly but from a lower base.",
+        "surprise_if": "Al2O3 dominates — would mean the alumina plateau is actually more informative than the silica ramp."
+      },
+      "Hs-12_Spring_Mass": {
+        "predicted_dominant": "KE or PE (oscillating)",
+        "predicted_pct": "~35-45% each",
+        "reasoning": "KE and PE trade energy in the oscillation. Both should contribute roughly equally. Damping is small and steady. The interesting finding would be whether KE or PE leads.",
+        "surprise_if": "Damping dominates — would mean the irreversible loss term drives more variance than the reversible exchange."
+      },
+      "Hs-15_hBN_Dielectric": {
+        "predicted_dominant": "eps1_inplane",
+        "predicted_pct": "~45-60%",
+        "reasoning": "The in-plane permittivity has the strong exciton resonance at 6.14 eV and goes negative in the hyperbolic window. That sign change is the biggest single-carrier event."
+      }
+    }
+  },
+  "extension_2_carrier_drift_trend": {
+    "what_it_reveals": "Whether the system is steadily evolving or fluctuating around equilibrium. The first-half vs second-half variance ratio tells you if compositional dispersion is growing, shrinking, or stable. The max-shift carrier tells you WHICH carrier is driving the drift.",
+    "why_coda_needs_it": "Most CoDa analyses treat the full dataset as a single population. This extension asks: is the second half of the data compositionally different from the first half? If yes, the system is non-stationary and standard CoDa statistics may mislead. This is a built-in stationarity check that operates in Aitchison geometry, not in Euclidean space.",
+    "predictions": {
+      "Hs-01_Gold_Silver": {
+        "predicted_direction": "increasing",
+        "predicted_max_shift": "Gold",
+        "reasoning": "Gold/silver ratio has been trending over 338 years. The second half (post-1850) includes gold standard abandonment and modern financial markets — more volatile than the first half."
+      },
+      "Hs-02_US_Energy": {
+        "predicted_direction": "increasing",
+        "predicted_max_shift": "Renewable",
+        "reasoning": "The energy transition accelerated post-2010. Second half of the dataset has faster renewable growth and sharper fossil decline."
+      },
+      "Hs-03_Nuclear_SEMF": {
+        "predicted_direction": "decreasing",
+        "predicted_max_shift": "Sym+Pairing",
+        "reasoning": "The nuclear chart from Z=46 to Z=92 is smoother than Z=1 to Z=46. Heavy nuclei have more regular binding energy per nucleon. The symmetry term settles toward its asymptotic value."
+      },
+      "Hs-05_Geochemistry": {
+        "predicted_direction": "stable or slightly increasing",
+        "predicted_max_shift": "CaO+MgO",
+        "reasoning": "The differentiation series is designed to be monotonic. But the CaO+MgO carrier depletes faster in the later stages (rhyolite end) so the rate of change may increase."
+      },
+      "Hs-12_Spring_Mass": {
+        "predicted_direction": "decreasing",
+        "predicted_max_shift": "KE",
+        "reasoning": "Damped oscillator. Second half has smaller amplitudes. KE = 0.5v² decreases as velocity envelope decays exponentially."
+      },
+      "Hs-15_hBN_Dielectric": {
+        "predicted_direction": "increasing",
+        "predicted_max_shift": "eps1_inplane",
+        "reasoning": "The second half of the energy range (6.5-8.0 eV) includes the hyperbolic window where eps1_inplane goes negative — a massive compositional shift."
+      }
+    }
+  },
+  "extension_3_ratio_pair_lattice": {
+    "what_it_reveals": "Which pairwise log-ratios are most and least stable across the dataset. A low-CV ratio pair means those two carriers move together (locked). A high-CV pair means they are independent or anti-correlated. This IS the subcompositional structure of the system.",
+    "why_coda_needs_it": "This is the most CoDa-native extension. Log-ratios are the fundamental objects in Aitchison geometry. Knowing which ratios are stable and which are volatile gives the practitioner immediate insight into which carriers are geochemically/physically coupled and which are independent. A geochemist seeing ln(SiO2/Al2O3) is stable but ln(SiO2/CaO+MgO) is volatile immediately knows: SiO2 and Al2O3 co-move during differentiation, but SiO2 and CaO+MgO decouple. That is publishable insight from one line of output.",
+    "predictions": {
+      "Hs-03_Nuclear_SEMF": {
+        "predicted_most_stable": "ln(Surf+Coulomb/Sym+Pairing)",
+        "predicted_least_stable": "ln(Volume/Surf+Coulomb)",
+        "reasoning": "Surface+Coulomb and Sym+Pairing both grow as powers of A but at different rates. Their ratio should be relatively smooth. Volume grows linearly while Surface grows as A^(2/3) — their ratio diverges logarithmically, making it the least stable."
+      },
+      "Hs-05_Geochemistry": {
+        "predicted_most_stable": "ln(SiO2/Al2O3)",
+        "predicted_least_stable": "ln(SiO2/CaO+MgO) or ln(Al2O3/CaO+MgO)",
+        "reasoning": "SiO2 and Al2O3 co-increase during differentiation (both are framework-building oxides). CaO+MgO depletes independently as mafic minerals crystallize out. The ratio of SiO2 to CaO+MgO should be the most volatile."
+      },
+      "Hs-12_Spring_Mass": {
+        "predicted_most_stable": "ln(KE/PE)",
+        "predicted_least_stable": "ln(KE/Damping) or ln(PE/Damping)",
+        "reasoning": "KE and PE trade energy in the oscillation — their ratio oscillates but around a fixed envelope. Either ratio with Damping is volatile because Damping is small and sometimes near-zero."
+      },
+      "Hs-15_hBN_Dielectric": {
+        "predicted_most_stable": "ln(eps1_perp/eps2)",
+        "predicted_least_stable": "ln(eps1_inplane/eps1_perp)",
+        "reasoning": "The out-of-plane permittivity and absorption are both smooth functions of energy. The in-plane to out-of-plane ratio is the anisotropy — it varies enormously, especially at the exciton resonance and hyperbolic window."
+      }
+    }
+  },
+  "meta_prediction": {
+    "statement": "These three extensions will transform Hˢ from a tool that says 'this system is NATURAL' to a tool that says 'this system is NATURAL, the variance is driven by carrier X, the system is drifting toward state Y, and carriers A and B are locked while C is independent.' That second sentence is what a CoDa practitioner actually needs to make decisions.",
+    "test_protocol": "Run all 15 experiments with run_full_extended(). Compare predictions above against actual results. Document correct predictions, surprises, and what the surprises reveal about the physics."
+  }
+}

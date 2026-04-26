@@ -1,0 +1,229 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-08",
+  "name": "CKM+PMNS+SEMF",
+  "domain": "PARTICLE",
+  "carriers": [
+    "C1",
+    "C2",
+    "C3"
+  ],
+  "D": 3,
+  "N": 11,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": null
+  },
+  "data_hash_sha256_16": "53cc1a1c12c73c31",
+  "run_timestamp": "2026-04-25T06:03:01.895832Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-08: CKM+PMNS+SEMF: 3-part simplex, carriers=['C1', 'C2', 'C3']",
+    "step2_n_samples": 11,
+    "step2_D": 3,
+    "step2_carriers": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "data_hash_sha256_16": "53cc1a1c12c73c31",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.412810633948485,
+      0.41663089101705675,
+      -0.8294415249655416
+    ],
+    "step4_clr_std_per_part": [
+      1.1181930363018393,
+      0.5095108780660352,
+      1.4818597609315063
+    ],
+    "step5_sigma2_range": [
+      3.70586535236953,
+      10.30133910320848
+    ],
+    "step5_sigma2_final": 3.70586535236953,
+    "step6_pll_coeffs": [
+      0.11766270096078213,
+      -2.141984367853367,
+      13.625609652553132
+    ],
+    "step6_pll_R2": 0.9790974904796375,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      9.10222334844798,
+      3.8771995900103793
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 1,
+    "step7_squeeze_closest": {
+      "time_index": 4,
+      "sigma2_A": 6.604366189679764,
+      "constant": "1/(2pi)",
+      "constant_value": 0.15915494309189535,
+      "test_type": "reciprocal",
+      "test_value": 0.15141498385759383,
+      "delta": 0.007739959234301513
+    },
+    "step7_squeeze_mean": 5.79397868642629,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.1920517402432402,
+      0.932608492354737
+    ],
+    "step8_entropy_mean": 0.7056159406858733,
+    "step8_entropy_cv": 30.35822120387627,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.7052779759214148,
+        "H_mean_decimated": 0.8027745134712981,
+        "variation_pct": 13.823845473482754,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.6892130919086599,
+        "H_mean_decimated": 0.9280740356084323,
+        "variation_pct": 34.65705258707247,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 7,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 5
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.26889069100012336,
+      0.3441953931751399
+    ],
+    "step11_complex_range_im": [
+      -0.18624864009042164,
+      0.6366908246203603
+    ],
+    "step12_radius_range": [
+      0.08029098178122804,
+      0.6392828541937914
+    ],
+    "step12_theta_range": [
+      -2.535812849759986,
+      1.480714891911682
+    ],
+    "step9_angular_velocity_std": 1.6553102161437072
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          1.2503556664339266,
+          0.25960133486762227,
+          2.195908351067981
+        ],
+        "carrier_pct": [
+          33.739910858726944,
+          7.005147521121705,
+          59.25494162015135
+        ],
+        "dominant_carrier": "C3",
+        "dominant_pct": 59.25494162015135
+      },
+      "match_density": {
+        "density": 0.15161913120688247,
+        "concentration": 1.0,
+        "total_matches": 1,
+        "n_constants_hit": 1,
+        "dominant_constant": "1/(2pi)",
+        "trajectory_length": 6.59547375083895
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.824005651535115,
+            6.632926700136195
+          ],
+          [
+            0.824005651535115,
+            0.0,
+            3.660663705437281
+          ],
+          [
+            6.632926700136195,
+            3.660663705437281,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.412810633948485,
+          0.41663089101705675,
+          -0.8294415249655416
+        ],
+        "clr_stds": [
+          1.1181930363018393,
+          0.5095108780660352,
+          1.4818597609315063
+        ],
+        "aitchison_distance_mean": 2.320508541692655
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.1539468355716929,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "C1",
+        "max_shift_magnitude": 0.17245256341345827
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9790974904796375,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "C3",
+        "sources": [
+          "C1",
+          "C2"
+        ],
+        "I_source1_target": 1.7986522062521293,
+        "I_source2_target": 1.798652206252129,
+        "redundancy": 1.798652206252129,
+        "unique_source1": 2.220446049250313e-16,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(C1/C2)": {
+            "mean": -0.0038202570685716367,
+            "std": 0.9077475703823805,
+            "cv": 23761.426367094715
+          },
+          "ln(C1/C3)": {
+            "mean": 1.2422521589140265,
+            "std": 2.575446893285939,
+            "cv": 207.32078224258333
+          },
+          "ln(C2/C3)": {
+            "mean": 1.2460724159825984,
+            "std": 1.9132861013024898,
+            "cv": 153.54533787619042
+          }
+        },
+        "most_stable": "ln(C2/C3)",
+        "least_stable": "ln(C1/C2)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+Total de códigos: 38
+  Erros:       0
+  Avisos:     0
+  Descobertas: 9
+  Sinais de calibração: 1
+  Informação:  28
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(e^pi), delta=0.000038)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(e^pi), delta=0.000038)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=Dark_Energy, pct=62.820513)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=Radiation->Dark_Energy, te=0.036206)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Radiation/Dark_Energy), cv=163.995184)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Matter/Dark_Energy), cv=62.748554)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=200, near_zero_carriers=['Radiation', 'Dark_Energy'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

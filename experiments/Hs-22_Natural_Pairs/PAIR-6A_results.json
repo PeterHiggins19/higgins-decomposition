@@ -1,0 +1,208 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-6A",
+  "name": "Gold/Silver (338yr)",
+  "domain": "COMMODITIES",
+  "carriers": [
+    "Gold",
+    "Silver"
+  ],
+  "D": 2,
+  "N": 624,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Historical price ratio 1688-2026"
+  },
+  "data_hash_sha256_16": "082c75284061f414",
+  "run_timestamp": "2026-04-25T10:54:40.427151Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-6A: Gold/Silver (338yr): 2-part simplex, carriers=['Gold', 'Silver']",
+    "step2_n_samples": 624,
+    "step2_D": 2,
+    "step2_carriers": [
+      "Gold",
+      "Silver"
+    ],
+    "data_hash_sha256_16": "082c75284061f414",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      1.8711080747590978,
+      -1.8711080747590982
+    ],
+    "step4_clr_std_per_part": [
+      0.3845837814317176,
+      0.38458378143171756
+    ],
+    "step5_sigma2_range": [
+      2.4503938924710907e-06,
+      0.3212527776491585
+    ],
+    "step5_sigma2_final": 0.2958093698806383,
+    "step6_pll_coeffs": [
+      8.27956412512923e-08,
+      0.000665106069483035,
+      -0.06507492794229029
+    ],
+    "step6_pll_R2": 0.9071481156571747,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -4016.552438215785,
+      -1.400791630469391
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 209,
+    "step7_squeeze_closest": {
+      "time_index": 488,
+      "sigma2_A": 0.31834261097086236,
+      "constant": "1/pi",
+      "constant_value": 0.3183098861837907,
+      "test_type": "direct",
+      "test_value": 0.31834261097086236,
+      "delta": 3.272478707166959e-05
+    },
+    "step7_squeeze_mean": 0.1535255827849567,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.07712516502151384,
+      0.35100780215352395
+    ],
+    "step8_entropy_mean": 0.1845775561015832,
+    "step8_entropy_cv": 58.19497859112993,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.1845775561015832,
+        "H_mean_decimated": 0.18452475272303004,
+        "variation_pct": 0.028607691892989742,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.1845775561015832,
+        "H_mean_decimated": 0.18443408083689455,
+        "variation_pct": 0.07773169594339727,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.1845775561015832,
+        "H_mean_decimated": 0.18427301336168966,
+        "variation_pct": 0.16499445887446884,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 533,
+      "stalls": 70,
+      "spikes": 2,
+      "reversals": 461
+    },
+    "step10_ternary_type": "1-simplex",
+    "step11_complex_range_re": [
+      -0.03568261240091397,
+      0.020917492208616162
+    ],
+    "step11_complex_range_im": [
+      0.0,
+      0.0
+    ],
+    "step12_radius_range": [
+      0.00011039966798609413,
+      0.03568261240091397
+    ],
+    "step12_theta_range": [
+      0.0,
+      3.141592653589793
+    ],
+    "step9_angular_velocity_std": 0.4874479417480891
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.14790468494031916,
+          0.1479046849403191
+        ],
+        "carrier_pct": [
+          50.000000000000014,
+          49.999999999999986
+        ],
+        "dominant_carrier": "Gold",
+        "dominant_pct": 50.000000000000014
+      },
+      "match_density": {
+        "density": 590.5661370902997,
+        "concentration": 0.4837572399899268,
+        "total_matches": 209,
+        "n_constants_hit": 6,
+        "dominant_constant": "1/pi",
+        "trajectory_length": 0.353897704039951
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.5916187397612764
+          ],
+          [
+            0.5916187397612764,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          1.8711080747590978,
+          -1.8711080747590982
+        ],
+        "clr_stds": [
+          0.3845837814317176,
+          0.38458378143171756
+        ],
+        "aitchison_distance_mean": 0.5976429868772772
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.12201001305536693,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Gold",
+        "max_shift_magnitude": 0.036043779637873086
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9071481156571747,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "transfer_entropy": {
+        "te_matrix": {
+          "Gold->Silver": 0.0,
+          "Silver->Gold": 8.881784197001252e-16
+        },
+        "dominant_flow": "Silver->Gold",
+        "dominant_te": 8.881784197001252e-16
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 0.2958093698806383,
+        "shuffled_sigma2": 0.29580936988063805,
+        "order_matters": false,
+        "relative_difference": 7.506341162033789e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 36,
+        "near_zero_carriers": [
+          "Silver"
+        ],
+        "zero_threshold": 0.01
+      }
+    },
+    "auto_detected": [
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector"
+    ]
+  }
+}

@@ -1,0 +1,265 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-14",
+  "name": "Gaussian Self-Conjugate",
+  "domain": "SIGNAL THEORY",
+  "carriers": [
+    "f",
+    "f_prime",
+    "residual"
+  ],
+  "D": 3,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": null
+  },
+  "data_hash_sha256_16": "84683af5ec087ed6",
+  "run_timestamp": "2026-04-25T06:03:01.983453Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-14: Gaussian Self-Conjugate: 3-part simplex, carriers=['f', 'f_prime', 'residual']",
+    "step2_n_samples": 200,
+    "step2_D": 3,
+    "step2_carriers": [
+      "f",
+      "f_prime",
+      "residual"
+    ],
+    "data_hash_sha256_16": "84683af5ec087ed6",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -2.844050784677265,
+      -2.1232928688187225,
+      4.967343653495983
+    ],
+    "step4_clr_std_per_part": [
+      3.1384255654828985,
+      3.3786935337727853,
+      6.446464913614576
+    ],
+    "step5_sigma2_range": [
+      0.0,
+      87.90740727655553
+    ],
+    "step5_sigma2_final": 62.82219490769846,
+    "step6_pll_coeffs": [
+      -0.0025319258065638816,
+      1.0213352462697383,
+      -28.32967641609863
+    ],
+    "step6_pll_R2": 0.7629841653409746,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      201.69138519422282,
+      74.66758386781447
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 16,
+    "step7_squeeze_closest": {
+      "time_index": 66,
+      "sigma2_A": 1.7303150210944092,
+      "constant": "1/sqrt3",
+      "constant_value": 0.5773502691896258,
+      "test_type": "reciprocal",
+      "test_value": 0.5779294451061916,
+      "delta": 0.0005791759165657551
+    },
+    "step7_squeeze_mean": 40.46984159003624,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      2.6971265622696828e-05,
+      0.8444867546141372
+    ],
+    "step8_entropy_mean": 0.14689306888767079,
+    "step8_entropy_cv": 170.26118282222853,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.14689306888767079,
+        "H_mean_decimated": 0.14442805962632618,
+        "variation_pct": 1.6780977346382466,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.14689306888767079,
+        "H_mean_decimated": 0.146199846862527,
+        "variation_pct": 0.4719228962898885,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.14689306888767079,
+        "H_mean_decimated": 0.12765192869810235,
+        "variation_pct": 13.09873933145351,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 48,
+      "stalls": 39,
+      "spikes": 6,
+      "reversals": 3
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.39809901555342386,
+      0.28734401457733905
+    ],
+    "step11_complex_range_im": [
+      -0.7019977232914354,
+      0.1640255500956579
+    ],
+    "step12_radius_range": [
+      0.04242314394555951,
+      0.8070211494392402
+    ],
+    "step12_theta_range": [
+      -2.0866692986272963,
+      1.7723448642573079
+    ],
+    "step9_angular_velocity_std": 0.15145909543119215
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          9.84971503007665,
+          11.41556999515803,
+          41.55690988246378
+        ],
+        "carrier_pct": [
+          15.678718396497207,
+          18.171237111231726,
+          66.15004449227106
+        ],
+        "dominant_carrier": "residual",
+        "dominant_pct": 66.15004449227106
+      },
+      "match_density": {
+        "density": 0.14160216879837237,
+        "concentration": 0.140625,
+        "total_matches": 16,
+        "n_constants_hit": 10,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 112.9926196454126
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.9736601680055957,
+            91.3976798299228
+          ],
+          [
+            0.9736601680055956,
+            0.0,
+            96.09524472516692
+          ],
+          [
+            91.3976798299228,
+            96.09524472516692,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -2.844050784677265,
+          -2.1232928688187225,
+          4.967343653495983
+        ],
+        "clr_stds": [
+          3.1384255654828985,
+          3.3786935337727853,
+          6.446464913614576
+        ],
+        "aitchison_distance_mean": 8.054398105202493
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0000000000000007,
+        "drift_direction": "stable",
+        "max_shift_carrier": "f_prime",
+        "max_shift_magnitude": 2.220446049250313e-16
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.7629841653409746,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "residual",
+        "sources": [
+          "f",
+          "f_prime"
+        ],
+        "I_source1_target": 1.3314855762449527,
+        "I_source2_target": 1.4547800532342805,
+        "redundancy": 1.3314855762449527,
+        "unique_source1": 0.0,
+        "unique_source2": 0.12329447698932783,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "f->f_prime": 0.0,
+          "f->residual": 0.0,
+          "f_prime->f": 0.0,
+          "f_prime->residual": 0.020838625906601793,
+          "residual->f": 0.0,
+          "residual->f_prime": 0.0
+        },
+        "dominant_flow": "f_prime->residual",
+        "dominant_te": 0.020838625906601793
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 62.82219490769846,
+        "shuffled_sigma2": 62.822194907698474,
+        "order_matters": false,
+        "relative_difference": 2.2620754871874995e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 182,
+        "near_zero_carriers": [
+          "f",
+          "f_prime",
+          "residual"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(f/f_prime)": {
+            "mean": -0.7207579158585421,
+            "std": 0.9867421993639451,
+            "cv": 136.90341481557945
+          },
+          "ln(f/residual)": {
+            "mean": -7.8113944381732585,
+            "std": 9.560213377844805,
+            "cv": 122.3880506036835
+          },
+          "ln(f_prime/residual)": {
+            "mean": -7.090636522314714,
+            "std": 9.80281820320906,
+            "cv": 138.25018631767298
+          }
+        },
+        "most_stable": "ln(f/residual)",
+        "least_stable": "ln(f_prime/residual)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

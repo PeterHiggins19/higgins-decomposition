@@ -1,0 +1,178 @@
+{
+  "title": "Hˢ Complete System Inventory",
+  "timestamp": "2026-04-25",
+  "domains_tested": {
+    "COMMODITIES": {
+      "systems": [
+        "Gold/Silver price ratio (338yr, 1688-2026)"
+      ],
+      "data_type": "REAL",
+      "scale": "~1 m (economic)",
+      "N_range": "624"
+    },
+    "ENERGY": {
+      "systems": [
+        "US electricity generation (EMBER, 25yr)",
+        "DT fusion energy budget"
+      ],
+      "data_type": "REAL + DERIVED",
+      "scale": "~1 m (infrastructure)",
+      "N_range": "25-100"
+    },
+    "NUCLEAR": {
+      "systems": [
+        "SEMF binding energy (Z=1-92)",
+        "AME2020 mass table (500 nuclides)",
+        "DT fusion energy partition"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~10⁻¹⁵ m (femtometer)",
+      "N_range": "92-500"
+    },
+    "ACOUSTICS": {
+      "systems": [
+        "Circular piston directivity (Bessel J₁)"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~0.01-1 m (audio)",
+      "N_range": "200"
+    },
+    "GEOCHEMISTRY": {
+      "systems": [
+        "Basalt-to-rhyolite differentiation series"
+      ],
+      "data_type": "SIMULATED",
+      "scale": "~1-100 km (geological)",
+      "N_range": "150"
+    },
+    "QCD": {
+      "systems": [
+        "Quark flavor fractions (u/d/s)"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~10⁻¹⁸ m (attometer)",
+      "N_range": "20"
+    },
+    "PARTICLE": {
+      "systems": [
+        "CKM mixing matrix",
+        "PMNS mixing matrix",
+        "SEMF subset"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~10⁻¹⁸ m",
+      "N_range": "11"
+    },
+    "ASTROPHYSICS": {
+      "systems": [
+        "Stellar nucleosynthesis (pp-chain → CNO → triple-α)"
+      ],
+      "data_type": "SIMULATED",
+      "scale": "~10⁸ m (stellar)",
+      "N_range": "30"
+    },
+    "GRAVITY": {
+      "systems": [
+        "GW150914 gravitational wave (binary BH merger)"
+      ],
+      "data_type": "SIMULATED",
+      "scale": "~10²⁶ m (cosmological)",
+      "N_range": "40"
+    },
+    "MATERIALS": {
+      "systems": [
+        "hBN dielectric function (Choi et al. 2026)",
+        "X-ray crystallography (6 crystals)"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~10⁻⁹ m (nanometer)",
+      "N_range": "20-200"
+    },
+    "MATTER": {
+      "systems": [
+        "AISI 1020 steel stress-strain"
+      ],
+      "data_type": "SIMULATED",
+      "scale": "~0.01-1 m (engineering)",
+      "N_range": "80"
+    },
+    "FORCE": {
+      "systems": [
+        "Spring-mass damped oscillator (light ζ=0.1)",
+        "Spring-mass (heavy ζ=0.5)"
+      ],
+      "data_type": "SIMULATED",
+      "scale": "~0.01-1 m (mechanical)",
+      "N_range": "200"
+    },
+    "COSMOLOGY": {
+      "systems": [
+        "Planck 2018 cosmic energy budget (Ω_r, Ω_m, Ω_Λ evolution)"
+      ],
+      "data_type": "DERIVED",
+      "scale": "~10²⁶ m (Hubble radius)",
+      "N_range": "200"
+    },
+    "ENGINEERING": {
+      "systems": [
+        "Backblaze drive fleet (108 weekly snapshots, 270k+ drives)",
+        "Backblaze per-model health (51 models)",
+        "Backblaze failure contrast (126 drives)"
+      ],
+      "data_type": "REAL",
+      "scale": "~0.1 m (disk drives)",
+      "N_range": "34-5000"
+    },
+    "URBAN": {
+      "systems": [
+        "Markham municipal budget allocation",
+        "Toronto traffic signal timing (831 intersections)"
+      ],
+      "data_type": "REAL",
+      "scale": "~1-100 km (city)",
+      "N_range": "31-831"
+    },
+    "SIGNAL_THEORY": {
+      "systems": [
+        "12 Fourier conjugate pairs (Gaussian, sinc, sech, rect, etc.)",
+        "Gaussian self-conjugate reference"
+      ],
+      "data_type": "SYNTHETIC",
+      "scale": "mathematical (dimensionless)",
+      "N_range": "200"
+    },
+    "AI_SAFETY": {
+      "systems": [
+        "Conversation drift detection (project milestones)"
+      ],
+      "data_type": "REAL",
+      "scale": "text/conversational",
+      "N_range": "18"
+    }
+  },
+  "reference_standards": {
+    "MATH_FUNCTIONS": [
+      "Gaussian",
+      "Sinc",
+      "Exponential decay",
+      "Sech",
+      "Linear ramp",
+      "Cosine"
+    ],
+    "DIFFRACTION": [
+      "Circular piston (J₁)",
+      "Rectangular aperture",
+      "Babinet complement"
+    ],
+    "TRANSCENDENTAL": [
+      "Sin/cos circle",
+      "Fibonacci/golden ratio",
+      "Exponential e-family"
+    ],
+    "NOISE_FLOOR": [
+      "Uniform random",
+      "Gaussian noise",
+      "Near-constant"
+    ]
+  }
+}

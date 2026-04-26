@@ -1,0 +1,267 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-20",
+  "name": "Conversation Drift \u2014 Project Milestones",
+  "domain": "AI SAFETY",
+  "carriers": [
+    "Theory",
+    "Engineering",
+    "Documentation",
+    "Discovery"
+  ],
+  "D": 4,
+  "N": 18,
+  "data_source": {
+    "type": "REAL",
+    "url": null,
+    "description": "HUF project milestones from HUF_ADMIN.json. Each milestone is a text entry decomposed into 4 carriers by keyword frequency: Theory (mathematical/formal), Engineering (code/tools), Documentation (tracking/reporting), Discovery (findings/domains)."
+  },
+  "data_hash_sha256_16": "1aa511370ef97205",
+  "run_timestamp": "2026-04-25T08:30:35.963075Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-20: Conversation Drift \u2014 Project Milestones: 4-part simplex, carriers=['Theory', 'Engineering', 'Documentation', 'Discovery']",
+    "step2_n_samples": 18,
+    "step2_D": 4,
+    "step2_carriers": [
+      "Theory",
+      "Engineering",
+      "Documentation",
+      "Discovery"
+    ],
+    "data_hash_sha256_16": "1aa511370ef97205",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -0.24571324863266333,
+      -0.15560989127529343,
+      0.27024794098468724,
+      0.13107519892326958
+    ],
+    "step4_clr_std_per_part": [
+      0.4440442136709212,
+      0.41401024568207406,
+      0.34010228230566875,
+      0.43094539030865137
+    ],
+    "step5_sigma2_range": [
+      0.08007550231970023,
+      0.7419715691124424
+    ],
+    "step5_sigma2_final": 0.6699632390821587,
+    "step6_pll_coeffs": [
+      -0.00095769728582827,
+      0.06694282336245233,
+      -0.0922131608543012
+    ],
+    "step6_pll_R2": 0.9319140727147254,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      34.94988675077869,
+      1.0776088867932443
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 8,
+    "step7_squeeze_closest": {
+      "time_index": 5,
+      "sigma2_A": 0.1589581863209096,
+      "constant": "1/(2pi)",
+      "constant_value": 0.15915494309189535,
+      "test_type": "direct",
+      "test_value": 0.1589581863209096,
+      "delta": 0.00019675677098573985
+    },
+    "step7_squeeze_mean": 0.43696041371914374,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.7455574250275929,
+      1.0
+    ],
+    "step8_entropy_mean": 0.9284273203650635,
+    "step8_entropy_cv": 6.849330041436379,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.9284273203650635,
+        "H_mean_decimated": 0.9581418590363305,
+        "variation_pct": 3.200523941883045,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.9207573630035951,
+        "H_mean_decimated": 0.966638045373235,
+        "variation_pct": 4.982928642565826,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.9207573630035951,
+        "H_mean_decimated": 0.9810110138263006,
+        "variation_pct": 6.543922779629213,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 15,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 13
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.22251984126984137,
+      0.2000992063492063
+    ],
+    "step11_complex_range_im": [
+      -0.18242664755644417,
+      0.24371283684542244
+    ],
+    "step12_radius_range": [
+      0.048371344771930065,
+      0.25642984361660587
+    ],
+    "step12_theta_range": [
+      -2.884407968017173,
+      1.7114961454033681
+    ],
+    "step9_angular_velocity_std": 1.61859128825652
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.1971752636946267,
+          0.17140448352973134,
+          0.11566956242952481,
+          0.18571392942827586
+        ],
+        "carrier_pct": [
+          29.43075861367474,
+          25.584162463085786,
+          17.26506107827508,
+          27.720017844964396
+        ],
+        "dominant_carrier": "Theory",
+        "dominant_pct": 29.43075861367474
+      },
+      "match_density": {
+        "density": 10.387410832412229,
+        "concentration": 0.15625,
+        "total_matches": 8,
+        "n_constants_hit": 7,
+        "dominant_constant": "dottie",
+        "trajectory_length": 0.770163049201568
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.5179393863410586,
+            0.43628692757219434,
+            0.5044379799474127
+          ],
+          [
+            0.5179393863410586,
+            0.0,
+            0.31280768562011985,
+            0.5248341012399055
+          ],
+          [
+            0.43628692757219434,
+            0.31280768562011985,
+            0.0,
+            0.38354687560794376
+          ],
+          [
+            0.5044379799474127,
+            0.5248341012399055,
+            0.3835468756079438,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -0.24571324863266333,
+          -0.15560989127529343,
+          0.27024794098468724,
+          0.13107519892326958
+        ],
+        "clr_stds": [
+          0.4440442136709212,
+          0.41401024568207406,
+          0.34010228230566875,
+          0.43094539030865137
+        ],
+        "aitchison_distance_mean": 1.088655847167728
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 2.3331446505391393,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "Engineering",
+        "max_shift_magnitude": 0.07943121693121694
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.9319140727147254,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Documentation",
+        "sources": [
+          "Theory",
+          "Engineering"
+        ],
+        "I_source1_target": 1.644072795833167,
+        "I_source2_target": 1.7501584905489693,
+        "redundancy": 1.644072795833167,
+        "unique_source1": 0.0,
+        "unique_source2": 0.10608569471580243,
+        "dominant": "redundancy"
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Theory/Engineering)": {
+            "mean": -0.09010335735736988,
+            "std": 0.7196800583183187,
+            "cv": 798.7272388351836
+          },
+          "ln(Theory/Documentation)": {
+            "mean": -0.5159611896173506,
+            "std": 0.6605201946740117,
+            "cv": 128.01741835735157
+          },
+          "ln(Theory/Discovery)": {
+            "mean": -0.3767884475559329,
+            "std": 0.7102379741659922,
+            "cv": 188.49781058124398
+          },
+          "ln(Engineering/Documentation)": {
+            "mean": -0.42585783225998075,
+            "std": 0.5592921290525371,
+            "cv": 131.3330615723175
+          },
+          "ln(Engineering/Discovery)": {
+            "mean": -0.286685090198563,
+            "std": 0.7244543472434308,
+            "cv": 252.7003921765382
+          },
+          "ln(Documentation/Discovery)": {
+            "mean": 0.13917274206141778,
+            "std": 0.6193116143008653,
+            "cv": 444.99490714033595
+          }
+        },
+        "most_stable": "ln(Theory/Documentation)",
+        "least_stable": "ln(Theory/Engineering)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  }
+}

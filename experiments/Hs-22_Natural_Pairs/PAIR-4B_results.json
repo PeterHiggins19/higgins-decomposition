@@ -1,0 +1,242 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-4B",
+  "name": "Stellar Nucleosynthesis",
+  "domain": "GRAVITY",
+  "carriers": [
+    "H",
+    "He",
+    "Metals"
+  ],
+  "D": 3,
+  "N": 30,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "pp-chain \u2192 CNO \u2192 triple-\u03b1 evolution"
+  },
+  "data_hash_sha256_16": "fc68b83ae1798114",
+  "run_timestamp": "2026-04-25T10:54:39.886008Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-4B: Stellar Nucleosynthesis: 3-part simplex, carriers=['H', 'He', 'Metals']",
+    "step2_n_samples": 30,
+    "step2_D": 3,
+    "step2_carriers": [
+      "H",
+      "He",
+      "Metals"
+    ],
+    "data_hash_sha256_16": "fc68b83ae1798114",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.1136161794652052,
+      0.572353196550278,
+      -0.6859693760154832
+    ],
+    "step4_clr_std_per_part": [
+      0.9557632127943612,
+      0.3275824172990555,
+      0.6796613251683863
+    ],
+    "step5_sigma2_range": [
+      0.07266457722235871,
+      1.4827330759841388
+    ],
+    "step5_sigma2_final": 1.4827330759841388,
+    "step6_pll_coeffs": [
+      0.0015549554984216139,
+      -0.009578448903531668,
+      0.16571774529833874
+    ],
+    "step6_pll_R2": 0.9489600174488972,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      3.079975251142058,
+      0.15096705251473558
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 4,
+    "step7_squeeze_closest": {
+      "time_index": 24,
+      "sigma2_A": 0.7387770142031199,
+      "constant": "dottie",
+      "constant_value": 0.7390851332151607,
+      "test_type": "direct",
+      "test_value": 0.7387770142031199,
+      "delta": 0.00030811901204075287
+    },
+    "step7_squeeze_mean": 0.4922906920614009,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.5635904537118192,
+      0.9354612078380132
+    ],
+    "step8_entropy_mean": 0.8134252924358787,
+    "step8_entropy_cv": 13.617768245672494,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.8134252924358787,
+        "H_mean_decimated": 0.81288282793509,
+        "variation_pct": 0.06668891486816103,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.8260934845339782,
+        "H_mean_decimated": 0.8266208645049787,
+        "variation_pct": 0.06384022884504482,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.833232887452084,
+        "H_mean_decimated": 0.8362591790330574,
+        "variation_pct": 0.36319876790117334,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 10,
+      "stalls": 1,
+      "spikes": 0,
+      "reversals": 9
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.29907569475568857,
+      0.30198226573028886
+    ],
+    "step11_complex_range_im": [
+      -0.12284450017467102,
+      0.1178101715708586
+    ],
+    "step12_radius_range": [
+      0.011231926514898127,
+      0.32414892463365347
+    ],
+    "step12_theta_range": [
+      -2.8076174562147314,
+      3.0704282619880123
+    ],
+    "step9_angular_velocity_std": 0.3824446161848311
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.9134833189309993,
+          0.10731024012349254,
+          0.46193951692964696
+        ],
+        "carrier_pct": [
+          61.60807590568454,
+          7.237326924285896,
+          31.154597170029575
+        ],
+        "dominant_carrier": "H",
+        "dominant_pct": 61.60807590568454
+      },
+      "match_density": {
+        "density": 2.821562010529696,
+        "concentration": 0.25,
+        "total_matches": 4,
+        "n_constants_hit": 4,
+        "dominant_constant": "1/pi",
+        "trajectory_length": 1.4176544712016002
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            1.5796476011793363,
+            2.6435354315977997
+          ],
+          [
+            1.5796476011793363,
+            0.0,
+            0.22501619517528001
+          ],
+          [
+            2.6435354315977997,
+            0.22501619517528001,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.1136161794652052,
+          0.572353196550278,
+          -0.6859693760154832
+        ],
+        "clr_stds": [
+          0.9557632127943612,
+          0.3275824172990555,
+          0.6796613251683863
+        ],
+        "aitchison_distance_mean": 1.4169598899090086
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 2.0594405941573717,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "H",
+        "max_shift_magnitude": 0.38275862068965516
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9489600174488972,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Metals",
+        "sources": [
+          "H",
+          "He"
+        ],
+        "I_source1_target": 2.213973088957113,
+        "I_source2_target": 1.4826685152868948,
+        "redundancy": 1.4826685152868948,
+        "unique_source1": 0.7313045736702182,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 1.4827330759841388,
+        "shuffled_sigma2": 1.4827330759841386,
+        "order_matters": false,
+        "relative_difference": 1.497535925524916e-16
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(H/He)": {
+            "mean": -0.4587370170850729,
+            "std": 1.2568403244562678,
+            "cv": 273.9783966950255
+          },
+          "ln(H/Metals)": {
+            "mean": 0.7995855554806882,
+            "std": 1.625895270796308,
+            "cv": 203.3422514516118
+          },
+          "ln(He/Metals)": {
+            "mean": 1.2583225725657612,
+            "std": 0.4743587199317411,
+            "cv": 37.697704092243065
+          }
+        },
+        "most_stable": "ln(He/Metals)",
+        "least_stable": "ln(H/He)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "ratio_pair_lattice"
+    ]
+  }
+}

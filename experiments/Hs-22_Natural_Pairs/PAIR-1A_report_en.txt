@@ -1,0 +1,25 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+Total codes: 38
+  Errors:       0
+  Warnings:     0
+  Discoveries: 11
+  Calibration signals: 0
+  Information:  27
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000006)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000006)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (89)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Entropy reversals detected — rapid compositional oscillation. (87)
+  [XU-DRD-DIS] Drift decreasing — system is converging, second half more concentrated. (variance_ratio_2nd_to_1st=0.031588, drift_direction=decreasing, max_shift_carrier=Sym+Pairing)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Surf+Coulomb->Sym+Pairing, te=0.181084)
+  [XC-RPS-DIS] Stable pairwise ratio found — these carriers are compositionally locked. (pair=ln(Volume/Surf+Coulomb), cv=13.301594)
+  [XC-RPS-DIS] Stable pairwise ratio found — these carriers are compositionally locked. (pair=ln(Volume/Sym+Pairing), cv=6.613629)
+  [XC-RPS-DIS] Stable pairwise ratio found — these carriers are compositionally locked. (pair=ln(Surf+Coulomb/Sym+Pairing), cv=6.593092)
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

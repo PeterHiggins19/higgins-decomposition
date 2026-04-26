@@ -1,0 +1,263 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-11",
+  "name": "AME2020 (500)",
+  "domain": "NUCLEAR",
+  "carriers": [
+    "Volume",
+    "Surf+Coulomb",
+    "Symmetry"
+  ],
+  "D": 3,
+  "N": 500,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": null
+  },
+  "data_hash_sha256_16": "0523ff5e868eb7b1",
+  "run_timestamp": "2026-04-25T06:03:01.913593Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-11: AME2020 (500): 3-part simplex, carriers=['Volume', 'Surf+Coulomb', 'Symmetry']",
+    "step2_n_samples": 500,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Volume",
+      "Surf+Coulomb",
+      "Symmetry"
+    ],
+    "data_hash_sha256_16": "0523ff5e868eb7b1",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      2.632862610794429,
+      1.8741788087488762,
+      -4.507041419543302
+    ],
+    "step4_clr_std_per_part": [
+      1.1183715690185272,
+      1.154634585688667,
+      2.2716487619415244
+    ],
+    "step5_sigma2_range": [
+      0.0,
+      18.380715232239062
+    ],
+    "step5_sigma2_final": 7.744324090487862,
+    "step6_pll_coeffs": [
+      6.31672280700122e-05,
+      -0.04501048035638677,
+      15.423151360039949
+    ],
+    "step6_pll_R2": 0.8449427078140694,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      356.28031917514915,
+      7.404977206239819
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 1,
+    "step7_squeeze_closest": {
+      "time_index": 5,
+      "sigma2_A": 18.380715232239062,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.05440484700214705,
+      "delta": 0.009879579735224138
+    },
+    "step7_squeeze_mean": 9.417257222552621,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.5627665656759605,
+      0.7277560577473006
+    ],
+    "step8_entropy_mean": 0.5886590655451007,
+    "step8_entropy_cv": 3.5055144561599008,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.5886590655451007,
+        "H_mean_decimated": 0.5809632491570879,
+        "variation_pct": 1.3073469582748223,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.5886590655451007,
+        "H_mean_decimated": 0.5755064525366854,
+        "variation_pct": 2.2343345712744487,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.588596918875625,
+        "H_mean_decimated": 0.5737808928305753,
+        "variation_pct": 2.5171769626915874,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 529,
+      "stalls": 32,
+      "spikes": 2,
+      "reversals": 495
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.02398236294872702,
+      0.09584639835270403
+    ],
+    "step11_complex_range_im": [
+      -0.003512385896995386,
+      0.026661702372295856
+    ],
+    "step12_radius_range": [
+      0.0008717484330965757,
+      0.09591073418483793
+    ],
+    "step12_theta_range": [
+      -3.140323019285304,
+      3.140883516738618
+    ],
+    "step9_angular_velocity_std": 1.3651028778713148
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          1.250754966388962,
+          1.3331810264684396,
+          5.16038809763046
+        ],
+        "carrier_pct": [
+          16.15060206384221,
+          17.214943626984162,
+          66.63445430917362
+        ],
+        "dominant_carrier": "Symmetry",
+        "dominant_pct": 66.63445430917362
+      },
+      "match_density": {
+        "density": 0.022667621202750888,
+        "concentration": 1.0,
+        "total_matches": 1,
+        "n_constants_hit": 1,
+        "dominant_constant": "1/(pi^e)",
+        "trajectory_length": 44.115789259732395
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.0074838880843432765,
+            11.489105101570411
+          ],
+          [
+            0.007483888084343275,
+            0.0,
+            11.73638328180884
+          ],
+          [
+            11.489105101570411,
+            11.73638328180884,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          2.632862610794429,
+          1.8741788087488762,
+          -4.507041419543302
+        ],
+        "clr_stds": [
+          1.1183715690185272,
+          1.154634585688667,
+          2.2716487619415244
+        ],
+        "aitchison_distance_mean": 2.7821807503277083
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.8568896949916771,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Surf+Coulomb",
+        "max_shift_magnitude": 0.007310846675862459
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.8449427078140694,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Symmetry",
+        "sources": [
+          "Volume",
+          "Surf+Coulomb"
+        ],
+        "I_source1_target": 1.8154111574702387,
+        "I_source2_target": 1.851275476933527,
+        "redundancy": 1.8154111574702387,
+        "unique_source1": 0.0,
+        "unique_source2": 0.03586431946328816,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "Volume->Surf+Coulomb": 0.0,
+          "Volume->Symmetry": 0.0,
+          "Surf+Coulomb->Volume": 0.0,
+          "Surf+Coulomb->Symmetry": 0.0,
+          "Symmetry->Volume": 0.0,
+          "Symmetry->Surf+Coulomb": 0.0
+        },
+        "dominant_flow": "Volume->Surf+Coulomb",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 7.744324090487862,
+        "shuffled_sigma2": 7.744324090487862,
+        "order_matters": false,
+        "relative_difference": 0.0
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 462,
+        "near_zero_carriers": [
+          "Symmetry"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Volume/Surf+Coulomb)": {
+            "mean": 0.7586838020455541,
+            "std": 0.08650946817743868,
+            "cv": 11.402572184115819
+          },
+          "ln(Volume/Symmetry)": {
+            "mean": 7.139904030337734,
+            "std": 3.3895582457851954,
+            "cv": 47.47344265949274
+          },
+          "ln(Surf+Coulomb/Symmetry)": {
+            "mean": 6.381220228292179,
+            "std": 3.4258405219462333,
+            "cv": 53.68629195333538
+          }
+        },
+        "most_stable": "ln(Volume/Surf+Coulomb)",
+        "least_stable": "ln(Surf+Coulomb/Symmetry)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

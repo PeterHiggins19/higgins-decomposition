@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "type": "HS_ADMINISTRATIVE_REGISTER",
+    "version": "1.0",
+    "created": "2026-04-25",
+    "author": "Peter Higgins",
+    "purpose": "Identity, terminology, and communication standards for the Hˢ repository."
+  },
+  "communication_standards": {
+    "language_policy": {
+      "standard_languages": [
+        "en",
+        "zh",
+        "hi"
+      ],
+      "community_languages": [
+        "pt",
+        "it"
+      ],
+      "rationale": "English, Mandarin, and Hindi as global standards (top 3 by speaker count). Portuguese and Italian added for CoDa community (primary CoDa research languages).",
+      "implementation": "Diagnostic code reports available in all 5 languages via locale files. Adding a language requires one JSON file, zero code changes.",
+      "locale_path": "tools/pipeline/locales/"
+    },
+    "tone_and_framing": {
+      "principle": "The repository serves everyone who picks it up. Content is framed as neutral, inclusive, and globally accessible.",
+      "guidelines": [
+        "Avoid labelling content as 'for AI' vs 'for humans'. All documents are for readers. Some documents include structured metadata that aids automated processing — note this as 'machine-readable structure included' rather than 'for AI'.",
+        "Use 'reader', 'user', 'researcher', 'practitioner', 'operator', or 'expert' instead of 'human' when referring to the person using the tool. 'The expert decides' rather than 'the human decides'.",
+        "Use 'automated systems', 'computational tools', or 'analytical platforms' instead of 'AI' when the specific system is not named. When a specific system contributed, name it: 'Claude', 'ChatGPT', 'Grok', 'Gemini', 'Copilot'.",
+        "The instrument reads. The expert decides. The loop stays open.",
+        "Avoid language that implies any group is excluded, inferior, or secondary. The simplex is the same everywhere — the tool should feel that way.",
+        "Frame discoveries as invitations, not claims. 'We found this — can you verify?' rather than 'We proved this — accept it.'",
+        "Respect domain expertise. The tool does not replace geochemists, physicists, engineers, or any domain expert. It provides a compositional reading that the expert interprets.",
+        "Use metric units. Use ISO 8601 dates (YYYY-MM-DD). Use Unicode for mathematical symbols.",
+        "Avoid jargon from any single field when a simpler term exists. If a CoDa term is used, define it on first use. If a physics term is used, explain what it means compositionally."
+      ]
+    },
+    "content_labels": {
+      "note": "Instead of 'for AI' or 'for humans', use these labels:",
+      "labels": {
+        "machine_readable": "This file includes structured metadata (JSON, CSV, or tagged format) for automated processing.",
+        "reference_document": "This file is a reference for practitioners and researchers.",
+        "interactive_tool": "This file runs in a browser — download and open locally.",
+        "specification": "This file defines thresholds, criteria, and standards.",
+        "experiment_journal": "This file documents a specific experiment with reproducibility data."
+      }
+    }
+  },
+  "canonical_names": {
+    "instrument": {
+      "full": "Higgins Decomposition",
+      "symbol": "Hˢ",
+      "meaning": "H-superscript-S = Higgins on the Simplex",
+      "NOT": [
+        "HD",
+        "Higgins Decomp",
+        "H-decomp"
+      ]
+    },
+    "hvld": {
+      "full": "Higgins Vertex Lock Diagnostic",
+      "short": "HVLD",
+      "NOT": [
+        "PLL",
+        "Phase-Locked Loop",
+        "Pipeline Lock List"
+      ]
+    },
+    "closing_statement": "The instrument reads. The expert decides. The loop stays open."
+  }
+}

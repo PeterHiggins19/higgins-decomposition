@@ -1,0 +1,265 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-19",
+  "name": "Traffic Signals",
+  "domain": "URBAN",
+  "carriers": [
+    "Green",
+    "Yellow",
+    "Red"
+  ],
+  "D": 3,
+  "N": 831,
+  "data_source": {
+    "type": "REAL",
+    "url": null,
+    "description": "City of Toronto Traffic Signal Timing (Open Data)"
+  },
+  "data_hash_sha256_16": "34152dc3739fe105",
+  "run_timestamp": "2026-04-25T06:24:46.613310Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-19: Traffic Signals: 3-part simplex, carriers=['Green', 'Yellow', 'Red']",
+    "step2_n_samples": 831,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Green",
+      "Yellow",
+      "Red"
+    ],
+    "data_hash_sha256_16": "34152dc3739fe105",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.11306566684848102,
+      0.05322126303944456,
+      -0.16628692988792548
+    ],
+    "step4_clr_std_per_part": [
+      5.528521995800908,
+      5.851703031064692,
+      5.427192580164457
+    ],
+    "step5_sigma2_range": [
+      0.5746037660976386,
+      98.63098384857544
+    ],
+    "step5_sigma2_final": 94.26140312401829,
+    "step6_pll_coeffs": [
+      -7.874429965680846e-05,
+      0.0789757859593035,
+      77.85897310466909
+    ],
+    "step6_pll_R2": 0.535292297831597,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      501.4698606978787,
+      97.6609612964278
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 6,
+    "step7_squeeze_closest": {
+      "time_index": 2,
+      "sigma2_A": 0.5746037660976386,
+      "constant": "euler_gamma",
+      "constant_value": 0.5772156649015329,
+      "test_type": "direct",
+      "test_value": 0.5746037660976386,
+      "delta": 0.0026118988038942303
+    },
+    "step7_squeeze_mean": 92.5760405009853,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      1.3648705672439814e-06,
+      0.9999999999999998
+    ],
+    "step8_entropy_mean": 0.5568229346306955,
+    "step8_entropy_cv": 58.07936256377882,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.5564961530547025,
+        "H_mean_decimated": 0.4519341695091112,
+        "variation_pct": 18.78934525811772,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.5554449667913632,
+        "H_mean_decimated": 0.42576756594375037,
+        "variation_pct": 23.34657951744883,
+        "pass": false
+      },
+      "compression_8x": {
+        "H_mean_original": 0.5566851991674954,
+        "H_mean_decimated": 0.46519992180306113,
+        "variation_pct": 16.433933846498434,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 884,
+      "stalls": 127,
+      "spikes": 4,
+      "reversals": 753
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.5404590904130673,
+      0.4595407720869453
+    ],
+    "step11_complex_range_im": [
+      -0.2280467926048986,
+      0.637978361364575
+    ],
+    "step12_radius_range": [
+      0.009552215306521778,
+      0.639259988286355
+    ],
+    "step12_theta_range": [
+      -3.1138221180286396,
+      3.1156014661644242
+    ],
+    "step9_angular_velocity_std": 1.818228508625305
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          30.564555458054453,
+          34.2424283637717,
+          29.454419302192136
+        ],
+        "carrier_pct": [
+          32.42531348471562,
+          36.32709383576591,
+          31.247592679518473
+        ],
+        "dominant_carrier": "Yellow",
+        "dominant_pct": 36.32709383576591
+      },
+      "match_density": {
+        "density": 0.014665192188080592,
+        "concentration": 0.16666666666666669,
+        "total_matches": 6,
+        "n_constants_hit": 6,
+        "dominant_constant": "sqrt3",
+        "trajectory_length": 409.1320402112842
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            100.15954834146017,
+            85.79552115672152
+          ],
+          [
+            100.15954834146017,
+            0.0,
+            96.82913987387329
+          ],
+          [
+            85.79552115672152,
+            96.82913987387329,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.11306566684848102,
+          0.05322126303944456,
+          -0.16628692988792548
+        ],
+        "clr_stds": [
+          5.528521995800908,
+          5.851703031064692,
+          5.427192580164457
+        ],
+        "aitchison_distance_mean": 12.662760838000512
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0165207191875163,
+        "drift_direction": "stable",
+        "max_shift_carrier": "Yellow",
+        "max_shift_magnitude": 0.03373043738614251
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.535292297831597,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Red",
+        "sources": [
+          "Green",
+          "Yellow"
+        ],
+        "I_source1_target": 1.233617141133097,
+        "I_source2_target": 1.2510705276414562,
+        "redundancy": 1.233617141133097,
+        "unique_source1": 0.0,
+        "unique_source2": 0.01745338650835926,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "Green->Yellow": 0.0012237522806153311,
+          "Green->Red": 0.0,
+          "Yellow->Green": 0.0,
+          "Yellow->Red": 0.0,
+          "Red->Green": 0.0,
+          "Red->Yellow": 0.0
+        },
+        "dominant_flow": "Green->Yellow",
+        "dominant_te": 0.0012237522806153311
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 94.26140312401829,
+        "shuffled_sigma2": 94.26140312401839,
+        "order_matters": false,
+        "relative_difference": 1.0553204143962827e-15
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 498,
+        "near_zero_carriers": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Green/Yellow)": {
+            "mean": 0.059844403809036384,
+            "std": 10.007974237649703,
+            "cv": 16723.32515766248
+          },
+          "ln(Green/Red)": {
+            "mean": 0.2793525967364063,
+            "std": 9.262587174041684,
+            "cv": 3315.73333566745
+          },
+          "ln(Yellow/Red)": {
+            "mean": 0.21950819292736992,
+            "std": 9.84017986999594,
+            "cv": 4482.830339390486
+          }
+        },
+        "most_stable": "ln(Green/Red)",
+        "least_stable": "ln(Green/Yellow)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-7A",
+  "name": "Planck Cosmic Budget",
+  "domain": "COSMOLOGY",
+  "carriers": [
+    "Radiation",
+    "Matter",
+    "Dark_Energy"
+  ],
+  "D": 3,
+  "N": 200,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Friedmann \u03a9(a) Planck 2018"
+  },
+  "data_hash_sha256_16": "4ef3dc1b6938376b",
+  "run_timestamp": "2026-04-25T10:54:40.463283Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-7A: Planck Cosmic Budget: 3-part simplex, carriers=['Radiation', 'Matter', 'Dark_Energy']",
+    "step2_n_samples": 200,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Radiation",
+      "Matter",
+      "Dark_Energy"
+    ],
+    "data_hash_sha256_16": "4ef3dc1b6938376b",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.06493616481030987,
+      4.75830224158805,
+      -4.823238406398359
+    ],
+    "step4_clr_std_per_part": [
+      3.340154536913894,
+      1.3360618147655574,
+      4.676216351679453
+    ],
+    "step5_sigma2_range": [
+      0.006961912622026483,
+      34.8086928710554
+    ],
+    "step5_sigma2_final": 34.8086928710554,
+    "step6_pll_coeffs": [
+      0.0008702390777533291,
+      0.001740478155506698,
+      1.9251627992052173e-15
+    ],
+    "step6_pll_R2": 1.0,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -1.0000000000000229,
+      -0.0008702390777514437
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 106,
+    "step7_squeeze_closest": {
+      "time_index": 162,
+      "sigma2_A": 23.120511817750454,
+      "constant": "1/(e^pi)",
+      "constant_value": 0.04321391826377226,
+      "test_type": "reciprocal",
+      "test_value": 0.043251637674917895,
+      "delta": 3.771941114563693e-05
+    },
+    "step7_squeeze_mean": 11.807548846803462,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.029576819750290147,
+      0.6321890533405575
+    ],
+    "step8_entropy_mean": 0.20905546901311234,
+    "step8_entropy_cv": 86.81504718508063,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.20905546901311234,
+        "H_mean_decimated": 0.2090617065870218,
+        "variation_pct": 0.002983693246062146,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.20905546901311234,
+        "H_mean_decimated": 0.20908689164887434,
+        "variation_pct": 0.015030764758433986,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.20905546901311234,
+        "H_mean_decimated": 0.20919156933043304,
+        "variation_pct": 0.06510249072324492,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 2,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.2771501807048915,
+      0.06179863199499647
+    ],
+    "step11_complex_range_im": [
+      -0.04960257760984421,
+      0.5441770063577004
+    ],
+    "step12_radius_range": [
+      0.03160637354835636,
+      0.6106888216704008
+    ],
+    "step12_theta_range": [
+      -2.8387744590399424,
+      2.041857438910685
+    ],
+    "step9_angular_velocity_std": 0.039221865449206146
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          11.156632330466469,
+          1.7850611728746346,
+          21.866999367714293
+        ],
+        "carrier_pct": [
+          32.05128205128204,
+          5.128205128205124,
+          62.82051282051283
+        ],
+        "dominant_carrier": "Dark_Energy",
+        "dominant_pct": 62.82051282051283
+      },
+      "match_density": {
+        "density": 3.0458255115702344,
+        "concentration": 0.28301886792452835,
+        "total_matches": 106,
+        "n_constants_hit": 22,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 34.801730958433374
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            4.016387638967932,
+            64.26220222348691
+          ],
+          [
+            4.016387638967932,
+            0.0,
+            36.14748875071139
+          ],
+          [
+            64.26220222348691,
+            36.14748875071139,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.06493616481030987,
+          4.75830224158805,
+          -4.823238406398359
+        ],
+        "clr_stds": [
+          3.340154536913894,
+          1.3360618147655574,
+          4.676216351679453
+        ],
+        "aitchison_distance_mean": 6.628293603208222
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0000000000000002,
+        "drift_direction": "stable",
+        "max_shift_carrier": "Dark_Energy",
+        "max_shift_magnitude": 0.11453918502150297
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 1.0,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Dark_Energy",
+        "sources": [
+          "Radiation",
+          "Matter"
+        ],
+        "I_source1_target": 2.995732273553991,
+        "I_source2_target": 2.995732273553991,
+        "redundancy": 2.995732273553991,
+        "unique_source1": 0.0,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "Radiation->Matter": 0.0,
+          "Radiation->Dark_Energy": 0.036205637865463824,
+          "Matter->Radiation": 0.0,
+          "Matter->Dark_Energy": 0.036205637865463824,
+          "Dark_Energy->Radiation": 0.0,
+          "Dark_Energy->Matter": 0.036205637865463824
+        },
+        "dominant_flow": "Radiation->Dark_Energy",
+        "dominant_te": 0.036205637865463824
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 34.8086928710554,
+        "shuffled_sigma2": 34.80869287105539,
+        "order_matters": false,
+        "relative_difference": 2.0412795688485632e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 200,
+        "near_zero_carriers": [
+          "Radiation",
+          "Dark_Energy"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Radiation/Matter)": {
+            "mean": -4.693366076777741,
+            "std": 2.004092722148337,
+            "cv": 42.70054134631363
+          },
+          "ln(Radiation/Dark_Energy)": {
+            "mean": 4.888174571208669,
+            "std": 8.016370888593348,
+            "cv": 163.99518412885138
+          },
+          "ln(Matter/Dark_Energy)": {
+            "mean": 9.58154064798641,
+            "std": 6.012278166445012,
+            "cv": 62.74855357116823
+          }
+        },
+        "most_stable": "ln(Radiation/Matter)",
+        "least_stable": "ln(Radiation/Dark_Energy)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

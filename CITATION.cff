@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: Higgins Decomposition
+message: "If you use this tool, please cite it as below."
+type: software
+authors:
+  - given-names: Peter
+    family-names: Higgins
+    affiliation: Independent Researcher, Markham, Ontario, Canada
+    email: PeterHiggins@roguewaveaudio.com
+repository-code: https://github.com/PeterHiggins19/higgins-decomposition
+url: https://peterhiggins19.github.io/higgins-decomposition/
+abstract: >-
+  Higgins Decomposition (Hˢ) is a deterministic 12-step compositional
+  inference pipeline operating on the Aitchison simplex. It reads the
+  geometric fingerprint of any compositional system — from nuclear
+  binding energy to cosmic energy budgets — without creating or
+  destroying structure. Validated across 17 physical domains spanning
+  44 orders of magnitude.
+keywords:
+  - compositional data analysis
+  - simplex
+  - Aitchison geometry
+  - entropy
+  - decomposition
+  - information theory
+  - log-ratio
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-04-25"
