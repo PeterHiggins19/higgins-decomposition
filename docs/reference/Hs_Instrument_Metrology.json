@@ -1,0 +1,1271 @@
+{
+  "metrology_version": "1.0",
+  "timestamp": "2026-04-26T06:21:57Z",
+  "pipeline_codes_defined": 69,
+  "structural_modes_defined": 10,
+  "experiments_evaluated": 41,
+  "load_errors": 0,
+  "metrics": {
+    "code_coverage": {
+      "total_defined": 69,
+      "total_fired": 59,
+      "coverage_pct": 85.5,
+      "never_fired": [
+        "GD-D2M-ERR",
+        "GD-INF-ERR",
+        "GD-N5M-ERR",
+        "GD-NAN-ERR",
+        "GD-SCL-ERR",
+        "S6-ZRO-WRN",
+        "S8-INV-WRN",
+        "SM-IND-DIS",
+        "XC-ORD-INF",
+        "XC-PIU-DIS"
+      ],
+      "fire_counts": {
+        "XC-RPV-DIS": 113,
+        "GD-ALL-INF": 41,
+        "S4-CLO-INF": 41,
+        "S5-CLR-INF": 41,
+        "S6-VAR-INF": 41,
+        "S6-RNG-INF": 41,
+        "S7-VTX-INF": 41,
+        "S8-SQZ-INF": 41,
+        "S9-ENT-INF": 41,
+        "SA-TRN-INF": 41,
+        "SB-CPX-INF": 41,
+        "SC-HLX-INF": 41,
+        "XU-PCC-INF": 41,
+        "XU-CDA-INF": 41,
+        "XU-CLM-INF": 41,
+        "RP-CMP-INF": 41,
+        "RP-DTM-INF": 41,
+        "RP-VER-INF": 41,
+        "S9-STL-DIS": 40,
+        "XC-PID-INF": 39,
+        "XC-PIR-DIS": 39,
+        "XC-RPL-INF": 39,
+        "S8-NAT-INF": 37,
+        "S4-ZRN-INF": 36,
+        "XC-ORN-INF": 36,
+        "S9-REV-DIS": 34,
+        "S9-CHH-DIS": 29,
+        "XU-MDS-CAL": 29,
+        "S7-HRQ-INF": 28,
+        "XC-ZCR-DIS": 27,
+        "SM-RTR-DIS": 27,
+        "S8-TGT-DIS": 25,
+        "XC-TEE-INF": 25,
+        "S7-BWL-INF": 21,
+        "S9-EIT-INF": 21,
+        "XU-DRD-DIS": 21,
+        "S8-EUL-DIS": 21,
+        "SM-DMR-DIS": 21,
+        "XU-PCD-DIS": 20,
+        "S7-HIL-INF": 20,
+        "S9-EIF-WRN": 20,
+        "XC-RPS-DIS": 15,
+        "XC-TEF-DIS": 15,
+        "SM-TNT-DIS": 14,
+        "SM-BPO-DIS": 13,
+        "XU-MDN-INF": 12,
+        "XU-DRU-DIS": 12,
+        "S9-CHS-INF": 12,
+        "S9-SPK-DIS": 10,
+        "XC-TEZ-CAL": 10,
+        "SM-CPL-DIS": 9,
+        "XU-DRI-INF": 8,
+        "S7-LRQ-WRN": 7,
+        "SM-DGN-WRN": 7,
+        "S4-ZRP-INF": 5,
+        "SM-SCG-INF": 4,
+        "SM-OVC-CAL": 4,
+        "S8-FLG-WRN": 4,
+        "SM-MCA-WRN": 2
+      },
+      "most_common": [
+        [
+          "XC-RPV-DIS",
+          113
+        ],
+        [
+          "GD-ALL-INF",
+          41
+        ],
+        [
+          "S4-CLO-INF",
+          41
+        ],
+        [
+          "S5-CLR-INF",
+          41
+        ],
+        [
+          "S6-VAR-INF",
+          41
+        ],
+        [
+          "S6-RNG-INF",
+          41
+        ],
+        [
+          "S7-VTX-INF",
+          41
+        ],
+        [
+          "S8-SQZ-INF",
+          41
+        ],
+        [
+          "S9-ENT-INF",
+          41
+        ],
+        [
+          "SA-TRN-INF",
+          41
+        ]
+      ],
+      "least_common": [
+        [
+          "XC-TEZ-CAL",
+          10
+        ],
+        [
+          "SM-CPL-DIS",
+          9
+        ],
+        [
+          "XU-DRI-INF",
+          8
+        ],
+        [
+          "S7-LRQ-WRN",
+          7
+        ],
+        [
+          "SM-DGN-WRN",
+          7
+        ],
+        [
+          "S4-ZRP-INF",
+          5
+        ],
+        [
+          "SM-SCG-INF",
+          4
+        ],
+        [
+          "SM-OVC-CAL",
+          4
+        ],
+        [
+          "S8-FLG-WRN",
+          4
+        ],
+        [
+          "SM-MCA-WRN",
+          2
+        ]
+      ]
+    },
+    "code_distribution": {
+      "total_codes_emitted": 1628,
+      "distribution_pct": {
+        "INF": 63.6,
+        "DIS": 25.9,
+        "CAL": 2.4,
+        "SM": 6.2,
+        "WRN": 1.9
+      },
+      "level_stats": {
+        "INF": {
+          "total": 1036,
+          "mean_per_exp": 25.3,
+          "min": 22,
+          "max": 28
+        },
+        "WRN": {
+          "total": 31,
+          "mean_per_exp": 0.8,
+          "min": 0,
+          "max": 3
+        },
+        "ERR": {
+          "total": 0,
+          "mean_per_exp": 0.0,
+          "min": 0,
+          "max": 0
+        },
+        "DIS": {
+          "total": 421,
+          "mean_per_exp": 10.3,
+          "min": 7,
+          "max": 15
+        },
+        "CAL": {
+          "total": 39,
+          "mean_per_exp": 1.0,
+          "min": 0,
+          "max": 2
+        },
+        "SM": {
+          "total": 101,
+          "mean_per_exp": 2.5,
+          "min": 0,
+          "max": 5
+        }
+      },
+      "n_experiments": 41
+    },
+    "mode_consistency": {
+      "total_modes_defined": 10,
+      "modes_fired": 9,
+      "mode_fire_counts": {
+        "SM-RTR-DIS": 27,
+        "SM-DMR-DIS": 21,
+        "SM-TNT-DIS": 14,
+        "SM-BPO-DIS": 13,
+        "SM-CPL-DIS": 9,
+        "SM-DGN-WRN": 7,
+        "SM-SCG-INF": 4,
+        "SM-OVC-CAL": 4,
+        "SM-MCA-WRN": 2
+      },
+      "mode_experiments": {
+        "SM-RTR-DIS": [
+          "Hs-01",
+          "Hs-03",
+          "Hs-05",
+          "Hs-07",
+          "Hs-08",
+          "Hs-09",
+          "Hs-10",
+          "Hs-11",
+          "Hs-15",
+          "Hs-17b",
+          "Hs-17c",
+          "Hs-17d",
+          "Hs-17",
+          "Hs-17",
+          "Hs-20",
+          "PAIR-1A",
+          "PAIR-2B",
+          "PAIR-3A",
+          "PAIR-4A",
+          "PAIR-4B",
+          "PAIR-5B",
+          "PAIR-6A",
+          "PAIR-7B",
+          "Hs-23-Th232",
+          "Hs-23-U235",
+          "Hs-23-U238",
+          "Hs-23-Combined"
+        ],
+        "SM-DMR-DIS": [
+          "Hs-02",
+          "Hs-03",
+          "Hs-05",
+          "Hs-06",
+          "Hs-08",
+          "Hs-11",
+          "Hs-12",
+          "Hs-15",
+          "Hs-16",
+          "Hs-17c",
+          "Hs-17d",
+          "Hs-20",
+          "PAIR-1A",
+          "PAIR-1B",
+          "PAIR-2A",
+          "PAIR-2B",
+          "PAIR-3A",
+          "PAIR-5B",
+          "PAIR-7A",
+          "Hs-23-U238",
+          "Hs-23-Combined"
+        ],
+        "SM-CPL-DIS": [
+          "Hs-02",
+          "Hs-03",
+          "Hs-05",
+          "Hs-11",
+          "Hs-17c",
+          "Hs-17",
+          "Hs-17",
+          "PAIR-1A",
+          "PAIR-3A"
+        ],
+        "SM-BPO-DIS": [
+          "Hs-07",
+          "Hs-10",
+          "Hs-14",
+          "Hs-17a",
+          "Hs-17b",
+          "Hs-17c",
+          "Hs-17",
+          "Hs-18",
+          "Hs-19",
+          "Hs-20",
+          "PAIR-4A",
+          "PAIR-7B",
+          "Hs-23-Combined"
+        ],
+        "SM-TNT-DIS": [
+          "Hs-07",
+          "Hs-10",
+          "Hs-12",
+          "Hs-14",
+          "Hs-17b",
+          "Hs-17c",
+          "Hs-18",
+          "Hs-19",
+          "Hs-20",
+          "PAIR-2A",
+          "PAIR-2B",
+          "PAIR-4A",
+          "PAIR-7B",
+          "Hs-23-Combined"
+        ],
+        "SM-DGN-WRN": [
+          "Hs-10",
+          "Hs-13",
+          "Hs-17a",
+          "Hs-17",
+          "PAIR-1B",
+          "PAIR-3B",
+          "PAIR-4A"
+        ],
+        "SM-SCG-INF": [
+          "Hs-13",
+          "Hs-16",
+          "PAIR-3B",
+          "PAIR-7A"
+        ],
+        "SM-OVC-CAL": [
+          "Hs-15",
+          "Hs-16",
+          "PAIR-5B",
+          "PAIR-7A"
+        ],
+        "SM-MCA-WRN": [
+          "Hs-17a",
+          "Hs-17"
+        ]
+      },
+      "never_fired": [
+        "SM-IND-DIS"
+      ]
+    },
+    "impossibility_check": {
+      "pairs_checked": 13,
+      "violations_found": 0,
+      "violations": [],
+      "status": "PASS"
+    },
+    "dynamic_range": {
+      "n_domains": 17,
+      "n_experiments": 41,
+      "classification_distribution": {
+        "S8-NAT-INF": 37,
+        "S8-FLG-WRN": 4
+      },
+      "shape_distribution": {
+        "S7-BWL-INF": 21,
+        "S7-HIL-INF": 20
+      },
+      "codes_per_experiment": {
+        "min": 34,
+        "max": 46,
+        "mean": 39.7
+      },
+      "domain_profiles": {
+        "COMMODITIES": [
+          {
+            "experiment": "Hs-01",
+            "n_codes": 34,
+            "n_warnings": 0,
+            "n_discoveries": 8,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-6A",
+            "n_codes": 34,
+            "n_warnings": 0,
+            "n_discoveries": 8,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "ENERGY": [
+          {
+            "experiment": "Hs-02",
+            "n_codes": 37,
+            "n_warnings": 0,
+            "n_discoveries": 11,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-1A",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-1B",
+            "n_codes": 40,
+            "n_warnings": 2,
+            "n_discoveries": 11,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "NUCLEAR": [
+          {
+            "experiment": "Hs-03",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "Hs-06",
+            "n_codes": 39,
+            "n_warnings": 0,
+            "n_discoveries": 11,
+            "n_structural": 1,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-11",
+            "n_codes": 42,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "Hs-23-Th232",
+            "n_codes": 36,
+            "n_warnings": 2,
+            "n_discoveries": 11,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "FLAG",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-23-U235",
+            "n_codes": 37,
+            "n_warnings": 2,
+            "n_discoveries": 12,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "FLAG",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "Hs-23-U238",
+            "n_codes": 39,
+            "n_warnings": 1,
+            "n_discoveries": 13,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "Hs-23-Combined",
+            "n_codes": 42,
+            "n_warnings": 1,
+            "n_discoveries": 17,
+            "n_structural": 4,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "ACOUSTICS": [
+          {
+            "experiment": "Hs-04",
+            "n_codes": 36,
+            "n_warnings": 0,
+            "n_discoveries": 8,
+            "n_structural": 0,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "GEOCHEMISTRY": [
+          {
+            "experiment": "Hs-05",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "QCD": [
+          {
+            "experiment": "Hs-07",
+            "n_codes": 38,
+            "n_warnings": 1,
+            "n_discoveries": 12,
+            "n_structural": 3,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "PAIR-7B",
+            "n_codes": 38,
+            "n_warnings": 1,
+            "n_discoveries": 12,
+            "n_structural": 3,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "PARTICLE": [
+          {
+            "experiment": "Hs-08",
+            "n_codes": 36,
+            "n_warnings": 1,
+            "n_discoveries": 10,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "ASTROPHYSICS": [
+          {
+            "experiment": "Hs-09",
+            "n_codes": 36,
+            "n_warnings": 0,
+            "n_discoveries": 10,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "GRAVITY": [
+          {
+            "experiment": "Hs-10",
+            "n_codes": 40,
+            "n_warnings": 3,
+            "n_discoveries": 13,
+            "n_structural": 4,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "PAIR-4A",
+            "n_codes": 40,
+            "n_warnings": 3,
+            "n_discoveries": 13,
+            "n_structural": 4,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "PAIR-4B",
+            "n_codes": 36,
+            "n_warnings": 0,
+            "n_discoveries": 10,
+            "n_structural": 1,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "FORCE": [
+          {
+            "experiment": "Hs-12",
+            "n_codes": 42,
+            "n_warnings": 1,
+            "n_discoveries": 14,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-2A",
+            "n_codes": 42,
+            "n_warnings": 1,
+            "n_discoveries": 14,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-2B",
+            "n_codes": 42,
+            "n_warnings": 1,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "MATTER": [
+          {
+            "experiment": "Hs-13",
+            "n_codes": 40,
+            "n_warnings": 2,
+            "n_discoveries": 9,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-3A",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-3B",
+            "n_codes": 40,
+            "n_warnings": 2,
+            "n_discoveries": 9,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "SIGNAL THEORY": [
+          {
+            "experiment": "Hs-14",
+            "n_codes": 41,
+            "n_warnings": 1,
+            "n_discoveries": 14,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "MATERIALS": [
+          {
+            "experiment": "Hs-15",
+            "n_codes": 42,
+            "n_warnings": 0,
+            "n_discoveries": 12,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "PAIR-5B",
+            "n_codes": 42,
+            "n_warnings": 0,
+            "n_discoveries": 12,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "COSMOLOGY": [
+          {
+            "experiment": "Hs-16",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 10,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "PAIR-7A",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 10,
+            "n_structural": 3,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          }
+        ],
+        "ENGINEERING": [
+          {
+            "experiment": "Hs-17a",
+            "n_codes": 43,
+            "n_warnings": 5,
+            "n_discoveries": 13,
+            "n_structural": 3,
+            "has_euler": false,
+            "classification": "FLAG",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-17b",
+            "n_codes": 43,
+            "n_warnings": 1,
+            "n_discoveries": 16,
+            "n_structural": 3,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-17c",
+            "n_codes": 46,
+            "n_warnings": 1,
+            "n_discoveries": 20,
+            "n_structural": 5,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-17d",
+            "n_codes": 41,
+            "n_warnings": 0,
+            "n_discoveries": 14,
+            "n_structural": 2,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "bowl"
+          },
+          {
+            "experiment": "Hs-17",
+            "n_codes": 39,
+            "n_warnings": 0,
+            "n_discoveries": 12,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-17",
+            "n_codes": 40,
+            "n_warnings": 5,
+            "n_discoveries": 12,
+            "n_structural": 5,
+            "has_euler": false,
+            "classification": "FLAG",
+            "hvld_shape": "hill"
+          }
+        ],
+        "URBAN": [
+          {
+            "experiment": "Hs-18",
+            "n_codes": 38,
+            "n_warnings": 1,
+            "n_discoveries": 11,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          },
+          {
+            "experiment": "Hs-19",
+            "n_codes": 39,
+            "n_warnings": 1,
+            "n_discoveries": 12,
+            "n_structural": 2,
+            "has_euler": false,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ],
+        "AI SAFETY": [
+          {
+            "experiment": "Hs-20",
+            "n_codes": 42,
+            "n_warnings": 1,
+            "n_discoveries": 17,
+            "n_structural": 4,
+            "has_euler": true,
+            "classification": "NATURAL",
+            "hvld_shape": "hill"
+          }
+        ]
+      }
+    },
+    "noise_floor": {
+      "reference_experiments": 0,
+      "natural_count": 37,
+      "flag_count": 4,
+      "natural_experiments": [
+        "Hs-01",
+        "Hs-02",
+        "Hs-03",
+        "Hs-04",
+        "Hs-05",
+        "Hs-06",
+        "Hs-07",
+        "Hs-08",
+        "Hs-09",
+        "Hs-10",
+        "Hs-11",
+        "Hs-12",
+        "Hs-13",
+        "Hs-14",
+        "Hs-15",
+        "Hs-16",
+        "Hs-17b",
+        "Hs-17c",
+        "Hs-17d",
+        "Hs-17",
+        "Hs-18",
+        "Hs-19",
+        "Hs-20",
+        "PAIR-1A",
+        "PAIR-1B",
+        "PAIR-2A",
+        "PAIR-2B",
+        "PAIR-3A",
+        "PAIR-3B",
+        "PAIR-4A",
+        "PAIR-4B",
+        "PAIR-5B",
+        "PAIR-6A",
+        "PAIR-7A",
+        "PAIR-7B",
+        "Hs-23-U238",
+        "Hs-23-Combined"
+      ],
+      "flag_experiments": [
+        "Hs-17a",
+        "Hs-17",
+        "Hs-23-Th232",
+        "Hs-23-U235"
+      ],
+      "natural_rate": 90.2
+    },
+    "mode_predictability": {
+      "n_experiments": 41,
+      "n_correct": 41,
+      "accuracy_pct": 100.0,
+      "mismatches": [],
+      "status": "DERIVABLE"
+    },
+    "mode_coherence": {
+      "n_archetypes": 20,
+      "n_cross_domain": 6,
+      "archetypes": [
+        {
+          "signature": [
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 6,
+          "n_domains": 4,
+          "domains": [
+            "ASTROPHYSICS",
+            "COMMODITIES",
+            "GRAVITY",
+            "NUCLEAR"
+          ],
+          "experiments": [
+            "Hs-01",
+            "Hs-09",
+            "PAIR-4B",
+            "PAIR-6A",
+            "Hs-23-Th232",
+            "Hs-23-U235"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-CPL-DIS",
+            "SM-DMR-DIS",
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 5,
+          "n_domains": 4,
+          "domains": [
+            "ENERGY",
+            "GEOCHEMISTRY",
+            "MATTER",
+            "NUCLEAR"
+          ],
+          "experiments": [
+            "Hs-03",
+            "Hs-05",
+            "Hs-11",
+            "PAIR-1A",
+            "PAIR-3A"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-RTR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 3,
+          "n_domains": 2,
+          "domains": [
+            "ENGINEERING",
+            "QCD"
+          ],
+          "experiments": [
+            "Hs-07",
+            "Hs-17b",
+            "PAIR-7B"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS",
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 3,
+          "n_domains": 3,
+          "domains": [
+            "ENGINEERING",
+            "NUCLEAR",
+            "PARTICLE"
+          ],
+          "experiments": [
+            "Hs-08",
+            "Hs-17d",
+            "Hs-23-U238"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 3,
+          "n_domains": 2,
+          "domains": [
+            "SIGNAL THEORY",
+            "URBAN"
+          ],
+          "experiments": [
+            "Hs-14",
+            "Hs-18",
+            "Hs-19"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-DGN-WRN",
+            "SM-RTR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 2,
+          "n_domains": 1,
+          "domains": [
+            "GRAVITY"
+          ],
+          "experiments": [
+            "Hs-10",
+            "PAIR-4A"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 2,
+          "n_domains": 1,
+          "domains": [
+            "FORCE"
+          ],
+          "experiments": [
+            "Hs-12",
+            "PAIR-2A"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DGN-WRN",
+            "SM-SCG-INF"
+          ],
+          "n_experiments": 2,
+          "n_domains": 1,
+          "domains": [
+            "MATTER"
+          ],
+          "experiments": [
+            "Hs-13",
+            "PAIR-3B"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS",
+            "SM-OVC-CAL",
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 2,
+          "n_domains": 1,
+          "domains": [
+            "MATERIALS"
+          ],
+          "experiments": [
+            "Hs-15",
+            "PAIR-5B"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS",
+            "SM-OVC-CAL",
+            "SM-SCG-INF"
+          ],
+          "n_experiments": 2,
+          "n_domains": 1,
+          "domains": [
+            "COSMOLOGY"
+          ],
+          "experiments": [
+            "Hs-16",
+            "PAIR-7A"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-DMR-DIS",
+            "SM-RTR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 2,
+          "n_domains": 2,
+          "domains": [
+            "AI SAFETY",
+            "NUCLEAR"
+          ],
+          "experiments": [
+            "Hs-20",
+            "Hs-23-Combined"
+          ],
+          "cross_domain": true
+        },
+        {
+          "signature": [
+            "SM-CPL-DIS",
+            "SM-DMR-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENERGY"
+          ],
+          "experiments": [
+            "Hs-02"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "(none)"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ACOUSTICS"
+          ],
+          "experiments": [
+            "Hs-04"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "NUCLEAR"
+          ],
+          "experiments": [
+            "Hs-06"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-DGN-WRN",
+            "SM-MCA-WRN"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENGINEERING"
+          ],
+          "experiments": [
+            "Hs-17a"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-CPL-DIS",
+            "SM-DMR-DIS",
+            "SM-RTR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENGINEERING"
+          ],
+          "experiments": [
+            "Hs-17c"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-CPL-DIS",
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENGINEERING"
+          ],
+          "experiments": [
+            "Hs-17"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-BPO-DIS",
+            "SM-CPL-DIS",
+            "SM-DGN-WRN",
+            "SM-MCA-WRN",
+            "SM-RTR-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENGINEERING"
+          ],
+          "experiments": [
+            "Hs-17"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DGN-WRN",
+            "SM-DMR-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "ENERGY"
+          ],
+          "experiments": [
+            "PAIR-1B"
+          ],
+          "cross_domain": false
+        },
+        {
+          "signature": [
+            "SM-DMR-DIS",
+            "SM-RTR-DIS",
+            "SM-TNT-DIS"
+          ],
+          "n_experiments": 1,
+          "n_domains": 1,
+          "domains": [
+            "FORCE"
+          ],
+          "experiments": [
+            "PAIR-2B"
+          ],
+          "cross_domain": false
+        }
+      ]
+    }
+  },
+  "verdicts": [
+    {
+      "metric": "Code coverage",
+      "value": "85.5%",
+      "status": "PASS"
+    },
+    {
+      "metric": "Impossibility check",
+      "value": "0 violations",
+      "status": "PASS"
+    },
+    {
+      "metric": "Mode predictability",
+      "value": "100.0%",
+      "status": "PASS"
+    },
+    {
+      "metric": "Dynamic range",
+      "value": "34-46 codes/exp",
+      "status": "PASS"
+    },
+    {
+      "metric": "Cross-domain coherence",
+      "value": "6 archetypes",
+      "status": "PASS"
+    },
+    {
+      "metric": "Mode coverage",
+      "value": "9/10",
+      "status": "PASS"
+    }
+  ],
+  "overall": "QUALIFIED"
+}

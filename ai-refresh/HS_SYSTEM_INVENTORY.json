@@ -23,11 +23,12 @@
       "systems": [
         "SEMF binding energy (Z=1-92)",
         "AME2020 mass table (500 nuclides)",
-        "DT fusion energy partition"
+        "DT fusion energy partition",
+        "Radionuclide decay chains (U-238, Th-232, U-235)"
       ],
       "data_type": "DERIVED",
       "scale": "~10⁻¹⁵ m (femtometer)",
-      "N_range": "92-500"
+      "N_range": "10-500"
     },
     "ACOUSTICS": {
       "systems": [
@@ -149,6 +150,15 @@
       "scale": "text/conversational",
       "N_range": "18"
     }
+  },
+  "summary": {
+    "domains": 17,
+    "systems": 29,
+    "experiments": "Hs-01 through Hs-23",
+    "total_DUTs": 44,
+    "diagnostic_codes": 69,
+    "structural_modes": 10,
+    "instrument_metrology": "QUALIFIED"
   },
   "reference_standards": {
     "MATH_FUNCTIONS": [

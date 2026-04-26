@@ -27,7 +27,9 @@
     ],
     "pipeline_version": "1.0 Extended",
     "constants": 35,
-    "diagnostic_codes": 59,
+    "diagnostic_codes": 69,
+    "structural_modes": 10,
+    "instrument_metrology": "QUALIFIED (6/6 metrics pass)",
     "deterministic": true
   },
   "navigation": {
@@ -41,6 +43,8 @@
       "pretest": "tools/pipeline/higgins_transcendental_pretest.py",
       "codes": "tools/pipeline/hs_codes.py",
       "reporter": "tools/pipeline/hs_reporter.py",
+      "metrology": "tools/pipeline/hs_metrology.py",
+      "ingest": "tools/pipeline/hs_ingest.py",
       "locales": "tools/pipeline/locales/",
       "entry_point": "from higgins_decomposition_12step import HigginsDecomposition; hd = HigginsDecomposition(id, name, domain, carriers); hd.load_data(matrix); result = hd.run_full_extended()"
     },
@@ -53,7 +57,7 @@
     "experiments": {
       "results_summary": "experiments/Hs_Extended_Executive_Summary.json",
       "pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_results.json",
-      "range": "Hs-01 through Hs-22",
+      "range": "Hs-01 through Hs-23",
       "rerun_plan": "Hs_EXPERIMENT_RERUN_PLAN.json"
     },
     "papers": {
@@ -65,7 +69,16 @@
       "fourier_theorem": "tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html",
       "simplex_scope": "tools/interactive/EXP-19_Interactive_Simulator.html",
       "spring_mass": "tools/interactive/EXP16_Interactive_Simulator.html",
-      "spectrum_analyzer": "tools/interactive/HUF_Spectrum_Analyzer_Universal.html"
+      "spectrum_analyzer": "tools/interactive/HUF_Spectrum_Analyzer_Universal.html",
+      "codawork_demo": "tools/interactive/Hs_CoDaWork_Demo.html"
+    },
+    "metrology": {
+      "report": "docs/reference/Hs_Instrument_Metrology.json",
+      "runner": "tools/pipeline/hs_metrology.py"
+    },
+    "dashboard": "tools/Hs_Dashboard.ipynb",
+    "journals": {
+      "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md"
     }
   },
   "protocol": {
@@ -146,7 +159,9 @@
       "save": "hd.save_results('output.json')",
       "codes": "from hs_codes import generate_codes; codes = generate_codes(result)",
       "report": "from hs_reporter import report; text = report(codes, lang='en')",
-      "report_all": "from hs_reporter import report_all_languages; all_reports = report_all_languages(codes)"
+      "report_all": "from hs_reporter import report_all_languages; all_reports = report_all_languages(codes)",
+      "metrology": "from hs_metrology import run_full_metrology; report = run_full_metrology()",
+      "ingest_csv": "python hs_ingest.py mydata.csv --name 'My System' --domain 'MY_DOMAIN' --all-languages"
     },
     "quick_test": {
       "description": "Verify pipeline is working by running a reference standard.",

@@ -235,7 +235,7 @@ Here are our weakest points. Can CoDa help?"
 ### Slide 2: What Hˢ is (2 min)
 12-step pipeline. Simplex closure → CLR → Aitchison variance → HVLD →
 transcendental squeeze → EITT → geometry. Deterministic. 4 guards.
-35 constants. 59 diagnostic codes. 5 languages.
+35 constants. 69 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
 
 ### Slide 3: The strongest claim (1 min)
 δ = 5.87 × 10⁻⁶ in nuclear SEMF. 15/15 NATURAL across 12 domains.

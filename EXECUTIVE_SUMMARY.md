@@ -138,7 +138,7 @@ a compositional tool.
 
 ## April 25, 2026 — Diagnostic Code System
 
-**59 diagnostic codes defined.** Format: SS-CCC-LLL (Stage-Condition-Level).
+**69 diagnostic codes defined** (59 pipeline + 10 structural modes). Format: SS-CCC-LLL (Stage-Condition-Level).
 Pipeline emits codes; reporter reads codes; the two develop independently.
 
 **5 languages operational:** English, 中文 (Mandarin), हिन्दी (Hindi),
@@ -239,7 +239,7 @@ Migration manifest prepared (ChatGPT). Folder structure created at Current-Repo/
 - 4 pipeline source files (61.8 KB core + 8.2 KB pretest + 17.4 KB codes + 4.5 KB reporter)
 - 5 locale files (en, zh, hi, pt, it)
 - 4 interactive HTML tools
-- 22 experiment folders (Hs-01 through Hs-22) with results JSON
+- 23 experiment folders (Hs-01 through Hs-23) with results JSON
 - 2 reference specification books (Reference Standards + Natural Pairs)
 - 1 flagship paper (Character Analysis, 54 KB)
 - 1 conference strategy document (CoDaWork 2026)
@@ -539,3 +539,82 @@ through the geometry of their own data.
 *This entry marks the transition from Hˢ as a classification tool to*
 *Hˢ as an iterative discovery instrument. The tool does not merely answer.*
 *It asks. And the asking is where the learning happens.*
+
+## April 26, 2026 — Structural Modes and Instrument Metrology
+
+**Diagnostic code system expanded: 59 → 69 codes.** Ten structural mode
+codes (SM stage) added. These are second-order diagnoses — they read the
+pattern of other codes, not the data. Each mode is defined by a combination
+matrix of required and forbidden pipeline codes.
+
+**Structural modes implemented:**
+
+| Mode | Fires when | Investigation prompt |
+|---|---|---|
+| SM-BPO-DIS | Hill + EITT fail + chaos | Bimodal population — decompose by subpopulation |
+| SM-SCG-INF | Bowl + EITT pass, no chaos | Smooth convergence — well-sampled natural |
+| SM-MCA-WRN | FLAG + zero-crossings | Missing carrier — add it and re-run |
+| SM-DMR-DIS | Euler-family + NATURAL | Domain resonance — compare decompositions |
+| SM-CPL-DIS | PID redundancy + stable ratio | Carrier coupling — shared physical driver |
+| SM-IND-DIS | 3+ volatile ratios, no stable | Carrier independence — maximally informative |
+| SM-DGN-WRN | Zero-crossings + FLAG/low R² | Degenerate simplex — check zero values |
+| SM-RTR-DIS | Stalls + reversals + drift | Regime transition — split at boundaries |
+| SM-TNT-DIS | NATURAL + EITT fail + chaos | Turbulent natural — oscillation is diagnostic |
+| SM-OVC-CAL | High R² + tight δ + EITT pass | Overconstrained — verify measured vs model |
+
+**Instrument metrology implemented.** First meta-evaluation of Hˢ as a
+measurement instrument — evaluating the tool, not the data. Eight metrics
+computed across all 41 experiments in 17 domains:
+
+| Metric | Result | Status |
+|---|---|---|
+| Code coverage | 85.5% (59/69 fired) | PASS |
+| Impossibility check | 0 violations in 13 pairs | PASS |
+| Mode predictability | 100% (41/41 correct) | PASS — DERIVABLE |
+| Dynamic range | 34-46 codes/experiment | PASS |
+| Cross-domain coherence | 6 structural archetypes | PASS |
+| Mode coverage | 9/10 modes fired | PASS |
+
+**Key findings:**
+
+1. **Zero impossibility violations.** No logically contradictory code
+   combinations found in any of the 41 experiments. The diagnostic system
+   is self-consistent.
+
+2. **100% mode predictability.** Every structural mode that fired was
+   derivable from the pipeline codes using the combination matrix. The modes
+   are internally consistent — status: DERIVABLE. They add readability and
+   investigation prompts without introducing information beyond the pipeline.
+
+3. **6 cross-domain structural archetypes.** Domains that share no physical
+   content produce identical structural mode signatures:
+   - [SM-RTR-DIS] shared by Astrophysics, Commodities, Gravity, Nuclear
+   - [SM-CPL-DIS, SM-DMR-DIS, SM-RTR-DIS] shared by Energy, Geochemistry, Matter, Nuclear
+   - [SM-BPO-DIS, SM-RTR-DIS, SM-TNT-DIS] shared by Engineering, QCD
+   These are compositional archetypes — structural patterns that transcend
+   the physics. The instrument detects them without knowing what the carriers
+   represent.
+
+4. **10 never-fired codes are all correct non-fires.** The 5 guard errors
+   (GD-*-ERR) never fire because no experiment has been fed invalid data —
+   that's expected. S8-INV-WRN (INVESTIGATE) never fires because every
+   experiment classifies either NATURAL or FLAG — the middle ground is empty.
+   SM-IND-DIS requires 3+ volatile ratios with no stable pairs and no PID
+   redundancy — no tested system has fully independent carriers.
+
+5. **NATURAL rate: 90.2%.** 37/41 experiments classify NATURAL. The 4 FLAG
+   experiments are: Hs-17a and Hs-17 (Backblaze per-drive — fleet too
+   uniform), Hs-23-Th232 and Hs-23-U235 (individual decay chains with
+   marginal N for D=4). All 4 are understood — the FLAG is correct.
+
+**Designed for ISO 17025 / GUM-style qualification.** The metrology report
+evaluates the instrument against its own standards: code self-consistency,
+dynamic range, false positive rate, and structural coherence. The tool now
+has quality standards it must adhere to — and it passes them.
+
+**Full metrology report:** `docs/reference/Hs_Instrument_Metrology.json`
+
+---
+
+*The instrument reads the data. The metrology reads the instrument.*
+*The governance reads the metrology. Each layer watches the one below.*

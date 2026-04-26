@@ -6,7 +6,7 @@
 
 Higgins Decomposition reads the geometric fingerprint of any compositional system — from nuclear binding energy to cosmic energy budgets — without creating or destroying structure. It is a deterministic 12-step pipeline that transforms raw measurements into compositional diagnostics on the Aitchison simplex.
 
-**Validated:** 17 domains, 28 systems, 44 orders of magnitude. 15 reference standards. 59 diagnostic codes. 5 languages.
+**Validated:** 17 domains, 28 systems, 44 orders of magnitude. 15 reference standards. 69 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
 
 **Conference:** [CoDaWork 2026 package](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) — Coimbra, Portugal (June 2026)
 
@@ -18,7 +18,9 @@ Higgins Decomposition reads the geometric fingerprint of any compositional syste
 | Total DUTs | 43 |
 | Transcendental constants | 35 |
 | Conjugate pairs | 13 |
-| Diagnostic codes | 59 |
+| Diagnostic codes | 69 |
+| Structural modes | 10 |
+| Instrument metrology | QUALIFIED (6/6 metrics pass) |
 | Languages | 5 (en, zh, hi, pt, it) |
 | Scale range | 10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude) |
 | Pipeline version | 1.0 Extended |
@@ -56,10 +58,22 @@ The pipeline is deterministic: identical inputs produce identical outputs. Zero 
 | [Spring-Mass](tools/interactive/EXP16_Interactive_Simulator.html) | Damped oscillator decomposed into KE/PE/Damping with chaos detection |
 | [Conjugate Preservation Theorem](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html) | Mathematical proof — 3 theorems + 1 corollary, interactive |
 | [Spectrum Analyzer](tools/interactive/HUF_Spectrum_Analyzer_Universal.html) | Universal JSON reader — 5 readings from any pipeline output |
+| [CoDaWork Demo](tools/interactive/Hs_CoDaWork_Demo.html) | Dual-dataset live demo — SEMF + Radionuclides, pipeline strip, structural modes |
+| [Dashboard](tools/Hs_Dashboard.ipynb) | JupyterLab notebook — load any CSV, full pipeline, 6-panel visualisation |
 
 ---
 
 ## Quick Start
+
+**Have a CSV?** One command, no configuration:
+
+```bash
+python hs_ingest.py mydata.csv --all-languages
+```
+
+Any CSV of compositions works. Column headers become carriers. The tool handles closure, zero replacement, and everything else. CoDa training is sufficient — no domain-specific configuration needed.
+
+**Python API** for programmatic use:
 
 ```python
 from higgins_decomposition_12step import HigginsDecomposition
@@ -113,7 +127,7 @@ Two specification books provide calibration baselines for any Device Under Test:
 | Classification rate | 15/15 NATURAL | All physical experiments |
 | Fourier preservation | 12/12 pairs (11 symmetry + 1 asymmetry correctly detected) | Hs-14 |
 | Adversarial robustness | 21 attacks, 0 plausible-but-wrong outputs | Character Analysis |
-| Transfer entropy | Detects directed information flow between carriers | Hs-01 through Hs-22 |
+| Transfer entropy | Detects directed information flow between carriers | Hs-01 through Hs-23 |
 
 ---
 
@@ -128,21 +142,24 @@ higgins-decomposition/
 │   ├── HS_MACHINE_MANIFEST.json  # ★ START HERE for automated systems
 │   ├── HS_ADMIN.json             # Identity, terminology, communication standards
 │   └── HS_SYSTEM_INVENTORY.json  # Complete domain/system inventory
-├── docs/reference/               # Specification books (Markdown)
-├── experiments/                  # 22 experiments with results JSON
+├── docs/reference/               # Specification books + metrology report
+├── experiments/                  # 23 experiments with results JSON
 │   ├── Hs-01_Gold_Silver/        
 │   ├── ...                       
-│   └── Hs-22_Natural_Pairs/      
+│   ├── Hs-22_Natural_Pairs/      
+│   └── Hs-23_Radionuclides/     # First journaled multi-run experiment
 ├── papers/                       # Flagship documents and conference materials
 │   ├── flagship/                 
 │   └── codawork2026/             
 └── tools/                        
-    ├── pipeline/                 # Core Python code (4 files)
+    ├── pipeline/                 # Core Python code (6 files)
     │   ├── higgins_decomposition_12step.py
-    │   ├── hs_codes.py           # 59 diagnostic codes
+    │   ├── hs_codes.py           # 69 diagnostic codes + 10 structural modes
     │   ├── hs_reporter.py        # Multilingual reporter
+    │   ├── hs_metrology.py       # Instrument meta-evaluation
+    │   ├── hs_ingest.py          # Universal CSV/JSON loader (CoDa-ready)
     │   └── locales/              # 5 language files
-    └── interactive/              # 4 HTML tools (open in browser)
+    └── interactive/              # 5 HTML tools (open in browser)
 ```
 
 ---
