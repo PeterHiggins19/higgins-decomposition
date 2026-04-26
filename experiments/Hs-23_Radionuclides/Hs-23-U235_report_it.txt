@@ -12,11 +12,12 @@ RAPPORTO DIAGNOSTICO Hˢ
   Timestamp:   2026-04-26T04:43:04.023905Z
 
 
-Codici totali: 36
+Codici totali: 37
   Errori:       0
   Avvisi:     2
   Scoperte: 11
   Segnali di calibrazione: 1
+  Modi strutturali:  1
   Informazioni:  22
 
 ── AVVISI ──
@@ -37,7 +38,10 @@ Codici totali: 36
   [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=388.557450)
 
 ── SEGNALI DI CALIBRAZIONE ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
 
 Esecuzione della pipeline completata con successo.
 La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

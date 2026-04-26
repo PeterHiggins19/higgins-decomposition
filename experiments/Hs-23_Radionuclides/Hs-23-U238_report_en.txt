@@ -12,11 +12,12 @@ Hˢ DIAGNOSTIC REPORT
   Timestamp:   2026-04-26T04:43:04.100692Z
 
 
-Total codes: 37
+Total codes: 39
   Errors:       0
   Warnings:     1
   Discoveries: 11
   Calibration signals: 1
+  Structural modes:  2
   Information:  24
 
 ── WARNINGS ──
@@ -36,7 +37,11 @@ Total codes: 37
   [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Recoil/Neutrino), cv=768.666592)
 
 ── CALIBRATION SIGNALS ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
 
 Pipeline run completed successfully.
 Pipeline is deterministic. Repeated runs produce identical results.

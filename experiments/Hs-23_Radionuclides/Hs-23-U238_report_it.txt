@@ -12,11 +12,12 @@ RAPPORTO DIAGNOSTICO Hˢ
   Timestamp:   2026-04-26T04:43:04.100692Z
 
 
-Codici totali: 37
+Codici totali: 39
   Errori:       0
   Avvisi:     1
   Scoperte: 11
   Segnali di calibrazione: 1
+  Modi strutturali:  2
   Informazioni:  24
 
 ── AVVISI ──
@@ -36,7 +37,11 @@ Codici totali: 37
   [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=768.666592)
 
 ── SEGNALI DI CALIBRAZIONE ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+  [SM-DMR-DIS] Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.
 
 Esecuzione della pipeline completata con successo.
 La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

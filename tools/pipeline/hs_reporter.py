@@ -97,17 +97,22 @@ def report(codes, lang="en", result=None):
             lines.append(f"  Timestamp:   {timestamp}")
         lines.append("")
 
-    errors = [c for c in codes if c['code'].endswith('-ERR')]
-    warnings = [c for c in codes if c['code'].endswith('-WRN')]
-    discoveries = [c for c in codes if c['code'].endswith('-DIS')]
-    calibrations = [c for c in codes if c['code'].endswith('-CAL')]
-    infos = [c for c in codes if c['code'].endswith('-INF')]
+    # Separate structural modes from other codes
+    structural = [c for c in codes if c['code'].startswith('SM-')]
+    non_structural = [c for c in codes if not c['code'].startswith('SM-')]
+
+    errors = [c for c in non_structural if c['code'].endswith('-ERR')]
+    warnings = [c for c in non_structural if c['code'].endswith('-WRN')]
+    discoveries = [c for c in non_structural if c['code'].endswith('-DIS')]
+    calibrations = [c for c in non_structural if c['code'].endswith('-CAL')]
+    infos = [c for c in non_structural if c['code'].endswith('-INF')]
 
     lines.append(f"\n{t('_total')}: {len(codes)}")
     lines.append(f"  {t('_errors')}:       {len(errors)}")
     lines.append(f"  {t('_warnings')}:     {len(warnings)}")
     lines.append(f"  {t('_discoveries')}: {len(discoveries)}")
     lines.append(f"  {t('_calibrations')}: {len(calibrations)}")
+    lines.append(f"  {t('_structural')}:  {len(structural)}")
     lines.append(f"  {t('_information')}:  {len(infos)}")
 
     if errors:
@@ -143,6 +148,12 @@ def report(codes, lang="en", result=None):
     if calibrations:
         lines.append(f"\n── {t('_section_calibrations')} ──")
         for c in calibrations:
+            msg = t(c['code'])
+            lines.append(f"  [{c['code']}] {msg}")
+
+    if structural:
+        lines.append(f"\n── {t('_section_structural')} ──")
+        for c in structural:
             msg = t(c['code'])
             lines.append(f"  [{c['code']}] {msg}")
 

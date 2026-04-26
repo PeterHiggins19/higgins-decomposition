@@ -12,7 +12,7 @@ body { background: #0D1117; color: #E6EDF3; font-family: 'Segoe UI', Arial, sans
 .header .sub { font-size: 11px; color: #8B949E; }
 .header .step-display { font-size: 13px; color: #58A6FF; font-family: 'Consolas', monospace; font-weight: 700; }
 
-.main { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; height: calc(100vh - 48px - 44px - 110px); gap: 2px; background: #21262D; padding: 2px; }
+.main { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; height: calc(100vh - 48px - 28px - 44px - 110px); gap: 2px; background: #21262D; padding: 2px; }
 
 .info-bar { background: #161B22; border-top: 1px solid #30363D; padding: 8px 20px; height: 110px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; font-size: 11px; line-height: 1.6; }
 .info-col { color: #8B949E; }
@@ -37,6 +37,20 @@ canvas { width: 100%; height: 100%; }
 .dataset-badge { font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 700; letter-spacing: 0.5px; }
 .badge-semf { background: #1f3a5f; color: #58A6FF; }
 .badge-radio { background: #3b2f1e; color: #F0883E; }
+
+.pipeline-strip { background: #161B22; height: 28px; display: flex; align-items: center; padding: 0 20px; gap: 0; border-bottom: 1px solid #30363D; }
+.pipeline-strip .ps-label { font-size: 9px; color: #484F58; font-family: 'Consolas', monospace; margin-right: 8px; white-space: nowrap; }
+.pipeline-strip .ps-track { display: flex; align-items: center; flex: 1; gap: 2px; }
+.pipeline-strip .ps-step { display: flex; align-items: center; flex: 1; height: 18px; position: relative; }
+.pipeline-strip .ps-node { width: 18px; height: 18px; border-radius: 3px; background: #21262D; border: 1px solid #30363D; display: flex; align-items: center; justify-content: center; font-size: 7px; font-family: 'Consolas', monospace; color: #484F58; transition: all 0.3s ease; flex-shrink: 0; z-index: 2; }
+.pipeline-strip .ps-node.active { background: #1a3a1a; border-color: #3FB950; color: #3FB950; box-shadow: 0 0 6px rgba(63,185,80,0.3); }
+.pipeline-strip .ps-node.current { background: #1a2a4a; border-color: #58A6FF; color: #58A6FF; box-shadow: 0 0 8px rgba(88,166,255,0.4); animation: pulse-node 0.8s ease-in-out infinite; }
+.pipeline-strip .ps-node.sm { border-color: #FFD700; color: #484F58; }
+.pipeline-strip .ps-node.sm.active { background: #2a2510; border-color: #FFD700; color: #FFD700; box-shadow: 0 0 8px rgba(255,215,0,0.4); }
+.pipeline-strip .ps-wire { flex: 1; height: 2px; background: #30363D; min-width: 4px; transition: background 0.3s; }
+.pipeline-strip .ps-wire.lit { background: #3FB950; box-shadow: 0 0 4px rgba(63,185,80,0.2); }
+.pipeline-strip .ps-tip { font-size: 8px; color: #58A6FF; font-family: 'Consolas', monospace; margin-left: 8px; white-space: nowrap; min-width: 100px; text-align: right; }
+@keyframes pulse-node { 0%,100% { box-shadow: 0 0 6px rgba(88,166,255,0.3); } 50% { box-shadow: 0 0 12px rgba(88,166,255,0.6); } }
 </style>
 </head>
 <body>
@@ -50,6 +64,12 @@ canvas { width: 100%; height: 100%; }
     <span class="dataset-badge" id="datasetBadge">SEMF</span>
     <div class="step-display" id="stepDisplay">Initialising...</div>
   </div>
+</div>
+
+<div class="pipeline-strip">
+  <span class="ps-label">PIPELINE</span>
+  <div class="ps-track" id="pipelineTrack"></div>
+  <span class="ps-tip" id="pipelineTip"></span>
 </div>
 
 <div class="main">
@@ -79,7 +99,7 @@ canvas { width: 100%; height: 100%; }
     <canvas id="c5"></canvas>
   </div>
   <div class="panel" id="p6">
-    <div class="panel-title">Diagnostic Codes</div>
+    <div class="panel-title">Diagnostic Codes + Structural Modes</div>
     <div class="code-flash" id="code6"></div>
     <canvas id="c6"></canvas>
   </div>
@@ -149,13 +169,18 @@ const SEMF_CONFIG = {
   classification: 'NATURAL',
   eittPass: true,
   badgeClass: 'badge-semf',
+  structuralModes: [
+    {code:'SM-DMR-DIS', text:'Domain resonance — Euler geometry encodes deep structure', color:GOLD},
+    {code:'SM-SCG-INF', text:'Smooth convergence — single population, equilibrium', color:GREEN},
+    {code:'SM-OVC-CAL', text:'Overconstrained — verify measured data vs model', color:BLUE},
+  ],
   info: [
     {title:'What is being decomposed',
      html:'<span class="val">Semi-Empirical Mass Formula (SEMF)</span> — the Weizsäcker model of nuclear binding energy. Each of 92 natural elements (Z=1 → Z=92) is decomposed into three carriers:<br><span class="euler">Volume</span> (bulk nuclear matter) • <span style="color:#39D2C0">Surf+Coulomb</span> (boundary + electrostatic) • <span style="color:#F0883E">Sym+Pairing</span> (neutron-proton balance)'},
     {title:'What the instrument reads',
      html:'The cumulative <span class="val">Aitchison variance σ²_A</span> tracks how compositional dispersion evolves as elements are added. At <span class="euler">Z=38 (strontium)</span>, the trajectory passes through <span class="euler">1/(π^e) = 0.04453</span> with <span class="highlight">δ = 5.87 × 10⁻⁶</span> — six millionths. The binding energy encodes Gelfond\'s conjugate to six decimal places.'},
     {title:'About this tool',
-     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 59 diagnostic codes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
+     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 69 diagnostic codes • 10 structural modes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
   ]
 };
 
@@ -233,13 +258,19 @@ const RADIO_CONFIG = {
   eittPass: false,
   eittNote: 'FAIL (nuclear turbulence)',
   badgeClass: 'badge-radio',
+  structuralModes: [
+    {code:'SM-BPO-DIS', text:'Bimodal population — decompose by subpopulation (α vs β)', color:ORANGE},
+    {code:'SM-TNT-DIS', text:'Turbulent natural — oscillation pattern is diagnostic', color:GREEN},
+    {code:'SM-RTR-DIS', text:'Regime transition — stall points mark chain boundaries', color:CYAN},
+    {code:'SM-DMR-DIS', text:'Domain resonance — compare decompositions in domain', color:GOLD},
+  ],
   info: [
     {title:'What is being decomposed',
      html:'<span class="val">Three natural radioactive decay chains</span> — U-238→Pb-206 (14 steps), Th-232→Pb-208 (10 steps), U-235→Pb-207 (15 steps with all branches). Each decay step partitions its Q-value into four carriers:<br><span style="color:#58A6FF">Particle KE</span> (α/β) • <span style="color:#3FB950">Gamma</span> (radiation) • <span style="color:#F0883E">Recoil</span> (daughter nucleus) • <span style="color:#BC8CFF">Neutrino</span> (β decays only)'},
     {title:'Iterative discovery',
      html:'<span class="val">Run 1</span> used 3 carriers (no neutrino) → U-235 flagged <span style="color:#F85149">FLAG</span> + <span style="color:#F85149">EITT FAIL</span>. The warnings were diagnostic <em>questions</em>: what energy channel is missing? <span class="val">Run 2</span> added the neutrino carrier + branch transitions → combined chain now detects <span class="euler">1/(e^π)</span> at <span class="highlight">δ = 0.00778</span>. Gelfond\'s constant reciprocal. The tool asks. The expert answers. New structure appears.'},
     {title:'About this tool',
-     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 59 diagnostic codes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
+     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 69 diagnostic codes • 10 structural modes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
   ]
 };
 
@@ -273,6 +304,85 @@ const STEPS = [
   '11. Complex plane', '12. 3D Helix/Polar'
 ];
 
+const STEP_SHORTS = ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'];
+const STEP_TIPS = [
+  'Define','Carriers','Load','Close','CLR','σ²_A',
+  'HVLD','Squeeze','EITT','Ternary','Complex','Helix'
+];
+
+function buildPipelineStrip() {
+  const track = document.getElementById('pipelineTrack');
+  track.innerHTML = '';
+  for (let i = 0; i < 12; i++) {
+    // Node
+    const node = document.createElement('div');
+    node.className = 'ps-node';
+    node.id = `ps-n${i}`;
+    node.textContent = STEP_SHORTS[i];
+    track.appendChild(node);
+    // Wire (except after last step and before SM)
+    if (i < 11) {
+      const wire = document.createElement('div');
+      wire.className = 'ps-wire';
+      wire.id = `ps-w${i}`;
+      track.appendChild(wire);
+    }
+  }
+  // Final wire to SM node
+  const wireSM = document.createElement('div');
+  wireSM.className = 'ps-wire';
+  wireSM.id = 'ps-w11';
+  track.appendChild(wireSM);
+  // SM node
+  const smNode = document.createElement('div');
+  smNode.className = 'ps-node sm';
+  smNode.id = 'ps-sm';
+  smNode.textContent = 'SM';
+  smNode.title = 'Structural Modes';
+  track.appendChild(smNode);
+}
+
+function updatePipelineStrip(stepIdx, progress) {
+  for (let i = 0; i < 12; i++) {
+    const node = document.getElementById(`ps-n${i}`);
+    if (!node) continue;
+    if (i < stepIdx) {
+      node.className = 'ps-node active';
+    } else if (i === stepIdx) {
+      node.className = 'ps-node current';
+    } else {
+      node.className = 'ps-node';
+    }
+  }
+  // Wires
+  for (let i = 0; i < 12; i++) {
+    const wire = document.getElementById(`ps-w${i}`);
+    if (wire) {
+      wire.className = i < stepIdx ? 'ps-wire lit' : 'ps-wire';
+    }
+  }
+  // SM node lights up when structural modes appear (>70% progress)
+  const smNode = document.getElementById('ps-sm');
+  if (smNode) {
+    if (progress > 0.95) {
+      smNode.className = 'ps-node sm active';
+    } else {
+      smNode.className = 'ps-node sm';
+    }
+  }
+  // Tip text
+  const tip = document.getElementById('pipelineTip');
+  if (tip) {
+    if (progress > 0.95) {
+      tip.textContent = 'SM: Structural Modes';
+      tip.style.color = '#FFD700';
+    } else {
+      tip.textContent = STEP_TIPS[stepIdx];
+      tip.style.color = '#58A6FF';
+    }
+  }
+}
+
 function loadDataset(idx) {
   CFG = DATASETS[idx];
   DATA = CFG.data;
@@ -293,6 +403,9 @@ function loadDataset(idx) {
   bar.innerHTML = CFG.info.map(c =>
     `<div class="info-col"><h3>${c.title}</h3>${c.html}</div>`
   ).join('');
+
+  // Build pipeline assembly line
+  buildPipelineStrip();
 }
 
 // CLR transform (works for any D)
@@ -366,29 +479,35 @@ function animate() {
     entropy.push(shannonH(DATA[currentIdx]));
   }
 
-  // Step display
+  // Step display + pipeline strip
   const stepIdx = Math.min(Math.floor(currentIdx / N_pts * 12), 11);
   const label = currentIdx < N_pts ? CFG.labels[currentIdx] : CFG.labels[N_pts-1];
   document.getElementById('stepDisplay').textContent =
     `Step ${stepIdx+1}/12: ${STEPS[stepIdx]} — ${label}`;
+  updatePipelineStrip(stepIdx, currentIdx / N_pts);
 
   // Progress
   document.getElementById('progressBar').style.width = `${(currentIdx/N_pts*100).toFixed(0)}%`;
 
-  // Code stream
+  // Code stream — shows pipeline progress, then structural mode prompts at end
   const progress = currentIdx / N_pts;
   let streamText;
-  if (CFG.name === 'SEMF') {
+  const modes = CFG.structuralModes || [];
+  if (progress > 0.9 && modes.length > 0) {
+    // Cycle through structural mode investigation prompts
+    const modeIdx = Math.floor((progress - 0.9) / 0.1 * modes.length * 3) % modes.length;
+    const m = modes[modeIdx];
+    streamText = `[${m.code}] ▸ ${m.text}`;
+  } else if (CFG.name === 'SEMF') {
     streamText = currentIdx >= 37 ?
       `[S8-EUL-DIS] ★ ${CFG.matchConst} δ=${CFG.matchDelta} at ${CFG.matchLabel}` :
       `Processing ${label}...`;
   } else {
-    // Radionuclide: show chain transitions
     const chain = currentIdx < N_pts ? RADIO_RAW[currentIdx].chain : '';
     const chainName = chain.startsWith('U238') ? 'U-238→Pb-206' :
                       chain.startsWith('Th232') ? 'Th-232→Pb-208' :
                       chain.startsWith('U235') ? 'U-235→Pb-207' : '';
-    if (progress > 0.85) {
+    if (progress > 0.7) {
       streamText = `[S8-EUL-DIS] ★ ${CFG.matchConst} δ=${CFG.matchDelta} — ${CFG.matchLabel}`;
     } else {
       streamText = `[${chainName}] ${label}`;
@@ -782,14 +901,15 @@ function drawPanel5(t) {
   }
 }
 
-// ──────────────── PANEL 6: Diagnostic Codes ────────────────
+// ──────────────── PANEL 6: Diagnostic Codes + Structural Modes ────────────────
 function drawPanel6(t) {
   const {ctx, w, h} = panels[5];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-  const lineH = 16, padT = 28, padL = 10;
+  const lineH = 15, padT = 26, padL = 10;
   const progress = t / N_pts;
   const activeCodes = [];
 
+  // Pipeline codes (appear progressively)
   if (progress > 0) activeCodes.push({code:'GD-ALL-INF', text:'All guards passed', color:GREEN});
   if (progress > 0.02) activeCodes.push({code:'S4-CLO-INF', text:'Closure: Σ=1.000 ✓', color:GREEN});
   if (progress > 0.05) activeCodes.push({code:'S5-CLR-INF', text:'CLR transform complete', color:GREEN});
@@ -798,70 +918,103 @@ function drawPanel6(t) {
     const shapeCode = CFG.hvldShape === 'bowl' ? 'S7-BWL-INF' : 'S7-HIL-INF';
     activeCodes.push({code:shapeCode, text:`HVLD: ${CFG.hvldShape} R²=${CFG.hvldR2}`, color:BLUE});
   }
-  if (progress > 0.4) {
+  if (progress > 0.35) {
     activeCodes.push({code:'S8-NAT-INF', text:`Classification: ${CFG.classification}`, color:GREEN});
     activeCodes.push({code:'S8-EUL-DIS', text:`★ ${DISCOVERIES[LANGS[langIdx]]}`, color:GOLD});
     activeCodes.push({code:'S8-TGT-DIS', text:`${CFG.matchConst} δ=${CFG.matchDelta}`, color:GOLD});
   }
-  if (progress > 0.5) {
+  if (progress > 0.45) {
     if (CFG.eittPass) {
       activeCodes.push({code:'S9-EIT-INF', text:'EITT: PASS (<5% variation)', color:GREEN});
     } else {
       activeCodes.push({code:'S9-EIF-WRN', text:'EITT: FAIL — compositional turbulence', color:ORANGE});
-      activeCodes.push({code:'S9-CHH-DIS', text:`High chaos: ${Math.floor(progress*N_pts)} turbulence events`, color:ORANGE});
+    }
+  }
+  if (progress > 0.5) {
+    if (CFG.name === 'SEMF') {
+      activeCodes.push({code:'XU-PCD-DIS', text:'Dominant: Sym+Pairing (45%)', color:CYAN});
+      activeCodes.push({code:'XC-TEF-DIS', text:'TE: Surf+Coul → Sym+Pair', color:PURPLE});
+    } else {
+      activeCodes.push({code:'S9-CHH-DIS', text:`Turbulence: ${Math.floor(progress*38)} events`, color:ORANGE});
+      activeCodes.push({code:'XC-ZCR-DIS', text:'Zero-crossings: Neutrino near boundary', color:PURPLE});
     }
   }
   if (progress > 0.6) {
     if (CFG.name === 'SEMF') {
-      activeCodes.push({code:'S9-REV-DIS', text:`Reversals: ${Math.floor(progress*87)}`, color:ORANGE});
-    } else {
-      activeCodes.push({code:'S9-REV-DIS', text:`Reversals: ${Math.floor(progress*32)}`, color:ORANGE});
-    }
-  }
-  if (progress > 0.7) {
-    if (CFG.name === 'SEMF') {
-      activeCodes.push({code:'XU-PCD-DIS', text:'Dominant: Sym+Pairing (45%)', color:CYAN});
-    } else {
-      activeCodes.push({code:'XU-DRD-DIS', text:'Drift decreasing — system converging', color:CYAN});
-      activeCodes.push({code:'XC-ZCR-DIS', text:'Zero-crossings: Neutrino near boundary', color:PURPLE});
-    }
-  }
-  if (progress > 0.8) {
-    if (CFG.name === 'SEMF') {
-      activeCodes.push({code:'XC-TEF-DIS', text:'TE: Surf+Coul → Sym+Pair', color:PURPLE});
-    } else {
-      activeCodes.push({code:'XC-RPV-DIS', text:'Volatile: ln(Recoil/Neutrino) CV=507%', color:RED});
-      activeCodes.push({code:'XC-PIR-DIS', text:'PID: carriers share redundant info', color:PURPLE});
-    }
-  }
-  if (progress > 0.9) {
-    if (CFG.name === 'SEMF') {
       activeCodes.push({code:'XC-RPS-DIS', text:'Stable: ln(Vol/Sym+Pair) CV=6.6%', color:CYAN});
     } else {
-      activeCodes.push({code:'XU-MDS-CAL', text:'Match density calibration signal', color:BLUE});
+      activeCodes.push({code:'XC-RPV-DIS', text:'Volatile: ln(Recoil/Neutrino) CV=507%', color:RED});
     }
   }
-  if (progress > 0.95) activeCodes.push({code:'RP-CMP-INF', text:'Pipeline complete ✓', color:GREEN});
 
-  for (let i = 0; i < activeCodes.length && i < Math.floor((h-padT)/lineH); i++) {
+  // Draw pipeline codes
+  const maxPipelineCodes = Math.min(activeCodes.length, Math.floor((h - padT - 80) / lineH));
+  for (let i = 0; i < maxPipelineCodes; i++) {
     const c = activeCodes[i];
     const y = padT + i * lineH;
-    const fadeProgress = Math.min(1, (progress * 14 - i) * 2);
+    const fadeProgress = Math.min(1, (progress * 12 - i) * 2);
     ctx.globalAlpha = Math.max(0.3, fadeProgress);
 
     ctx.fillStyle = DIM; ctx.font = '9px Consolas'; ctx.textAlign = 'left';
     ctx.fillText(`[${c.code}]`, padL, y);
     ctx.fillStyle = c.color; ctx.font = '10px Segoe UI';
-    ctx.fillText(c.text, padL + 90, y);
+    ctx.fillText(c.text, padL + 85, y);
     ctx.globalAlpha = 1;
   }
 
+  // ── STRUCTURAL MODES section (appears at ~70% progress) ──
+  const smStart = padT + maxPipelineCodes * lineH;
+  const modes = CFG.structuralModes || [];
+
+  if (progress > 0.7 && modes.length > 0) {
+    // Separator line
+    const sepY = smStart + 4;
+    ctx.strokeStyle = '#FFD70080'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(padL, sepY); ctx.lineTo(w - padL, sepY); ctx.stroke();
+
+    // Section header
+    ctx.fillStyle = GOLD; ctx.font = 'bold 9px Consolas'; ctx.textAlign = 'left';
+    ctx.fillText('STRUCTURAL MODES — INVESTIGATE:', padL, sepY + 12);
+
+    // Modes appear one by one as progress increases
+    const modeProgress = (progress - 0.7) / 0.25; // 0→1 over 70%→95%
+    const visibleModes = Math.min(modes.length, Math.floor(modeProgress * (modes.length + 1)));
+
+    for (let i = 0; i < visibleModes; i++) {
+      const m = modes[i];
+      const y = sepY + 16 + i * (lineH + 1);
+      if (y > h - 22) break;
+
+      // Fade in
+      const modeFade = Math.min(1, (modeProgress * (modes.length + 1) - i) * 3);
+      ctx.globalAlpha = Math.max(0.2, modeFade);
+
+      // Code badge with background highlight
+      ctx.fillStyle = '#1c1c2e';
+      ctx.fillRect(padL - 2, y - 10, w - 2*padL + 4, lineH);
+
+      // Arrow indicator
+      ctx.fillStyle = m.color; ctx.font = 'bold 10px Consolas'; ctx.textAlign = 'left';
+      ctx.fillText('▸', padL, y);
+
+      // Code
+      ctx.fillStyle = '#8B949E'; ctx.font = '8px Consolas';
+      ctx.fillText(`[${m.code}]`, padL + 12, y);
+
+      // Investigation prompt
+      ctx.fillStyle = m.color; ctx.font = '10px Segoe UI';
+      ctx.fillText(m.text, padL + 90, y);
+
+      ctx.globalAlpha = 1;
+    }
+  }
+
   // System summary at bottom
-  ctx.fillStyle = GOLD; ctx.font = 'bold 11px Consolas'; ctx.textAlign = 'center';
+  ctx.fillStyle = GOLD; ctx.font = 'bold 10px Consolas'; ctx.textAlign = 'center';
   if (CFG.name === 'SEMF') {
-    ctx.fillText(`Nuclear SEMF (Z=1→92) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 10);
+    ctx.fillText(`Nuclear SEMF (Z=1→92) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 8);
   } else {
-    ctx.fillText(`Radionuclides (N=39, D=4) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 10);
+    ctx.fillText(`Radionuclides (N=39, D=4) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 8);
   }
 }
 

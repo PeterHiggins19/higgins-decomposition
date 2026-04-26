@@ -46,5 +46,18 @@
   "XC-PIR-DIS": "PID: i portanti condividono informazione ridondante — dinamica accoppiata.",
   "XC-RPS-DIS": "Rapporto a coppie stabile — questi portanti sono composizionalmente bloccati.",
   "XC-RPV-DIS": "Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti.",
-  "XC-ZCR-DIS": "Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso."
+  "XC-ZCR-DIS": "Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso.",
+  "XU-MDS-CAL": "Densità di corrispondenza al di sotto della linea base naturale.",
+  "_structural": "Modi strutturali",
+  "_section_structural": "MODI STRUTTURALI — PROMPT DI INDAGINE",
+  "SM-BPO-DIS": "Popolazione bimodale rilevata. Indagare: decomporre per sottopopolazione o aggiungere un portante differenziante.",
+  "SM-SCG-INF": "Convergenza regolare — popolazione singola in evoluzione continua. Modalità attesa per sistemi naturali ben campionati.",
+  "SM-MCA-WRN": "Portante mancante sospettato. Un canale fisico potrebbe non essere tracciato. Aggiungerlo e rieseguire.",
+  "SM-DMR-DIS": "Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.",
+  "SM-CPL-DIS": "Accoppiamento dei portanti — i portanti condividono uno stesso motore fisico. Il rapporto stabile codifica un vincolo.",
+  "SM-IND-DIS": "Indipendenza dei portanti — ogni portante governato da un meccanismo distinto. La decomposizione potrebbe essere massimamente informativa.",
+  "SM-DGN-WRN": "Simplesso degenere — i dati si avvicinano al confine. Verificare se i valori zero sono fisici o artefatti.",
+  "SM-RTR-DIS": "Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.",
+  "SM-TNT-DIS": "Turbolento ma naturale — complessità reale che la decimazione distrugge. Il pattern di oscillazione è diagnostico.",
+  "SM-OVC-CAL": "Sovravincolato — adattamento quasi perfetto. Verificare che si tratti di dati misurati, non di output di modello."
 }

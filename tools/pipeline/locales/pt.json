@@ -46,5 +46,18 @@
   "XC-PIR-DIS": "PID: portadores compartilham informação redundante — dinâmica acoplada.",
   "XC-RPS-DIS": "Razão pareada estável — estes portadores estão composicionalmente bloqueados.",
   "XC-RPV-DIS": "Razão pareada volátil — estes portadores são composicionalmente independentes.",
-  "XC-ZCR-DIS": "Eventos de cruzamento zero — composições se aproximando da fronteira do simplex."
+  "XC-ZCR-DIS": "Eventos de cruzamento zero — composições se aproximando da fronteira do simplex.",
+  "XU-MDS-CAL": "Densidade de correspondência abaixo da linha de base natural.",
+  "_structural": "Modos estruturais",
+  "_section_structural": "MODOS ESTRUTURAIS — PROMPTS DE INVESTIGAÇÃO",
+  "SM-BPO-DIS": "População bimodal detectada. Investigar: decompor por subpopulação ou adicionar um portador diferenciador.",
+  "SM-SCG-INF": "Convergência suave — população única evoluindo continuamente. Modo esperado para sistemas naturais bem amostrados.",
+  "SM-MCA-WRN": "Portador ausente suspeitado. Um canal físico pode não estar rastreado. Adicione-o e re-execute.",
+  "SM-DMR-DIS": "Ressonância de domínio — geometria da família de Euler codifica estrutura profunda. Compare com outras decomposições neste domínio.",
+  "SM-CPL-DIS": "Acoplamento de portadores — portadores compartilham um mesmo motor físico. A razão estável codifica uma restrição.",
+  "SM-IND-DIS": "Independência de portadores — cada portador governado por um mecanismo distinto. A decomposição pode ser maximamente informativa.",
+  "SM-DGN-WRN": "Simplex degenerado — dados se aproximam da fronteira. Verifique se os valores zero são físicos ou artefatos.",
+  "SM-RTR-DIS": "Transição de regime detectada. Pontos de estagnação marcam fronteiras. Considere dividir os dados na transição.",
+  "SM-TNT-DIS": "Turbulento mas natural — complexidade real que a decimação destrói. O padrão de oscilação é diagnóstico.",
+  "SM-OVC-CAL": "Superrestringido — ajuste quase perfeito. Verifique se são dados medidos, não saída de modelo."
 }

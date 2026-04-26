@@ -121,7 +121,165 @@ CODE_DICTIONARY = {
     "RP-CMP-INF": {"short": "Run complete", "verbose": "Hˢ extended pipeline run completed successfully. All results available for reporting."},
     "RP-DTM-INF": {"short": "Deterministic", "verbose": "Pipeline is deterministic. Repeated runs on identical data produce bit-identical results."},
     "RP-VER-INF": {"short": "Version", "verbose": "Pipeline version and configuration recorded."},
+
+    # ── STRUCTURAL MODES (SM) ──
+    # Detected from combinations of other codes. Not individual measurements —
+    # structural diagnoses of the compositional geometry as a whole.
+    # These are investigation prompts, not verdicts.
+
+    "SM-BPO-DIS": {"short": "Bimodal population",
+        "verbose": "Two or more distinct compositional populations detected on the simplex. "
+                   "The variance trajectory shows mid-range peak (hill) with high turbulence "
+                   "and EITT failure — entropy decimation mixes populations that should be separate. "
+                   "INVESTIGATE: decompose by subpopulation, separate mechanism types, or add a carrier "
+                   "that distinguishes the populations."},
+    "SM-SCG-INF": {"short": "Smooth convergence",
+        "verbose": "System converges smoothly to compositional equilibrium. Bowl HVLD with "
+                   "low turbulence and EITT preservation indicates a single population evolving "
+                   "continuously across the simplex. This is the expected mode for well-sampled "
+                   "natural systems with a single dominant mechanism."},
+    "SM-MCA-WRN": {"short": "Missing carrier",
+        "verbose": "Compositional geometry suggests an incomplete decomposition. FLAG "
+                   "classification combined with zero-crossings or degenerate vertices indicates "
+                   "energy or information is leaking to an untracked carrier. "
+                   "INVESTIGATE: what physical channel is absorbing the missing fraction? "
+                   "Add the missing carrier and re-run. The FLAG should resolve."},
+    "SM-DMR-DIS": {"short": "Domain resonance",
+        "verbose": "System encodes deep geometric structure — Euler-family transcendental "
+                   "detected with strong R². The constant is not accidental; the pipeline's "
+                   "log-ratio geometry IS the structure. "
+                   "INVESTIGATE: compare this constant to other decompositions in the same domain. "
+                   "Do different decompositions lock to the same family? Does the specific constant "
+                   "change with carrier choice?"},
+    "SM-CPL-DIS": {"short": "Carrier coupling",
+        "verbose": "Carriers are physically linked — PID shows redundancy and at least one "
+                   "ratio pair is highly stable. The coupled carriers share a common driver. "
+                   "INVESTIGATE: the stable ratio encodes a physical constraint (conservation law, "
+                   "stoichiometry, momentum balance). Can the coupled carriers be merged or one "
+                   "derived from the other?"},
+    "SM-IND-DIS": {"short": "Carrier independence",
+        "verbose": "Carriers are governed by independent mechanisms — all ratio pairs are volatile "
+                   "and PID shows unique information in each. No carrier predicts another. "
+                   "INVESTIGATE: this is typical of systems where each carrier represents a "
+                   "different physical process. The decomposition may be maximally informative."},
+    "SM-DGN-WRN": {"short": "Degenerate simplex",
+        "verbose": "Data approaches the simplex boundary — zero-crossings detected with FLAG "
+                   "or low N. One or more observations have a carrier at or near zero, creating "
+                   "a degenerate vertex that distorts log-ratio geometry. "
+                   "INVESTIGATE: is the zero physical (carrier genuinely absent) or artefactual "
+                   "(measurement limit, missing data)? If physical, consider whether the carrier "
+                   "definition should change."},
+    "SM-RTR-DIS": {"short": "Regime transition",
+        "verbose": "System undergoes compositional regime change — drift detected with stalls "
+                   "and reversals. The composition is not stationary; it transitions between "
+                   "structural states. "
+                   "INVESTIGATE: the stall points mark regime boundaries. What physical parameter "
+                   "changes at the transition? Consider splitting the data at the transition and "
+                   "running each segment independently."},
+    "SM-TNT-DIS": {"short": "Turbulent natural",
+        "verbose": "System is NATURAL but turbulent — transcendental match found despite EITT "
+                   "failure and high chaos. The turbulence is structural, not noise. The system "
+                   "encodes real complexity that decimation destroys. "
+                   "INVESTIGATE: the turbulence pattern contains information. What mechanisms "
+                   "produce the oscillation? Alpha/beta alternation? Market cycles? Seasonal effects? "
+                   "The oscillation frequency may be diagnostic."},
+    "SM-OVC-CAL": {"short": "Overconstrained",
+        "verbose": "System is highly constrained — near-perfect HVLD R², EITT pass, and "
+                   "precision-level δ. This is either a mathematical function, a physical system "
+                   "under tight constraints, or derived data. "
+                   "INVESTIGATE: verify this is measured data, not model output. If derived, the "
+                   "tight match is expected and calibrates the pipeline. If measured, this is a "
+                   "precision-standard-grade result."},
 }
+
+
+# ════════════════════════════════════════════════════════════
+# STRUCTURAL MODE DETECTION MATRIX
+# ════════════════════════════════════════════════════════════
+#
+# Each mode is defined by a set of required and forbidden codes.
+# The mode fires if ALL required codes are present and NO forbidden
+# codes are present. Modes are evaluated in priority order.
+#
+# This is not a high-level analysis of the data — it is a structural
+# analysis of the code pattern itself. The codes are geometric facts.
+# The modes are geometric interpretations.
+
+STRUCTURAL_MODES = [
+    {
+        "mode": "SM-OVC-CAL",
+        "name": "Overconstrained",
+        "requires": ["S7-HRQ", "S8-NAT", "S8-TGT", "S9-EIT"],
+        "forbids": ["S9-CHH", "S8-FLG"],
+        "priority": 1,
+    },
+    {
+        "mode": "SM-MCA-WRN",
+        "name": "Missing carrier",
+        "requires": ["S8-FLG"],
+        "requires_any": ["XC-ZCR", "S6-ZRO"],
+        "forbids": [],
+        "priority": 2,
+    },
+    {
+        "mode": "SM-BPO-DIS",
+        "name": "Bimodal population",
+        "requires": ["S7-HIL", "S9-EIF", "S9-CHH"],
+        "forbids": [],
+        "priority": 3,
+    },
+    {
+        "mode": "SM-TNT-DIS",
+        "name": "Turbulent natural",
+        "requires": ["S8-NAT", "S9-EIF", "S9-CHH"],
+        "forbids": [],
+        "priority": 4,
+    },
+    {
+        "mode": "SM-RTR-DIS",
+        "name": "Regime transition",
+        "requires": ["S9-STL", "S9-REV"],
+        "requires_any": ["XU-DRU", "XU-DRD"],
+        "forbids": [],
+        "priority": 5,
+    },
+    {
+        "mode": "SM-DGN-WRN",
+        "name": "Degenerate simplex",
+        "requires": ["XC-ZCR"],
+        "requires_any": ["S8-FLG", "S7-LRQ"],
+        "forbids": [],
+        "priority": 6,
+    },
+    {
+        "mode": "SM-DMR-DIS",
+        "name": "Domain resonance",
+        "requires": ["S8-EUL", "S8-NAT"],
+        "forbids": ["S8-FLG"],
+        "priority": 7,
+    },
+    {
+        "mode": "SM-CPL-DIS",
+        "name": "Carrier coupling",
+        "requires": ["XC-PIR", "XC-RPS"],
+        "forbids": [],
+        "priority": 8,
+    },
+    {
+        "mode": "SM-IND-DIS",
+        "name": "Carrier independence",
+        "requires": ["XC-RPV"],
+        "forbids": ["XC-RPS", "XC-PIR"],
+        "priority": 9,
+    },
+    {
+        "mode": "SM-SCG-INF",
+        "name": "Smooth convergence",
+        "requires": ["S7-BWL", "S9-EIT"],
+        "forbids": ["S9-CHH", "S8-FLG", "S9-EIF"],
+        "priority": 10,
+    },
+]
 
 
 def generate_codes(result):
@@ -296,7 +454,56 @@ def generate_codes(result):
     emit("RP-CMP-INF")
     emit("RP-DTM-INF")
     emit("RP-VER-INF", result.get('pipeline_version'))
-    
+
+    # ── STRUCTURAL MODE DETECTION ──
+    # Scan all emitted codes and fire structural modes based on
+    # the combination matrix. This is a second-order analysis:
+    # the input is the code pattern, not the data.
+
+    code_prefixes = set()
+    for c in codes:
+        # Extract prefix without level suffix (e.g., "S7-BWL" from "S7-BWL-INF")
+        parts = c['code'].rsplit('-', 1)
+        if len(parts) == 2:
+            code_prefixes.add(parts[0])
+
+    # Also track codes with level for specific matching
+    code_set = set(c['code'] for c in codes)
+
+    # Count volatile ratio pairs for independence detection
+    volatile_count = sum(1 for c in codes if c['code'] == 'XC-RPV-DIS')
+    stable_count = sum(1 for c in codes if c['code'] == 'XC-RPS-DIS')
+
+    fired_modes = []
+    for mode in sorted(STRUCTURAL_MODES, key=lambda m: m['priority']):
+        # Check required codes (all must be present as prefixes)
+        required = mode.get('requires', [])
+        if not all(r in code_prefixes for r in required):
+            continue
+
+        # Check requires_any (at least one must be present)
+        req_any = mode.get('requires_any', [])
+        if req_any and not any(r in code_prefixes for r in req_any):
+            continue
+
+        # Check forbidden codes (none may be present)
+        forbidden = mode.get('forbids', [])
+        if any(f in code_prefixes for f in forbidden):
+            continue
+
+        # Special conditions for specific modes
+        mode_code = mode['mode']
+
+        # Carrier independence needs MULTIPLE volatile pairs and no stable pairs
+        if mode_code == 'SM-IND-DIS' and (volatile_count < 3 or stable_count > 0):
+            continue
+
+        fired_modes.append(mode_code)
+
+    # Emit fired structural modes
+    for mode_code in fired_modes:
+        emit(mode_code)
+
     return codes
 
 

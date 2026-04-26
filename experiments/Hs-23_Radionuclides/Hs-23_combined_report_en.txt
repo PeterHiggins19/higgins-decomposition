@@ -12,11 +12,12 @@ Hˢ DIAGNOSTIC REPORT
   Timestamp:   2026-04-26T04:43:04.058160Z
 
 
-Total codes: 38
+Total codes: 42
   Errors:       0
   Warnings:     1
   Discoveries: 13
   Calibration signals: 1
+  Structural modes:  4
   Information:  23
 
 ── WARNINGS ──
@@ -38,7 +39,13 @@ Total codes: 38
   [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
 
 ── CALIBRATION SIGNALS ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-BPO-DIS] Bimodal population detected. Investigate: decompose by subpopulation or add a distinguishing carrier.
+  [SM-TNT-DIS] Turbulent but natural — real complexity that decimation destroys. The oscillation pattern is diagnostic.
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
 
 Pipeline run completed successfully.
 Pipeline is deterministic. Repeated runs produce identical results.

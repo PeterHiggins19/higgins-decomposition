@@ -12,11 +12,12 @@ RELATÓRIO DE DIAGNÓSTICO Hˢ
   Timestamp:   2026-04-26T04:43:04.100692Z
 
 
-Total de códigos: 37
+Total de códigos: 39
   Erros:       0
   Avisos:     1
   Descobertas: 11
   Sinais de calibração: 1
+  Modos estruturais:  2
   Informação:  24
 
 ── AVISOS ──
@@ -36,7 +37,11 @@ Total de códigos: 37
   [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Recoil/Neutrino), cv=768.666592)
 
 ── SINAIS DE CALIBRAÇÃO ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Densidade de correspondência abaixo da linha de base natural.
+
+── MODOS ESTRUTURAIS — PROMPTS DE INVESTIGAÇÃO ──
+  [SM-RTR-DIS] Transição de regime detectada. Pontos de estagnação marcam fronteiras. Considere dividir os dados na transição.
+  [SM-DMR-DIS] Ressonância de domínio — geometria da família de Euler codifica estrutura profunda. Compare com outras decomposições neste domínio.
 
 Execução do pipeline concluída com sucesso.
 O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

@@ -12,11 +12,12 @@ Hˢ DIAGNOSTIC REPORT
   Timestamp:   2026-04-26T04:43:04.023905Z
 
 
-Total codes: 36
+Total codes: 37
   Errors:       0
   Warnings:     2
   Discoveries: 11
   Calibration signals: 1
+  Structural modes:  1
   Information:  22
 
 ── WARNINGS ──
@@ -37,7 +38,10 @@ Total codes: 36
   [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Recoil/Neutrino), cv=388.557450)
 
 ── CALIBRATION SIGNALS ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
 
 Pipeline run completed successfully.
 Pipeline is deterministic. Repeated runs produce identical results.

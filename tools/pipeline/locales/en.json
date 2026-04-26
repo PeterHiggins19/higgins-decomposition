@@ -61,5 +61,18 @@
   "XC-PIU-DIS": "PID: unique carrier information — independent dynamics.",
   "XC-RPS-DIS": "Stable pairwise ratio — these carriers are compositionally locked.",
   "XC-RPV-DIS": "Volatile pairwise ratio — these carriers are independent.",
-  "XC-ZCR-DIS": "Zero-crossing events — compositions approaching simplex boundary."
+  "XC-ZCR-DIS": "Zero-crossing events — compositions approaching simplex boundary.",
+  "XU-MDS-CAL": "Match density below natural baseline.",
+  "_structural": "Structural modes",
+  "_section_structural": "STRUCTURAL MODES — INVESTIGATION PROMPTS",
+  "SM-BPO-DIS": "Bimodal population detected. Investigate: decompose by subpopulation or add a distinguishing carrier.",
+  "SM-SCG-INF": "Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.",
+  "SM-MCA-WRN": "Missing carrier suspected. A physical channel may be untracked. Add it and re-run.",
+  "SM-DMR-DIS": "Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.",
+  "SM-CPL-DIS": "Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.",
+  "SM-IND-DIS": "Carrier independence — each carrier governed by a separate mechanism. Decomposition may be maximally informative.",
+  "SM-DGN-WRN": "Degenerate simplex — data approaches boundary. Check if zero values are physical or artefactual.",
+  "SM-RTR-DIS": "Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.",
+  "SM-TNT-DIS": "Turbulent but natural — real complexity that decimation destroys. The oscillation pattern is diagnostic.",
+  "SM-OVC-CAL": "Overconstrained — near-perfect fit. Verify this is measured data, not model output."
 }

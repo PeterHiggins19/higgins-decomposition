@@ -12,11 +12,12 @@ RAPPORTO DIAGNOSTICO Hˢ
   Timestamp:   2026-04-26T04:43:04.058160Z
 
 
-Codici totali: 38
+Codici totali: 42
   Errori:       0
   Avvisi:     1
   Scoperte: 13
   Segnali di calibrazione: 1
+  Modi strutturali:  4
   Informazioni:  23
 
 ── AVVISI ──
@@ -38,7 +39,13 @@ Codici totali: 38
   [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
 
 ── SEGNALI DI CALIBRAZIONE ──
-  [XU-MDS-CAL] XU-MDS-CAL
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-BPO-DIS] Popolazione bimodale rilevata. Indagare: decomporre per sottopopolazione o aggiungere un portante differenziante.
+  [SM-TNT-DIS] Turbolento ma naturale — complessità reale che la decimazione distrugge. Il pattern di oscillazione è diagnostico.
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+  [SM-DMR-DIS] Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.
 
 Esecuzione della pipeline completata con successo.
 La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.
