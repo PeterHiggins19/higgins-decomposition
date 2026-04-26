@@ -1,0 +1,38 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  Hs-16
+  System:      Planck Cosmic Budget
+  Domain:      COSMOLOGY
+  Carriers:    Radiation, Matter, Dark_Energy
+  N=200, D=3
+  Source:      DERIVED
+  Description: Friedmann evolution with Planck 2018 parameters: Omega_b=0.0493, Omega_cdm=0.265, Omega_Lambda=0.6857, Omega_r=9.1e-5
+  Pipeline:    1.0 Extended
+  Data hash:   4ef3dc1b6938376b
+  Timestamp:   2026-04-25T06:24:46.253462Z
+
+
+कुल कोड: 38
+  त्रुटियाँ:       0
+  चेतावनियाँ:     0
+  खोजें: 9
+  अंशांकन संकेत: 1
+  सूचना:  28
+
+── खोजें ──
+  [S8-EUL-DIS] ऑयलर-परिवार स्थिरांक का पता चला। पाइपलाइन ज्यामिति प्रणाली संरचना के साथ अनुनाद करती है। (constant=1/(e^pi), delta=0.000038)
+  [S8-TGT-DIS] सटीक मिलान: δ < 0.001 — उच्च सटीकता पर संरचनात्मक अनुनाद। (constant=1/(e^pi), delta=0.000038)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (2)
+  [XU-PCD-DIS] वाहक प्रभुत्व: एक वाहक विचरण का 60% से अधिक योगदान करता है। (carrier=Dark_Energy, pct=62.820513)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-TEF-DIS] वाहकों के बीच प्रमुख दिशात्मक सूचना प्रवाह की पहचान हुई। (flow=Radiation->Dark_Energy, te=0.036206)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Radiation/Dark_Energy), cv=163.995184)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Matter/Dark_Energy), cv=62.748554)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=200, near_zero_carriers=['Radiation', 'Dark_Energy'], zero_threshold=0.010000)
+
+── अंशांकन संकेत ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

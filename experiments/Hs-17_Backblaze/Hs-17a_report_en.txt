@@ -1,0 +1,46 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-17a
+  System:      Backblaze Per-Drive
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=5000, D=4
+  Source:      REAL
+  Description: Backblaze Drive Stats 2024-07-27, per-drive SMART decomposition
+  Pipeline:    1.0 Extended
+  Data hash:   058fde30806a8e6b
+  Timestamp:   2026-04-25T06:45:53.435331Z
+
+
+Total codes: 40
+  Errors:       0
+  Warnings:     3
+  Discoveries: 12
+  Calibration signals: 1
+  Information:  24
+
+── WARNINGS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — poor fit, trajectory may be non-polynomial.
+  [S8-FLG-WRN] Classification: FLAG — no match within 5%.
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (5256)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (675)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (28)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (4553)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Errors, pct=60.929022)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Age->Thermal, te=0.004599)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Mechanical/Errors), cv=105.857380)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Thermal/Age), cv=136.884753)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Thermal/Errors), cv=186.883040)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Age/Errors), cv=171.610172)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=4827, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

@@ -1,0 +1,42 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-19
+  System:      Traffic Signals
+  Domain:      URBAN
+  Carriers:    Green, Yellow, Red
+  N=831, D=3
+  Source:      REAL
+  Description: City of Toronto Traffic Signal Timing (Open Data)
+  Pipeline:    1.0 Extended
+  Data hash:   34152dc3739fe105
+  Timestamp:   2026-04-25T06:24:46.613310Z
+
+
+Total codes: 37
+  Errors:       0
+  Warnings:     1
+  Discoveries: 10
+  Calibration signals: 1
+  Information:  25
+
+── WARNINGS ──
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (884)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (127)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (4)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (753)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Green->Yellow, te=0.001224)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Green/Yellow), cv=16723.325158)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Green/Red), cv=3315.733336)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Yellow/Red), cv=4482.830339)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=498, near_zero_carriers=['Green', 'Yellow', 'Red'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

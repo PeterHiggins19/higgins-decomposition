@@ -1,27 +1,41 @@
 RELATÓRIO DE DIAGNÓSTICO Hˢ
 ============================================================
 
-Total de códigos: 36
+  Experiment:  Hs-23-Combined
+  System:      Radionuclide Decay Chains (U-238 + Th-232 + U-235)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=39, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   a58d8f5fb34c6113
+  Timestamp:   2026-04-26T04:43:04.058160Z
+
+
+Total de códigos: 38
   Erros:       0
   Avisos:     1
-  Descobertas: 10
+  Descobertas: 13
   Sinais de calibração: 1
-  Informação:  24
+  Informação:  23
 
 ── AVISOS ──
   [S9-EIF-WRN] S9-EIF-WRN
 
 ── DESCOBERTAS ──
-  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (32)
-  [S9-STL-DIS] S9-STL-DIS (5)
-  [S9-SPK-DIS] S9-SPK-DIS (1)
-  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (26)
-  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.753070, drift_direction=decreasing, max_shift_carrier=Gamma)
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(e^pi), delta=0.007775)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (38)
+  [S9-STL-DIS] S9-STL-DIS (6)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (32)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.877424, drift_direction=decreasing, max_shift_carrier=Gamma)
   [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Gamma), cv=77.844312)
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Recoil), cv=53.430148)
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Recoil), cv=203.371462)
-  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=31, near_zero_carriers=['Gamma', 'Recoil'], zero_threshold=0.010000)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Gamma), cv=96.895113)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Recoil), cv=51.906056)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Neutrino), cv=89.949085)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Recoil), cv=220.352875)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Neutrino), cv=122.922308)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Recoil/Neutrino), cv=506.962740)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
 
 ── SINAIS DE CALIBRAÇÃO ──
   [XU-MDS-CAL] XU-MDS-CAL

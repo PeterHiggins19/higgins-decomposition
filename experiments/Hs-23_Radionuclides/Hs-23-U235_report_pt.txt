@@ -1,10 +1,21 @@
 RELATÓRIO DE DIAGNÓSTICO Hˢ
 ============================================================
 
-Total de códigos: 33
+  Experiment:  Hs-23-U235
+  System:      U-235 Actinium Series (Comprehensive)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=15, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   1ca2e5cb74bd7865
+  Timestamp:   2026-04-26T04:43:04.023905Z
+
+
+Total de códigos: 36
   Erros:       0
   Avisos:     2
-  Descobertas: 8
+  Descobertas: 11
   Sinais de calibração: 1
   Informação:  22
 
@@ -13,14 +24,17 @@ Total de códigos: 33
   [S9-EIF-WRN] S9-EIF-WRN
 
 ── DESCOBERTAS ──
-  [S9-STL-DIS] S9-STL-DIS (1)
-  [S9-SPK-DIS] S9-SPK-DIS (1)
-  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (6)
-  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=1.774010, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (12)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (10)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=1.978419, drift_direction=increasing, max_shift_carrier=Particle_KE)
   [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Gamma), cv=70.468834)
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Recoil), cv=53.290481)
-  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Recoil), cv=172.157424)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Gamma), cv=89.193629)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Recoil), cv=50.573848)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Particle_KE/Neutrino), cv=87.918798)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Recoil), cv=226.403627)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Gamma/Neutrino), cv=131.220352)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Recoil/Neutrino), cv=388.557450)
 
 ── SINAIS DE CALIBRAÇÃO ──
   [XU-MDS-CAL] XU-MDS-CAL

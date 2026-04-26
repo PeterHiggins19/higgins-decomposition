@@ -1,0 +1,37 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-09
+  System:      Stellar
+  Domain:      ASTROPHYSICS
+  Carriers:    H, He, Metals
+  N=30, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   fc68b83ae1798114
+  Timestamp:   2026-04-25T06:03:01.901243Z
+
+
+Codici totali: 35
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 9
+  Segnali di calibrazione: 1
+  Informazioni:  25
+
+── SCOPERTE ──
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=dottie, delta=0.000308)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (10)
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (9)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=H, pct=61.608076)
+  [XU-DRU-DIS] Deriva in aumento — il sistema sta evolvendo. (variance_ratio_2nd_to_1st=2.059441, drift_direction=increasing, max_shift_carrier=H)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(H/He), cv=273.978397)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(H/Metals), cv=203.342251)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

@@ -1,0 +1,39 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-08
+  System:      CKM+PMNS+SEMF
+  Domain:      PARTICLE
+  Carriers:    C1, C2, C3
+  N=11, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   53cc1a1c12c73c31
+  Timestamp:   2026-04-25T06:03:01.895832Z
+
+
+Total de códigos: 34
+  Erros:       0
+  Avisos:     1
+  Descobertas: 8
+  Sinais de calibração: 1
+  Informação:  24
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(2pi), delta=0.007740)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (5)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.153947, drift_direction=decreasing, max_shift_carrier=C1)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(C1/C2), cv=23761.426367)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(C1/C3), cv=207.320782)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(C2/C3), cv=153.545338)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

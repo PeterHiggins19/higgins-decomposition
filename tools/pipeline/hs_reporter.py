@@ -43,13 +43,14 @@ def _load_locale(lang):
     return {}
 
 
-def report(codes, lang="en"):
+def report(codes, lang="en", result=None):
     """Generate a readable report from diagnostic codes.
 
     Parameters
     ----------
     codes : list of dict (from hs_codes.generate_codes)
     lang : str, one of 'en', 'zh', 'hi', 'pt', 'it'
+    result : dict, optional — pipeline result dict for identity header
 
     Returns
     -------
@@ -63,6 +64,38 @@ def report(codes, lang="en"):
     lines = []
     lines.append(t("_title"))
     lines.append("=" * 60)
+
+    # Identity header from result dict
+    if result:
+        exp_id = result.get('experiment', '')
+        name = result.get('name', '')
+        domain = result.get('domain', '')
+        carriers = result.get('carriers', [])
+        n = result.get('N', '')
+        d = result.get('D', '')
+        version = result.get('pipeline_version', '')
+        timestamp = result.get('run_timestamp', '')
+        data_hash = result.get('data_hash_sha256_16', '')
+        source = result.get('data_source', {})
+        source_type = source.get('type', '') if isinstance(source, dict) else ''
+        source_desc = source.get('description', '') if isinstance(source, dict) else ''
+
+        lines.append(f"\n  Experiment:  {exp_id}")
+        lines.append(f"  System:      {name}")
+        lines.append(f"  Domain:      {domain}")
+        lines.append(f"  Carriers:    {', '.join(carriers) if carriers else '—'}")
+        lines.append(f"  N={n}, D={d}")
+        if source_type:
+            lines.append(f"  Source:      {source_type}")
+        if source_desc and len(source_desc) < 120:
+            lines.append(f"  Description: {source_desc}")
+        if version:
+            lines.append(f"  Pipeline:    {version}")
+        if data_hash:
+            lines.append(f"  Data hash:   {data_hash}")
+        if timestamp:
+            lines.append(f"  Timestamp:   {timestamp}")
+        lines.append("")
 
     errors = [c for c in codes if c['code'].endswith('-ERR')]
     warnings = [c for c in codes if c['code'].endswith('-WRN')]
@@ -119,12 +152,12 @@ def report(codes, lang="en"):
     return "\n".join(lines)
 
 
-def report_all_languages(codes):
+def report_all_languages(codes, result=None):
     """Generate reports in all supported languages.
 
     Returns dict of {lang_code: report_string}
     """
-    return {lang: report(codes, lang) for lang in SUPPORTED_LANGUAGES}
+    return {lang: report(codes, lang, result=result) for lang in SUPPORTED_LANGUAGES}
 
 
 if __name__ == "__main__":

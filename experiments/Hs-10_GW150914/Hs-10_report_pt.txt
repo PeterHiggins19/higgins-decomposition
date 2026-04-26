@@ -1,0 +1,42 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-10
+  System:      GW150914
+  Domain:      GRAVITY
+  Carriers:    h+, hx, noise
+  N=40, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   4f37f92c65d2808c
+  Timestamp:   2026-04-25T06:03:01.906957Z
+
+
+Total de códigos: 36
+  Erros:       0
+  Avisos:     2
+  Descobertas: 10
+  Sinais de calibração: 1
+  Informação:  23
+
+── AVISOS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — ajuste fraco. Trajetória pode ser não polinomial.
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/phi, delta=0.000908)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (25)
+  [S9-STL-DIS] S9-STL-DIS (3)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (22)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.804053, drift_direction=decreasing, max_shift_carrier=h+)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(h+/hx), cv=1252.978251)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(h+/noise), cv=69.877064)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(hx/noise), cv=78.865060)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=1, near_zero_carriers=['hx'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

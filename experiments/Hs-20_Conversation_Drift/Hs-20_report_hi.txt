@@ -1,6 +1,17 @@
 Hˢ नैदानिक रिपोर्ट
 ============================================================
 
+  Experiment:  Hs-20
+  System:      Conversation Drift — Project Milestones
+  Domain:      AI SAFETY
+  Carriers:    Theory, Engineering, Documentation, Discovery
+  N=18, D=4
+  Source:      REAL
+  Pipeline:    1.0 Extended
+  Data hash:   1aa511370ef97205
+  Timestamp:   2026-04-25T08:30:35.963075Z
+
+
 कुल कोड: 38
   त्रुटियाँ:       0
   चेतावनियाँ:     1

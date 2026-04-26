@@ -1,10 +1,21 @@
 Hˢ 诊断报告
 ============================================================
 
-代码总数: 33
+  Experiment:  Hs-23-U235
+  System:      U-235 Actinium Series (Comprehensive)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=15, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   1ca2e5cb74bd7865
+  Timestamp:   2026-04-26T04:43:04.023905Z
+
+
+代码总数: 36
   错误:       0
   警告:     2
-  发现: 8
+  发现: 11
   校准信号: 1
   信息:  22
 
@@ -13,14 +24,17 @@ Hˢ 诊断报告
   [S9-EIF-WRN] EITT不变性：在一个或多个压缩比下失败。
 
 ── 发现 ──
-  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (1)
-  [S9-SPK-DIS] 检测到尖峰——熵变化率超过阈值。 (1)
-  [S9-REV-DIS] 检测到反转——快速成分振荡。 (6)
-  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=1.774010, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (12)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (2)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (10)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=1.978419, drift_direction=increasing, max_shift_carrier=Particle_KE)
   [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
-  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Gamma), cv=70.468834)
-  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Recoil), cv=53.290481)
-  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Gamma/Recoil), cv=172.157424)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Gamma), cv=89.193629)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Recoil), cv=50.573848)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Particle_KE/Neutrino), cv=87.918798)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Gamma/Recoil), cv=226.403627)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Gamma/Neutrino), cv=131.220352)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Recoil/Neutrino), cv=388.557450)
 
 ── 校准信号 ──
   [XU-MDS-CAL] XU-MDS-CAL

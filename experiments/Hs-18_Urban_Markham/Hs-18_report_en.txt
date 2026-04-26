@@ -1,0 +1,41 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-18
+  System:      Markham Budget
+  Domain:      URBAN
+  Carriers:    Operating, Capital_Dev, Planning
+  N=31, D=3
+  Source:      REAL
+  Description: City of Markham 2018 Budget Allocation by Fund (Open Data)
+  Pipeline:    1.0 Extended
+  Data hash:   256af378c8cd09ae
+  Timestamp:   2026-04-25T06:24:46.579000Z
+
+
+Total codes: 36
+  Errors:       0
+  Warnings:     1
+  Discoveries: 9
+  Calibration signals: 1
+  Information:  25
+
+── WARNINGS ──
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=ln_phi, delta=0.000050)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (33)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (8)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (3)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (22)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Operating/Planning), cv=65.511746)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Capital_Dev/Planning), cv=141.370090)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=29, near_zero_carriers=['Capital_Dev', 'Planning'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

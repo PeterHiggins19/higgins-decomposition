@@ -1,0 +1,35 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-01
+  System:      Gold/Silver (338yr)
+  Domain:      COMMODITIES
+  Carriers:    Gold, Silver
+  N=624, D=2
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   082c75284061f414
+  Timestamp:   2026-04-25T06:03:01.762615Z
+
+
+Total de códigos: 33
+  Erros:       0
+  Avisos:     0
+  Descobertas: 7
+  Sinais de calibração: 1
+  Informação:  25
+
+── DESCOBERTAS ──
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/pi, delta=0.000033)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (533)
+  [S9-STL-DIS] S9-STL-DIS (70)
+  [S9-SPK-DIS] S9-SPK-DIS (2)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (461)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.122010, drift_direction=decreasing, max_shift_carrier=Gold)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=36, near_zero_carriers=['Silver'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XC-TEZ-CAL] Entropia de transferência é zero — sistema composicionalmente sem memória.
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

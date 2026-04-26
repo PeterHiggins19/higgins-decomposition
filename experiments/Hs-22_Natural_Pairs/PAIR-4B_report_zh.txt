@@ -1,0 +1,38 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  PAIR-4B
+  System:      Stellar Nucleosynthesis
+  Domain:      GRAVITY
+  Carriers:    H, He, Metals
+  N=30, D=3
+  Source:      DERIVED
+  Description: pp-chain → CNO → triple-α evolution
+  Pipeline:    1.0 Extended
+  Data hash:   fc68b83ae1798114
+  Timestamp:   2026-04-25T10:54:39.886008Z
+
+
+代码总数: 35
+  错误:       0
+  警告:     0
+  发现: 9
+  校准信号: 1
+  信息:  25
+
+── 发现 ──
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=dottie, delta=0.000308)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (10)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (1)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (9)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=H, pct=61.608076)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=2.059441, drift_direction=increasing, max_shift_carrier=H)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(H/He), cv=273.978397)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(H/Metals), cv=203.342251)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

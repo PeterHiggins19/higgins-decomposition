@@ -1,26 +1,39 @@
 RAPPORTO DIAGNOSTICO Hˢ
 ============================================================
 
-Codici totali: 34
+  Experiment:  Hs-23-Th232
+  System:      Radionuclide Th-232 → Pb-208
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=10, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   1414fd3bbd5ce24d
+  Timestamp:   2026-04-26T04:43:04.122438Z
+
+
+Codici totali: 35
   Errori:       0
-  Avvisi:     1
-  Scoperte: 9
+  Avvisi:     2
+  Scoperte: 10
   Segnali di calibrazione: 1
-  Informazioni:  23
+  Informazioni:  22
 
 ── AVVISI ──
+  [S8-FLG-WRN] S8-FLG-WRN
   [S9-EIF-WRN] S9-EIF-WRN
 
 ── SCOPERTE ──
-  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.000351)
-  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(e^pi), delta=0.000351)
-  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-STL-DIS] S9-STL-DIS (2)
   [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (5)
-  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.866446, drift_direction=decreasing, max_shift_carrier=Particle_KE)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.662332, drift_direction=decreasing, max_shift_carrier=Neutrino)
   [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
-  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=82.814459)
-  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=53.607378)
-  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=250.009533)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=103.799079)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=52.238117)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Neutrino), cv=87.946282)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=250.009540)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Neutrino), cv=98.929201)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=493.540272)
 
 ── SEGNALI DI CALIBRAZIONE ──
   [XU-MDS-CAL] XU-MDS-CAL

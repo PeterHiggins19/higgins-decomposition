@@ -1,0 +1,40 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-11
+  System:      AME2020 (500)
+  Domain:      NUCLEAR
+  Carriers:    Volume, Surf+Coulomb, Symmetry
+  N=500, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   0523ff5e868eb7b1
+  Timestamp:   2026-04-25T06:03:01.913593Z
+
+
+Total codes: 39
+  Errors:       0
+  Warnings:     0
+  Discoveries: 11
+  Calibration signals: 2
+  Information:  26
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.009880)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (529)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (32)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (495)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Symmetry, pct=66.634454)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.856890, drift_direction=decreasing, max_shift_carrier=Surf+Coulomb)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Volume/Surf+Coulomb), cv=11.402572)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Surf+Coulomb/Symmetry), cv=53.686292)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=462, near_zero_carriers=['Symmetry'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

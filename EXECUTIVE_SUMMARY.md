@@ -457,3 +457,85 @@ operational for new experiments under the Hˢ governance framework.
 ---
 
 *Waypoint: First new-methods experiment complete — April 25, 2026*
+
+## April 26, 2026 — Hs-23 Run 2: The Iterative Discovery Pattern
+
+**First journaled multi-run experiment.** The U-235 chain from Run 1
+classified FLAG with two warnings: no transcendental match (S8-FLG-WRN)
+and EITT invariance failure (S9-EIF-WRN). Rather than accepting these as
+verdicts, the warnings were read as diagnostic questions from the simplex.
+
+**Question 1: Why no transcendental resonance?**
+Investigation revealed a missing carrier. Beta decays partition energy into
+four channels (particle, gamma, recoil, neutrino), but Run 1 used only three.
+The neutrino — carrying 50-65% of the available energy in beta decays — was
+absent. This forced the closure step to redistribute missing energy, distorting
+the simplex geometry. The most extreme case was Tl-207, which closed to
+(1.0, 0, 0) — a degenerate vertex that poisoned variance estimation.
+
+**Question 2: Why does entropy collapse under decimation?**
+The degenerate Tl-207 point dominated the EITT calculation. More broadly,
+the mixture of alpha decays (~95% particle KE) and beta decays (~35% particle
+KE, ~55% neutrino) creates genuine compositional turbulence. The turbulence
+is real physics, not a data artefact.
+
+**Improvements applied:**
+1. Neutrino added as 4th carrier (D: 3 → 4). Every beta decay now accounts
+   for 100% of Q-value. Tl-207 became (0.347, 0.0002, 0, 0.653).
+2. All branching paths included (U-235: N: 11 → 15). Four branch transitions
+   from the actinium series added real physical measurements.
+3. Energy partitions refined with weighted alpha groups and spectral-shape
+   beta averages. Sources: ENSDF (NNDC Brookhaven), ICRP-107.
+
+**Run 2 results:**
+
+| Chain | N | D | HVLD R² | Shape | Best Match | δ |
+|-------|---|---|---------|-------|-----------|---|
+| U-235 | 15 | 4 | 0.827 | bowl | — (FLAG) | — |
+| Combined | 39 | 4 | 0.779 | hill | 1/(e^π) | 0.00778 |
+
+Key changes from Run 1:
+- U-235 HVLD: hill (R²=0.687) → bowl (R²=0.827) — shape reversed, fit improved
+- Combined: FLAG resolved → **Euler-family discovery: 1/(e^π)**, Gelfond's
+  constant reciprocal, the same constant found in Th-232 individually
+- EITT still fails — now understood as genuine nuclear turbulence, not artefact
+- All three chains upgraded to 4-carrier model with proper neutrino energy
+
+**New questions opened by Run 2:**
+- Can excited-state alpha groups push U-235 N above 50 for individual resolution?
+- Is the combined 1/(e^π) robust under improved beta spectral data?
+- Is high ratio volatility universal for mixed alpha/beta chains?
+
+**The Feedback Loop — Hˢ as an Educational Data Exploration Tool**
+
+This experiment established a pattern that defines how Hˢ is used:
+
+    run → read → question → investigate → improve → run → ...
+
+The diagnostic codes are not verdicts. They are questions the simplex asks
+about the data. A FLAG warning translates into a domain-specific investigation:
+for nuclear physics, "what energy channels am I missing?" For economics, "what
+market sectors are omitted?" For geochemistry, "what trace elements are
+absent?" The code is universal; the interpretation is domain-specific.
+
+The tool narrows the search space without requiring domain knowledge. It
+cannot tell the expert *what* is missing — only *that* something is missing
+and *where* in the pipeline the geometry breaks down. The expert provides the
+domain insight. The tool validates whether the insight resolved the question.
+If it did, new structure appears. If it didn't, the same codes persist and
+the expert tries again.
+
+Every resolution opens new questions. Every improvement reveals finer
+structure. The loop does not close — it spirals. This is the educational
+mechanism: not instruction, but guided inquiry. A student who resolves their
+first FLAG warning by finding a missing carrier has learned something about
+compositional thinking that no textbook teaches — because they discovered it
+through the geometry of their own data.
+
+**Full experiment journal:** `experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md`
+
+---
+
+*This entry marks the transition from Hˢ as a classification tool to*
+*Hˢ as an iterative discovery instrument. The tool does not merely answer.*
+*It asks. And the asking is where the learning happens.*

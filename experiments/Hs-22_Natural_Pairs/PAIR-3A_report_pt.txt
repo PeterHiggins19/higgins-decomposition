@@ -1,0 +1,37 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  PAIR-3A
+  System:      Basalt-Rhyolite Series
+  Domain:      MATTER
+  Carriers:    SiO2, Al2O3, CaO+MgO
+  N=150, D=3
+  Source:      DERIVED
+  Description: Igneous differentiation (Le Maitre 2002)
+  Pipeline:    1.0 Extended
+  Data hash:   8bf0db689b629d52
+  Timestamp:   2026-04-25T10:54:39.854085Z
+
+
+Total de códigos: 38
+  Erros:       0
+  Avisos:     0
+  Descobertas: 11
+  Sinais de calibração: 0
+  Informação:  27
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(e^pi), delta=0.000113)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(e^pi), delta=0.000113)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (146)
+  [S9-STL-DIS] S9-STL-DIS (10)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (136)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=CaO+MgO, pct=60.646793)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=4.033175, drift_direction=increasing, max_shift_carrier=SiO2)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=CaO+MgO->Al2O3, te=0.189162)
+  [XC-RPS-DIS] Razão pareada estável — estes portadores estão composicionalmente bloqueados. (pair=ln(SiO2/Al2O3), cv=14.607161)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Al2O3/CaO+MgO), cv=187.125139)
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

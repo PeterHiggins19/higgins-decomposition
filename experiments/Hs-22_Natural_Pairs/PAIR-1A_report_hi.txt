@@ -1,0 +1,37 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  PAIR-1A
+  System:      Nuclear SEMF (Z=1-92)
+  Domain:      ENERGY
+  Carriers:    Volume, Surf+Coulomb, Sym+Pairing
+  N=92, D=3
+  Source:      DERIVED
+  Description: Weizsacker SEMF binding energy decomposition
+  Pipeline:    1.0 Extended
+  Data hash:   fa82e9d6273e4966
+  Timestamp:   2026-04-25T10:54:39.778005Z
+
+
+कुल कोड: 38
+  त्रुटियाँ:       0
+  चेतावनियाँ:     0
+  खोजें: 11
+  अंशांकन संकेत: 0
+  सूचना:  27
+
+── खोजें ──
+  [S8-EUL-DIS] ऑयलर-परिवार स्थिरांक का पता चला। पाइपलाइन ज्यामिति प्रणाली संरचना के साथ अनुनाद करती है। (constant=1/(pi^e), delta=0.000006)
+  [S8-TGT-DIS] सटीक मिलान: δ < 0.001 — उच्च सटीकता पर संरचनात्मक अनुनाद। (constant=1/(pi^e), delta=0.000006)
+  [S9-CHH-DIS] उच्च अराजकता: संघटन अशांति का पता चला। (89)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (2)
+  [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (87)
+  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.031588, drift_direction=decreasing, max_shift_carrier=Sym+Pairing)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-TEF-DIS] वाहकों के बीच प्रमुख दिशात्मक सूचना प्रवाह की पहचान हुई। (flow=Surf+Coulomb->Sym+Pairing, te=0.181084)
+  [XC-RPS-DIS] स्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से तालाबद्ध हैं। (pair=ln(Volume/Surf+Coulomb), cv=13.301594)
+  [XC-RPS-DIS] स्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से तालाबद्ध हैं। (pair=ln(Volume/Sym+Pairing), cv=6.613629)
+  [XC-RPS-DIS] स्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से तालाबद्ध हैं। (pair=ln(Surf+Coulomb/Sym+Pairing), cv=6.593092)
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

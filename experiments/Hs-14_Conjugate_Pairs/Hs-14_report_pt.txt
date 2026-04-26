@@ -1,0 +1,43 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-14
+  System:      Gaussian Self-Conjugate
+  Domain:      SIGNAL THEORY
+  Carriers:    f, f_prime, residual
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   84683af5ec087ed6
+  Timestamp:   2026-04-25T06:03:01.983453Z
+
+
+Total de códigos: 39
+  Erros:       0
+  Avisos:     1
+  Descobertas: 12
+  Sinais de calibração: 1
+  Informação:  25
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/sqrt3, delta=0.000579)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (48)
+  [S9-STL-DIS] S9-STL-DIS (39)
+  [S9-SPK-DIS] S9-SPK-DIS (6)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (3)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=residual, pct=66.150044)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=f_prime->residual, te=0.020839)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(f/f_prime), cv=136.903415)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(f/residual), cv=122.388051)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(f_prime/residual), cv=138.250186)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=182, near_zero_carriers=['f', 'f_prime', 'residual'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

@@ -1,6 +1,18 @@
 RELATÓRIO DE DIAGNÓSTICO Hˢ
 ============================================================
 
+  Experiment:  PAIR-7A
+  System:      Planck Cosmic Budget
+  Domain:      COSMOLOGY
+  Carriers:    Radiation, Matter, Dark_Energy
+  N=200, D=3
+  Source:      DERIVED
+  Description: Friedmann Ω(a) Planck 2018
+  Pipeline:    1.0 Extended
+  Data hash:   4ef3dc1b6938376b
+  Timestamp:   2026-04-25T10:54:40.463283Z
+
+
 Total de códigos: 38
   Erros:       0
   Avisos:     0

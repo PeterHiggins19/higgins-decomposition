@@ -1,0 +1,42 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  PAIR-3B
+  System:      AISI 1020 Steel
+  Domain:      MATTER
+  Carriers:    Elastic, Plastic, Thermal
+  N=80, D=3
+  Source:      DERIVED
+  Description: Stress-strain response
+  Pipeline:    1.0 Extended
+  Data hash:   d36b949f9fa60c90
+  Timestamp:   2026-04-25T10:54:39.871883Z
+
+
+Total codes: 38
+  Errors:       0
+  Warnings:     1
+  Discoveries: 9
+  Calibration signals: 2
+  Information:  26
+
+── WARNINGS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — poor fit, trajectory may be non-polynomial.
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=ln_phi, delta=0.000149)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Thermal, pct=66.529388)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.048502, drift_direction=decreasing, max_shift_carrier=Thermal)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Elastic/Plastic), cv=56.210197)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Elastic/Thermal), cv=165.418394)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Plastic/Thermal), cv=137.290244)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=7, near_zero_carriers=['Thermal'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

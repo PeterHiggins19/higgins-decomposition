@@ -1,0 +1,46 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17a
+  System:      Backblaze Per-Drive
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=5000, D=4
+  Source:      REAL
+  Description: Backblaze Drive Stats 2024-07-27, per-drive SMART decomposition
+  Pipeline:    1.0 Extended
+  Data hash:   058fde30806a8e6b
+  Timestamp:   2026-04-25T06:45:53.435331Z
+
+
+Codici totali: 40
+  Errori:       0
+  Avvisi:     3
+  Scoperte: 12
+  Segnali di calibrazione: 1
+  Informazioni:  24
+
+── AVVISI ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — scarso adattamento. La traiettoria potrebbe essere non polinomiale.
+  [S8-FLG-WRN] S8-FLG-WRN
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (5256)
+  [S9-STL-DIS] S9-STL-DIS (675)
+  [S9-SPK-DIS] S9-SPK-DIS (28)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (4553)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Errors, pct=60.929022)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Age->Thermal, te=0.004599)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Mechanical/Errors), cv=105.857380)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Thermal/Age), cv=136.884753)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Thermal/Errors), cv=186.883040)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Age/Errors), cv=171.610172)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=4827, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

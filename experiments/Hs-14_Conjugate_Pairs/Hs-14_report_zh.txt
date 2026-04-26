@@ -1,0 +1,43 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  Hs-14
+  System:      Gaussian Self-Conjugate
+  Domain:      SIGNAL THEORY
+  Carriers:    f, f_prime, residual
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   84683af5ec087ed6
+  Timestamp:   2026-04-25T06:03:01.983453Z
+
+
+代码总数: 39
+  错误:       0
+  警告:     1
+  发现: 12
+  校准信号: 1
+  信息:  25
+
+── 警告 ──
+  [S9-EIF-WRN] EITT不变性：在一个或多个压缩比下失败。
+
+── 发现 ──
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=1/sqrt3, delta=0.000579)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (48)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (39)
+  [S9-SPK-DIS] 检测到尖峰——熵变化率超过阈值。 (6)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (3)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=residual, pct=66.150044)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-TEF-DIS] 已识别载体之间的主导定向信息流。 (flow=f_prime->residual, te=0.020839)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(f/f_prime), cv=136.903415)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(f/residual), cv=122.388051)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(f_prime/residual), cv=138.250186)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=182, near_zero_carriers=['f', 'f_prime', 'residual'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

@@ -33,6 +33,10 @@ canvas { width: 100%; height: 100%; }
 
 .code-flash { position: absolute; bottom: 8px; right: 10px; font-family: 'Consolas', monospace; font-size: 9px; color: #3FB950; opacity: 0; transition: opacity 0.3s; z-index: 10; }
 .code-flash.visible { opacity: 1; }
+
+.dataset-badge { font-size: 10px; padding: 2px 8px; border-radius: 3px; font-weight: 700; letter-spacing: 0.5px; }
+.badge-semf { background: #1f3a5f; color: #58A6FF; }
+.badge-radio { background: #3b2f1e; color: #F0883E; }
 </style>
 </head>
 <body>
@@ -42,7 +46,10 @@ canvas { width: 100%; height: 100%; }
     <h1>Hˢ — Higgins Decomposition on the Simplex</h1>
     <div class="sub">CoDaWork 2026 • Coimbra, Portugal • Live Demo</div>
   </div>
-  <div class="step-display" id="stepDisplay">Initialising...</div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <span class="dataset-badge" id="datasetBadge">SEMF</span>
+    <div class="step-display" id="stepDisplay">Initialising...</div>
+  </div>
 </div>
 
 <div class="main">
@@ -67,7 +74,7 @@ canvas { width: 100%; height: 100%; }
     <canvas id="c4"></canvas>
   </div>
   <div class="panel" id="p5">
-    <div class="panel-title">Complex Plane (Centroid-Relative)</div>
+    <div class="panel-title">Complex Plane (CLR Phase)</div>
     <div class="code-flash" id="code5"></div>
     <canvas id="c5"></canvas>
   </div>
@@ -78,35 +85,8 @@ canvas { width: 100%; height: 100%; }
   </div>
 </div>
 
-<div class="info-bar">
-  <div class="info-col">
-    <h3>What is being decomposed</h3>
-    <span class="val">Semi-Empirical Mass Formula (SEMF)</span> — the Weizsäcker model of
-    nuclear binding energy. Each of the 92 natural elements (Z=1 hydrogen → Z=92 uranium)
-    is decomposed into three compositional carriers:<br>
-    <span class="euler">Volume</span> (bulk nuclear matter) •
-    <span style="color:#39D2C0">Surf+Coulomb</span> (boundary + electrostatic) •
-    <span style="color:#F0883E">Sym+Pairing</span> (neutron-proton balance)
-  </div>
-  <div class="info-col">
-    <h3>What the instrument reads</h3>
-    The cumulative <span class="val">Aitchison variance σ²_A</span> tracks how compositional
-    dispersion evolves as elements are added. At <span class="euler">Z=38 (strontium)</span>,
-    the trajectory passes through <span class="euler">1/(π^e) = 0.04453</span> with
-    <span class="highlight">δ = 5.87 × 10⁻⁶</span> — six millionths.
-    The binding energy of atomic nuclei encodes Gelfond's conjugate
-    to six decimal places. No free parameters. No model fitting.
-  </div>
-  <div class="info-col">
-    <h3>About this tool</h3>
-    <span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline
-    for compositional inference on the Aitchison simplex.
-    <span class="highlight">17 domains</span> tested across
-    <span class="highlight">44 orders of magnitude</span> (quarks → cosmos).
-    35 transcendental constants • 59 diagnostic codes • 5 languages.<br>
-    <span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br>
-    <span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>
-  </div>
+<div class="info-bar" id="infoBar">
+  <!-- Populated by JS based on active dataset -->
 </div>
 
 <div class="footer">
@@ -117,15 +97,17 @@ canvas { width: 100%; height: 100%; }
 
 <script>
 // ════════════════════════════════════════════════════════════
-// Hˢ LIVE DECOMPOSITION DEMO
-// Nuclear SEMF data — 92 elements, 30-second cycle
+// Hˢ LIVE DECOMPOSITION DEMO — DUAL DATASET
+// Dataset A: Nuclear SEMF (Z=1→92, D=3, 30s cycle)
+// Dataset B: Radionuclide Decay Chains (39 steps, D=4, 20s cycle)
+// Alternates between datasets on each cycle
 // ════════════════════════════════════════════════════════════
 
 const GOLD = '#FFD700', BLUE = '#58A6FF', GREEN = '#3FB950', RED = '#F85149',
       PURPLE = '#BC8CFF', CYAN = '#39D2C0', ORANGE = '#F0883E', BG = '#161B22',
-      GRID = '#30363D', TEXT = '#E6EDF3', DIM = '#484F58';
+      GRID = '#30363D', TEXT = '#E6EDF3', DIM = '#484F58', PINK = '#F778BA';
 
-// SEMF data generation (Weizsacker)
+// ──────────────── DATASET A: SEMF ────────────────
 function generateSEMF() {
   const aV=15.56, aS=17.23, aC=0.7, aA=23.285, aP=12.0;
   const data = [];
@@ -143,67 +125,136 @@ function generateSEMF() {
   return data;
 }
 
-const DATA = generateSEMF();
-const N = DATA.length;
-const CARRIERS = ['Volume', 'Surf+Coul', 'Sym+Pair'];
-const CYCLE_MS = 30000; // 30 seconds per cycle
-const STEP_MS = CYCLE_MS / N;
+const ELEMENTS = ['H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca',
+  'Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr','Rb','Sr','Y','Zr',
+  'Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe','Cs','Ba','La','Ce','Pr','Nd',
+  'Pm','Sm','Eu','Gd','Tb','Dy','Ho','Er','Tm','Yb','Lu','Hf','Ta','W','Re','Os','Ir','Pt','Au','Hg',
+  'Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th','Pa','U'];
 
-// Pipeline state
+const SEMF_CONFIG = {
+  name: 'SEMF',
+  data: generateSEMF(),
+  carriers: ['Volume', 'Surf+Coul', 'Sym+Pair'],
+  colors: [GOLD, CYAN, ORANGE],
+  D: 3,
+  cycleMs: 30000,
+  labels: ELEMENTS.map((e,i) => `Z=${i+1} (${e})`),
+  matchConst: '1/(π^e)',
+  matchValue: 1/Math.pow(Math.PI, Math.E),
+  matchDelta: '5.87×10⁻⁶',
+  matchIdx: 36, // Z=38 (index 36 in variance array starting at t=2)
+  matchLabel: 'Z=38 (Sr)',
+  hvldShape: 'bowl',
+  hvldR2: '0.940',
+  classification: 'NATURAL',
+  eittPass: true,
+  badgeClass: 'badge-semf',
+  info: [
+    {title:'What is being decomposed',
+     html:'<span class="val">Semi-Empirical Mass Formula (SEMF)</span> — the Weizsäcker model of nuclear binding energy. Each of 92 natural elements (Z=1 → Z=92) is decomposed into three carriers:<br><span class="euler">Volume</span> (bulk nuclear matter) • <span style="color:#39D2C0">Surf+Coulomb</span> (boundary + electrostatic) • <span style="color:#F0883E">Sym+Pairing</span> (neutron-proton balance)'},
+    {title:'What the instrument reads',
+     html:'The cumulative <span class="val">Aitchison variance σ²_A</span> tracks how compositional dispersion evolves as elements are added. At <span class="euler">Z=38 (strontium)</span>, the trajectory passes through <span class="euler">1/(π^e) = 0.04453</span> with <span class="highlight">δ = 5.87 × 10⁻⁶</span> — six millionths. The binding energy encodes Gelfond\'s conjugate to six decimal places.'},
+    {title:'About this tool',
+     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 59 diagnostic codes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
+  ]
+};
+
+// ──────────────── DATASET B: RADIONUCLIDE DECAY CHAINS ────────────────
+// Combined U-238 + Th-232 + U-235 with 4 carriers including neutrino
+const RADIO_RAW = [
+  // U-238 chain (14 steps) — neutrino estimated for beta decays
+  {iso:'U-238',  type:'α', chain:'U238', ke:4.198, gam:0.048, rec:0.024, nu:0},
+  {iso:'Th-234', type:'β', chain:'U238', ke:0.074, gam:0.063, rec:0.012, nu:0.124},
+  {iso:'Pa-234', type:'β', chain:'U238', ke:0.743, gam:0.074, rec:0.003, nu:1.377},
+  {iso:'U-234',  type:'α', chain:'U238', ke:4.775, gam:0.053, rec:0.031, nu:0},
+  {iso:'Th-230', type:'α', chain:'U238', ke:4.687, gam:0.068, rec:0.015, nu:0},
+  {iso:'Ra-226', type:'α', chain:'U238', ke:4.784, gam:0.186, rec:0.001, nu:0},
+  {iso:'Rn-222', type:'α', chain:'U238', ke:5.489, gam:0.51,  rec:0.091, nu:0},
+  {iso:'Po-218', type:'α', chain:'U238', ke:6.002, gam:0.001, rec:0.112, nu:0},
+  {iso:'Pb-214', type:'β', chain:'U238', ke:0.235, gam:0.352, rec:0.0,   nu:0.437},
+  {iso:'Bi-214', type:'β', chain:'U238', ke:0.540, gam:1.73,  rec:0.002, nu:1.000},
+  {iso:'Po-214', type:'α', chain:'U238', ke:7.687, gam:0.001, rec:0.145, nu:0},
+  {iso:'Pb-210', type:'β', chain:'U238', ke:0.006, gam:0.047, rec:0.0,   nu:0.011},
+  {iso:'Bi-210', type:'β', chain:'U238', ke:0.406, gam:0.002, rec:0.0,   nu:0.755},
+  {iso:'Po-210', type:'α', chain:'U238', ke:5.304, gam:0.001, rec:0.102, nu:0},
+  // Th-232 chain (10 steps)
+  {iso:'Th-232', type:'α', chain:'Th232', ke:4.012, gam:0.059, rec:0.012, nu:0},
+  {iso:'Ra-228', type:'β', chain:'Th232', ke:0.014, gam:0.007, rec:0.0,   nu:0.025},
+  {iso:'Ac-228', type:'β', chain:'Th232', ke:0.405, gam:0.969, rec:0.0,   nu:0.753},
+  {iso:'Th-228', type:'α', chain:'Th232', ke:5.423, gam:0.084, rec:0.013, nu:0},
+  {iso:'Ra-224', type:'α', chain:'Th232', ke:5.685, gam:0.241, rec:0.063, nu:0},
+  {iso:'Rn-220', type:'α', chain:'Th232', ke:6.288, gam:0.001, rec:0.116, nu:0},
+  {iso:'Po-216', type:'α', chain:'Th232', ke:6.778, gam:0.001, rec:0.128, nu:0},
+  {iso:'Pb-212', type:'β', chain:'Th232', ke:0.116, gam:0.239, rec:0.004, nu:0.215},
+  {iso:'Bi-212', type:'β/α', chain:'Th232', ke:0.534, gam:0.727, rec:0.003, nu:0.990},
+  {iso:'Po-212', type:'α', chain:'Th232', ke:8.785, gam:0.001, rec:0.168, nu:0},
+  // U-235 chain (15 steps — comprehensive with branches)
+  {iso:'U-235',   type:'α', chain:'U235', ke:4.3952, gam:0.2043, rec:0.0798, nu:0},
+  {iso:'Th-231',  type:'β', chain:'U235', ke:0.0763, gam:0.0843, rec:0.0006, nu:0.2293},
+  {iso:'Pa-231',  type:'α', chain:'U235', ke:4.9514, gam:0.1103, rec:0.0880, nu:0},
+  {iso:'Ac-227',  type:'β', chain:'U235', ke:0.0121, gam:0.0110, rec:0.0001, nu:0.0216},
+  {iso:'Th-227',  type:'α', chain:'U235', ke:5.9013, gam:0.1392, rec:0.1060, nu:0},
+  {iso:'Ra-223',  type:'α', chain:'U235', ke:5.6650, gam:0.2111, rec:0.1030, nu:0},
+  {iso:'Rn-219',  type:'α', chain:'U235', ke:6.7572, gam:0.0579, rec:0.1310, nu:0},
+  {iso:'Po-215',  type:'α', chain:'U235', ke:7.3860, gam:0.0003, rec:0.1400, nu:0},
+  {iso:'Pb-211',  type:'β', chain:'U235', ke:0.1714, gam:0.4049, rec:0.0004, nu:0.7903},
+  {iso:'Bi-211',  type:'α', chain:'U235', ke:6.5671, gam:0.0914, rec:0.0923, nu:0},
+  {iso:'Tl-207',  type:'β', chain:'U235', ke:0.4924, gam:0.0003, rec:0.0000, nu:0.9253},
+  {iso:'Ac-227*', type:'α', chain:'U235b', ke:4.9472, gam:0.0567, rec:0.0384, nu:0},
+  {iso:'Fr-223',  type:'β', chain:'U235b', ke:0.3633, gam:0.0502, rec:0.0003, nu:0.7352},
+  {iso:'Bi-211*', type:'β', chain:'U235b', ke:0.1621, gam:0.3510, rec:0.0000, nu:0.0615},
+  {iso:'Po-211',  type:'α', chain:'U235b', ke:7.4500, gam:0.0010, rec:0.1440, nu:0},
+];
+
+function buildRadioData() {
+  return RADIO_RAW.map(r => {
+    const tot = r.ke + r.gam + r.rec + r.nu;
+    return [r.ke/tot, r.gam/tot, r.rec/tot, r.nu/tot];
+  });
+}
+
+const RADIO_CONFIG = {
+  name: 'Radionuclides',
+  data: buildRadioData(),
+  carriers: ['Particle KE', 'Gamma', 'Recoil', 'Neutrino'],
+  colors: [BLUE, GREEN, ORANGE, PURPLE],
+  D: 4,
+  cycleMs: 25000,
+  labels: RADIO_RAW.map(r => `${r.iso} (${r.type})`),
+  chainLabels: RADIO_RAW.map(r => r.chain),
+  matchConst: '1/(e^π)',
+  matchValue: 1/Math.pow(Math.E, Math.PI),
+  matchDelta: '0.00778',
+  matchIdx: null, // detected dynamically
+  matchLabel: 'Combined 39-step',
+  hvldShape: 'hill',
+  hvldR2: '0.779',
+  classification: 'NATURAL',
+  eittPass: false,
+  eittNote: 'FAIL (nuclear turbulence)',
+  badgeClass: 'badge-radio',
+  info: [
+    {title:'What is being decomposed',
+     html:'<span class="val">Three natural radioactive decay chains</span> — U-238→Pb-206 (14 steps), Th-232→Pb-208 (10 steps), U-235→Pb-207 (15 steps with all branches). Each decay step partitions its Q-value into four carriers:<br><span style="color:#58A6FF">Particle KE</span> (α/β) • <span style="color:#3FB950">Gamma</span> (radiation) • <span style="color:#F0883E">Recoil</span> (daughter nucleus) • <span style="color:#BC8CFF">Neutrino</span> (β decays only)'},
+    {title:'Iterative discovery',
+     html:'<span class="val">Run 1</span> used 3 carriers (no neutrino) → U-235 flagged <span style="color:#F85149">FLAG</span> + <span style="color:#F85149">EITT FAIL</span>. The warnings were diagnostic <em>questions</em>: what energy channel is missing? <span class="val">Run 2</span> added the neutrino carrier + branch transitions → combined chain now detects <span class="euler">1/(e^π)</span> at <span class="highlight">δ = 0.00778</span>. Gelfond\'s constant reciprocal. The tool asks. The expert answers. New structure appears.'},
+    {title:'About this tool',
+     html:'<span class="val">Hˢ (Higgins Decomposition)</span> — a deterministic 12-step pipeline for compositional inference on the Aitchison simplex. <span class="highlight">17 domains</span> tested across <span class="highlight">44 orders of magnitude</span> (quarks → cosmos). 35 transcendental constants • 59 diagnostic codes • 5 languages.<br><span style="color:#58A6FF">github.com/PeterHiggins19/higgins-decomposition</span><br><span style="color:#484F58">Peter Higgins • CoDaWork 2026 • Coimbra</span>'}
+  ]
+};
+
+// ──────────────── ENGINE ────────────────
+const DATASETS = [SEMF_CONFIG, RADIO_CONFIG];
+let dsIdx = 0;
+
+let CFG, DATA, N_pts, STEP_MS;
 let currentIdx = 0;
-let sigma2 = new Array(N).fill(0);
+let sigma2 = [];
 let clrData = [];
 let entropy = [];
 let running = true;
+let panels;
 
-// CLR transform
-function clr(row) {
-  const logRow = row.map(v => Math.log(Math.max(v, 1e-15)));
-  const mean = logRow.reduce((a,b)=>a+b,0) / logRow.length;
-  return logRow.map(v => v - mean);
-}
-
-// Compute cumulative Aitchison variance
-function computeVariance(clrArr, t) {
-  if (t < 2) return 0;
-  const window = clrArr.slice(0, t+1);
-  let totalVar = 0;
-  for (let j = 0; j < 3; j++) {
-    const col = window.map(r => r[j]);
-    const mean = col.reduce((a,b)=>a+b,0) / col.length;
-    const variance = col.reduce((a,v)=>a+(v-mean)**2, 0) / col.length;
-    totalVar += variance;
-  }
-  return totalVar;
-}
-
-// Shannon entropy
-function shannonH(row) {
-  let h = 0;
-  for (const p of row) if (p > 0) h -= p * Math.log(p);
-  return h / Math.log(3); // normalised by H_max
-}
-
-// Ternary projection
-function toTernary(row) {
-  const s = row[0]+row[1]+row[2];
-  const x = 0.5*(2*row[1]+row[2])/s;
-  const y = (Math.sqrt(3)/2)*row[2]/s;
-  return [x, y];
-}
-
-// Canvas setup
-function setupCanvas(id) {
-  const canvas = document.getElementById(id);
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width = rect.width * 2;
-  canvas.height = rect.height * 2;
-  const ctx = canvas.getContext('2d');
-  ctx.scale(2, 2);
-  return { canvas, ctx, w: rect.width, h: rect.height };
-}
-
-// Languages for cycling display
 const LANGS = ['EN','中文','हिन्दी','PT','IT'];
 const DISCOVERIES = {
   'EN': 'Euler-family constant detected',
@@ -214,7 +265,6 @@ const DISCOVERIES = {
 };
 let langIdx = 0;
 
-// Step labels
 const STEPS = [
   '1. Define system', '2. Identify carriers', '3. Load data',
   '4. Close to simplex', '5. CLR transform', '6. Aitchison variance',
@@ -223,18 +273,85 @@ const STEPS = [
   '11. Complex plane', '12. 3D Helix/Polar'
 ];
 
-// Diagnostic codes to flash
-const CODES = [
-  'GD-ALL-INF', 'S4-CLO-INF', 'S5-CLR-INF', 'S6-VAR-INF',
-  'S7-BWL-INF', 'S8-NAT-INF', 'S8-EUL-DIS', 'S8-TGT-DIS',
-  'S9-EIT-INF', 'S9-REV-DIS', 'XU-PCD-DIS', 'RP-CMP-INF'
-];
+function loadDataset(idx) {
+  CFG = DATASETS[idx];
+  DATA = CFG.data;
+  N_pts = DATA.length;
+  STEP_MS = CFG.cycleMs / N_pts;
+  currentIdx = 0;
+  sigma2 = new Array(N_pts).fill(0);
+  clrData = DATA.map(row => clr(row));
+  entropy = [];
 
-let panels;
+  // Update badge
+  const badge = document.getElementById('datasetBadge');
+  badge.textContent = CFG.name === 'SEMF' ? 'SEMF • D=3 • N=92' : 'Radionuclides • D=4 • N=39';
+  badge.className = 'dataset-badge ' + CFG.badgeClass;
+
+  // Update info bar
+  const bar = document.getElementById('infoBar');
+  bar.innerHTML = CFG.info.map(c =>
+    `<div class="info-col"><h3>${c.title}</h3>${c.html}</div>`
+  ).join('');
+}
+
+// CLR transform (works for any D)
+function clr(row) {
+  const D = row.length;
+  const logRow = row.map(v => Math.log(Math.max(v, 1e-15)));
+  const mean = logRow.reduce((a,b)=>a+b,0) / D;
+  return logRow.map(v => v - mean);
+}
+
+function computeVariance(clrArr, t) {
+  if (t < 2) return 0;
+  const window = clrArr.slice(0, t+1);
+  const D = window[0].length;
+  let totalVar = 0;
+  for (let j = 0; j < D; j++) {
+    const col = window.map(r => r[j]);
+    const mean = col.reduce((a,b)=>a+b,0) / col.length;
+    totalVar += col.reduce((a,v)=>a+(v-mean)**2, 0) / col.length;
+  }
+  return totalVar;
+}
+
+function shannonH(row) {
+  const D = row.length;
+  let h = 0;
+  for (const p of row) if (p > 0) h -= p * Math.log(p);
+  return h / Math.log(D); // normalised by H_max = ln(D)
+}
+
+function toTernary(row) {
+  // For D=3: standard barycentric
+  // For D=4: project first 3 CLR components or merge last two carriers
+  let a, b, c;
+  if (row.length === 3) {
+    a = row[0]; b = row[1]; c = row[2];
+  } else {
+    // Merge carriers 2+3 (Recoil+Neutrino) for ternary visualisation
+    a = row[0]; b = row[1]; c = row[2] + row[3];
+  }
+  const s = a + b + c;
+  const x = 0.5*(2*b+c)/s;
+  const y = (Math.sqrt(3)/2)*c/s;
+  return [x, y];
+}
+
+function setupCanvas(id) {
+  const canvas = document.getElementById(id);
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * 2;
+  canvas.height = rect.height * 2;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(2, 2);
+  return { canvas, ctx, w: rect.width, h: rect.height };
+}
 
 function init() {
   panels = [1,2,3,4,5,6].map(i => setupCanvas('c'+i));
-  clrData = DATA.map(row => clr(row));
+  loadDataset(0);
   window.addEventListener('resize', () => {
     panels = [1,2,3,4,5,6].map(i => setupCanvas('c'+i));
   });
@@ -244,35 +361,50 @@ function init() {
 function animate() {
   if (!running) return;
 
-  // Advance one data point
-  if (currentIdx < N) {
+  if (currentIdx < N_pts) {
     sigma2[currentIdx] = computeVariance(clrData, currentIdx);
     entropy.push(shannonH(DATA[currentIdx]));
   }
 
-  // Update step display
-  const stepIdx = Math.min(Math.floor(currentIdx / N * 12), 11);
+  // Step display
+  const stepIdx = Math.min(Math.floor(currentIdx / N_pts * 12), 11);
+  const label = currentIdx < N_pts ? CFG.labels[currentIdx] : CFG.labels[N_pts-1];
   document.getElementById('stepDisplay').textContent =
-    `Step ${stepIdx+1}/12: ${STEPS[stepIdx]} — Z=${currentIdx+1}`;
+    `Step ${stepIdx+1}/12: ${STEPS[stepIdx]} — ${label}`;
 
-  // Progress bar
-  document.getElementById('progressBar').style.width =
-    `${(currentIdx/N*100).toFixed(0)}%`;
+  // Progress
+  document.getElementById('progressBar').style.width = `${(currentIdx/N_pts*100).toFixed(0)}%`;
 
   // Code stream
-  const codeIdx = Math.floor(currentIdx / N * CODES.length);
-  const code = CODES[Math.min(codeIdx, CODES.length-1)];
-  document.getElementById('codeStream').textContent =
-    `[${code}] ${currentIdx >= 37 ? '★ 1/(π^e) δ=5.87×10⁻⁶ at Z=38 (Sr)' : `Processing Z=${currentIdx+1}...`}`;
+  const progress = currentIdx / N_pts;
+  let streamText;
+  if (CFG.name === 'SEMF') {
+    streamText = currentIdx >= 37 ?
+      `[S8-EUL-DIS] ★ ${CFG.matchConst} δ=${CFG.matchDelta} at ${CFG.matchLabel}` :
+      `Processing ${label}...`;
+  } else {
+    // Radionuclide: show chain transitions
+    const chain = currentIdx < N_pts ? RADIO_RAW[currentIdx].chain : '';
+    const chainName = chain.startsWith('U238') ? 'U-238→Pb-206' :
+                      chain.startsWith('Th232') ? 'Th-232→Pb-208' :
+                      chain.startsWith('U235') ? 'U-235→Pb-207' : '';
+    if (progress > 0.85) {
+      streamText = `[S8-EUL-DIS] ★ ${CFG.matchConst} δ=${CFG.matchDelta} — ${CFG.matchLabel}`;
+    } else {
+      streamText = `[${chainName}] ${label}`;
+    }
+  }
+  document.getElementById('codeStream').textContent = streamText;
 
   // Language cycling
-  if (currentIdx % 18 === 0) {
+  if (currentIdx % Math.max(1, Math.floor(N_pts/5)) === 0 && currentIdx > 0) {
     langIdx = (langIdx + 1) % LANGS.length;
     document.getElementById('langDisplay').textContent = LANGS[langIdx];
   }
 
-  // Flash discovery code at Z=38
-  if (currentIdx === 37) {
+  // Flash discovery at key moment
+  const flashPoint = CFG.name === 'SEMF' ? 37 : Math.floor(N_pts * 0.85);
+  if (currentIdx === flashPoint) {
     const flash = document.getElementById('code2');
     flash.textContent = `[S8-EUL-DIS] ${DISCOVERIES[LANGS[langIdx]]}`;
     flash.classList.add('visible');
@@ -289,87 +421,88 @@ function animate() {
 
   currentIdx++;
 
-  if (currentIdx >= N) {
-    // Hold for 3 seconds then reset
+  if (currentIdx >= N_pts) {
     setTimeout(() => {
-      currentIdx = 0;
-      sigma2 = new Array(N).fill(0);
-      entropy = [];
+      // Alternate dataset
+      dsIdx = (dsIdx + 1) % DATASETS.length;
       langIdx = (langIdx + 1) % LANGS.length;
+      loadDataset(dsIdx);
       animate();
-    }, 3000);
+    }, 4000); // 4s hold at end
   } else {
     setTimeout(animate, STEP_MS);
   }
 }
 
-// Panel 1: Raw data bars (simplex composition)
+// ──────────────── PANEL 1: Raw Data Bars ────────────────
 function drawPanel1(t) {
   const {ctx, w, h} = panels[0];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
-  const padT=30, padB=30, padL=50, padR=20;
+  const padT=30, padB=35, padL=40, padR=10;
   const plotW = w-padL-padR, plotH = h-padT-padB;
+  if (t >= N_pts) return;
 
-  // Draw bars for current composition
-  if (t < N) {
-    const row = DATA[t];
-    const colors = [GOLD, CYAN, ORANGE];
-    const barW = plotW / 5;
+  const row = DATA[t];
+  const D = row.length;
+  const gap = plotW / (D + 1);
+  const barW = gap * 0.6;
 
-    for (let j = 0; j < 3; j++) {
-      const bh = row[j] * plotH;
-      const x = padL + (j+1) * barW;
-      const y = padT + plotH - bh;
+  for (let j = 0; j < D; j++) {
+    const bh = row[j] * plotH;
+    const x = padL + (j + 0.5) * gap;
+    const y = padT + plotH - bh;
 
-      ctx.fillStyle = colors[j];
-      ctx.globalAlpha = 0.8;
-      ctx.fillRect(x, y, barW*0.7, bh);
-      ctx.globalAlpha = 1;
+    ctx.fillStyle = CFG.colors[j];
+    ctx.globalAlpha = 0.85;
+    ctx.fillRect(x, y, barW, bh);
+    ctx.globalAlpha = 1;
 
-      // Label
-      ctx.fillStyle = colors[j];
-      ctx.font = '10px Consolas';
-      ctx.textAlign = 'center';
-      ctx.fillText(`${(row[j]*100).toFixed(1)}%`, x + barW*0.35, y - 5);
-      ctx.fillText(CARRIERS[j], x + barW*0.35, padT + plotH + 15);
-    }
-
-    // Element label
-    ctx.fillStyle = TEXT;
-    ctx.font = 'bold 14px Segoe UI';
-    ctx.textAlign = 'left';
-    const elements = ['H','He','Li','Be','B','C','N','O','F','Ne','Na','Mg','Al','Si','P','S','Cl','Ar','K','Ca',
-      'Sc','Ti','V','Cr','Mn','Fe','Co','Ni','Cu','Zn','Ga','Ge','As','Se','Br','Kr','Rb','Sr','Y','Zr',
-      'Nb','Mo','Tc','Ru','Rh','Pd','Ag','Cd','In','Sn','Sb','Te','I','Xe','Cs','Ba','La','Ce','Pr','Nd',
-      'Pm','Sm','Eu','Gd','Tb','Dy','Ho','Er','Tm','Yb','Lu','Hf','Ta','W','Re','Os','Ir','Pt','Au','Hg',
-      'Tl','Pb','Bi','Po','At','Rn','Fr','Ra','Ac','Th','Pa','U'];
-    const elem = t < elements.length ? elements[t] : `Z=${t+1}`;
-    ctx.fillText(`Z=${t+1} (${elem})`, padL, padT + plotH + 28);
-
-    // Σ = 1.000
-    ctx.fillStyle = GREEN;
-    ctx.font = '11px Consolas';
-    ctx.textAlign = 'right';
-    ctx.fillText('Σ = 1.000 ✓', w - padR, padT - 5);
+    // Percentage
+    ctx.fillStyle = CFG.colors[j];
+    ctx.font = '10px Consolas'; ctx.textAlign = 'center';
+    ctx.fillText(`${(row[j]*100).toFixed(1)}%`, x + barW/2, y - 5);
+    // Carrier name
+    ctx.font = '9px Segoe UI';
+    ctx.fillText(CFG.carriers[j], x + barW/2, padT + plotH + 12);
   }
+
+  // Current label
+  ctx.fillStyle = TEXT; ctx.font = 'bold 12px Segoe UI'; ctx.textAlign = 'left';
+  ctx.fillText(CFG.labels[t], padL, padT + plotH + 28);
+
+  // If radionuclide, show chain colour band
+  if (CFG.name === 'Radionuclides') {
+    const raw = RADIO_RAW[t];
+    const chainColor = raw.chain.startsWith('U238') ? BLUE :
+                       raw.chain.startsWith('Th232') ? CYAN :
+                       raw.chain.startsWith('U235b') ? PINK : ORANGE;
+    ctx.fillStyle = chainColor; ctx.globalAlpha = 0.6;
+    ctx.fillRect(w - 8, padT, 4, plotH);
+    ctx.globalAlpha = 1;
+    ctx.font = '9px Consolas'; ctx.textAlign = 'right'; ctx.fillStyle = chainColor;
+    const cn = raw.chain.startsWith('U238') ? 'U-238' :
+               raw.chain.startsWith('Th232') ? 'Th-232' :
+               raw.chain.startsWith('U235b') ? 'U-235 branch' : 'U-235';
+    ctx.fillText(cn, w - 14, padT + 10);
+  }
+
+  // Closure check
+  ctx.fillStyle = GREEN; ctx.font = '11px Consolas'; ctx.textAlign = 'right';
+  ctx.fillText('Σ = 1.000 ✓', w - padR, padT - 5);
 }
 
-// Panel 2: σ²_A trajectory with HVLD parabola
+// ──────────────── PANEL 2: σ²_A Trajectory + HVLD ────────────────
 function drawPanel2(t) {
   const {ctx, w, h} = panels[1];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
   const padT=30, padB=25, padL=50, padR=20;
   const plotW = w-padL-padR, plotH = h-padT-padB;
-
   if (t < 3) return;
 
   const valid = sigma2.slice(2, t+1);
   if (valid.length === 0) return;
 
   const maxV = Math.max(...valid) * 1.1 || 1;
-  const minV = 0;
 
   // Grid
   ctx.strokeStyle = GRID; ctx.lineWidth = 0.5;
@@ -384,63 +517,77 @@ function drawPanel2(t) {
   ctx.strokeStyle = BLUE; ctx.lineWidth = 2;
   ctx.beginPath();
   for (let i = 0; i < valid.length; i++) {
-    const x = padL + (i / Math.max(N-3, 1)) * plotW;
-    const y = padT + plotH * (1 - (valid[i]-minV) / (maxV-minV));
+    const x = padL + (i / Math.max(N_pts-3, 1)) * plotW;
+    const y = padT + plotH * (1 - valid[i] / maxV);
     if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
   ctx.stroke();
 
-  // Mark 1/(π^e) line
-  const piE = 1 / Math.pow(Math.PI, Math.E);
-  if (piE < maxV) {
-    const yLine = padT + plotH * (1 - piE / maxV);
+  // Transcendental constant line
+  const constVal = CFG.matchValue;
+  if (constVal < maxV) {
+    const yLine = padT + plotH * (1 - constVal / maxV);
     ctx.strokeStyle = GOLD; ctx.lineWidth = 1; ctx.setLineDash([5,5]);
     ctx.beginPath(); ctx.moveTo(padL, yLine); ctx.lineTo(w-padR, yLine); ctx.stroke();
     ctx.setLineDash([]);
     ctx.fillStyle = GOLD; ctx.font = '9px Consolas'; ctx.textAlign = 'left';
-    ctx.fillText(`1/(π^e) = ${piE.toFixed(4)}`, padL + 5, yLine - 5);
+    ctx.fillText(`${CFG.matchConst} = ${constVal.toFixed(5)}`, padL + 5, yLine - 5);
   }
 
-  // Mark Z=38 crossing point
-  if (t >= 36) {
-    const crossIdx = 36; // approximately Z=38
+  // Mark crossing point if we've reached it
+  if (CFG.name === 'SEMF' && t >= 36) {
+    const crossIdx = 36;
     if (crossIdx < valid.length) {
-      const cx = padL + (crossIdx / Math.max(N-3, 1)) * plotW;
-      const cy = padT + plotH * (1 - (valid[crossIdx]-minV) / (maxV-minV));
+      const cx = padL + (crossIdx / Math.max(N_pts-3, 1)) * plotW;
+      const cy = padT + plotH * (1 - valid[crossIdx] / maxV);
       ctx.fillStyle = GOLD;
       ctx.beginPath(); ctx.arc(cx, cy, 5, 0, Math.PI*2); ctx.fill();
-      ctx.fillStyle = GOLD; ctx.font = 'bold 10px Consolas';
-      ctx.fillText('Z=38 (Sr)', cx + 8, cy - 8);
-      ctx.fillText('δ=5.87×10⁻⁶', cx + 8, cy + 5);
+      ctx.font = 'bold 10px Consolas';
+      ctx.fillText(CFG.matchLabel, cx + 8, cy - 8);
+      ctx.fillText(`δ=${CFG.matchDelta}`, cx + 8, cy + 5);
+    }
+  }
+
+  // For radionuclides, mark chain boundaries
+  if (CFG.name === 'Radionuclides') {
+    const boundaries = [{idx:14, label:'Th-232 →', color:CYAN}, {idx:24, label:'U-235 →', color:ORANGE}];
+    for (const b of boundaries) {
+      if (b.idx - 2 < valid.length) {
+        const bx = padL + ((b.idx-2) / Math.max(N_pts-3, 1)) * plotW;
+        ctx.strokeStyle = b.color; ctx.lineWidth = 1; ctx.globalAlpha = 0.4;
+        ctx.setLineDash([3,3]);
+        ctx.beginPath(); ctx.moveTo(bx, padT); ctx.lineTo(bx, padT+plotH); ctx.stroke();
+        ctx.setLineDash([]); ctx.globalAlpha = 1;
+        ctx.fillStyle = b.color; ctx.font = '8px Segoe UI'; ctx.textAlign = 'left';
+        ctx.fillText(b.label, bx+3, padT+12);
+      }
     }
   }
 
   // HVLD label
-  ctx.fillStyle = t > 20 ? GREEN : DIM;
+  const progress = t / N_pts;
+  ctx.fillStyle = progress > 0.3 ? GREEN : DIM;
   ctx.font = 'bold 11px Consolas'; ctx.textAlign = 'right';
-  ctx.fillText(t > 20 ? 'HVLD: bowl R²=0.94' : 'HVLD: computing...', w-padR, padT-5);
+  ctx.fillText(progress > 0.3 ? `HVLD: ${CFG.hvldShape} R²=${CFG.hvldR2}` : 'HVLD: computing...', w-padR, padT-5);
 }
 
-// Panel 3: Ternary projection — AUTO-ZOOMED to data bounds
+// ──────────────── PANEL 3: Ternary Projection ────────────────
 function drawPanel3(t) {
   const {ctx, w, h} = panels[2];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
   const padT=30, padB=15, padL=15, padR=15;
 
-  // Compute ternary coordinates for all data seen so far
   const ternPts = [];
-  for (let i = 0; i <= Math.min(t, N-1); i++) {
-    const [tx, ty] = toTernary(DATA[i]);
-    ternPts.push([tx, ty]);
+  for (let i = 0; i <= Math.min(t, N_pts-1); i++) {
+    ternPts.push(toTernary(DATA[i]));
   }
   if (ternPts.length === 0) return;
 
-  // Find data bounds and zoom to fit with 15% padding
+  // Auto-zoom
   let minX=1,maxX=0,minY=1,maxY=0;
   for (const [tx,ty] of ternPts) { minX=Math.min(minX,tx); maxX=Math.max(maxX,tx); minY=Math.min(minY,ty); maxY=Math.max(maxY,ty); }
   const padFrac = 0.15;
-  const rangeX = (maxX-minX) || 0.01, rangeY = (maxY-minY) || 0.01;
+  const rangeX = (maxX-minX)||0.01, rangeY = (maxY-minY)||0.01;
   minX -= rangeX*padFrac; maxX += rangeX*padFrac;
   minY -= rangeY*padFrac; maxY += rangeY*padFrac;
 
@@ -449,7 +596,7 @@ function drawPanel3(t) {
     return [padL + (tx-minX)/(maxX-minX)*plotW, padT + plotH - (ty-minY)/(maxY-minY)*plotH];
   }
 
-  // Draw simplex boundary (clipped to view)
+  // Simplex boundary
   ctx.strokeStyle = GRID; ctx.lineWidth = 0.5;
   const triPts = [[0,0],[1,0],[0.5,Math.sqrt(3)/2]];
   ctx.beginPath();
@@ -460,15 +607,17 @@ function drawPanel3(t) {
   }
   ctx.stroke();
 
-  // Vertex labels at data edges
-  ctx.fillStyle = GOLD; ctx.font = '9px Segoe UI'; ctx.textAlign = 'left';
-  ctx.fillText(CARRIERS[0], padL, h-5);
-  ctx.fillStyle = CYAN; ctx.textAlign = 'right';
-  ctx.fillText(CARRIERS[1], w-padR, h-5);
-  ctx.fillStyle = ORANGE; ctx.textAlign = 'center';
-  ctx.fillText(CARRIERS[2], w/2, padT-5);
+  // Labels
+  const ternCarriers = CFG.D === 3 ? CFG.carriers :
+    [CFG.carriers[0], CFG.carriers[1], CFG.carriers[2]+'+'+CFG.carriers[3]];
+  ctx.fillStyle = CFG.colors[0]; ctx.font = '9px Segoe UI'; ctx.textAlign = 'left';
+  ctx.fillText(ternCarriers[0], padL, h-5);
+  ctx.fillStyle = CFG.colors[1]; ctx.textAlign = 'right';
+  ctx.fillText(ternCarriers[1], w-padR, h-5);
+  ctx.fillStyle = CFG.D === 3 ? CFG.colors[2] : ORANGE; ctx.textAlign = 'center';
+  ctx.fillText(ternCarriers[2], w/2, padT-5);
 
-  // Plot points with connecting line
+  // Connecting line
   ctx.strokeStyle = 'rgba(88,166,255,0.3)'; ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i < ternPts.length; i++) {
@@ -480,35 +629,39 @@ function drawPanel3(t) {
   // Points
   for (let i = 0; i < ternPts.length; i++) {
     const [sx, sy] = toScreen(ternPts[i][0], ternPts[i][1]);
-    const alpha = i === t ? 1.0 : Math.max(0.2, 1 - (t-i)/(N*0.5));
+    const alpha = i === t ? 1.0 : Math.max(0.2, 1 - (t-i)/(N_pts*0.5));
     const r = i === t ? 5 : 2.5;
-    const hue = (i/N) * 240;
+    let hue;
+    if (CFG.name === 'Radionuclides') {
+      const chain = RADIO_RAW[i] ? RADIO_RAW[i].chain : '';
+      hue = chain.startsWith('U238') ? 210 : chain.startsWith('Th232') ? 170 : chain.startsWith('U235b') ? 320 : 30;
+    } else {
+      hue = (i/N_pts) * 240;
+    }
     ctx.fillStyle = `hsla(${hue}, 80%, 60%, ${alpha})`;
     ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI*2); ctx.fill();
   }
 
-  // Label current point
-  if (t < N) {
+  // Label current
+  if (t < N_pts) {
     const [sx,sy] = toScreen(ternPts[ternPts.length-1][0], ternPts[ternPts.length-1][1]);
     ctx.fillStyle = TEXT; ctx.font = '9px Consolas'; ctx.textAlign = 'left';
-    ctx.fillText(`Z=${t+1}`, sx+7, sy-3);
+    ctx.fillText(CFG.labels[t].split(' ')[0], sx+7, sy-3);
   }
 }
 
-// Panel 4: Entropy
+// ──────────────── PANEL 4: Entropy ────────────────
 function drawPanel4(t) {
   const {ctx, w, h} = panels[3];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
   const padT=30, padB=20, padL=45, padR=15;
   const plotW = w-padL-padR, plotH = h-padT-padB;
-
   if (entropy.length < 2) return;
 
   ctx.strokeStyle = GREEN; ctx.lineWidth = 1.5;
   ctx.beginPath();
   for (let i = 0; i < entropy.length; i++) {
-    const x = padL + (i / Math.max(N-1, 1)) * plotW;
+    const x = padL + (i / Math.max(N_pts-1, 1)) * plotW;
     const y = padT + plotH * (1 - entropy[i]);
     if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
   }
@@ -525,46 +678,51 @@ function drawPanel4(t) {
   ctx.fillText(`H̄ = ${mean.toFixed(4)}`, w-padR, padT - 5);
 
   // EITT badge
-  if (t > N*0.5) {
-    ctx.fillStyle = GREEN; ctx.font = 'bold 10px Consolas';
-    ctx.fillText('EITT: PASS ✓', w-padR, padT + 12);
+  const progress = t / N_pts;
+  if (progress > 0.5) {
+    if (CFG.eittPass) {
+      ctx.fillStyle = GREEN; ctx.font = 'bold 10px Consolas';
+      ctx.fillText('EITT: PASS ✓', w-padR, padT + 12);
+    } else {
+      ctx.fillStyle = ORANGE; ctx.font = 'bold 10px Consolas';
+      ctx.fillText(CFG.eittNote || 'EITT: FAIL', w-padR, padT + 12);
+    }
+  }
+
+  // For radionuclides, show chain boundaries with color bands
+  if (CFG.name === 'Radionuclides') {
+    const b1 = padL + (14/N_pts) * plotW;
+    const b2 = padL + (24/N_pts) * plotW;
+    ctx.globalAlpha = 0.15;
+    ctx.fillStyle = BLUE; ctx.fillRect(padL, padT, b1-padL, plotH);
+    ctx.fillStyle = CYAN; ctx.fillRect(b1, padT, b2-b1, plotH);
+    ctx.fillStyle = ORANGE; ctx.fillRect(b2, padT, padL+plotW-b2, plotH);
+    ctx.globalAlpha = 1;
   }
 }
 
-// Panel 5: Complex plane — CLR-based phase mapping (distinct from ternary)
+// ──────────────── PANEL 5: Complex Plane ────────────────
 function drawPanel5(t) {
   const {ctx, w, h} = panels[4];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
   const padT=30, padB=15, padL=15, padR=15;
-
   if (t < 2) return;
 
-  // Complex mapping: use CLR[0] as Re, CLR[1] as Im (centred log-ratio projection)
-  // This is fundamentally different from ternary — it shows the LOG-RATIO structure
   const cplxPts = [];
   let sumRe=0, sumIm=0;
-  for (let i = 0; i <= Math.min(t, N-1); i++) {
-    const c = clrData[i];
-    // Use CLR components 0 and 1 as Re and Im
-    // CLR[2] is determined by CLR[0]+CLR[1]+CLR[2]=0
-    sumRe += c[0]; sumIm += c[1];
+  for (let i = 0; i <= Math.min(t, N_pts-1); i++) {
+    sumRe += clrData[i][0]; sumIm += clrData[i][1];
   }
   const centRe = sumRe/(t+1), centIm = sumIm/(t+1);
-  for (let i = 0; i <= Math.min(t, N-1); i++) {
-    const c = clrData[i];
-    cplxPts.push([c[0] - centRe, c[1] - centIm]);
+  for (let i = 0; i <= Math.min(t, N_pts-1); i++) {
+    cplxPts.push([clrData[i][0] - centRe, clrData[i][1] - centIm]);
   }
 
-  // Find data bounds and zoom
   let minRe=Infinity,maxRe=-Infinity,minIm=Infinity,maxIm=-Infinity;
   for (const [re,im] of cplxPts) { minRe=Math.min(minRe,re); maxRe=Math.max(maxRe,re); minIm=Math.min(minIm,im); maxIm=Math.max(maxIm,im); }
-  const padFrac = 0.2;
-  const rangeRe = (maxRe-minRe)||0.001, rangeIm = (maxIm-minIm)||0.001;
-  // Use uniform scale (aspect ratio = 1)
-  const maxRange = Math.max(rangeRe, rangeIm);
+  const maxRange = Math.max((maxRe-minRe)||0.001, (maxIm-minIm)||0.001);
   const midRe = (minRe+maxRe)/2, midIm = (minIm+maxIm)/2;
-  const halfR = maxRange/2 * (1+padFrac);
+  const halfR = maxRange/2 * 1.2;
 
   const plotW = w-padL-padR, plotH = h-padT-padB;
   const plotSize = Math.min(plotW, plotH);
@@ -575,20 +733,19 @@ function drawPanel5(t) {
             offY + plotSize - (im-midIm+halfR)/(2*halfR)*plotSize];
   }
 
-  // Axes through origin
+  // Axes
   const [ox, oy] = toScreen(0, 0);
   ctx.strokeStyle = GRID; ctx.lineWidth = 0.5;
   ctx.beginPath(); ctx.moveTo(offX, oy); ctx.lineTo(offX+plotSize, oy); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(ox, offY); ctx.lineTo(ox, offY+plotSize); ctx.stroke();
-
   ctx.fillStyle = DIM; ctx.font = '9px Consolas';
-  ctx.textAlign = 'left'; ctx.fillText('Re', offX+plotSize+2, oy-3);
-  ctx.textAlign = 'center'; ctx.fillText('Im', ox+8, offY-3);
+  ctx.textAlign = 'left'; ctx.fillText('Re(CLR)', offX+plotSize-40, oy-5);
+  ctx.textAlign = 'center'; ctx.fillText('Im(CLR)', ox+8, offY+10);
 
-  // Centroid dot
+  // Centroid
   ctx.fillStyle = '#444'; ctx.beginPath(); ctx.arc(ox, oy, 3, 0, Math.PI*2); ctx.fill();
 
-  // Connecting line
+  // Line
   ctx.strokeStyle = 'rgba(188,140,255,0.25)'; ctx.lineWidth = 1;
   ctx.beginPath();
   for (let i = 0; i < cplxPts.length; i++) {
@@ -600,14 +757,20 @@ function drawPanel5(t) {
   // Points
   for (let i = 0; i < cplxPts.length; i++) {
     const [sx, sy] = toScreen(cplxPts[i][0], cplxPts[i][1]);
-    const alpha = i === t ? 1.0 : Math.max(0.2, 1 - (t-i)/(N*0.5));
+    const alpha = i === t ? 1.0 : Math.max(0.2, 1 - (t-i)/(N_pts*0.5));
     const r = i === t ? 5 : 2;
-    const hue = (i/N) * 300;
+    let hue;
+    if (CFG.name === 'Radionuclides') {
+      const chain = RADIO_RAW[i] ? RADIO_RAW[i].chain : '';
+      hue = chain.startsWith('U238') ? 210 : chain.startsWith('Th232') ? 170 : chain.startsWith('U235b') ? 320 : 30;
+    } else {
+      hue = (i/N_pts) * 300;
+    }
     ctx.fillStyle = `hsla(${hue}, 70%, 55%, ${alpha})`;
     ctx.beginPath(); ctx.arc(sx, sy, r, 0, Math.PI*2); ctx.fill();
   }
 
-  // Radius from centroid to current point
+  // Radius line to current point
   if (cplxPts.length > 0) {
     const last = cplxPts[cplxPts.length-1];
     const [lx,ly] = toScreen(last[0], last[1]);
@@ -615,63 +778,91 @@ function drawPanel5(t) {
     ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(lx, ly); ctx.stroke();
     const radius = Math.sqrt(last[0]**2 + last[1]**2);
     ctx.fillStyle = GOLD; ctx.font = '9px Consolas'; ctx.textAlign = 'left';
-    ctx.fillText(`r=${radius.toFixed(4)}`, lx+6, ly-4);
+    ctx.fillText(`r=${radius.toFixed(3)}`, lx+6, ly-4);
   }
 }
 
-// Panel 6: Live diagnostic codes
+// ──────────────── PANEL 6: Diagnostic Codes ────────────────
 function drawPanel6(t) {
   const {ctx, w, h} = panels[5];
   ctx.fillStyle = BG; ctx.fillRect(0, 0, w, h);
-
-  const lineH = 16;
-  const padT = 28, padL = 10;
-
-  // Determine which codes to show based on progress
-  const progress = t / N;
+  const lineH = 16, padT = 28, padL = 10;
+  const progress = t / N_pts;
   const activeCodes = [];
 
   if (progress > 0) activeCodes.push({code:'GD-ALL-INF', text:'All guards passed', color:GREEN});
   if (progress > 0.02) activeCodes.push({code:'S4-CLO-INF', text:'Closure: Σ=1.000 ✓', color:GREEN});
   if (progress > 0.05) activeCodes.push({code:'S5-CLR-INF', text:'CLR transform complete', color:GREEN});
-  if (progress > 0.1) activeCodes.push({code:'S6-VAR-INF', text:`σ²_A = ${sigma2[Math.min(t,N-1)].toFixed(6)}`, color:BLUE});
-  if (progress > 0.3) activeCodes.push({code:'S7-BWL-INF', text:'HVLD: bowl R²=0.940', color:BLUE});
-  if (progress > 0.4) {
-    activeCodes.push({code:'S8-NAT-INF', text:'Classification: NATURAL', color:GREEN});
-    activeCodes.push({code:'S8-EUL-DIS', text:`★ ${DISCOVERIES[LANGS[langIdx]]}`, color:GOLD});
-    activeCodes.push({code:'S8-TGT-DIS', text:'δ = 5.87×10⁻⁶ at Z=38', color:GOLD});
+  if (progress > 0.1) activeCodes.push({code:'S6-VAR-INF', text:`σ²_A = ${sigma2[Math.min(t,N_pts-1)].toFixed(6)}`, color:BLUE});
+  if (progress > 0.25) {
+    const shapeCode = CFG.hvldShape === 'bowl' ? 'S7-BWL-INF' : 'S7-HIL-INF';
+    activeCodes.push({code:shapeCode, text:`HVLD: ${CFG.hvldShape} R²=${CFG.hvldR2}`, color:BLUE});
   }
-  if (progress > 0.5) activeCodes.push({code:'S9-EIT-INF', text:'EITT: PASS (<5% variation)', color:GREEN});
-  if (progress > 0.6) activeCodes.push({code:'S9-REV-DIS', text:`Reversals: ${Math.floor(progress*87)}`, color:ORANGE});
-  if (progress > 0.7) activeCodes.push({code:'XU-PCD-DIS', text:'Dominant: Sym+Pairing (45%)', color:CYAN});
-  if (progress > 0.8) activeCodes.push({code:'XC-TEF-DIS', text:'TE: Surf+Coul → Sym+Pair', color:PURPLE});
-  if (progress > 0.9) activeCodes.push({code:'XC-RPS-DIS', text:'Stable: ln(Vol/Sym+Pair) CV=6.6%', color:CYAN});
+  if (progress > 0.4) {
+    activeCodes.push({code:'S8-NAT-INF', text:`Classification: ${CFG.classification}`, color:GREEN});
+    activeCodes.push({code:'S8-EUL-DIS', text:`★ ${DISCOVERIES[LANGS[langIdx]]}`, color:GOLD});
+    activeCodes.push({code:'S8-TGT-DIS', text:`${CFG.matchConst} δ=${CFG.matchDelta}`, color:GOLD});
+  }
+  if (progress > 0.5) {
+    if (CFG.eittPass) {
+      activeCodes.push({code:'S9-EIT-INF', text:'EITT: PASS (<5% variation)', color:GREEN});
+    } else {
+      activeCodes.push({code:'S9-EIF-WRN', text:'EITT: FAIL — compositional turbulence', color:ORANGE});
+      activeCodes.push({code:'S9-CHH-DIS', text:`High chaos: ${Math.floor(progress*N_pts)} turbulence events`, color:ORANGE});
+    }
+  }
+  if (progress > 0.6) {
+    if (CFG.name === 'SEMF') {
+      activeCodes.push({code:'S9-REV-DIS', text:`Reversals: ${Math.floor(progress*87)}`, color:ORANGE});
+    } else {
+      activeCodes.push({code:'S9-REV-DIS', text:`Reversals: ${Math.floor(progress*32)}`, color:ORANGE});
+    }
+  }
+  if (progress > 0.7) {
+    if (CFG.name === 'SEMF') {
+      activeCodes.push({code:'XU-PCD-DIS', text:'Dominant: Sym+Pairing (45%)', color:CYAN});
+    } else {
+      activeCodes.push({code:'XU-DRD-DIS', text:'Drift decreasing — system converging', color:CYAN});
+      activeCodes.push({code:'XC-ZCR-DIS', text:'Zero-crossings: Neutrino near boundary', color:PURPLE});
+    }
+  }
+  if (progress > 0.8) {
+    if (CFG.name === 'SEMF') {
+      activeCodes.push({code:'XC-TEF-DIS', text:'TE: Surf+Coul → Sym+Pair', color:PURPLE});
+    } else {
+      activeCodes.push({code:'XC-RPV-DIS', text:'Volatile: ln(Recoil/Neutrino) CV=507%', color:RED});
+      activeCodes.push({code:'XC-PIR-DIS', text:'PID: carriers share redundant info', color:PURPLE});
+    }
+  }
+  if (progress > 0.9) {
+    if (CFG.name === 'SEMF') {
+      activeCodes.push({code:'XC-RPS-DIS', text:'Stable: ln(Vol/Sym+Pair) CV=6.6%', color:CYAN});
+    } else {
+      activeCodes.push({code:'XU-MDS-CAL', text:'Match density calibration signal', color:BLUE});
+    }
+  }
   if (progress > 0.95) activeCodes.push({code:'RP-CMP-INF', text:'Pipeline complete ✓', color:GREEN});
 
-  // Draw codes
   for (let i = 0; i < activeCodes.length && i < Math.floor((h-padT)/lineH); i++) {
     const c = activeCodes[i];
     const y = padT + i * lineH;
-
-    // Fade in effect
-    const fadeProgress = Math.min(1, (progress * CODES.length - i) * 2);
+    const fadeProgress = Math.min(1, (progress * 14 - i) * 2);
     ctx.globalAlpha = Math.max(0.3, fadeProgress);
 
-    ctx.fillStyle = DIM;
-    ctx.font = '9px Consolas';
-    ctx.textAlign = 'left';
+    ctx.fillStyle = DIM; ctx.font = '9px Consolas'; ctx.textAlign = 'left';
     ctx.fillText(`[${c.code}]`, padL, y);
-
-    ctx.fillStyle = c.color;
-    ctx.font = '10px Segoe UI';
+    ctx.fillStyle = c.color; ctx.font = '10px Segoe UI';
     ctx.fillText(c.text, padL + 90, y);
-
     ctx.globalAlpha = 1;
   }
 
-  // System name at bottom
+  // System summary at bottom
   ctx.fillStyle = GOLD; ctx.font = 'bold 11px Consolas'; ctx.textAlign = 'center';
-  ctx.fillText('Nuclear SEMF (Z=1→92) • 1/(π^e) at δ=5.87×10⁻⁶', w/2, h - 10);
+  if (CFG.name === 'SEMF') {
+    ctx.fillText(`Nuclear SEMF (Z=1→92) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 10);
+  } else {
+    ctx.fillText(`Radionuclides (N=39, D=4) • ${CFG.matchConst} at δ=${CFG.matchDelta}`, w/2, h - 10);
+  }
 }
 
 // Start

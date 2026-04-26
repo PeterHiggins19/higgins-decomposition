@@ -1,0 +1,37 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  PAIR-3A
+  System:      Basalt-Rhyolite Series
+  Domain:      MATTER
+  Carriers:    SiO2, Al2O3, CaO+MgO
+  N=150, D=3
+  Source:      DERIVED
+  Description: Igneous differentiation (Le Maitre 2002)
+  Pipeline:    1.0 Extended
+  Data hash:   8bf0db689b629d52
+  Timestamp:   2026-04-25T10:54:39.854085Z
+
+
+代码总数: 38
+  错误:       0
+  警告:     0
+  发现: 11
+  校准信号: 0
+  信息:  27
+
+── 发现 ──
+  [S8-EUL-DIS] 检测到欧拉族常数。管道几何与系统结构产生共振。 (constant=1/(e^pi), delta=0.000113)
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=1/(e^pi), delta=0.000113)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (146)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (10)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (136)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=CaO+MgO, pct=60.646793)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=4.033175, drift_direction=increasing, max_shift_carrier=SiO2)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-TEF-DIS] 已识别载体之间的主导定向信息流。 (flow=CaO+MgO->Al2O3, te=0.189162)
+  [XC-RPS-DIS] 稳定配对比率——这些载体在成分上锁定。 (pair=ln(SiO2/Al2O3), cv=14.607161)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Al2O3/CaO+MgO), cv=187.125139)
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

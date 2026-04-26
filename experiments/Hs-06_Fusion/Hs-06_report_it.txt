@@ -1,0 +1,38 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-06
+  System:      Fusion DT
+  Domain:      NUCLEAR
+  Carriers:    Fusion, Radiation, Loss
+  N=100, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   ba0583783f6a8b0b
+  Timestamp:   2026-04-25T06:03:01.872606Z
+
+
+Codici totali: 38
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 10
+  Segnali di calibrazione: 1
+  Informazioni:  27
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(pi^e), delta=0.005744)
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Fusion, pct=64.542000)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.017244, drift_direction=decreasing, max_shift_carrier=Fusion)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Fusion->Loss, te=0.346279)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Fusion/Radiation), cv=107.992398)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Fusion/Loss), cv=97.940187)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Radiation/Loss), cv=201.027868)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=72, near_zero_carriers=['Fusion', 'Radiation', 'Loss'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

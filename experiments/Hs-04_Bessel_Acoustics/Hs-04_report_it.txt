@@ -1,0 +1,36 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-04
+  System:      Bessel Acoustics
+  Domain:      ACOUSTICS
+  Carriers:    Low, Mid, High
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   c6fdc076a68d5821
+  Timestamp:   2026-04-25T06:03:01.827496Z
+
+
+Codici totali: 36
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 8
+  Segnali di calibrazione: 1
+  Informazioni:  27
+
+── SCOPERTE ──
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/pi, delta=0.000020)
+  [S9-STL-DIS] S9-STL-DIS (7)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.171442, drift_direction=decreasing, max_shift_carrier=Mid)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Low/Mid), cv=74.717829)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Low/High), cv=178.416133)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Mid/High), cv=69.134225)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=37, near_zero_carriers=['Low', 'Mid', 'High'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XC-TEZ-CAL] Entropia di trasferimento è zero — sistema composizionalmente senza memoria.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

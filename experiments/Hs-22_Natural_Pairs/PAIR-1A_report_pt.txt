@@ -1,6 +1,18 @@
 RELATÓRIO DE DIAGNÓSTICO Hˢ
 ============================================================
 
+  Experiment:  PAIR-1A
+  System:      Nuclear SEMF (Z=1-92)
+  Domain:      ENERGY
+  Carriers:    Volume, Surf+Coulomb, Sym+Pairing
+  N=92, D=3
+  Source:      DERIVED
+  Description: Weizsacker SEMF binding energy decomposition
+  Pipeline:    1.0 Extended
+  Data hash:   fa82e9d6273e4966
+  Timestamp:   2026-04-25T10:54:39.778005Z
+
+
 Total de códigos: 38
   Erros:       0
   Avisos:     0
@@ -14,12 +26,12 @@ Total de códigos: 38
   [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (89)
   [S9-STL-DIS] S9-STL-DIS (2)
   [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (87)
-  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo, segunda metade mais concentrada. (variance_ratio_2nd_to_1st=0.031588, drift_direction=decreasing, max_shift_carrier=Sym+Pairing)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.031588, drift_direction=decreasing, max_shift_carrier=Sym+Pairing)
   [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
   [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=Surf+Coulomb->Sym+Pairing, te=0.181084)
-  [XC-RPS-DIS] Razão pareada estável encontrada — estes portadores estão composicionalmente bloqueados. (pair=ln(Volume/Surf+Coulomb), cv=13.301594)
-  [XC-RPS-DIS] Razão pareada estável encontrada — estes portadores estão composicionalmente bloqueados. (pair=ln(Volume/Sym+Pairing), cv=6.613629)
-  [XC-RPS-DIS] Razão pareada estável encontrada — estes portadores estão composicionalmente bloqueados. (pair=ln(Surf+Coulomb/Sym+Pairing), cv=6.593092)
+  [XC-RPS-DIS] Razão pareada estável — estes portadores estão composicionalmente bloqueados. (pair=ln(Volume/Surf+Coulomb), cv=13.301594)
+  [XC-RPS-DIS] Razão pareada estável — estes portadores estão composicionalmente bloqueados. (pair=ln(Volume/Sym+Pairing), cv=6.613629)
+  [XC-RPS-DIS] Razão pareada estável — estes portadores estão composicionalmente bloqueados. (pair=ln(Surf+Coulomb/Sym+Pairing), cv=6.593092)
 
 Execução do pipeline concluída com sucesso.
 O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

@@ -1,0 +1,46 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  Hs-17c
+  System:      Backblaze By-Capacity
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=40, D=4
+  Source:      REAL
+  Pipeline:    1.0 Extended
+  Data hash:   57682f0e08bd64b1
+  Timestamp:   2026-04-25T06:45:54.026987Z
+
+
+代码总数: 41
+  错误:       0
+  警告:     1
+  发现: 15
+  校准信号: 1
+  信息:  24
+
+── 警告 ──
+  [S9-EIF-WRN] EITT不变性：在一个或多个压缩比下失败。
+
+── 发现 ──
+  [S8-EUL-DIS] 检测到欧拉族常数。管道几何与系统结构产生共振。 (constant=1/(pi^e), delta=0.002583)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (39)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (9)
+  [S9-SPK-DIS] 检测到尖峰——熵变化率超过阈值。 (1)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (29)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=Errors, pct=73.957441)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=1.144661, drift_direction=increasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPS-DIS] 稳定配对比率——这些载体在成分上锁定。 (pair=ln(Mechanical/Thermal), cv=0.987813)
+  [XC-RPS-DIS] 稳定配对比率——这些载体在成分上锁定。 (pair=ln(Mechanical/Age), cv=5.985436)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Mechanical/Errors), cv=60.845154)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Thermal/Age), cv=373.393215)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Thermal/Errors), cv=295.154809)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Age/Errors), cv=263.133417)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=40, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

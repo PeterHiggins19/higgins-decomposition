@@ -1,0 +1,42 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  PAIR-1B
+  System:      DT Fusion Budget
+  Domain:      ENERGY
+  Carriers:    Fusion, Radiation, Loss
+  N=200, D=3
+  Source:      DERIVED
+  Description: Lawson criterion fusion energy partition
+  Pipeline:    1.0 Extended
+  Data hash:   7d1928b059b46b4c
+  Timestamp:   2026-04-25T10:54:39.794093Z
+
+
+代码总数: 38
+  错误:       0
+  警告:     1
+  发现: 10
+  校准信号: 1
+  信息:  26
+
+── 警告 ──
+  [S7-LRQ-WRN] HVLD R² < 0.5——拟合较差，轨迹可能非多项式。
+
+── 发现 ──
+  [S8-EUL-DIS] 检测到欧拉族常数。管道几何与系统结构产生共振。 (constant=1/(2pi), delta=0.009134)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (1)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=Fusion, pct=64.443912)
+  [XU-DRD-DIS] 漂移减少——系统正在收敛。 (variance_ratio_2nd_to_1st=0.019280, drift_direction=decreasing, max_shift_carrier=Fusion)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-TEF-DIS] 已识别载体之间的主导定向信息流。 (flow=Radiation->Fusion, te=0.310348)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Fusion/Radiation), cv=102.122956)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Fusion/Loss), cv=92.137107)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Radiation/Loss), cv=193.653347)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=143, near_zero_carriers=['Fusion', 'Radiation', 'Loss'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

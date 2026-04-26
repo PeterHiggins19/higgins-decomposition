@@ -1,27 +1,41 @@
 Hˢ नैदानिक रिपोर्ट
 ============================================================
 
-कुल कोड: 36
+  Experiment:  Hs-23-Combined
+  System:      Radionuclide Decay Chains (U-238 + Th-232 + U-235)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=39, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   a58d8f5fb34c6113
+  Timestamp:   2026-04-26T04:43:04.058160Z
+
+
+कुल कोड: 38
   त्रुटियाँ:       0
   चेतावनियाँ:     1
-  खोजें: 10
+  खोजें: 13
   अंशांकन संकेत: 1
-  सूचना:  24
+  सूचना:  23
 
 ── चेतावनियाँ ──
   [S9-EIF-WRN] EITT अपरिवर्तनशीलता: एक या अधिक संपीड़न अनुपातों पर विफल।
 
 ── खोजें ──
-  [S9-CHH-DIS] उच्च अराजकता: संघटन अशांति का पता चला। (32)
-  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (5)
-  [S9-SPK-DIS] स्पाइक पाए गए — एन्ट्रॉपी दर सीमा से ऊपर गई। (1)
-  [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (26)
-  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.753070, drift_direction=decreasing, max_shift_carrier=Gamma)
+  [S8-EUL-DIS] ऑयलर-परिवार स्थिरांक का पता चला। पाइपलाइन ज्यामिति प्रणाली संरचना के साथ अनुनाद करती है। (constant=1/(e^pi), delta=0.007775)
+  [S9-CHH-DIS] उच्च अराजकता: संघटन अशांति का पता चला। (38)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (6)
+  [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (32)
+  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.877424, drift_direction=decreasing, max_shift_carrier=Gamma)
   [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Gamma), cv=77.844312)
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Recoil), cv=53.430148)
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Recoil), cv=203.371462)
-  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=31, near_zero_carriers=['Gamma', 'Recoil'], zero_threshold=0.010000)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Gamma), cv=96.895113)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Recoil), cv=51.906056)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Neutrino), cv=89.949085)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Recoil), cv=220.352875)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Neutrino), cv=122.922308)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Recoil/Neutrino), cv=506.962740)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
 
 ── अंशांकन संकेत ──
   [XU-MDS-CAL] XU-MDS-CAL

@@ -1,0 +1,159 @@
+[
+  {
+    "isotope": "U-235",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 4.6793,
+    "particle_KE_MeV": 4.3952,
+    "gamma_MeV": 0.2043,
+    "recoil_MeV": 0.0798,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Th-231",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 0.3905,
+    "particle_KE_MeV": 0.0763,
+    "gamma_MeV": 0.0843,
+    "recoil_MeV": 0.0006,
+    "neutrino_MeV": 0.2293
+  },
+  {
+    "isotope": "Pa-231",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 5.1497,
+    "particle_KE_MeV": 4.9514,
+    "gamma_MeV": 0.1103,
+    "recoil_MeV": 0.088,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Ac-227",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 0.0448,
+    "particle_KE_MeV": 0.0121,
+    "gamma_MeV": 0.011,
+    "recoil_MeV": 0.0001,
+    "neutrino_MeV": 0.0216,
+    "branch": "98.62% \u2192 Th-227"
+  },
+  {
+    "isotope": "Th-227",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 6.1465,
+    "particle_KE_MeV": 5.9013,
+    "gamma_MeV": 0.1392,
+    "recoil_MeV": 0.106,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Ra-223",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 5.9791,
+    "particle_KE_MeV": 5.665,
+    "gamma_MeV": 0.2111,
+    "recoil_MeV": 0.103,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Rn-219",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 6.9461,
+    "particle_KE_MeV": 6.7572,
+    "gamma_MeV": 0.0579,
+    "recoil_MeV": 0.131,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Po-215",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 7.5263,
+    "particle_KE_MeV": 7.386,
+    "gamma_MeV": 0.0003,
+    "recoil_MeV": 0.14,
+    "neutrino_MeV": 0.0
+  },
+  {
+    "isotope": "Pb-211",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 1.367,
+    "particle_KE_MeV": 0.1714,
+    "gamma_MeV": 0.4049,
+    "recoil_MeV": 0.0004,
+    "neutrino_MeV": 0.7903
+  },
+  {
+    "isotope": "Bi-211",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 6.7508,
+    "particle_KE_MeV": 6.5671,
+    "gamma_MeV": 0.0914,
+    "recoil_MeV": 0.0923,
+    "neutrino_MeV": 0.0,
+    "branch": "99.724% \u2192 Tl-207"
+  },
+  {
+    "isotope": "Tl-207",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207",
+    "Q_MeV": 1.418,
+    "particle_KE_MeV": 0.4924,
+    "gamma_MeV": 0.0003,
+    "recoil_MeV": 0.0,
+    "neutrino_MeV": 0.9253,
+    "branch": "via Bi-211 \u03b1"
+  },
+  {
+    "isotope": "Ac-227",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207 (branch)",
+    "Q_MeV": 5.0423,
+    "particle_KE_MeV": 4.9472,
+    "gamma_MeV": 0.0567,
+    "recoil_MeV": 0.0384,
+    "neutrino_MeV": 0.0,
+    "branch": "1.38% \u2192 Fr-223"
+  },
+  {
+    "isotope": "Fr-223",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207 (branch)",
+    "Q_MeV": 1.149,
+    "particle_KE_MeV": 0.3633,
+    "gamma_MeV": 0.0502,
+    "recoil_MeV": 0.0003,
+    "neutrino_MeV": 0.7352,
+    "branch": "Fr-223 \u2192 Ra-223"
+  },
+  {
+    "isotope": "Bi-211",
+    "decay_type": "beta",
+    "chain": "U-235 \u2192 Pb-207 (branch)",
+    "Q_MeV": 0.5746,
+    "particle_KE_MeV": 0.1621,
+    "gamma_MeV": 0.351,
+    "recoil_MeV": 0.0,
+    "neutrino_MeV": 0.0615,
+    "branch": "0.276% \u2192 Po-211"
+  },
+  {
+    "isotope": "Po-211",
+    "decay_type": "alpha",
+    "chain": "U-235 \u2192 Pb-207 (branch)",
+    "Q_MeV": 7.595,
+    "particle_KE_MeV": 7.45,
+    "gamma_MeV": 0.001,
+    "recoil_MeV": 0.144,
+    "neutrino_MeV": 0.0,
+    "branch": "Po-211 \u2192 Pb-207"
+  }
+]

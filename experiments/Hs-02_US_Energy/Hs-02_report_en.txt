@@ -1,0 +1,34 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-02
+  System:      US Energy
+  Domain:      ENERGY
+  Carriers:    Fossil, Nuclear, Renewable
+  N=25, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   69da4903af852a0d
+  Timestamp:   2026-04-25T06:03:01.805734Z
+
+
+Total codes: 35
+  Errors:       0
+  Warnings:     0
+  Discoveries: 9
+  Calibration signals: 0
+  Information:  26
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000435)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000435)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (17)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (17)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Renewable, pct=65.855651)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=3.844322, drift_direction=increasing, max_shift_carrier=Renewable)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Fossil/Nuclear), cv=4.243105)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Renewable), cv=93.434348)
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

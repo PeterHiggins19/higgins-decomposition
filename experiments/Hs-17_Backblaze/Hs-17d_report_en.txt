@@ -1,0 +1,40 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-17d
+  System:      Backblaze Fail-Contrast
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age
+  N=126, D=3
+  Source:      REAL
+  Pipeline:    1.0 Extended
+  Data hash:   d19986ad474d096b
+  Timestamp:   2026-04-25T06:45:54.064854Z
+
+
+Total codes: 39
+  Errors:       0
+  Warnings:     0
+  Discoveries: 12
+  Calibration signals: 1
+  Information:  26
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000020)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000020)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (127)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (10)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (115)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Mechanical, pct=66.080230)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.701713, drift_direction=decreasing, max_shift_carrier=Age)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Age->Mechanical, te=0.044653)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Thermal/Age), cv=149.657486)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=115, near_zero_carriers=['Mechanical', 'Thermal', 'Age'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

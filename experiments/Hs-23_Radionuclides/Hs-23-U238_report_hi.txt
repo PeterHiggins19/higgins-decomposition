@@ -1,10 +1,21 @@
 Hˢ नैदानिक रिपोर्ट
 ============================================================
 
-कुल कोड: 32
+  Experiment:  Hs-23-U238
+  System:      Radionuclide U-238 → Pb-206
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=14, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   d78d7bcc403ad0c3
+  Timestamp:   2026-04-26T04:43:04.100692Z
+
+
+कुल कोड: 37
   त्रुटियाँ:       0
   चेतावनियाँ:     1
-  खोजें: 6
+  खोजें: 11
   अंशांकन संकेत: 1
   सूचना:  24
 
@@ -12,12 +23,17 @@ Hˢ नैदानिक रिपोर्ट
   [S9-EIF-WRN] EITT अपरिवर्तनशीलता: एक या अधिक संपीड़न अनुपातों पर विफल।
 
 ── खोजें ──
+  [S8-EUL-DIS] ऑयलर-परिवार स्थिरांक का पता चला। पाइपलाइन ज्यामिति प्रणाली संरचना के साथ अनुनाद करती है। (constant=1/(e^pi), delta=0.007775)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (1)
   [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (8)
-  [XU-DRU-DIS] बहाव बढ़ रहा है — प्रणाली विकसित हो रही है। (variance_ratio_2nd_to_1st=15.041186, drift_direction=increasing, max_shift_carrier=Gamma)
+  [XU-DRU-DIS] बहाव बढ़ रहा है — प्रणाली विकसित हो रही है। (variance_ratio_2nd_to_1st=2.421636, drift_direction=increasing, max_shift_carrier=Particle_KE)
   [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Gamma), cv=79.506896)
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Recoil), cv=52.524068)
-  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Recoil), cv=193.410307)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Gamma), cv=99.470991)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Recoil), cv=51.925414)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Particle_KE/Neutrino), cv=93.646437)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Recoil), cv=193.410311)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Gamma/Neutrino), cv=129.025477)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Recoil/Neutrino), cv=768.666592)
 
 ── अंशांकन संकेत ──
   [XU-MDS-CAL] XU-MDS-CAL

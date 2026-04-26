@@ -1,0 +1,43 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  PAIR-4A
+  System:      GW150914
+  Domain:      GRAVITY
+  Carriers:    h+, hx, noise
+  N=40, D=3
+  Source:      DERIVED
+  Description: Binary black hole merger
+  Pipeline:    1.0 Extended
+  Data hash:   4f37f92c65d2808c
+  Timestamp:   2026-04-25T10:54:39.882490Z
+
+
+Total codes: 36
+  Errors:       0
+  Warnings:     2
+  Discoveries: 10
+  Calibration signals: 1
+  Information:  23
+
+── WARNINGS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — poor fit, trajectory may be non-polynomial.
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/phi, delta=0.000908)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (25)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (3)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (22)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.804053, drift_direction=decreasing, max_shift_carrier=h+)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(h+/hx), cv=1252.978251)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(h+/noise), cv=69.877064)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(hx/noise), cv=78.865060)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=1, near_zero_carriers=['hx'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

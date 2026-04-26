@@ -1,0 +1,43 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17
+  System:      Backblaze Fleet
+  Domain:      ENGINEERING
+  Carriers:    Healthy, Warning, Failed
+  N=34, D=3
+  Source:      REAL
+  Description: Backblaze Drive Stats, Q1-Q4 2024-2025
+  Pipeline:    1.0 Extended
+  Data hash:   2d47c924b131c246
+  Timestamp:   2026-04-25T06:24:46.439454Z
+
+
+Total de códigos: 35
+  Erros:       0
+  Avisos:     3
+  Descobertas: 9
+  Sinais de calibração: 1
+  Informação:  22
+
+── AVISOS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — ajuste fraco. Trajetória pode ser não polinomial.
+  [S8-FLG-WRN] S8-FLG-WRN
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (32)
+  [S9-STL-DIS] S9-STL-DIS (4)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (28)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=1.063715, drift_direction=increasing, max_shift_carrier=Healthy)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Healthy/Warning), cv=85.912571)
+  [XC-RPS-DIS] Razão pareada estável — estes portadores estão composicionalmente bloqueados. (pair=ln(Healthy/Failed), cv=16.930838)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Warning/Failed), cv=78.113450)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=34, near_zero_carriers=['Warning', 'Failed'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

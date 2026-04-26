@@ -1,0 +1,43 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-12
+  System:      Spring-Mass
+  Domain:      FORCE
+  Carriers:    KE, PE, Damping
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   e9c4f6ae157df78e
+  Timestamp:   2026-04-25T06:03:01.947779Z
+
+
+Total codes: 40
+  Errors:       0
+  Warnings:     1
+  Discoveries: 12
+  Calibration signals: 1
+  Information:  26
+
+── WARNINGS ──
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000450)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000450)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (131)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (12)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (119)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=PE, pct=60.520544)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=PE->KE, te=0.102931)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(KE/PE), cv=4720.069676)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(KE/Damping), cv=79.485695)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(PE/Damping), cv=190.502165)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=44, near_zero_carriers=['KE', 'PE', 'Damping'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

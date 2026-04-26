@@ -1,0 +1,46 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-17c
+  System:      Backblaze By-Capacity
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=40, D=4
+  Source:      REAL
+  Pipeline:    1.0 Extended
+  Data hash:   57682f0e08bd64b1
+  Timestamp:   2026-04-25T06:45:54.026987Z
+
+
+Total codes: 41
+  Errors:       0
+  Warnings:     1
+  Discoveries: 15
+  Calibration signals: 1
+  Information:  24
+
+── WARNINGS ──
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.002583)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (39)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (9)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (1)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (29)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Errors, pct=73.957441)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=1.144661, drift_direction=increasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Mechanical/Thermal), cv=0.987813)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Mechanical/Age), cv=5.985436)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Mechanical/Errors), cv=60.845154)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Thermal/Age), cv=373.393215)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Thermal/Errors), cv=295.154809)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Age/Errors), cv=263.133417)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=40, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

@@ -1,0 +1,36 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  Hs-04
+  System:      Bessel Acoustics
+  Domain:      ACOUSTICS
+  Carriers:    Low, Mid, High
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   c6fdc076a68d5821
+  Timestamp:   2026-04-25T06:03:01.827496Z
+
+
+代码总数: 36
+  错误:       0
+  警告:     0
+  发现: 8
+  校准信号: 1
+  信息:  27
+
+── 发现 ──
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=1/pi, delta=0.000020)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (7)
+  [XU-DRD-DIS] 漂移减少——系统正在收敛。 (variance_ratio_2nd_to_1st=0.171442, drift_direction=decreasing, max_shift_carrier=Mid)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Low/Mid), cv=74.717829)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Low/High), cv=178.416133)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Mid/High), cv=69.134225)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=37, near_zero_carriers=['Low', 'Mid', 'High'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XC-TEZ-CAL] 转移熵为零——系统在此层面成分无记忆。
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

@@ -1,0 +1,39 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  PAIR-5B
+  System:      hBN Dielectric
+  Domain:      MATERIALS
+  Carriers:    ε₁∥, ε₁⊥, ε₂
+  N=200, D=3
+  Source:      DERIVED
+  Description: Choi et al. Nature Comms 2026
+  Pipeline:    1.0 Extended
+  Data hash:   162fce5132551044
+  Timestamp:   2026-04-25T10:54:39.889302Z
+
+
+Total de códigos: 39
+  Erros:       0
+  Avisos:     0
+  Descobertas: 10
+  Sinais de calibração: 1
+  Informação:  28
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(2pi), delta=0.000029)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(2pi), delta=0.000029)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (5)
+  [XU-DRU-DIS] Deriva crescente — sistema está evoluindo. (variance_ratio_2nd_to_1st=1.368783, drift_direction=increasing, max_shift_carrier=ε₁⊥)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(ε₁∥/ε₁⊥), cv=176.003683)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(ε₁∥/ε₂), cv=56.664507)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(ε₁⊥/ε₂), cv=164.719239)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=10, near_zero_carriers=['ε₁⊥', 'ε₂'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XC-TEZ-CAL] Entropia de transferência é zero — sistema composicionalmente sem memória.
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.
