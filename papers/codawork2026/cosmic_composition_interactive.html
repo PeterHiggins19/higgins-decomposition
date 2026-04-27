@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hˢ — Cosmic Composition in Spacetime</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a1a; color: #e0e0e0; font-family: 'Segoe UI', system-ui, sans-serif; overflow-x: hidden; }
+  .header { text-align: center; padding: 24px 16px 8px; }
+  .header h1 { font-size: 28px; font-weight: 300; letter-spacing: 2px; color: #fff; }
+  .header h1 span { color: #60a0ff; }
+  .header .sub { font-size: 13px; color: #888; margin-top: 4px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  /* Phase strip */
+  .phase-strip { display: flex; height: 28px; border-radius: 6px; overflow: hidden; margin: 16px 0 8px; position: relative; }
+  .phase-strip .seg { display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .phase-strip .marker { position: absolute; top: 0; bottom: 0; width: 3px; background: #fff; transition: left 0.15s ease; z-index: 2; border-radius: 2px; }
+
+  /* Bars area */
+  .bars-area { display: flex; gap: 12px; align-items: flex-end; height: 320px; margin: 16px 0; justify-content: center; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; width: 140px; }
+  .bar-wrap { width: 80px; height: 280px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; }
+  .bar { width: 100%; transition: height 0.2s ease; border-radius: 4px 4px 0 0; position: relative; min-height: 1px; }
+  .bar-label { font-size: 11px; margin-top: 6px; text-align: center; font-weight: 600; letter-spacing: 0.5px; }
+  .bar-val { font-size: 18px; font-weight: 700; margin-top: 2px; text-align: center; font-variant-numeric: tabular-nums; }
+  .bar-pct { font-size: 10px; color: #888; text-align: center; }
+
+  /* Stat cards */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 16px 0; }
+  .stat { background: #14142a; border: 1px solid #2a2a4a; border-radius: 8px; padding: 12px 16px; }
+  .stat .label { font-size: 10px; text-transform: uppercase; color: #666; letter-spacing: 1px; }
+  .stat .value { font-size: 20px; font-weight: 700; color: #fff; margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .stat .unit { font-size: 11px; color: #888; }
+
+  /* Controls */
+  .controls { display: flex; align-items: center; gap: 16px; margin: 16px 0; padding: 16px; background: #14142a; border-radius: 8px; }
+  .play-btn { width: 44px; height: 44px; border-radius: 50%; background: #60a0ff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .play-btn:hover { background: #80b4ff; }
+  .play-btn svg { fill: #fff; }
+  .slider-wrap { flex: 1; }
+  .slider-wrap input[type=range] { width: 100%; accent-color: #60a0ff; height: 6px; cursor: pointer; }
+  .epoch-label { font-size: 13px; color: #aaa; min-width: 80px; text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Annotation */
+  .annotation { min-height: 48px; text-align: center; font-size: 14px; color: #bbb; font-style: italic; margin: 8px 0 16px; line-height: 1.5; }
+  .annotation strong { color: #60a0ff; font-style: normal; }
+
+  /* Codes strip */
+  .codes { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin: 8px 0 24px; }
+  .code-tag { font-size: 10px; font-family: 'Consolas', monospace; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px; }
+  .code-dis { background: #1a3a1a; color: #6f6; border: 1px solid #2a5a2a; }
+  .code-inf { background: #1a2a3a; color: #6af; border: 1px solid #2a4a6a; }
+  .code-wrn { background: #3a3a1a; color: #fa6; border: 1px solid #5a5a2a; }
+
+  .footer { text-align: center; padding: 16px; font-size: 11px; color: #555; }
+
+  @media (max-width: 768px) {
+    .bars-area { gap: 4px; }
+    .bar-col { width: 60px; }
+    .bar-wrap { width: 40px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .bar-val { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>H<sup>s</sup> — <span>Cosmic Composition</span> in Spacetime</h1>
+  <div class="sub">Planck 2018 ΛCDM · 5 Carriers · 103 Epochs · z = 3400 → 0</div>
+</div>
+
+<div class="container">
+  <div class="phase-strip" id="phaseStrip"></div>
+
+  <div class="bars-area" id="barsArea"></div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Redshift</div><div class="value" id="statZ">0.00</div></div>
+    <div class="stat"><div class="label">Lookback Time</div><div class="value" id="statTime">0 Gyr</div></div>
+    <div class="stat"><div class="label">Dominant Carrier</div><div class="value" id="statDom" style="font-size:14px">—</div></div>
+    <div class="stat"><div class="label">CDM / Baryon</div><div class="value" id="statRatio">—</div></div>
+  </div>
+
+  <div class="controls">
+    <button class="play-btn" id="playBtn" title="Play / Pause">
+      <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>
+      <svg id="pauseIcon" width="18" height="18" viewBox="0 0 24 24" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+    </button>
+    <div class="slider-wrap">
+      <input type="range" id="slider" min="0" max="102" value="0" step="1">
+    </div>
+    <div class="epoch-label" id="epochLabel">Epoch 1 / 103</div>
+  </div>
+
+  <div class="annotation" id="annotation"></div>
+
+  <div class="codes" id="codesArea"></div>
+</div>
+
+<div class="footer">Hˢ Higgins Decomposition on the Simplex · CoDaWork 2026 · Peter Higgins</div>
+
+<script>
+const DATA = [
+[0,0.6900199851,0.2609116024,0.04897761249,5.4218015e-05,3.6582044e-05],
+[0.01,0.6835985068,0.26631581,0.04999207557,5.5894432e-05,3.7713158e-05],
+[0.011583,0.6825814304,0.2671717615,0.05015275245,5.6161958e-05,3.7893662e-05],
+[0.013416,0.6814031773,0.2681633552,0.05033889171,5.6472564e-05,3.8103236e-05],
+[0.01554,0.6800381902,0.2693120991,0.05055453076,5.6833321e-05,3.8346646e-05],
+[0.017999,0.678456862,0.2706429092,0.05080434681,5.7252498e-05,3.8629474e-05],
+[0.020849,0.6766248982,0.2721846463,0.05109375748,5.7739784e-05,3.8958256e-05],
+[0.024149,0.6745025841,0.2739707321,0.05142903661,5.8306549e-05,3.9340664e-05],
+[0.027971,0.6720439436,0.2760398574,0.05181744716,5.8966156e-05,3.9785716e-05],
+[0.032398,0.6691957771,0.2784367915,0.05226739307,5.9734342e-05,4.0304026e-05],
+[0.037526,0.66589657,0.281213301,0.05278859174,6.062967e-05,4.0908123e-05],
+[0.043466,0.6620752618,0.2844291829,0.0533922684,6.1674088e-05,4.1612814e-05],
+[0.050346,0.6576498766,0.2881534218,0.05409137234,6.2893599e-05,4.2435644e-05],
+[0.058315,0.6525260247,0.2924654452,0.05490081358,6.4319075e-05,4.3397442e-05],
+[0.067545,0.6465953034,0.2974564711,0.05583771531,6.598725e-05,4.4522996e-05],
+[0.078237,0.6397336575,0.303230886,0.05692167269,6.7941922e-05,4.5841855e-05],
+[0.090621,0.6317998059,0.3099075682,0.05817500121,7.02354e-05,4.7389313e-05],
+[0.104964,0.6226339102,0.3176210054,0.05962294656,7.2930247e-05,4.9207583e-05],
+[0.105263,0.6224432391,0.3177814614,0.05965306692,7.2986826e-05,4.9245758e-05],
+[0.121578,0.6120567669,0.3265219727,0.0612938118,7.6101339e-05,5.1347186e-05],
+[0.140822,0.5998699492,0.3367774096,0.06321893436,7.9838288e-05,5.3868585e-05],
+[0.163112,0.5858575161,0.3485689766,0.06543241508,8.4248199e-05,5.6844044e-05],
+[0.18893,0.5697901552,0.3620895637,0.0679704627,8.9458720e-05,6.0359694e-05],
+[0.210526,0.5565039461,0.3732696469,0.07006915736,9.3896010e-05,6.3353627e-05],
+[0.218835,0.551432894,0.3775367928,0.07087017431,9.5621262e-05,6.4517692e-05],
+[0.253473,0.5305577651,0.3951023498,0.07416753264,1.0291411e-04,6.9438329e-05],
+[0.293594,0.5069629167,0.4149558913,0.07789438516,1.1154502e-04,7.5261785e-05],
+[0.3,0.5032579708,0.4180733088,0.07847957824,1.1293954e-04,7.6202702e-05],
+[0.315789,0.4942026846,0.4256925463,0.07990984068,1.1639456e-04,7.8533876e-05],
+[0.340065,0.480499413,0.4372224774,0.0820742078,1.2175272e-04,8.2149140e-05],
+[0.393892,0.4511060808,0.4619532329,0.08671659761,1.3380657e-04,9.0282128e-05],
+[0.421053,0.4368135612,0.4739781539,0.08897388289,1.3996476e-04,9.4437191e-05],
+[0.456239,0.418850881,0.4890905195,0.09181073483,1.4800356e-04,9.9861139e-05],
+[0.526316,0.3849684992,0.5175950418,0.0971615258,1.6416657e-04,1.1076666e-04],
+[0.528455,0.3839742207,0.5184314768,0.0973185391,1.6466227e-04,1.1110113e-04],
+[0.6121,0.3469256518,0.549597137,0.1031688716,1.8411399e-04,1.2422561e-04],
+[0.631579,0.3388066027,0.5564265786,0.1044508757,1.8865407e-04,1.2728889e-04],
+[0.708986,0.3083816765,0.5820174475,0.1092547236,2.0669254e-04,1.3945984e-04],
+[0.736842,0.2981320384,0.5906380053,0.1108729512,2.1317288e-04,1.4383223e-04],
+[0.821208,0.2692311193,0.6149435988,0.1154355307,2.3272603e-04,1.5702518e-04],
+[0.842105,0.2625491471,0.6205626951,0.1164903321,2.3754743e-04,1.6027828e-04],
+[0.947368,0.2315639028,0.646616753,0.1213811286,2.6166480e-04,1.7655078e-04],
+[0.951192,0.2305183437,0.6474958358,0.1215461476,2.6253495e-04,1.7713789e-04],
+[1.052632,0.2046528497,0.6692409964,0.1256280897,2.8545902e-04,1.9260525e-04],
+[1.10175,0.1933448098,0.6787463289,0.1274124047,2.9644136e-04,2.0001527e-04],
+[1.157895,0.181305782,0.6888650392,0.1293118614,3.0889766e-04,2.0841980e-04],
+[1.263158,0.1610494082,0.7058873833,0.1325072492,3.3197127e-04,2.2398805e-04],
+[1.27614,0.1587439358,0.7078245016,0.1328708798,3.3479173e-04,2.2589107e-04],
+[1.368421,0.1434583054,0.7206662061,0.1352814894,3.5468539e-04,2.3931374e-04],
+[1.473684,0.1281579577,0.7335168107,0.1376937698,3.7705487e-04,2.5440691e-04],
+[1.478132,0.1275568144,0.7340216215,0.1377885315,3.7799283e-04,2.5503978e-04],
+[1.578947,0.1148232224,0.7447129232,0.1397954734,3.9909988e-04,2.6928114e-04],
+[1.684211,0.1031744193,0.7544899884,0.1416307974,4.2084317e-04,2.8395180e-04],
+[1.712097,0.1003397532,0.7568685838,0.1420773008,4.2655589e-04,2.8780630e-04],
+[1.789474,0.09297240808,0.7630493176,0.1432375312,4.4230831e-04,2.9843479e-04],
+[1.894737,0.08401345268,0.7705624138,0.1446478691,4.6351857e-04,3.1274580e-04],
+[1.983095,0.07732555468,0.7761684481,0.1457002185,4.8114201e-04,3.2463672e-04],
+[2,0.07612431426,0.7771751044,0.1458891853,4.8449618e-04,3.2689984e-04],
+[2.296987,0.05844276485,0.7919801746,0.1486683526,5.4260253e-04,3.6610543e-04],
+[2.660564,0.04337957667,0.804564776,0.1510306996,6.1201101e-04,4.1293680e-04],
+[3.081689,0.03166941664,0.814313223,0.1528606514,6.9068753e-04,4.6602150e-04],
+[3.569471,0.02277563814,0.8216751088,0.1542426044,7.8021862e-04,5.2643003e-04],
+[4.134462,0.01616002400,0.8271009446,0.1552611275,8.8247756e-04,5.9542631e-04],
+[4.788881,0.01132888235,0.8310033143,0.1559936697,9.9964923e-04,6.7448452e-04],
+[5.546885,0.007857650360,0.8337361131,0.1565066632,1.1342625e-03,7.6531093e-04],
+[6.424869,0.005398759819,0.8355878664,0.1568542693,1.2892322e-03,8.6987229e-04],
+[7.441824,0.003678518593,0.8367842812,0.157078857,1.4679120e-03,9.9043132e-04],
+[8.619746,0.002488055548,0.8374957791,0.1572124174,1.6741581e-03,1.1295899e-03],
+[9.984115,0.001672005672,0.8378469165,0.157278332,1.9124054e-03,1.2903405e-03],
+[11.564442,0.001117234231,0.8379257529,0.1572931309,2.1877564e-03,1.4761256e-03],
+[13.394909,7.4281009e-04,0.8377921487,0.1572680511,2.5060829e-03,1.6909072e-03],
+[15.51511,4.9170053e-04,0.8374845922,0.1572103174,2.8741440e-03,1.9392459e-03],
+[17.970906,3.2422223e-04,0.8370255254,0.1571241427,3.2997192e-03,2.2263905e-03],
+[20.815414,2.1306154e-04,0.836425323,0.1570114743,3.7917602e-03,2.5583809e-03],
+[24.110164,1.3959258e-04,0.8356851509,0.1568725312,4.3605619e-03,2.9421635e-03],
+[27.926419,9.1214973e-05,0.8347989357,0.1567061733,5.0179553e-03,3.3857208e-03],
+[32.346728,5.9463009e-05,0.8337546527,0.1565101434,5.7775234e-03,3.8982175e-03],
+[37.4667,3.8682633e-05,0.8325351009,0.1562812125,6.6548415e-03,4.4901625e-03],
+[43.397084,2.5117002e-05,0.8311182983,0.1560152541,7.6677424e-03,5.1735882e-03],
+[50.266152,1.6280989e-05,0.8294775974,0.1557072663,8.8366084e-03,5.9622469e-03],
+[58.222485,1.0537054e-05,0.8275815977,0.1553513544,1.0184687e-02,6.8718240e-03],
+[67.438179,6.8097975e-06,0.825393909,0.1549406874,1.1738428e-02,7.9201660e-03],
+[78.112571,4.3950568e-06,0.8228728117,0.154467434,1.3527839e-02,9.1275199e-03],
+[90.47655,2.8329399e-06,0.8199708499,0.1539226856,1.5586852e-02,1.0516779e-02],
+[104.79755,1.8237660e-06,0.8166343917,0.1532963748,1.7953681e-02,1.2113729e-02],
+[121.385336,1.1726422e-06,0.8128031922,0.1525771925,2.0671168e-02,1.3947275e-02],
+[140.598706,7.5304703e-07,0.8084100005,0.1517525146,2.3787083e-02,1.6049649e-02],
+[162.853246,4.8297459e-07,0.8033802588,0.1508083452,2.7354352e-02,1.8456561e-02],
+[188.630327,3.0934809e-07,0.7976319533,0.1497292890,3.1431171e-02,2.1207277e-02],
+[218.48751,1.9785949e-07,0.7910756899,0.1484985652,3.6080959e-02,2.4344588e-02],
+[253.07061,1.2635946e-07,0.7836150809,0.1470980801,4.1372088e-02,2.7914625e-02],
+[293.127666,8.0564743e-08,0.7751475432,0.1455085771,4.7377318e-02,3.1966481e-02],
+[339.525117,5.1274714e-08,0.7655656205,0.1437098847,5.4172864e-02,3.6551579e-02],
+[393.266546,3.2569175e-08,0.7547589454,0.1416812852,6.1837002e-02,4.1722735e-02],
+[455.51439,2.0642853e-08,0.7426169552,0.139402024,7.0448144e-02,4.7532856e-02],
+[527.615079,1.3052584e-08,0.7290324538,0.1368519786,8.0082318e-02,5.4033237e-02],
+[611.12816,8.2315624e-09,0.7139060709,0.1340124953,9.0809997e-02,6.1271429e-02],
+[707.860035,5.1762356e-09,0.6971516045,0.1308673927,1.0269232e-01,6.9288682e-02],
+[819.903029,3.2446804e-09,0.6787021359,0.127404109,1.1577674e-01,7.8117017e-02],
+[949.680647,2.0268943e-09,0.6585166819,0.1236149507,1.3009232e-01,8.7776045e-02],
+[1100,1.2614327e-09,0.6365870077,0.1194983722,1.4564491e-01,9.8269708e-02],
+[1100,1.2614327e-09,0.6365870077,0.1194983722,1.4564491e-01,9.8269708e-02],
+[3400,2.8350551e-11,0.4217092467,0.07916210656,2.9803686e-01,2.0109179e-01]
+];
+
+const CARRIERS = [
+  { name: 'Dark Energy', short: 'DE', color: '#a855f7' },
+  { name: 'Cold Dark Matter', short: 'CDM', color: '#3b82f6' },
+  { name: 'Baryonic Matter', short: 'Baryon', color: '#22c55e' },
+  { name: 'Photon Radiation', short: 'Photon', color: '#f59e0b' },
+  { name: 'Neutrinos', short: 'ν', color: '#ef4444' }
+];
+
+// Phase boundaries (approximate epoch indices)
+const PHASES = [
+  { start: 0, end: 27, label: 'Dark Energy Era', color: '#2a1a3a' },
+  { start: 27, end: 55, label: 'Transition', color: '#1a2a3a' },
+  { start: 55, end: 95, label: 'Matter Era', color: '#1a3a2a' },
+  { start: 95, end: 102, label: 'Radiation Era', color: '#3a2a1a' }
+];
+
+// Lookback time approximation (simplified Planck 2018)
+function lookbackGyr(z) {
+  if (z <= 0) return 0;
+  const H0 = 67.4, Om = 0.315, Ol = 0.685;
+  // Simple numerical integration
+  let sum = 0; const steps = 200; const dz = z / steps;
+  for (let i = 0; i < steps; i++) {
+    const zi = (i + 0.5) * dz;
+    const E = Math.sqrt(Ol + Om * Math.pow(1 + zi, 3));
+    sum += dz / ((1 + zi) * E);
+  }
+  return (sum * 977.8 / H0).toFixed(1); // Gyr
+}
+
+const annotations = {};
+annotations[0] = { text: '<strong>Today (z = 0)</strong> — Dark Energy dominates at 69%. The universe accelerates.' };
+annotations[27] = { text: '<strong>z ≈ 0.3</strong> — Dark Energy overtakes Matter. Acceleration begins. <strong>S7-BWL-INF:</strong> bowl shape confirmed.' };
+annotations[55] = { text: '<strong>z ≈ 2</strong> — Deep matter era. CDM and Baryons rule. CDM/Baryon ratio locked at 5.33.' };
+annotations[95] = { text: '<strong>z ≈ 1100</strong> — The CMB surface. Recombination. Photon/Neutrino ratio locked. <strong>SM-RTR-DIS:</strong> regime transition.' };
+annotations[102] = { text: '<strong>z = 3400</strong> — Matter-radiation equality. Radiation once ruled. Five carriers, one simplex, 13.8 billion years.' };
+
+function findAnnotation(idx) {
+  let best = null, bestDist = Infinity;
+  for (const k of Object.keys(annotations)) {
+    const d = Math.abs(idx - parseInt(k));
+    if (d < bestDist && d <= 3) { bestDist = d; best = parseInt(k); }
+  }
+  return best !== null ? annotations[best] : null;
+}
+
+// Build phase strip
+const strip = document.getElementById('phaseStrip');
+const total = DATA.length;
+PHASES.forEach(p => {
+  const seg = document.createElement('div');
+  seg.className = 'seg';
+  seg.style.flex = (p.end - p.start);
+  seg.style.background = p.color;
+  seg.style.color = '#999';
+  seg.textContent = p.label;
+  strip.appendChild(seg);
+});
+const marker = document.createElement('div');
+marker.className = 'marker';
+strip.appendChild(marker);
+
+// Build bars
+const barsArea = document.getElementById('barsArea');
+CARRIERS.forEach((c, i) => {
+  const col = document.createElement('div');
+  col.className = 'bar-col';
+  col.innerHTML = `
+    <div class="bar-wrap"><div class="bar" id="bar${i}" style="background:${c.color}"></div></div>
+    <div class="bar-label" style="color:${c.color}">${c.short}</div>
+    <div class="bar-val" id="barVal${i}">—</div>
+    <div class="bar-pct" id="barPct${i}"></div>
+  `;
+  barsArea.appendChild(col);
+});
+
+const slider = document.getElementById('slider');
+const playBtn = document.getElementById('playBtn');
+const playIcon = document.getElementById('playIcon');
+const pauseIcon = document.getElementById('pauseIcon');
+let playing = false, animFrame = null, lastTime = 0;
+
+function update(idx) {
+  const row = DATA[idx];
+  const z = row[0];
+
+  // Bars (log scale for visibility, but show actual %)
+  const maxFrac = Math.max(...row.slice(1));
+  for (let i = 0; i < 5; i++) {
+    const frac = row[i + 1];
+    // Use sqrt scale for better visibility of small components
+    const h = Math.max(1, (Math.sqrt(frac) / Math.sqrt(maxFrac)) * 270);
+    document.getElementById('bar' + i).style.height = h + 'px';
+    const pct = frac * 100;
+    document.getElementById('barVal' + i).textContent = pct >= 1 ? pct.toFixed(1) + '%' : pct.toExponential(1);
+    document.getElementById('barPct' + i).textContent = CARRIERS[i].name;
+  }
+
+  // Phase marker
+  marker.style.left = (idx / total * 100) + '%';
+
+  // Stats
+  document.getElementById('statZ').textContent = z < 10 ? z.toFixed(2) : z.toFixed(0);
+  document.getElementById('statTime').textContent = lookbackGyr(z) + ' Gyr';
+
+  let domIdx = 1; let domVal = 0;
+  for (let i = 1; i <= 5; i++) { if (row[i] > domVal) { domVal = row[i]; domIdx = i - 1; } }
+  const domEl = document.getElementById('statDom');
+  domEl.textContent = CARRIERS[domIdx].name;
+  domEl.style.color = CARRIERS[domIdx].color;
+
+  const ratio = row[2] / row[3]; // CDM / Baryon
+  document.getElementById('statRatio').textContent = ratio.toFixed(2);
+
+  document.getElementById('epochLabel').textContent = `Epoch ${idx + 1} / ${total}`;
+  slider.value = idx;
+
+  // Annotation
+  const ann = findAnnotation(idx);
+  document.getElementById('annotation').innerHTML = ann ? ann.text : '';
+
+  // Codes
+  updateCodes(idx, z);
+}
+
+function updateCodes(idx, z) {
+  const area = document.getElementById('codesArea');
+  const codes = [];
+  codes.push({ code: 'GD-ALL-INF', cls: 'code-inf' });
+  codes.push({ code: 'S4-CLO-INF', cls: 'code-inf' });
+  codes.push({ code: 'S5-CLR-INF', cls: 'code-inf' });
+  codes.push({ code: 'S8-NAT-INF', cls: 'code-inf' });
+  codes.push({ code: 'S7-BWL-INF', cls: 'code-inf' });
+
+  if (z > 0.25 && z < 0.4) codes.push({ code: 'SM-RTR-DIS', cls: 'code-dis' });
+  if (z > 900 && z < 1200) codes.push({ code: 'SM-RTR-DIS', cls: 'code-dis' });
+  if (z > 3000) codes.push({ code: 'SM-RTR-DIS', cls: 'code-dis' });
+
+  codes.push({ code: 'S8-EUL-DIS', cls: 'code-dis' });
+  codes.push({ code: 'XC-RPS-DIS', cls: 'code-dis' });
+  codes.push({ code: 'XU-DPC-DIS', cls: 'code-dis' });
+
+  if (idx > 80) {
+    codes.push({ code: 'XU-HRX-WRN', cls: 'code-wrn' });
+  }
+
+  area.innerHTML = codes.map(c => `<span class="code-tag ${c.cls}">${c.code}</span>`).join('');
+}
+
+function togglePlay() {
+  playing = !playing;
+  playIcon.style.display = playing ? 'none' : 'block';
+  pauseIcon.style.display = playing ? 'block' : 'none';
+  if (playing) {
+    if (parseInt(slider.value) >= DATA.length - 1) slider.value = 0;
+    lastTime = performance.now();
+    animate();
+  }
+}
+
+function animate() {
+  if (!playing) return;
+  const now = performance.now();
+  if (now - lastTime > 120) {
+    lastTime = now;
+    let idx = parseInt(slider.value) + 1;
+    if (idx >= DATA.length) {
+      playing = false;
+      playIcon.style.display = 'block';
+      pauseIcon.style.display = 'none';
+      return;
+    }
+    update(idx);
+  }
+  animFrame = requestAnimationFrame(animate);
+}
+
+playBtn.addEventListener('click', togglePlay);
+slider.addEventListener('input', () => { update(parseInt(slider.value)); });
+
+// Initialize
+update(0);
+</script>
+</body>
+</html>

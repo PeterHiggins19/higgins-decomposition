@@ -1,10 +1,11 @@
-# CoDaWork 2026 — Action Plan
+# CoDaWork 2026 — Action Plan (Final)
 ## 15-Minute Talk + 5-Minute Q&A
 ## Coimbra, Portugal — June 2026
 
 **Speaker:** Peter Higgins, Independent Researcher, Markham, Ontario, Canada
 **Format:** 15-minute presentation + 5-minute Q&A
-**Status:** CONFIRMED
+**Status:** CONFIRMED — Revised abstract submitted
+**Gold Seal:** Coherence achieved — v3.0 framework, collaboration path, all materials aligned
 
 ---
 
@@ -85,24 +86,48 @@ A: We have an empirical result (< 5% entropy variation across 25 experiments) an
 
 ---
 
-## Slide Plan
+## Slide Plan (v3 — Gift Ramp, 16 slides + 2 live demos)
 
-| Slide | Content | Duration | Visual |
-|-------|---------|----------|--------|
-| 1 | Title + opening line | 30s | Clean title, name, "engine and vehicle" |
-| 2 | Pipeline overview | 90s | 12-step flow diagram, 4 guards, code count |
-| 3 | Knowledge engine | 90s | Run → Diagnose → Fingerprint → Catalog cycle |
-| 4 | Cosmic data | 60s | Planck 2018 parameters table, 5 carriers, epoch sampling |
-| 5 | Key epochs | 60s | Composition table: today, z=0.3, z=1100, z=3400 |
-| 6 | Conservation laws | 60s | CDM/Baryon CV=0, Photon/Neutrino CV=0, Dark Energy CV>100% |
-| 7 | Power map | 60s | Power ranking vs mass ranking, disproportionate carriers |
-| 8 | 7/7 predictions | 30s | Prediction table with ✓ marks |
-| 9 | EITT challenge | 90s | Entropy preservation plot, the open question |
-| 10 | Transcendental resonance | 60s | Constant family clustering, ILR test proposal |
-| 11 | The invitation | 60s | What CoDa can do — 3 concrete asks |
-| 12 | Close | 60s | Closing line, repo URL, contact |
+**Philosophy:** Ten gifts from Hˢ to CoDa, revealed one by one as a ramp. After the last gift, Peter stops. Does not look at the audience. During Q&A, points at screen and handout. ~180 words total (~12 wpm). Handouts on every seat. See `CoDaWork2026_Speech_GiftRamp.md` for full choreography.
 
-**Total: ~15 minutes**
+### THE FOUNDATION (1:25)
+
+| Slide | Content | Peter Says | Duration |
+|-------|---------|-----------|----------|
+| 1 | Title — clean, name | "My name is Peter Higgins." | 15s |
+| 2 | **CoDa Integration Map** — 10 rows pulse one by one | "Your engine. My vehicle." | 30s |
+| 3 | Scale wall — 18 domains across 44 orders of magnitude | "Same twelve steps. Every domain." | 20s |
+| 4 | Cosmic data card — 5 carriers, "your simplex" | "Your simplex." | 20s |
+
+### THE SWEEP (1:00)
+
+| Slide | Content | Peter Says | Duration |
+|-------|---------|-----------|----------|
+| 5 | **LIVE DEMO: cosmic slider** z=0→z=3400 | "Watch." ... [60s silence] | 60s |
+
+### THE GIFTS (10 gifts ramping to silence) (9:35)
+
+| Slide | Gift | Peter Says | Duration |
+|-------|------|-----------|----------|
+| 6 | **Gift 1:** Automated ratio stability — CV=0 locks found | "Two ratios never changed. Found automatically." | 20s |
+| 7 | **Gift 2:** Conservation laws on the simplex | "Conservation laws. In your language." | 15s |
+| 8 | **Gift 3:** Disproportionate carriers — Power Map | "The component that punches above its weight. Quantified." | 20s |
+| 9 | **Gift 4:** Seven predictions confirmed — cascade | *[No words. Seven checkmarks land.]* | 20s |
+| 10 | **Gift 5:** Classification stability — 58/58 = 100% | "Every possible regrouping. Every one preserves." | 20s |
+| 11 | **Gift 6:** Deep structure — survives all amalgamations | "Structure that survives everything." | 20s |
+| 12 | **Gift 7: LIVE DEMO** — cosmic duality dance, 2 min | 3 sentences across 120s | 120s |
+| 13 | **Gift 8:** Amalgamation as diagnostic (new purpose) | "Your tool. New use." | 15s |
+| 14 | **Gift 9:** Cross-domain fingerprint | "Different domains. Same geometry." | 15s |
+| 15 | **Gift 10:** Three open questions for CoDa | "Three questions I cannot answer. You can." | 30s |
+
+### THE CLOSE (0:15)
+
+| Slide | Content | Peter Says | Duration |
+|-------|---------|-----------|----------|
+| 16 | "The simplex is the same everywhere." Frozen duality. | Reads the slide. Steps back. Done. | 15s |
+
+**Total: 16 slides · ~180 words · ~4 min live demos · 15:00**
+**Q&A: Peter points at screen and handout. Short answers. "The repo has everything."**
 
 ---
 
@@ -110,13 +135,32 @@ A: We have an empirical result (< 5% entropy variation across 25 experiments) an
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
-| Talk confirmed | Done | ✓ |
-| Hs-25 experiment complete | Done | ✓ |
-| Action plan | Done | ✓ |
-| Speech introduction written | In progress | → |
-| Full speech script | Next session | |
-| Slide deck (.pptx) | Next session | |
-| Live demo rehearsal | Before June | |
+| Talk confirmed (Egozcue letter) | Done | ✓ |
+| Original abstract submitted (energy-mix drift) | Done | ✓ |
+| Hs-25 cosmic experiment complete | Done | ✓ |
+| Action plan (v1) | Done | ✓ |
+| Speech script (v1 — 3 acts) | Done | ✓ |
+| Slide deck (v1 — 12 slides) | Done | ✓ |
+| Interactive cosmic slider (HTML) | Done | ✓ |
+| Q&A loop animation (5-min, HTML) | Done | ✓ |
+| Subcompositional recursion engine (T2) | Done | ✓ |
+| Cosmic duality dance (2-min, HTML) | Done | ✓ |
+| Strategic agenda (v2 — narrator style) | Done | ✓ |
+| Narrator speech script (v2 — 310 words) | Done | ✓ |
+| Gift ramp script (v3 — 180 words) | Done | ✓ |
+| Symbolic logic definition of pipeline | Done | ✓ |
+| Slide plan v3 (16 slides + 2 demos) | Done | ✓ |
+| Handout design (front: get-started, back: CoDa×Hˢ) | Done | ✓ |
+| Logic map and state machine | Done | ✓ |
+| Hs-21 and Hs-24 experiment closures | Done | ✓ |
+| Decomposition function derivation | Done | ✓ |
+| **Higgins Decomposition Reference v3.0** (.docx) | Done | ✓ |
+| **Collaboration path** (reverse-engineered from paper to handshake) | Done | ✓ |
+| **Revised abstract** (submitted to Egozcue) | Done | ✓ |
+| **Action plan — final coherence seal** | Done | ✓ |
+| Slide deck rebuild (v3 — 16 slides) | Before June | |
+| Print handouts | Before June | |
+| Live demo rehearsal (3 HTML demos) | Before June | |
 | Q&A rehearsal | Before June | |
 | Travel/logistics | Before June | |
 
@@ -124,16 +168,83 @@ A: We have an empirical result (< 5% entropy variation across 25 experiments) an
 
 ## Key Files
 
+### The Gold Seal — v3.0 Framework
+
 | File | Purpose |
 |------|---------|
-| `papers/codawork2026/CoDaWork2026_Action_Plan.md` | This document |
-| `papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md` | Original strategy (claims weakest-to-strongest) |
-| `papers/codawork2026/CoDaWork2026_Speech_Introduction.md` | Opening section of the talk |
+| `docs/reference/Higgins_Decomposition_Reference_v3.0.docx` | **THE PAPER — 20 pages, Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S** |
+| `docs/Hs_Decomposition_Function.md` | **Axiom derivation — fixed-point theorem** |
+| `docs/Hs_Logic_Map_and_State_Machine.md` | **Complete logic map, state machine, deep implications** |
+
+### CoDaWork 2026 — Presentation Materials
+
+| File | Purpose |
+|------|---------|
+| `papers/codawork2026/CoDaWork2026_Action_Plan.md` | This document (final) |
+| `papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md` | **Letter to Egozcue + revised abstract** |
+| `papers/codawork2026/CoDaWork2026_Collaboration_Path.md` | **Reverse-engineered path from paper to handshake** |
+| `papers/codawork2026/CoDaWork2026_Strategic_Agenda.md` | v2 strategic agenda — integration maps, cross-benefits |
+| `papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md` | **v3 gift ramp script — 180 words, THE presentation script** |
+| `papers/codawork2026/CoDaWork2026_Speech_Narrator.md` | v2 narrator script — 310 words (superseded by gift ramp) |
+| `papers/codawork2026/CoDaWork2026_Speech_Complete.md` | v1 full speech — reference only |
+| `papers/codawork2026/Hs_Symbolic_Logic_Definition.md` | Pipeline in pure symbolic logic |
+| `papers/codawork2026/CoDaWork2026_Future_Path.md` | Future path and attendee plan |
+| `papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md` | Original strategy — reference only |
+
+### Live Demos
+
+| File | Purpose |
+|------|---------|
+| `papers/codawork2026/cosmic_composition_interactive.html` | Interactive cosmic slider (demo — The Sweep) |
+| `papers/codawork2026/cosmic_duality_dance.html` | **2-min duality dance (demo — Gift 7)** |
+| `papers/codawork2026/cosmic_cone_5min_loop.html` | 5-minute looping inflation cone (Q&A background) |
+
+### Presentation Deck
+
+| File | Purpose |
+|------|---------|
+| `papers/codawork2026/CoDaWork2026_Presentation.pptx` | v1 slide deck (12 slides) — to be rebuilt as 16 |
+
+### Supporting Infrastructure
+
+| File | Purpose |
+|------|---------|
+| `tools/pipeline/hs_amalgamation.py` | T2 subcompositional recursion engine |
+| `tools/pipeline/amalgamation_results.json` | Amalgamation results across 5 experiments |
 | `experiments/Hs-25_Cosmic_Energy_Budget/` | Centrepiece experiment (12 files) |
-| `docs/Hs_Applications_Guide.md` | Domain applications (reference) |
-| `docs/Hs_High_Index_Platform_Guide.md` | Platform specification (reference) |
+| `experiments/Hs-24_HEPData_Validation/` | HEPData validation campaign |
+| `experiments/Hs-21_Reference_Standards/` | Reference standard library |
+
+---
+
+## Document Lineage — How Everything Connects
+
+```
+AXIOM:  ∀𝒳 : Hˢ(𝒳) = Hˢ(𝒳)
+  │
+  └──▶ Decomposition Function (derivation)
+        │
+        └──▶ v3.0 Reference (THE PAPER — gold seal)
+              │
+              ├──▶ Collaboration Path (paper → handshake, 7 steps)
+              │     │
+              │     └──▶ Letter + Revised Abstract (to Egozcue)
+              │           │
+              │           └──▶ Gift Ramp Script (180 words, 16 slides)
+              │                 │
+              │                 └──▶ THE ROOM (Coimbra, June 2026)
+              │                       │
+              │                       └──▶ THE HANDSHAKE
+              │
+              ├──▶ Logic Map + State Machine (complete architecture)
+              │
+              ├──▶ Symbolic Logic Definition (31 predicates, 10 modes)
+              │
+              └──▶ 25 Experiments (all closed, all verified)
+```
 
 ---
 
 *The engine is CoDa. The vehicle is Hˢ. The road is open.*
-*Peter Higgins, 2026*
+*Peter Higgins, April 2026*
+*Gold seal: coherence achieved.*

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hˢ — Cosmic Composition Engine (5-Minute Loop)</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06060f; overflow: hidden; font-family: 'Consolas', 'Monaco', monospace; }
+  canvas { display: block; }
+  .overlay {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    padding: 20px 28px; pointer-events: none; z-index: 10;
+  }
+  .title-block { }
+  .title-block h1 { font-size: 22px; font-weight: 300; color: #fff; letter-spacing: 3px; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .title-block h1 sup { font-size: 12px; }
+  .title-block .sub { font-size: 11px; color: #666; margin-top: 4px; letter-spacing: 1px; }
+  .timer-block { text-align: right; }
+  .timer-block .time { font-size: 36px; color: #60a0ff; font-weight: 300; font-variant-numeric: tabular-nums; }
+  .timer-block .label { font-size: 10px; color: #555; letter-spacing: 1px; text-transform: uppercase; }
+  .bottom-bar {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding: 16px 28px; pointer-events: none; z-index: 10;
+  }
+  .bottom-bar .credit { font-size: 10px; color: #444; letter-spacing: 1px; }
+  .bottom-bar .status { font-size: 11px; color: #60a0ff; }
+  .code-float {
+    position: absolute; font-size: 13px; font-family: 'Consolas', monospace;
+    padding: 4px 10px; border-radius: 4px; pointer-events: none;
+    white-space: nowrap; z-index: 5; transition: opacity 0.5s;
+  }
+</style>
+</head>
+<body>
+<div class="overlay">
+  <div class="title-block">
+    <h1>H<sup>s</sup> COMPOSITIONAL ENGINE</h1>
+    <div class="sub">Planck 2018 ΛCDM · 5 Carriers · Deterministic Pipeline</div>
+  </div>
+  <div class="timer-block">
+    <div class="time" id="timer">5:00</div>
+    <div class="label">Q&A Remaining</div>
+  </div>
+</div>
+
+<div class="bottom-bar">
+  <div class="credit">Hˢ Higgins Decomposition on the Simplex · CoDaWork 2026 · Peter Higgins</div>
+  <div class="status" id="statusText">SCANNING...</div>
+</div>
+
+<canvas id="canvas"></canvas>
+
+<script>
+const LOOP_DURATION = 300; // 5 minutes in seconds
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+let W, H;
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+const CARRIERS = [
+  { name: 'Dark Energy',       color: [168, 85, 247], frac0: 0.690, frac3400: 0.00000000003 },
+  { name: 'Cold Dark Matter',  color: [59, 130, 246], frac0: 0.261, frac3400: 0.422 },
+  { name: 'Baryonic Matter',   color: [34, 197, 94],  frac0: 0.049, frac3400: 0.079 },
+  { name: 'Photon Radiation',  color: [245, 158, 11], frac0: 0.0000542, frac3400: 0.298 },
+  { name: 'Neutrinos',         color: [239, 68, 68],  frac0: 0.0000366, frac3400: 0.201 }
+];
+
+// Diagnostic codes that spawn at specific progress points
+const CODE_EVENTS = [
+  { t: 0.02, code: 'GD-ALL-INF', desc: 'All 4 input guards passed', type: 'inf' },
+  { t: 0.06, code: 'S4-CLO-INF', desc: 'Simplex closure successful', type: 'inf' },
+  { t: 0.10, code: 'S5-CLR-INF', desc: 'CLR transform complete', type: 'inf' },
+  { t: 0.14, code: 'S6-VAR-INF', desc: 'Aitchison variance trajectory computed', type: 'inf' },
+  { t: 0.20, code: 'S7-BWL-INF', desc: 'HVLD: bowl shape — system integrating', type: 'inf' },
+  { t: 0.25, code: 'S7-HRQ-INF', desc: 'HVLD R² > 0.8 — good quadratic fit', type: 'inf' },
+  { t: 0.32, code: 'S8-NAT-INF', desc: 'Classification: NATURAL', type: 'inf' },
+  { t: 0.36, code: 'S8-EUL-DIS', desc: 'Euler-family constant detected', type: 'dis' },
+  { t: 0.40, code: 'S8-TGT-DIS', desc: 'Precision match: δ < 0.001', type: 'dis' },
+  { t: 0.45, code: 'S9-EIT-INF', desc: 'EITT entropy invariance: PASS', type: 'inf' },
+  { t: 0.50, code: 'SM-RTR-DIS', desc: 'Regime transition detected', type: 'dis' },
+  { t: 0.55, code: 'XC-RPS-DIS', desc: 'Stable pairwise ratio — carriers locked', type: 'dis' },
+  { t: 0.60, code: 'XC-RPV-DIS', desc: 'Volatile pairwise ratio — carriers independent', type: 'dis' },
+  { t: 0.65, code: 'XU-DPC-DIS', desc: 'Disproportionate carrier — power exceeds fraction', type: 'dis' },
+  { t: 0.70, code: 'XU-PWR-DIS', desc: 'Power ranking differs from mass ranking', type: 'dis' },
+  { t: 0.75, code: 'XU-CSL-DIS', desc: 'Conservation signature detected', type: 'dis' },
+  { t: 0.80, code: 'SM-DMR-DIS', desc: 'Domain resonance — deep structure', type: 'dis' },
+  { t: 0.85, code: 'XU-DRU-DIS', desc: 'Drift increasing — system evolving', type: 'dis' },
+  { t: 0.90, code: 'XU-CPM-INF', desc: 'Component Power Mapper analysis completed', type: 'inf' },
+  { t: 0.94, code: 'RP-DTM-INF', desc: 'Pipeline is deterministic', type: 'inf' },
+  { t: 0.97, code: 'RP-CMP-INF', desc: 'Pipeline run completed successfully', type: 'inf' },
+];
+
+const codeColors = {
+  inf: { bg: 'rgba(26,42,58,0.9)', border: '#2a4a6a', text: '#6af' },
+  dis: { bg: 'rgba(26,58,26,0.9)', border: '#2a5a2a', text: '#6f6' },
+  wrn: { bg: 'rgba(58,58,26,0.9)', border: '#5a5a2a', text: '#fa6' }
+};
+
+// Floating code elements
+let floatingCodes = [];
+const codeContainer = document.body;
+
+function spawnCode(event, scanX) {
+  const el = document.createElement('div');
+  el.className = 'code-float';
+  const colors = codeColors[event.type];
+  el.style.background = colors.bg;
+  el.style.border = `1px solid ${colors.border}`;
+  el.style.color = colors.text;
+  el.innerHTML = `<strong>${event.code}</strong> <span style="color:#888;font-size:11px">— ${event.desc}</span>`;
+
+  // Position near the scan line
+  const y = 100 + Math.random() * (H - 250);
+  el.style.left = (scanX + 20) + 'px';
+  el.style.top = y + 'px';
+  el.style.opacity = '1';
+  codeContainer.appendChild(el);
+
+  const entry = { el, born: performance.now(), x: scanX + 20, y };
+  floatingCodes.push(entry);
+
+  // Fade and drift
+  setTimeout(() => { el.style.opacity = '0'; }, 8000);
+  setTimeout(() => { el.remove(); floatingCodes = floatingCodes.filter(c => c !== entry); }, 9000);
+}
+
+// Stars
+const stars = Array.from({ length: 200 }, () => ({
+  x: Math.random(), y: Math.random(),
+  r: Math.random() * 1.5 + 0.3,
+  a: Math.random() * 0.5 + 0.1,
+  speed: Math.random() * 0.00002 + 0.00001
+}));
+
+let startTime = null;
+let lastSpawnedCode = -1;
+const statusTexts = [
+  'SCANNING COMPOSITION...', 'COMPUTING CLR TRANSFORM...', 'TRACKING VARIANCE...',
+  'FITTING HVLD SHAPE...', 'TESTING 35 CONSTANTS...', 'MEASURING ENTROPY...',
+  'DECOMPOSING CARRIERS...', 'COMPUTING TRANSFER ENTROPY...', 'ANALYSING RATIO PAIRS...',
+  'GENERATING FINGERPRINT...', 'PIPELINE COMPLETE — CLASSIFICATION: NATURAL'
+];
+
+function draw(now) {
+  if (!startTime) startTime = now;
+  const elapsed = (now - startTime) / 1000;
+  const loopTime = elapsed % LOOP_DURATION;
+  const progress = loopTime / LOOP_DURATION;
+
+  // Reset floating codes on loop restart
+  if (progress < 0.01 && lastSpawnedCode >= 0) {
+    lastSpawnedCode = -1;
+    floatingCodes.forEach(c => c.el.remove());
+    floatingCodes = [];
+  }
+
+  // Timer countdown
+  const remaining = LOOP_DURATION - loopTime;
+  const mins = Math.floor(remaining / 60);
+  const secs = Math.floor(remaining % 60);
+  document.getElementById('timer').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+  // Status text
+  const statusIdx = Math.min(Math.floor(progress * statusTexts.length), statusTexts.length - 1);
+  document.getElementById('statusText').textContent = statusTexts[statusIdx];
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Stars
+  stars.forEach(s => {
+    s.x = (s.x + s.speed) % 1;
+    const twinkle = s.a + Math.sin(now * 0.003 + s.x * 100) * 0.15;
+    ctx.fillStyle = `rgba(200,220,255,${Math.max(0, twinkle)})`;
+    ctx.beginPath();
+    ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Cone geometry
+  const coneLeft = W * 0.08;
+  const coneRight = W * 0.88;
+  const coneCenterY = H * 0.5;
+  const coneTopNarrow = H * 0.02;
+  const coneBottomWide = H * 0.42;
+
+  // Draw cone outline
+  ctx.strokeStyle = 'rgba(100,160,255,0.15)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(coneLeft, coneCenterY - coneTopNarrow);
+  ctx.lineTo(coneRight, coneCenterY - coneBottomWide);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(coneLeft, coneCenterY + coneTopNarrow);
+  ctx.lineTo(coneRight, coneCenterY + coneBottomWide);
+  ctx.stroke();
+
+  // Cone fill (gradient)
+  const coneGrad = ctx.createLinearGradient(coneLeft, 0, coneRight, 0);
+  coneGrad.addColorStop(0, 'rgba(20,20,60,0.3)');
+  coneGrad.addColorStop(1, 'rgba(10,10,30,0.1)');
+  ctx.fillStyle = coneGrad;
+  ctx.beginPath();
+  ctx.moveTo(coneLeft, coneCenterY - coneTopNarrow);
+  ctx.lineTo(coneRight, coneCenterY - coneBottomWide);
+  ctx.lineTo(coneRight, coneCenterY + coneBottomWide);
+  ctx.lineTo(coneLeft, coneCenterY + coneTopNarrow);
+  ctx.closePath();
+  ctx.fill();
+
+  // Draw compositional streams inside the cone
+  const streamPoints = 200;
+  for (let ci = 0; ci < CARRIERS.length; ci++) {
+    const c = CARRIERS[ci];
+    const [r, g, b] = c.color;
+
+    ctx.strokeStyle = `rgba(${r},${g},${b},0.6)`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+
+    for (let i = 0; i <= streamPoints; i++) {
+      const t = i / streamPoints;
+      const x = coneLeft + t * (coneRight - coneLeft);
+      const halfH = coneTopNarrow + t * (coneBottomWide - coneTopNarrow);
+
+      // Interpolate fraction (Big Bang left → today right)
+      const frac = c.frac3400 * (1 - t) + c.frac0 * t;
+
+      // Position within cone based on cumulative fractions
+      let cumBefore = 0;
+      for (let j = 0; j < ci; j++) {
+        const fj = CARRIERS[j].frac3400 * (1 - t) + CARRIERS[j].frac0 * t;
+        cumBefore += fj;
+      }
+      const centerOffset = (cumBefore + frac / 2 - 0.5) * 2 * halfH;
+
+      // Add subtle wave
+      const wave = Math.sin(t * 12 + now * 0.001 + ci * 1.5) * halfH * 0.015;
+
+      const y = coneCenterY + centerOffset + wave;
+
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // Draw stream glow
+    ctx.strokeStyle = `rgba(${r},${g},${b},0.15)`;
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    for (let i = 0; i <= streamPoints; i++) {
+      const t = i / streamPoints;
+      const x = coneLeft + t * (coneRight - coneLeft);
+      const halfH = coneTopNarrow + t * (coneBottomWide - coneTopNarrow);
+      const frac = c.frac3400 * (1 - t) + c.frac0 * t;
+      let cumBefore = 0;
+      for (let j = 0; j < ci; j++) {
+        const fj = CARRIERS[j].frac3400 * (1 - t) + CARRIERS[j].frac0 * t;
+        cumBefore += fj;
+      }
+      const centerOffset = (cumBefore + frac / 2 - 0.5) * 2 * halfH;
+      const wave = Math.sin(t * 12 + now * 0.001 + ci * 1.5) * halfH * 0.015;
+      const y = coneCenterY + centerOffset + wave;
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  // Scan line
+  const scanX = coneLeft + progress * (coneRight - coneLeft);
+  const scanHalfH = coneTopNarrow + progress * (coneBottomWide - coneTopNarrow);
+
+  ctx.strokeStyle = 'rgba(96,160,255,0.7)';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath();
+  ctx.moveTo(scanX, coneCenterY - scanHalfH - 20);
+  ctx.lineTo(scanX, coneCenterY + scanHalfH + 20);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Scan glow
+  const scanGlow = ctx.createRadialGradient(scanX, coneCenterY, 0, scanX, coneCenterY, scanHalfH + 30);
+  scanGlow.addColorStop(0, 'rgba(96,160,255,0.08)');
+  scanGlow.addColorStop(1, 'rgba(96,160,255,0)');
+  ctx.fillStyle = scanGlow;
+  ctx.fillRect(scanX - scanHalfH - 30, coneCenterY - scanHalfH - 30, (scanHalfH + 30) * 2, (scanHalfH + 30) * 2);
+
+  // Era labels
+  ctx.font = '10px "Segoe UI", system-ui, sans-serif';
+  ctx.fillStyle = '#555';
+  ctx.textAlign = 'center';
+
+  const eras = [
+    { x: 0.05, label: 'z = 3400' },
+    { x: 0.25, label: 'Radiation Era' },
+    { x: 0.50, label: 'Matter Era' },
+    { x: 0.75, label: 'Transition' },
+    { x: 0.95, label: 'Today (z = 0)' }
+  ];
+  eras.forEach(e => {
+    const ex = coneLeft + e.x * (coneRight - coneLeft);
+    const eh = coneTopNarrow + e.x * (coneBottomWide - coneTopNarrow);
+    ctx.fillText(e.label, ex, coneCenterY + eh + 36);
+  });
+
+  // Phase transition markers
+  const transitions = [0.08, 0.35, 0.78]; // Approximate positions for matter-rad eq, CMB, DE transition
+  transitions.forEach(t => {
+    const tx = coneLeft + t * (coneRight - coneLeft);
+    const th = coneTopNarrow + t * (coneBottomWide - coneTopNarrow);
+    ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 6]);
+    ctx.beginPath();
+    ctx.moveTo(tx, coneCenterY - th);
+    ctx.lineTo(tx, coneCenterY + th);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  // Carrier legend (right side)
+  const legendX = W - 160;
+  const legendY = H * 0.35;
+  ctx.font = '11px "Consolas", monospace';
+  CARRIERS.forEach((c, i) => {
+    const [r, g, b] = c.color;
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    ctx.fillRect(legendX, legendY + i * 22, 10, 10);
+    ctx.fillStyle = '#888';
+    ctx.textAlign = 'left';
+    ctx.fillText(c.name, legendX + 16, legendY + i * 22 + 9);
+  });
+
+  // Classification badge
+  if (progress > 0.32) {
+    const badgeAlpha = Math.min(1, (progress - 0.32) * 5);
+    ctx.save();
+    ctx.globalAlpha = badgeAlpha;
+    const bx = W * 0.5;
+    const by = H - 80;
+    ctx.font = 'bold 14px "Consolas", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#2a5a2a';
+    const tw = ctx.measureText('CLASSIFICATION: NATURAL · δ = 4.19 × 10⁻⁵ · 1/(eᵖⁱ)').width;
+    ctx.fillRect(bx - tw/2 - 16, by - 14, tw + 32, 28);
+    ctx.strokeStyle = '#4a8a4a';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(bx - tw/2 - 16, by - 14, tw + 32, 28);
+    ctx.fillStyle = '#6f6';
+    ctx.fillText('CLASSIFICATION: NATURAL · δ = 4.19 × 10⁻⁵ · 1/(eᵖⁱ)', bx, by + 4);
+    ctx.restore();
+  }
+
+  // Spawn codes
+  for (let i = 0; i < CODE_EVENTS.length; i++) {
+    if (progress >= CODE_EVENTS[i].t && i > lastSpawnedCode) {
+      lastSpawnedCode = i;
+      spawnCode(CODE_EVENTS[i], scanX);
+    }
+  }
+
+  // Drift floating codes slowly to the right
+  floatingCodes.forEach(c => {
+    const age = (now - c.born) / 1000;
+    c.el.style.left = (c.x + age * 8) + 'px';
+    c.el.style.top = (c.y - age * 3) + 'px';
+  });
+
+  requestAnimationFrame(draw);
+}
+
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>

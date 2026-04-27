@@ -14,6 +14,19 @@
     "symbol_meaning": "H-superscript-S — Higgins on the Simplex",
     "one_sentence": "A deterministic compositional knowledge engine that reads, fingerprints, and catalogs the geometric identity of any system on the simplex — accumulating structural knowledge with full audit trail and traceability.",
     "operating_principle": "Compositional Knowledge Engine — every pipeline run produces a diagnosis, a fingerprint, and an audit trail. Each run enriches a searchable catalog. The tool accumulates structural knowledge: past analyses become reference points for future discoveries. The tool makes tools.",
+    "decomposition": "Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S",
+    "operators": {
+      "S": "Simplex closure — compositional constraint enforcement",
+      "V": "Variance trajectory — cumulative Aitchison variance as shape",
+      "T": "CLR Transform — per-carrier deviation mapping",
+      "C": "Classification — transcendental squeeze (novel)",
+      "E": "Entropy test — EITT geometric-mean decimation (novel / open conjecture)",
+      "M": "Mode synthesis — conjunction of diagnostic predicates",
+      "R": "Report — assembly and SHA-256 verification"
+    },
+    "axiom": "∀𝒳 : Hˢ(𝒳) = Hˢ(𝒳) — determinism as generating principle",
+    "framework_version": "v3.0",
+    "gold_seal": true,
     "closing_statement": "The instrument reads. The expert decides. The loop stays open.",
     "domains_tested": 18,
     "systems_analysed": 36,
@@ -26,7 +39,7 @@
       "pt",
       "it"
     ],
-    "pipeline_version": "1.0 Extended",
+    "pipeline_version": "1.0 Extended + Amalgamation",
     "constants": 35,
     "diagnostic_codes": 78,
     "structural_modes": 10,
@@ -52,6 +65,7 @@
       "audit": "tools/pipeline/hs_audit.py",
       "controller": "tools/pipeline/hs_controller.py",
       "sensitivity": "tools/pipeline/hs_sensitivity.py",
+      "amalgamation": "tools/pipeline/hs_amalgamation.py",
       "locales": "tools/pipeline/locales/",
       "entry_point": "from higgins_decomposition_12step import HigginsDecomposition; hd = HigginsDecomposition(id, name, domain, carriers); hd.load_data(matrix); result = hd.run_full_extended()"
     },
@@ -73,12 +87,24 @@
       "applications_guide": "docs/Hs_Applications_Guide.md",
       "platform_guide": "docs/Hs_High_Index_Platform_Guide.md"
     },
+    "theory": {
+      "decomposition_function": "docs/Hs_Decomposition_Function.md",
+      "logic_map": "docs/Hs_Logic_Map_and_State_Machine.md",
+      "symbolic_logic": "papers/codawork2026/Hs_Symbolic_Logic_Definition.md",
+      "v3_reference": "docs/reference/Higgins_Decomposition_Reference_v3.0.docx",
+      "v1_reference": "docs/reference/Higgins_Decomposition_Reference_v1.0.docx"
+    },
     "papers": {
       "flagship": "papers/flagship/Higgins_Decomposition_Character_Analysis.docx",
       "precision_inference": "papers/flagship/Hs_EXP03_Precision_Inference.docx",
       "applications_guide": "papers/flagship/Hs_Applications_Guide.docx",
       "platform_guide": "papers/flagship/Hs_High_Index_Platform_Guide.docx",
-      "codawork_strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md"
+      "codawork_strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md",
+      "codawork_collaboration": "papers/codawork2026/CoDaWork2026_Collaboration_Path.md",
+      "codawork_letter_abstract": "papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md",
+      "codawork_gift_ramp": "papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md",
+      "codawork_action_plan": "papers/codawork2026/CoDaWork2026_Action_Plan.md",
+      "codawork_duality_dance": "papers/codawork2026/cosmic_duality_dance.html"
     },
     "interactive_tools": {
       "fourier_theorem": "tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html",
@@ -244,7 +270,9 @@
       "governor_quarantine": "gov.quarantine(reason='Anomaly detected')  # locks all controllers",
       "power_map_from_data": "from hs_sensitivity import ComponentPowerMapper; mapper = ComponentPowerMapper(data, carriers, domain='DOMAIN'); power_map = mapper.run_full_analysis()",
       "power_map_from_csv": "python hs_sensitivity.py data.csv -o power_map.json",
-      "power_map_from_results": "python hs_sensitivity.py results.json --from-results -o power_map.json"
+      "power_map_from_results": "python hs_sensitivity.py results.json --from-results -o power_map.json",
+      "amalgamation_run": "from hs_amalgamation import AmalgamationEngine; engine = AmalgamationEngine(data, carriers); results = engine.run_all_levels()",
+      "amalgamation_from_csv": "python hs_amalgamation.py data.csv -o amalgamation_results.json"
     },
     "quick_test": {
       "description": "Verify pipeline is working by running a reference standard.",

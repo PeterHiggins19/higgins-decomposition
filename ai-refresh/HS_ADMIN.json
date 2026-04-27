@@ -4,7 +4,20 @@
     "version": "1.0",
     "created": "2026-04-25",
     "author": "Peter Higgins",
-    "purpose": "Identity, terminology, and communication standards for the Hˢ repository."
+    "purpose": "Identity, terminology, and communication standards for the Hˢ repository.",
+    "identity_source": "RWA-001 (RWA_Corporate_Reference_v1.0.json) — wins on all identity questions"
+  },
+  "identity": {
+    "owner": "Peter Higgins",
+    "company": "Rogue Wave Audio",
+    "company_abbreviation": "RWA",
+    "email": "PeterHiggins@RogueWaveAudio.com",
+    "location": "Markham, Ontario, Canada",
+    "repository": "https://github.com/PeterHiggins19/higgins-decomposition",
+    "parent_repository": "https://github.com/PeterHiggins19/Higgins-Unity-Framework",
+    "domain": "RogueWaveAudio.com",
+    "affiliation_for_publications": "Independent Researcher, Markham, Ontario, Canada",
+    "note": "RWA-001 is the source of truth for all identity, location, and contact data. If any document disagrees, RWA-001 wins."
   },
   "communication_standards": {
     "language_policy": {

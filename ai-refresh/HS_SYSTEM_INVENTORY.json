@@ -167,6 +167,15 @@
       "fetch_tool": "tools/pipeline/hs_hepdata.py"
     }
   },
+  "pipeline_tools": {
+    "core": ["higgins_decomposition_12step.py", "higgins_transcendental_pretest.py"],
+    "diagnostics": ["hs_codes.py", "hs_reporter.py", "hs_metrology.py"],
+    "ingestion": ["hs_ingest.py", "hs_hepdata.py"],
+    "analysis": ["hs_fingerprint.py", "hs_sensitivity.py", "hs_amalgamation.py"],
+    "testing": ["hs_testgen.py"],
+    "infrastructure": ["hs_audit.py", "hs_controller.py"],
+    "total": 13
+  },
   "summary": {
     "domains": 18,
     "systems": 36,
@@ -174,7 +183,10 @@
     "total_DUTs": 53,
     "diagnostic_codes": 78,
     "structural_modes": 10,
-    "instrument_metrology": "QUALIFIED"
+    "pipeline_files": 13,
+    "framework": "v3.0 — Hs = R . M . E . C . T . V . S",
+    "instrument_metrology": "QUALIFIED",
+    "gold_seal": true
   },
   "reference_standards": {
     "MATH_FUNCTIONS": [

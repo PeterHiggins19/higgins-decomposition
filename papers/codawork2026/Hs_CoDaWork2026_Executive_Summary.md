@@ -224,6 +224,21 @@ EITT entropy invariance (< 5% at all tested scales). Connects thermodynamics
 (structure conservation), information theory (sufficient statistics), and
 Aitchison geometry (simplex metric) in a single principle.
 
+*Diagnostic consequence:* When an instrument achieves informational
+transparency, the structure it reveals feels inevitable — as though it
+was waiting to be found. This feeling is not mysticism; it is diagnostic.
+If the result feels imposed, the lens is dirty (the instrument is creating
+structure). If the result feels inevitable, the lens is clean (the instrument
+is reading structure that was always there). The subjective experience of
+inevitability is the correlate of transparency. It guides the engineer but
+does not constitute proof. The proof is the 12/12 conjugate preservation
+and the EITT invariance.
+
+*Connection to CoDa:* The Aitchison geometry is the natural geometry of
+compositional data. Any instrument built within it inherits the transparency
+of the geometry itself. The CoDa community built the lens. Hˢ inherits
+its clarity.
+
 ---
 
 ## The CoDaWork 2026 Talk (15 minutes)
@@ -235,7 +250,7 @@ Here are our weakest points. Can CoDa help?"
 ### Slide 2: What Hˢ is (2 min)
 12-step pipeline. Simplex closure → CLR → Aitchison variance → HVLD →
 transcendental squeeze → EITT → geometry. Deterministic. 4 guards.
-35 constants. 69 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
+35 constants. 78 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
 
 ### Slide 3: The strongest claim (1 min)
 δ = 5.87 × 10⁻⁶ in nuclear SEMF. 15/15 NATURAL across 12 domains.
