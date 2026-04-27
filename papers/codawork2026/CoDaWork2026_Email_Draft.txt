@@ -1,9 +1,8 @@
-# CoDaWork 2026 — Submission Letter and Abstract
-## To: codawork2026@coda-association.org
+To: codawork2026@coda-association.org
+Subject: Abstract submission — The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex
+Attachment: CoDaWork2026_Abstract_Higgins.pdf
 
 ---
-
-## The Letter
 
 Dear CoDaWork 2026 Organising Committee,
 
@@ -15,9 +14,9 @@ I believe the work poses several questions that can only be answered by the CoDa
 
 My preference is for an oral presentation (15–20 minutes). I am also happy to present as a poster if that better suits the programme.
 
-**Practical question:** Could you advise what AV equipment is provided in the presentation rooms? I plan to run a short live software demonstration from my laptop alongside slides. I would like to confirm whether HDMI connection is available at the lectern, and whether presenters may use their own laptops. If a poster is assigned, what are the required dimensions?
+Practical question: Could you advise what AV equipment is provided in the presentation rooms? I plan to run a short live software demonstration from my laptop alongside slides. I would like to confirm whether HDMI connection is available at the lectern, and whether presenters may use their own laptops. If a poster is assigned, what are the required dimensions?
 
-The abstract follows below.
+The abstract is pasted below and attached as a one-page PDF.
 
 With respect,
 
@@ -27,21 +26,17 @@ Rogue Wave Audio — Markham, Ontario, Canada
 PeterHiggins@RogueWaveAudio.com
 https://github.com/PeterHiggins19/higgins-decomposition
 
----
+----------------------------------------------------------------------
 
-## Abstract
+ABSTRACT
 
-**Title:** The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex
+Title: The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex
 
-**Author:** Peter Higgins
+Author: Peter Higgins
+Affiliation: Independent researcher, Markham, Ontario, Canada
+Preference: Oral presentation
 
-**Affiliation:** Independent researcher, Markham, Ontario, Canada
-
-**Preference:** Oral presentation
-
-**Keywords:** compositional data analysis, Aitchison geometry, simplex, amalgamation stability, entropy invariance, log-ratio pairs, deterministic diagnostics, cross-domain composition
-
-**Abstract:**
+Keywords: compositional data analysis, Aitchison geometry, simplex, amalgamation stability, entropy invariance, log-ratio pairs, deterministic diagnostics, cross-domain composition
 
 This contribution presents a deterministic diagnostic instrument for compositional data operating entirely within Aitchison geometry on the simplex. The instrument decomposes into seven sequential operators — simplex closure, variance trajectory, CLR transform, classification, entropy test, mode synthesis, and report — each inheriting a determinism axiom: same input, same output, always. Four operators are standard CoDa operations; two contain open questions for the community.
 
@@ -55,7 +50,5 @@ Third, a seven-dimensional compositional fingerprint enables cross-domain compar
 
 The instrument is fully reproducible with SHA-256 hash verification. All code and data are publicly available. Three open questions for CoDaWork: (1) Can the entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR substitution for CLR? (3) Independent validation on CoDa community datasets.
 
----
-
-*Peter Higgins — PeterHiggins@RogueWaveAudio.com*
-*https://github.com/PeterHiggins19/higgins-decomposition*
+----------------------------------------------------------------------
+Word count: 279

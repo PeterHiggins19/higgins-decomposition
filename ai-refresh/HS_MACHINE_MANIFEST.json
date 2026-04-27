@@ -111,7 +111,12 @@
       "simplex_scope": "tools/interactive/EXP-19_Interactive_Simulator.html",
       "spring_mass": "tools/interactive/EXP16_Interactive_Simulator.html",
       "spectrum_analyzer": "tools/interactive/HUF_Spectrum_Analyzer_Universal.html",
-      "codawork_demo": "tools/interactive/Hs_CoDaWork_Demo.html"
+      "codawork_demo": "tools/interactive/Hs_CoDaWork_Demo.html",
+      "cosmic_slider": "tools/interactive/cosmic_composition_interactive.html",
+      "cosmic_cone": "tools/interactive/cosmic_cone_5min_loop.html",
+      "duality_dance": "tools/interactive/cosmic_duality_dance.html",
+      "total": 8,
+      "note": "All interactive tools in one folder for fast demo access. CoDaWork demos are copies from papers/codawork2026/."
     },
     "metrology": {
       "report": "docs/reference/Hs_Instrument_Metrology.json",
