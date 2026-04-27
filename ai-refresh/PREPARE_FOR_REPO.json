@@ -1,0 +1,300 @@
+{
+  "_meta": {
+    "type": "PREPARE_FOR_REPO",
+    "purpose": "Pre-push readiness manifest. Full repository scrape with consistency verification.",
+    "generated": "2026-04-27T10:30:16",
+    "generator": "Cowork session — final pre-push scrape",
+    "protocol": "Scrape → verify → cross-reference → fix → re-verify → set status"
+  },
+  "status": "READY",
+  "issues": "None — all checks passed",
+  "canonical_counts": {
+    "domains": 18,
+    "systems": 36,
+    "experiments": 25,
+    "experiment_range": "Hs-01 through Hs-25",
+    "total_DUTs": 53,
+    "diagnostic_codes": 78,
+    "diagnostic_codes_non_SM": 68,
+    "structural_modes": 10,
+    "transcendental_constants": 35,
+    "reference_standards": 15,
+    "pipeline_files": 12,
+    "locale_files": 5,
+    "interactive_tools": 5,
+    "languages": 5,
+    "flagship_documents": 4,
+    "codawork_documents": 3,
+    "scale_range": "10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude)"
+  },
+  "file_verification": {
+    "critical_files": {
+      "README.md": true,
+      "EXECUTIVE_SUMMARY.md": true,
+      "CITATION.cff": true,
+      "LICENSE": true,
+      "ai-refresh/HS_MACHINE_MANIFEST.json": true,
+      "ai-refresh/HS_ADMIN.json": true,
+      "ai-refresh/HS_SYSTEM_INVENTORY.json": true,
+      "ai-refresh/PREPARE_FOR_REPO.json": true,
+      "docs/Hs_Learning_Path.md": true,
+      "docs/Hs_Architecture_Overview.md": true,
+      "docs/Hs_Applications_Guide.md": true,
+      "docs/Hs_High_Index_Platform_Guide.md": true,
+      "docs/reference/Hs_Reference_Standard_Library.md": true,
+      "docs/reference/Hs_Natural_Pairs_Baseline.md": true,
+      "docs/reference/Hs_Instrument_Metrology.json": true,
+      "papers/flagship/Higgins_Decomposition_Character_Analysis.docx": true,
+      "papers/flagship/Hs_EXP03_Precision_Inference.docx": true,
+      "papers/flagship/Hs_Applications_Guide.docx": true,
+      "papers/flagship/Hs_High_Index_Platform_Guide.docx": true,
+      "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md": true,
+      "papers/codawork2026/CoDaWork2026_Action_Plan.md": true,
+      "papers/codawork2026/CoDaWork2026_Speech_Introduction.md": true
+    },
+    "pipeline_files": {
+      "higgins_decomposition_12step.py": true,
+      "higgins_transcendental_pretest.py": true,
+      "hs_codes.py": true,
+      "hs_reporter.py": true,
+      "hs_metrology.py": true,
+      "hs_ingest.py": true,
+      "hs_hepdata.py": true,
+      "hs_fingerprint.py": true,
+      "hs_testgen.py": true,
+      "hs_audit.py": true,
+      "hs_controller.py": true,
+      "hs_sensitivity.py": true
+    },
+    "all_critical_present": true,
+    "all_pipeline_present": true
+  },
+  "locale_verification": {
+    "en": {
+      "code_count": 78,
+      "missing": 0,
+      "status": "PASS"
+    },
+    "zh": {
+      "code_count": 78,
+      "missing": 0,
+      "status": "PASS"
+    },
+    "hi": {
+      "code_count": 78,
+      "missing": 0,
+      "status": "PASS"
+    },
+    "pt": {
+      "code_count": 78,
+      "missing": 0,
+      "status": "PASS"
+    },
+    "it": {
+      "code_count": 78,
+      "missing": 0,
+      "status": "PASS"
+    }
+  },
+  "experiment_verification": {
+    "Hs-01_Gold_Silver": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-02_US_Energy": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-03_Nuclear_SEMF": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-04_Bessel_Acoustics": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-05_Geochemistry": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-06_Fusion": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-07_QCD": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-08_CKM_PMNS": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-09_Stellar": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-10_GW150914": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-11_AME2020": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-12_Spring_Mass": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-13_Steel": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-14_Conjugate_Pairs": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-15_hBN_Dielectric": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-16_Planck_Cosmic": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-17_Backblaze": {
+      "file_count": 34,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-18_Urban_Markham": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-19_Traffic_Signals": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-20_Conversation_Drift": {
+      "file_count": 10,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-21_Reference_Standards": {
+      "file_count": 2,
+      "has_reports": false,
+      "has_journal": false
+    },
+    "Hs-22_Natural_Pairs": {
+      "file_count": 74,
+      "has_reports": true,
+      "has_journal": false
+    },
+    "Hs-23_Radionuclides": {
+      "file_count": 29,
+      "has_reports": true,
+      "has_journal": true
+    },
+    "Hs-24_HEPData_Validation": {
+      "file_count": 2,
+      "has_reports": false,
+      "has_journal": true
+    },
+    "Hs-25_Cosmic_Energy_Budget": {
+      "file_count": 12,
+      "has_reports": true,
+      "has_journal": true
+    }
+  },
+  "cross_reference_consistency": {
+    "domains": {
+      "manifest": 18,
+      "inventory": 18,
+      "actual": 18,
+      "consistent": true
+    },
+    "systems": {
+      "manifest": 36,
+      "inventory": 36,
+      "actual": 36,
+      "consistent": true
+    },
+    "diagnostic_codes": {
+      "manifest": 78,
+      "inventory": 78,
+      "code_dictionary": 78,
+      "consistent": true
+    },
+    "structural_modes": {
+      "manifest": 10,
+      "inventory": 10,
+      "actual": 10,
+      "consistent": true
+    },
+    "experiments": {
+      "manifest_range": "Hs-01 through Hs-25",
+      "actual_folders": 25,
+      "consistent": true
+    },
+    "pipeline_files": {
+      "actual": 12,
+      "expected": 12,
+      "consistent": true
+    },
+    "locale_files": {
+      "actual": 5,
+      "expected": 5,
+      "all_complete": true,
+      "consistent": true
+    }
+  },
+  "latest_experiment": {
+    "id": "Hs-25",
+    "name": "Cosmic Energy Budget (Planck 2018 ΛCDM)",
+    "domain": "COSMOLOGY",
+    "carriers": 5,
+    "epochs": 103,
+    "classification": "NATURAL",
+    "nearest_constant": "1/(e^π)",
+    "delta": "4.19e-5",
+    "fingerprint_hash": "62bf32beb2f06873",
+    "codes_emitted": 51,
+    "predictions_confirmed": "7/7"
+  },
+  "codawork_2026": {
+    "talk_confirmed": true,
+    "format": "15-minute presentation + 5-minute Q&A",
+    "action_plan": "papers/codawork2026/CoDaWork2026_Action_Plan.md",
+    "speech_introduction": "papers/codawork2026/CoDaWork2026_Speech_Introduction.md",
+    "strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md",
+    "centrepiece_experiment": "experiments/Hs-25_Cosmic_Energy_Budget/"
+  },
+  "push_checklist": {
+    "1_all_files_present": true,
+    "2_pipeline_complete": true,
+    "3_locales_complete": true,
+    "4_counts_consistent": true,
+    "5_latest_experiment_complete": true,
+    "6_executive_summary_current": true,
+    "7_codawork_preparation_started": true,
+    "8_no_blocking_issues": true,
+    "READY_TO_PUSH": true
+  }
+}

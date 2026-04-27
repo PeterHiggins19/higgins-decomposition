@@ -14,8 +14,8 @@ abstract: >-
   inference pipeline operating on the Aitchison simplex. It reads the
   geometric fingerprint of any compositional system — from nuclear
   binding energy to cosmic energy budgets — without creating or
-  destroying structure. Validated across 17 physical domains spanning
-  44 orders of magnitude.
+  destroying structure. Validated across 18 physical domains spanning
+  44 orders of magnitude. 25 experiments, 53 DUTs.
 keywords:
   - compositional data analysis
   - simplex

@@ -1,0 +1,476 @@
+{
+  "instrument": "H\u02e2 Component Power Mapper v1.0",
+  "experiment_id": "Hs-25-CPM",
+  "name": "Cosmic Energy Budget Power Analysis",
+  "domain": "COSMOLOGY",
+  "timestamp": "2026-04-27T13:47:24.498148Z",
+  "carriers": [
+    "Dark_Energy",
+    "Cold_Dark_Matter",
+    "Baryonic_Matter",
+    "Photon_Radiation",
+    "Neutrinos"
+  ],
+  "D": 5,
+  "N": 103,
+  "baseline": {
+    "classification": "NATURAL",
+    "shape": "bowl",
+    "R2": 0.9320485280329796,
+    "sigma2_final": 54.36587548316615,
+    "nearest_constant": "1/(e^pi)"
+  },
+  "summary": {
+    "power_ranking": [
+      "Cold_Dark_Matter",
+      "Baryonic_Matter",
+      "Dark_Energy",
+      "Photon_Radiation",
+      "Neutrinos"
+    ],
+    "mass_ranking": [
+      "Cold_Dark_Matter",
+      "Dark_Energy",
+      "Baryonic_Matter",
+      "Photon_Radiation",
+      "Neutrinos"
+    ],
+    "rankings_differ": true,
+    "disproportionate_count": 3,
+    "most_powerful": "Cold_Dark_Matter",
+    "most_disproportionate": "Neutrinos",
+    "phase_sensitive_carriers": [],
+    "classification_flip_risk_carriers": []
+  },
+  "leverage_index": {
+    "carriers": {
+      "Dark_Energy": {
+        "leverage_up": 0.021289481097134005,
+        "leverage_down": 0.07558342367424799,
+        "leverage_mean": 0.048436452385691,
+        "leverage_asymmetry": 1.120931445283829,
+        "mass_fraction_pct": 24.36681167661287,
+        "variance_contribution_pct": 72.5925925925926,
+        "carrier_mean_value": 0.2436681167661287,
+        "responses_up": [
+          0.00045829904209470035,
+          0.002564565673339741,
+          0.004034024148428903,
+          0.004898819321253272,
+          0.005195023987559714,
+          0.004961232241813008,
+          0.004237391958737157,
+          0.0030638483585414887,
+          0.001480574569934658,
+          0.00047343288648499937
+        ],
+        "responses_down": [
+          0.0004808379094955333,
+          0.0034993508641867677,
+          0.007204701073869754,
+          0.01160139835632252,
+          0.016679757567957153,
+          0.02241192168441049,
+          0.028746693864116036,
+          0.035602558743756986,
+          0.04285786973293709,
+          0.0503364968127109
+        ],
+        "epsilons": [
+          0.01,
+          0.06444444444444444,
+          0.11888888888888888,
+          0.17333333333333334,
+          0.22777777777777777,
+          0.2822222222222222,
+          0.33666666666666667,
+          0.3911111111111111,
+          0.44555555555555554,
+          0.5
+        ],
+        "classification_flip_on_increase": false,
+        "classification_flip_on_decrease": false
+      },
+      "Cold_Dark_Matter": {
+        "leverage_up": 0.24965120564859183,
+        "leverage_down": 0.19057589450817353,
+        "leverage_mean": 0.22011355007838268,
+        "leverage_asymmetry": -0.268385617874872,
+        "mass_fraction_pct": 61.39623686427568,
+        "variance_contribution_pct": 0.37037037037037057,
+        "carrier_mean_value": 0.6139623686427569,
+        "responses_up": [
+          0.0025219728882056444,
+          0.016392674368073394,
+          0.03032663576372742,
+          0.04413834722252032,
+          0.05769612331302132,
+          0.0709096272640375,
+          0.08371974147509764,
+          0.09609057757712725,
+          0.10800329906633394,
+          0.11945141326521966
+        ],
+        "responses_down": [
+          0.0025096383778458672,
+          0.01586639167836155,
+          0.0284181249186718,
+          0.03968529087752306,
+          0.049073836020936845,
+          0.05587878576042327,
+          0.05930856302184341,
+          0.058537315831224186,
+          0.052786905661294375,
+          0.041429219261187686
+        ],
+        "epsilons": [
+          0.01,
+          0.06444444444444444,
+          0.11888888888888888,
+          0.17333333333333334,
+          0.22777777777777777,
+          0.2822222222222222,
+          0.33666666666666667,
+          0.3911111111111111,
+          0.44555555555555554,
+          0.5
+        ],
+        "classification_flip_on_increase": false,
+        "classification_flip_on_decrease": false
+      },
+      "Baryonic_Matter": {
+        "leverage_up": 0.17648881924228182,
+        "leverage_down": 0.23068113068962165,
+        "leverage_mean": 0.20358497496595174,
+        "leverage_asymmetry": 0.26619013243193973,
+        "mass_fraction_pct": 11.525133687152563,
+        "variance_contribution_pct": 0.3703703703703706,
+        "carrier_mean_value": 0.11525133687152563,
+        "responses_up": [
+          0.0019815218417856637,
+          0.012420444659500686,
+          0.022299516445579145,
+          0.03165742719362294,
+          0.04052930756705882,
+          0.04894713639188354,
+          0.056940089163976436,
+          0.06453483851087596,
+          0.07175581504493803,
+          0.07862543521098933
+        ],
+        "responses_down": [
+          0.0020021187425689102,
+          0.01327660472331937,
+          0.025219699065851153,
+          0.03788620429529313,
+          0.0513374366773255,
+          0.06564237370632124,
+          0.08087911845956583,
+          0.09713680976540841,
+          0.11451817747297036,
+          0.13314306155297112
+        ],
+        "epsilons": [
+          0.01,
+          0.06444444444444444,
+          0.11888888888888888,
+          0.17333333333333334,
+          0.22777777777777777,
+          0.2822222222222222,
+          0.33666666666666667,
+          0.3911111111111111,
+          0.44555555555555554,
+          0.5
+        ],
+        "classification_flip_on_increase": false,
+        "classification_flip_on_decrease": false
+      },
+      "Photon_Radiation": {
+        "leverage_up": 0.01040181043053392,
+        "leverage_down": 0.00935653748151664,
+        "leverage_mean": 0.009879173956025281,
+        "leverage_asymmetry": -0.10580570335840381,
+        "mass_fraction_pct": 1.6192652178844302,
+        "variance_contribution_pct": 13.333333333333336,
+        "carrier_mean_value": 0.0161926521788443,
+        "responses_up": [
+          9.80637350197728e-05,
+          0.000640325852384941,
+          0.0011970164228067477,
+          0.001768354628649644,
+          0.002354364575202435,
+          0.002954925929984582,
+          0.0035698123613193008,
+          0.004198720784688084,
+          0.004841293650317176,
+          0.005497135934589605
+        ],
+        "responses_down": [
+          9.759638237583722e-05,
+          0.0006209747990420247,
+          0.001131654212063594,
+          0.0016311461296488468,
+          0.0021216625914065586,
+          0.002606357771119562,
+          0.003089659224755902,
+          0.003577727267024363,
+          0.00407910078639086,
+          0.004605620226638087
+        ],
+        "epsilons": [
+          0.01,
+          0.06444444444444444,
+          0.11888888888888888,
+          0.17333333333333334,
+          0.22777777777777777,
+          0.2822222222222222,
+          0.33666666666666667,
+          0.3911111111111111,
+          0.44555555555555554,
+          0.5
+        ],
+        "classification_flip_on_increase": false,
+        "classification_flip_on_decrease": false
+      },
+      "Neutrinos": {
+        "leverage_up": 0.003387340174406182,
+        "leverage_down": 0.005042942617680455,
+        "leverage_mean": 0.004215141396043318,
+        "leverage_asymmetry": 0.39277506676961277,
+        "mass_fraction_pct": 1.092552554074439,
+        "variance_contribution_pct": 13.333333333333336,
+        "carrier_mean_value": 0.010925525540744389,
+        "responses_up": [
+          4.267607105260851e-05,
+          0.0002626558032065825,
+          0.0004613934865803021,
+          0.0006385973360134763,
+          0.0007941637934262035,
+          0.0009281378079222623,
+          0.001040681039219761,
+          0.0011320463189678554,
+          0.0012025570860659033,
+          0.0012525907918724943
+        ],
+        "responses_down": [
+          4.33713487024953e-05,
+          0.0002914814758025396,
+          0.0005590773021948993,
+          0.0008447838385784457,
+          0.0011466999569107272,
+          0.0014622548003007034,
+          0.0017880206781441788,
+          0.0021194663995058077,
+          0.0024506275203464963,
+          0.002773658033683324
+        ],
+        "epsilons": [
+          0.01,
+          0.06444444444444444,
+          0.11888888888888888,
+          0.17333333333333334,
+          0.22777777777777777,
+          0.2822222222222222,
+          0.33666666666666667,
+          0.3911111111111111,
+          0.44555555555555554,
+          0.5
+        ],
+        "classification_flip_on_increase": false,
+        "classification_flip_on_decrease": false
+      }
+    },
+    "rankings": {
+      "Cold_Dark_Matter": 1,
+      "Baryonic_Matter": 2,
+      "Dark_Energy": 3,
+      "Photon_Radiation": 4,
+      "Neutrinos": 5
+    },
+    "perturbation_steps": 10,
+    "perturbation_range": 0.5
+  },
+  "phase_boundary_map": {
+    "carriers": {
+      "Dark_Energy": {
+        "carrier_mean_value": 0.2436681167661287,
+        "mass_fraction_pct": 24.36681167661287,
+        "down_boundary_scale": null,
+        "down_boundary_type": null,
+        "down_margin": 1.0,
+        "up_boundary_scale": null,
+        "up_boundary_type": null,
+        "up_margin": 4.0,
+        "criticality_margin": 1.0,
+        "phase_sensitive": false
+      },
+      "Cold_Dark_Matter": {
+        "carrier_mean_value": 0.6139623686427569,
+        "mass_fraction_pct": 61.39623686427568,
+        "down_boundary_scale": null,
+        "down_boundary_type": null,
+        "down_margin": 1.0,
+        "up_boundary_scale": null,
+        "up_boundary_type": null,
+        "up_margin": 4.0,
+        "criticality_margin": 1.0,
+        "phase_sensitive": false
+      },
+      "Baryonic_Matter": {
+        "carrier_mean_value": 0.11525133687152563,
+        "mass_fraction_pct": 11.525133687152563,
+        "down_boundary_scale": null,
+        "down_boundary_type": null,
+        "down_margin": 1.0,
+        "up_boundary_scale": null,
+        "up_boundary_type": null,
+        "up_margin": 4.0,
+        "criticality_margin": 1.0,
+        "phase_sensitive": false
+      },
+      "Photon_Radiation": {
+        "carrier_mean_value": 0.0161926521788443,
+        "mass_fraction_pct": 1.6192652178844302,
+        "down_boundary_scale": null,
+        "down_boundary_type": null,
+        "down_margin": 1.0,
+        "up_boundary_scale": null,
+        "up_boundary_type": null,
+        "up_margin": 4.0,
+        "criticality_margin": 1.0,
+        "phase_sensitive": false
+      },
+      "Neutrinos": {
+        "carrier_mean_value": 0.010925525540744389,
+        "mass_fraction_pct": 1.092552554074439,
+        "down_boundary_scale": null,
+        "down_boundary_type": null,
+        "down_margin": 1.0,
+        "up_boundary_scale": null,
+        "up_boundary_type": null,
+        "up_margin": 4.0,
+        "criticality_margin": 1.0,
+        "phase_sensitive": false
+      }
+    },
+    "rankings": {
+      "Dark_Energy": 1,
+      "Cold_Dark_Matter": 2,
+      "Baryonic_Matter": 3,
+      "Photon_Radiation": 4,
+      "Neutrinos": 5
+    },
+    "baseline_classification": "NATURAL",
+    "baseline_shape": "bowl",
+    "phase_resolution": 20
+  },
+  "power_scores": {
+    "carriers": {
+      "Dark_Energy": {
+        "power_score": 0.27202090502501974,
+        "norm_leverage": 0.2200521156850304,
+        "norm_criticality": 0.5,
+        "norm_transfer_entropy": 1.3322676295501878e-05,
+        "norm_synergy": 0.3,
+        "mass_fraction_pct": 24.36681167661287,
+        "power_to_fraction_ratio": 0.6854019368065432,
+        "leverage_rank": 3,
+        "criticality_rank": 1,
+        "classification_flip_risk": false,
+        "phase_sensitive": false
+      },
+      "Cold_Dark_Matter": {
+        "power_score": 0.5450008881784197,
+        "norm_leverage": 1.0,
+        "norm_criticality": 0.5,
+        "norm_transfer_entropy": 4.440892098500626e-06,
+        "norm_synergy": 0.3,
+        "mass_fraction_pct": 61.39623686427568,
+        "power_to_fraction_ratio": 0.5450008881784197,
+        "leverage_rank": 1,
+        "criticality_rank": 2,
+        "classification_flip_risk": false,
+        "phase_sensitive": false
+      },
+      "Baryonic_Matter": {
+        "power_score": 0.5187189928235414,
+        "norm_leverage": 0.9249088704146333,
+        "norm_criticality": 0.5,
+        "norm_transfer_entropy": 4.440892098500626e-06,
+        "norm_synergy": 0.3,
+        "mass_fraction_pct": 11.525133687152563,
+        "power_to_fraction_ratio": 2.7632993259673837,
+        "leverage_rank": 2,
+        "criticality_rank": 3,
+        "classification_flip_risk": false,
+        "phase_sensitive": false
+      },
+      "Photon_Radiation": {
+        "power_score": 0.16570964796798082,
+        "norm_leverage": 0.04488217082731752,
+        "norm_criticality": 0.5,
+        "norm_transfer_entropy": 4.440892098500626e-06,
+        "norm_synergy": 0.0,
+        "mass_fraction_pct": 1.6192652178844302,
+        "power_to_fraction_ratio": 6.283065111859904,
+        "leverage_rank": 4,
+        "criticality_rank": 4,
+        "classification_flip_risk": false,
+        "phase_sensitive": false
+      },
+      "Neutrinos": {
+        "power_score": 0.15670244738722267,
+        "norm_leverage": 0.019149849677779045,
+        "norm_criticality": 0.5,
+        "norm_transfer_entropy": 0.0,
+        "norm_synergy": 0.0,
+        "mass_fraction_pct": 1.092552554074439,
+        "power_to_fraction_ratio": 8.805929326802998,
+        "leverage_rank": 5,
+        "criticality_rank": 5,
+        "classification_flip_risk": false,
+        "phase_sensitive": false
+      }
+    },
+    "rankings": {
+      "Cold_Dark_Matter": 1,
+      "Baryonic_Matter": 2,
+      "Dark_Energy": 3,
+      "Photon_Radiation": 4,
+      "Neutrinos": 5
+    },
+    "ranked_list": [
+      "Cold_Dark_Matter",
+      "Baryonic_Matter",
+      "Dark_Energy",
+      "Photon_Radiation",
+      "Neutrinos"
+    ],
+    "disproportionate_carriers": [
+      {
+        "carrier": "Neutrinos",
+        "power_to_fraction_ratio": 8.805929326802998,
+        "mass_fraction_pct": 1.092552554074439,
+        "power_rank": 5
+      },
+      {
+        "carrier": "Photon_Radiation",
+        "power_to_fraction_ratio": 6.283065111859904,
+        "mass_fraction_pct": 1.6192652178844302,
+        "power_rank": 4
+      },
+      {
+        "carrier": "Baryonic_Matter",
+        "power_to_fraction_ratio": 2.7632993259673837,
+        "mass_fraction_pct": 11.525133687152563,
+        "power_rank": 2
+      }
+    ],
+    "weights": {
+      "leverage": 0.35,
+      "criticality": 0.3,
+      "transfer_entropy": 0.2,
+      "synergy": 0.15
+    }
+  }
+}

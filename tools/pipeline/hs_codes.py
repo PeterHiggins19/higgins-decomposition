@@ -33,7 +33,7 @@ Levels:
   CAL = Calibration (instrument calibration signal)
 
 Author: Peter Higgins / Claude
-Version: 1.0
+Version: 1.2 (added Component Power codes: CPM, DPC, PSC, CFR, PWR)
 """
 
 # ════════════════════════════════════════════════════════════
@@ -116,6 +116,19 @@ CODE_DICTIONARY = {
     "XC-RPS-DIS": {"short": "Stable ratio found", "verbose": "A highly stable pairwise ratio detected (CV < 20%). These carriers are compositionally locked."},
     "XC-RPV-DIS": {"short": "Volatile ratio", "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent."},
     "XC-ZCR-DIS": {"short": "Zero crossings", "verbose": "Carrier zero-crossing events detected. Compositions approaching simplex boundary — structural singularities."},
+
+    # ── EXTENDED: HIERARCHY & FINGERPRINT ──
+    "XU-HRC-INF": {"short": "Hierarchy moderate", "verbose": "Carrier hierarchy ratio (max/min of central values) is between 10³ and 10⁶. Moderate disparity — Dirichlet perturbation stable."},
+    "XU-HRX-WRN": {"short": "Hierarchy extreme", "verbose": "Carrier hierarchy ratio exceeds 10⁶ (but below Guard 4 limit of 10¹⁵). Extreme disparity — perturbation methods may need alpha flooring. EITT failure is expected."},
+    "XU-CSL-DIS": {"short": "Conservation signature", "verbose": "All carrier pairs show PID redundancy and at least 50% of ratio pairs are stable (CV < 20%). Strong signature of an underlying conservation law linking all carriers."},
+    "XU-FPR-INF": {"short": "Fingerprint generated", "verbose": "Compositional fingerprint computed: hash of HVLD shape, R² band, classification, structural modes, and nearest constant family. Use for cross-database matching."},
+
+    # ── COMPONENT POWER ──
+    "XU-CPM-INF": {"short": "Power map computed", "verbose": "Component Power Mapper analysis completed. Leverage index, phase boundary map, and power scores computed for all carriers. Power rankings may differ from mass fraction rankings."},
+    "XU-DPC-DIS": {"short": "Disproportionate carrier", "verbose": "One or more carriers have power-to-fraction ratios exceeding 2.0x, meaning their influence on system character is at least double what their mass fraction would predict. These are compositionally critical components."},
+    "XU-PSC-WRN": {"short": "Phase-sensitive carrier", "verbose": "One or more carriers have criticality margins below 0.3, meaning small changes to their values can flip the system classification or HVLD shape. The system is sensitive to these components."},
+    "XU-CFR-WRN": {"short": "Classification flip risk", "verbose": "Perturbation of one or more carriers caused the system classification to flip between NATURAL and FLAG (or between shapes). The system is near a phase boundary for these carriers."},
+    "XU-PWR-DIS": {"short": "Power ≠ mass", "verbose": "The power ranking of carriers differs from the mass fraction ranking. Component influence on system character is not proportional to component fraction. This is the compositional leverage effect."},
 
     # ── REPORT ──
     "RP-CMP-INF": {"short": "Run complete", "verbose": "Hˢ extended pipeline run completed successfully. All results available for reporting."},
@@ -412,7 +425,21 @@ def generate_codes(result):
         
         emit("XU-CDA-INF")
         emit("XU-CLM-INF")
-    
+
+        # Carrier hierarchy detection
+        coda = u.get('coda_structural', {})
+        var_matrix = coda.get('variation_matrix', {})
+        # Check hierarchy from per-carrier contributions
+        pcc_vals = pcc.get('contributions', {})
+        if pcc_vals:
+            vals = [v for v in pcc_vals.values() if isinstance(v, (int, float)) and v > 0]
+            if len(vals) >= 2:
+                ratio = max(vals) / min(vals)
+                if ratio > 1e6:
+                    emit("XU-HRX-WRN", {"ratio": ratio})
+                elif ratio > 1e3:
+                    emit("XU-HRC-INF", {"ratio": ratio})
+
     # Extended conditional
     if c.get('PID'):
         pid = c['PID']
@@ -449,7 +476,67 @@ def generate_codes(result):
     
     if c.get('zero_crossing'):
         emit("XC-ZCR-DIS", c['zero_crossing'])
-    
+
+    # Conservation signature: PID redundancy + majority stable ratios
+    pid_redundant = c.get('PID', {}).get('dominant') == 'redundancy'
+    if pid_redundant and c.get('ratio_pair_lattice'):
+        rpl_pairs = c['ratio_pair_lattice'].get('pairs', {})
+        if rpl_pairs:
+            total_pairs = len(rpl_pairs)
+            stable_pairs = sum(1 for p in rpl_pairs.values() if p.get('cv', 100) < 20)
+            if total_pairs > 0 and (stable_pairs / total_pairs) >= 0.5:
+                emit("XU-CSL-DIS", {"stable_fraction": stable_pairs / total_pairs, "total_pairs": total_pairs})
+
+    # ── COMPONENT POWER MAP ──
+    # Power map results are stored at top level by the controller or
+    # injected by hs_sensitivity.py after pipeline completion.
+    power_map = result.get('power_map', {})
+    if not power_map:
+        # Also check inside extended panel (alternate integration point)
+        power_map = ext.get('power_map', {})
+
+    if power_map:
+        summary_pm = power_map.get('summary', {})
+        ps = power_map.get('power_scores', {})
+        ps_carriers = ps.get('carriers', {})
+
+        emit("XU-CPM-INF", {
+            "carriers_analysed": len(ps_carriers),
+            "most_powerful": summary_pm.get('most_powerful'),
+        })
+
+        # Disproportionate carriers (power >> mass fraction)
+        disproportionate = ps.get('disproportionate_carriers', [])
+        if disproportionate:
+            emit("XU-DPC-DIS", {
+                "count": len(disproportionate),
+                "top": disproportionate[0].get('carrier'),
+                "top_ratio": disproportionate[0].get('power_to_fraction_ratio'),
+            })
+
+        # Phase-sensitive carriers (criticality margin < 0.3)
+        phase_sensitive = summary_pm.get('phase_sensitive_carriers', [])
+        if phase_sensitive:
+            emit("XU-PSC-WRN", {
+                "count": len(phase_sensitive),
+                "carriers": phase_sensitive,
+            })
+
+        # Classification flip risk
+        flip_risk = summary_pm.get('classification_flip_risk_carriers', [])
+        if flip_risk:
+            emit("XU-CFR-WRN", {
+                "count": len(flip_risk),
+                "carriers": flip_risk,
+            })
+
+        # Power ranking differs from mass ranking
+        if summary_pm.get('rankings_differ', False):
+            emit("XU-PWR-DIS", {
+                "power_ranking": summary_pm.get('power_ranking'),
+                "mass_ranking": summary_pm.get('mass_ranking'),
+            })
+
     # Report
     emit("RP-CMP-INF")
     emit("RP-DTM-INF")
@@ -551,7 +638,7 @@ def codes_to_summary(codes):
 
 
 if __name__ == "__main__":
-    print(f"Hˢ Diagnostic Code System v1.0")
+    print(f"Hˢ Diagnostic Code System v1.2")
     print(f"Total defined codes: {len(CODE_DICTIONARY)}")
     print(f"Stages: GD, S4-SC, XU, XC, RP")
     print(f"Levels: INF, WRN, ERR, DIS, CAL")

@@ -1,0 +1,56 @@
+{
+  "_type": "Hs_FINGERPRINT",
+  "_version": "1.0",
+  "_generated": "2026-04-27T13:48:35.800621+00:00",
+  "identity": {
+    "name": "Cosmic Energy Budget",
+    "domain": "COSMOLOGY",
+    "N": 103,
+    "D": 5
+  },
+  "fingerprint": {
+    "hash": "62bf32beb2f06873",
+    "vector": {
+      "shape": "bowl",
+      "r2_band": "PRECISION",
+      "classification": "NATURAL",
+      "constant_family": "EULER",
+      "eitt": "PASS",
+      "structural_modes": [],
+      "chaos_level": "LOW",
+      "drift": "increasing",
+      "D": 5
+    }
+  },
+  "geometry": {
+    "hvld_shape": "bowl",
+    "hvld_r2": 0.9320485280328269,
+    "r2_band": "PRECISION",
+    "vertex": [
+      33.68538847435979,
+      -3.687621897408814
+    ]
+  },
+  "classification": {
+    "status": "NATURAL",
+    "nearest_constant": "1/(e^pi)",
+    "delta": 4.1888967366315866e-05,
+    "constant_family": "EULER"
+  },
+  "entropy": {
+    "eitt_pass": true,
+    "entropy_mean": 0.46462300222424147,
+    "chaos_profile": {
+      "stalls": 6,
+      "spikes": 0,
+      "reversals": 1,
+      "total_deviations": 7
+    }
+  },
+  "structure": {
+    "structural_modes": [],
+    "mode_count": 0,
+    "dominant_carrier_pct": 72.59259259259773,
+    "drift_direction": "increasing"
+  }
+}

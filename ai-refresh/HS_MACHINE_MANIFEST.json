@@ -12,10 +12,11 @@
     "name": "Higgins Decomposition",
     "symbol": "Hˢ",
     "symbol_meaning": "H-superscript-S — Higgins on the Simplex",
-    "one_sentence": "A deterministic compositional inference instrument that reads the geometric fingerprint of any system on the simplex without creating or destroying structure.",
+    "one_sentence": "A deterministic compositional knowledge engine that reads, fingerprints, and catalogs the geometric identity of any system on the simplex — accumulating structural knowledge with full audit trail and traceability.",
+    "operating_principle": "Compositional Knowledge Engine — every pipeline run produces a diagnosis, a fingerprint, and an audit trail. Each run enriches a searchable catalog. The tool accumulates structural knowledge: past analyses become reference points for future discoveries. The tool makes tools.",
     "closing_statement": "The instrument reads. The expert decides. The loop stays open.",
-    "domains_tested": 17,
-    "systems_analysed": 28,
+    "domains_tested": 18,
+    "systems_analysed": 36,
     "reference_standards": 15,
     "scale_range": "10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude)",
     "languages": [
@@ -27,7 +28,7 @@
     ],
     "pipeline_version": "1.0 Extended",
     "constants": 35,
-    "diagnostic_codes": 69,
+    "diagnostic_codes": 78,
     "structural_modes": 10,
     "instrument_metrology": "QUALIFIED (6/6 metrics pass)",
     "deterministic": true
@@ -45,6 +46,12 @@
       "reporter": "tools/pipeline/hs_reporter.py",
       "metrology": "tools/pipeline/hs_metrology.py",
       "ingest": "tools/pipeline/hs_ingest.py",
+      "hepdata": "tools/pipeline/hs_hepdata.py",
+      "fingerprint": "tools/pipeline/hs_fingerprint.py",
+      "testgen": "tools/pipeline/hs_testgen.py",
+      "audit": "tools/pipeline/hs_audit.py",
+      "controller": "tools/pipeline/hs_controller.py",
+      "sensitivity": "tools/pipeline/hs_sensitivity.py",
       "locales": "tools/pipeline/locales/",
       "entry_point": "from higgins_decomposition_12step import HigginsDecomposition; hd = HigginsDecomposition(id, name, domain, carriers); hd.load_data(matrix); result = hd.run_full_extended()"
     },
@@ -57,12 +64,20 @@
     "experiments": {
       "results_summary": "experiments/Hs_Extended_Executive_Summary.json",
       "pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_results.json",
-      "range": "Hs-01 through Hs-23",
+      "range": "Hs-01 through Hs-25",
       "rerun_plan": "Hs_EXPERIMENT_RERUN_PLAN.json"
+    },
+    "teaching": {
+      "learning_path": "docs/Hs_Learning_Path.md",
+      "architecture_overview": "docs/Hs_Architecture_Overview.md",
+      "applications_guide": "docs/Hs_Applications_Guide.md",
+      "platform_guide": "docs/Hs_High_Index_Platform_Guide.md"
     },
     "papers": {
       "flagship": "papers/flagship/Higgins_Decomposition_Character_Analysis.docx",
       "precision_inference": "papers/flagship/Hs_EXP03_Precision_Inference.docx",
+      "applications_guide": "papers/flagship/Hs_Applications_Guide.docx",
+      "platform_guide": "papers/flagship/Hs_High_Index_Platform_Guide.docx",
       "codawork_strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md"
     },
     "interactive_tools": {
@@ -78,7 +93,9 @@
     },
     "dashboard": "tools/Hs_Dashboard.ipynb",
     "journals": {
-      "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md"
+      "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md",
+      "Hs-24": "experiments/Hs-24_HEPData_Validation/Hs-24_JOURNAL.md",
+      "Hs-25": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_JOURNAL.md"
     }
   },
   "protocol": {
@@ -138,6 +155,49 @@
       "retention": "Permanent. Archive is the integral term — it provides stability.",
       "refresh": "Full archive review included in every major waypoint."
     },
+    "audit_system": {
+      "tool": "tools/pipeline/hs_audit.py",
+      "principle": "Every pipeline operation produces an audit record. Every record captures: what ran, when, input hash, output hash, duration, status, and breakpoint decisions. The chain hash provides tamper-evident integrity across the full trail.",
+      "record_fields": ["seq", "operation", "timestamp", "duration_ms", "input_hash", "output_hash", "input_shape", "output_shape", "status", "breakpoint", "breakpoint_action", "notes", "metadata"],
+      "breakpoints": {
+        "count": 16,
+        "actions": ["CONTINUE", "HOLD", "ABORT", "LOG_ONLY"],
+        "presets": {
+          "permissive": "All CONTINUE — no stops (default)",
+          "cautious": "HOLD on FLAG, errors, and guard failures",
+          "strict": "ABORT on errors and guard failures, HOLD on FLAG",
+          "audit": "LOG_ONLY everywhere — maximum traceability, no stops",
+          "development": "HOLD at every step — step-through debugging"
+        },
+        "safety_rule": "Every loop (catalog batch, regression suite, cross-check) has an explicit break condition at BP-LOOP-ITER. No infinite loops are possible — the audit system enforces termination."
+      },
+      "traceability": "Full chain of custody from raw data to final diagnosis. Each operation records input/output hashes. The chain hash is a SHA-256 of the sequential operation record — modifying any record invalidates the chain. ISO 17025-compatible."
+    },
+    "controller_architecture": {
+      "principle": "Hˢ operates as an industrial compositional analysis component. The controller wraps the pipeline in a state machine with event-driven integration. HUF-GOV provides top-level supervisory governance.",
+      "stack": "HUF-GOV → HsController → Pipeline → Audit Trail",
+      "controller": {
+        "states": ["IDLE", "RUNNING", "HELD", "COMPLETED", "ABORTED", "ERROR"],
+        "commands": ["start", "resume", "abort", "inspect", "reconfigure", "get_result", "get_audit", "get_events"],
+        "event_bus": "Publish-subscribe pattern for external system integration. Events: state_change, classification, fingerprint, hold, error, flag."
+      },
+      "governor": {
+        "modes": ["OPEN", "SUPERVISED", "LOCKED", "QUARANTINE"],
+        "capabilities": ["Controller registry with concurrent limit", "Policy engine on state transitions", "Cross-run fingerprint database", "Event aggregation", "Emergency quarantine", "Full state persistence"]
+      },
+      "verified": "Multi-controller supervised run passed — 2 controllers, both completed, fingerprints registered, audit chains valid."
+    },
+    "knowledge_engine": {
+      "principle": "Hˢ is a compositional knowledge engine. Every run produces: (1) a diagnosis (codes + structural modes), (2) a fingerprint (searchable geometric identity), (3) an audit trail (chain of custody). Each run enriches the catalog. Past analyses become reference points for future discoveries.",
+      "accumulation_cycle": "run → diagnose → fingerprint → catalog → compare → discover → run",
+      "loop_safety": "The accumulation cycle is open-ended but never closed-loop. Every catalog batch has BP-LOOP-ITER between iterations and BP-LOOP-END at termination. Every loop has a maximum iteration count or explicit termination condition. The audit trail records every iteration with input/output hashes for post-hoc verification.",
+      "tools_generated": {
+        "regression_suite": "hs_testgen.py --regression — generates self-contained regression test from catalog",
+        "health_check": "hs_testgen.py --healthcheck — perturbation stability test",
+        "cross_check": "hs_testgen.py --crosscheck — cross-database fingerprint comparison",
+        "stability_test": "hs_testgen.py --stability — bootstrap subsampling analysis"
+      }
+    },
     "waypoint_protocol": {
       "requirement": "Every waypoint in EXECUTIVE_SUMMARY.md must declare:",
       "fields": [
@@ -161,7 +221,30 @@
       "report": "from hs_reporter import report; text = report(codes, lang='en')",
       "report_all": "from hs_reporter import report_all_languages; all_reports = report_all_languages(codes)",
       "metrology": "from hs_metrology import run_full_metrology; report = run_full_metrology()",
-      "ingest_csv": "python hs_ingest.py mydata.csv --name 'My System' --domain 'MY_DOMAIN' --all-languages"
+      "ingest_csv": "python hs_ingest.py mydata.csv --name 'My System' --domain 'MY_DOMAIN' --all-languages",
+      "hepdata_list": "python hs_hepdata.py --list",
+      "hepdata_fetch": "python hs_hepdata.py --fetch w_decay --run",
+      "hepdata_fetch_all": "python hs_hepdata.py --fetch-all --run",
+      "hepdata_custom": "python hs_hepdata.py --inspire 1249595 --table 'Table 2' --run",
+      "fingerprint_single": "python hs_fingerprint.py results.json -o fingerprint.json",
+      "fingerprint_catalog": "python hs_fingerprint.py --catalog /path/to/hep_validation",
+      "fingerprint_compare": "python hs_fingerprint.py --compare fp1.json fp2.json",
+      "fingerprint_match": "python hs_fingerprint.py --match fp.json --database /path/to/catalog",
+      "audit_list_breakpoints": "python hs_audit.py --list-breakpoints",
+      "audit_run_cautious": "python hs_audit.py --preset cautious --run data.csv -v",
+      "audit_run_strict": "python hs_audit.py --preset strict --run data.csv -v",
+      "audit_view": "python hs_audit.py --view audit_trail.json",
+      "testgen_regression": "python hs_testgen.py --regression /path/to/catalog",
+      "testgen_healthcheck": "python hs_testgen.py --healthcheck results.json",
+      "testgen_crosscheck": "python hs_testgen.py --crosscheck /path/db1 /path/db2",
+      "controller_single": "from hs_controller import HsController; ctrl = HsController('ID','Name','DOMAIN',carriers); ctrl.start(data, preset='cautious'); result = ctrl.get_result()",
+      "controller_governed": "from hs_controller import HufGov; gov = HufGov(mode='SUPERVISED'); cid = gov.register_controller(ctrl); gov.run_controller(cid, data); gov.save_state('gov_state.json')",
+      "controller_inspect": "ctrl.inspect()  # returns state, audit summary, breakpoint status",
+      "controller_resume": "ctrl.resume(decision='continue', notes='Expert reviewed')",
+      "governor_quarantine": "gov.quarantine(reason='Anomaly detected')  # locks all controllers",
+      "power_map_from_data": "from hs_sensitivity import ComponentPowerMapper; mapper = ComponentPowerMapper(data, carriers, domain='DOMAIN'); power_map = mapper.run_full_analysis()",
+      "power_map_from_csv": "python hs_sensitivity.py data.csv -o power_map.json",
+      "power_map_from_results": "python hs_sensitivity.py results.json --from-results -o power_map.json"
     },
     "quick_test": {
       "description": "Verify pipeline is working by running a reference standard.",

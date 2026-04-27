@@ -112,7 +112,7 @@
       ],
       "data_type": "DERIVED",
       "scale": "~10²⁶ m (Hubble radius)",
-      "N_range": "200"
+      "N_range": "103"
     },
     "ENGINEERING": {
       "systems": [
@@ -149,14 +149,30 @@
       "data_type": "REAL",
       "scale": "text/conversational",
       "N_range": "18"
+    },
+    "HEP_COLLIDER": {
+      "systems": [
+        "W boson decay branching fractions (DELPHI/LEP)",
+        "Higgs boson branching ratios (125 GeV, LHC HXSWG)",
+        "Top quark W helicity fractions (CMS)",
+        "Tau lepton decay branching fractions (PDG)",
+        "Z boson partial decay widths (LEP EWWG)",
+        "CKM matrix unitarity (first row)",
+        "Proton momentum fractions (NNPDF4.0)"
+      ],
+      "data_type": "REAL (published HEP measurements via HEPData)",
+      "scale": "~10⁻¹⁸ m (attometer to femtometer)",
+      "N_range": "15-60",
+      "source": "HEPData (hepdata.net) public repository",
+      "fetch_tool": "tools/pipeline/hs_hepdata.py"
     }
   },
   "summary": {
-    "domains": 17,
-    "systems": 29,
-    "experiments": "Hs-01 through Hs-23",
-    "total_DUTs": 44,
-    "diagnostic_codes": 69,
+    "domains": 18,
+    "systems": 36,
+    "experiments": "Hs-01 through Hs-25 (includes HEPData catalog, 9 validated runs)",
+    "total_DUTs": 53,
+    "diagnostic_codes": 78,
     "structural_modes": 10,
     "instrument_metrology": "QUALIFIED"
   },

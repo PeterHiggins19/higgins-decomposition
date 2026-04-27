@@ -12,7 +12,7 @@
   "description": {
     "short": "Higgins Decomposition (Hˢ) — compositional inference on the simplex. A deterministic 12-step pipeline for reading the geometric fingerprint of any compositional system.",
     "one_line_seo": "A mathematical tool for compositional data analysis — reads structure on the simplex without creating or destroying it",
-    "about": "Compositional inference engine operating on the Aitchison simplex. 17 domains tested, 44 orders of magnitude, 5 languages."
+    "about": "Compositional inference engine operating on the Aitchison simplex. 18 domains tested, 44 orders of magnitude, 5 languages."
   },
   "topics": [
     "compositional-data",

@@ -1,0 +1,435 @@
+[
+  {
+    "code": "GD-ALL-INF",
+    "short": "All guards pass",
+    "verbose": "All 4 input guards passed. Data is valid for H\u02e2 pipeline processing.",
+    "value": null
+  },
+  {
+    "code": "S4-ZRN-INF",
+    "short": "No zeros",
+    "verbose": "No zero replacement needed. All input values are positive.",
+    "value": null
+  },
+  {
+    "code": "S4-CLO-INF",
+    "short": "Closure OK",
+    "verbose": "Simplex closure successful. All rows sum to 1.0 within tolerance 1e-12.",
+    "value": true
+  },
+  {
+    "code": "S5-CLR-INF",
+    "short": "CLR complete",
+    "verbose": "Centred log-ratio transform applied. All rows sum to zero in CLR space.",
+    "value": null
+  },
+  {
+    "code": "S6-VAR-INF",
+    "short": "Variance computed",
+    "verbose": "Cumulative Aitchison variance trajectory \u03c3\u00b2_A(t) computed for all time indices.",
+    "value": 54.36587548316615
+  },
+  {
+    "code": "S6-RNG-INF",
+    "short": "Variance range",
+    "verbose": "Variance trajectory range and final value recorded.",
+    "value": [
+      0.000280902978908771,
+      54.36587548316615
+    ]
+  },
+  {
+    "code": "S7-BWL-INF",
+    "short": "HVLD bowl",
+    "verbose": "HVLD vertex lock: bowl shape (a > 0). Variance is accelerating \u2014 system integrating.",
+    "value": 0.9320485280329796
+  },
+  {
+    "code": "S7-HRQ-INF",
+    "short": "HVLD R\u00b2 high",
+    "verbose": "HVLD R\u00b2 > 0.8. Quadratic fit describes the trajectory well.",
+    "value": 0.9320485280329796
+  },
+  {
+    "code": "S7-VTX-INF",
+    "short": "Vertex location",
+    "verbose": "HVLD vertex (lock point) location recorded.",
+    "value": [
+      33.685388474353616,
+      -3.6876218974091772
+    ]
+  },
+  {
+    "code": "S8-NAT-INF",
+    "short": "NATURAL",
+    "verbose": "HTP classification: NATURAL. At least one transcendental match within \u03b4 < 1%.",
+    "value": {
+      "constant": "1/(e^pi)",
+      "delta": 4.1888967399823784e-05
+    }
+  },
+  {
+    "code": "S8-EUL-DIS",
+    "short": "Euler-family match",
+    "verbose": "Nearest constant is from the Euler family (2\u03c0, e^\u03c0, \u03c0^e, or their reciprocals). Pipeline geometry resonates with system structure.",
+    "value": {
+      "constant": "1/(e^pi)",
+      "delta": 4.1888967399823784e-05
+    }
+  },
+  {
+    "code": "S8-TGT-DIS",
+    "short": "Tight match",
+    "verbose": "Transcendental match tighter than \u03b4 < 0.001. Precision-level structural resonance.",
+    "value": {
+      "constant": "1/(e^pi)",
+      "delta": 4.1888967399823784e-05
+    }
+  },
+  {
+    "code": "S8-SQZ-INF",
+    "short": "Squeeze count",
+    "verbose": "Number of transcendental proximity matches recorded.",
+    "value": 32
+  },
+  {
+    "code": "S9-ENT-INF",
+    "short": "Entropy computed",
+    "verbose": "Shannon entropy H(t) computed for all observations. Normalised by H_max = ln(D).",
+    "value": 0.4646230022239315
+  },
+  {
+    "code": "S9-EIT-INF",
+    "short": "EITT pass",
+    "verbose": "EITT invariance test passed at all tested compression ratios (variation < 5%).",
+    "value": null
+  },
+  {
+    "code": "S9-CHS-INF",
+    "short": "Chaos low",
+    "verbose": "Chaos detection: few deviations. System is compositionally smooth.",
+    "value": 7
+  },
+  {
+    "code": "S9-STL-DIS",
+    "short": "Stalls detected",
+    "verbose": "Angular velocity stalls detected \u2014 entropy rate dropped below 15% of running mean.",
+    "value": 6
+  },
+  {
+    "code": "S9-REV-DIS",
+    "short": "Reversals detected",
+    "verbose": "Entropy reversals detected \u2014 \u22652 sign changes in 5 consecutive samples.",
+    "value": 1
+  },
+  {
+    "code": "SA-TRN-INF",
+    "short": "Ternary OK",
+    "verbose": "Ternary projection computed. Type: ternary (D=3), 1-simplex (D=2), or projected (D>3).",
+    "value": null
+  },
+  {
+    "code": "SB-CPX-INF",
+    "short": "Complex plane OK",
+    "verbose": "Complex plane mapping computed. Centroid-relative coordinates.",
+    "value": null
+  },
+  {
+    "code": "SC-HLX-INF",
+    "short": "Helix OK",
+    "verbose": "3D helix/polar embedding computed. Radius, angle, angular velocity.",
+    "value": null
+  },
+  {
+    "code": "XU-PCC-INF",
+    "short": "Carrier decomposition",
+    "verbose": "Per-carrier contribution computed. Shows which carrier drives the variance.",
+    "value": {
+      "carrier_variance": [
+        39.465598498890984,
+        0.20135509438209695,
+        0.20135509438209698,
+        7.248783397755488,
+        7.2487833977554885
+      ],
+      "carrier_pct": [
+        72.5925925925926,
+        0.37037037037037057,
+        0.3703703703703706,
+        13.333333333333336,
+        13.333333333333336
+      ],
+      "dominant_carrier": "Dark_Energy",
+      "dominant_pct": 72.5925925925926
+    }
+  },
+  {
+    "code": "XU-PCD-DIS",
+    "short": "Carrier dominance",
+    "verbose": "One carrier contributes >60% of total variance. Strong structural signal.",
+    "value": {
+      "carrier": "Dark_Energy",
+      "pct": 72.5925925925926
+    }
+  },
+  {
+    "code": "XU-MDS-CAL",
+    "short": "Match density low",
+    "verbose": "Match density below natural baseline. May indicate synthetic data or sparse constant coverage.",
+    "value": {
+      "density": 0.5886075604820469,
+      "concentration": 0.173828125,
+      "total_matches": 32,
+      "n_constants_hit": 15,
+      "dominant_constant": "1/(e^pi)",
+      "trajectory_length": 54.365594580187235
+    }
+  },
+  {
+    "code": "XU-DRU-DIS",
+    "short": "Drift increasing",
+    "verbose": "Carrier drift trend: increasing. System is evolving \u2014 second half more dispersed.",
+    "value": {
+      "variance_ratio_2nd_to_1st": 49.33646398782162,
+      "drift_direction": "increasing",
+      "max_shift_carrier": "Dark_Energy",
+      "max_shift_magnitude": 0.45883271014707244
+    }
+  },
+  {
+    "code": "XU-CDA-INF",
+    "short": "CoDa panel OK",
+    "verbose": "CoDa structural panel computed: variation matrix, CLR summary, Aitchison distance.",
+    "value": null
+  },
+  {
+    "code": "XU-CLM-INF",
+    "short": "Claim summary",
+    "verbose": "Claim-status and envelope summary generated.",
+    "value": null
+  },
+  {
+    "code": "XC-PID-INF",
+    "short": "PID computed",
+    "verbose": "Partial Information Decomposition computed. Redundant, unique, and synergistic carrier interactions quantified.",
+    "value": {
+      "target": "Baryonic_Matter",
+      "sources": [
+        "Dark_Energy",
+        "Cold_Dark_Matter"
+      ],
+      "I_source1_target": 2.4208289991395326,
+      "I_source2_target": 2.4208289991395326,
+      "redundancy": 2.4208289991395326,
+      "unique_source1": 0.0,
+      "unique_source2": 0.0,
+      "dominant": "redundancy"
+    }
+  },
+  {
+    "code": "XC-PIR-DIS",
+    "short": "PID redundancy",
+    "verbose": "PID dominant mode: redundancy. Carriers share information \u2014 coupled dynamics.",
+    "value": null
+  },
+  {
+    "code": "XC-TEE-INF",
+    "short": "Transfer entropy",
+    "verbose": "Transfer entropy matrix computed. Directed information flow between carriers quantified.",
+    "value": null
+  },
+  {
+    "code": "XC-TEZ-CAL",
+    "short": "TE zero",
+    "verbose": "Transfer entropy is zero across all pairs. System is compositionally memoryless at this aggregation level.",
+    "value": null
+  },
+  {
+    "code": "XC-ORN-INF",
+    "short": "Order neutral",
+    "verbose": "Order sensitivity test: shuffling order does not change the result. Structure is cross-sectional.",
+    "value": {
+      "original_sigma2_final": 54.36587548316615,
+      "shuffled_sigma2": 54.36587548316614,
+      "order_matters": "False",
+      "relative_difference": 1.3069645792425667e-16
+    }
+  },
+  {
+    "code": "XC-RPL-INF",
+    "short": "Ratio-pair lattice",
+    "verbose": "Ratio-pair lattice computed. All pairwise log-ratios ranked by stability (CV).",
+    "value": {
+      "pairs": {
+        "ln(Dark_Energy/Cold_Dark_Matter)": {
+          "mean": -5.137349539831775,
+          "std": 6.730891191808987,
+          "cv": 131.01875080957396
+        },
+        "ln(Dark_Energy/Baryonic_Matter)": {
+          "mean": -3.4645311839807316,
+          "std": 6.730891191808986,
+          "cv": 194.2800002185352
+        },
+        "ln(Dark_Energy/Photon_Radiation)": {
+          "mean": 1.3049446790063486,
+          "std": 8.974521589078648,
+          "cv": 687.7319577955064
+        },
+        "ln(Dark_Energy/Neutrinos)": {
+          "mean": 1.698400404903281,
+          "std": 8.974521589078648,
+          "cv": 528.4102360767937
+        },
+        "ln(Cold_Dark_Matter/Baryonic_Matter)": {
+          "mean": 1.6728183558510434,
+          "std": 6.007686836445146e-16,
+          "cv": 3.59135635703181e-14
+        },
+        "ln(Cold_Dark_Matter/Photon_Radiation)": {
+          "mean": 6.442294218838124,
+          "std": 2.243630397269662,
+          "cv": 34.82657452540725
+        },
+        "ln(Cold_Dark_Matter/Neutrinos)": {
+          "mean": 6.835749944735056,
+          "std": 2.243630397269662,
+          "cv": 32.82200805191422
+        },
+        "ln(Baryonic_Matter/Photon_Radiation)": {
+          "mean": 4.769475862987079,
+          "std": 2.243630397269662,
+          "cv": 47.04144567920084
+        },
+        "ln(Baryonic_Matter/Neutrinos)": {
+          "mean": 5.162931588884015,
+          "std": 2.243630397269662,
+          "cv": 43.45651997598191
+        },
+        "ln(Photon_Radiation/Neutrinos)": {
+          "mean": 0.3934557258969337,
+          "std": 1.2908899490736323e-16,
+          "cv": 3.2809026889388385e-14
+        }
+      },
+      "most_stable": "ln(Photon_Radiation/Neutrinos)",
+      "least_stable": "ln(Dark_Energy/Photon_Radiation)"
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Dark_Energy/Cold_Dark_Matter)",
+      "cv": 131.01875080957396
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Dark_Energy/Baryonic_Matter)",
+      "cv": 194.2800002185352
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Dark_Energy/Photon_Radiation)",
+      "cv": 687.7319577955064
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Dark_Energy/Neutrinos)",
+      "cv": 528.4102360767937
+    }
+  },
+  {
+    "code": "XC-RPS-DIS",
+    "short": "Stable ratio found",
+    "verbose": "A highly stable pairwise ratio detected (CV < 20%). These carriers are compositionally locked.",
+    "value": {
+      "pair": "ln(Cold_Dark_Matter/Baryonic_Matter)",
+      "cv": 3.59135635703181e-14
+    }
+  },
+  {
+    "code": "XC-RPS-DIS",
+    "short": "Stable ratio found",
+    "verbose": "A highly stable pairwise ratio detected (CV < 20%). These carriers are compositionally locked.",
+    "value": {
+      "pair": "ln(Photon_Radiation/Neutrinos)",
+      "cv": 3.2809026889388385e-14
+    }
+  },
+  {
+    "code": "XC-ZCR-DIS",
+    "short": "Zero crossings",
+    "verbose": "Carrier zero-crossing events detected. Compositions approaching simplex boundary \u2014 structural singularities.",
+    "value": {
+      "n_near_zero_events": 103,
+      "near_zero_carriers": [
+        "Dark_Energy",
+        "Photon_Radiation",
+        "Neutrinos"
+      ],
+      "zero_threshold": 0.01
+    }
+  },
+  {
+    "code": "RP-CMP-INF",
+    "short": "Run complete",
+    "verbose": "H\u02e2 extended pipeline run completed successfully. All results available for reporting.",
+    "value": null
+  },
+  {
+    "code": "RP-DTM-INF",
+    "short": "Deterministic",
+    "verbose": "Pipeline is deterministic. Repeated runs on identical data produce bit-identical results.",
+    "value": null
+  },
+  {
+    "code": "RP-VER-INF",
+    "short": "Version",
+    "verbose": "Pipeline version and configuration recorded.",
+    "value": "1.0 Extended"
+  },
+  {
+    "code": "SM-OVC-CAL",
+    "short": "Overconstrained",
+    "verbose": "System is highly constrained \u2014 near-perfect HVLD R\u00b2, EITT pass, and precision-level \u03b4. This is either a mathematical function, a physical system under tight constraints, or derived data. INVESTIGATE: verify this is measured data, not model output. If derived, the tight match is expected and calibrates the pipeline. If measured, this is a precision-standard-grade result.",
+    "value": null
+  },
+  {
+    "code": "SM-RTR-DIS",
+    "short": "Regime transition",
+    "verbose": "System undergoes compositional regime change \u2014 drift detected with stalls and reversals. The composition is not stationary; it transitions between structural states. INVESTIGATE: the stall points mark regime boundaries. What physical parameter changes at the transition? Consider splitting the data at the transition and running each segment independently.",
+    "value": null
+  },
+  {
+    "code": "SM-DMR-DIS",
+    "short": "Domain resonance",
+    "verbose": "System encodes deep geometric structure \u2014 Euler-family transcendental detected with strong R\u00b2. The constant is not accidental; the pipeline's log-ratio geometry IS the structure. INVESTIGATE: compare this constant to other decompositions in the same domain. Do different decompositions lock to the same family? Does the specific constant change with carrier choice?",
+    "value": null
+  },
+  {
+    "code": "SM-CPL-DIS",
+    "short": "Carrier coupling",
+    "verbose": "Carriers are physically linked \u2014 PID shows redundancy and at least one ratio pair is highly stable. The coupled carriers share a common driver. INVESTIGATE: the stable ratio encodes a physical constraint (conservation law, stoichiometry, momentum balance). Can the coupled carriers be merged or one derived from the other?",
+    "value": null
+  },
+  {
+    "code": "SM-SCG-INF",
+    "short": "Smooth convergence",
+    "verbose": "System converges smoothly to compositional equilibrium. Bowl HVLD with low turbulence and EITT preservation indicates a single population evolving continuously across the simplex. This is the expected mode for well-sampled natural systems with a single dominant mechanism.",
+    "value": null
+  }
+]

@@ -6,19 +6,19 @@
 
 Higgins Decomposition reads the geometric fingerprint of any compositional system — from nuclear binding energy to cosmic energy budgets — without creating or destroying structure. It is a deterministic 12-step pipeline that transforms raw measurements into compositional diagnostics on the Aitchison simplex.
 
-**Validated:** 17 domains, 28 systems, 44 orders of magnitude. 15 reference standards. 69 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
+**Validated:** 18 domains, 36 systems, 44 orders of magnitude. 15 reference standards. 78 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
 
 **Conference:** [CoDaWork 2026 package](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) — Coimbra, Portugal (June 2026)
 
 | Canonical Count | Value |
 |---|---|
-| Physical domains | 17 |
-| Distinct systems | 28 |
+| Physical domains | 18 |
+| Distinct systems | 36 |
 | Reference standards | 15 |
-| Total DUTs | 43 |
+| Total DUTs | 53 |
 | Transcendental constants | 35 |
 | Conjugate pairs | 13 |
-| Diagnostic codes | 69 |
+| Diagnostic codes | 78 |
 | Structural modes | 10 |
 | Instrument metrology | QUALIFIED (6/6 metrics pass) |
 | Languages | 5 (en, zh, hi, pt, it) |
@@ -26,7 +26,7 @@ Higgins Decomposition reads the geometric fingerprint of any compositional syste
 | Pipeline version | 1.0 Extended |
 | Deterministic | Yes (Gauge R&R bit-identical) |
 
-**Start here:** [README](README.md) → [CoDaWork strategy](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Character Analysis](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) → [Reference Standards](docs/reference/Hs_Reference_Standard_Library.md) → [Interactive theorem demo](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html)
+**Start here:** [README](README.md) → [Learning Path](docs/Hs_Learning_Path.md) → [Architecture Overview](docs/Hs_Architecture_Overview.md) → [Applications Guide](docs/Hs_Applications_Guide.md) → [High Index Platform](docs/Hs_High_Index_Platform_Guide.md) → [CoDaWork strategy](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Character Analysis](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) → [Reference Standards](docs/reference/Hs_Reference_Standard_Library.md) → [Interactive theorem demo](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html)
 
 ---
 
@@ -72,6 +72,15 @@ python hs_ingest.py mydata.csv --all-languages
 ```
 
 Any CSV of compositions works. Column headers become carriers. The tool handles closure, zero replacement, and everything else. CoDa training is sufficient — no domain-specific configuration needed.
+
+**Have HEPData?** Published high-energy physics measurements, ready to decompose:
+
+```bash
+python hs_hepdata.py --list                    # see 8 curated HEP datasets
+python hs_hepdata.py --fetch higgs_br --run    # fetch Higgs branching ratios → pipeline
+python hs_hepdata.py --fetch-all --run         # fetch all 8 → full pipeline runs
+python hs_hepdata.py --inspire 1299142 --table "Table 2" --run  # any HEPData record
+```
 
 **Python API** for programmatic use:
 
@@ -123,11 +132,11 @@ Two specification books provide calibration baselines for any Device Under Test:
 | Finding | Value | Source |
 |---------|-------|--------|
 | Tightest transcendental match | δ = 5.87 × 10⁻⁶ (Nuclear SEMF → 1/(π^e)) | Hs-03 |
-| Domains tested | 17 (Acoustics → Cosmology) | Release validation |
+| Domains tested | 18 (Acoustics → HEP Collider) | Release validation + Hs-24 |
 | Classification rate | 15/15 NATURAL | All physical experiments |
 | Fourier preservation | 12/12 pairs (11 symmetry + 1 asymmetry correctly detected) | Hs-14 |
 | Adversarial robustness | 21 attacks, 0 plausible-but-wrong outputs | Character Analysis |
-| Transfer entropy | Detects directed information flow between carriers | Hs-01 through Hs-23 |
+| Transfer entropy | Detects directed information flow between carriers | Hs-01 through Hs-25 |
 
 ---
 
@@ -143,21 +152,28 @@ higgins-decomposition/
 │   ├── HS_ADMIN.json             # Identity, terminology, communication standards
 │   └── HS_SYSTEM_INVENTORY.json  # Complete domain/system inventory
 ├── docs/reference/               # Specification books + metrology report
-├── experiments/                  # 23 experiments with results JSON
+├── experiments/                  # 25 experiments with results JSON
 │   ├── Hs-01_Gold_Silver/        
 │   ├── ...                       
-│   ├── Hs-22_Natural_Pairs/      
-│   └── Hs-23_Radionuclides/     # First journaled multi-run experiment
+│   ├── Hs-23_Radionuclides/     # First journaled multi-run experiment
+│   ├── Hs-24_HEPData_Validation/ # HEPData campaign (9 runs, 8 systems)
+│   └── Hs-25_Cosmic_Energy_Budget/ # Planck 2018 ΛCDM cosmic composition (CoDaWork centrepiece)
 ├── papers/                       # Flagship documents and conference materials
 │   ├── flagship/                 
 │   └── codawork2026/             
 └── tools/                        
-    ├── pipeline/                 # Core Python code (6 files)
+    ├── pipeline/                 # Core Python code (12 files)
     │   ├── higgins_decomposition_12step.py
-    │   ├── hs_codes.py           # 69 diagnostic codes + 10 structural modes
+    │   ├── hs_codes.py           # 78 diagnostic codes + 10 structural modes
     │   ├── hs_reporter.py        # Multilingual reporter
     │   ├── hs_metrology.py       # Instrument meta-evaluation
     │   ├── hs_ingest.py          # Universal CSV/JSON loader (CoDa-ready)
+    │   ├── hs_hepdata.py         # HEPData fetch (8 curated HEP datasets, 9 validated runs)
+    │   ├── hs_fingerprint.py     # Compositional fingerprint generator + matcher
+    │   ├── hs_testgen.py         # Secondary test tools generator
+    │   ├── hs_audit.py           # Audit trail + 16 breakpoints
+    │   ├── hs_controller.py      # Industrial controller + HUF-GOV supervisor
+    │   ├── hs_sensitivity.py     # Component Power Mapper (leverage, phase, power scores)
     │   └── locales/              # 5 language files
     └── interactive/              # 5 HTML tools (open in browser)
 ```
