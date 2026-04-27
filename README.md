@@ -1,110 +1,341 @@
-# Hˢ — Higgins Decomposition
+# Hˢ — Higgins Decomposition on the Simplex
 
-**A compositional inference instrument operating on the simplex.**
+**Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**
 
-*Author: Peter Higgins, Markham, Ontario, Canada*
+A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.*
 
-Higgins Decomposition reads the geometric fingerprint of any compositional system — from nuclear binding energy to cosmic energy budgets — without creating or destroying structure. It is a deterministic 12-step pipeline that transforms raw measurements into compositional diagnostics on the Aitchison simplex.
+Validated across 18 physical domains, 25 experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
-**Validated:** 18 domains, 36 systems, 44 orders of magnitude. 15 reference standards. 78 diagnostic codes. 10 structural modes. 5 languages. Instrument metrology: QUALIFIED.
+*Peter Higgins — Independent Researcher, Markham, Ontario, Canada*
+*Rogue Wave Audio — PeterHiggins@RogueWaveAudio.com*
 
-**Conference:** [CoDaWork 2026 package](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) — Coimbra, Portugal (June 2026)
+---
 
-| Canonical Count | Value |
+## At a Glance
+
+| Measure | Value |
 |---|---|
 | Physical domains | 18 |
+| Experiments | 25 |
 | Distinct systems | 36 |
-| Reference standards | 15 |
-| Total DUTs | 53 |
-| Transcendental constants | 35 |
-| Conjugate pairs | 13 |
+| Devices under test (DUTs) | 53 |
+| Pipeline files | 13 |
+| Interactive tools | 8 |
 | Diagnostic codes | 78 |
 | Structural modes | 10 |
-| Instrument metrology | QUALIFIED (6/6 metrics pass) |
+| Transcendental constants | 35 |
+| Conjugate pairs validated | 13 |
+| Reference standards | 15 |
 | Languages | 5 (en, zh, hi, pt, it) |
 | Scale range | 10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude) |
-| Pipeline version | 1.0 Extended |
-| Deterministic | Yes (Gauge R&R bit-identical) |
-
-**Start here:** [README](README.md) → [Learning Path](docs/Hs_Learning_Path.md) → [Architecture Overview](docs/Hs_Architecture_Overview.md) → [Applications Guide](docs/Hs_Applications_Guide.md) → [High Index Platform](docs/Hs_High_Index_Platform_Guide.md) → [CoDaWork strategy](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Character Analysis](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) → [Reference Standards](docs/reference/Hs_Reference_Standard_Library.md) → [Interactive theorem demo](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html)
-
----
-
-## What This Tool Does
-
-Given an N × D matrix of measurements across D compositional carriers, Hˢ:
-
-1. Closes to the simplex (all rows sum to 1)
-2. Transforms via centred log-ratio (CLR)
-3. Tracks cumulative Aitchison variance σ²_A(t)
-4. Fits a vertex lock diagnostic (HVLD — bowl or hill classification)
-5. Tests proximity to 35 transcendental constants
-6. Validates entropy invariance under geometric-mean decimation (EITT)
-7. Detects compositional turbulence (stalls, spikes, reversals)
-8. Projects into geometric embeddings (ternary, complex, helix)
-9. Decomposes per-carrier contributions, transfer entropy, and ratio stability
-
-The pipeline is deterministic: identical inputs produce identical outputs. Zero stochastic elements. SHA-256 hash verification. Gauge R&R confirmed bit-identical.
+| Framework version | 3.0 |
+| Deterministic | Yes (Gauge R&R bit-identical, SHA-256 verified) |
+| Instrument metrology | QUALIFIED (6/6 metrics pass) |
+| License | CC BY 4.0 |
 
 ---
 
-## Interactive Tools
+## Start Here
 
-**Download any HTML file and open in a browser. No installation required.**
+**If you are a person:** [Learning Path](docs/Hs_Learning_Path.md) → [Architecture Overview](docs/Hs_Architecture_Overview.md) → [Applications Guide](docs/Hs_Applications_Guide.md) → [High Index Platform](docs/Hs_High_Index_Platform_Guide.md)
+
+**If you are a machine:** [`ai-refresh/HS_MACHINE_MANIFEST.json`](ai-refresh/HS_MACHINE_MANIFEST.json) — identity, navigation, protocol, governance, and authority resolution in a single file. Follow the onboarding sequence defined there.
+
+**If you are reviewing for CoDaWork 2026:** [Abstract (PDF)](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) → [Executive Summary](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Collaboration Path](papers/codawork2026/CoDaWork2026_Collaboration_Path.md)
+
+---
+
+## Prime Documents
+
+These are the governing documents of the Hˢ system — the ones that define what it is, what it does, and what it claims.
+
+| Document | Purpose |
+|---|---|
+| [EXECUTIVE_SUMMARY.md](EXECUTIVE_SUMMARY.md) | Running log of all development, decisions, results, and principles |
+| [Decomposition Function (v3.0)](docs/Hs_Decomposition_Function.md) | Formal derivation: axiom → decimation → seven operators → Hˢ |
+| [Logic Map and State Machine](docs/Hs_Logic_Map_and_State_Machine.md) | Complete symbolic logic of the pipeline |
+| [Symbolic Logic Definition](papers/codawork2026/Hs_Symbolic_Logic_Definition.md) | Pure mathematical definition — no prose |
+| [Reference v3.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v3.0.docx) | Formal reference document with full operator specifications |
+| [Character Analysis (docx)](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) | Atomic-level disassembly — the pipeline as DUT |
+| [Instrument Metrology](docs/reference/Hs_Instrument_Metrology.json) | Quantified instrument qualification (6 metrics) |
+| [CITATION.cff](CITATION.cff) | How to cite this work |
+
+---
+
+## The Pipeline (13 Files)
+
+All code lives in `tools/pipeline/`. No external dependencies beyond numpy.
+
+### Core Engine
+
+| File | Role |
+|---|---|
+| `higgins_decomposition_12step.py` | The 12-step pipeline — simplex closure through helix projection |
+| `higgins_transcendental_pretest.py` | Transcendental constant proximity against 35-constant library |
+| `hs_amalgamation.py` | Subcompositional recursion engine — amalgamation stability testing |
+
+### Diagnostics
+
+| File | Role |
+|---|---|
+| `hs_codes.py` | 78 diagnostic codes + 10 structural modes |
+| `hs_fingerprint.py` | Seven-dimensional compositional fingerprint generator + matcher |
+| `hs_sensitivity.py` | Component Power Mapper — leverage, phase, power scores per carrier |
+| `hs_metrology.py` | Instrument meta-evaluation — Gauge R&R, self-consistency |
+
+### Ingestion
+
+| File | Role |
+|---|---|
+| `hs_ingest.py` | Universal CSV/JSON loader — any composition, automatic closure |
+| `hs_hepdata.py` | HEPData fetch — 8 curated HEP datasets with validated pipeline runs |
+
+### Infrastructure
+
+| File | Role |
+|---|---|
+| `hs_reporter.py` | Multilingual diagnostic reporter (5 languages) |
+| `hs_testgen.py` | Secondary test tools — adversarial, boundary, and regression tests |
+| `hs_audit.py` | Audit trail + 16 configurable breakpoints |
+| `hs_controller.py` | Industrial state machine controller with HUF-GOV supervisor |
+
+---
+
+## Interactive Tools (8 HTML Demos)
+
+Download any HTML file and open in a browser. No installation, no server, no dependencies.
 
 | Tool | What It Does |
 |------|-------------|
+| [CoDaWork Demo](tools/interactive/Hs_CoDaWork_Demo.html) | Dual-dataset live demo — SEMF + Radionuclides, full pipeline strip, structural modes |
+| [Cosmic Composition Slider](tools/interactive/cosmic_composition_interactive.html) | Planck 2018 cosmic energy budget — slide from z=0 to z=3400, watch dark energy vanish |
+| [Cosmic Cone Loop](tools/interactive/cosmic_cone_5min_loop.html) | 5-minute inflation cone animation — cosmic composition evolution from Big Bang |
+| [Cosmic Duality Dance](tools/interactive/cosmic_duality_dance.html) | Black hole / white hole compositional duality across amalgamation levels |
 | [Simplex Scope](tools/interactive/EXP-19_Interactive_Simulator.html) | Real-time Fourier conjugate pair decomposition — all 12 pipeline steps visualised |
-| [Spring-Mass](tools/interactive/EXP16_Interactive_Simulator.html) | Damped oscillator decomposed into KE/PE/Damping with chaos detection |
-| [Conjugate Preservation Theorem](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html) | Mathematical proof — 3 theorems + 1 corollary, interactive |
-| [Spectrum Analyzer](tools/interactive/HUF_Spectrum_Analyzer_Universal.html) | Universal JSON reader — 5 readings from any pipeline output |
-| [CoDaWork Demo](tools/interactive/Hs_CoDaWork_Demo.html) | Dual-dataset live demo — SEMF + Radionuclides, pipeline strip, structural modes |
-| [Dashboard](tools/Hs_Dashboard.ipynb) | JupyterLab notebook — load any CSV, full pipeline, 6-panel visualisation |
+| [Spring-Mass Simulator](tools/interactive/EXP16_Interactive_Simulator.html) | Damped oscillator decomposed into KE/PE/Damping with chaos detection |
+| [Conjugate Preservation Theorem](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html) | Mathematical proof — 3 theorems + 1 corollary, interactive walkthrough |
+| [Spectrum Analyzer](tools/interactive/HUF_Spectrum_Analyzer_Universal.html) | Universal JSON reader — 5 readings from any pipeline output file |
 
 ---
 
 ## Quick Start
 
-**Have a CSV?** One command, no configuration:
+**Have a CSV?** One command:
 
 ```bash
-python hs_ingest.py mydata.csv --all-languages
+python tools/pipeline/hs_ingest.py mydata.csv --all-languages
 ```
 
-Any CSV of compositions works. Column headers become carriers. The tool handles closure, zero replacement, and everything else. CoDa training is sufficient — no domain-specific configuration needed.
-
-**Have HEPData?** Published high-energy physics measurements, ready to decompose:
+**Have HEPData?** Published high-energy physics measurements:
 
 ```bash
-python hs_hepdata.py --list                    # see 8 curated HEP datasets
-python hs_hepdata.py --fetch higgs_br --run    # fetch Higgs branching ratios → pipeline
-python hs_hepdata.py --fetch-all --run         # fetch all 8 → full pipeline runs
-python hs_hepdata.py --inspire 1299142 --table "Table 2" --run  # any HEPData record
+python tools/pipeline/hs_hepdata.py --list                    # see 8 curated HEP datasets
+python tools/pipeline/hs_hepdata.py --fetch higgs_br --run    # Higgs branching ratios → pipeline
+python tools/pipeline/hs_hepdata.py --fetch-all --run         # all 8 → full pipeline runs
 ```
 
-**Python API** for programmatic use:
+**Python API:**
 
 ```python
-from higgins_decomposition_12step import HigginsDecomposition
+from tools.pipeline.higgins_decomposition_12step import HigginsDecomposition
 
 hd = HigginsDecomposition("MY-01", "My System", "MY_DOMAIN",
-    carriers=["Carrier_A", "Carrier_B", "Carrier_C"])
-hd.load_data(my_data_matrix)  # numpy array, shape (N, D)
+    carriers=["A", "B", "C"])
+hd.load_data(my_matrix)  # numpy array, shape (N, D)
+result = hd.run_full_extended()
 
-result = hd.run_full_extended()  # full 12-step + extended panel
-
-from hs_codes import generate_codes
-from hs_reporter import report
-
+from tools.pipeline.hs_codes import generate_codes
+from tools.pipeline.hs_reporter import report
 codes = generate_codes(result)
-print(report(codes, lang="en"))  # also: "zh", "hi", "pt", "it"
+print(report(codes, lang="pt"))  # en, zh, hi, pt, it
+```
+
+**Amalgamation stability test:**
+
+```python
+from tools.pipeline.hs_amalgamation import AmalgamationEngine
+engine = AmalgamationEngine(hd)
+results = engine.run_all_schemes()  # tests all valid carrier merges
+```
+
+---
+
+## The 25 Experiments
+
+| ID | Domain | System | Highlight |
+|----|--------|--------|-----------|
+| Hs-01 | Precious metals | Gold/Silver ratio | Transfer entropy: Au→Ag directed flow |
+| Hs-02 | Energy | US primary energy mix | Renewable carrier drift detection |
+| Hs-03 | Nuclear physics | SEMF binding energy | **Flagship:** δ = 5.87 × 10⁻⁶ at 1/(π^e), Z=38 strontium |
+| Hs-04 | Acoustics | Bessel function decomposition | Spectral mode analysis on simplex |
+| Hs-05 | Geochemistry | Major oxide compositions | CaO+MgO dominant (61%) — depletion carries variance |
+| Hs-06 | Nuclear fusion | Plasma confinement | Lawson criterion approached compositionally |
+| Hs-07 | QCD | Quark/gluon decomposition | Perturbative ↔ non-perturbative boundary |
+| Hs-08 | Particle physics | CKM/PMNS mixing matrices | Flavour mixing as composition |
+| Hs-09 | Stellar physics | Main-sequence composition | CNO cycle carrier detection |
+| Hs-10 | Gravitational waves | GW150914 merger | Chirp mass ratio decomposition |
+| Hs-11 | Nuclear mass | AME2020 atomic masses | Binding energy systematics across chart of nuclides |
+| Hs-12 | Classical mechanics | Spring-mass oscillator | KE/PE exchange — reversal under heavy damping |
+| Hs-13 | Metallurgy | Steel alloy compositions | Phase-boundary detection via variance trajectory |
+| Hs-14 | Mathematics | Fourier conjugate pairs | 12/12 preservation — 3 theorems + 1 corollary |
+| Hs-15 | Materials science | hBN dielectric response | Crystal field decomposition |
+| Hs-16 | Cosmology | Planck 2018 cosmic budget | Dark energy dominance, CDM/Baryon lock (CV=0) |
+| Hs-17 | Data engineering | Backblaze HDD reliability | Fleet composition drift, 4 sub-experiments |
+| Hs-18 | Urban planning | Markham municipal budget | Capital vs operating drift |
+| Hs-19 | Infrastructure | Traffic signal timing | Phase allocation as composition |
+| Hs-20 | AI/NLP | Conversation drift | Text-to-composition mapping (exploratory) |
+| Hs-21 | Calibration | Reference standard library | 15 standards: mathematical, diffraction, transcendental |
+| Hs-22 | Cross-domain | Natural pairs baseline | 12 systems, 7 domain pairs, cross-pair constant sharing |
+| Hs-23 | Nuclear decay | Radionuclide chains (U-235, U-238, Th-232) | Decay chain as compositional trajectory |
+| Hs-24 | Particle physics | HEPData validation campaign | 9 runs across 8 HEP systems, independent data source |
+| Hs-25 | Cosmology | Planck 2018 cosmic energy budget | CoDaWork centrepiece — amalgamation reveals conservation laws |
+
+---
+
+## Key Results
+
+| Finding | Value | Source |
+|---------|-------|--------|
+| Tightest transcendental match | δ = 5.87 × 10⁻⁶ (Nuclear SEMF → 1/(π^e) at Z=38) | Hs-03 |
+| Classification rate | 15/15 NATURAL across all physical systems | All experiments |
+| Fourier conjugate preservation | 12/12 pairs bit-identical (3 theorems + 1 corollary) | Hs-14 |
+| Amalgamation stability | 58/58 schemes preserve classification (100%) | Hs-25, cross-domain |
+| EITT entropy invariance | < 5% variation under geometric-mean decimation | All natural systems |
+| Adversarial robustness | 21 attacks, 0 plausible-but-wrong outputs | Character Analysis |
+| Transfer entropy | Detects directed causal flow between carriers | All experiments |
+| Ratio locks | CDM/Baryon and Photon/Neutrino at CV=0 survive all amalgamation | Hs-25 |
+
+---
+
+## CoDaWork 2026 — Coimbra, Portugal (June 1–5)
+
+Hˢ has been submitted to the 11th International Workshop on Compositional Data Analysis.
+
+| Deliverable | File |
+|---|---|
+| Abstract (PDF) | [CoDaWork2026_Abstract_Higgins.pdf](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) |
+| Submission letter + abstract (source) | [CoDaWork2026_Letter_and_Revised_Abstract.md](papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md) |
+| Executive summary (tiered claims) | [Hs_CoDaWork2026_Executive_Summary.md](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) |
+| Strategic agenda | [CoDaWork2026_Strategic_Agenda.md](papers/codawork2026/CoDaWork2026_Strategic_Agenda.md) |
+| Collaboration path | [CoDaWork2026_Collaboration_Path.md](papers/codawork2026/CoDaWork2026_Collaboration_Path.md) |
+| Speech — gift ramp format | [CoDaWork2026_Speech_GiftRamp.md](papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md) |
+| Slide deck (.pptx) | [CoDaWork2026_Presentation.pptx](papers/codawork2026/CoDaWork2026_Presentation.pptx) |
+| Action plan | [CoDaWork2026_Action_Plan.md](papers/codawork2026/CoDaWork2026_Action_Plan.md) |
+
+Three open questions posed to the CoDa community: (1) Can the EITT entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR substitution for CLR? (3) Independent validation on CoDa community datasets.
+
+---
+
+## Flagship Documents
+
+| Document | Description |
+|---|---|
+| [Character Analysis (docx)](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) | Atomic-level pipeline disassembly — every operation, variable, attribution |
+| [EXP-03 Precision Inference (docx)](papers/flagship/Hs_EXP03_Precision_Inference.docx) | Standalone paper on the δ = 5.87 × 10⁻⁶ nuclear binding result |
+| [Applications Guide (docx)](papers/flagship/Hs_Applications_Guide.docx) | How to apply Hˢ to any domain — worked examples |
+| [High Index Platform Guide (docx)](papers/flagship/Hs_High_Index_Platform_Guide.docx) | Advanced specification — multi-DUT, fingerprint matching, governance |
+
+---
+
+## Theory and Reference
+
+| Document | Description |
+|---|---|
+| [Decomposition Function (v3.0)](docs/Hs_Decomposition_Function.md) | Formal derivation from determinism axiom through decimation to Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S |
+| [Logic Map](docs/Hs_Logic_Map_and_State_Machine.md) | State machine specification with diagnostic commentary |
+| [Reference v3.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v3.0.docx) | Complete operator specification document |
+| [Reference v1.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v1.0.docx) | Original reference — retained for lineage |
+| [CIP Systems Primer (docx)](docs/reference/CIP_Systems_Primer.docx) | Clean-in-place engineering context |
+| [Reference Standard Library](docs/reference/Hs_Reference_Standard_Library.md) | 15 calibration standards with full metrology |
+| [Natural Pairs Baseline](docs/reference/Hs_Natural_Pairs_Baseline.md) | 12 systems, 7 domain pairs, cross-pair constant sharing |
+| [Diffraction Composition Principle](docs/theory/Higgins_Diffraction_Composition_Principle.md) | Information mechanics declaration |
+| [Grok Mathematical Notes](docs/theory/Grok_Mathematical_Foundation_Notes.md) | Independent mathematical review (xAI Grok) |
+
+---
+
+## Validation Reports
+
+| Document | Description |
+|---|---|
+| [Canonical Validation Report (docx)](papers/validation/Canonical_Validation_Report.docx) | Full validation across all domains |
+| [Calibration Proof (docx)](papers/validation/The_Calibration_Proof.docx) | Instrument calibration evidence |
+| [EXP-19b Journal (docx)](papers/validation/EXP-19b_Journal.docx) | Fourier conjugate preservation experiment journal |
+| [EXP15 X-ray Crystallography Journal (docx)](papers/validation/EXP15_Xray_Crystallography_Journal.docx) | hBN dielectric response validation |
+
+---
+
+## Claim Tiers
+
+Every finding in this repository carries an explicit tier:
+
+| Tier | Meaning | Example |
+|------|---------|---------|
+| Core science | Proven or strongly evidenced | Gauge R&R determinism, EXP-03 δ = 5.87 × 10⁻⁶ |
+| Validated companion | Strong secondary result | Per-carrier decomposition, transfer entropy, amalgamation stability |
+| Engineering control | Integrity and trust layer | Input guards, adversarial robustness, reference standards |
+| Point of interest | Noteworthy, not yet canonical | Euler-family resonance, conversation drift |
+| Exploratory | Interesting, requires more evidence | Transcendental Naturalness Hypothesis |
+
+If a finding does not state its tier, treat it as exploratory until verified.
+
+---
+
+## Repository Structure
+
+```
+higgins-decomposition/
+├── README.md                         # This file
+├── EXECUTIVE_SUMMARY.md              # Running log — development, decisions, principles
+├── CITATION.cff                      # Citation metadata
+├── LICENSE                           # CC BY 4.0
+│
+├── ai-refresh/                       # Machine-readable system state
+│   ├── HS_MACHINE_MANIFEST.json      # ★ START HERE for automated systems
+│   ├── HS_ADMIN.json                 # Identity + RWA-001 authority
+│   ├── HS_SYSTEM_INVENTORY.json      # Complete domain/system inventory
+│   ├── HS_GITHUB_CONFIG.json         # Repository metadata
+│   ├── PREPARE_FOR_REPO.json         # Pre-push readiness manifest
+│   └── AI_REFRESH_2026-04-27.md      # Changelog — April sprint
+│
+├── docs/                             # Documentation
+│   ├── Hs_Learning_Path.md           # Where to start
+│   ├── Hs_Architecture_Overview.md   # System architecture
+│   ├── Hs_Applications_Guide.md      # How to use Hˢ in any domain
+│   ├── Hs_High_Index_Platform_Guide.md  # Advanced multi-DUT platform
+│   ├── Hs_Decomposition_Function.md  # v3.0 formal derivation
+│   ├── Hs_Logic_Map_and_State_Machine.md  # Symbolic logic + state machine
+│   ├── reference/                    # Specification books + metrology
+│   └── theory/                       # Mathematical foundations
+│
+├── experiments/                      # 25 experiments (Hs-01 through Hs-25)
+│   ├── Hs-01_Gold_Silver/            # → Hs-20_Conversation_Drift/
+│   ├── Hs-21_Reference_Standards/    # Calibration library
+│   ├── Hs-22_Natural_Pairs/          # Cross-domain pair validation
+│   ├── Hs-23_Radionuclides/          # Multi-chain nuclear decay
+│   ├── Hs-24_HEPData_Validation/     # HEPData campaign
+│   └── Hs-25_Cosmic_Energy_Budget/   # Planck 2018 — CoDaWork centrepiece
+│
+├── papers/
+│   ├── flagship/                     # Character Analysis, EXP-03, guides
+│   ├── codawork2026/                 # Full CoDaWork 2026 package
+│   └── validation/                   # Validation reports + experiment journals
+│
+└── tools/
+    ├── pipeline/                     # 13 Python files — the engine
+    │   ├── higgins_decomposition_12step.py
+    │   ├── hs_amalgamation.py        # Subcompositional recursion
+    │   ├── hs_codes.py               # 78 diagnostic codes + 10 modes
+    │   ├── hs_sensitivity.py         # Component Power Mapper
+    │   ├── hs_fingerprint.py         # Compositional fingerprint
+    │   ├── ...                       # + 8 more (see Pipeline section above)
+    │   └── locales/                  # 5 language files
+    ├── interactive/                   # 8 HTML tools (open in browser)
+    └── Hs_Dashboard.ipynb            # JupyterLab notebook
 ```
 
 ---
 
 ## Languages
-
-Reports are available in 5 languages:
 
 | Code | Language | Native |
 |------|----------|--------|
@@ -115,90 +346,6 @@ Reports are available in 5 languages:
 | it | Italian | Italiano |
 
 Adding a language requires one JSON file in `tools/pipeline/locales/`. Zero code changes.
-
----
-
-## Reference Standards
-
-Two specification books provide calibration baselines for any Device Under Test:
-
-- [**Reference Standard Library**](docs/reference/Hs_Reference_Standard_Library.md) — 15 calibration references (mathematical functions, diffraction, transcendental, noise floor) with full metrology
-- [**Natural Pairs Baseline**](docs/reference/Hs_Natural_Pairs_Baseline.md) — 12 systems across 7 physical domain pairs with cross-pair constant sharing
-
----
-
-## Key Results
-
-| Finding | Value | Source |
-|---------|-------|--------|
-| Tightest transcendental match | δ = 5.87 × 10⁻⁶ (Nuclear SEMF → 1/(π^e)) | Hs-03 |
-| Domains tested | 18 (Acoustics → HEP Collider) | Release validation + Hs-24 |
-| Classification rate | 15/15 NATURAL | All physical experiments |
-| Fourier preservation | 12/12 pairs (11 symmetry + 1 asymmetry correctly detected) | Hs-14 |
-| Adversarial robustness | 21 attacks, 0 plausible-but-wrong outputs | Character Analysis |
-| Transfer entropy | Detects directed information flow between carriers | Hs-01 through Hs-25 |
-
----
-
-## Repository Structure
-
-```
-higgins-decomposition/
-├── EXECUTIVE_SUMMARY.md          # Running log of development and decisions
-├── CITATION.cff                  # Citation metadata
-├── LICENSE                       # CC BY 4.0
-├── ai-refresh/                   # Machine-readable configuration
-│   ├── HS_MACHINE_MANIFEST.json  # ★ START HERE for automated systems
-│   ├── HS_ADMIN.json             # Identity, terminology, communication standards
-│   └── HS_SYSTEM_INVENTORY.json  # Complete domain/system inventory
-├── docs/reference/               # Specification books + metrology report
-├── experiments/                  # 25 experiments with results JSON
-│   ├── Hs-01_Gold_Silver/        
-│   ├── ...                       
-│   ├── Hs-23_Radionuclides/     # First journaled multi-run experiment
-│   ├── Hs-24_HEPData_Validation/ # HEPData campaign (9 runs, 8 systems)
-│   └── Hs-25_Cosmic_Energy_Budget/ # Planck 2018 ΛCDM cosmic composition (CoDaWork centrepiece)
-├── papers/                       # Flagship documents and conference materials
-│   ├── flagship/                 
-│   └── codawork2026/             
-└── tools/                        
-    ├── pipeline/                 # Core Python code (12 files)
-    │   ├── higgins_decomposition_12step.py
-    │   ├── hs_codes.py           # 78 diagnostic codes + 10 structural modes
-    │   ├── hs_reporter.py        # Multilingual reporter
-    │   ├── hs_metrology.py       # Instrument meta-evaluation
-    │   ├── hs_ingest.py          # Universal CSV/JSON loader (CoDa-ready)
-    │   ├── hs_hepdata.py         # HEPData fetch (8 curated HEP datasets, 9 validated runs)
-    │   ├── hs_fingerprint.py     # Compositional fingerprint generator + matcher
-    │   ├── hs_testgen.py         # Secondary test tools generator
-    │   ├── hs_audit.py           # Audit trail + 16 breakpoints
-    │   ├── hs_controller.py      # Industrial controller + HUF-GOV supervisor
-    │   ├── hs_sensitivity.py     # Component Power Mapper (leverage, phase, power scores)
-    │   └── locales/              # 5 language files
-    └── interactive/              # 5 HTML tools (open in browser)
-```
-
----
-
-## Claim Tiers
-
-Every finding in this repository carries an explicit status:
-
-| Tier | Meaning | Example |
-|------|---------|---------|
-| **Core science** | Proven or strongly evidenced | Gauge R&R determinism, EXP-03 δ = 5.87 × 10⁻⁶ |
-| **Validated companion** | Strong secondary result | Per-carrier decomposition, transfer entropy |
-| **Engineering control** | Integrity and trust layer | Input guards, adversarial robustness, reference standards |
-| **Point of interest** | Noteworthy, not yet canonical | Euler-family resonance, conversation drift |
-| **Exploratory** | Interesting, requires more evidence | Transcendental Naturalness Hypothesis |
-
-If a finding does not state its tier, treat it as exploratory until verified.
-
----
-
-## For Automated Systems
-
-Read [`ai-refresh/HS_MACHINE_MANIFEST.json`](ai-refresh/HS_MACHINE_MANIFEST.json) first. It provides identity, navigation, protocol, governance, and authority resolution in a single machine-readable file. Follow the onboarding sequence defined there.
 
 ---
 
