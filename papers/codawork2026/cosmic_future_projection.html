@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hˢ — Cosmic Future Projection · Dark Energy Dominance to Heat Death</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06060f; font-family: 'Consolas', 'Monaco', monospace; color: #ccc; overflow-x: hidden; }
+
+  .header {
+    padding: 20px 28px 10px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .header h1 { font-size: 20px; font-weight: 300; color: #fff; letter-spacing: 3px; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .header h1 sup { font-size: 11px; }
+  .header .sub { font-size: 11px; color: #666; margin-top: 4px; letter-spacing: 1px; }
+  .header .badge {
+    background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.4);
+    padding: 6px 14px; border-radius: 4px; font-size: 11px; color: #a855f7; letter-spacing: 1px;
+  }
+
+  .main { display: flex; gap: 0; height: calc(100vh - 80px); }
+
+  .chart-area { flex: 1; position: relative; padding: 10px 20px 60px 20px; }
+  canvas { width: 100%; height: 100%; display: block; }
+
+  .side-panel {
+    width: 320px; min-width: 320px; padding: 16px 20px;
+    background: rgba(10,10,20,0.8); border-left: 1px solid #1a1a2e;
+    overflow-y: auto; font-size: 12px;
+  }
+  .side-panel h2 { font-size: 13px; color: #60a0ff; letter-spacing: 2px; margin-bottom: 10px; font-weight: 400; text-transform: uppercase; }
+  .side-panel h3 { font-size: 11px; color: #888; letter-spacing: 1px; margin: 14px 0 6px; text-transform: uppercase; }
+
+  .comp-bar { margin: 4px 0; }
+  .comp-label { display: flex; justify-content: space-between; margin-bottom: 2px; }
+  .comp-name { font-size: 11px; }
+  .comp-val { font-size: 11px; font-variant-numeric: tabular-nums; }
+  .comp-track { height: 6px; background: #111; border-radius: 3px; overflow: hidden; }
+  .comp-fill { height: 100%; border-radius: 3px; transition: width 0.15s; }
+
+  .milestone {
+    padding: 6px 8px; margin: 4px 0; border-radius: 3px;
+    border-left: 3px solid #333; font-size: 11px; line-height: 1.4;
+    transition: all 0.3s;
+  }
+  .milestone.past { border-left-color: #a855f7; background: rgba(168,85,247,0.08); color: #ccc; }
+  .milestone.current { border-left-color: #60a0ff; background: rgba(96,160,255,0.12); color: #fff; }
+  .milestone.future { border-left-color: #222; color: #555; }
+  .milestone .ms-time { font-size: 10px; color: #666; }
+  .milestone.past .ms-time { color: #a855f7; }
+  .milestone.current .ms-time { color: #60a0ff; }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
+  .stat-box { background: rgba(20,20,40,0.6); border: 1px solid #1a1a2e; border-radius: 4px; padding: 8px; }
+  .stat-box .stat-val { font-size: 16px; color: #fff; font-variant-numeric: tabular-nums; }
+  .stat-box .stat-label { font-size: 9px; color: #555; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+  .slider-area {
+    position: absolute; bottom: 10px; left: 20px; right: 20px;
+  }
+  .slider-row { display: flex; align-items: center; gap: 12px; }
+  .slider-row label { font-size: 10px; color: #666; white-space: nowrap; text-transform: uppercase; letter-spacing: 1px; }
+  input[type="range"] {
+    flex: 1; height: 4px; -webkit-appearance: none; appearance: none;
+    background: linear-gradient(to right, #a855f7, #3b82f6, #22c55e, #ef4444);
+    border-radius: 2px; outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; width: 16px; height: 16px; border-radius: 50%;
+    background: #fff; border: 2px solid #60a0ff; cursor: pointer;
+  }
+  .time-display { font-size: 14px; color: #60a0ff; font-variant-numeric: tabular-nums; min-width: 100px; text-align: right; }
+  .era-labels { display: flex; justify-content: space-between; margin-top: 4px; font-size: 9px; color: #444; }
+
+  .play-btn {
+    background: rgba(96,160,255,0.15); border: 1px solid rgba(96,160,255,0.3);
+    color: #60a0ff; padding: 4px 12px; border-radius: 3px; cursor: pointer;
+    font-family: inherit; font-size: 11px; letter-spacing: 1px;
+  }
+  .play-btn:hover { background: rgba(96,160,255,0.25); }
+
+  .footer {
+    position: fixed; bottom: 0; left: 0; right: 320px;
+    display: flex; justify-content: space-between; padding: 0 28px 4px;
+    font-size: 10px; color: #333; pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>H<sup>s</sup> COSMIC FUTURE PROJECTION</h1>
+    <div class="sub">Planck 2018 ΛCDM · Friedmann Equation Extrapolation · 5 Carriers</div>
+  </div>
+  <div class="badge">ΛCDM FORWARD MODEL</div>
+</div>
+
+<div class="main">
+  <div class="chart-area">
+    <canvas id="canvas"></canvas>
+    <div class="slider-area">
+      <div class="slider-row">
+        <label>Cosmic Time</label>
+        <button class="play-btn" id="playBtn" onclick="togglePlay()">▶ PLAY</button>
+        <input type="range" id="timeSlider" min="0" max="1000" value="138" step="1">
+        <div class="time-display" id="timeDisplay">13.8 Gyr</div>
+      </div>
+      <div class="era-labels">
+        <span>Big Bang</span>
+        <span>Today (13.8 Gyr)</span>
+        <span>100 Gyr</span>
+        <span>1 Tyr</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="side-panel">
+    <h2>Composition at Time</h2>
+    <div id="compBars"></div>
+
+    <h3>Key Statistics</h3>
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-val" id="statDE">69.0%</div>
+        <div class="stat-label">Dark Energy</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="statMatter">31.0%</div>
+        <div class="stat-label">Total Matter</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="statScale">1.00</div>
+        <div class="stat-label">Scale Factor a</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-val" id="statTemp">2.725 K</div>
+        <div class="stat-label">CMB Temperature</div>
+      </div>
+    </div>
+
+    <h3>Milestones</h3>
+    <div id="milestones"></div>
+
+    <h3>Hˢ Diagnostic</h3>
+    <div id="hsDiag" style="font-size:11px; line-height:1.6; color:#888;"></div>
+
+    <div style="margin-top:16px; padding-top:10px; border-top:1px solid #1a1a2e; font-size:9px; color:#333;">
+      Hˢ Higgins Decomposition on the Simplex · CoDaWork 2026 · Peter Higgins<br>
+      PeterHiggins@RogueWaveAudio.com · github.com/PeterHiggins19/higgins-decomposition
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// ΛCDM COSMOLOGY ENGINE
+// Planck 2018 best-fit parameters
+// ═══════════════════════════════════════════════════════════
+
+const H0 = 67.4;        // km/s/Mpc
+const H0_SI = H0 * 1e3 / 3.0857e22;  // 1/s
+const Gyr = 3.1557e16;  // seconds in 1 Gyr
+
+// Density parameters at z=0
+const Omega_DE = 0.6889;
+const Omega_CDM = 0.2607;
+const Omega_b = 0.0490;
+const Omega_r = 0.0000926;  // photons + neutrinos
+const Omega_photon = 0.0000542;
+const Omega_neutrino = 0.0000384;
+
+const T_CMB_0 = 2.7255; // K today
+
+const CARRIERS = [
+  { name: 'Dark Energy',       color: '#a855f7', rgb: [168,85,247] },
+  { name: 'Cold Dark Matter',  color: '#3b82f6', rgb: [59,130,246] },
+  { name: 'Baryonic Matter',   color: '#22c55e', rgb: [34,197,94] },
+  { name: 'Photon Radiation',  color: '#f59e0b', rgb: [245,158,11] },
+  { name: 'Neutrinos',         color: '#ef4444', rgb: [239,68,68] }
+];
+
+// E²(a) = H²(a)/H₀² = Ω_r/a⁴ + Ω_m/a³ + Ω_DE
+function E2(a) {
+  const Omega_m = Omega_CDM + Omega_b;
+  return Omega_r / (a*a*a*a) + Omega_m / (a*a*a) + Omega_DE;
+}
+
+// Fractional densities at scale factor a
+function fractions(a) {
+  const e2 = E2(a);
+  const fDE = Omega_DE / e2;
+  const fCDM = Omega_CDM / (a*a*a) / e2;
+  const fb = Omega_b / (a*a*a) / e2;
+  const fph = Omega_photon / (a*a*a*a) / e2;
+  const fnu = Omega_neutrino / (a*a*a*a) / e2;
+  // Normalize to ensure sum = 1 (numerical safety)
+  const total = fDE + fCDM + fb + fph + fnu;
+  return [fDE/total, fCDM/total, fb/total, fph/total, fnu/total];
+}
+
+// Cosmic time from scale factor via numerical integration
+// dt/da = 1/(a * H(a)) = 1/(a * H0 * E(a))
+function cosmicTime(a_target) {
+  const N = 2000;
+  const da = a_target / N;
+  let t = 0;
+  for (let i = 0; i < N; i++) {
+    const a = (i + 0.5) * da;
+    if (a < 1e-10) continue;
+    const e = Math.sqrt(E2(a));
+    t += da / (a * H0_SI * e);
+  }
+  return t / Gyr; // return in Gyr
+}
+
+// Scale factor from cosmic time (inverse lookup via precomputed table)
+const TIME_TABLE = [];
+const A_MAX = 500; // far future scale factor
+const TABLE_SIZE = 5000;
+for (let i = 0; i <= TABLE_SIZE; i++) {
+  const a = 1e-6 + (i / TABLE_SIZE) * (A_MAX - 1e-6);
+  // Use log spacing for better resolution at small a
+  const aLog = Math.exp(Math.log(1e-6) + (i / TABLE_SIZE) * (Math.log(A_MAX) - Math.log(1e-6)));
+  TIME_TABLE.push({ a: aLog, t: cosmicTime(aLog) });
+}
+TIME_TABLE.sort((a, b) => a.t - b.t);
+
+function scaleFactorFromTime(t_gyr) {
+  // Binary search
+  let lo = 0, hi = TIME_TABLE.length - 1;
+  if (t_gyr <= TIME_TABLE[0].t) return TIME_TABLE[0].a;
+  if (t_gyr >= TIME_TABLE[hi].t) return TIME_TABLE[hi].a;
+  while (hi - lo > 1) {
+    const mid = (lo + hi) >> 1;
+    if (TIME_TABLE[mid].t < t_gyr) lo = mid;
+    else hi = mid;
+  }
+  // Linear interpolation
+  const f = (t_gyr - TIME_TABLE[lo].t) / (TIME_TABLE[hi].t - TIME_TABLE[lo].t);
+  return TIME_TABLE[lo].a + f * (TIME_TABLE[hi].a - TIME_TABLE[lo].a);
+}
+
+// Precompute current age
+const T_NOW = cosmicTime(1.0); // Should be ~13.8 Gyr
+
+// ═══════════════════════════════════════════════════════════
+// MILESTONES
+// ═══════════════════════════════════════════════════════════
+
+// Find when DE reaches threshold
+function findDEThreshold(target) {
+  // Dark energy fraction = Omega_DE / E2(a)
+  // Solve: Omega_DE / E2(a) = target
+  let lo = 1.0, hi = 10000;
+  for (let iter = 0; iter < 100; iter++) {
+    const mid = (lo + hi) / 2;
+    const f = fractions(mid);
+    if (f[0] < target) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+// Matter-radiation equality
+function findMatterRadEq() {
+  let lo = 1e-6, hi = 0.01;
+  for (let iter = 0; iter < 100; iter++) {
+    const mid = (lo + hi) / 2;
+    const f = fractions(mid);
+    const matter = f[1] + f[2];
+    const rad = f[3] + f[4];
+    if (rad > matter) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+// Matter-DE equality
+function findMatterDEEq() {
+  let lo = 0.1, hi = 2.0;
+  for (let iter = 0; iter < 100; iter++) {
+    const mid = (lo + hi) / 2;
+    const f = fractions(mid);
+    const matter = f[1] + f[2];
+    if (matter > f[0]) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+const a_matRadEq = findMatterRadEq();
+const a_matDEEq = findMatterDEEq();
+const a_DE90 = findDEThreshold(0.90);
+const a_DE99 = findDEThreshold(0.99);
+const a_DE999 = findDEThreshold(0.999);
+const a_DE9999 = findDEThreshold(0.9999);
+
+const milestoneData = [
+  { a: a_matRadEq, label: 'Matter-Radiation Equality', detail: 'Matter begins to dominate', icon: '⚖️' },
+  { a: 1/(1+1089), label: 'CMB Last Scattering', detail: 'z = 1089 — universe becomes transparent', icon: '💡' },
+  { a: a_matDEEq, label: 'Matter-Dark Energy Equality', detail: 'Dark energy begins to dominate', icon: '⚡' },
+  { a: 1.0, label: 'Today', detail: 'a = 1.0 · t = ' + T_NOW.toFixed(1) + ' Gyr · DE = 68.9%', icon: '📍' },
+  { a: a_DE90, label: 'Dark Energy > 90%', detail: 'Matter becoming negligible', icon: '🌑' },
+  { a: a_DE99, label: 'Dark Energy > 99%', detail: 'Effective isolation of bound structures', icon: '🕳️' },
+  { a: a_DE999, label: 'Dark Energy > 99.9%', detail: 'Observable universe approaching emptiness', icon: '❄️' },
+  { a: a_DE9999, label: 'Dark Energy > 99.99%', detail: 'Effective heat death — maximum entropy', icon: '⬛' },
+];
+
+// Add times
+milestoneData.forEach(m => {
+  m.t_gyr = cosmicTime(m.a);
+});
+
+// ═══════════════════════════════════════════════════════════
+// SLIDER MAPPING — logarithmic for huge time range
+// Slider value 0-1000 maps to 0.001 Gyr to ~10 trillion Gyr
+// ═══════════════════════════════════════════════════════════
+
+const T_MIN = 0.001;   // 1 Myr
+const T_MAX_GYR = 10000; // 10 Tyr
+
+function sliderToTime(val) {
+  const f = val / 1000;
+  return T_MIN * Math.pow(T_MAX_GYR / T_MIN, f);
+}
+
+function timeToSlider(t) {
+  return 1000 * Math.log(t / T_MIN) / Math.log(T_MAX_GYR / T_MIN);
+}
+
+function formatTime(t_gyr) {
+  if (t_gyr < 0.001) return (t_gyr * 1000).toFixed(1) + ' Myr';
+  if (t_gyr < 1) return (t_gyr * 1000).toFixed(0) + ' Myr';
+  if (t_gyr < 100) return t_gyr.toFixed(1) + ' Gyr';
+  if (t_gyr < 1000) return t_gyr.toFixed(0) + ' Gyr';
+  return (t_gyr / 1000).toFixed(1) + ' Tyr';
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI SETUP
+// ═══════════════════════════════════════════════════════════
+
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const slider = document.getElementById('timeSlider');
+const timeDisplay = document.getElementById('timeDisplay');
+
+// Set slider to "today"
+slider.value = Math.round(timeToSlider(T_NOW));
+
+// Build composition bars
+function buildCompBars() {
+  const container = document.getElementById('compBars');
+  container.innerHTML = '';
+  CARRIERS.forEach((c, i) => {
+    const div = document.createElement('div');
+    div.className = 'comp-bar';
+    div.innerHTML = `
+      <div class="comp-label">
+        <span class="comp-name" style="color:${c.color}">${c.name}</span>
+        <span class="comp-val" id="comp-val-${i}" style="color:${c.color}">—</span>
+      </div>
+      <div class="comp-track">
+        <div class="comp-fill" id="comp-fill-${i}" style="background:${c.color};width:0%"></div>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+}
+buildCompBars();
+
+// Build milestones
+function buildMilestones() {
+  const container = document.getElementById('milestones');
+  container.innerHTML = '';
+  milestoneData.forEach((m, i) => {
+    const div = document.createElement('div');
+    div.className = 'milestone future';
+    div.id = 'ms-' + i;
+    div.innerHTML = `
+      <span>${m.icon} <strong>${m.label}</strong></span><br>
+      <span style="font-size:10px;color:#777">${m.detail}</span><br>
+      <span class="ms-time">${formatTime(m.t_gyr)}</span>
+    `;
+    container.appendChild(div);
+  });
+}
+buildMilestones();
+
+// ═══════════════════════════════════════════════════════════
+// CANVAS RENDERING
+// ═══════════════════════════════════════════════════════════
+
+function resizeCanvas() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height - 60;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+function drawChart(t_current) {
+  const W = canvas.width;
+  const H = canvas.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const margin = { top: 20, right: 20, bottom: 40, left: 60 };
+  const plotW = W - margin.left - margin.right;
+  const plotH = H - margin.top - margin.bottom;
+
+  // Time axis: logarithmic from T_MIN to T_MAX_GYR
+  function timeToX(t) {
+    const f = Math.log(t / T_MIN) / Math.log(T_MAX_GYR / T_MIN);
+    return margin.left + f * plotW;
+  }
+
+  function fracToY(f) {
+    return margin.top + (1 - f) * plotH;
+  }
+
+  // Stacked area chart
+  const N_POINTS = 500;
+  const timePoints = [];
+  for (let i = 0; i <= N_POINTS; i++) {
+    const f = i / N_POINTS;
+    const t = T_MIN * Math.pow(T_MAX_GYR / T_MIN, f);
+    const a = scaleFactorFromTime(t);
+    const frac = fractions(a);
+    timePoints.push({ t, a, frac });
+  }
+
+  // Draw stacked areas (bottom to top)
+  const order = [4, 3, 2, 1, 0]; // neutrinos, photons, baryons, CDM, DE
+
+  for (let oi = 0; oi < order.length; oi++) {
+    const ci = order[oi];
+    const [r, g, b] = CARRIERS[ci].rgb;
+
+    ctx.fillStyle = `rgba(${r},${g},${b},0.25)`;
+    ctx.strokeStyle = `rgba(${r},${g},${b},0.7)`;
+    ctx.lineWidth = 1.5;
+
+    ctx.beginPath();
+
+    // Top edge
+    for (let i = 0; i <= N_POINTS; i++) {
+      const tp = timePoints[i];
+      const x = timeToX(tp.t);
+      let cumTop = 0;
+      for (let k = 0; k <= oi; k++) cumTop += tp.frac[order[k]];
+      const y = fracToY(cumTop);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+
+    // Bottom edge (reverse)
+    for (let i = N_POINTS; i >= 0; i--) {
+      const tp = timePoints[i];
+      const x = timeToX(tp.t);
+      let cumBottom = 0;
+      for (let k = 0; k < oi; k++) cumBottom += tp.frac[order[k]];
+      const y = fracToY(cumBottom);
+      ctx.lineTo(x, y);
+    }
+
+    ctx.closePath();
+    ctx.fill();
+
+    // Top edge line
+    ctx.beginPath();
+    for (let i = 0; i <= N_POINTS; i++) {
+      const tp = timePoints[i];
+      const x = timeToX(tp.t);
+      let cumTop = 0;
+      for (let k = 0; k <= oi; k++) cumTop += tp.frac[order[k]];
+      const y = fracToY(cumTop);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+  }
+
+  // "Today" vertical line
+  const todayX = timeToX(T_NOW);
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(todayX, margin.top);
+  ctx.lineTo(todayX, margin.top + plotH);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.font = '10px "Segoe UI", system-ui, sans-serif';
+  ctx.fillStyle = '#666';
+  ctx.textAlign = 'center';
+  ctx.fillText('TODAY', todayX, margin.top - 6);
+
+  // Future zone shading
+  if (todayX < margin.left + plotW) {
+    const futureGrad = ctx.createLinearGradient(todayX, 0, margin.left + plotW, 0);
+    futureGrad.addColorStop(0, 'rgba(168,85,247,0.00)');
+    futureGrad.addColorStop(1, 'rgba(168,85,247,0.05)');
+    ctx.fillStyle = futureGrad;
+    ctx.fillRect(todayX, margin.top, margin.left + plotW - todayX, plotH);
+  }
+
+  // "PAST" and "FUTURE" labels
+  ctx.font = '9px "Consolas", monospace';
+  ctx.fillStyle = '#333';
+  ctx.textAlign = 'center';
+  if (todayX > margin.left + 40) ctx.fillText('◀ OBSERVED', (margin.left + todayX) / 2, margin.top + plotH + 14);
+  ctx.fillStyle = '#2a1a3a';
+  ctx.fillText('ΛCDM PROJECTION ▶', (todayX + margin.left + plotW) / 2, margin.top + plotH + 14);
+
+  // Current time cursor
+  const cursorX = timeToX(t_current);
+  ctx.strokeStyle = '#60a0ff';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([]);
+  ctx.beginPath();
+  ctx.moveTo(cursorX, margin.top);
+  ctx.lineTo(cursorX, margin.top + plotH);
+  ctx.stroke();
+
+  // Cursor glow
+  const cursorGlow = ctx.createRadialGradient(cursorX, margin.top + plotH/2, 0, cursorX, margin.top + plotH/2, 60);
+  cursorGlow.addColorStop(0, 'rgba(96,160,255,0.12)');
+  cursorGlow.addColorStop(1, 'rgba(96,160,255,0)');
+  ctx.fillStyle = cursorGlow;
+  ctx.fillRect(cursorX - 60, margin.top, 120, plotH);
+
+  // Milestone markers
+  milestoneData.forEach((m, i) => {
+    const mx = timeToX(m.t_gyr);
+    if (mx > margin.left && mx < margin.left + plotW) {
+      const isPast = t_current >= m.t_gyr;
+      ctx.strokeStyle = isPast ? 'rgba(168,85,247,0.4)' : 'rgba(255,255,255,0.08)';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([2, 4]);
+      ctx.beginPath();
+      ctx.moveTo(mx, margin.top);
+      ctx.lineTo(mx, margin.top + plotH);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      if (isPast) {
+        ctx.fillStyle = '#a855f7';
+        ctx.beginPath();
+        ctx.arc(mx, margin.top + plotH + 4, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  });
+
+  // Y-axis labels
+  ctx.font = '10px "Consolas", monospace';
+  ctx.fillStyle = '#555';
+  ctx.textAlign = 'right';
+  for (let f = 0; f <= 1.0; f += 0.2) {
+    const y = fracToY(f);
+    ctx.fillText((f * 100).toFixed(0) + '%', margin.left - 8, y + 4);
+    ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(margin.left, y);
+    ctx.lineTo(margin.left + plotW, y);
+    ctx.stroke();
+  }
+
+  // X-axis labels (time)
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#555';
+  const xLabels = [0.01, 0.1, 1, 10, 100, 1000, 10000];
+  xLabels.forEach(t => {
+    const x = timeToX(t);
+    if (x > margin.left && x < margin.left + plotW) {
+      ctx.fillText(formatTime(t), x, margin.top + plotH + 30);
+    }
+  });
+
+  // Carrier labels in the chart
+  const a_cur = scaleFactorFromTime(t_current);
+  const f_cur = fractions(a_cur);
+  ctx.font = 'bold 10px "Segoe UI", system-ui, sans-serif';
+  let cumLabel = 0;
+  for (let oi = 0; oi < order.length; oi++) {
+    const ci = order[oi];
+    if (f_cur[ci] > 0.03) {
+      const [r, g, b] = CARRIERS[ci].rgb;
+      ctx.fillStyle = `rgba(${r},${g},${b},0.9)`;
+      const yLabel = fracToY(cumLabel + f_cur[ci] / 2);
+      ctx.textAlign = 'left';
+      ctx.fillText(CARRIERS[ci].name, cursorX + 8, yLabel + 3);
+    }
+    cumLabel += f_cur[ci];
+  }
+
+  // Title on chart
+  ctx.font = '11px "Segoe UI", system-ui, sans-serif';
+  ctx.fillStyle = '#444';
+  ctx.textAlign = 'left';
+  ctx.fillText('Compositional Fraction', margin.left + 4, margin.top - 6);
+}
+
+// ═══════════════════════════════════════════════════════════
+// UPDATE LOOP
+// ═══════════════════════════════════════════════════════════
+
+function update() {
+  const t_gyr = sliderToTime(slider.value);
+  const a = scaleFactorFromTime(t_gyr);
+  const f = fractions(a);
+
+  // Update time display
+  timeDisplay.textContent = formatTime(t_gyr);
+
+  // Update composition bars
+  f.forEach((val, i) => {
+    const pct = val * 100;
+    document.getElementById('comp-val-' + i).textContent =
+      pct > 0.01 ? pct.toFixed(pct > 1 ? 2 : 4) + '%' : pct.toExponential(2) + '%';
+    document.getElementById('comp-fill-' + i).style.width = Math.max(0.5, pct) + '%';
+  });
+
+  // Stats
+  document.getElementById('statDE').textContent = (f[0] * 100).toFixed(2) + '%';
+  document.getElementById('statMatter').textContent = ((f[1] + f[2]) * 100).toFixed(f[1]+f[2] > 0.001 ? 2 : 4) + '%';
+  document.getElementById('statScale').textContent = a > 100 ? a.toExponential(1) : a.toFixed(2);
+  const T_cmb = T_CMB_0 / a;
+  document.getElementById('statTemp').textContent = T_cmb > 0.01 ? T_cmb.toFixed(T_cmb > 1 ? 2 : 4) + ' K' : T_cmb.toExponential(2) + ' K';
+
+  // Update milestones
+  milestoneData.forEach((m, i) => {
+    const el = document.getElementById('ms-' + i);
+    if (t_gyr >= m.t_gyr * 1.02) el.className = 'milestone past';
+    else if (t_gyr >= m.t_gyr * 0.9) el.className = 'milestone current';
+    else el.className = 'milestone future';
+  });
+
+  // Hˢ diagnostic
+  const diagEl = document.getElementById('hsDiag');
+  let diag = '';
+  if (f[0] > 0.9999) {
+    diag = '<span style="color:#ef4444">⬛ HEAT DEATH REGIME</span><br>Dark Energy > 99.99%<br>CMB: ' + T_cmb.toExponential(2) + ' K<br>All structure frozen. Maximum entropy.<br>Simplex collapse: single-carrier degenerate.';
+  } else if (f[0] > 0.999) {
+    diag = '<span style="color:#f59e0b">❄️ DEEP FREEZE</span><br>Dark Energy > 99.9%<br>Observable universe effectively empty.<br>Bound structures isolated beyond horizon.<br>Classification: HIERARCHICAL';
+  } else if (f[0] > 0.99) {
+    diag = '<span style="color:#a855f7">🕳️ DARK DOMINANCE</span><br>Dark Energy > 99%<br>Galaxy clusters losing gravitational coherence.<br>Hubble sphere contracting.<br>Classification: NATURAL → HIERARCHICAL transition';
+  } else if (f[0] > 0.5) {
+    diag = '<span style="color:#3b82f6">⚡ DARK ENERGY ERA</span><br>Accelerating expansion.<br>Structure formation frozen.<br>CDM/Baryon ratio locked (CV ≈ 0).<br>Classification: NATURAL';
+  } else if (f[1] + f[2] > f[3] + f[4]) {
+    diag = '<span style="color:#22c55e">🌌 MATTER ERA</span><br>Gravitational collapse forming structure.<br>Galaxies, clusters, filaments.<br>Classification: NATURAL';
+  } else {
+    diag = '<span style="color:#f59e0b">🔥 RADIATION ERA</span><br>Photons dominate. Universe opaque.<br>No stable structure yet.<br>Classification: NATURAL';
+  }
+  diagEl.innerHTML = diag;
+
+  // Draw chart
+  drawChart(t_gyr);
+}
+
+slider.addEventListener('input', () => { if (!playing) update(); });
+
+// Auto-play
+let playing = false;
+let playInterval = null;
+
+function togglePlay() {
+  playing = !playing;
+  document.getElementById('playBtn').textContent = playing ? '⏸ PAUSE' : '▶ PLAY';
+  if (playing) {
+    playInterval = setInterval(() => {
+      let val = parseInt(slider.value) + 1;
+      if (val > 1000) { val = 0; }
+      slider.value = val;
+      update();
+    }, 50);
+  } else {
+    clearInterval(playInterval);
+  }
+}
+
+// Initial render
+update();
+</script>
+</body>
+</html>

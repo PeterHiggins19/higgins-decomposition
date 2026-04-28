@@ -36,19 +36,17 @@ Author: Peter Higgins
 Affiliation: Independent researcher, Markham, Ontario, Canada
 Preference: Oral presentation
 
-Keywords: compositional data analysis, Aitchison geometry, simplex, amalgamation stability, entropy invariance, log-ratio pairs, deterministic diagnostics, cross-domain composition
+Keywords: compositional data analysis, Aitchison geometry, simplex, natural partition, amalgamation stability, entropy invariance, log-ratio pairs, deterministic diagnostics, cross-domain composition
 
-This contribution presents a deterministic diagnostic instrument for compositional data operating entirely within Aitchison geometry on the simplex. The instrument decomposes into seven sequential operators — simplex closure, variance trajectory, CLR transform, classification, entropy test, mode synthesis, and report — each inheriting a determinism axiom: same input, same output, always. Four operators are standard CoDa operations; two contain open questions for the community.
+A compositional analysis succeeds when its partition structure aligns with the system being measured. In acoustic engineering, partitioning loudspeaker radiation energy using 20 log10(2) — the natural log-ratio of intensity halving at diffraction — produces exact compositions because the budget and the partition both arise from the physics. The Higgins Decomposition generalises this observation: instead of requiring domain knowledge to identify the natural partition, it builds an instrument that discovers it directly from the data.
 
-The instrument has been applied to 25 systems across 18 domains spanning 44 orders of physical magnitude, including nuclear binding energy, cosmological composition (Planck 2018), particle physics branching ratios, geochemistry, energy-portfolio drift, and municipal budgets — all using the same twelve steps with no domain-specific tuning.
+The instrument decomposes into seven sequential operators on the Aitchison simplex — closure, variance trajectory, CLR transform, classification, entropy test, mode synthesis, and report — each inheriting a determinism axiom: same input, same output, always. Four operators use standard CoDa operations; two contain open questions for the community.
 
-Three results are reported. First, classification stability under amalgamation: across 58 schemes applied to five datasets, classification is preserved in every case. In cosmological data, two ratio locks corresponding to known conservation laws survive all amalgamation levels, quantifying what subcompositional merging hides and what it preserves.
+Applied to 25 systems across 18 domains spanning 44 orders of physical magnitude — including nuclear binding energy, cosmological composition (Planck 2018), geochemistry, energy-portfolio drift, and municipal budgets — the instrument discovers natural partitions without domain-specific tuning.
 
-Second, entropy invariance under geometric-mean decimation: Shannon entropy on the simplex varies less than 5% when observations are replaced by pairwise geometric-mean blocks at compression ratios of 2, 4, and 8 across all natural systems tested. The geometric mean is the Aitchison centre; this invariance may follow from simplex geometry, but no proof is offered.
+Three results are reported. First, classification stability under amalgamation: 58 schemes across five datasets, classification preserved in every case. Second, entropy invariance under geometric-mean decimation: Shannon entropy on the simplex varies less than 5% at compression ratios of 2, 4, and 8 across all natural systems tested. The geometric mean is the Aitchison centre; this invariance may follow from simplex geometry, but no proof is offered. Third, a seven-dimensional fingerprint enables cross-domain structural comparison.
 
-Third, a seven-dimensional compositional fingerprint enables cross-domain comparison. Systems sharing a fingerprint share compositional geometry — a structural homology detectable without domain knowledge.
-
-The instrument is fully reproducible with SHA-256 hash verification. All code and data are publicly available. Three open questions for CoDaWork: (1) Can the entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR substitution for CLR? (3) Independent validation on CoDa community datasets.
+Three open questions for CoDaWork: (1) Can the entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR substitution for CLR? (3) Independent validation on community benchmark datasets.
 
 ----------------------------------------------------------------------
-Word count: 279
+Word count: 264

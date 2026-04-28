@@ -43,7 +43,7 @@ This guide is organised in two tiers. Three domains receive deep architectural t
 | `hs_sensitivity.py` | Adaptive sampling controller — bit allocation by carrier power |
 | `hs_codes.py` | Event-driven telemetry — transmit codes, not measurements |
 | `hs_controller.py` (HsController) | Per-instrument pipeline manager with state machine |
-| `hs_controller.py` (HUF-GOV) | Multi-instrument supervisor — cross-sensor correlation |
+| `hs_controller.py` (Hˢ-GOV) | Multi-instrument supervisor — cross-sensor correlation |
 | `hs_audit.py` | Chain-of-custody for all onboard decisions |
 | Phase boundary map | Autonomous investigation trigger |
 | Diagnostic codes | Ground station receives meaning, not numbers |
@@ -103,7 +103,7 @@ Sensor → Buffer (sliding window) → HsController (pipeline per buffer) → Fi
 
 **Phase boundary map for operational envelope.** The phase boundary map defines, for each assembly, how much its flux contribution can change before the core composition transitions to a different regime. This is a compositional complement to traditional reactivity margins. It does not replace nuclear engineering safety analysis — it provides an independent geometric view of the same system from a different mathematical framework.
 
-**Continuous monitoring architecture.** The HsController runs continuously on streaming flux data. The HUF-GOV supervisor manages multiple analysis streams (flux composition, temperature composition, isotopic composition) and detects cross-stream correlations. If the flux composition fingerprint changes while the temperature composition remains stable, the governor flags the discrepancy for operator review. The audit trail provides full chain-of-custody for every analysis, compatible with nuclear regulatory requirements for traceability.
+**Continuous monitoring architecture.** The HsController runs continuously on streaming flux data. The Hˢ-GOV supervisor manages multiple analysis streams (flux composition, temperature composition, isotopic composition) and detects cross-stream correlations. If the flux composition fingerprint changes while the temperature composition remains stable, the governor flags the discrepancy for operator review. The audit trail provides full chain-of-custody for every analysis, compatible with nuclear regulatory requirements for traceability.
 
 **Architecture mapping:**
 
@@ -113,7 +113,7 @@ Sensor → Buffer (sliding window) → HsController (pipeline per buffer) → Fi
 | Power mapper | Safety-critical assembly identification |
 | Phase boundary map | Operational envelope per assembly |
 | HsController | Per-stream continuous analyser |
-| HUF-GOV | Multi-stream supervisor (flux + temp + isotopic) |
+| Hˢ-GOV | Multi-stream supervisor (flux + temp + isotopic) |
 | Audit trail (SHA-256 chain) | Regulatory-compliant traceability |
 | EITT invariance | Structural stability indicator — turbulence is real, not noise |
 | Fingerprint database | Historical operating regime catalog |
@@ -164,7 +164,7 @@ The following domains are mapped at summary level. Each entry identifies the com
 
 **Compositional structure:** Sensor returns from multiple platforms (radar, infrared, acoustic, electromagnetic) expressed as compositional fractions of total signal energy. Target signature decomposition across spectral bands.
 
-**Key Hˢ capabilities:** HUF-GOV managing multiple sensor streams. Cross-stream fingerprint correlation. Power mapper identifying which sensor modality is most diagnostic for the current target. Phase boundary map defining signature stability margins.
+**Key Hˢ capabilities:** Hˢ-GOV managing multiple sensor streams. Cross-stream fingerprint correlation. Power mapper identifying which sensor modality is most diagnostic for the current target. Phase boundary map defining signature stability margins.
 
 **Value:** Sensor fusion at the compositional level rather than the signal level. The fingerprint provides a platform-independent target identity. The power map directs sensor allocation: which sensor to point where, based on compositional importance rather than availability.
 
@@ -220,7 +220,7 @@ Several architectural patterns recur across all applications:
 
 **Pattern 3: Phase boundary as operating envelope.** In any safety-critical or quality-critical application (nuclear, pharmaceutical, manufacturing, finance), the phase boundary map defines deterministic limits per component — not probabilistic confidence intervals, but geometric distances to regime transitions.
 
-**Pattern 4: Multi-stream governance.** In any multi-sensor or multi-source application (defence, grid, environmental networks, rover platforms), HUF-GOV provides supervisory correlation across independently analysed streams.
+**Pattern 4: Multi-stream governance.** In any multi-sensor or multi-source application (defence, grid, environmental networks, rover platforms), Hˢ-GOV provides supervisory correlation across independently analysed streams.
 
 **Pattern 5: Audit trail as compliance.** In any regulated application (nuclear, pharmaceutical, finance), the SHA-256 chain hash audit trail provides tamper-evident traceability from raw measurement to final diagnosis, compatible with ISO 17025 and regulatory frameworks.
 
@@ -239,7 +239,7 @@ Several architectural patterns recur across all applications:
 | Medical diagnostics | Blood panel composition | `hs_sensitivity.py` (diagnostic power ranking) |
 | Manufacturing | Process stream samples | `hs_sensitivity.py` (critical ingredient) |
 | Telecommunications | Traffic composition windows | `hs_fingerprint.py` (anomaly detection) |
-| Defence | Multi-sensor returns | `hs_controller.py` + HUF-GOV (multi-stream) |
+| Defence | Multi-sensor returns | `hs_controller.py` + Hˢ-GOV (multi-stream) |
 | Energy grid | Generation mix time series | `hs_sensitivity.py` (stability margins) |
 | Geochemistry | Standard CoDa workflow | Full pipeline (original domain) |
 | Pharmaceutical | Formulation composition | `hs_sensitivity.py` (critical excipient) |

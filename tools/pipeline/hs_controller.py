@@ -7,7 +7,7 @@ component for larger industrial and analytical systems.
 
 ARCHITECTURE
 ────────────
-    HUF-GOV  (governance / supervisory — policy, coordination)
+    Hˢ-GOV  (governance / supervisory — policy, coordination)
        │
        ▼
     Controller  (state machine — start, hold, resume, abort)
@@ -205,7 +205,7 @@ class HsController:
 
     Manages the full lifecycle: configure → start → (hold/resume) → complete.
     Emits events for external system integration. Maintains full audit trail.
-    Designed to be embedded in larger supervisory systems (HUF-GOV).
+    Designed to be embedded in larger supervisory systems (Hˢ-GOV).
     """
 
     def __init__(self, controller_id, name="Unnamed", domain="UNKNOWN",
@@ -255,7 +255,7 @@ class HsController:
 
         # Governance hooks
         self._policy_hooks = []  # Callables checked before state transitions
-        self._governor = None    # Reference to supervising HUF-GOV instance
+        self._governor = None    # Reference to supervising Hˢ-GOV instance
 
         # Metadata
         self.created = datetime.now(timezone.utc).isoformat()
@@ -577,7 +577,7 @@ class HsController:
         self._policy_hooks.append(hook)
 
     def set_governor(self, governor):
-        """Set the supervising HUF-GOV instance."""
+        """Set the supervising Hˢ-GOV instance."""
         self._governor = governor
 
     # ── Internal ──
@@ -608,12 +608,12 @@ class HsController:
 
 
 # ════════════════════════════════════════════════════════════
-# HUF-GOV SUPERVISORY LAYER
+# Hˢ-GOV SUPERVISORY LAYER
 # ════════════════════════════════════════════════════════════
 
 class HufGov:
     """
-    HUF-GOV — Higgins Unity Framework Governance Layer.
+    Hˢ-GOV — Higgins Decomposition Governance Layer.
 
     Top-level supervisory system that manages multiple Hˢ controllers.
     Provides: policy enforcement, multi-controller coordination,
@@ -621,7 +621,7 @@ class HufGov:
 
     ARCHITECTURE
     ────────────
-        HUF-GOV (this)
+        Hˢ-GOV (this)
            ├── Policy Engine (rules checked on every state transition)
            ├── Controller Registry (tracks all active controllers)
            ├── Fingerprint Database (cross-run comparison)
@@ -767,7 +767,7 @@ class HufGov:
         }, source="HUF-GOV")
 
         if self.verbose:
-            print(f"  [HUF-GOV] Registered controller: {controller_id} "
+            print(f"  [Hˢ-GOV] Registered controller: {controller_id} "
                   f"({name}, {domain}) preset={preset}")
 
         return ctrl
@@ -822,7 +822,7 @@ class HufGov:
         }
         self._decisions.append(entry)
         if self.verbose:
-            print(f"  [HUF-GOV] Decision: {decision} — {controller.controller_id} "
+            print(f"  [Hˢ-GOV] Decision: {decision} — {controller.controller_id} "
                   f"{from_state}→{to_state}: {reason}")
 
     # ── Event Handlers ──
@@ -841,7 +841,7 @@ class HufGov:
         payload = event.get("payload", {})
         cls = payload.get("classification")
         if self.verbose:
-            print(f"  [HUF-GOV] Classification: {controller.controller_id} → {cls}")
+            print(f"  [Hˢ-GOV] Classification: {controller.controller_id} → {cls}")
 
     def _on_fingerprint(self, controller, event):
         """Handle fingerprint events — add to cross-run database."""
@@ -856,7 +856,7 @@ class HufGov:
                 "timestamp": event.get("timestamp"),
             }
             if self.verbose:
-                print(f"  [HUF-GOV] Fingerprint registered: {fp_hash} "
+                print(f"  [Hˢ-GOV] Fingerprint registered: {fp_hash} "
                       f"({controller.name})")
 
     def _on_hold(self, controller, event):
@@ -864,13 +864,13 @@ class HufGov:
         self._held_runs += 1
         if self.verbose:
             reason = event.get("payload", {}).get("reason", "unknown")
-            print(f"  [HUF-GOV] Controller HELD: {controller.controller_id} — {reason}")
+            print(f"  [Hˢ-GOV] Controller HELD: {controller.controller_id} — {reason}")
 
     def _on_error(self, controller, event):
         """Handle error events."""
         if self.verbose:
             payload = event.get("payload", {})
-            print(f"  [HUF-GOV] ERROR in {controller.controller_id}: "
+            print(f"  [Hˢ-GOV] ERROR in {controller.controller_id}: "
                   f"{payload.get('error', 'unknown')}")
 
     # ── Cross-Run Analysis ──
@@ -927,7 +927,7 @@ class HufGov:
             "to": mode,
         }, source="HUF-GOV")
         if self.verbose:
-            print(f"  [HUF-GOV] Mode: {old_mode} → {mode}")
+            print(f"  [Hˢ-GOV] Mode: {old_mode} → {mode}")
 
     def quarantine(self, reason=""):
         """Enter quarantine mode — hold all running controllers, block new runs."""
@@ -982,7 +982,7 @@ class HufGov:
         """Human-readable summary."""
         s = self.status()
         lines = [
-            f"HUF-GOV SUPERVISOR — {self.governor_id}",
+            f"Hˢ-GOV SUPERVISOR — {self.governor_id}",
             f"{'=' * 60}",
             f"Mode:          {s['mode']}",
             f"Hash:          {s['governor_hash']}",
@@ -1012,5 +1012,5 @@ if __name__ == "__main__":
     print(f"Governance modes: OPEN, SUPERVISED, LOCKED, QUARANTINE")
     print()
     print("Architecture:")
-    print("  HUF-GOV  →  Controller  →  Pipeline  →  Audit Trail")
+    print("  Hˢ-GOV  →  Controller  →  Pipeline  →  Audit Trail")
     print("  (govern)    (control)      (analyse)    (trace)")

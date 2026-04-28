@@ -10,7 +10,7 @@
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│                    HUF-GOV                          │
+│                    Hˢ-GOV                           │
 │  Governance: OPEN / SUPERVISED / LOCKED / QUARANTINE│
 │  Policy engine · Controller registry · Fingerprint DB│
 │  Event aggregation · State persistence              │
@@ -70,7 +70,7 @@
 | File | Purpose | Key Output |
 |------|---------|------------|
 | `hs_audit.py` | Audit trail with 16 breakpoints | Chain-hashed operation records |
-| `hs_controller.py` | Industrial state machine + HUF-GOV | Event-driven controller with governance |
+| `hs_controller.py` | Industrial state machine + Hˢ-GOV | Event-driven controller with governance |
 
 ### Ingest Layer
 

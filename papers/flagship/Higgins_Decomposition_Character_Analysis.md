@@ -148,7 +148,7 @@ Before S4 begins, the pipeline enforces four guards. Any failure produces an exp
 | `hs_reporter.py` | ~300 | Multilingual output (5 languages) | Infrastructure |
 | `hs_testgen.py` | ~350 | Adversarial + boundary + regression tests | Testing |
 | `hs_audit.py` | ~300 | Audit trail + 16 breakpoints | Infrastructure |
-| `hs_controller.py` | ~400 | Industrial state machine + HUF-GOV supervisor | Infrastructure |
+| `hs_controller.py` | ~400 | Industrial state machine + Hˢ-GOV supervisor | Infrastructure |
 
 ### 4.2 Dependency Graph
 

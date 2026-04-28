@@ -210,8 +210,8 @@ and asks CoDa to attack, support, or extend each tier.
 
 ## April 25, 2026 — Repository Split Decision
 
-**Hˢ separates from HUF-GOV.** The mathematical instrument becomes a standalone
-repository targeting the CoDa and applied mathematics communities. HUF-GOV
+**Hˢ separates from Hˢ-GOV.** The mathematical instrument becomes a standalone
+repository targeting the CoDa and applied mathematics communities. Hˢ-GOV
 remains as the governance, application, and historical development sibling.
 Migration manifest prepared (ChatGPT). Folder structure created at Current-Repo/Hs.
 
@@ -262,7 +262,7 @@ All experiments have results. All tools are functional. All languages are operat
 Communication standards are established. The executive summary is a running log.
 
 **Next waypoint:** LAUNCH — Create the GitHub repository from this folder structure.
-Configure GitHub Pages. Write the README.md for the new repo (Hˢ-focused, not HUF-GOV).
+Configure GitHub Pages. Write the README.md for the new repo (Hˢ-focused, not Hˢ-GOV).
 First push.
 
 **Conditions for advancing to next waypoint:**
@@ -792,20 +792,20 @@ Breakpoint presets propagate from the audit system — when the pipeline hits a
 HOLD breakpoint, the controller enters HELD state and waits for expert
 decision before resuming.
 
-**HUF-GOV** — top-level supervisory governance. 4 modes:
+**Hˢ-GOV** — top-level supervisory governance. 4 modes:
 
 - OPEN — unrestricted, all presets allowed, no concurrent limit
 - SUPERVISED — cautious default, max 5 concurrent controllers, policy checks
 - LOCKED — strict only, max 1 controller, full approval required
 - QUARANTINE — emergency lockdown, no new runs, all controllers frozen
 
-HUF-GOV maintains a controller registry, cross-run fingerprint database,
+Hˢ-GOV maintains a controller registry, cross-run fingerprint database,
 event aggregation across all controllers, and full state persistence. The
 policy engine is checked on every state transition — governance mode
 determines which breakpoint presets are permitted, how many controllers can
 run concurrently, and what happens when anomalies are detected.
 
-**Architecture stack:** HUF-GOV → HsController → Pipeline → Audit Trail
+**Architecture stack:** Hˢ-GOV → HsController → Pipeline → Audit Trail
 
 **Verification:** Multi-controller supervised run passed. Two controllers
 running under SUPERVISED governance — Controller A processed a smooth natural
@@ -820,14 +820,14 @@ modes, 18 domains, 36 systems.
 **Waypoint:**
 
 - **Accomplished:** Industrial controller architecture implemented and
-  verified. HUF-GOV supervisory layer operational. Event bus enables
+  verified. Hˢ-GOV supervisory layer operational. Event bus enables
   external system integration. Full audit trail preserved through controller
   and governance layers.
 - **Next waypoint:** CoDaWork 2026 preparation. Deploy controller in a
   real integration scenario. Seed cross-domain fingerprint database from
   all 24 experiments.
 - **Gate conditions:** Controller must handle all edge cases (NaN, empty,
-  single-row) without state corruption. HUF-GOV quarantine must be testable
+  single-row) without state corruption. Hˢ-GOV quarantine must be testable
   without affecting production runs. Event bus latency must not exceed 1ms
   per subscriber.
 - **Drift boundary:** If the controller abstraction adds more than 5%
@@ -847,11 +847,11 @@ from zero to industrial integration. Level 1: run your first analysis.
 Level 2: understand the 12 pipeline steps. Level 3: compare against reference
 standards. Level 4: use the knowledge engine tools (fingerprinting, auditing,
 test generation). Level 5: industrial integration with HsController and
-HUF-GOV. Level 6: extend the system (new experiments, languages, codes).
+Hˢ-GOV. Level 6: extend the system (new experiments, languages, codes).
 Includes the canonical reading order for all audiences.
 
 **Architecture Overview** (`docs/Hs_Architecture_Overview.md`) — Full system
-topology: the 5-layer stack (HUF-GOV → Controller → Pipeline → Audit →
+topology: the 5-layer stack (Hˢ-GOV → Controller → Pipeline → Audit →
 Post-Pipeline Tools), complete component registry (11 pipeline files with
 purpose and key output), data flow diagram, diagnostic code system map (73
 codes across 12 prefixes), breakpoint system reference (16 breakpoints, 4

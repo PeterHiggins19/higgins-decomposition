@@ -110,12 +110,13 @@
       "fourier_theorem": "tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html",
       "simplex_scope": "tools/interactive/EXP-19_Interactive_Simulator.html",
       "spring_mass": "tools/interactive/EXP16_Interactive_Simulator.html",
-      "spectrum_analyzer": "tools/interactive/HUF_Spectrum_Analyzer_Universal.html",
+      "spectrum_analyzer": "tools/interactive/Hs_Spectrum_Analyzer.html",
       "codawork_demo": "tools/interactive/Hs_CoDaWork_Demo.html",
       "cosmic_slider": "tools/interactive/cosmic_composition_interactive.html",
       "cosmic_cone": "tools/interactive/cosmic_cone_5min_loop.html",
       "duality_dance": "tools/interactive/cosmic_duality_dance.html",
-      "total": 8,
+      "cosmic_future": "tools/interactive/cosmic_future_projection.html",
+      "total": 9,
       "note": "All interactive tools in one folder for fast demo access. CoDaWork demos are copies from papers/codawork2026/."
     },
     "metrology": {
@@ -123,10 +124,31 @@
       "runner": "tools/pipeline/hs_metrology.py"
     },
     "dashboard": "tools/Hs_Dashboard.ipynb",
+    "standards_edition": {
+      "primary": "tools/Hs_Standards_Edition.ipynb",
+      "conference_copy": "papers/codawork2026/Hs_Standards_Edition.ipynb",
+      "description": "Self-contained Jupyter notebook — 18 cells, auto-installs dependencies, auto-fetches pipeline from GitHub, 3 built-in reference standards, runs all advanced analyses (amalgamation, power map, fingerprint). Conference handout tool.",
+      "cells": 18,
+      "reference_standards": 3,
+      "self_contained": true
+    },
     "journals": {
       "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md",
       "Hs-24": "experiments/Hs-24_HEPData_Validation/Hs-24_JOURNAL.md",
       "Hs-25": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_JOURNAL.md"
+    },
+    "directory_readmes": {
+      "tools": "tools/README.md",
+      "tools_pipeline": "tools/pipeline/README.md",
+      "tools_interactive": "tools/interactive/README.md",
+      "experiments": "experiments/README.md",
+      "docs": "docs/README.md",
+      "papers": "papers/README.md",
+      "ai_refresh": "ai-refresh/README.md"
+    },
+    "maintenance": {
+      "procedure": "ai-refresh/HS_MAINTENANCE.json",
+      "description": "Self-updating maintenance procedure — checklist for repo upkeep after any structural change"
     }
   },
   "protocol": {
@@ -205,8 +227,8 @@
       "traceability": "Full chain of custody from raw data to final diagnosis. Each operation records input/output hashes. The chain hash is a SHA-256 of the sequential operation record — modifying any record invalidates the chain. ISO 17025-compatible."
     },
     "controller_architecture": {
-      "principle": "Hˢ operates as an industrial compositional analysis component. The controller wraps the pipeline in a state machine with event-driven integration. HUF-GOV provides top-level supervisory governance.",
-      "stack": "HUF-GOV → HsController → Pipeline → Audit Trail",
+      "principle": "Hˢ operates as an industrial compositional analysis component. The controller wraps the pipeline in a state machine with event-driven integration. Hˢ-GOV provides top-level supervisory governance.",
+      "stack": "Hˢ-GOV → HsController → Pipeline → Audit Trail",
       "controller": {
         "states": ["IDLE", "RUNNING", "HELD", "COMPLETED", "ABORTED", "ERROR"],
         "commands": ["start", "resume", "abort", "inspect", "reconfigure", "get_result", "get_audit", "get_events"],
@@ -285,11 +307,11 @@
     }
   },
   "lineage": {
-    "origin": "Higgins Unity Framework (HUF), github.com/PeterHiggins19/Higgins-Unity-Framework",
+    "origin": "Higgins Unity Framework (HUF — lineage only), github.com/PeterHiggins19/Higgins-Unity-Framework",
     "engineering_ancestry": "Rogue Wave Audio DADC-DADI-ADAC loudspeaker diffraction correction chain (2024-2025)",
     "mathematical_foundation": "Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, Varley (2025) information theory for complex systems",
     "computational_support": "Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft)",
     "separation_date": "2026-04-25",
-    "separation_reason": "Hˢ matured into a standalone mathematical instrument. HUF-GOV remains as the governance, application, and historical development sibling."
+    "separation_reason": "Hˢ matured into a standalone mathematical instrument. Hˢ-GOV provides governance. The parent HUF repository remains as the historical development sibling."
   }
 }

@@ -37,7 +37,7 @@ The result is an information management system where bandwidth carries meaning i
 │  decision support, regulatory reporting                  │
 ├─────────────────────────────────────────────────────────┤
 │                   GOVERNANCE LAYER                       │
-│  HUF-GOV: multi-stream supervision, policy engine,      │
+│  Hˢ-GOV: multi-stream supervision, policy engine,       │
 │  cross-run fingerprint database, emergency quarantine    │
 │  Modes: OPEN | SUPERVISED | LOCKED | QUARANTINE          │
 ├─────────────────────────────────────────────────────────┤
@@ -80,7 +80,7 @@ Each layer communicates upward through events and downward through configuration
 | HEPData | `hs_hepdata.py` | Streaming | Published physics data fetch |
 | Test Generator | `hs_testgen.py` | Analysis | Self-generating regression/health/cross/stability tests |
 | Audit Trail | `hs_audit.py` | Controller | Chain hash + 16 breakpoints |
-| Controller | `hs_controller.py` | Controller + Governance | HsController + HUF-GOV |
+| Controller | `hs_controller.py` | Controller + Governance | HsController + Hˢ-GOV |
 
 ### 2.3 Data Flow — Streaming Mode
 
@@ -358,7 +358,7 @@ class HsStream:
 
 ```python
 class HsStreamGovernor:
-    """Multi-stream supervisor using HUF-GOV.
+    """Multi-stream supervisor using Hˢ-GOV.
     
     Manages multiple HsStream instances, detects cross-stream
     correlations, and provides unified event aggregation.
@@ -613,7 +613,7 @@ Each transmission frame carries provenance metadata:
 
 ### 8.3 Governance Modes
 
-HUF-GOV provides four governance modes:
+Hˢ-GOV provides four governance modes:
 
 | Mode | Behaviour | Use Case |
 |---|---|---|
@@ -687,7 +687,7 @@ The power mapper exists. Bit allocation logic is specified (Section 3.2). Medium
 Multiple sources → HsStreamGovernor → cross-correlation → unified dashboard
 ```
 
-HUF-GOV exists. Multi-controller supervision is verified. Target work: build the cross-stream fingerprint correlation engine, implement the unified dashboard, and deploy on a real multi-sensor system.
+Hˢ-GOV exists. Multi-controller supervision is verified. Target work: build the cross-stream fingerprint correlation engine, implement the unified dashboard, and deploy on a real multi-sensor system.
 
 ### 10.5 Stage 5: Embedded Edge Deployment (Future)
 

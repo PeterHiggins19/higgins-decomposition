@@ -11,7 +11,7 @@
 
 ```
                               ┌─────────────────────────────────────────────┐
-                              │            HUF-GOV SUPERVISORY              │
+                              │            Hˢ-GOV SUPERVISORY               │
                               │   Policy · Coordination · Multi-Controller  │
                               └────────────────┬────────────────────────────┘
                                                │ governs

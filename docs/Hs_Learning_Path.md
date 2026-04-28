@@ -144,7 +144,7 @@ events = ctrl.get_events()
 
 States: IDLE → RUNNING → HELD/COMPLETED/ABORTED/ERROR. The event bus publishes typed events (state_change, classification, fingerprint, hold, error) for external subscribers.
 
-**HUF-GOV** — Top-level governance for multi-controller deployments:
+**Hˢ-GOV** — Top-level governance for multi-controller deployments:
 
 ```python
 from hs_controller import HufGov
@@ -203,7 +203,7 @@ For code exploration:
 3. `tools/pipeline/hs_reporter.py` (multilingual reporting)
 4. `tools/pipeline/hs_fingerprint.py` (fingerprint generation)
 5. `tools/pipeline/hs_audit.py` (audit trail and breakpoints)
-6. `tools/pipeline/hs_controller.py` (industrial controller and HUF-GOV)
+6. `tools/pipeline/hs_controller.py` (industrial controller and Hˢ-GOV)
 7. `tools/pipeline/hs_sensitivity.py` (Component Power Mapper)
 
 ---

@@ -186,7 +186,17 @@
     "pipeline_files": 13,
     "framework": "v3.0 — Hs = R . M . E . C . T . V . S",
     "instrument_metrology": "QUALIFIED",
-    "gold_seal": true
+    "gold_seal": true,
+    "directory_readmes": [
+      "tools/README.md",
+      "tools/pipeline/README.md",
+      "tools/interactive/README.md",
+      "experiments/README.md",
+      "docs/README.md",
+      "papers/README.md",
+      "ai-refresh/README.md"
+    ],
+    "maintenance_procedure": "ai-refresh/HS_MAINTENANCE.json"
   },
   "reference_standards": {
     "MATH_FUNCTIONS": [

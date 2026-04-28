@@ -32,7 +32,7 @@ Read this document after HS_MACHINE_MANIFEST.json and before diving into any spe
 
 - **Repository:** github.com/PeterHiggins19/Higgins-Unity-Framework
 - **Last HUF commit:** `498dece` — "EXP-04/05 full PLL-EITT chain + Series Conclusion document" (Apr 18)
-- **Note:** HUF retains governance (HUF-GOV), historical development, and application-layer work. Hs was separated from HUF on Apr 25.
+- **Note:** HUF retains governance (Hˢ-GOV), historical development, and application-layer work. Hs was separated from HUF on Apr 25.
 
 ---
 
@@ -44,7 +44,7 @@ Nine days of concentrated work transformed Hˢ from a pipeline-with-experiments 
 
 ### Phase 1: Standalone Separation (April 25) — PUSHED (commits 1-2)
 
-Hˢ was extracted from HUF into its own standalone folder structure. The separation was clean — HUF retains governance (HUF-GOV), historical development, and application-layer work. Hˢ carries the instrument, pipeline, experiments, and all scientific content.
+Hˢ was extracted from HUF into its own standalone folder structure. The separation was clean — HUF retains governance (Hˢ-GOV), historical development, and application-layer work. Hˢ carries the instrument, pipeline, experiments, and all scientific content.
 
 **Created:**
 - Complete Hs/ folder with organized structure: ai-refresh/, constants/, data/, docs/, experiments/, papers/, tools/

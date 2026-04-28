@@ -2,7 +2,7 @@
 """
 HIGGINS DECOMPOSITION — Canonical 12-Step Pipeline Runner
 ==========================================================
-The Higgins Unity Framework (HUF) decomposition instrument.
+The Hˢ (Higgins Decomposition) instrument.
 
 Author: Peter Higgins / Claude
 Date: 2026-04-22
@@ -1377,7 +1377,7 @@ def _bessel_j1(x):
 
     Uses the standard backward recurrence algorithm (Miller, 1952) which
     is numerically stable for ALL real x. Achieves machine precision
-    (~10⁻¹⁵) across the full range encountered in HUF experiments.
+    (~10⁻¹⁵) across the full range encountered in Hˢ experiments.
 
     Algorithm: Start with J_{N+1}=0, J_N=1 for large N, recur backward
     using J_{n-1} = (2n/x)·J_n - J_{n+1}. Normalize using the identity

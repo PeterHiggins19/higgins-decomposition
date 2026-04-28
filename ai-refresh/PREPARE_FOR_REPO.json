@@ -2,8 +2,8 @@
   "_meta": {
     "type": "PREPARE_FOR_REPO",
     "purpose": "Pre-push readiness manifest. Full repository scrape with consistency verification.",
-    "generated": "2026-04-27T23:00:00",
-    "generator": "Cowork session — push #9 + README overhaul + Character Analysis v3.0 + abstract PDF",
+    "generated": "2026-04-28T12:00:00",
+    "generator": "Cowork session — push #11 prep: naming convention, HUF→Hˢ migration, speech consolidation, cosmic projection, CIP→HVLD",
     "protocol": "Scrape → verify → cross-reference → fix → re-verify → set status",
     "previous_version": "2026-04-27T21:00:00 (post-v3.0, post-identity sweep, pre-push-9)"
   },
@@ -43,7 +43,7 @@
     "pipeline_files": 13,
     "pipeline_files_note": "12 original + hs_amalgamation.py added 2026-04-26",
     "locale_files": 5,
-    "interactive_tools": 8,
+    "interactive_tools": 9,
     "languages": 5,
     "flagship_documents": 4,
     "codawork_documents": 18,
@@ -85,7 +85,8 @@
       "docs/reference/Hs_Reference_Standard_Library.md": true,
       "docs/reference/Hs_Natural_Pairs_Baseline.md": true,
       "docs/reference/Hs_Instrument_Metrology.json": true,
-      "docs/reference/CIP_Systems_Primer.docx": true,
+      "docs/reference/Hs_HVLD_Systems_Primer.docx": true,
+      "docs/Hs_Naming_Convention.md": true,
       "papers/flagship/Higgins_Decomposition_Character_Analysis.docx": true,
       "papers/flagship/Hs_EXP03_Precision_Inference.docx": true,
       "papers/flagship/Hs_Applications_Guide.docx": true,
@@ -95,9 +96,6 @@
       "papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md": true,
       "papers/codawork2026/CoDaWork2026_Strategic_Agenda.md": true,
       "papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md": true,
-      "papers/codawork2026/CoDaWork2026_Speech_Narrator.md": true,
-      "papers/codawork2026/CoDaWork2026_Speech_Complete.md": true,
-      "papers/codawork2026/CoDaWork2026_Speech_Introduction.md": true,
       "papers/codawork2026/CoDaWork2026_Future_Path.md": true,
       "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md": true,
       "papers/codawork2026/Hs_Symbolic_Logic_Definition.md": true,
@@ -111,7 +109,20 @@
       "papers/flagship/Higgins_Decomposition_Character_Analysis.md": true,
       "tools/interactive/cosmic_composition_interactive.html": true,
       "tools/interactive/cosmic_cone_5min_loop.html": true,
-      "tools/interactive/cosmic_duality_dance.html": true
+      "tools/interactive/cosmic_duality_dance.html": true,
+      "tools/interactive/cosmic_future_projection.html": true,
+      "tools/interactive/Hs_Spectrum_Analyzer.html": true,
+      "papers/codawork2026/cosmic_future_projection.html": true,
+      "tools/Hs_Standards_Edition.ipynb": true,
+      "papers/codawork2026/Hs_Standards_Edition.ipynb": true,
+      "tools/README.md": true,
+      "tools/pipeline/README.md": true,
+      "tools/interactive/README.md": true,
+      "experiments/README.md": true,
+      "docs/README.md": true,
+      "papers/README.md": true,
+      "ai-refresh/README.md": true,
+      "ai-refresh/HS_MAINTENANCE.json": true
     },
     "pipeline_files": {
       "higgins_decomposition_12step.py": true,
@@ -202,16 +213,14 @@
       "letter_and_abstract": "papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md",
       "strategic_agenda": "papers/codawork2026/CoDaWork2026_Strategic_Agenda.md",
       "speech_gift_ramp": "papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md",
-      "speech_narrator": "papers/codawork2026/CoDaWork2026_Speech_Narrator.md",
-      "speech_complete": "papers/codawork2026/CoDaWork2026_Speech_Complete.md",
-      "speech_introduction": "papers/codawork2026/CoDaWork2026_Speech_Introduction.md",
       "future_path": "papers/codawork2026/CoDaWork2026_Future_Path.md",
       "strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md",
       "symbolic_logic": "papers/codawork2026/Hs_Symbolic_Logic_Definition.md",
       "slide_deck": "papers/codawork2026/CoDaWork2026_Presentation.pptx",
       "interactive_slider": "papers/codawork2026/cosmic_composition_interactive.html",
       "qa_loop_animation": "papers/codawork2026/cosmic_cone_5min_loop.html",
-      "duality_dance": "papers/codawork2026/cosmic_duality_dance.html"
+      "duality_dance": "papers/codawork2026/cosmic_duality_dance.html",
+      "cosmic_future": "papers/codawork2026/cosmic_future_projection.html"
     },
     "centrepiece_experiment": "experiments/Hs-25_Cosmic_Energy_Budget/",
     "presentation_structure": "16 slides, 10 gifts, ~180 words, gift ramp format",
@@ -227,23 +236,45 @@
     }
   },
   "delta_since_last_push": {
-    "last_push": "289427e (CoDaWork2026, 2026-04-27T16:45)",
+    "last_push": "8825110 (Higgins_Decomposition_Character_Analysis, 2026-04-27T18:00)",
     "new_files": [
-      "papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf",
-      "papers/codawork2026/CoDaWork2026_Email_Draft.txt",
-      "papers/codawork2026/generate_abstract_pdf.py",
-      "papers/flagship/Higgins_Decomposition_Character_Analysis.md",
-      "tools/interactive/cosmic_composition_interactive.html",
-      "tools/interactive/cosmic_cone_5min_loop.html",
-      "tools/interactive/cosmic_duality_dance.html"
+      "docs/Hs_Naming_Convention.md",
+      "tools/interactive/cosmic_future_projection.html",
+      "papers/codawork2026/cosmic_future_projection.html",
+      "tools/interactive/Hs_Spectrum_Analyzer.html",
+      "tools/Hs_Standards_Edition.ipynb",
+      "papers/codawork2026/Hs_Standards_Edition.ipynb",
+      "tools/README.md",
+      "tools/pipeline/README.md",
+      "tools/interactive/README.md",
+      "experiments/README.md",
+      "docs/README.md",
+      "papers/README.md",
+      "ai-refresh/README.md",
+      "ai-refresh/HS_MAINTENANCE.json"
+    ],
+    "renamed_files": [
+      "HUF_Spectrum_Analyzer_Universal.html → Hs_Spectrum_Analyzer.html",
+      "CIP_Systems_Primer.docx → Hs_HVLD_Systems_Primer.docx"
+    ],
+    "deleted_files": [
+      "papers/codawork2026/CoDaWork2026_Speech_Complete.md (superseded by GiftRamp)",
+      "papers/codawork2026/CoDaWork2026_Speech_Introduction.md (superseded by GiftRamp)",
+      "papers/codawork2026/CoDaWork2026_Speech_Narrator.md (superseded by GiftRamp)"
     ],
     "updated_files": [
-      "README.md",
-      "papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md",
-      "ai-refresh/HS_GITHUB_CONFIG.json",
-      "ai-refresh/PREPARE_FOR_REPO.json"
+      "README.md — interactive tools 8→9, HUF→Hˢ naming, CIP→HVLD, naming convention added",
+      "ai-refresh/HS_MACHINE_MANIFEST.json — tool count, HUF-GOV→Hˢ-GOV, cosmic_future added",
+      "ai-refresh/PREPARE_FOR_REPO.json — full update for push #11",
+      "ai-refresh/HS_GITHUB_CONFIG.json — push count",
+      "tools/pipeline/hs_controller.py — HUF-GOV→Hˢ-GOV display strings",
+      "tools/pipeline/higgins_decomposition_12step.py — HUF→Hˢ docstring",
+      "tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html — HUF→Hˢ",
+      "README.md — Standards Edition notebook added to Start Here, CoDaWork table, repo tree",
+      "ai-refresh/HS_MACHINE_MANIFEST.json — standards_edition entry added",
+      "ai-refresh/PREPARE_FOR_REPO.json — Standards Edition in critical files and delta"
     ],
-    "summary": "README overhaul (full tool/feature/document inventory), Character Analysis v3.0 markdown, abstract PDF + email draft for CoDaWork submission, interactive tool consolidation (8 tools), support file updates for push #9"
+    "summary": "Naming convention established. HUF→Hˢ branding migration across all active files. CIP→HVLD terminology update. Speech files consolidated (3 superseded → GiftRamp canonical). Cosmic future projection added as interactive tool #9. Interactive tools now 9. Standards Edition notebook added (tools/ + papers/codawork2026/) — 18-cell self-contained conference handout with 3 reference standards and all advanced analyses. Directory README files added for all 7 major directories (tools/, tools/pipeline/, tools/interactive/, experiments/, docs/, papers/, ai-refresh/). HS_MAINTENANCE.json added — self-updating maintenance procedure for repo upkeep."
   },
   "push_checklist": {
     "1_all_files_present": true,

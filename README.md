@@ -20,7 +20,7 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 | Distinct systems | 36 |
 | Devices under test (DUTs) | 53 |
 | Pipeline files | 13 |
-| Interactive tools | 8 |
+| Interactive tools | 9 |
 | Diagnostic codes | 78 |
 | Structural modes | 10 |
 | Transcendental constants | 35 |
@@ -41,7 +41,9 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 
 **If you are a machine:** [`ai-refresh/HS_MACHINE_MANIFEST.json`](ai-refresh/HS_MACHINE_MANIFEST.json) — identity, navigation, protocol, governance, and authority resolution in a single file. Follow the onboarding sequence defined there.
 
-**If you are reviewing for CoDaWork 2026:** [Abstract (PDF)](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) → [Executive Summary](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Collaboration Path](papers/codawork2026/CoDaWork2026_Collaboration_Path.md)
+**If you want to run Hs right now:** [Standards Edition Notebook](tools/Hs_Standards_Edition.ipynb) — self-contained Jupyter notebook, auto-installs dependencies, auto-fetches pipeline from GitHub, includes 3 built-in reference standards, runs all advanced analyses. The conference handout tool.
+
+**If you are reviewing for CoDaWork 2026:** [Abstract (PDF)](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) → [Executive Summary](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Standards Edition Notebook](papers/codawork2026/Hs_Standards_Edition.ipynb) → [Collaboration Path](papers/codawork2026/CoDaWork2026_Collaboration_Path.md)
 
 ---
 
@@ -58,6 +60,7 @@ These are the governing documents of the Hˢ system — the ones that define wha
 | [Reference v3.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v3.0.docx) | Formal reference document with full operator specifications |
 | [Character Analysis (docx)](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) | Atomic-level disassembly — the pipeline as DUT |
 | [Instrument Metrology](docs/reference/Hs_Instrument_Metrology.json) | Quantified instrument qualification (6 metrics) |
+| [Naming Convention](docs/Hs_Naming_Convention.md) | File naming rules, branding, and terminology migration |
 | [CITATION.cff](CITATION.cff) | How to cite this work |
 
 ---
@@ -97,11 +100,11 @@ All code lives in `tools/pipeline/`. No external dependencies beyond numpy.
 | `hs_reporter.py` | Multilingual diagnostic reporter (5 languages) |
 | `hs_testgen.py` | Secondary test tools — adversarial, boundary, and regression tests |
 | `hs_audit.py` | Audit trail + 16 configurable breakpoints |
-| `hs_controller.py` | Industrial state machine controller with HUF-GOV supervisor |
+| `hs_controller.py` | Industrial state machine controller with Hˢ-GOV supervisor |
 
 ---
 
-## Interactive Tools (8 HTML Demos)
+## Interactive Tools (9 HTML Demos)
 
 Download any HTML file and open in a browser. No installation, no server, no dependencies.
 
@@ -111,10 +114,11 @@ Download any HTML file and open in a browser. No installation, no server, no dep
 | [Cosmic Composition Slider](tools/interactive/cosmic_composition_interactive.html) | Planck 2018 cosmic energy budget — slide from z=0 to z=3400, watch dark energy vanish |
 | [Cosmic Cone Loop](tools/interactive/cosmic_cone_5min_loop.html) | 5-minute inflation cone animation — cosmic composition evolution from Big Bang |
 | [Cosmic Duality Dance](tools/interactive/cosmic_duality_dance.html) | Black hole / white hole compositional duality across amalgamation levels |
+| [Cosmic Future Projection](tools/interactive/cosmic_future_projection.html) | ΛCDM Friedmann model — dark energy dominance trajectory from 1 Myr to heat death |
 | [Simplex Scope](tools/interactive/EXP-19_Interactive_Simulator.html) | Real-time Fourier conjugate pair decomposition — all 12 pipeline steps visualised |
 | [Spring-Mass Simulator](tools/interactive/EXP16_Interactive_Simulator.html) | Damped oscillator decomposed into KE/PE/Damping with chaos detection |
 | [Conjugate Preservation Theorem](tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html) | Mathematical proof — 3 theorems + 1 corollary, interactive walkthrough |
-| [Spectrum Analyzer](tools/interactive/HUF_Spectrum_Analyzer_Universal.html) | Universal JSON reader — 5 readings from any pipeline output file |
+| [Hˢ Spectrum Analyzer](tools/interactive/Hs_Spectrum_Analyzer.html) | Universal JSON reader — 5 readings from any pipeline output file |
 
 ---
 
@@ -220,6 +224,7 @@ Hˢ has been submitted to the 11th International Workshop on Compositional Data 
 | Collaboration path | [CoDaWork2026_Collaboration_Path.md](papers/codawork2026/CoDaWork2026_Collaboration_Path.md) |
 | Speech — gift ramp format | [CoDaWork2026_Speech_GiftRamp.md](papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md) |
 | Slide deck (.pptx) | [CoDaWork2026_Presentation.pptx](papers/codawork2026/CoDaWork2026_Presentation.pptx) |
+| Standards Edition notebook | [Hs_Standards_Edition.ipynb](papers/codawork2026/Hs_Standards_Edition.ipynb) — self-contained conference handout, 18 cells, 3 reference standards |
 | Action plan | [CoDaWork2026_Action_Plan.md](papers/codawork2026/CoDaWork2026_Action_Plan.md) |
 
 Three open questions posed to the CoDa community: (1) Can the EITT entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR substitution for CLR? (3) Independent validation on CoDa community datasets.
@@ -245,7 +250,7 @@ Three open questions posed to the CoDa community: (1) Can the EITT entropy invar
 | [Logic Map](docs/Hs_Logic_Map_and_State_Machine.md) | State machine specification with diagnostic commentary |
 | [Reference v3.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v3.0.docx) | Complete operator specification document |
 | [Reference v1.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v1.0.docx) | Original reference — retained for lineage |
-| [CIP Systems Primer (docx)](docs/reference/CIP_Systems_Primer.docx) | Clean-in-place engineering context |
+| [HVLD Systems Primer (docx)](docs/reference/Hs_HVLD_Systems_Primer.docx) | Higgins Vertex Lock Diagnostic — engineering context |
 | [Reference Standard Library](docs/reference/Hs_Reference_Standard_Library.md) | 15 calibration standards with full metrology |
 | [Natural Pairs Baseline](docs/reference/Hs_Natural_Pairs_Baseline.md) | 12 systems, 7 domain pairs, cross-pair constant sharing |
 | [Diffraction Composition Principle](docs/theory/Higgins_Diffraction_Composition_Principle.md) | Information mechanics declaration |
@@ -329,8 +334,9 @@ higgins-decomposition/
     │   ├── hs_fingerprint.py         # Compositional fingerprint
     │   ├── ...                       # + 8 more (see Pipeline section above)
     │   └── locales/                  # 5 language files
-    ├── interactive/                   # 8 HTML tools (open in browser)
-    └── Hs_Dashboard.ipynb            # JupyterLab notebook
+    ├── interactive/                   # 9 HTML tools (open in browser)
+    ├── Hs_Dashboard.ipynb            # JupyterLab notebook
+    └── Hs_Standards_Edition.ipynb    # ★ Standards Edition — self-contained conference handout
 ```
 
 ---
@@ -362,6 +368,22 @@ The repository is open. The tool is free. The data is included. The results are 
 If you can prove why geometric-mean decimation preserves Shannon entropy on the simplex, that's a theorem waiting to be written. If you can find a natural compositional system that fails the transcendental pretest after all alternate decompositions, that's a discovery. If you can run Hˢ on a dataset from your own domain and share the results, that's a validation.
 
 Start with `tools/pipeline/higgins_decomposition_12step.py`. Run a reference standard. Compare your results. Report what you find.
+
+---
+
+## Directory Index
+
+Each major directory has its own README with a complete guide to contents, usage, and structure.
+
+| Directory | README | Description |
+|---|---|---|
+| `tools/` | [tools/README.md](tools/README.md) | Complete tools library — pipeline, interactive tools, notebooks |
+| `tools/pipeline/` | [tools/pipeline/README.md](tools/pipeline/README.md) | 13-file Python pipeline — core engine, diagnostics, ingestion, infrastructure |
+| `tools/interactive/` | [tools/interactive/README.md](tools/interactive/README.md) | 9 standalone HTML demos — open in any browser, no dependencies |
+| `experiments/` | [experiments/README.md](experiments/README.md) | 25 experiments (Hs-01 through Hs-25) across 18 domains |
+| `docs/` | [docs/README.md](docs/README.md) | Documentation — learning path, architecture, theory, reference standards |
+| `papers/` | [papers/README.md](papers/README.md) | Publications — flagship papers, CoDaWork 2026, validation reports |
+| `ai-refresh/` | [ai-refresh/README.md](ai-refresh/README.md) | Machine-readable system state — manifests, inventory, maintenance |
 
 ---
 
