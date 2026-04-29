@@ -1,8 +1,9 @@
 {
   "_meta": {
     "type": "HS_MACHINE_MANIFEST",
-    "version": "1.0",
+    "version": "1.1",
     "created": "2026-04-25",
+    "updated": "2026-04-28",
     "author": "Peter Higgins",
     "purpose": "Machine-readable entry point for all systems interacting with the Hˢ repository. Read this file first. It provides: identity, navigation, protocol, governance, and authority resolution.",
     "read_order": "This file → HS_ADMIN.json → experiment results → reference standards → archive",
@@ -20,7 +21,7 @@
       "V": "Variance trajectory — cumulative Aitchison variance as shape",
       "T": "CLR Transform — per-carrier deviation mapping",
       "C": "Classification — transcendental squeeze (novel)",
-      "E": "Entropy test — EITT geometric-mean decimation (novel / open conjecture)",
+      "E": "Entropy test — EITT geometric-mean decimation (novel / analytically bounded — O-1 resolved April 28, 2026)",
       "M": "Mode synthesis — conjunction of diagnostic predicates",
       "R": "Report — assembly and SHA-256 verification"
     },
@@ -77,7 +78,10 @@
     },
     "experiments": {
       "results_summary": "experiments/Hs_Extended_Executive_Summary.json",
+      "full_chain_report": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json",
+      "stress_test_report": "experiments/Hs_STRESS_TEST_REPORT_2026-04-28.json",
       "pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_results.json",
+      "rerun_pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_rerun_2026-04-28.json",
       "range": "Hs-01 through Hs-25",
       "rerun_plan": "Hs_EXPERIMENT_RERUN_PLAN.json"
     },
@@ -304,6 +308,51 @@
     "quick_test": {
       "description": "Verify pipeline is working by running a reference standard.",
       "code": "import numpy as np; data = np.array([[0.5,0.3,0.2],[0.4,0.4,0.2],[0.3,0.5,0.2],[0.45,0.35,0.2],[0.35,0.45,0.2]]); hd = HigginsDecomposition('TEST','Quick Test','TEST',carriers=['A','B','C']); hd.load_data(data); r = hd.run_full_extended(); print(r['extended']['universal']['claim_status'])"
+    }
+  },
+  "theoretical_extensions": {
+    "_note": "Extensions beyond the core pipeline, documented in HUF/science/ and Hs EXECUTIVE_SUMMARY.md.",
+    "o1_resolution": {
+      "status": "RESOLVED (April 28, 2026)",
+      "statement": "EITT residual is analytically bounded by closed-form Hessian trace bound.",
+      "formula": "|ΔH(M)| ≤ 0.5 · λ_max(|ℋ_H(μ)|) · Tr(Σ₁) · [1 - R(M, ρ)]",
+      "resolved_by": "Gemini via CLR Taylor expansion proof",
+      "collective": "Peter Higgins + Grok + Copilot + ChatGPT + Gemini + Claude",
+      "reference": "HUF/science/eitt/EITT_HESSIAN_BOUND.md §8"
+    },
+    "dimensional_collapse": {
+      "status": "Theoretical framework (April 28, 2026)",
+      "statement": "Components below the compositional horizon (min(x_i) ≈ 0.05) undergo dimensional collapse. Survivors reconstitute on a lower-dimensional simplex with higher coherence.",
+      "cycle": ["Structure forms on D-simplex", "Pruning separates weakly bound", "Collapse at critical ratio", "Reconstitution at D-k with new interior stability"],
+      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8"
+    },
+    "compositional_horizon": {
+      "status": "Empirical (formal derivation is Open Problem D-6 / O-4)",
+      "threshold": 0.05,
+      "statement": "Below min(x_i) ≈ 0.05, components are causally disconnected from the analysis. Curvature artefacts dominate signal.",
+      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8.2"
+    },
+    "pruning_process": {
+      "statement": "Geometric-mean decimation is a smooth pruning process: preserves robust interior structure, dissolves fragile boundary structure.",
+      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8.1"
+    },
+    "full_chain_execution": {
+      "status": "COMPLETE (April 28, 2026)",
+      "experiments_run": 25,
+      "total_rows": 3044,
+      "total_time_seconds": 0.34,
+      "throughput_rows_per_sec": 8877,
+      "stress_test": "15/15 PASS — OPERATIONAL",
+      "R2_mean": 0.7761,
+      "R2_range": "0.1007 to 0.9999",
+      "PLL_shapes": {"bowl": 17, "hill": 8},
+      "deliverables": ["Hs_FULL_CHAIN_REPORT_2026-04-28.json", "Hs_STRESS_TEST_REPORT_2026-04-28.json"],
+      "reference": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json"
+    },
+    "codawork_posture": {
+      "previous": "Scientific Surrender — presenting an empirical mystery",
+      "current": "Calibration Proof — presenting a fully bounded, analytically governed instrument",
+      "trigger": "O-1 resolution neutralizes the Jensen's inequality attack"
     }
   },
   "lineage": {

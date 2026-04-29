@@ -1,0 +1,286 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-14",
+    "name": "Fourier Conjugate Pair Study",
+    "domain": "SIGNAL THEORY",
+    "legacy": "EXP-19",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Synthetic (known FT pairs)",
+    "data_hash": "b72dfb8415c98a19",
+    "N": 200,
+    "D": 3,
+    "carriers": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "elapsed_seconds": 0.0195,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-14",
+    "name": "Fourier Conjugate Pair Study",
+    "domain": "SIGNAL THEORY",
+    "carriers": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "D": 3,
+    "N": 200,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "b72dfb8415c98a19",
+    "run_timestamp": "2026-04-28T21:19:28.329367Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-14: Fourier Conjugate Pair Study: 3-part simplex, carriers=['Low', 'Mid', 'High']",
+      "step2_n_samples": 200,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Low",
+        "Mid",
+        "High"
+      ],
+      "data_hash_sha256_16": "b72dfb8415c98a19",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.2590430893680458,
+        -0.00954388018658039,
+        -0.249499209181465
+      ],
+      "step4_clr_std_per_part": [
+        0.7871417927048795,
+        0.18749115758911641,
+        0.7816245894177235
+      ],
+      "step5_sigma2_range": [
+        0.030265642390744633,
+        1.8890170711756735
+      ],
+      "step5_sigma2_final": 1.2656821347791833,
+      "step6_pll_coeffs": [
+        -6.534870306647796e-05,
+        0.02034844945492783,
+        -0.08804836175190794
+      ],
+      "step6_pll_R2": 0.8864875200927844,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        155.6913029645573,
+        1.495989942721167
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 99,
+      "step7_squeeze_closest": {
+        "time_index": 82,
+        "sigma2_A": 1.091787077326345,
+        "constant": "catalan",
+        "constant_value": 0.915965594177219,
+        "test_type": "reciprocal",
+        "test_value": 0.9159295074721708,
+        "delta": 3.608670504817724e-05
+      },
+      "step7_squeeze_mean": 1.0834438031282159,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.1826466666545242,
+        1.0
+      ],
+      "step8_entropy_mean": 0.8790349837843137,
+      "step8_entropy_cv": 21.623941393092334,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8790349837843137,
+          "H_mean_decimated": 0.8793518780679781,
+          "variation_pct": 0.03605024709030155,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8790349837843137,
+          "H_mean_decimated": 0.89102799000855,
+          "variation_pct": 1.3643377619176837,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8790349837843137,
+          "H_mean_decimated": 0.9281561695721742,
+          "variation_pct": 5.588080872093395,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 95,
+        "stalls": 51,
+        "spikes": 13,
+        "reversals": 31
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.39019198008959943,
+        0.2536794382189543
+      ],
+      "step11_complex_range_im": [
+        -0.24129399643562055,
+        0.5811299210734594
+      ],
+      "step12_radius_range": [
+        0.003723640078080355,
+        0.5861909244606991
+      ],
+      "step12_theta_range": [
+        -2.6510912592918388,
+        3.1214827993171603
+      ],
+      "step9_angular_velocity_std": 0.6203759926616684
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.6195922018226515,
+            0.035152934174106885,
+            0.6109369987824248
+          ],
+          "carrier_pct": [
+            48.9532233091643,
+            2.777390405391147,
+            48.26938628544454
+          ],
+          "dominant_carrier": "Low",
+          "dominant_pct": 48.9532233091643
+        },
+        "match_density": {
+          "density": 27.700714278331088,
+          "concentration": 0.0654014896439139,
+          "total_matches": 99,
+          "n_constants_hit": 21,
+          "dominant_constant": "dottie",
+          "trajectory_length": 3.5739150624517597
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.6985532732110922,
+              2.4259054670360456
+            ],
+            [
+              0.6985532732110922,
+              0.0,
+              0.6725876640904116
+            ],
+            [
+              2.4259054670360456,
+              0.6725876640904116,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.2590430893680458,
+            -0.00954388018658039,
+            -0.249499209181465
+          ],
+          "clr_stds": [
+            0.7871417927048795,
+            0.18749115758911641,
+            0.7816245894177235
+          ],
+          "aitchison_distance_mean": 1.0611612761361542
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 1.5215498414430177,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "Low",
+          "max_shift_magnitude": 0.025499613451400616
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.8864875200927844,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "High",
+          "sources": [
+            "Low",
+            "Mid"
+          ],
+          "I_source1_target": 1.4303681720483958,
+          "I_source2_target": 0.7267057583994293,
+          "redundancy": 0.7267057583994293,
+          "unique_source1": 0.7036624136489665,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Low->Mid": 0.0,
+            "Low->High": 0.0,
+            "Mid->Low": 0.0,
+            "Mid->High": 0.0,
+            "High->Low": 0.0,
+            "High->Mid": 0.0
+          },
+          "dominant_flow": "Low->Mid",
+          "dominant_te": 0.0
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.2656821347791833,
+          "shuffled_sigma2": 1.2656821347791833,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 5,
+          "near_zero_carriers": [
+            "Low",
+            "High"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Low/Mid)": {
+              "mean": 0.2685869695546259,
+              "std": 0.8357949947272311,
+              "cv": 311.18225731991254
+            },
+            "ln(Low/High)": {
+              "mean": 0.5085422985495107,
+              "std": 1.5575318510502587,
+              "cv": 306.27380563873004
+            },
+            "ln(Mid/High)": {
+              "mean": 0.2399553289948847,
+              "std": 0.8201144213403466,
+              "cv": 341.7779570787651
+            }
+          },
+          "most_stable": "ln(Low/High)",
+          "least_stable": "ln(Mid/High)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

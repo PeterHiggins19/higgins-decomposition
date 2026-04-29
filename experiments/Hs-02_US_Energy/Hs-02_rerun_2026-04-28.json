@@ -1,0 +1,266 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-02",
+    "name": "US Electricity Generation",
+    "domain": "ENERGY",
+    "legacy": "EXP-02",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "EMBER Global Electricity Review (CC BY 4.0)",
+    "data_file": "yearly_full_release_long_format.csv",
+    "data_hash": "9a6e451a819ab7c3",
+    "N": 25,
+    "D": 3,
+    "carriers": [
+      "Fossil",
+      "Nuclear",
+      "Renewable"
+    ],
+    "elapsed_seconds": 0.0074,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine (dimensional collapse, compositional horizon framework)",
+    "year_range": "2000-2024"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-02",
+    "name": "US Electricity Generation",
+    "domain": "ENERGY",
+    "carriers": [
+      "Fossil",
+      "Nuclear",
+      "Renewable"
+    ],
+    "D": 3,
+    "N": 25,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "9a6e451a819ab7c3",
+    "run_timestamp": "2026-04-28T21:13:45.299790Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-02: US Electricity Generation: 3-part simplex, carriers=['Fossil', 'Nuclear', 'Renewable']",
+      "step2_n_samples": 25,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Fossil",
+        "Nuclear",
+        "Renewable"
+      ],
+      "data_hash_sha256_16": "9a6e451a819ab7c3",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.9606373136292412,
+        -0.27342672959319747,
+        -0.6872105840360441
+      ],
+      "step4_clr_std_per_part": [
+        0.1590717402116386,
+        0.114778306677534,
+        0.27242230243536053
+      ],
+      "step5_sigma2_range": [
+        0.003693471591040658,
+        0.11269178908190412
+      ],
+      "step5_sigma2_final": 0.11269178908190412,
+      "step6_pll_coeffs": [
+        0.0003492596243719758,
+        -0.00434018188037667,
+        0.016035403469993336
+      ],
+      "step6_pll_R2": 0.9984595187101861,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        6.213403407538168,
+        0.002551753027559429
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 4,
+      "step7_squeeze_closest": {
+        "time_index": 17,
+        "sigma2_A": 0.04277873329282553,
+        "constant": "1/(e^pi)",
+        "constant_value": 0.04321391826377226,
+        "test_type": "direct",
+        "test_value": 0.04277873329282553,
+        "delta": 0.0004351849709467309
+      },
+      "step7_squeeze_mean": 0.03400533901632748,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.6895387509089498,
+        0.8787349452591301
+      ],
+      "step8_entropy_mean": 0.7728621857944471,
+      "step8_entropy_cv": 8.330489743468199,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.768450820816752,
+          "H_mean_decimated": 0.7684386184270547,
+          "variation_pct": 0.0015879207057474757,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.768450820816752,
+          "H_mean_decimated": 0.7684553477227759,
+          "variation_pct": 0.0005890950860220047,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.768450820816752,
+          "H_mean_decimated": 0.768652303782928,
+          "variation_pct": 0.026219370286040093,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 17,
+        "stalls": 0,
+        "spikes": 0,
+        "reversals": 17
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.02618609778604622,
+        0.0355312616955169
+      ],
+      "step11_complex_range_im": [
+        -0.05373780084695219,
+        0.08959134164130889
+      ],
+      "step12_radius_range": [
+        0.0009326624629426652,
+        0.09637986851394349
+      ],
+      "step12_theta_range": [
+        -2.2854253947816257,
+        1.2020891329018977
+      ],
+      "step9_angular_velocity_std": 0.43343668271734703
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.025303818533959042,
+            0.013174059683762045,
+            0.07421391086418304
+          ],
+          "carrier_pct": [
+            22.454003738966545,
+            11.69034566856257,
+            65.8556505924709
+          ],
+          "dominant_carrier": "Renewable",
+          "dominant_pct": 65.8556505924709
+        },
+        "match_density": {
+          "density": 35.62235088645444,
+          "concentration": 0.5,
+          "total_matches": 4,
+          "n_constants_hit": 2,
+          "dominant_constant": "1/(e^pi)",
+          "trajectory_length": 0.11228905168976419
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.0027418455712591495,
+              0.1858613991125221
+            ],
+            [
+              0.0027418455712591473,
+              0.0,
+              0.14947212256193115
+            ],
+            [
+              0.1858613991125221,
+              0.14947212256193118,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.9606373136292412,
+            -0.27342672959319747,
+            -0.6872105840360441
+          ],
+          "clr_stds": [
+            0.1590717402116386,
+            0.114778306677534,
+            0.27242230243536053
+          ],
+          "aitchison_distance_mean": 0.3978822297178753
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 3.8443220142568553,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "Renewable",
+          "max_shift_magnitude": 0.08379681262304023
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9984595187101861,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Renewable",
+          "sources": [
+            "Fossil",
+            "Nuclear"
+          ],
+          "I_source1_target": 2.09973347440366,
+          "I_source2_target": 2.2761956593066754,
+          "redundancy": 2.09973347440366,
+          "unique_source1": 0.0,
+          "unique_source2": 0.17646218490301546,
+          "dominant": "redundancy"
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.11269178908190412,
+          "shuffled_sigma2": 0.11269178908190414,
+          "order_matters": false,
+          "relative_difference": 1.231481718488657e-16
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Fossil/Nuclear)": {
+              "mean": 1.2340640432224388,
+              "std": 0.052362635258924366,
+              "cv": 4.243105173228522
+            },
+            "ln(Fossil/Renewable)": {
+              "mean": 1.6478478976652848,
+              "std": 0.43111645655498015,
+              "cv": 26.16239382080091
+            },
+            "ln(Nuclear/Renewable)": {
+              "mean": 0.4137838544428463,
+              "std": 0.386616247152045,
+              "cv": 93.43434815082816
+            }
+          },
+          "most_stable": "ln(Fossil/Nuclear)",
+          "least_stable": "ln(Nuclear/Renewable)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

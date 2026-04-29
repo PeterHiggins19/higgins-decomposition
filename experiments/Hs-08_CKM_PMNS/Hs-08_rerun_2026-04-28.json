@@ -1,0 +1,252 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-08",
+    "name": "CKM + PMNS Mixing Matrices",
+    "domain": "PARTICLE",
+    "legacy": "EXP-10",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "PDG values (derived)",
+    "data_file": "",
+    "data_hash": "754aa124ab632e35",
+    "N": 10,
+    "D": 3,
+    "carriers": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "elapsed_seconds": 0.0023,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-08",
+    "name": "CKM + PMNS Mixing Matrices",
+    "domain": "PARTICLE",
+    "carriers": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "D": 3,
+    "N": 10,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "754aa124ab632e35",
+    "run_timestamp": "2026-04-28T21:15:17.991045Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-08: CKM + PMNS Mixing Matrices: 3-part simplex, carriers=['C1', 'C2', 'C3']",
+      "step2_n_samples": 10,
+      "step2_D": 3,
+      "step2_carriers": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "data_hash_sha256_16": "754aa124ab632e35",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.55740282061933,
+        0.8642617615045769,
+        -1.4216645821239065
+      ],
+      "step4_clr_std_per_part": [
+        2.434168984824072,
+        1.3640226978583572,
+        3.237918915701157
+      ],
+      "step5_sigma2_range": [
+        18.269855471607602,
+        41.08400519698747
+      ],
+      "step5_sigma2_final": 18.269855471607602,
+      "step6_pll_coeffs": [
+        0.5395894023270106,
+        -8.643502361976964,
+        54.004611606176624
+      ],
+      "step6_pll_R2": 0.9288963876547116,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        8.009332952705668,
+        19.39026745889094
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 10,
+      "step7_squeeze_closest": {
+        "time_index": 5,
+        "sigma2_A": 22.447460025234513,
+        "constant": "1/(pi^e)",
+        "constant_value": 0.044525267266922915,
+        "test_type": "reciprocal",
+        "test_value": 0.04454847002181276,
+        "delta": 2.3202754889845023e-05
+      },
+      "step7_squeeze_mean": 25.620772397912205,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.010811680421937477,
+        0.9958118271143173
+      ],
+      "step8_entropy_mean": 0.48024336833381687,
+      "step8_entropy_cv": 72.7651496940457,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.48024336833381687,
+          "H_mean_decimated": 0.709209214802948,
+          "variation_pct": 47.67704492485091,
+          "pass": false
+        },
+        "compression_4x": {
+          "H_mean_original": 0.39000423725448397,
+          "H_mean_decimated": 0.7159532085598408,
+          "variation_pct": 83.57575127899699,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 6,
+        "stalls": 2,
+        "spikes": 0,
+        "reversals": 4
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.43003436937407397,
+        0.47584476173069923
+      ],
+      "step11_complex_range_im": [
+        -0.219888194204068,
+        0.6447764196254292
+      ],
+      "step12_radius_range": [
+        0.08869775347848083,
+        0.645185227447577
+      ],
+      "step12_theta_range": [
+        -2.7791073648266402,
+        1.5351958902636427
+      ],
+      "step9_angular_velocity_std": 2.2838273776643985
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            5.925178646679454,
+            1.8605579202727909,
+            10.484118904655357
+          ],
+          "carrier_pct": [
+            32.431447834316586,
+            10.183758285139168,
+            57.38479388054425
+          ],
+          "dominant_carrier": "C3",
+          "dominant_pct": 57.38479388054425
+        },
+        "match_density": {
+          "density": 0.38769676478273435,
+          "concentration": 0.5,
+          "total_matches": 10,
+          "n_constants_hit": 2,
+          "dominant_constant": "1/(e^pi)",
+          "trajectory_length": 25.793354261297512
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              5.087354229249131,
+              30.958037182396833
+            ],
+            [
+              5.087354229249131,
+              0.0,
+              18.76417500317684
+            ],
+            [
+              30.958037182396833,
+              18.76417500317684,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.55740282061933,
+            0.8642617615045769,
+            -1.4216645821239065
+          ],
+          "clr_stds": [
+            2.434168984824072,
+            1.3640226978583572,
+            3.237918915701157
+          ],
+          "aitchison_distance_mean": 5.460834759875645
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.38234626738643535,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "C3",
+          "max_shift_magnitude": 0.10310379319325097
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9288963876547116,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "C3",
+          "sources": [
+            "C1",
+            "C2"
+          ],
+          "I_source1_target": 1.6957425341696344,
+          "I_source2_target": 1.8866967846580784,
+          "redundancy": 1.6957425341696344,
+          "unique_source1": 0.0,
+          "unique_source2": 0.19095425048844406,
+          "dominant": "redundancy"
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(C1/C2)": {
+              "mean": -0.3068589408852469,
+              "std": 2.2555163996852543,
+              "cv": 735.0336259319647
+            },
+            "ln(C1/C3)": {
+              "mean": 1.9790674027432367,
+              "std": 5.563994714447241,
+              "cv": 281.1422545151744
+            },
+            "ln(C2/C3)": {
+              "mean": 2.2859263436284833,
+              "std": 4.331763498065983,
+              "cv": 189.4970723855482
+            }
+          },
+          "most_stable": "ln(C2/C3)",
+          "least_stable": "ln(C1/C2)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

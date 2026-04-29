@@ -1,0 +1,273 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-10",
+    "name": "GW150914 Gravitational Wave",
+    "domain": "GRAVITY",
+    "legacy": "EXP-12",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (chirp model)",
+    "data_file": "",
+    "data_hash": "5f6825d3dfc2c7b0",
+    "N": 40,
+    "D": 3,
+    "carriers": [
+      "h+",
+      "hx",
+      "noise"
+    ],
+    "elapsed_seconds": 0.0035,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-10",
+    "name": "GW150914 Gravitational Wave",
+    "domain": "GRAVITY",
+    "carriers": [
+      "h+",
+      "hx",
+      "noise"
+    ],
+    "D": 3,
+    "N": 40,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "5f6825d3dfc2c7b0",
+    "run_timestamp": "2026-04-28T21:15:18.001229Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-10: GW150914 Gravitational Wave: 3-part simplex, carriers=['h+', 'hx', 'noise']",
+      "step2_n_samples": 40,
+      "step2_D": 3,
+      "step2_carriers": [
+        "h+",
+        "hx",
+        "noise"
+      ],
+      "data_hash_sha256_16": "5f6825d3dfc2c7b0",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.6374634810654793,
+        0.9333920988936729,
+        -1.5708555799591526
+      ],
+      "step4_clr_std_per_part": [
+        0.8016874812523684,
+        0.6238802781070905,
+        0.6188101875644122
+      ],
+      "step5_sigma2_range": [
+        1.2329531132641445,
+        2.785464676603125
+      ],
+      "step5_sigma2_final": 1.4148554672412503,
+      "step6_pll_coeffs": [
+        0.0014729978856685918,
+        -0.07486382445851467,
+        2.3160633339381707
+      ],
+      "step6_pll_R2": 0.5581987271775615,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        25.41206107181005,
+        1.3648412943336496
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 21,
+      "step7_squeeze_closest": {
+        "time_index": 39,
+        "sigma2_A": 1.4148554672412503,
+        "constant": "1/sqrt2",
+        "constant_value": 0.7071067811865475,
+        "test_type": "reciprocal",
+        "test_value": 0.7067859743651735,
+        "delta": 0.00032080682137392014
+      },
+      "step7_squeeze_mean": 1.5775102897424944,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.3250387324891953,
+        0.8630301489031915
+      ],
+      "step8_entropy_mean": 0.6542503709642187,
+      "step8_entropy_cv": 21.687771676935387,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.6542503709642187,
+          "H_mean_decimated": 0.6872593230741628,
+          "variation_pct": 5.045308887069691,
+          "pass": false
+        },
+        "compression_4x": {
+          "H_mean_original": 0.6542503709642187,
+          "H_mean_decimated": 0.7336625007705595,
+          "variation_pct": 12.137880745761766,
+          "pass": false
+        },
+        "compression_8x": {
+          "H_mean_original": 0.6542503709642187,
+          "H_mean_decimated": 0.7484041909627829,
+          "variation_pct": 14.391099214785699,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 32,
+        "stalls": 1,
+        "spikes": 0,
+        "reversals": 31
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.4558761763028517,
+        0.40028700490413793
+      ],
+      "step11_complex_range_im": [
+        -0.03718319816370899,
+        0.0829776720882658
+      ],
+      "step12_radius_range": [
+        0.010171529289226636,
+        0.45632733494458183
+      ],
+      "step12_theta_range": [
+        -3.0971216240835715,
+        3.136989716273885
+      ],
+      "step9_angular_velocity_std": 1.7145961963435385
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.6427028175967666,
+            0.3892266014109806,
+            0.38292604823350296
+          ],
+          "carrier_pct": [
+            45.42533371623731,
+            27.509990272710493,
+            27.064676011052185
+          ],
+          "dominant_carrier": "h+",
+          "dominant_pct": 45.42533371623731
+        },
+        "match_density": {
+          "density": 5.649300984382187,
+          "concentration": 0.11564625850340134,
+          "total_matches": 21,
+          "n_constants_hit": 12,
+          "dominant_constant": "1/sqrt2",
+          "trajectory_length": 3.7172740588713
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              1.680932789781992,
+              1.6620311302495587
+            ],
+            [
+              1.680932789781992,
+              0.0,
+              0.9016024816921998
+            ],
+            [
+              1.6620311302495587,
+              0.9016024816922,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.6374634810654793,
+            0.9333920988936729,
+            -1.5708555799591526
+          ],
+          "clr_stds": [
+            0.8016874812523684,
+            0.6238802781070905,
+            0.6188101875644122
+          ],
+          "aitchison_distance_mean": 1.4990704532808152
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 1.0083460692447512,
+          "drift_direction": "stable",
+          "max_shift_carrier": "h+",
+          "max_shift_magnitude": 0.01448083812978207
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.5581987271775615,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "noise",
+          "sources": [
+            "h+",
+            "hx"
+          ],
+          "I_source1_target": 1.6046217356441668,
+          "I_source2_target": 1.8079320888082961,
+          "redundancy": 1.6046217356441668,
+          "unique_source1": 0.0,
+          "unique_source2": 0.20331035316412938,
+          "dominant": "redundancy"
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.4148554672412503,
+          "shuffled_sigma2": 1.4148554672412503,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 2,
+          "near_zero_carriers": [
+            "noise"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(h+/hx)": {
+              "mean": -0.29592861782819335,
+              "std": 1.296507921218375,
+              "cv": 438.1150869197402
+            },
+            "ln(h+/noise)": {
+              "mean": 2.208319061024632,
+              "std": 1.289197863110841,
+              "cv": 58.379148460217046
+            },
+            "ln(hx/noise)": {
+              "mean": 2.5042476788528254,
+              "std": 0.9495275044421829,
+              "cv": 37.91667703081004
+            }
+          },
+          "most_stable": "ln(hx/noise)",
+          "least_stable": "ln(h+/hx)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

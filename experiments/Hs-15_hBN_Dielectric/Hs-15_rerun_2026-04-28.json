@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-15",
+    "name": "hBN Dielectric Function",
+    "domain": "MATERIALS",
+    "legacy": "EXP-20",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Choi et al. Nature Comms 2026 (derived)",
+    "data_hash": "7283178c47856977",
+    "N": 200,
+    "D": 3,
+    "carriers": [
+      "eps1_par",
+      "eps1_perp",
+      "eps2"
+    ],
+    "elapsed_seconds": 0.0183,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-15",
+    "name": "hBN Dielectric Function",
+    "domain": "MATERIALS",
+    "carriers": [
+      "eps1_par",
+      "eps1_perp",
+      "eps2"
+    ],
+    "D": 3,
+    "N": 200,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "7283178c47856977",
+    "run_timestamp": "2026-04-28T21:16:57.807021Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-15: hBN Dielectric Function: 3-part simplex, carriers=['eps1_par', 'eps1_perp', 'eps2']",
+      "step2_n_samples": 200,
+      "step2_D": 3,
+      "step2_carriers": [
+        "eps1_par",
+        "eps1_perp",
+        "eps2"
+      ],
+      "data_hash_sha256_16": "7283178c47856977",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.7731539080890975,
+        0.5746172989582007,
+        -1.347771207047298
+      ],
+      "step4_clr_std_per_part": [
+        0.6701469353520824,
+        0.6576018088254729,
+        1.0066354182881077
+      ],
+      "step5_sigma2_range": [
+        2.053239407187186e-05,
+        1.896884810806889
+      ],
+      "step5_sigma2_final": 1.8948519192843951,
+      "step6_pll_coeffs": [
+        2.431124869930012e-05,
+        0.006300369956009,
+        -0.22059246912930228
+      ],
+      "step6_pll_R2": 0.881727415186409,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -129.5772593571135,
+        -0.6287848050470743
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 70,
+      "step7_squeeze_closest": {
+        "time_index": 75,
+        "sigma2_A": 0.04317634463130819,
+        "constant": "1/(e^pi)",
+        "constant_value": 0.04321391826377226,
+        "test_type": "direct",
+        "test_value": 0.04317634463130819,
+        "delta": 3.757363246406631e-05
+      },
+      "step7_squeeze_mean": 0.7375672246879299,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.4280063947139419,
+        0.9999925366617843
+      ],
+      "step8_entropy_mean": 0.7491006380879167,
+      "step8_entropy_cv": 14.576787388231468,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.7491006380879167,
+          "H_mean_decimated": 0.7496133561107949,
+          "variation_pct": 0.0684444781928017,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.7491006380879167,
+          "H_mean_decimated": 0.7503736979539514,
+          "variation_pct": 0.1699451050107427,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.7491006380879167,
+          "H_mean_decimated": 0.754991689953775,
+          "variation_pct": 0.7864166129794249,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 10,
+        "stalls": 5,
+        "spikes": 0,
+        "reversals": 5
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.382033268,
+        0.35555041176422436
+      ],
+      "step11_complex_range_im": [
+        -0.09068831557435625,
+        0.5577783284456721
+      ],
+      "step12_radius_range": [
+        0.0958681029490923,
+        0.5594688140459576
+      ],
+      "step12_theta_range": [
+        -3.128493733186177,
+        3.136367131077751
+      ],
+      "step9_angular_velocity_std": 0.08650841852942596
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.449096914961788,
+            0.4324401389705338,
+            1.0133148653520734
+          ],
+          "carrier_pct": [
+            23.700897700301184,
+            22.8218434680557,
+            53.47725883164313
+          ],
+          "dominant_carrier": "eps2",
+          "dominant_pct": 53.47725883164313
+        },
+        "match_density": {
+          "density": 29.569652039681735,
+          "concentration": 0.09918367346938774,
+          "total_matches": 70,
+          "n_constants_hit": 15,
+          "dominant_constant": "1/sqrt3",
+          "trajectory_length": 2.3672919757750868
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.7497592425125705,
+              2.492383421657189
+            ],
+            [
+              0.7497592425125705,
+              0.0,
+              2.442413093683426
+            ],
+            [
+              2.492383421657189,
+              2.442413093683426,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.7731539080890975,
+            0.5746172989582007,
+            -1.347771207047298
+          ],
+          "clr_stds": [
+            0.6701469353520824,
+            0.6576018088254729,
+            1.0066354182881077
+          ],
+          "aitchison_distance_mean": 1.7076291802010617
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 1.1751233573890982,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "eps1_par",
+          "max_shift_magnitude": 0.1281941598127313
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.881727415186409,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "eps2",
+          "sources": [
+            "eps1_par",
+            "eps1_perp"
+          ],
+          "I_source1_target": 1.4914359217733477,
+          "I_source2_target": 1.3704875053884074,
+          "redundancy": 1.3704875053884074,
+          "unique_source1": 0.12094841638494036,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "eps1_par->eps1_perp": 0.0,
+            "eps1_par->eps2": 0.0,
+            "eps1_perp->eps1_par": 0.0,
+            "eps1_perp->eps2": 0.0,
+            "eps2->eps1_par": 0.0,
+            "eps2->eps1_perp": 0.0
+          },
+          "dominant_flow": "eps1_par->eps1_perp",
+          "dominant_te": 0.0
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.8948519192843951,
+          "shuffled_sigma2": 1.8948519192843953,
+          "order_matters": false,
+          "relative_difference": 1.1718309101900062e-16
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(eps1_par/eps1_perp)": {
+              "mean": 0.19853660913089627,
+              "std": 0.8658863912272617,
+              "cv": 436.1343708939736
+            },
+            "ln(eps1_par/eps2)": {
+              "mean": 2.120925115136394,
+              "std": 1.5787284192213646,
+              "cv": 74.43583971703964
+            },
+            "ln(eps1_perp/eps2)": {
+              "mean": 1.9223885060054982,
+              "std": 1.5628221567675018,
+              "cv": 81.29585418791679
+            }
+          },
+          "most_stable": "ln(eps1_par/eps2)",
+          "least_stable": "ln(eps1_par/eps1_perp)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-24",
+    "name": "HEPData Validation",
+    "domain": "PARTICLE",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated jet fragmentation",
+    "data_hash": "6fd90af3d7dcafe7",
+    "N": 100,
+    "D": 3,
+    "carriers": [
+      "Leading",
+      "Subleading",
+      "Soft"
+    ],
+    "elapsed_seconds": 0.0165,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-24",
+    "name": "HEPData Validation",
+    "domain": "PARTICLE",
+    "carriers": [
+      "Leading",
+      "Subleading",
+      "Soft"
+    ],
+    "D": 3,
+    "N": 100,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "6fd90af3d7dcafe7",
+    "run_timestamp": "2026-04-28T21:19:28.447407Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-24: HEPData Validation: 3-part simplex, carriers=['Leading', 'Subleading', 'Soft']",
+      "step2_n_samples": 100,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Leading",
+        "Subleading",
+        "Soft"
+      ],
+      "data_hash_sha256_16": "6fd90af3d7dcafe7",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        1.1663672004682673,
+        -0.6264807075390113,
+        -0.5398864929292561
+      ],
+      "step4_clr_std_per_part": [
+        0.675114295771508,
+        0.5583524873363387,
+        0.491677593565626
+      ],
+      "step5_sigma2_range": [
+        0.49805562935682235,
+        1.2008862549120192
+      ],
+      "step5_sigma2_final": 1.0092836684842204,
+      "step6_pll_coeffs": [
+        1.3788415549841727e-05,
+        0.00014156907649799818,
+        0.899265153117974
+      ],
+      "step6_pll_R2": 0.15903037074941206,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -5.133623801308454,
+        0.8989017719276543
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 16,
+      "step7_squeeze_closest": {
+        "time_index": 44,
+        "sigma2_A": 0.7799094711859353,
+        "constant": "glaisher_kinkelin",
+        "constant_value": 1.2824271291006226,
+        "test_type": "reciprocal",
+        "test_value": 1.2822000975054113,
+        "delta": 0.00022703159521131333
+      },
+      "step7_squeeze_mean": 0.9526124777808676,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.10273284473508808,
+        0.9897829635067444
+      ],
+      "step8_entropy_mean": 0.6738467362254263,
+      "step8_entropy_cv": 35.23715543565643,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.6738467362254263,
+          "H_mean_decimated": 0.677906070312436,
+          "variation_pct": 0.6024120721795189,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.6738467362254263,
+          "H_mean_decimated": 0.6822050773796836,
+          "variation_pct": 1.2403920216452744,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.6703804728012241,
+          "H_mean_decimated": 0.6779161846329586,
+          "variation_pct": 1.124094769682952,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 92,
+        "stalls": 4,
+        "spikes": 0,
+        "reversals": 88
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.2169357655837847,
+        0.3761839861989063
+      ],
+      "step11_complex_range_im": [
+        -0.12842763882471345,
+        0.27433588322065006
+      ],
+      "step12_radius_range": [
+        0.0037224338499053725,
+        0.37672945874803754
+      ],
+      "step12_theta_range": [
+        -3.139367958493482,
+        3.0859960175157464
+      ],
+      "step9_angular_velocity_std": 1.9703199868690224
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.4557793123550592,
+            0.31175750011467623,
+            0.24174685601448495
+          ],
+          "carrier_pct": [
+            45.158692901428346,
+            30.88898689729967,
+            23.95232020127199
+          ],
+          "dominant_carrier": "Leading",
+          "dominant_pct": 45.158692901428346
+        },
+        "match_density": {
+          "density": 6.410306557077782,
+          "concentration": 0.2109375,
+          "total_matches": 16,
+          "n_constants_hit": 6,
+          "dominant_constant": "catalan",
+          "trajectory_length": 2.49598047418403
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              1.2933267689249857,
+              1.083294836624412
+            ],
+            [
+              1.2933267689249857,
+              0.0,
+              0.6512293999032633
+            ],
+            [
+              1.083294836624412,
+              0.6512293999032633,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            1.1663672004682673,
+            -0.6264807075390113,
+            -0.5398864929292561
+          ],
+          "clr_stds": [
+            0.675114295771508,
+            0.5583524873363387,
+            0.491677593565626
+          ],
+          "aitchison_distance_mean": 1.2571735958139267
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 1.124606092982259,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "Subleading",
+          "max_shift_magnitude": 0.011406942961895872
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.15903037074941206,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Soft",
+          "sources": [
+            "Leading",
+            "Subleading"
+          ],
+          "I_source1_target": 1.229182181765791,
+          "I_source2_target": 1.0946097278563667,
+          "redundancy": 1.0946097278563667,
+          "unique_source1": 0.1345724539094244,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Leading->Subleading": 0.013831265992684472,
+            "Leading->Soft": 0.0,
+            "Subleading->Leading": 0.0,
+            "Subleading->Soft": 0.008549236877859467,
+            "Soft->Leading": 0.0,
+            "Soft->Subleading": 0.07616780994801298
+          },
+          "dominant_flow": "Soft->Subleading",
+          "dominant_te": 0.07616780994801298
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.0092836684842204,
+          "shuffled_sigma2": 1.0092836684842201,
+          "order_matters": false,
+          "relative_difference": 2.2000217764199647e-16
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 2,
+          "near_zero_carriers": [
+            "Subleading"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Leading/Subleading)": {
+              "mean": 1.7928479080072788,
+              "std": 1.1372452545185605,
+              "cv": 63.43233296250935
+            },
+            "ln(Leading/Soft)": {
+              "mean": 1.7062536933975232,
+              "std": 1.0408145063479908,
+              "cv": 60.99998554584823
+            },
+            "ln(Subleading/Soft)": {
+              "mean": -0.0865942146097552,
+              "std": 0.806987856106437,
+              "cv": 931.9189044478343
+            }
+          },
+          "most_stable": "ln(Leading/Soft)",
+          "least_stable": "ln(Subleading/Soft)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

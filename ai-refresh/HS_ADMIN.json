@@ -79,6 +79,27 @@
         "Pipeline Lock List"
       ]
     },
-    "closing_statement": "The instrument reads. The expert decides. The loop stays open."
+    "closing_statement": "The instrument reads. The expert decides. The loop stays open.",
+    "eitt_analytic_bound": {
+      "full": "EITT Analytic Bound",
+      "status": "O-1 RESOLVED (April 28, 2026)",
+      "one_sentence": "Closed-form bound on the EITT residual via CLR Taylor expansion.",
+      "NOT": ["EITT conjecture", "EITT hypothesis", "open problem O-1"]
+    },
+    "compositional_horizon": {
+      "full": "Compositional Horizon",
+      "one_sentence": "The threshold (min(x_i) ≈ 0.05) below which a component is causally disconnected from the analysis.",
+      "NOT": ["boundary threshold", "simplex edge"]
+    },
+    "dimensional_collapse": {
+      "full": "Dimensional Collapse Cycle",
+      "one_sentence": "Threshold-triggered phase transition: D → D-k, survivors reconstitute with higher coherence.",
+      "NOT": ["dimension reduction", "PCA"]
+    },
+    "pruning_process": {
+      "full": "Compositional Pruning",
+      "one_sentence": "Geometric-mean decimation as a smooth pruning process that preserves robust structure and dissolves fragile structure.",
+      "NOT": ["data cleaning", "outlier removal"]
+    }
   }
 }

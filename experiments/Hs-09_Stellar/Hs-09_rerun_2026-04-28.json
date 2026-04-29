@@ -1,0 +1,273 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-09",
+    "name": "Stellar Nucleosynthesis",
+    "domain": "ASTROPHYSICS",
+    "legacy": "EXP-11",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (pp-chain evolution)",
+    "data_file": "",
+    "data_hash": "e87c23200fd11aa8",
+    "N": 30,
+    "D": 3,
+    "carriers": [
+      "H",
+      "He",
+      "Metals"
+    ],
+    "elapsed_seconds": 0.0026,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-09",
+    "name": "Stellar Nucleosynthesis",
+    "domain": "ASTROPHYSICS",
+    "carriers": [
+      "H",
+      "He",
+      "Metals"
+    ],
+    "D": 3,
+    "N": 30,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "e87c23200fd11aa8",
+    "run_timestamp": "2026-04-28T21:15:17.996170Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-09: Stellar Nucleosynthesis: 3-part simplex, carriers=['H', 'He', 'Metals']",
+      "step2_n_samples": 30,
+      "step2_D": 3,
+      "step2_carriers": [
+        "H",
+        "He",
+        "Metals"
+      ],
+      "data_hash_sha256_16": "e87c23200fd11aa8",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.25161165799592183,
+        1.5720756749177187,
+        -1.82368733291364
+      ],
+      "step4_clr_std_per_part": [
+        0.8510971925121018,
+        0.3081599387817027,
+        0.5751779872059388
+      ],
+      "step5_sigma2_range": [
+        0.0351779799939042,
+        1.1501586959381995
+      ],
+      "step5_sigma2_final": 1.1501586959381995,
+      "step6_pll_coeffs": [
+        0.0009413001873440864,
+        0.012412170136385993,
+        0.007790482990667427
+      ],
+      "step6_pll_R2": 0.9998960994772331,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -6.593098728370274,
+        -0.03312684858059356
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 13,
+      "step7_squeeze_closest": {
+        "time_index": 16,
+        "sigma2_A": 0.44507595475191825,
+        "constant": "1/sqrt5",
+        "constant_value": 0.4472135954999579,
+        "test_type": "direct",
+        "test_value": 0.44507595475191825,
+        "delta": 0.002137640748039682
+      },
+      "step7_squeeze_mean": 0.48774632733826856,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.3739719396874976,
+        0.6791066183422947
+      ],
+      "step8_entropy_mean": 0.5239546031094381,
+      "step8_entropy_cv": 20.43698278660542,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.5239546031094381,
+          "H_mean_decimated": 0.5242855122376874,
+          "variation_pct": 0.06315606853828395,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.5345558071055297,
+          "H_mean_decimated": 0.5364229392679256,
+          "variation_pct": 0.3492866670939124,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.5586968295067788,
+          "H_mean_decimated": 0.568588776479716,
+          "variation_pct": 1.7705393069206845,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 1,
+        "stalls": 1,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.48936465607188784,
+        0.19167480054807318
+      ],
+      "step11_complex_range_im": [
+        -0.014870902894524076,
+        0.027875151728112165
+      ],
+      "step12_radius_range": [
+        0.009530869807555119,
+        0.4895905537949598
+      ],
+      "step12_theta_range": [
+        -3.111213818964003,
+        0.1444169563123292
+      ],
+      "step9_angular_velocity_std": 0.32908238104706944
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.7243664311019816,
+            0.09496254786994276,
+            0.3308297169662751
+          ],
+          "carrier_pct": [
+            62.97969433784147,
+            8.256473494075578,
+            28.763832168082942
+          ],
+          "dominant_carrier": "H",
+          "dominant_pct": 62.97969433784147
+        },
+        "match_density": {
+          "density": 11.659394475706325,
+          "concentration": 0.08875739644970415,
+          "total_matches": 13,
+          "n_constants_hit": 12,
+          "dominant_constant": "catalan",
+          "trajectory_length": 1.1149807159442953
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              1.3078282409775739,
+              2.0154297482665706
+            ],
+            [
+              1.3078282409775739,
+              0.0,
+              0.12721809857045405
+            ],
+            [
+              2.0154297482665706,
+              0.12721809857045405,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.25161165799592183,
+            1.5720756749177187,
+            -1.82368733291364
+          ],
+          "clr_stds": [
+            0.8510971925121018,
+            0.3081599387817027,
+            0.5751779872059388
+          ],
+          "aitchison_distance_mean": 1.285248558739795
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.6630683037270564,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "H",
+          "max_shift_magnitude": 0.31763808544396954
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9998960994772331,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Metals",
+          "sources": [
+            "H",
+            "He"
+          ],
+          "I_source1_target": 2.5807473674432475,
+          "I_source2_target": 2.0201146206561664,
+          "redundancy": 2.0201146206561664,
+          "unique_source1": 0.5606327467870811,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.1501586959381995,
+          "shuffled_sigma2": 1.1501586959381993,
+          "order_matters": false,
+          "relative_difference": 1.930556241579399e-16
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 1,
+          "near_zero_carriers": [
+            "Metals"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(H/He)": {
+              "mean": -1.3204640169217965,
+              "std": 1.143603183354075,
+              "cv": 86.60616031173562
+            },
+            "ln(H/Metals)": {
+              "mean": 2.075298990909562,
+              "std": 1.419658320958452,
+              "cv": 68.40741151886958
+            },
+            "ln(He/Metals)": {
+              "mean": 3.3957630078313588,
+              "std": 0.35667646203591014,
+              "cv": 10.503573459435703
+            }
+          },
+          "most_stable": "ln(He/Metals)",
+          "least_stable": "ln(H/He)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

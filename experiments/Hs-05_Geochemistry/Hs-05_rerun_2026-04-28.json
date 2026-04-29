@@ -1,0 +1,278 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-05",
+    "name": "Igneous Rock Differentiation",
+    "domain": "GEOCHEMISTRY",
+    "legacy": "EXP-05",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (Le Maitre 2002 trends)",
+    "data_file": "",
+    "data_hash": "f7d4dfaf6a8d62ca",
+    "N": 150,
+    "D": 3,
+    "carriers": [
+      "SiO2",
+      "Al2O3",
+      "CaO+MgO"
+    ],
+    "elapsed_seconds": 0.0166,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-05",
+    "name": "Igneous Rock Differentiation",
+    "domain": "GEOCHEMISTRY",
+    "carriers": [
+      "SiO2",
+      "Al2O3",
+      "CaO+MgO"
+    ],
+    "D": 3,
+    "N": 150,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "f7d4dfaf6a8d62ca",
+    "run_timestamp": "2026-04-28T21:15:17.944643Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-05: Igneous Rock Differentiation: 3-part simplex, carriers=['SiO2', 'Al2O3', 'CaO+MgO']",
+      "step2_n_samples": 150,
+      "step2_D": 3,
+      "step2_carriers": [
+        "SiO2",
+        "Al2O3",
+        "CaO+MgO"
+      ],
+      "data_hash_sha256_16": "f7d4dfaf6a8d62ca",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.8113648447164818,
+        -0.43414214322567557,
+        -0.37722270149080694
+      ],
+      "step4_clr_std_per_part": [
+        0.2872348892142964,
+        0.11599604287060117,
+        0.3973403998416917
+      ],
+      "step5_sigma2_range": [
+        0.0013366052930994547,
+        0.25383835688994294
+      ],
+      "step5_sigma2_final": 0.25383835688994294,
+      "step6_pll_coeffs": [
+        1.5999828813966918e-05,
+        -0.0010040766827902595,
+        0.01759940649605858
+      ],
+      "step6_pll_R2": 0.9805645376911276,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        31.377732051537922,
+        0.001846581940163683
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 37,
+      "step7_squeeze_closest": {
+        "time_index": 82,
+        "sigma2_A": 0.043460840594093136,
+        "constant": "1/(e^pi)",
+        "constant_value": 0.04321391826377226,
+        "test_type": "direct",
+        "test_value": 0.043460840594093136,
+        "delta": 0.0002469223303208784
+      },
+      "step7_squeeze_mean": 0.06219832868490189,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.5911587642696942,
+        0.9498586035476559
+      ],
+      "step8_entropy_mean": 0.8206952067481085,
+      "step8_entropy_cv": 12.612142899734021,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8206952067481085,
+          "H_mean_decimated": 0.8207172335135229,
+          "variation_pct": 0.0026839154455019745,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8234516797879596,
+          "H_mean_decimated": 0.82349308025661,
+          "variation_pct": 0.00502767432098526,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8293939728316226,
+          "H_mean_decimated": 0.8294543146266797,
+          "variation_pct": 0.00727540795251778,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 134,
+        "stalls": 11,
+        "spikes": 0,
+        "reversals": 123
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.0867722939441895,
+        0.08966649247124397
+      ],
+      "step11_complex_range_im": [
+        -0.13535649748018586,
+        0.13631721865748134
+      ],
+      "step12_radius_range": [
+        0.0026103340722443383,
+        0.16225243123587652
+      ],
+      "step12_theta_range": [
+        -2.700619581157914,
+        1.5716043387083827
+      ],
+      "step9_angular_velocity_std": 0.42744679415587195
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.08250388158194914,
+            0.013455081961638344,
+            0.15787939334635545
+          ],
+          "carrier_pct": [
+            32.502527432337764,
+            5.300649644321517,
+            62.19682292334072
+          ],
+          "dominant_carrier": "CaO+MgO",
+          "dominant_pct": 62.19682292334072
+        },
+        "match_density": {
+          "density": 145.2436537697562,
+          "concentration": 0.40978816654492334,
+          "total_matches": 37,
+          "n_constants_hit": 3,
+          "dominant_constant": "1/(e^pi)",
+          "trajectory_length": 0.25474434882128005
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.03403853374081958,
+              0.4673114678949709
+            ],
+            [
+              0.03403853374081958,
+              0.0,
+              0.2601650690340384
+            ],
+            [
+              0.4673114678949709,
+              0.26016506903403847,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.8113648447164818,
+            -0.43414214322567557,
+            -0.37722270149080694
+          ],
+          "clr_stds": [
+            0.2872348892142964,
+            0.11599604287060117,
+            0.3973403998416917
+          ],
+          "aitchison_distance_mean": 0.5807959467493649
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 3.8423460547320447,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "SiO2",
+          "max_shift_magnitude": 0.1654647254119549
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9805645376911276,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "CaO+MgO",
+          "sources": [
+            "SiO2",
+            "Al2O3"
+          ],
+          "I_source1_target": 2.2553731006159463,
+          "I_source2_target": 1.6575237537715009,
+          "redundancy": 1.6575237537715009,
+          "unique_source1": 0.5978493468444455,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "SiO2->Al2O3": 0.1489830715735132,
+            "SiO2->CaO+MgO": 0.0,
+            "Al2O3->SiO2": 0.0,
+            "Al2O3->CaO+MgO": 0.0,
+            "CaO+MgO->SiO2": 0.0,
+            "CaO+MgO->Al2O3": 0.1431053171107446
+          },
+          "dominant_flow": "SiO2->Al2O3",
+          "dominant_te": 0.1489830715735132
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.25383835688994294,
+          "shuffled_sigma2": 0.25383835688994294,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(SiO2/Al2O3)": {
+              "mean": 1.2455069879421579,
+              "std": 0.18449534883248297,
+              "cv": 14.812871434572076
+            },
+            "ln(SiO2/CaO+MgO)": {
+              "mean": 1.1885875462072897,
+              "std": 0.6836018343268038,
+              "cv": 57.51379749082308
+            },
+            "ln(Al2O3/CaO+MgO)": {
+              "mean": -0.056919441734868265,
+              "std": 0.5100637891813518,
+              "cv": 896.1152352077479
+            }
+          },
+          "most_stable": "ln(SiO2/Al2O3)",
+          "least_stable": "ln(Al2O3/CaO+MgO)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

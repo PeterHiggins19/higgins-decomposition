@@ -1,42 +1,40 @@
 {
-  "framework": "Higgins Unity Framework",
-  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
-  "experiment": "Hs-01",
-  "name": "Gold/Silver (338yr)",
-  "domain": "COMMODITIES",
-  "carriers": [
-    "Gold",
-    "Silver"
-  ],
-  "D": 2,
-  "N": 624,
-  "data_source": {
-    "type": "LOCAL FILE",
-    "url": null,
-    "description": null
+  "_meta": {
+    "experiment_id": "Hs-01",
+    "name": "Gold/Silver Price Ratio",
+    "domain": "COMMODITIES",
+    "legacy": "EXP-01",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_hash": "631e1793a086b598",
+    "N": 624,
+    "D": 2,
+    "carriers": [
+      "Gold",
+      "Silver"
+    ],
+    "elapsed_seconds": 0.041,
+    "engine_status": "COMPLETE"
   },
-  "data_hash_sha256_16": "082c75284061f414",
-  "run_timestamp": "2026-04-25T06:03:01.762615Z",
-  "pipeline_version": "1.0 Extended",
   "steps": {
-    "step1_system": "Hs-01: Gold/Silver (338yr): 2-part simplex, carriers=['Gold', 'Silver']",
+    "step1_system": "Hs-01: Gold/Silver Price Ratio: 2-part simplex, carriers=['Gold', 'Silver']",
     "step2_n_samples": 624,
     "step2_D": 2,
     "step2_carriers": [
       "Gold",
       "Silver"
     ],
-    "data_hash_sha256_16": "082c75284061f414",
+    "data_hash_sha256_16": "631e1793a086b598",
     "step3_closure_check": true,
     "step3_zero_replacement_applied": false,
     "step3_zero_delta": 1e-06,
     "step4_clr_mean_per_part": [
-      1.8711080747590978,
-      -1.8711080747590982
+      -1.8711080747590982,
+      1.8711080747590978
     ],
     "step4_clr_std_per_part": [
-      0.3845837814317176,
-      0.38458378143171756
+      0.38458378143171756,
+      0.3845837814317176
     ],
     "step5_sigma2_range": [
       2.4503938924710907e-06,
@@ -101,16 +99,16 @@
     },
     "step10_ternary_type": "1-simplex",
     "step11_complex_range_re": [
-      -0.03568261240091397,
-      0.020917492208616162
+      -0.020917492208616092,
+      0.03568261240091407
     ],
     "step11_complex_range_im": [
       0.0,
       0.0
     ],
     "step12_radius_range": [
-      0.00011039966798609413,
-      0.03568261240091397
+      0.00011039966798596923,
+      0.03568261240091407
     ],
     "step12_theta_range": [
       0.0,
@@ -122,14 +120,14 @@
     "universal": {
       "per_carrier_contribution": {
         "carrier_variance": [
-          0.14790468494031916,
-          0.1479046849403191
+          0.1479046849403191,
+          0.14790468494031916
         ],
         "carrier_pct": [
-          50.000000000000014,
-          49.999999999999986
+          49.999999999999986,
+          50.000000000000014
         ],
-        "dominant_carrier": "Gold",
+        "dominant_carrier": "Silver",
         "dominant_pct": 50.000000000000014
       },
       "match_density": {
@@ -152,19 +150,19 @@
           ]
         ],
         "clr_means": [
-          1.8711080747590978,
-          -1.8711080747590982
+          -1.8711080747590982,
+          1.8711080747590978
         ],
         "clr_stds": [
-          0.3845837814317176,
-          0.38458378143171756
+          0.38458378143171756,
+          0.3845837814317176
         ],
-        "aitchison_distance_mean": 0.5768085900989708
+        "aitchison_distance_mean": 0.5942831099225797
       },
       "carrier_drift": {
         "variance_ratio_2nd_to_1st": 0.12201001305536693,
         "drift_direction": "decreasing",
-        "max_shift_carrier": "Gold",
+        "max_shift_carrier": "Silver",
         "max_shift_magnitude": 0.036043779637873086
       },
       "claim_status": {
@@ -179,10 +177,10 @@
     "conditional": {
       "transfer_entropy": {
         "te_matrix": {
-          "Gold->Silver": 0.0,
-          "Silver->Gold": 8.881784197001252e-16
+          "Gold->Silver": 8.881784197001252e-16,
+          "Silver->Gold": 0.0
         },
-        "dominant_flow": "Silver->Gold",
+        "dominant_flow": "Gold->Silver",
         "dominant_te": 8.881784197001252e-16
       },
       "order_sensitivity": {
@@ -194,7 +192,7 @@
       "zero_crossing": {
         "n_near_zero_events": 36,
         "near_zero_carriers": [
-          "Silver"
+          "Gold"
         ],
         "zero_threshold": 0.01
       }

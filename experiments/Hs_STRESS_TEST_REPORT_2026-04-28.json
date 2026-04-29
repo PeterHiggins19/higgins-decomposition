@@ -1,0 +1,164 @@
+{
+  "_meta": {
+    "type": "Hs_STRESS_TEST_REPORT",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended"
+  },
+  "tests": {
+    "determinism": {
+      "status": "PASS",
+      "runs": 5
+    },
+    "scale": [
+      {
+        "N": 5,
+        "elapsed": 0.0007,
+        "R2": 1.0
+      },
+      {
+        "N": 10,
+        "elapsed": 0.0009,
+        "R2": 0.709358
+      },
+      {
+        "N": 20,
+        "elapsed": 0.0015,
+        "R2": 0.729902
+      },
+      {
+        "N": 50,
+        "elapsed": 0.0071,
+        "R2": 0.373403
+      },
+      {
+        "N": 100,
+        "elapsed": 0.0154,
+        "R2": 0.244979
+      },
+      {
+        "N": 200,
+        "elapsed": 0.021,
+        "R2": 0.184711
+      },
+      {
+        "N": 500,
+        "elapsed": 0.03,
+        "R2": 0.032258
+      },
+      {
+        "N": 1000,
+        "elapsed": 0.0539,
+        "R2": 0.070054
+      },
+      {
+        "N": 2000,
+        "elapsed": 0.1244,
+        "R2": 0.066476
+      },
+      {
+        "N": 5000,
+        "elapsed": 0.489,
+        "R2": 0.098181
+      }
+    ],
+    "dimension": [
+      {
+        "D": 2,
+        "N": 50,
+        "elapsed": 0.0053,
+        "status": "PASS"
+      },
+      {
+        "D": 3,
+        "N": 50,
+        "elapsed": 0.0062,
+        "status": "PASS"
+      },
+      {
+        "D": 4,
+        "N": 50,
+        "elapsed": 0.0074,
+        "status": "PASS"
+      },
+      {
+        "D": 5,
+        "N": 50,
+        "elapsed": 0.0082,
+        "status": "PASS"
+      },
+      {
+        "D": 7,
+        "N": 50,
+        "elapsed": 0.0075,
+        "status": "PASS"
+      },
+      {
+        "D": 10,
+        "N": 50,
+        "elapsed": 0.0078,
+        "status": "PASS"
+      },
+      {
+        "D": 15,
+        "N": 50,
+        "elapsed": 0.0117,
+        "status": "PASS"
+      },
+      {
+        "D": 20,
+        "N": 60,
+        "elapsed": 0.0139,
+        "status": "PASS"
+      }
+    ],
+    "edge_cases": [
+      {
+        "test": "near_boundary",
+        "status": "PASS_guard_correctly_fired",
+        "note": "Guard 4 correctly rejected data with 10^182 scale disparity (Dirichlet alpha=0.01 produces near-zero components)"
+      },
+      {
+        "test": "uniform",
+        "status": "PASS"
+      },
+      {
+        "test": "concentrated",
+        "status": "PASS"
+      },
+      {
+        "test": "min_N_5",
+        "status": "PASS"
+      },
+      {
+        "test": "reject_N4",
+        "status": "PASS_correctly_rejected"
+      },
+      {
+        "test": "non_closure",
+        "status": "PASS_auto_closed"
+      }
+    ],
+    "performance": {
+      "N": 1000,
+      "D": 3,
+      "mean_s": 0.0556,
+      "std_s": 0.0018,
+      "throughput": 17976
+    },
+    "eitt": {
+      "entropy_cv": 11.219656123726256,
+      "eitt_keys": [
+        "compression_2x",
+        "compression_4x",
+        "compression_8x"
+      ]
+    }
+  },
+  "summary": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "verdict": "OPERATIONAL",
+    "pass_rate": "100%"
+  }
+}

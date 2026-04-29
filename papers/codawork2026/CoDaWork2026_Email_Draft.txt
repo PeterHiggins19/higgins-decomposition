@@ -1,22 +1,22 @@
 To: codawork2026@coda-association.org
-Subject: Abstract submission — The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex
-Attachment: CoDaWork2026_Abstract_Higgins.pdf
+Subject: Revised abstract — Higgins, oral presentation
 
 ---
 
-Dear CoDaWork 2026 Organising Committee,
+Dear Prof. Egozcue,
 
-I am writing to submit an abstract for consideration at CoDaWork 2026 in Coimbra. I understand the original deadline has passed and am grateful that the committee is still accepting submissions by correspondence.
+Thank you for confirming the oral presentation slot — I am looking forward to Coimbra.
 
-I am an independent researcher based in Markham, Ontario, Canada. Over the past year I have built a deterministic diagnostic instrument for compositional data that operates entirely within Aitchison geometry on the simplex. The instrument uses simplex closure, CLR transform, Aitchison variance, geometric-mean operations, log-ratio pairs, and amalgamation as its foundational operations — all standard CoDa machinery. It has been validated across 25 experiments spanning 18 physical domains, from nuclear binding energy to cosmological composition, using the same twelve steps with no domain-specific tuning.
+Since submitting the original abstract on energy-mix drift monitoring, the work has developed substantially. The energy-mix drift detection remains part of the evidence base, but the instrument it was built on has matured into a complete deterministic pipeline operating across 18 domains. Rather than present an early-stage monitoring protocol, I would prefer to present the near-complete instrument itself and the results it has produced.
 
-I believe the work poses several questions that can only be answered by the CoDa community, which is why CoDaWork is the right venue. In particular, I present an empirical entropy invariance under geometric-mean decimation that I cannot prove, and I would welcome the community's engagement with the conjecture.
+I am writing within the amendment window to request approval for a revised abstract that reflects this development. The title and scope have changed:
 
-My preference is for an oral presentation (15–20 minutes). I am also happy to present as a poster if that better suits the programme.
+Original title: "Compositional monitoring of energy-mix drift on the simplex"
+Revised title: "The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex"
 
-Practical question: Could you advise what AV equipment is provided in the presentation rooms? I plan to run a short live software demonstration from my laptop alongside slides. I would like to confirm whether HDMI connection is available at the lectern, and whether presenters may use their own laptops. If a poster is assigned, what are the required dimensions?
+The foundation is the same — Aitchison geometry, CLR, perturbation, geometric mean, all standard CoDa operations. What has changed is scale: the pipeline has now been applied to 25 systems across 18 domains spanning 44 orders of magnitude, with three results I believe the CoDa community is best positioned to evaluate, including an entropy invariance under geometric-mean decimation that I cannot prove.
 
-The abstract is pasted below and attached as a one-page PDF.
+The revised abstract (264 words) is pasted below and attached as a one-page PDF. If the committee prefers that I retain the original title or scope, I am happy to adjust.
 
 With respect,
 
@@ -28,7 +28,7 @@ https://github.com/PeterHiggins19/higgins-decomposition
 
 ----------------------------------------------------------------------
 
-ABSTRACT
+REVISED ABSTRACT
 
 Title: The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex
 

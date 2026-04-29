@@ -1,0 +1,272 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-20",
+    "name": "Conversation Drift",
+    "domain": "INFORMATION",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (Dirichlet drift)",
+    "data_hash": "4345f48cb0d730f4",
+    "N": 40,
+    "D": 3,
+    "carriers": [
+      "Question",
+      "Answer",
+      "Tangent"
+    ],
+    "elapsed_seconds": 0.0037,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-20",
+    "name": "Conversation Drift",
+    "domain": "INFORMATION",
+    "carriers": [
+      "Question",
+      "Answer",
+      "Tangent"
+    ],
+    "D": 3,
+    "N": 40,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "4345f48cb0d730f4",
+    "run_timestamp": "2026-04-28T21:19:28.399068Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-20: Conversation Drift: 3-part simplex, carriers=['Question', 'Answer', 'Tangent']",
+      "step2_n_samples": 40,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Question",
+        "Answer",
+        "Tangent"
+      ],
+      "data_hash_sha256_16": "4345f48cb0d730f4",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.2574240655576137,
+        0.24339361541739585,
+        -0.5008176809750098
+      ],
+      "step4_clr_std_per_part": [
+        0.7967274751909317,
+        0.5840432186833086,
+        0.9077417824629522
+      ],
+      "step5_sigma2_range": [
+        1.4331538033499145,
+        2.3342599708379725
+      ],
+      "step5_sigma2_final": 1.7998762946430933,
+      "step6_pll_coeffs": [
+        -0.00016616172929810607,
+        0.0031112923469429252,
+        1.892030063961902
+      ],
+      "step6_pll_R2": 0.10071331428035057,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        9.362241113177882,
+        1.9065943985247344
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 24,
+      "step7_squeeze_closest": {
+        "time_index": 3,
+        "sigma2_A": 1.7678653563532958,
+        "constant": "omega_lambert",
+        "constant_value": 0.5671432904097838,
+        "test_type": "reciprocal",
+        "test_value": 0.5656539376181751,
+        "delta": 0.0014893527916087779
+      },
+      "step7_squeeze_mean": 1.8660011423886063,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.4159964272034488,
+        0.9970508490547721
+      ],
+      "step8_entropy_mean": 0.8379614191412987,
+      "step8_entropy_cv": 17.492960091153343,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8379614191412987,
+          "H_mean_decimated": 0.8748579360433855,
+          "variation_pct": 4.403128361195488,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8379614191412987,
+          "H_mean_decimated": 0.8978503311434635,
+          "variation_pct": 7.146977251474884,
+          "pass": false
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8379614191412987,
+          "H_mean_decimated": 0.9057920658003749,
+          "variation_pct": 8.094721917935745,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 35,
+        "stalls": 5,
+        "spikes": 0,
+        "reversals": 30
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.32934086797321915,
+        0.3893985879400001
+      ],
+      "step11_complex_range_im": [
+        -0.20235151485003802,
+        0.238391343861162
+      ],
+      "step12_radius_range": [
+        0.04077096698325077,
+        0.39548802197981836
+      ],
+      "step12_theta_range": [
+        -2.9718549290305467,
+        2.9414158640079213
+      ],
+      "step9_angular_velocity_std": 1.5083749909796402
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.6347746697241167,
+            0.34110648128995896,
+            0.8239951436290177
+          ],
+          "carrier_pct": [
+            35.26768320763897,
+            18.951662528429416,
+            45.780654263931616
+          ],
+          "dominant_carrier": "Tangent",
+          "dominant_pct": 45.780654263931616
+        },
+        "match_density": {
+          "density": 6.224492194761089,
+          "concentration": 0.1909722222222222,
+          "total_matches": 24,
+          "n_constants_hit": 9,
+          "dominant_constant": "omega_lambert",
+          "trajectory_length": 3.855736218964153
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              1.1277671583991336,
+              2.5764331454163094
+            ],
+            [
+              1.1277671583991338,
+              0.0,
+              1.695428580113837
+            ],
+            [
+              2.57643314541631,
+              1.695428580113837,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.2574240655576137,
+            0.24339361541739585,
+            -0.5008176809750098
+          ],
+          "clr_stds": [
+            0.7967274751909317,
+            0.5840432186833086,
+            0.9077417824629522
+          ],
+          "aitchison_distance_mean": 1.6478215861834449
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.48822785405782915,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Question",
+          "max_shift_magnitude": 0.21510102565444683
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.10071331428035057,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Tangent",
+          "sources": [
+            "Question",
+            "Answer"
+          ],
+          "I_source1_target": 1.5417464091672832,
+          "I_source2_target": 1.5158614762641556,
+          "redundancy": 1.5158614762641556,
+          "unique_source1": 0.025884932903127655,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 1.7998762946430933,
+          "shuffled_sigma2": 1.7998762946430933,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 2,
+          "near_zero_carriers": [
+            "Tangent"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Question/Answer)": {
+              "mean": 0.014030450140217875,
+              "std": 1.0619638216055824,
+              "cv": 7568.993232522841
+            },
+            "ln(Question/Tangent)": {
+              "mean": 0.7582417465326232,
+              "std": 1.6051271430688316,
+              "cv": 211.69068445636836
+            },
+            "ln(Answer/Tangent)": {
+              "mean": 0.7442112963924055,
+              "std": 1.3020862414271326,
+              "cv": 174.96190231713072
+            }
+          },
+          "most_stable": "ln(Answer/Tangent)",
+          "least_stable": "ln(Question/Answer)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

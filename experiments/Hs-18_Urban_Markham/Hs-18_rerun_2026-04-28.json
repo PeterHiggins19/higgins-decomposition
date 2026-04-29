@@ -1,0 +1,278 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-18",
+    "name": "Urban Markham Land Use",
+    "domain": "URBAN",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (Markham growth)",
+    "data_hash": "74fc021e2066287a",
+    "N": 50,
+    "D": 3,
+    "carriers": [
+      "Residential",
+      "Commercial",
+      "GreenSpace"
+    ],
+    "elapsed_seconds": 0.0064,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine",
+    "year_range": "1970-2019"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-18",
+    "name": "Urban Markham Land Use",
+    "domain": "URBAN",
+    "carriers": [
+      "Residential",
+      "Commercial",
+      "GreenSpace"
+    ],
+    "D": 3,
+    "N": 50,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "74fc021e2066287a",
+    "run_timestamp": "2026-04-28T21:19:28.376900Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-18: Urban Markham Land Use: 3-part simplex, carriers=['Residential', 'Commercial', 'GreenSpace']",
+      "step2_n_samples": 50,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Residential",
+        "Commercial",
+        "GreenSpace"
+      ],
+      "data_hash_sha256_16": "74fc021e2066287a",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.6445895148642162,
+        -0.45282609252149814,
+        -0.19176342234271815
+      ],
+      "step4_clr_std_per_part": [
+        0.23560461720745393,
+        0.2500652668223149,
+        0.4855983394703878
+      ],
+      "step5_sigma2_range": [
+        0.0044805695619575155,
+        0.3538479206167844
+      ],
+      "step5_sigma2_final": 0.3538479206167844,
+      "step6_pll_coeffs": [
+        2.1609433084847718e-05,
+        0.006697573109524204,
+        -0.01941928324406391
+      ],
+      "step6_pll_R2": 0.9989529039743044,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -154.96873710723267,
+        -0.5383765064772276
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 12,
+      "step7_squeeze_closest": {
+        "time_index": 44,
+        "sigma2_A": 0.3168194280974819,
+        "constant": "1/pi",
+        "constant_value": 0.3183098861837907,
+        "test_type": "direct",
+        "test_value": 0.3168194280974819,
+        "delta": 0.0014904580863087658
+      },
+      "step7_squeeze_mean": 0.16956757527842592,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.7700280131388716,
+        0.9201229170866277
+      ],
+      "step8_entropy_mean": 0.8587436036002258,
+      "step8_entropy_cv": 5.584311996358241,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8587436036002258,
+          "H_mean_decimated": 0.858807833787256,
+          "variation_pct": 0.007479553473340211,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8623663728909973,
+          "H_mean_decimated": 0.8627014120313099,
+          "variation_pct": 0.038851136923329525,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8623663728909973,
+          "H_mean_decimated": 0.8637731285064559,
+          "variation_pct": 0.16312737366400987,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 0,
+        "stalls": 0,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.0355122437034987,
+        0.0827934205657056
+      ],
+      "step11_complex_range_im": [
+        -0.13949760156409988,
+        0.2886253496523035
+      ],
+      "step12_radius_range": [
+        0.002995354077895079,
+        0.30026545414163824
+      ],
+      "step12_theta_range": [
+        -2.4622607942963595,
+        1.5613222333183006
+      ],
+      "step9_angular_velocity_std": 0.32438189106928855
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.0555095356494709,
+            0.06253263767091553,
+            0.23580574729639797
+          ],
+          "carrier_pct": [
+            15.687399138226803,
+            17.67217892983977,
+            66.64042193193342
+          ],
+          "dominant_carrier": "GreenSpace",
+          "dominant_pct": 66.64042193193342
+        },
+        "match_density": {
+          "density": 34.34780028462596,
+          "concentration": 0.2638888888888889,
+          "total_matches": 12,
+          "n_constants_hit": 4,
+          "dominant_constant": "1/(e^pi)",
+          "trajectory_length": 0.34936735105482686
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.00027859934437497963,
+              0.5200979282208221
+            ],
+            [
+              0.0002785993443749803,
+              0.0,
+              0.541167234285156
+            ],
+            [
+              0.5200979282208221,
+              0.541167234285156,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.6445895148642162,
+            -0.45282609252149814,
+            -0.19176342234271815
+          ],
+          "clr_stds": [
+            0.23560461720745393,
+            0.2500652668223149,
+            0.4855983394703878
+          ],
+          "aitchison_distance_mean": 0.6921065076491161
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.3017670269774937,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "GreenSpace",
+          "max_shift_magnitude": 0.22815385040632588
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9989529039743044,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "GreenSpace",
+          "sources": [
+            "Residential",
+            "Commercial"
+          ],
+          "I_source1_target": 2.6415016839536896,
+          "I_source2_target": 2.5441900580077292,
+          "redundancy": 2.5441900580077292,
+          "unique_source1": 0.09731162594596032,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Residential->Commercial": 0.0,
+            "Residential->GreenSpace": 0.0,
+            "Commercial->Residential": 0.0,
+            "Commercial->GreenSpace": 0.0,
+            "GreenSpace->Residential": 0.0,
+            "GreenSpace->Commercial": 0.0
+          },
+          "dominant_flow": "Residential->Commercial",
+          "dominant_te": 0.0
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.3538479206167844,
+          "shuffled_sigma2": 0.3538479206167844,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Residential/Commercial)": {
+              "mean": 1.0974156073857144,
+              "std": 0.01669129546724818,
+              "cv": 1.520963922411357
+            },
+            "ln(Residential/GreenSpace)": {
+              "mean": 0.8363529372069344,
+              "std": 0.7211781529003927,
+              "cv": 86.22892571033745
+            },
+            "ln(Commercial/GreenSpace)": {
+              "mean": -0.26106267017878004,
+              "std": 0.7356406964579624,
+              "cv": 281.7870115073072
+            }
+          },
+          "most_stable": "ln(Residential/Commercial)",
+          "least_stable": "ln(Commercial/GreenSpace)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

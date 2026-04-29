@@ -1,0 +1,229 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-22",
+    "name": "Natural Pairs",
+    "domain": "MATHEMATICAL",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Natural ratios + perturbations",
+    "data_hash": "5a52c0baea83c495",
+    "N": 60,
+    "D": 2,
+    "carriers": [
+      "A",
+      "B"
+    ],
+    "elapsed_seconds": 0.006,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-22",
+    "name": "Natural Pairs",
+    "domain": "MATHEMATICAL",
+    "carriers": [
+      "A",
+      "B"
+    ],
+    "D": 2,
+    "N": 60,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "5a52c0baea83c495",
+    "run_timestamp": "2026-04-28T21:19:28.423007Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-22: Natural Pairs: 2-part simplex, carriers=['A', 'B']",
+      "step2_n_samples": 60,
+      "step2_D": 2,
+      "step2_carriers": [
+        "A",
+        "B"
+      ],
+      "data_hash_sha256_16": "5a52c0baea83c495",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.6577717542411713,
+        -0.6577717542411712
+      ],
+      "step4_clr_std_per_part": [
+        1.4428031212579155,
+        1.4428031212579155
+      ],
+      "step5_sigma2_range": [
+        0.92032769848602,
+        7.949704407133059
+      ],
+      "step5_sigma2_final": 4.163361693423166,
+      "step6_pll_coeffs": [
+        -0.0004498233855465032,
+        0.00591487897028394,
+        5.492124069401209
+      ],
+      "step6_pll_R2": 0.14888743359501366,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        6.574668147919639,
+        5.511568252583571
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 4,
+      "step7_squeeze_closest": {
+        "time_index": 2,
+        "sigma2_A": 0.92032769848602,
+        "constant": "catalan",
+        "constant_value": 0.915965594177219,
+        "test_type": "direct",
+        "test_value": 0.92032769848602,
+        "delta": 0.004362104308801018
+      },
+      "step7_squeeze_mean": 5.128016669790826,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.006687290658977385,
+        0.9990639536285678
+      ],
+      "step8_entropy_mean": 0.6313207134896236,
+      "step8_entropy_cv": 63.65297464822254,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.6313207134896236,
+          "H_mean_decimated": 0.6405634029485935,
+          "variation_pct": 1.4640244271221432,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.6313207134896236,
+          "H_mean_decimated": 0.674601101123285,
+          "variation_pct": 6.855531065095131,
+          "pass": false
+        },
+        "compression_8x": {
+          "H_mean_original": 0.6086686743533333,
+          "H_mean_decimated": 0.6529403305028979,
+          "variation_pct": 7.273523020812609,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 60,
+        "stalls": 11,
+        "spikes": 5,
+        "reversals": 44
+      },
+      "step10_ternary_type": "1-simplex",
+      "step11_complex_range_re": [
+        -0.4766063470046295,
+        0.41954647511881626
+      ],
+      "step11_complex_range_im": [
+        0.0,
+        0.0
+      ],
+      "step12_radius_range": [
+        0.001699314180482192,
+        0.4766063470046295
+      ],
+      "step12_theta_range": [
+        0.0,
+        3.141592653589793
+      ],
+      "step9_angular_velocity_std": 1.3554558116415352
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            2.0816808467115835,
+            2.081680846711583
+          ],
+          "carrier_pct": [
+            50.000000000000014,
+            50.0
+          ],
+          "dominant_carrier": "A",
+          "dominant_pct": 50.000000000000014
+        },
+        "match_density": {
+          "density": 0.24990065671784967,
+          "concentration": 0.625,
+          "total_matches": 4,
+          "n_constants_hit": 2,
+          "dominant_constant": "1/(2pi)",
+          "trajectory_length": 16.00636049754843
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              8.32672338684633
+            ],
+            [
+              8.32672338684633,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.6577717542411713,
+            -0.6577717542411712
+          ],
+          "clr_stds": [
+            1.4428031212579155,
+            1.4428031212579155
+          ],
+          "aitchison_distance_mean": 2.204272621445106
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.026556336021508576,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "A",
+          "max_shift_magnitude": 0.25906039826275085
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.14888743359501366,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "transfer_entropy": {
+          "te_matrix": {
+            "A->B": 0.0,
+            "B->A": 0.0
+          },
+          "dominant_flow": "A->B",
+          "dominant_te": 0.0
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 4.163361693423166,
+          "shuffled_sigma2": 4.163361693423165,
+          "order_matters": false,
+          "relative_difference": 2.1333203432773437e-16
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 13,
+          "near_zero_carriers": [
+            "B"
+          ],
+          "zero_threshold": 0.01
+        }
+      },
+      "auto_detected": [
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector"
+      ]
+    }
+  }
+}
