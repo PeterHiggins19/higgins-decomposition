@@ -1,0 +1,2422 @@
+{
+  "_type": "HS_SYSTEM_BACKUP",
+  "_version": "1.0",
+  "_generated": "2026-04-30T11:55:15",
+  "_purpose": "Complete file system snapshot of all repositories in the Higgins Decomposition workspace. Maintained alongside HS_ADMIN.json, HS_MACHINE_MANIFEST.json, and other governance files.",
+  "_update_triggers": [
+    "Any file added, removed, or renamed in any repository",
+    "Any directory structure change",
+    "Any new experiment, component, or document added",
+    "Before each git push"
+  ],
+  "workspace": {
+    "root": "Claude CoWorker/Current-Repo/",
+    "repos": [
+      "Hs",
+      "Hs-Lab",
+      "HUF"
+    ],
+    "total_files": 500,
+    "note": "HUF file count excluded \u2014 large legacy archive. Hs and Hs-Lab are actively maintained."
+  },
+  "Hs": {
+    "role": "Mathematical fixture",
+    "file_count": 479,
+    "directory_count": 50,
+    "structure": {
+      "directories": {
+        ".github": {
+          "directories": {
+            "workflows": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "validate.yml",
+                  "size_bytes": 7830
+                }
+              ]
+            }
+          },
+          "files": []
+        },
+        "ai-refresh": {
+          "directories": {},
+          "files": [
+            {
+              "name": "AI_REFRESH_2026-04-27.md",
+              "size_bytes": 13734
+            },
+            {
+              "name": "AI_REFRESH_2026-04-30.md",
+              "size_bytes": 5295
+            },
+            {
+              "name": "HS_ADMIN.json",
+              "size_bytes": 19050
+            },
+            {
+              "name": "HS_GITHUB_CONFIG.json",
+              "size_bytes": 2241
+            },
+            {
+              "name": "HS_MACHINE_MANIFEST.json",
+              "size_bytes": 28567
+            },
+            {
+              "name": "HS_MAINTENANCE.json",
+              "size_bytes": 6467
+            },
+            {
+              "name": "HS_SYSTEM_BACKUP.json",
+              "size_bytes": 71821
+            },
+            {
+              "name": "HS_SYSTEM_INVENTORY.json",
+              "size_bytes": 6598
+            },
+            {
+              "name": "PREPARE_FOR_REPO.json",
+              "size_bytes": 20190
+            },
+            {
+              "name": "README.md",
+              "size_bytes": 3156
+            }
+          ]
+        },
+        "archive": {
+          "directories": {},
+          "files": [
+            {
+              "name": "README.md",
+              "size_bytes": 1238
+            }
+          ]
+        },
+        "constants": {
+          "directories": {},
+          "files": [
+            {
+              "name": ".gitkeep",
+              "size_bytes": 38
+            }
+          ]
+        },
+        "data": {
+          "directories": {},
+          "files": [
+            {
+              "name": ".gitkeep",
+              "size_bytes": 38
+            }
+          ]
+        },
+        "docs": {
+          "directories": {
+            "lineage": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 38
+                }
+              ]
+            },
+            "operating-envelope": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 38
+                }
+              ]
+            },
+            "proofs": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 38
+                }
+              ]
+            },
+            "reference": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Higgins_Decomposition_Reference_v1.0.docx",
+                  "size_bytes": 37917
+                },
+                {
+                  "name": "Higgins_Decomposition_Reference_v3.0.docx",
+                  "size_bytes": 27795
+                },
+                {
+                  "name": "Hs_HVLD_Systems_Primer.docx",
+                  "size_bytes": 2410797
+                },
+                {
+                  "name": "Hs_Instrument_Metrology.json",
+                  "size_bytes": 29291
+                },
+                {
+                  "name": "Hs_Natural_Pairs_Baseline.md",
+                  "size_bytes": 30786
+                },
+                {
+                  "name": "Hs_Reference_Standard_Library.md",
+                  "size_bytes": 110116
+                }
+              ]
+            },
+            "theory": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 38
+                },
+                {
+                  "name": "Grok_Mathematical_Foundation_Notes.md",
+                  "size_bytes": 3442
+                },
+                {
+                  "name": "HIGGINS_DIFFRACTION_COMPOSITION_PRINCIPLE.json",
+                  "size_bytes": 21758
+                },
+                {
+                  "name": "Higgins_Diffraction_Composition_Principle.docx",
+                  "size_bytes": 15771
+                },
+                {
+                  "name": "Higgins_Diffraction_Composition_Principle.md",
+                  "size_bytes": 17422
+                },
+                {
+                  "name": "Information_Mechanics_Declaration.docx",
+                  "size_bytes": 21249
+                },
+                {
+                  "name": "NATURES_CONFIRMATION_SERIES.json",
+                  "size_bytes": 25535
+                },
+                {
+                  "name": "Natural_Partition_Principle.md",
+                  "size_bytes": 6587
+                },
+                {
+                  "name": "Natures_Confirmation_Series.md",
+                  "size_bytes": 5450
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "Hs_Applications_Guide.md",
+              "size_bytes": 26806
+            },
+            {
+              "name": "Hs_Architecture_Overview.md",
+              "size_bytes": 9754
+            },
+            {
+              "name": "Hs_Complete_Mathematics.docx",
+              "size_bytes": 32369
+            },
+            {
+              "name": "Hs_Complete_Mathematics.pdf",
+              "size_bytes": 365501
+            },
+            {
+              "name": "Hs_Decomposition_Function.md",
+              "size_bytes": 19018
+            },
+            {
+              "name": "Hs_Diagnostic_Code_Reference.docx",
+              "size_bytes": 33267
+            },
+            {
+              "name": "Hs_Diagnostic_Code_Reference.pdf",
+              "size_bytes": 404006
+            },
+            {
+              "name": "Hs_Discovery_Registry.md",
+              "size_bytes": 17635
+            },
+            {
+              "name": "Hs_High_Index_Platform_Guide.md",
+              "size_bytes": 35653
+            },
+            {
+              "name": "Hs_Learning_Path.md",
+              "size_bytes": 11844
+            },
+            {
+              "name": "Hs_Logic_Map_and_State_Machine.md",
+              "size_bytes": 44372
+            },
+            {
+              "name": "Hs_Naming_Convention.md",
+              "size_bytes": 7063
+            },
+            {
+              "name": "Hs_Terminology_Migration_Log.md",
+              "size_bytes": 6447
+            },
+            {
+              "name": "README.md",
+              "size_bytes": 5036
+            }
+          ]
+        },
+        "experiments": {
+          "directories": {
+            "Hs-01_Gold_Silver": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-01_report_en.txt",
+                  "size_bytes": 1425
+                },
+                {
+                  "name": "Hs-01_report_hi.txt",
+                  "size_bytes": 2316
+                },
+                {
+                  "name": "Hs-01_report_it.txt",
+                  "size_bytes": 1451
+                },
+                {
+                  "name": "Hs-01_report_pt.txt",
+                  "size_bytes": 1455
+                },
+                {
+                  "name": "Hs-01_report_zh.txt",
+                  "size_bytes": 1291
+                },
+                {
+                  "name": "Hs-01_results.json",
+                  "size_bytes": 5454
+                }
+              ]
+            },
+            "Hs-02_US_Energy": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-02_report_en.txt",
+                  "size_bytes": 1563
+                },
+                {
+                  "name": "Hs-02_report_hi.txt",
+                  "size_bytes": 2551
+                },
+                {
+                  "name": "Hs-02_report_it.txt",
+                  "size_bytes": 1725
+                },
+                {
+                  "name": "Hs-02_report_pt.txt",
+                  "size_bytes": 1728
+                },
+                {
+                  "name": "Hs-02_report_zh.txt",
+                  "size_bytes": 1435
+                },
+                {
+                  "name": "Hs-02_rerun_2026-04-28.json",
+                  "size_bytes": 7811
+                },
+                {
+                  "name": "Hs-02_results.json",
+                  "size_bytes": 6588
+                }
+              ]
+            },
+            "Hs-03_Nuclear_SEMF": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-03_impedance_bridge.json",
+                  "size_bytes": 15436
+                },
+                {
+                  "name": "Hs-03_projector.html",
+                  "size_bytes": 29575
+                },
+                {
+                  "name": "Hs-03_projector_manifest.json",
+                  "size_bytes": 9289
+                },
+                {
+                  "name": "Hs-03_report_en.txt",
+                  "size_bytes": 1827
+                },
+                {
+                  "name": "Hs-03_report_hi.txt",
+                  "size_bytes": 2962
+                },
+                {
+                  "name": "Hs-03_report_it.txt",
+                  "size_bytes": 1933
+                },
+                {
+                  "name": "Hs-03_report_pt.txt",
+                  "size_bytes": 1949
+                },
+                {
+                  "name": "Hs-03_report_zh.txt",
+                  "size_bytes": 1659
+                },
+                {
+                  "name": "Hs-03_rerun_2026-04-28.json",
+                  "size_bytes": 8533
+                },
+                {
+                  "name": "Hs-03_results.json",
+                  "size_bytes": 7220
+                }
+              ]
+            },
+            "Hs-04_Bessel_Acoustics": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-04_report_en.txt",
+                  "size_bytes": 1621
+                },
+                {
+                  "name": "Hs-04_report_hi.txt",
+                  "size_bytes": 2740
+                },
+                {
+                  "name": "Hs-04_report_it.txt",
+                  "size_bytes": 1758
+                },
+                {
+                  "name": "Hs-04_report_pt.txt",
+                  "size_bytes": 1759
+                },
+                {
+                  "name": "Hs-04_report_zh.txt",
+                  "size_bytes": 1499
+                },
+                {
+                  "name": "Hs-04_rerun_2026-04-28.json",
+                  "size_bytes": 8189
+                },
+                {
+                  "name": "Hs-04_results.json",
+                  "size_bytes": 7039
+                }
+              ]
+            },
+            "Hs-05_Geochemistry": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-05_report_en.txt",
+                  "size_bytes": 1749
+                },
+                {
+                  "name": "Hs-05_report_hi.txt",
+                  "size_bytes": 2893
+                },
+                {
+                  "name": "Hs-05_report_it.txt",
+                  "size_bytes": 1870
+                },
+                {
+                  "name": "Hs-05_report_pt.txt",
+                  "size_bytes": 1877
+                },
+                {
+                  "name": "Hs-05_report_zh.txt",
+                  "size_bytes": 1597
+                },
+                {
+                  "name": "Hs-05_rerun_2026-04-28.json",
+                  "size_bytes": 8083
+                },
+                {
+                  "name": "Hs-05_results.json",
+                  "size_bytes": 7007
+                }
+              ]
+            },
+            "Hs-06_Fusion": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-06_report_en.txt",
+                  "size_bytes": 1832
+                },
+                {
+                  "name": "Hs-06_report_hi.txt",
+                  "size_bytes": 3060
+                },
+                {
+                  "name": "Hs-06_report_it.txt",
+                  "size_bytes": 1990
+                },
+                {
+                  "name": "Hs-06_report_pt.txt",
+                  "size_bytes": 1980
+                },
+                {
+                  "name": "Hs-06_report_zh.txt",
+                  "size_bytes": 1701
+                },
+                {
+                  "name": "Hs-06_rerun_2026-04-28.json",
+                  "size_bytes": 8284
+                },
+                {
+                  "name": "Hs-06_results.json",
+                  "size_bytes": 7227
+                }
+              ]
+            },
+            "Hs-07_QCD": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-07_report_en.txt",
+                  "size_bytes": 1632
+                },
+                {
+                  "name": "Hs-07_report_hi.txt",
+                  "size_bytes": 2713
+                },
+                {
+                  "name": "Hs-07_report_it.txt",
+                  "size_bytes": 1704
+                },
+                {
+                  "name": "Hs-07_report_pt.txt",
+                  "size_bytes": 1706
+                },
+                {
+                  "name": "Hs-07_report_zh.txt",
+                  "size_bytes": 1519
+                },
+                {
+                  "name": "Hs-07_rerun_2026-04-28.json",
+                  "size_bytes": 7536
+                },
+                {
+                  "name": "Hs-07_results.json",
+                  "size_bytes": 6461
+                }
+              ]
+            },
+            "Hs-08_CKM_PMNS": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-08_report_en.txt",
+                  "size_bytes": 1561
+                },
+                {
+                  "name": "Hs-08_report_hi.txt",
+                  "size_bytes": 2655
+                },
+                {
+                  "name": "Hs-08_report_it.txt",
+                  "size_bytes": 1641
+                },
+                {
+                  "name": "Hs-08_report_pt.txt",
+                  "size_bytes": 1639
+                },
+                {
+                  "name": "Hs-08_report_zh.txt",
+                  "size_bytes": 1451
+                },
+                {
+                  "name": "Hs-08_rerun_2026-04-28.json",
+                  "size_bytes": 7007
+                },
+                {
+                  "name": "Hs-08_results.json",
+                  "size_bytes": 5983
+                }
+              ]
+            },
+            "Hs-09_Stellar": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-09_report_en.txt",
+                  "size_bytes": 1514
+                },
+                {
+                  "name": "Hs-09_report_hi.txt",
+                  "size_bytes": 2447
+                },
+                {
+                  "name": "Hs-09_report_it.txt",
+                  "size_bytes": 1620
+                },
+                {
+                  "name": "Hs-09_report_pt.txt",
+                  "size_bytes": 1627
+                },
+                {
+                  "name": "Hs-09_report_zh.txt",
+                  "size_bytes": 1392
+                },
+                {
+                  "name": "Hs-09_rerun_2026-04-28.json",
+                  "size_bytes": 7755
+                },
+                {
+                  "name": "Hs-09_results.json",
+                  "size_bytes": 6460
+                }
+              ]
+            },
+            "Hs-10_GW150914": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-10_report_en.txt",
+                  "size_bytes": 1853
+                },
+                {
+                  "name": "Hs-10_report_hi.txt",
+                  "size_bytes": 3102
+                },
+                {
+                  "name": "Hs-10_report_it.txt",
+                  "size_bytes": 1972
+                },
+                {
+                  "name": "Hs-10_report_pt.txt",
+                  "size_bytes": 1957
+                },
+                {
+                  "name": "Hs-10_report_zh.txt",
+                  "size_bytes": 1714
+                },
+                {
+                  "name": "Hs-10_rerun_2026-04-28.json",
+                  "size_bytes": 7721
+                },
+                {
+                  "name": "Hs-10_results.json",
+                  "size_bytes": 6662
+                }
+              ]
+            },
+            "Hs-11_AME2020": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-11_report_en.txt",
+                  "size_bytes": 1926
+                },
+                {
+                  "name": "Hs-11_report_hi.txt",
+                  "size_bytes": 3265
+                },
+                {
+                  "name": "Hs-11_report_it.txt",
+                  "size_bytes": 2029
+                },
+                {
+                  "name": "Hs-11_report_pt.txt",
+                  "size_bytes": 2020
+                },
+                {
+                  "name": "Hs-11_report_zh.txt",
+                  "size_bytes": 1767
+                },
+                {
+                  "name": "Hs-11_rerun_2026-04-28.json",
+                  "size_bytes": 8382
+                },
+                {
+                  "name": "Hs-11_results.json",
+                  "size_bytes": 7181
+                }
+              ]
+            },
+            "Hs-12_Spring_Mass": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-12_report_en.txt",
+                  "size_bytes": 2007
+                },
+                {
+                  "name": "Hs-12_report_hi.txt",
+                  "size_bytes": 3440
+                },
+                {
+                  "name": "Hs-12_report_it.txt",
+                  "size_bytes": 2140
+                },
+                {
+                  "name": "Hs-12_report_pt.txt",
+                  "size_bytes": 2136
+                },
+                {
+                  "name": "Hs-12_report_zh.txt",
+                  "size_bytes": 1837
+                },
+                {
+                  "name": "Hs-12_rerun_2026-04-28.json",
+                  "size_bytes": 8202
+                },
+                {
+                  "name": "Hs-12_results.json",
+                  "size_bytes": 7103
+                }
+              ]
+            },
+            "Hs-13_Steel": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-13_report_en.txt",
+                  "size_bytes": 1885
+                },
+                {
+                  "name": "Hs-13_report_hi.txt",
+                  "size_bytes": 3188
+                },
+                {
+                  "name": "Hs-13_report_it.txt",
+                  "size_bytes": 2060
+                },
+                {
+                  "name": "Hs-13_report_pt.txt",
+                  "size_bytes": 2041
+                },
+                {
+                  "name": "Hs-13_report_zh.txt",
+                  "size_bytes": 1755
+                },
+                {
+                  "name": "Hs-13_rerun_2026-04-28.json",
+                  "size_bytes": 8299
+                },
+                {
+                  "name": "Hs-13_results.json",
+                  "size_bytes": 7169
+                }
+              ]
+            },
+            "Hs-14_Conjugate_Pairs": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-14_report_en.txt",
+                  "size_bytes": 1999
+                },
+                {
+                  "name": "Hs-14_report_hi.txt",
+                  "size_bytes": 3340
+                },
+                {
+                  "name": "Hs-14_report_it.txt",
+                  "size_bytes": 2063
+                },
+                {
+                  "name": "Hs-14_report_pt.txt",
+                  "size_bytes": 2068
+                },
+                {
+                  "name": "Hs-14_report_zh.txt",
+                  "size_bytes": 1838
+                },
+                {
+                  "name": "Hs-14_rerun_2026-04-28.json",
+                  "size_bytes": 8104
+                },
+                {
+                  "name": "Hs-14_results.json",
+                  "size_bytes": 7175
+                }
+              ]
+            },
+            "Hs-15_hBN_Dielectric": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-15_report_en.txt",
+                  "size_bytes": 1868
+                },
+                {
+                  "name": "Hs-15_report_hi.txt",
+                  "size_bytes": 3187
+                },
+                {
+                  "name": "Hs-15_report_it.txt",
+                  "size_bytes": 2044
+                },
+                {
+                  "name": "Hs-15_report_pt.txt",
+                  "size_bytes": 2039
+                },
+                {
+                  "name": "Hs-15_report_zh.txt",
+                  "size_bytes": 1722
+                },
+                {
+                  "name": "Hs-15_rerun_2026-04-28.json",
+                  "size_bytes": 8029
+                },
+                {
+                  "name": "Hs-15_results.json",
+                  "size_bytes": 7181
+                }
+              ]
+            },
+            "Hs-16_Planck_Cosmic": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-16_report_en.txt",
+                  "size_bytes": 1864
+                },
+                {
+                  "name": "Hs-16_report_hi.txt",
+                  "size_bytes": 2984
+                },
+                {
+                  "name": "Hs-16_report_it.txt",
+                  "size_bytes": 2001
+                },
+                {
+                  "name": "Hs-16_report_pt.txt",
+                  "size_bytes": 1998
+                },
+                {
+                  "name": "Hs-16_report_zh.txt",
+                  "size_bytes": 1722
+                },
+                {
+                  "name": "Hs-16_rerun_2026-04-28.json",
+                  "size_bytes": 8401
+                },
+                {
+                  "name": "Hs-16_results.json",
+                  "size_bytes": 7407
+                },
+                {
+                  "name": "planck_cosmic_budget.csv",
+                  "size_bytes": 20060
+                }
+              ]
+            },
+            "Hs-17_Backblaze": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-17A_per_drive_results.json",
+                  "size_bytes": 8287
+                },
+                {
+                  "name": "Hs-17B_per_model_results.json",
+                  "size_bytes": 8450
+                },
+                {
+                  "name": "Hs-17C_by_capacity_results.json",
+                  "size_bytes": 7745
+                },
+                {
+                  "name": "Hs-17D_fail_contrast_results.json",
+                  "size_bytes": 7265
+                },
+                {
+                  "name": "Hs-17_daily_compositions.json",
+                  "size_bytes": 25020
+                },
+                {
+                  "name": "Hs-17_fleet_composition.csv",
+                  "size_bytes": 13536
+                },
+                {
+                  "name": "Hs-17_longitudinal_results.json",
+                  "size_bytes": 8398
+                },
+                {
+                  "name": "Hs-17_preparser.json",
+                  "size_bytes": 1328
+                },
+                {
+                  "name": "Hs-17_report_en.txt",
+                  "size_bytes": 1910
+                },
+                {
+                  "name": "Hs-17_report_hi.txt",
+                  "size_bytes": 3156
+                },
+                {
+                  "name": "Hs-17_report_it.txt",
+                  "size_bytes": 1962
+                },
+                {
+                  "name": "Hs-17_report_pt.txt",
+                  "size_bytes": 1951
+                },
+                {
+                  "name": "Hs-17_report_zh.txt",
+                  "size_bytes": 1777
+                },
+                {
+                  "name": "Hs-17_rerun_2026-04-28.json",
+                  "size_bytes": 8191
+                },
+                {
+                  "name": "Hs-17_results.json",
+                  "size_bytes": 6544
+                },
+                {
+                  "name": "Hs-17a_report_en.txt",
+                  "size_bytes": 2230
+                },
+                {
+                  "name": "Hs-17a_report_hi.txt",
+                  "size_bytes": 3757
+                },
+                {
+                  "name": "Hs-17a_report_it.txt",
+                  "size_bytes": 2294
+                },
+                {
+                  "name": "Hs-17a_report_pt.txt",
+                  "size_bytes": 2280
+                },
+                {
+                  "name": "Hs-17a_report_zh.txt",
+                  "size_bytes": 2080
+                },
+                {
+                  "name": "Hs-17b_report_en.txt",
+                  "size_bytes": 2273
+                },
+                {
+                  "name": "Hs-17b_report_hi.txt",
+                  "size_bytes": 3781
+                },
+                {
+                  "name": "Hs-17b_report_it.txt",
+                  "size_bytes": 2434
+                },
+                {
+                  "name": "Hs-17b_report_pt.txt",
+                  "size_bytes": 2434
+                },
+                {
+                  "name": "Hs-17b_report_zh.txt",
+                  "size_bytes": 2129
+                },
+                {
+                  "name": "Hs-17c_report_en.txt",
+                  "size_bytes": 2422
+                },
+                {
+                  "name": "Hs-17c_report_hi.txt",
+                  "size_bytes": 4124
+                },
+                {
+                  "name": "Hs-17c_report_it.txt",
+                  "size_bytes": 2546
+                },
+                {
+                  "name": "Hs-17c_report_pt.txt",
+                  "size_bytes": 2539
+                },
+                {
+                  "name": "Hs-17c_report_zh.txt",
+                  "size_bytes": 2254
+                },
+                {
+                  "name": "Hs-17d_report_en.txt",
+                  "size_bytes": 1960
+                },
+                {
+                  "name": "Hs-17d_report_hi.txt",
+                  "size_bytes": 3205
+                },
+                {
+                  "name": "Hs-17d_report_it.txt",
+                  "size_bytes": 2060
+                },
+                {
+                  "name": "Hs-17d_report_pt.txt",
+                  "size_bytes": 2054
+                },
+                {
+                  "name": "Hs-17d_report_zh.txt",
+                  "size_bytes": 1790
+                }
+              ]
+            },
+            "Hs-18_Urban_Markham": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-18_report_en.txt",
+                  "size_bytes": 1730
+                },
+                {
+                  "name": "Hs-18_report_hi.txt",
+                  "size_bytes": 2793
+                },
+                {
+                  "name": "Hs-18_report_it.txt",
+                  "size_bytes": 1747
+                },
+                {
+                  "name": "Hs-18_report_pt.txt",
+                  "size_bytes": 1753
+                },
+                {
+                  "name": "Hs-18_report_zh.txt",
+                  "size_bytes": 1592
+                },
+                {
+                  "name": "Hs-18_rerun_2026-04-28.json",
+                  "size_bytes": 8184
+                },
+                {
+                  "name": "Hs-18_results.json",
+                  "size_bytes": 6880
+                }
+              ]
+            },
+            "Hs-19_Traffic_Signals": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-19_report_en.txt",
+                  "size_bytes": 1806
+                },
+                {
+                  "name": "Hs-19_report_hi.txt",
+                  "size_bytes": 2995
+                },
+                {
+                  "name": "Hs-19_report_it.txt",
+                  "size_bytes": 1839
+                },
+                {
+                  "name": "Hs-19_report_pt.txt",
+                  "size_bytes": 1846
+                },
+                {
+                  "name": "Hs-19_report_zh.txt",
+                  "size_bytes": 1667
+                },
+                {
+                  "name": "Hs-19_rerun_2026-04-28.json",
+                  "size_bytes": 7990
+                },
+                {
+                  "name": "Hs-19_results.json",
+                  "size_bytes": 7171
+                }
+              ]
+            },
+            "Hs-20_Conversation_Drift": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-20_codes.json",
+                  "size_bytes": 9991
+                },
+                {
+                  "name": "Hs-20_concept.md",
+                  "size_bytes": 4928
+                },
+                {
+                  "name": "Hs-20_milestone_compositions.csv",
+                  "size_bytes": 2299
+                },
+                {
+                  "name": "Hs-20_milestone_labels.json",
+                  "size_bytes": 2742
+                },
+                {
+                  "name": "Hs-20_report_en.txt",
+                  "size_bytes": 2168
+                },
+                {
+                  "name": "Hs-20_report_hi.txt",
+                  "size_bytes": 3677
+                },
+                {
+                  "name": "Hs-20_report_it.txt",
+                  "size_bytes": 2333
+                },
+                {
+                  "name": "Hs-20_report_pt.txt",
+                  "size_bytes": 2332
+                },
+                {
+                  "name": "Hs-20_report_zh.txt",
+                  "size_bytes": 2035
+                },
+                {
+                  "name": "Hs-20_rerun_2026-04-28.json",
+                  "size_bytes": 7819
+                },
+                {
+                  "name": "Hs-20_results.json",
+                  "size_bytes": 7666
+                }
+              ]
+            },
+            "Hs-21_Reference_Standards": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-21_CONCLUSIONS.md",
+                  "size_bytes": 2443
+                },
+                {
+                  "name": "Hs-21_reference_library.json",
+                  "size_bytes": 15063
+                },
+                {
+                  "name": "Hs-21_rerun_2026-04-28.json",
+                  "size_bytes": 7904
+                },
+                {
+                  "name": "Hs_Reference_Standard_Library.md",
+                  "size_bytes": 110116
+                }
+              ]
+            },
+            "Hs-22_Natural_Pairs": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-22_pair_library.json",
+                  "size_bytes": 13108
+                },
+                {
+                  "name": "Hs-22_rerun_2026-04-28.json",
+                  "size_bytes": 6302
+                },
+                {
+                  "name": "Hs_Natural_Pairs_Baseline.md",
+                  "size_bytes": 30786
+                },
+                {
+                  "name": "PAIR-1A_report_en.txt",
+                  "size_bytes": 1885
+                },
+                {
+                  "name": "PAIR-1A_report_hi.txt",
+                  "size_bytes": 3020
+                },
+                {
+                  "name": "PAIR-1A_report_it.txt",
+                  "size_bytes": 1991
+                },
+                {
+                  "name": "PAIR-1A_report_pt.txt",
+                  "size_bytes": 2007
+                },
+                {
+                  "name": "PAIR-1A_report_zh.txt",
+                  "size_bytes": 1717
+                },
+                {
+                  "name": "PAIR-1A_results.json",
+                  "size_bytes": 7262
+                },
+                {
+                  "name": "PAIR-1B_report_en.txt",
+                  "size_bytes": 2000
+                },
+                {
+                  "name": "PAIR-1B_report_hi.txt",
+                  "size_bytes": 3325
+                },
+                {
+                  "name": "PAIR-1B_report_it.txt",
+                  "size_bytes": 2180
+                },
+                {
+                  "name": "PAIR-1B_report_pt.txt",
+                  "size_bytes": 2154
+                },
+                {
+                  "name": "PAIR-1B_report_zh.txt",
+                  "size_bytes": 1867
+                },
+                {
+                  "name": "PAIR-1B_results.json",
+                  "size_bytes": 7271
+                },
+                {
+                  "name": "PAIR-2A_report_en.txt",
+                  "size_bytes": 2065
+                },
+                {
+                  "name": "PAIR-2A_report_hi.txt",
+                  "size_bytes": 3498
+                },
+                {
+                  "name": "PAIR-2A_report_it.txt",
+                  "size_bytes": 2198
+                },
+                {
+                  "name": "PAIR-2A_report_pt.txt",
+                  "size_bytes": 2194
+                },
+                {
+                  "name": "PAIR-2A_report_zh.txt",
+                  "size_bytes": 1895
+                },
+                {
+                  "name": "PAIR-2A_results.json",
+                  "size_bytes": 7163
+                },
+                {
+                  "name": "PAIR-2B_report_en.txt",
+                  "size_bytes": 2086
+                },
+                {
+                  "name": "PAIR-2B_report_hi.txt",
+                  "size_bytes": 3568
+                },
+                {
+                  "name": "PAIR-2B_report_it.txt",
+                  "size_bytes": 2221
+                },
+                {
+                  "name": "PAIR-2B_report_pt.txt",
+                  "size_bytes": 2213
+                },
+                {
+                  "name": "PAIR-2B_report_zh.txt",
+                  "size_bytes": 1925
+                },
+                {
+                  "name": "PAIR-2B_results.json",
+                  "size_bytes": 7101
+                },
+                {
+                  "name": "PAIR-3A_report_en.txt",
+                  "size_bytes": 1808
+                },
+                {
+                  "name": "PAIR-3A_report_hi.txt",
+                  "size_bytes": 2952
+                },
+                {
+                  "name": "PAIR-3A_report_it.txt",
+                  "size_bytes": 1929
+                },
+                {
+                  "name": "PAIR-3A_report_pt.txt",
+                  "size_bytes": 1936
+                },
+                {
+                  "name": "PAIR-3A_report_zh.txt",
+                  "size_bytes": 1656
+                },
+                {
+                  "name": "PAIR-3A_results.json",
+                  "size_bytes": 7060
+                },
+                {
+                  "name": "PAIR-3B_report_en.txt",
+                  "size_bytes": 1918
+                },
+                {
+                  "name": "PAIR-3B_report_hi.txt",
+                  "size_bytes": 3221
+                },
+                {
+                  "name": "PAIR-3B_report_it.txt",
+                  "size_bytes": 2093
+                },
+                {
+                  "name": "PAIR-3B_report_pt.txt",
+                  "size_bytes": 2074
+                },
+                {
+                  "name": "PAIR-3B_report_zh.txt",
+                  "size_bytes": 1788
+                },
+                {
+                  "name": "PAIR-3B_results.json",
+                  "size_bytes": 7182
+                },
+                {
+                  "name": "PAIR-4A_report_en.txt",
+                  "size_bytes": 1892
+                },
+                {
+                  "name": "PAIR-4A_report_hi.txt",
+                  "size_bytes": 3141
+                },
+                {
+                  "name": "PAIR-4A_report_it.txt",
+                  "size_bytes": 2011
+                },
+                {
+                  "name": "PAIR-4A_report_pt.txt",
+                  "size_bytes": 1996
+                },
+                {
+                  "name": "PAIR-4A_report_zh.txt",
+                  "size_bytes": 1753
+                },
+                {
+                  "name": "PAIR-4A_results.json",
+                  "size_bytes": 6685
+                },
+                {
+                  "name": "PAIR-4B_report_en.txt",
+                  "size_bytes": 1580
+                },
+                {
+                  "name": "PAIR-4B_report_hi.txt",
+                  "size_bytes": 2513
+                },
+                {
+                  "name": "PAIR-4B_report_it.txt",
+                  "size_bytes": 1686
+                },
+                {
+                  "name": "PAIR-4B_report_pt.txt",
+                  "size_bytes": 1693
+                },
+                {
+                  "name": "PAIR-4B_report_zh.txt",
+                  "size_bytes": 1458
+                },
+                {
+                  "name": "PAIR-4B_results.json",
+                  "size_bytes": 6536
+                },
+                {
+                  "name": "PAIR-5B_report_en.txt",
+                  "size_bytes": 1911
+                },
+                {
+                  "name": "PAIR-5B_report_hi.txt",
+                  "size_bytes": 3230
+                },
+                {
+                  "name": "PAIR-5B_report_it.txt",
+                  "size_bytes": 2087
+                },
+                {
+                  "name": "PAIR-5B_report_pt.txt",
+                  "size_bytes": 2082
+                },
+                {
+                  "name": "PAIR-5B_report_zh.txt",
+                  "size_bytes": 1765
+                },
+                {
+                  "name": "PAIR-5B_results.json",
+                  "size_bytes": 7571
+                },
+                {
+                  "name": "PAIR-6A_report_en.txt",
+                  "size_bytes": 1472
+                },
+                {
+                  "name": "PAIR-6A_report_hi.txt",
+                  "size_bytes": 2363
+                },
+                {
+                  "name": "PAIR-6A_report_it.txt",
+                  "size_bytes": 1498
+                },
+                {
+                  "name": "PAIR-6A_report_pt.txt",
+                  "size_bytes": 1502
+                },
+                {
+                  "name": "PAIR-6A_report_zh.txt",
+                  "size_bytes": 1338
+                },
+                {
+                  "name": "PAIR-6A_results.json",
+                  "size_bytes": 5600
+                },
+                {
+                  "name": "PAIR-7A_report_en.txt",
+                  "size_bytes": 1776
+                },
+                {
+                  "name": "PAIR-7A_report_hi.txt",
+                  "size_bytes": 2896
+                },
+                {
+                  "name": "PAIR-7A_report_it.txt",
+                  "size_bytes": 1913
+                },
+                {
+                  "name": "PAIR-7A_report_pt.txt",
+                  "size_bytes": 1910
+                },
+                {
+                  "name": "PAIR-7A_report_zh.txt",
+                  "size_bytes": 1634
+                },
+                {
+                  "name": "PAIR-7A_results.json",
+                  "size_bytes": 7325
+                },
+                {
+                  "name": "PAIR-7B_report_en.txt",
+                  "size_bytes": 1669
+                },
+                {
+                  "name": "PAIR-7B_report_hi.txt",
+                  "size_bytes": 2750
+                },
+                {
+                  "name": "PAIR-7B_report_it.txt",
+                  "size_bytes": 1741
+                },
+                {
+                  "name": "PAIR-7B_report_pt.txt",
+                  "size_bytes": 1743
+                },
+                {
+                  "name": "PAIR-7B_report_zh.txt",
+                  "size_bytes": 1556
+                },
+                {
+                  "name": "PAIR-7B_results.json",
+                  "size_bytes": 6482
+                }
+              ]
+            },
+            "Hs-23_Radionuclides": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-23-Th232_report_en.txt",
+                  "size_bytes": 2146
+                },
+                {
+                  "name": "Hs-23-Th232_report_hi.txt",
+                  "size_bytes": 3783
+                },
+                {
+                  "name": "Hs-23-Th232_report_it.txt",
+                  "size_bytes": 2291
+                },
+                {
+                  "name": "Hs-23-Th232_report_pt.txt",
+                  "size_bytes": 2292
+                },
+                {
+                  "name": "Hs-23-Th232_report_zh.txt",
+                  "size_bytes": 2001
+                },
+                {
+                  "name": "Hs-23-Th232_results.json",
+                  "size_bytes": 6972
+                },
+                {
+                  "name": "Hs-23-U235_chain_data.json",
+                  "size_bytes": 3648
+                },
+                {
+                  "name": "Hs-23-U235_compositions.csv",
+                  "size_bytes": 1534
+                },
+                {
+                  "name": "Hs-23-U235_report_en.txt",
+                  "size_bytes": 2221
+                },
+                {
+                  "name": "Hs-23-U235_report_hi.txt",
+                  "size_bytes": 3914
+                },
+                {
+                  "name": "Hs-23-U235_report_it.txt",
+                  "size_bytes": 2365
+                },
+                {
+                  "name": "Hs-23-U235_report_pt.txt",
+                  "size_bytes": 2367
+                },
+                {
+                  "name": "Hs-23-U235_report_zh.txt",
+                  "size_bytes": 2068
+                },
+                {
+                  "name": "Hs-23-U235_results.json",
+                  "size_bytes": 7190
+                },
+                {
+                  "name": "Hs-23-U238_report_en.txt",
+                  "size_bytes": 2351
+                },
+                {
+                  "name": "Hs-23-U238_report_hi.txt",
+                  "size_bytes": 4239
+                },
+                {
+                  "name": "Hs-23-U238_report_it.txt",
+                  "size_bytes": 2588
+                },
+                {
+                  "name": "Hs-23-U238_report_pt.txt",
+                  "size_bytes": 2570
+                },
+                {
+                  "name": "Hs-23-U238_report_zh.txt",
+                  "size_bytes": 2178
+                },
+                {
+                  "name": "Hs-23-U238_results.json",
+                  "size_bytes": 7217
+                },
+                {
+                  "name": "Hs-23_JOURNAL.md",
+                  "size_bytes": 12926
+                },
+                {
+                  "name": "Hs-23_combined_report_en.txt",
+                  "size_bytes": 2863
+                },
+                {
+                  "name": "Hs-23_combined_report_hi.txt",
+                  "size_bytes": 5193
+                },
+                {
+                  "name": "Hs-23_combined_report_it.txt",
+                  "size_bytes": 3155
+                },
+                {
+                  "name": "Hs-23_combined_report_pt.txt",
+                  "size_bytes": 3120
+                },
+                {
+                  "name": "Hs-23_combined_report_zh.txt",
+                  "size_bytes": 2623
+                },
+                {
+                  "name": "Hs-23_combined_results.json",
+                  "size_bytes": 8071
+                },
+                {
+                  "name": "Hs-23_decay_chain_data.json",
+                  "size_bytes": 8946
+                },
+                {
+                  "name": "Hs-23_decay_compositions.csv",
+                  "size_bytes": 3934
+                },
+                {
+                  "name": "Hs-23_rerun_2026-04-28.json",
+                  "size_bytes": 8352
+                }
+              ]
+            },
+            "Hs-24_HEPData_Validation": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-24_CONCLUSIONS.md",
+                  "size_bytes": 3607
+                },
+                {
+                  "name": "Hs-24_JOURNAL.md",
+                  "size_bytes": 19537
+                },
+                {
+                  "name": "Hs-24_rerun_2026-04-28.json",
+                  "size_bytes": 8289
+                },
+                {
+                  "name": "Hs-24_results_summary.json",
+                  "size_bytes": 6391
+                }
+              ]
+            },
+            "Hs-25_Cosmic_Energy_Budget": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-25_JOURNAL.md",
+                  "size_bytes": 13037
+                },
+                {
+                  "name": "Hs-25_codes.json",
+                  "size_bytes": 14457
+                },
+                {
+                  "name": "Hs-25_codes_full.json",
+                  "size_bytes": 15850
+                },
+                {
+                  "name": "Hs-25_cosmic_energy_budget.csv",
+                  "size_bytes": 9819
+                },
+                {
+                  "name": "Hs-25_fingerprint.json",
+                  "size_bytes": 1228
+                },
+                {
+                  "name": "Hs-25_power_map.json",
+                  "size_bytes": 14555
+                },
+                {
+                  "name": "Hs-25_report_en.txt",
+                  "size_bytes": 3254
+                },
+                {
+                  "name": "Hs-25_report_hi.txt",
+                  "size_bytes": 5885
+                },
+                {
+                  "name": "Hs-25_report_it.txt",
+                  "size_bytes": 3640
+                },
+                {
+                  "name": "Hs-25_report_pt.txt",
+                  "size_bytes": 3604
+                },
+                {
+                  "name": "Hs-25_report_zh.txt",
+                  "size_bytes": 2990
+                },
+                {
+                  "name": "Hs-25_rerun_2026-04-28.json",
+                  "size_bytes": 8381
+                },
+                {
+                  "name": "Hs-25_results.json",
+                  "size_bytes": 10140
+                }
+              ]
+            },
+            "Hs-M01_Manifold_Calibration": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-M01_JOURNAL.md",
+                  "size_bytes": 21947
+                },
+                {
+                  "name": "Hs-M01_calibration_suite.py",
+                  "size_bytes": 17122
+                },
+                {
+                  "name": "Hs-M01_helix.html",
+                  "size_bytes": 33250
+                },
+                {
+                  "name": "Hs-M01_manifold.html",
+                  "size_bytes": 16483
+                },
+                {
+                  "name": "Hs-M01_pipeline_slideshow.html",
+                  "size_bytes": 60462
+                },
+                {
+                  "name": "Hs-M01_projector.html",
+                  "size_bytes": 24613
+                },
+                {
+                  "name": "Hs-M01_raw_output.txt",
+                  "size_bytes": 19445
+                },
+                {
+                  "name": "Hs-M01_results.json",
+                  "size_bytes": 11429
+                }
+              ]
+            },
+            "Hs-M02_EMBER_Energy": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs-M02_CHN_clr.csv",
+                  "size_bytes": 2166
+                },
+                {
+                  "name": "Hs-M02_DEU_clr.csv",
+                  "size_bytes": 2359
+                },
+                {
+                  "name": "Hs-M02_FRA_clr.csv",
+                  "size_bytes": 2408
+                },
+                {
+                  "name": "Hs-M02_GBR_clr.csv",
+                  "size_bytes": 2355
+                },
+                {
+                  "name": "Hs-M02_IND_clr.csv",
+                  "size_bytes": 2147
+                },
+                {
+                  "name": "Hs-M02_JOURNAL.md",
+                  "size_bytes": 33019
+                },
+                {
+                  "name": "Hs-M02_JPN_clr.csv",
+                  "size_bytes": 2132
+                },
+                {
+                  "name": "Hs-M02_WLD_clr.csv",
+                  "size_bytes": 2394
+                },
+                {
+                  "name": "Hs-M02_ember.py",
+                  "size_bytes": 18558
+                },
+                {
+                  "name": "Hs-M02_helix.html",
+                  "size_bytes": 38197
+                },
+                {
+                  "name": "Hs-M02_manifold.html",
+                  "size_bytes": 32088
+                },
+                {
+                  "name": "Hs-M02_pipeline_slideshow.html",
+                  "size_bytes": 42273
+                },
+                {
+                  "name": "Hs-M02_projector.html",
+                  "size_bytes": 39144
+                },
+                {
+                  "name": "Hs-M02_results.json",
+                  "size_bytes": 185584
+                }
+              ]
+            },
+            "release-validation": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 67
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "Hs_Extended_Executive_Summary.json",
+              "size_bytes": 16403
+            },
+            {
+              "name": "Hs_FULL_CHAIN_REPORT_2026-04-28.json",
+              "size_bytes": 12681
+            },
+            {
+              "name": "Hs_New_Domains_Summary.json",
+              "size_bytes": 1283
+            },
+            {
+              "name": "Hs_STRESS_TEST_REPORT_2026-04-28.json",
+              "size_bytes": 2978
+            },
+            {
+              "name": "README.md",
+              "size_bytes": 8725
+            },
+            {
+              "name": "deep_matrix_analysis_output.txt",
+              "size_bytes": 50382
+            },
+            {
+              "name": "impedance_bridge_output.txt",
+              "size_bytes": 47528
+            },
+            {
+              "name": "impedance_bridge_results.json",
+              "size_bytes": 344605
+            }
+          ]
+        },
+        "papers": {
+          "directories": {
+            "codawork2026": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "CoDaWork2026_Abstract_Higgins.pdf",
+                  "size_bytes": 4016
+                },
+                {
+                  "name": "CoDaWork2026_Action_Plan.md",
+                  "size_bytes": 17896
+                },
+                {
+                  "name": "CoDaWork2026_Collaboration_Path.md",
+                  "size_bytes": 14269
+                },
+                {
+                  "name": "CoDaWork2026_Email_Draft.txt",
+                  "size_bytes": 4312
+                },
+                {
+                  "name": "CoDaWork2026_Energy_Briefing.md",
+                  "size_bytes": 5112
+                },
+                {
+                  "name": "CoDaWork2026_Future_Path.md",
+                  "size_bytes": 10887
+                },
+                {
+                  "name": "CoDaWork2026_Letter_and_Revised_Abstract.md",
+                  "size_bytes": 4560
+                },
+                {
+                  "name": "CoDaWork2026_Presentation.pptx",
+                  "size_bytes": 69102
+                },
+                {
+                  "name": "CoDaWork2026_Refined_Abstract.md",
+                  "size_bytes": 3209
+                },
+                {
+                  "name": "CoDaWork2026_Reply_Email.txt",
+                  "size_bytes": 4931
+                },
+                {
+                  "name": "CoDaWork2026_Reply_to_Egozcue.md",
+                  "size_bytes": 4995
+                },
+                {
+                  "name": "CoDaWork2026_Reply_to_Egozcue_Final.txt",
+                  "size_bytes": 3153
+                },
+                {
+                  "name": "CoDaWork2026_Speech_GiftRamp.md",
+                  "size_bytes": 11646
+                },
+                {
+                  "name": "CoDaWork2026_Strategic_Agenda.md",
+                  "size_bytes": 21986
+                },
+                {
+                  "name": "ENTROPY_SCALE_INVARIANCE_REPORT.md",
+                  "size_bytes": 4618
+                },
+                {
+                  "name": "HIGGINS_DIAGRAMS.md",
+                  "size_bytes": 15043
+                },
+                {
+                  "name": "Hs_CoDaWork2026_Executive_Summary.md",
+                  "size_bytes": 13449
+                },
+                {
+                  "name": "Hs_Standards_Edition.ipynb",
+                  "size_bytes": 47741
+                },
+                {
+                  "name": "Hs_Symbolic_Logic_Definition.md",
+                  "size_bytes": 17025
+                },
+                {
+                  "name": "The_Discovery_Moment.pptx",
+                  "size_bytes": 6393005
+                },
+                {
+                  "name": "codawork2026_slides.pptx",
+                  "size_bytes": 721837
+                },
+                {
+                  "name": "cosmic_composition_interactive.html",
+                  "size_bytes": 20697
+                },
+                {
+                  "name": "cosmic_cone_5min_loop.html",
+                  "size_bytes": 14596
+                },
+                {
+                  "name": "cosmic_duality_dance.html",
+                  "size_bytes": 29896
+                },
+                {
+                  "name": "cosmic_future_projection.html",
+                  "size_bytes": 25923
+                },
+                {
+                  "name": "generate_abstract_pdf.py",
+                  "size_bytes": 6691
+                },
+                {
+                  "name": "hs_calibration_suite.py",
+                  "size_bytes": 17122
+                }
+              ]
+            },
+            "flagship": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Higgins_Decomposition_Character_Analysis.docx",
+                  "size_bytes": 58141
+                },
+                {
+                  "name": "Higgins_Decomposition_Character_Analysis.md",
+                  "size_bytes": 19051
+                },
+                {
+                  "name": "Hs_Applications_Guide.docx",
+                  "size_bytes": 42108
+                },
+                {
+                  "name": "Hs_EXP03_Precision_Inference.docx",
+                  "size_bytes": 17757
+                },
+                {
+                  "name": "Hs_High_Index_Platform_Guide.docx",
+                  "size_bytes": 43007
+                },
+                {
+                  "name": "Hs_Manifold_Character_Handbook.docx",
+                  "size_bytes": 74214
+                },
+                {
+                  "name": "Hs_Manifold_Character_Handbook.pdf",
+                  "size_bytes": 861341
+                },
+                {
+                  "name": "Hs_Software_Handbook.docx",
+                  "size_bytes": 70607
+                },
+                {
+                  "name": "Hs_Software_Handbook.pdf",
+                  "size_bytes": 670123
+                },
+                {
+                  "name": "Manifold_Characterization_by_Decomposition.docx",
+                  "size_bytes": 49911
+                },
+                {
+                  "name": "Manifold_Characterization_by_Decomposition.pdf",
+                  "size_bytes": 187328
+                },
+                {
+                  "name": "page-01.jpg",
+                  "size_bytes": 187125
+                },
+                {
+                  "name": "page-02.jpg",
+                  "size_bytes": 264751
+                },
+                {
+                  "name": "page-03.jpg",
+                  "size_bytes": 218502
+                },
+                {
+                  "name": "page-04.jpg",
+                  "size_bytes": 206540
+                },
+                {
+                  "name": "page-05.jpg",
+                  "size_bytes": 235378
+                },
+                {
+                  "name": "page-06.jpg",
+                  "size_bytes": 263849
+                },
+                {
+                  "name": "page-07.jpg",
+                  "size_bytes": 212503
+                },
+                {
+                  "name": "page-08.jpg",
+                  "size_bytes": 186414
+                },
+                {
+                  "name": "page-09.jpg",
+                  "size_bytes": 281214
+                },
+                {
+                  "name": "page-10.jpg",
+                  "size_bytes": 283301
+                },
+                {
+                  "name": "page-11.jpg",
+                  "size_bytes": 157388
+                }
+              ]
+            },
+            "validation": {
+              "directories": {},
+              "files": [
+                {
+                  "name": ".gitkeep",
+                  "size_bytes": 32
+                },
+                {
+                  "name": "Canonical_Validation_Report.docx",
+                  "size_bytes": 20457
+                },
+                {
+                  "name": "EXP-19b_Journal.docx",
+                  "size_bytes": 710537
+                },
+                {
+                  "name": "EXP15_Xray_Crystallography_Journal.docx",
+                  "size_bytes": 706124
+                },
+                {
+                  "name": "The_Calibration_Proof.docx",
+                  "size_bytes": 5831725
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "README.md",
+              "size_bytes": 4604
+            }
+          ]
+        },
+        "tools": {
+          "directories": {
+            "diagnostics": {
+              "directories": {},
+              "files": []
+            },
+            "interactive": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "EXP-19_Fourier_Conjugate_Preservation_Theorem.html",
+                  "size_bytes": 19851
+                },
+                {
+                  "name": "EXP-19_Interactive_Simulator.html",
+                  "size_bytes": 32311
+                },
+                {
+                  "name": "EXP16_Interactive_Simulator.html",
+                  "size_bytes": 46591
+                },
+                {
+                  "name": "Hs_CoDaWork_Demo.html",
+                  "size_bytes": 44975
+                },
+                {
+                  "name": "Hs_Spectrum_Analyzer.html",
+                  "size_bytes": 32363
+                },
+                {
+                  "name": "README.md",
+                  "size_bytes": 2220
+                },
+                {
+                  "name": "cosmic_composition_interactive.html",
+                  "size_bytes": 20697
+                },
+                {
+                  "name": "cosmic_cone_5min_loop.html",
+                  "size_bytes": 14596
+                },
+                {
+                  "name": "cosmic_duality_dance.html",
+                  "size_bytes": 29896
+                },
+                {
+                  "name": "cosmic_future_projection.html",
+                  "size_bytes": 25923
+                },
+                {
+                  "name": "hs_projector.html",
+                  "size_bytes": 36426
+                }
+              ]
+            },
+            "pipeline": {
+              "directories": {
+                "locales": {
+                  "directories": {},
+                  "files": [
+                    {
+                      "name": "en.json",
+                      "size_bytes": 7523
+                    },
+                    {
+                      "name": "hi.json",
+                      "size_bytes": 15045
+                    },
+                    {
+                      "name": "it.json",
+                      "size_bytes": 8435
+                    },
+                    {
+                      "name": "pt.json",
+                      "size_bytes": 8312
+                    },
+                    {
+                      "name": "zh.json",
+                      "size_bytes": 6819
+                    }
+                  ]
+                }
+              },
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 5006
+                },
+                {
+                  "name": "amalgamation_results.json",
+                  "size_bytes": 293651
+                },
+                {
+                  "name": "balun_matrix_analysis.py",
+                  "size_bytes": 34759
+                },
+                {
+                  "name": "higgins_decomposition_12step.py",
+                  "size_bytes": 69746
+                },
+                {
+                  "name": "higgins_transcendental_pretest.py",
+                  "size_bytes": 8241
+                },
+                {
+                  "name": "hs_amalgamation.py",
+                  "size_bytes": 29331
+                },
+                {
+                  "name": "hs_audit.py",
+                  "size_bytes": 34056
+                },
+                {
+                  "name": "hs_codes.py",
+                  "size_bytes": 44336
+                },
+                {
+                  "name": "hs_controller.py",
+                  "size_bytes": 38112
+                },
+                {
+                  "name": "hs_fingerprint.py",
+                  "size_bytes": 19676
+                },
+                {
+                  "name": "hs_hepdata.py",
+                  "size_bytes": 46439
+                },
+                {
+                  "name": "hs_ingest.py",
+                  "size_bytes": 13788
+                },
+                {
+                  "name": "hs_metrology.py",
+                  "size_bytes": 25853
+                },
+                {
+                  "name": "hs_projector_export.py",
+                  "size_bytes": 7535
+                },
+                {
+                  "name": "hs_reporter.py",
+                  "size_bytes": 6546
+                },
+                {
+                  "name": "hs_sensitivity.py",
+                  "size_bytes": 35472
+                },
+                {
+                  "name": "hs_tensor.py",
+                  "size_bytes": 24431
+                },
+                {
+                  "name": "hs_testgen.py",
+                  "size_bytes": 21672
+                },
+                {
+                  "name": "impedance_bridge.py",
+                  "size_bytes": 34745
+                },
+                {
+                  "name": "tr_basis_experiment.py",
+                  "size_bytes": 25435
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "Hs_Dashboard.ipynb",
+              "size_bytes": 27159
+            },
+            {
+              "name": "Hs_Standards_Edition.ipynb",
+              "size_bytes": 47741
+            },
+            {
+              "name": "README.md",
+              "size_bytes": 12975
+            }
+          ]
+        }
+      },
+      "files": [
+        {
+          "name": ".gitignore",
+          "size_bytes": 44
+        },
+        {
+          "name": "CITATION.cff",
+          "size_bytes": 1038
+        },
+        {
+          "name": "EXECUTIVE_SUMMARY.md",
+          "size_bytes": 118950
+        },
+        {
+          "name": "Hs_EXPERIMENT_RERUN_PLAN.json",
+          "size_bytes": 13751
+        },
+        {
+          "name": "Hs_EXTENSION_PREDICTIONS.json",
+          "size_bytes": 9626
+        },
+        {
+          "name": "LICENSE",
+          "size_bytes": 486
+        },
+        {
+          "name": "README.md",
+          "size_bytes": 22072
+        }
+      ]
+    }
+  },
+  "Hs_Lab": {
+    "role": "Applied research and lab work",
+    "file_count": 21,
+    "directory_count": 18,
+    "structure": {
+      "directories": {
+        "applications": {
+          "directories": {
+            "ai-compositional-analysis": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs_AI_Compositional_Analysis.md",
+                  "size_bytes": 24671
+                },
+                {
+                  "name": "README.md",
+                  "size_bytes": 2284
+                }
+              ]
+            }
+          },
+          "files": []
+        },
+        "components": {
+          "directories": {
+            "amalgamation-tester": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1264
+                }
+              ]
+            },
+            "archetype-classifier": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1603
+                }
+              ]
+            },
+            "causal-flow-detector": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1290
+                }
+              ]
+            },
+            "constant-library": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1149
+                }
+              ]
+            },
+            "decomposer": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1661
+                }
+              ]
+            },
+            "fingerprint-comparator": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1229
+                }
+              ]
+            },
+            "governor": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1280
+                }
+              ]
+            },
+            "matrix-diagnostics": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1507
+                }
+              ]
+            },
+            "reader-adapter": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1156
+                }
+              ]
+            },
+            "report-generator": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 986
+                }
+              ]
+            },
+            "sensitivity-engine": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1240
+                }
+              ]
+            },
+            "tensor-bridge": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "README.md",
+                  "size_bytes": 1305
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "README.md",
+              "size_bytes": 2735
+            }
+          ]
+        },
+        "lab-notebooks": {
+          "directories": {},
+          "files": [
+            {
+              "name": "README.md",
+              "size_bytes": 1659
+            }
+          ]
+        },
+        "research": {
+          "directories": {
+            "discovery-registry": {
+              "directories": {},
+              "files": [
+                {
+                  "name": "Hs_Discovery_Registry.md",
+                  "size_bytes": 17635
+                },
+                {
+                  "name": "README.md",
+                  "size_bytes": 875
+                }
+              ]
+            }
+          },
+          "files": [
+            {
+              "name": "README.md",
+              "size_bytes": 303
+            }
+          ]
+        }
+      },
+      "files": [
+        {
+          "name": "LAB_WORK_DIRECTORY.md",
+          "size_bytes": 18956
+        },
+        {
+          "name": "README.md",
+          "size_bytes": 5288
+        }
+      ]
+    }
+  },
+  "HUF": {
+    "role": "Historical parent archive",
+    "top_level_directories": [
+      ".github",
+      "ai-refresh",
+      "archive",
+      "briefings",
+      "codawork2026",
+      "data",
+      "discoveries",
+      "dormant",
+      "drafts",
+      "huf-gov",
+      "science",
+      "tools"
+    ],
+    "note": "Full tree not included \u2014 large legacy archive. Top-level directories listed for reference."
+  },
+  "canonical_counts": {
+    "diagnostic_codes": 106,
+    "structural_modes": 14,
+    "pipeline_files": 18,
+    "experiments": "25 + 2 M-series",
+    "domains": 18,
+    "discoveries": 32,
+    "transcendental_constants": 35,
+    "languages": 5,
+    "interactive_tools": 10,
+    "jupyter_notebooks": 3,
+    "lab_components": 12,
+    "lab_notebooks_planned": 10
+  }
+}

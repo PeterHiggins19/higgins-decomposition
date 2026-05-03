@@ -33,7 +33,7 @@ Levels:
   CAL = Calibration (instrument calibration signal)
 
 Author: Peter Higgins / Claude
-Version: 1.2 (added Component Power codes: CPM, DPC, PSC, CFR, PWR)
+Version: 2.0 (added Matrix Diagnostic codes MX-*, matrix-informed structural modes SM-FRZ/THR/MXR/EDP)
 """
 
 # ════════════════════════════════════════════════════════════
@@ -130,6 +130,37 @@ CODE_DICTIONARY = {
     "XU-CFR-WRN": {"short": "Classification flip risk", "verbose": "Perturbation of one or more carriers caused the system classification to flip between NATURAL and FLAG (or between shapes). The system is near a phase boundary for these carriers."},
     "XU-PWR-DIS": {"short": "Power ≠ mass", "verbose": "The power ranking of carriers differs from the mass fraction ranking. Component influence on system character is not proportional to component fraction. This is the compositional leverage effect."},
 
+    # ── MATRIX DIAGNOSTICS (MX) ──
+    # Stage MX: Variation matrix eigendecomposition and deep structure analysis.
+    # These codes are emitted by the matrix analysis step that decomposes V(t) = Cov(CLR)
+    # into eigenvalues, eigenvectors, and derived quantities. The matrix is the
+    # pre-Trace tensor — what the balun sees before contraction.
+
+    "MX-EIG-INF": {"short": "Eigendecomposition OK", "verbose": "Variation matrix eigendecomposition computed. Eigenvalues λᵢ, eigenvectors vᵢ, and spectral metrics available."},
+    "MX-RK1-DIS": {"short": "Rank-1 dominant", "verbose": "Dominant eigenvalue captures >95% of Tr(V). Matrix is effectively rank-1 — the system lives on a one-dimensional manifold inside the compositional space. The Trace gate is impedance-matched."},
+    "MX-RKN-INF": {"short": "Multi-rank structure", "verbose": "No single eigenvalue exceeds 95% of Tr(V). Multiple eigenvalues contribute — the system has multi-dimensional compositional dynamics."},
+    "MX-LCK-DIS": {"short": "Eigenvectors locked", "verbose": "First-to-last eigenvector overlap |⟨v₁(t_first), v₁(t_last)⟩| > 0.99. Principal axes are structural invariants — the system's compositional geometry is frozen."},
+    "MX-ROT-WRN": {"short": "Eigenvectors rotating", "verbose": "First-to-last eigenvector overlap < 0.5. Principal axes drift significantly across the time window — the system's compositional geometry is evolving."},
+    "MX-SCR-WRN": {"short": "Eigenvectors scrambled", "verbose": "First-to-last eigenvector overlap < 0.2. No stable principal axis exists — consistent with adversarial or thermal data."},
+    "MX-KHI-DIS": {"short": "High condition number", "verbose": "Condition number κ(V) = λ_max/λ_min > 100. Extreme anisotropy — one direction dominates the compositional variance."},
+    "MX-KLO-INF": {"short": "Low condition number", "verbose": "Condition number κ(V) = λ_max/λ_min < 5. Near-isotropic variance — all compositional directions contribute comparably."},
+    "MX-CMZ-DIS": {"short": "Commutator ≈ 0", "verbose": "Normalised commutator ‖[V(t₁),V(t₂)]‖/(‖V₁‖·‖V₂‖) < 0.01. V(t) matrices are simultaneously diagonalisable — shared eigenbasis across all time slices."},
+    "MX-CMN-WRN": {"short": "Commutator non-zero", "verbose": "Normalised commutator > 0.1. V(t) matrices are NOT simultaneously diagonalisable — eigenbasis rotates between time slices."},
+    "MX-VNL-DIS": {"short": "Von Neumann entropy low", "verbose": "S/S_max < 0.1 where S = -Tr(ρ ln ρ), ρ = V/Tr(V). Near-pure quantum state — system occupies a single eigenmode."},
+    "MX-VNH-WRN": {"short": "Von Neumann entropy high", "verbose": "S/S_max > 0.7. Near-thermal / maximally mixed state — eigenvalues are spread across all modes. Consistent with noise or adversarial data."},
+    "MX-VNM-INF": {"short": "Von Neumann entropy moderate", "verbose": "S/S_max between 0.1 and 0.7. Mixed state with partial structure — multiple modes carry signal."},
+    "MX-DET-INF": {"short": "Determinant ratio", "verbose": "det(V)/(Tr(V)/D)^D computed. Measures eigenvalue spread relative to isotropic (AM-GM bound)."},
+    "MX-ANI-DIS": {"short": "AM-GM gap large", "verbose": "det/(Tr/D)^D < 0.01. Extreme anisotropy — AM-GM gap confirms rank-deficient structure."},
+    "MX-ISO-INF": {"short": "AM-GM gap small", "verbose": "det/(Tr/D)^D > 0.3. Near-isotropic — eigenvalues are comparable. AM-GM bound is nearly tight."},
+    "MX-PWR-DIS": {"short": "Eigenvalue power law", "verbose": "Dominant eigenvalue follows power law λ₁(t) ~ c·t^α with R² > 0.8. Deterministic dynamics — eigenvalue growth is predictable."},
+    "MX-CHD-DIS": {"short": "Cholesky degenerate", "verbose": "Last Cholesky diagonal L_DD < 1e-4. The last compositional variable is perfectly predicted by the others — compositional closure at the matrix level."},
+    "MX-TRM-DIS": {"short": "Transcendental ratio match", "verbose": "One or more eigenvalue ratios λᵢ/λⱼ match a transcendental constant within δ < 0.01. Structural resonance at the eigenvalue level."},
+    "MX-TRC-INF": {"short": "Ratio match count", "verbose": "Number of eigenvalue-ratio transcendental matches recorded."},
+    "MX-BAL-DIS": {"short": "Balun matched", "verbose": "Γ < 0.2 (reflection coefficient). The Trace gate is impedance-matched — λ₁/Tr > 96%. Signal passes through without reflection."},
+    "MX-REF-WRN": {"short": "Balun reflecting", "verbose": "Γ > 0.5 (reflection coefficient). The Trace gate reflects significant energy — no dominant eigenvalue. The system has no one-dimensional mode for Trace to extract."},
+    "MX-QHI-DIS": {"short": "High Q factor", "verbose": "Q > 10. Sharp resonance with transcendental constants in the eigenvalue spectrum — the system's spectral structure is finely tuned."},
+    "MX-QLO-INF": {"short": "Low Q factor", "verbose": "Q < 1. Broad or absent resonance — no sharp transcendental alignment in the eigenvalue spectrum."},
+
     # ── REPORT ──
     "RP-CMP-INF": {"short": "Run complete", "verbose": "Hˢ extended pipeline run completed successfully. All results available for reporting."},
     "RP-DTM-INF": {"short": "Deterministic", "verbose": "Pipeline is deterministic. Repeated runs on identical data produce bit-identical results."},
@@ -203,6 +234,31 @@ CODE_DICTIONARY = {
                    "INVESTIGATE: verify this is measured data, not model output. If derived, the "
                    "tight match is expected and calibrates the pipeline. If measured, this is a "
                    "precision-standard-grade result."},
+
+    # ── MATRIX-INFORMED STRUCTURAL MODES ──
+    "SM-FRZ-DIS": {"short": "Frozen eigenbasis",
+        "verbose": "Eigenvectors locked (overlap > 0.99), commutator ≈ 0, von Neumann entropy "
+                   "< 0.1 S_max. V(t) matrices share a common eigenbasis across all time slices. "
+                   "The Trace contraction from (0,2) to (0,0) preserves the dominant eigenvalue "
+                   "because the tensor is effectively rank-1. Consistent with impedance-matched "
+                   "systems where Γ < 0.2."},
+    "SM-THR-WRN": {"short": "Thermal state",
+        "verbose": "Eigenvectors scrambled, von Neumann entropy > 0.7 S_max, condition number < 5, "
+                   "commutators large. No dominant eigenvalue, no stable principal axis. The "
+                   "covariance tensor is near-isotropic, resulting in high Γ at the Trace gate. "
+                   "Consistent with adversarial, randomised, or maximally mixed compositional data. "
+                   "INVESTIGATE: verify whether the data source is structured or stochastic."},
+    "SM-MXR-DIS": {"short": "Matrix resonance",
+        "verbose": "System has rich eigenvalue structure — multiple transcendental ratio matches "
+                   "(> 5 hits at δ < 0.05) in the eigenvalue spectrum. The compositional geometry "
+                   "encodes resonance at the matrix level, not just the trace level. "
+                   "INVESTIGATE: which specific constant families appear? Do they relate to the "
+                   "physical dimensionality or coupling structure of the carriers?"},
+    "SM-EDP-DIS": {"short": "Eigenvalue power dynamics",
+        "verbose": "Eigenvalues follow power laws λᵢ(t) ~ t^αᵢ with R² > 0.8. The compositional "
+                   "anisotropy has deterministic dynamics — the system's dimensional structure is "
+                   "predictable. Different eigenvalues may scale differently (e.g. λ₁ sublinear, "
+                   "λ₂ superlinear), indicating competing compositional mechanisms."},
 }
 
 
@@ -291,6 +347,36 @@ STRUCTURAL_MODES = [
         "requires": ["S7-BWL", "S9-EIT"],
         "forbids": ["S9-CHH", "S8-FLG", "S9-EIF"],
         "priority": 10,
+    },
+    # ── MATRIX-INFORMED MODES ──
+    {
+        "mode": "SM-FRZ-DIS",
+        "name": "Frozen eigenbasis",
+        "requires": ["MX-LCK", "MX-VNL", "MX-CMZ"],
+        "forbids": ["MX-SCR", "MX-VNH"],
+        "priority": 11,
+    },
+    {
+        "mode": "SM-THR-WRN",
+        "name": "Thermal state",
+        "requires": ["MX-VNH", "MX-KLO"],
+        "requires_any": ["MX-SCR", "MX-CMN"],
+        "forbids": ["MX-LCK", "MX-RK1"],
+        "priority": 12,
+    },
+    {
+        "mode": "SM-MXR-DIS",
+        "name": "Matrix resonance",
+        "requires": ["MX-TRM"],
+        "forbids": ["MX-VNH"],
+        "priority": 13,
+    },
+    {
+        "mode": "SM-EDP-DIS",
+        "name": "Eigenvalue power dynamics",
+        "requires": ["MX-PWR"],
+        "forbids": [],
+        "priority": 14,
     },
 ]
 
@@ -486,6 +572,104 @@ def generate_codes(result):
             stable_pairs = sum(1 for p in rpl_pairs.values() if p.get('cv', 100) < 20)
             if total_pairs > 0 and (stable_pairs / total_pairs) >= 0.5:
                 emit("XU-CSL-DIS", {"stable_fraction": stable_pairs / total_pairs, "total_pairs": total_pairs})
+
+    # ── MATRIX DIAGNOSTICS (MX) ──
+    # Matrix results are computed by the pipeline's matrix analysis step
+    # or injected by balun_matrix_analysis.py after pipeline completion.
+    matrix = result.get('matrix_analysis', {})
+    if not matrix:
+        matrix = ext.get('matrix_analysis', {})
+    if not matrix:
+        matrix = s.get('matrix_analysis', {})
+
+    if matrix:
+        emit("MX-EIG-INF")
+
+        # Eigenvalue dominance: λ₁/Tr
+        lambda1_frac = matrix.get('lambda1_fraction', 0)
+        if lambda1_frac > 0.95:
+            emit("MX-RK1-DIS", {"lambda1_fraction": lambda1_frac})
+        else:
+            emit("MX-RKN-INF", {"lambda1_fraction": lambda1_frac})
+
+        # Eigenvector stability
+        ev_overlap = matrix.get('eigenvector_overlap', 0)
+        if ev_overlap > 0.99:
+            emit("MX-LCK-DIS", {"overlap": ev_overlap})
+        elif ev_overlap < 0.2:
+            emit("MX-SCR-WRN", {"overlap": ev_overlap})
+        elif ev_overlap < 0.5:
+            emit("MX-ROT-WRN", {"overlap": ev_overlap})
+
+        # Condition number
+        kappa = matrix.get('condition_number', 1)
+        if kappa > 100:
+            emit("MX-KHI-DIS", {"kappa": kappa})
+        elif kappa < 5:
+            emit("MX-KLO-INF", {"kappa": kappa})
+
+        # Commutator
+        comm_norm = matrix.get('commutator_norm', -1)
+        if comm_norm >= 0:
+            if comm_norm < 0.01:
+                emit("MX-CMZ-DIS", {"norm": comm_norm})
+            elif comm_norm > 0.1:
+                emit("MX-CMN-WRN", {"norm": comm_norm})
+
+        # Von Neumann entropy
+        vn_ratio = matrix.get('von_neumann_ratio', -1)  # S/S_max
+        if vn_ratio >= 0:
+            if vn_ratio < 0.1:
+                emit("MX-VNL-DIS", {"S_ratio": vn_ratio})
+            elif vn_ratio > 0.7:
+                emit("MX-VNH-WRN", {"S_ratio": vn_ratio})
+            else:
+                emit("MX-VNM-INF", {"S_ratio": vn_ratio})
+
+        # Determinant dynamics
+        det_ratio = matrix.get('det_amgm_ratio')
+        if det_ratio is not None:
+            emit("MX-DET-INF", {"ratio": det_ratio})
+            if abs(det_ratio) < 0.01:
+                emit("MX-ANI-DIS", {"ratio": det_ratio})
+            elif abs(det_ratio) > 0.3:
+                emit("MX-ISO-INF", {"ratio": det_ratio})
+
+        # Power law
+        power_law_r2 = matrix.get('eigenvalue_power_law_R2', 0)
+        if power_law_r2 > 0.8:
+            emit("MX-PWR-DIS", {
+                "R2": power_law_r2,
+                "alpha": matrix.get('eigenvalue_power_law_alpha', 0),
+            })
+
+        # Cholesky degeneracy
+        cholesky_last = matrix.get('cholesky_last_diag', 1)
+        if cholesky_last < 1e-4:
+            emit("MX-CHD-DIS", {"L_DD": cholesky_last})
+
+        # Transcendental ratio matches
+        ratio_matches = matrix.get('eigenvalue_ratio_matches', 0)
+        emit("MX-TRC-INF", {"count": ratio_matches})
+        if ratio_matches > 0:
+            emit("MX-TRM-DIS", {
+                "count": ratio_matches,
+                "best": matrix.get('eigenvalue_ratio_best_match'),
+            })
+
+        # Balun metrics (reflection coefficient, Q factor)
+        gamma = matrix.get('gamma', -1)
+        if gamma >= 0:
+            if gamma < 0.2:
+                emit("MX-BAL-DIS", {"gamma": gamma, "VSWR": matrix.get('VSWR')})
+            elif gamma > 0.5:
+                emit("MX-REF-WRN", {"gamma": gamma, "VSWR": matrix.get('VSWR')})
+
+        q_factor = matrix.get('Q_factor', 0)
+        if q_factor > 10:
+            emit("MX-QHI-DIS", {"Q": q_factor})
+        elif q_factor < 1 and q_factor > 0:
+            emit("MX-QLO-INF", {"Q": q_factor})
 
     # ── COMPONENT POWER MAP ──
     # Power map results are stored at top level by the controller or

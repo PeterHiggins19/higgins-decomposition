@@ -1,0 +1,76 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-20",
+  "name": "Conversation Compositional Drift",
+  "domain": "COMMUNICATION",
+  "series": "Core (Hs-01 through Hs-25)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "Validate Hs decomposition on the compositional evolution of conversation topic proportions across development milestones.",
+  "data_source": {
+    "origin": "Higgins-Claude Development Log",
+    "origin_url": null,
+    "raw_data_path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\",
+    "repo_copy": "experiments/Hs-20_Conversation_Drift/Hs-20_milestone_compositions.csv",
+    "description": "Ingested from Hs-20_milestone_compositions.csv",
+    "license": "CC BY 4.0",
+    "data_hash_sha256_16": "0bc6befa645719a5"
+  },
+  "system": {
+    "N": 18,
+    "D": 5,
+    "carriers": [
+      "index",
+      "Theory",
+      "Engineering",
+      "Documentation",
+      "Discovery"
+    ],
+    "time_axis": "Development milestones (18 epochs)",
+    "zero_replacement": true,
+    "epsilon": 1e-10
+  },
+  "pipeline": {
+    "version": "1.0 Extended",
+    "runner": "hs_run.py",
+    "instrument": "Hˢ Higgins Decomposition — 12-Step Pipeline v1.0 Extended",
+    "deterministic": true,
+    "run_timestamp": "2026-04-30T21:13:51.291387Z",
+    "run_command": "python hs_run.py ../../experiments/Hs-20_Conversation_Drift/Hs-20_milestone_compositions.csv --exp-id \"Hs-20\" --name \"Conversation Compositional Drift\" --domain COMMUNICATION"
+  },
+  "results_summary": {
+    "total_variance": 8.93465,
+    "variance_shape": "bowl",
+    "variance_R2": 0.988476,
+    "entropy_mean": 0.830801,
+    "entropy_cv": 13.749096,
+    "closure_verified": true,
+    "zero_replacement_applied": true
+  },
+  "classification": {
+    "auto_detected_features": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  },
+  "outputs": {
+    "results_json": "pipeline_output/HS-20_MILESTONE_COMP_results.json",
+    "report_en": "pipeline_output/HS-20_MILESTONE_COMP_report_en.txt",
+    "helix_exploded": "pipeline_output/Hs-20_helix_exploded.pdf",
+    "manifold_helix": "pipeline_output/Hs-20_manifold_helix.pdf",
+    "projections": "pipeline_output/Hs-20_projections.pdf",
+    "polar_stack": "pipeline_output/Hs-20_polar_stack.pdf",
+    "polar_stack_json": "pipeline_output/Hs-20_polar_stack.json",
+    "manifold_paper": "pipeline_output/Hs-20_manifold_paper.pdf"
+  },
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Pipeline is fully deterministic. No stochastic elements. Bit-identical output on repeated runs with identical input and pipeline version."
+  }
+}

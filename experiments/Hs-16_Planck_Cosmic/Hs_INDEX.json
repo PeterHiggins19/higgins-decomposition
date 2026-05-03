@@ -1,0 +1,78 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-16",
+  "name": "Planck Cosmic Budget",
+  "domain": "ASTROPHYSICS",
+  "series": "Core (Hs-01 through Hs-25)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "Validate Hs decomposition on the evolving cosmic energy density composition from Planck 2018 LCDM parameters.",
+  "data_source": {
+    "origin": "Planck Collaboration (2018)",
+    "origin_url": "https://arxiv.org/abs/1807.06209",
+    "raw_data_path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\esa-planck\\",
+    "repo_copy": "experiments/Hs-16_Planck_Cosmic/planck_cosmic_budget.csv",
+    "description": "Ingested from planck_cosmic_budget.csv",
+    "license": "Public domain / scientific publication",
+    "data_hash_sha256_16": "f36321b0771d2fbe"
+  },
+  "system": {
+    "N": 200,
+    "D": 4,
+    "carriers": [
+      "scale_factor",
+      "Omega_radiation",
+      "Omega_matter",
+      "Omega_dark_energy"
+    ],
+    "time_axis": "Scale factor a (0.001 to 1.0, 200 epochs)",
+    "zero_replacement": false,
+    "epsilon": 1e-10
+  },
+  "pipeline": {
+    "version": "1.0 Extended",
+    "runner": "hs_run.py",
+    "instrument": "Hˢ Higgins Decomposition — 12-Step Pipeline v1.0 Extended",
+    "deterministic": true,
+    "run_timestamp": "2026-04-30T21:13:48.740563Z",
+    "run_command": "python hs_run.py ../../experiments/Hs-16_Planck_Cosmic/planck_cosmic_budget.csv --exp-id \"Hs-16\" --name \"Planck Cosmic Budget\" --domain ASTROPHYSICS"
+  },
+  "results_summary": {
+    "total_variance": 35.244,
+    "variance_shape": "bowl",
+    "variance_R2": 0.999998,
+    "entropy_mean": 0.308925,
+    "entropy_cv": 65.744963,
+    "closure_verified": true,
+    "zero_replacement_applied": false
+  },
+  "classification": {
+    "auto_detected_features": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  },
+  "outputs": {
+    "results_json": "pipeline_output/PLANCK_COSMIC_BUDGET_results.json",
+    "report_en": "pipeline_output/PLANCK_COSMIC_BUDGET_report_en.txt",
+    "helix_exploded": "pipeline_output/Hs-16_helix_exploded.pdf",
+    "manifold_helix": "pipeline_output/Hs-16_manifold_helix.pdf",
+    "projections": "pipeline_output/Hs-16_projections.pdf",
+    "polar_stack": "pipeline_output/Hs-16_polar_stack.pdf",
+    "polar_stack_json": "pipeline_output/Hs-16_polar_stack.json",
+    "manifold_paper": "pipeline_output/Hs-16_manifold_paper.pdf"
+  },
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Pipeline is fully deterministic. No stochastic elements. Bit-identical output on repeated runs with identical input and pipeline version."
+  }
+}

@@ -1,0 +1,67 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-25_COSMIC_ENERGY_
+  System:      Cosmic Energy Budget
+  Domain:      COSMOLOGY
+  Carriers:    redshift, Dark_Energy, Cold_Dark_Matter, Baryonic_Matter, Photon_Radiation, Neutrinos
+  N=103, D=6
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-25_cosmic_energy_budget.csv
+  Pipeline:    1.0 Extended
+  Data hash:   8624395e73842820
+  Timestamp:   2026-04-30T21:13:53.833117Z
+
+
+Total codes: 64
+  Errors:       0
+  Warnings:     2
+  Discoveries: 26
+  Calibration signals: 1
+  Structural modes:  5
+  Information:  30
+
+── WARNINGS ──
+  [MX-ROT-WRN] MX-ROT-WRN
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000051)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000051)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (6)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (1)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Dark_Energy, pct=71.816119)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=11.636486, drift_direction=increasing, max_shift_carrier=redshift)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=redshift->Cold_Dark_Matter, te=0.527332)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(redshift/Dark_Energy), cv=147.806964)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(redshift/Cold_Dark_Matter), cv=219.749756)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(redshift/Baryonic_Matter), cv=102.487708)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(redshift/Photon_Radiation), cv=18.691487)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(redshift/Neutrinos), cv=17.805196)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Cold_Dark_Matter), cv=131.018751)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Baryonic_Matter), cv=194.280000)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Photon_Radiation), cv=687.731958)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Neutrinos), cv=528.410236)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Cold_Dark_Matter/Baryonic_Matter), cv=0.000000)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Photon_Radiation/Neutrinos), cv=0.000000)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=103, near_zero_carriers=['redshift', 'Dark_Energy', 'Cold_Dark_Matter', 'Baryonic_Matter', 'Photon_Radiation', 'Neutrinos'], zero_threshold=0.010000)
+  [MX-RK1-DIS] MX-RK1-DIS (lambda1_fraction=0.981576)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=43325839070632752.000000)
+  [MX-VNL-DIS] MX-VNL-DIS (S_ratio=0.051258)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000001)
+  [MX-BAL-DIS] MX-BAL-DIS (gamma=0.135737, VSWR=1.314110)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-CPL-DIS] Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

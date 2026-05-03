@@ -27,7 +27,7 @@
 | Domain | Systems | Agreement |
 |---|---|---|
 | nuclear_physics | 4 | 4/4 — nature confirms in every case |
-| nuclear_fusion | 2 | 2/2 — F17 R²=1.000, PLL vertex = ignition temperature |
+| nuclear_fusion | 2 | 2/2 — F17 R²=1.000, HVLD vertex = ignition temperature |
 | particle_physics | 10 | 10/10 — every quantum system is a natural simplex |
 | nuclear_astrophysics | 3 | 3/3 — stellar burning, NS EOS, DM ratio all compositional |
 | gravity_quantum_gravity | 2 | 2/2 — Kerr BH + GW150914 both compositional |
@@ -50,14 +50,14 @@
 | 9 | CKM Matrix (3×3) | Particle Physics | HIGH | — |
 | 10 | PMNS Matrix (Leptons) | Particle Physics | HIGH | — |
 | 11 | Exotic Hadrons (Molecular vs Compact) | Nuclear/Particle Physics | MEDIUM — needs experimental verification of new exotics | — |
-| 12 | Color Confinement PLL | Quantum Chromodynamics | MEDIUM | — |
+| 12 | Color Confinement HVLD | Quantum Chromodynamics | MEDIUM | — |
 | 13 | EMC Effect — σ²_A Prediction | Nuclear/Particle Physics | HIGH — testable at EIC (Electron-Ion Collider) | — |
 | 14 | Higgs Branching Ratios | Particle Physics | HIGH | — |
 | 15 | Strong CP / θ-vacuum | Particle Physics | MEDIUM — theoretical, awaiting axion detection | — |
 | 16 | Stellar Energy Generation Sequence | Nuclear Astrophysics | HIGH | — |
 | 17 | Neutron Star EOS | Nuclear Astrophysics | VERY HIGH — EOS universality is a strong result | — |
 | 18 | Dark Matter / Baryon Ratio | Cosmology / Particle Physics | MEDIUM — interpretation is speculative, but data are real | — |
-| 19 | Nuclide Z-Chains (Isobar PLL) | Nuclear Physics | HIGH | — |
+| 19 | Nuclide Z-Chains (Isobar HVLD) | Nuclear Physics | HIGH | — |
 | 20 | Kerr Black Hole Energy Partition | General Relativity / Quantum Gravity | HIGH | — |
 | 21 | GW150914 Gravitational Wave Composition | Gravitational Wave Physics | HIGH — REAL LIGO data | — |
 | 22 | Compositional Bell Inequality Violation | Quantum Information Theory | LOW — may be trivial consequence of compositional closure | — |
@@ -69,7 +69,7 @@
 
 ### Evidence Tiers
 
-- **tier_1_flagship:** ['QGP freeze-out (0.27% EITT, real STAR/ALICE data)', 'Nuclear SEMF (F17 R²=0.998, a≈0 zero doctrine)', 'Fusion reactivity (F17 R²=1.000, PLL vertex = ignition)', 'GW150914 (real LIGO data, 93% phase bound)']
+- **tier_1_flagship:** ['QGP freeze-out (0.27% EITT, real STAR/ALICE data)', 'Nuclear SEMF (F17 R²=0.998, a≈0 zero doctrine)', 'Fusion reactivity (F17 R²=1.000, HVLD vertex = ignition)', 'GW150914 (real LIGO data, 93% phase bound)']
 - **tier_2_strong:** ['NS EOS universality (R²>0.94 across 3 models)', 'CKM/PMNS mixing (real PDG data, 1.6× entropy ratio)', 'EMC effect (r=-0.984, testable at EIC)', 'Stellar burning crossover (1.35 M☉)', 'Kerr BH (F17 R²=0.999)']
 - **tier_3_exploratory:** ['Bell test (mathematically real but interpretation uncertain)', 'Dark matter confinement scale (pattern, not proof)', 'Strong CP / axion (theoretical framework only)']
 

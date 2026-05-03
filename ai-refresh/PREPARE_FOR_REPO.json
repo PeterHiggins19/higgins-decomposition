@@ -2,10 +2,10 @@
   "_meta": {
     "type": "PREPARE_FOR_REPO",
     "purpose": "Pre-push readiness manifest. Full repository scrape with consistency verification.",
-    "generated": "2026-04-28T21:30:00",
-    "generator": "Cowork session — push #12 prep: O-1 resolution, dimensional collapse framework, full 25-experiment chain re-run, stress test, engine operational",
+    "generated": "2026-05-02T18:00:00",
+    "generator": "Cowork session — push #13 preparation: HCI, Higgins Coordinates, EDI, Poincaré, Hs_Direct, complete projection standard, 8 new pipeline generators, 3 new experiment folders",
     "protocol": "Scrape → verify → cross-reference → fix → re-verify → set status",
-    "previous_version": "2026-04-28T12:00:00 (push #11 — naming convention, HUF→Hs migration)"
+    "previous_version": "2026-04-28T21:30:00 (push #12 — O-1 resolution, dimensional collapse)"
   },
   "status": "READY",
   "issues": "None — all checks passed",
@@ -27,24 +27,27 @@
       { "commit": "1a4031a", "message": "Hs = R . M . E . C . T . V . S", "date": "2026-04-27T14:00:00" },
       { "commit": "289427e", "message": "CoDaWork2026", "date": "2026-04-27T16:45:00" }
     ],
-    "note": "Hs repo created 2026-04-25. Nine pushes to date. Push 10+ pending — O-1 resolution, dimensional collapse, full chain execution."
+    "note": "Hs repo created 2026-04-25. Twelve pushes to date. Push 12 (df5a904) delivered O-1 resolution, dimensional collapse framework, full 25-experiment chain re-run, stress test. Push 13 (pending) adds HCI instruments, Higgins Coordinates, EDI control gate, Poincaré connection, Hs_Direct, 8 projection generators, 3 new experiment folders, complete projection/cinema standard."
   },
   "canonical_counts": {
     "domains": 18,
-    "systems": 36,
-    "experiments": 25,
-    "experiment_range": "Hs-01 through Hs-25",
-    "total_DUTs": 53,
-    "diagnostic_codes": 78,
-    "diagnostic_codes_non_SM": 68,
-    "structural_modes": 10,
+    "systems": 38,
+    "experiments": "25 + LAB01 + M01 + M02 + MC4 + STD = 30 experiment folders",
+    "experiment_range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD",
+    "total_DUTs": 60,
+    "diagnostic_codes": 106,
+    "diagnostic_codes_non_SM": 92,
+    "structural_modes": 14,
     "transcendental_constants": 35,
     "reference_standards": 15,
-    "pipeline_files": 13,
-    "pipeline_files_note": "12 original + hs_amalgamation.py added 2026-04-26",
+    "pipeline_files": 26,
+    "pipeline_files_note": "18 prior + hs_run.py + hs_helix_exploded.py + hs_manifold_helix.py + hs_manifold_projections.py + hs_polar_stack.py + hs_manifold_paper.py + hs_projector_gen.py + hs_cinema_gen.py (2026-05-02)",
     "locale_files": 5,
-    "interactive_tools": 9,
+    "interactive_tools": 10,
+    "interactive_tools_note": "9 prior + hs_projector.html universal instrument (2026-05-01)",
     "languages": 5,
+    "hci_instruments": 1,
+    "hci_instruments_note": "CBS (Compositional Bearing Scope) — oscilloscope-class, monochrome ASCII",
     "flagship_documents": 4,
     "codawork_documents": 18,
     "reference_documents": 6,
@@ -92,7 +95,7 @@
     "throughput_rows_per_sec": 8877,
     "R2_mean": 0.7761,
     "R2_range": "0.1007 to 0.9999",
-    "PLL_shapes": { "bowl": 17, "hill": 8 },
+    "HVLD_shapes": { "bowl": 17, "hill": 8 },
     "chaos_totals": { "reversals": 1444, "spikes": 26, "stalls": 322 },
     "high_R2_experiments": ["Hs-02", "Hs-05", "Hs-09", "Hs-11", "Hs-16", "Hs-18", "Hs-23", "Hs-25"],
     "low_R2_experiments": ["Hs-17", "Hs-20", "Hs-22", "Hs-24"],
@@ -163,6 +166,20 @@
       "tools/interactive/cosmic_duality_dance.html": true,
       "tools/interactive/cosmic_future_projection.html": true,
       "tools/interactive/Hs_Spectrum_Analyzer.html": true,
+      "tools/interactive/hs_projector.html": true,
+      "HCI/HCI_FOUNDATION.md": true,
+      "HCI/hci_cbs.py": true,
+      "HCI/README.md": true,
+      "HCI/calibration/hci_cal01_cnt_calibration.py": true,
+      "HCI/calibration/cnt_precision_experiment.py": true,
+      "HCI/calibration/CNT_PRECISION_DIAGNOSTIC.md": true,
+      "HCI/calibration/JOURNAL.md": true,
+      "HCI/calibration/HCI-CAL01_results.json": true,
+      "papers/flagship/CNT_Engine_Mathematics_Handbook.docx": true,
+      "ai-refresh/AI_VERIFICATION_SINCE_PUSH12.md": true,
+      "Higgins_Coordinate_System/HIGGINS_COORDINATES.md": true,
+      "Higgins_Coordinate_System/Higgins_Coordinate_System_Handbook_v4.2.docx": true,
+      "HS_DATA_INTEGRITY_LAW.md": true,
       "tools/Hs_Standards_Edition.ipynb": true,
       "tools/README.md": true,
       "tools/pipeline/README.md": true,
@@ -187,17 +204,31 @@
       "hs_audit.py": true,
       "hs_controller.py": true,
       "hs_sensitivity.py": true,
-      "hs_amalgamation.py": true
+      "hs_amalgamation.py": true,
+      "hs_projector_export.py": true,
+      "hs_tensor.py": true,
+      "balun_matrix_analysis.py": true,
+      "impedance_bridge.py": true,
+      "tr_basis_experiment.py": true,
+      "hs_run.py": true,
+      "hs_helix_exploded.py": true,
+      "hs_manifold_helix.py": true,
+      "hs_manifold_projections.py": true,
+      "hs_polar_stack.py": true,
+      "hs_manifold_paper.py": true,
+      "hs_projector_gen.py": true,
+      "hs_cinema_gen.py": true
     },
     "all_critical_present": true,
     "all_pipeline_present": true
   },
   "locale_verification": {
-    "en": { "code_count": 78, "missing": 0, "status": "PASS" },
-    "zh": { "code_count": 78, "missing": 0, "status": "PASS" },
-    "hi": { "code_count": 78, "missing": 0, "status": "PASS" },
-    "pt": { "code_count": 78, "missing": 0, "status": "PASS" },
-    "it": { "code_count": 78, "missing": 0, "status": "PASS" }
+    "en": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "zh": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "hi": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "pt": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "it": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "note": "Locale files need updating for 24 new MX-* diagnostic codes and 4 new SM-* structural modes before push"
   },
   "experiment_verification": {
     "Hs-01_Gold_Silver": { "file_count": 6, "has_reports": true, "has_rerun": false, "note": "Original run was on 2026-04-28 with current engine" },
@@ -224,15 +255,20 @@
     "Hs-22_Natural_Pairs": { "file_count": 75, "has_reports": true, "has_rerun": true },
     "Hs-23_Radionuclides": { "file_count": 30, "has_reports": true, "has_rerun": true, "has_journal": true },
     "Hs-24_HEPData_Validation": { "file_count": 4, "has_reports": false, "has_rerun": true, "has_journal": true },
-    "Hs-25_Cosmic_Energy_Budget": { "file_count": 13, "has_reports": true, "has_rerun": true, "has_journal": true }
+    "Hs-25_Cosmic_Energy_Budget": { "file_count": 13, "has_reports": true, "has_rerun": true, "has_journal": true },
+    "Hs-M01_Manifold_Calibration": { "file_count": 8, "has_reports": false, "has_rerun": false, "has_journal": true, "html_tools": 4, "note": "M-series — calibration suite with 10 geometric test objects, 4 interactive HTML tools (slideshow, manifold, helix, projector)" },
+    "Hs-M02_EMBER_Energy": { "file_count": 14, "has_reports": false, "has_rerun": false, "has_journal": true, "html_tools": 4, "note": "M-series — 7 countries, 9 carriers, 7 CLR CSVs, 4 interactive HTML tools (slideshow, manifold, helix, projector)" },
+    "Hs-LAB01_Titration_Standards": { "has_journal": true, "note": "LAB-series — titration standards for compositional analysis" },
+    "Hs-MC4_Shape_Calibration": { "has_journal": true, "note": "MC-series — shape calibration with 5 test objects (cylinder, sphere, cube, cone, helix), 27 carriers each, per-run min-max normalization validation" },
+    "Hs-STD_Standards_Test": { "has_journal": true, "note": "STD-series — instrument calibration suite with cylinder/sphere/cube subfolders, lock point detection, 3/3 PASS" }
   },
   "cross_reference_consistency": {
     "domains": { "manifest": 18, "inventory": 18, "actual": 18, "consistent": true },
     "systems": { "manifest": 36, "inventory": 36, "actual": 36, "consistent": true },
-    "diagnostic_codes": { "manifest": 78, "inventory": 78, "code_dictionary": 78, "consistent": true },
-    "structural_modes": { "manifest": 10, "inventory": 10, "actual": 10, "consistent": true },
-    "experiments": { "manifest_range": "Hs-01 through Hs-25", "actual_folders": 25, "consistent": true },
-    "pipeline_files": { "actual": 13, "expected": 13, "consistent": true },
+    "diagnostic_codes": { "manifest": 106, "inventory": 106, "code_dictionary": 106, "consistent": true },
+    "structural_modes": { "manifest": 14, "inventory": 14, "actual": 14, "consistent": true },
+    "experiments": { "manifest_range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD", "actual_folders": 30, "m_series": 2, "mc_series": 1, "lab_series": 1, "std_series": 1, "consistent": true },
+    "pipeline_files": { "actual": 26, "expected": 26, "consistent": true },
     "locale_files": { "actual": 5, "expected": 5, "all_complete": true, "consistent": true },
     "rerun_files": { "actual": 24, "expected": 24, "note": "Hs-01 ran directly on 2026-04-28 as Hs-01_results.json", "consistent": true },
     "chain_reports": { "actual": 2, "expected": 2, "consistent": true }
@@ -251,41 +287,59 @@
     "presentation_structure": "16 slides, 10 gifts, ~180 words, gift ramp format"
   },
   "delta_since_last_push": {
-    "last_push": "289427e (CoDaWork2026, 2026-04-27T16:45)",
+    "last_push": "df5a904 (O-1 resolution, 2026-04-29)",
     "session_achievements": [
-      "O-1 RESOLVED — EITT residual analytically bounded (Gemini CLR Taylor expansion proof)",
-      "Dimensional Collapse framework — compositional horizon, pruning process, collapse cycle",
-      "Three new canonical names: Compositional Horizon, Dimensional Collapse, Pruning Process",
-      "Two new open problems: D-6 (horizon formalisation), D-7 (collapse dynamics)",
-      "Three new claims in CLAIM_CLASSIFICATION: eitt_analytic_bound (L5), dimensional_collapse_cycle (L1), compositional_horizon (L2)",
-      "Full 25-experiment chain re-run with post-O-1 engine (3,044 rows, 0.34s)",
-      "Engine stress test: 15/15 PASS — OPERATIONAL",
-      "EXECUTIVE_SUMMARY.md — two new entries (dimensional collapse + full chain execution)",
-      "All O-1 references updated across both repositories (HUF + Hs)"
+      "Matrix analysis integrated as Step 6.5 — 24 MX-* codes, 4 structural modes, V(t) eigendecomposition",
+      "Tensor functor formulation — Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S with naturality proof (CLR ≡ ILR)",
+      "Science-neutral tone pass — all rhetorical language replaced with measurement-based statements",
+      "Complete projection standard — 8 mandatory generators (5 PDF + projector HTML + cinema PPTX + polar JSON)",
+      "hs_run.py — unified pipeline runner, data in → complete standard output in one command",
+      "Hs-LAB01 Titration Standards — pH curves as compositional trajectories",
+      "Hs-MC4 Shape Calibration — 5 geometric test objects for projector validation",
+      "Hs-STD Standards Test — instrument calibration suite with cylinder/sphere/cube, lock point detection",
+      "Carrier lock point detection — LOCK-ACQ/LOCK-LOSS boundaries with offset values",
+      "HS_DATA_INTEGRITY_LAW.md established — three laws, DUT principle, instrument certification",
+      "Poincaré disc connection — circularity ratio mapped to hyperbolic space, 9 PD-* diagnostic codes",
+      "Higgins Coordinate System — pure math specification with Euclidean/polar/hyperbolic/projective, Handbook v4.2",
+      "EDI control gate — Eigenstructure Distortion Index at Step 5.5, validates CLR transform necessity",
+      "Hˢ Direct analysis — Japan EMBER 26-year cube face projection, 83-slide PPTX, Hydro vs OFossil XY face",
+      "Compositional Navigation Tensor (CNT) — bearing/velocity/sensitivity/helmsman from any composition",
+      "Compositional Bearing Scope (CBS) — oscilloscope-class instrument, 8-bit monochrome, ASCII",
+      "HCI folder created — Higgins Computational Instruments, pure math discovery instruments",
+      "Coal-Gas informational lock confirmed — 8.4° bearing spread over 26 years",
+      "Hydro vs Other Fossil maximum fan-out — 167° bearing spread",
+      "Manifold Character Handbook, Software Handbook, CoDa publication paper written",
+      "Universal Manifold Projector instrument built (tools/interactive/hs_projector.html)",
+      "Hs-M01 Manifold Calibration — 10 test objects, all pass",
+      "Hs-M02 EMBER Energy — 7 countries, 9 carriers, full pipeline"
     ],
-    "new_files_hs": [
-      "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json",
-      "experiments/Hs_STRESS_TEST_REPORT_2026-04-28.json",
-      "experiments/Hs-XX_*/Hs-XX_rerun_2026-04-28.json (24 files, Hs-02 through Hs-25)"
+    "new_folders": [
+      "HCI/ — Higgins Computational Instruments (3 core + 5 calibration files: foundation, CBS engine, README, cal suite, precision experiments, precision diagnostic, journal, results JSON)",
+      "Higgins_Coordinate_System/ — coordinate spec, handbook v4.1/v4.2, diagnostic experiment",
+      "Hs_Direct/ — Japan PPTX, PDF, SVGs, analysis JSON, QA images",
+      "experiments/Hs-LAB01_Titration_Standards/",
+      "experiments/Hs-MC4_Shape_Calibration/",
+      "experiments/Hs-STD_Standards_Test/ (with cylinder/sphere/cube subfolders)"
     ],
-    "updated_files_hs": [
-      "EXECUTIVE_SUMMARY.md — April 28 dimensional collapse entry + full chain execution entry",
-      "ai-refresh/HS_MACHINE_MANIFEST.json — full_chain_execution block, experiment navigation, theoretical_extensions",
-      "ai-refresh/HS_ADMIN.json — 4 new canonical_names (eitt_analytic_bound, compositional_horizon, dimensional_collapse, pruning_process)",
-      "ai-refresh/PREPARE_FOR_REPO.json — full update for push #12"
+    "new_pipeline_files": [
+      "hs_run.py — unified pipeline runner",
+      "hs_helix_exploded.py — exploded helix PDF generator",
+      "hs_manifold_helix.py — 3D manifold helix PDF generator",
+      "hs_manifold_projections.py — 4-page projection suite PDF",
+      "hs_polar_stack.py — per-interval polar stack PDF + JSON",
+      "hs_manifold_paper.py — 3D manifold-on-paper PDF",
+      "hs_projector_gen.py — interactive 3D projector HTML generator",
+      "hs_cinema_gen.py — compositional cinema PPTX generator",
+      "hs_tensor.py — tensor functor implementation",
+      "balun_matrix_analysis.py — deep matrix eigenstructure analysis",
+      "impedance_bridge.py — Tr × basis × step impedance bridge",
+      "tr_basis_experiment.py — trace basis experiment runner"
     ],
-    "updated_files_huf": [
-      "ai-refresh/HUF_FAST_REFRESH.json — v5.4, new canonical names, April sprint update",
-      "ai-refresh/CLAIM_CLASSIFICATION.json — v3.1, 3 new claims, O-1 resolved",
-      "INDEX.json — v2.2, O-1 resolved, new known_pitfalls, status updated",
-      "science/core/EITT_DECOMPOSITION_FRAMEWORK.md — new section 8 (dimensional collapse + compositional horizon)",
-      "science/core/EITT_CODA_MATHEMATICS.md — Remark 2.2 updated for O-1 resolution",
-      "science/reference/06_EITT_CODA_MATHEMATICS.md — Remark 2.2 updated for O-1 resolution",
-      "science/eitt/EITT_HESSIAN_BOUND.md — open problem #5 added (compositional horizon)",
-      "science/eitt/INDEX.json — new claim_8 (dimensional_collapse), O-4 enriched",
-      "codawork2026/science/EITT_CoDa_Cheatsheet_v3.md — O-1 consistency fix"
+    "updated_pipeline_files": [
+      "higgins_decomposition_12step.py — Step 5.5 EDI control gate + Step 6.5 matrix analysis",
+      "hs_codes.py — v2.0, 106 codes + 9 PD-*, 14 structural modes"
     ],
-    "summary": "O-1 resolution integrated (Gemini proof). Dimensional collapse and compositional horizon framework documented. Full 25-experiment chain re-run with post-O-1 engine. Stress test 15/15 PASS. Engine verdict: OPERATIONAL. All metadata files updated across both Hs and HUF repositories. CoDaWork posture confirmed: Calibration Proof."
+    "summary": "Massive expansion: 3 new top-level folders (HCI, Higgins Coordinates, Hs_Direct), 3 new experiment folders (LAB01, MC4, STD), 8 new projection generators, EDI control gate, Poincaré disc connection, Compositional Navigation Tensor, complete projection/cinema standard. CNT precision audit: 10 precision experiments (P01-P10), engine refined to IEEE 754 floor (arccos→atan2, Helmert basis, condition number diagnostic). Pipeline grows from 18 to 26 files. Interactive tools grow from 9 to 10. Experiment folders grow from 29 to 30."
   },
   "push_checklist": {
     "1_all_files_present": true,
@@ -301,6 +355,8 @@
     "11_v3_reference_document_complete": true,
     "12_ai_refresh_updated": true,
     "13_no_blocking_issues": true,
+    "14_m_series_complete": true,
+    "15_governance_drift_audit_passed": true,
     "READY_TO_PUSH": true
   }
 }

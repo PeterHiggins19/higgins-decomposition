@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs Manifold Projector — M01 Calibration Suite</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; }
+body {
+  background: #030406;
+  color: #b0c4d0;
+  font-family: 'Courier New', monospace;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+canvas:active { cursor: grabbing; }
+
+/* HUD top-left */
+#hud-title {
+  position: fixed;
+  top: 18px; left: 22px;
+  pointer-events: none;
+  z-index: 10;
+}
+#hud-title .main {
+  font-size: 18px;
+  font-weight: 700;
+  color: #6898b8;
+  letter-spacing: 2px;
+}
+#hud-title .sub {
+  font-size: 10px;
+  color: #405868;
+  letter-spacing: 3px;
+  margin-top: 2px;
+}
+
+/* Controls top-right */
+#hud-controls {
+  position: fixed;
+  top: 14px; right: 18px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+.btn-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.btn {
+  padding: 4px 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(37, 48, 56, 0.7);
+  color: #6898b8;
+  border: 1px solid #405868;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+}
+.btn:hover {
+  background: rgba(64, 88, 104, 0.6);
+  color: #8abcd8;
+}
+.btn.active {
+  background: rgba(104, 152, 184, 0.25);
+  color: #8abcd8;
+  border-color: #6898b8;
+}
+.btn-section-label {
+  font-size: 9px;
+  color: #405868;
+  letter-spacing: 2px;
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* Zoom slider left */
+#hud-zoom {
+  position: fixed;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+#hud-zoom .label {
+  font-size: 9px;
+  color: #405868;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+#zoom-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 120px;
+  height: 2px;
+  background: #253038;
+  outline: none;
+  transform: rotate(-90deg);
+  cursor: pointer;
+}
+#zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6898b8;
+  border: 1px solid #8abcd8;
+  cursor: pointer;
+}
+#depth-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 2px;
+  background: #253038;
+  outline: none;
+  transform: rotate(-90deg);
+  cursor: pointer;
+  margin-top: 20px;
+}
+#depth-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4a8ad4;
+  border: 1px solid #6898b8;
+  cursor: pointer;
+}
+
+/* Bottom readout */
+#hud-readout {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 36px;
+  background: rgba(3, 4, 6, 0.85);
+  border-top: 1px solid #253038;
+  display: flex;
+  align-items: center;
+  padding: 0 22px;
+  gap: 32px;
+  z-index: 10;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+#hud-readout .item {
+  display: flex;
+  gap: 6px;
+}
+#hud-readout .lbl {
+  color: #405868;
+}
+#hud-readout .val {
+  color: #6898b8;
+}
+
+/* Tooltip */
+#tooltip {
+  position: fixed;
+  display: none;
+  background: rgba(3, 4, 6, 0.92);
+  border: 1px solid #405868;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  line-height: 1.6;
+  pointer-events: none;
+  z-index: 100;
+  color: #b0c4d0;
+  max-width: 260px;
+}
+#tooltip .tt-head {
+  color: #6898b8;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+#tooltip .tt-carrier {
+  display: flex;
+  gap: 8px;
+}
+#tooltip .tt-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+</style>
+</head>
+<body>
+
+<canvas id="viewport"></canvas>
+
+<div id="hud-title">
+  <div class="main">H<b>&#738;</b> Manifold Projector</div>
+  <div class="sub">COMPOSITIONAL DATA MANIFOLD &mdash; CALIBRATION SUITE</div>
+</div>
+
+<div id="hud-controls">
+  <div class="btn-section-label">OBJECT</div>
+  <div class="btn-row" id="object-btns"></div>
+  <div class="btn-section-label">DISPLAY</div>
+  <div class="btn-row" id="display-btns">
+    <button class="btn active" id="btn-orbit" onclick="toggleOrbit()">ORBIT</button>
+    <button class="btn" id="btn-trails" onclick="toggleTrails()">TRAILS</button>
+    <button class="btn active" id="btn-color" onclick="toggleColor()">COLOR</button>
+  </div>
+  <div class="btn-section-label">VIEW</div>
+  <div class="btn-row" id="view-btns">
+    <button class="btn" onclick="setView('front',event)">FRONT</button>
+    <button class="btn" onclick="setView('side',event)">SIDE</button>
+    <button class="btn" onclick="setView('top',event)">TOP</button>
+    <button class="btn active" onclick="setView('iso',event)">ISO</button>
+  </div>
+</div>
+
+<div id="hud-zoom">
+  <div class="label">ZOOM</div>
+  <input type="range" id="zoom-slider" min="0.3" max="3" step="0.01" value="1">
+  <div class="label" style="margin-top:30px">DEPTH</div>
+  <input type="range" id="depth-slider" min="0.2" max="3" step="0.01" value="1">
+</div>
+
+<div id="hud-readout">
+  <div class="item"><span class="lbl">OBJ</span><span class="val" id="ro-name">---</span></div>
+  <div class="item"><span class="lbl">DIM</span><span class="val" id="ro-dim">---</span></div>
+  <div class="item"><span class="lbl">N</span><span class="val" id="ro-n">---</span></div>
+  <div class="item"><span class="lbl">PATH EFF</span><span class="val" id="ro-eff">---</span></div>
+  <div class="item"><span class="lbl">TOT VAR</span><span class="val" id="ro-var">---</span></div>
+  <div class="item"><span class="lbl">V(t)</span><span class="val" id="ro-vt">---</span></div>
+  <div class="item"><span class="lbl">FRAME</span><span class="val" id="ro-frame">---</span></div>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+// ====================================================================
+//  Hs MANIFOLD PROJECTOR — M01 CALIBRATION SUITE
+//  Self-contained 3D radar-polygon tube visualization
+// ====================================================================
+
+const canvas = document.getElementById('viewport');
+const ctx = canvas.getContext('2d');
+const tooltip = document.getElementById('tooltip');
+
+// --- State ---
+let W, H;
+let rotX = -0.35, rotY = 0.0, rotZ = 0.0;
+let zoom = 1.0, depth = 1.0;
+let orbitEnabled = true, trailsEnabled = false, colorEnabled = true;
+let dragging = false, lastMX = 0, lastMY = 0;
+let mouseX = -1, mouseY = -1;
+let currentObject = 'line';
+let animT = 0;
+
+// Carrier colors
+const COLORS3 = ['#d4944a', '#4a8ad4', '#4ab8d4'];
+const COLORS4 = ['#d4944a', '#4a8ad4', '#4ab8d4', '#9a6ab8'];
+const CARRIER_NAMES3 = ['A', 'B', 'C'];
+const CARRIER_NAMES4 = ['A', 'B', 'C', 'D'];
+
+// ====================================================================
+//  TEST OBJECT DATA GENERATION
+// ====================================================================
+
+function linspace(a, b, n, endpoint = true) {
+  const arr = [];
+  const step = endpoint ? (b - a) / (n - 1) : (b - a) / n;
+  for (let i = 0; i < n; i++) arr.push(a + i * step);
+  return arr;
+}
+
+function clrFromComp(comp) {
+  // CLR transform: log(x_i) - mean(log(x))
+  const logC = comp.map(Math.log);
+  const mean = logC.reduce((s, v) => s + v, 0) / logC.length;
+  return logC.map(v => v - mean);
+}
+
+function closure(vals) {
+  const s = vals.reduce((a, b) => a + b, 0);
+  return vals.map(v => v / s);
+}
+
+function generateStationary() {
+  const N = 20, D = 3;
+  const clr = [];
+  for (let i = 0; i < N; i++) clr.push([0, 0, 0]);
+  return { name: 'STATIONARY', clr, D, N, simplex: 'S²' };
+}
+
+function generateLine() {
+  const N = 20, D = 3;
+  const t = linspace(0, 1, N);
+  const clr = [];
+  for (let i = 0; i < N; i++) {
+    const comp = [0.8 - 0.7 * t[i], 0.1, 0.1 + 0.7 * t[i]];
+    clr.push(clrFromComp(comp));
+  }
+  return { name: 'LINE', clr, D, N, simplex: 'S²' };
+}
+
+function generateCircle() {
+  const N = 40, D = 3;
+  const t = linspace(0, 2 * Math.PI, N, false);
+  const r = 0.5;
+  const clr = [];
+  for (let i = 0; i < N; i++) {
+    const c1 = r * Math.cos(t[i]);
+    const c2 = r * Math.sin(t[i]);
+    const c3 = -c1 - c2;
+    clr.push([c1, c2, c3]);
+  }
+  return { name: 'CIRCLE', clr, D, N, simplex: 'S²' };
+}
+
+function generateSphere() {
+  const N = 60, D = 4;
+  const golden = (1 + Math.sqrt(5)) / 2;
+  const clr = [];
+  for (let i = 0; i < N; i++) {
+    const theta = 2 * Math.PI * i / golden;
+    const phi = Math.acos(1 - 2 * (i + 0.5) / N);
+    const rr = 0.8;
+    const c1 = rr * Math.sin(phi) * Math.cos(theta);
+    const c2 = rr * Math.sin(phi) * Math.sin(theta);
+    const c3 = rr * Math.cos(phi);
+    const c4 = -(c1 + c2 + c3);
+    clr.push([c1, c2, c3, c4]);
+  }
+  return { name: 'SPHERE', clr, D, N, simplex: 'S³' };
+}
+
+function generateSpiral() {
+  const N = 50, D = 3;
+  const t = linspace(0, 4 * Math.PI, N);
+  const r = linspace(0.05, 0.8, N);
+  const clr = [];
+  for (let i = 0; i < N; i++) {
+    const c1 = r[i] * Math.cos(t[i]);
+    const c2 = r[i] * Math.sin(t[i]);
+    const c3 = -(c1 + c2);
+    clr.push([c1, c2, c3]);
+  }
+  return { name: 'SPIRAL', clr, D, N, simplex: 'S²' };
+}
+
+function generateTorus() {
+  const N = 80, D = 4;
+  const R = 0.8, r = 0.3;
+  const t = linspace(0, 2 * Math.PI, N, false);
+  const clr = [];
+  for (let i = 0; i < N; i++) {
+    const c1 = (R + r * Math.cos(t[i])) * Math.cos(t[i]);
+    const c2 = (R + r * Math.cos(t[i])) * Math.sin(t[i]);
+    const c3 = r * Math.sin(t[i]);
+    const c4 = -(c1 + c2 + c3);
+    clr.push([c1, c2, c3, c4]);
+  }
+  return { name: 'TORUS', clr, D, N, simplex: 'S³' };
+}
+
+const OBJECTS = {
+  stationary: generateStationary,
+  line: generateLine,
+  circle: generateCircle,
+  sphere: generateSphere,
+  spiral: generateSpiral,
+  torus: generateTorus,
+};
+
+let activeData = null;
+let normalizedCLR = null; // 0..1 per carrier
+let carrierMin = null, carrierMax = null;
+
+function loadObject(key) {
+  currentObject = key;
+  activeData = OBJECTS[key]();
+
+  // Normalize CLR to 0..1 per carrier for radar radii
+  const D = activeData.D;
+  const N = activeData.N;
+  carrierMin = new Array(D).fill(Infinity);
+  carrierMax = new Array(D).fill(-Infinity);
+  for (let i = 0; i < N; i++) {
+    for (let d = 0; d < D; d++) {
+      if (activeData.clr[i][d] < carrierMin[d]) carrierMin[d] = activeData.clr[i][d];
+      if (activeData.clr[i][d] > carrierMax[d]) carrierMax[d] = activeData.clr[i][d];
+    }
+  }
+
+  normalizedCLR = [];
+  for (let i = 0; i < N; i++) {
+    const row = [];
+    for (let d = 0; d < D; d++) {
+      const range = carrierMax[d] - carrierMin[d];
+      row.push(range < 1e-12 ? 0.5 : (activeData.clr[i][d] - carrierMin[d]) / range);
+    }
+    normalizedCLR.push(row);
+  }
+
+  computeDiagnostics();
+  updateReadout();
+  updateObjectButtons();
+}
+
+// ====================================================================
+//  DIAGNOSTICS
+// ====================================================================
+
+let diagPathEff = 0, diagTotalVar = 0, diagVtClass = '';
+
+function vecDist(a, b) {
+  let s = 0;
+  for (let i = 0; i < a.length; i++) s += (a[i] - b[i]) ** 2;
+  return Math.sqrt(s);
+}
+
+function computeDiagnostics() {
+  const clr = activeData.clr;
+  const N = clr.length;
+  const D = activeData.D;
+
+  // Path length and displacement
+  let pathLen = 0;
+  for (let i = 1; i < N; i++) pathLen += vecDist(clr[i], clr[i - 1]);
+  const disp = vecDist(clr[N - 1], clr[0]);
+  diagPathEff = pathLen < 1e-12 ? 0 : disp / pathLen;
+
+  // Total variance
+  const mean = new Array(D).fill(0);
+  for (let i = 0; i < N; i++) for (let d = 0; d < D; d++) mean[d] += clr[i][d] / N;
+  let tvar = 0;
+  for (let i = 0; i < N; i++) for (let d = 0; d < D; d++) tvar += (clr[i][d] - mean[d]) ** 2;
+  diagTotalVar = tvar / N;
+
+  // V(t) shape classification
+  const vt = [];
+  for (let i = 0; i < N; i++) {
+    let v = 0;
+    for (let d = 0; d < D; d++) v += clr[i][d] ** 2;
+    vt.push(v);
+  }
+  const vtRange = Math.max(...vt) - Math.min(...vt);
+  const vtMean = vt.reduce((a, b) => a + b, 0) / N;
+
+  if (vtRange < 1e-6) diagVtClass = 'CONSTANT';
+  else if (vtRange / vtMean < 0.05) diagVtClass = 'FLAT';
+  else {
+    // Check monotonicity
+    let mono = true;
+    for (let i = 1; i < N; i++) {
+      if (vt[i] < vt[i - 1] - 1e-8) { mono = false; break; }
+    }
+    if (mono) { diagVtClass = 'MONOTONE-UP'; }
+    else {
+      let monoD = true;
+      for (let i = 1; i < N; i++) {
+        if (vt[i] > vt[i - 1] + 1e-8) { monoD = false; break; }
+      }
+      if (monoD) diagVtClass = 'MONOTONE-DN';
+      else diagVtClass = 'OSCILLATING';
+    }
+  }
+}
+
+function updateReadout() {
+  document.getElementById('ro-name').textContent = activeData.name;
+  document.getElementById('ro-dim').textContent = activeData.simplex;
+  document.getElementById('ro-n').textContent = activeData.N;
+  document.getElementById('ro-eff').textContent = diagPathEff.toFixed(4);
+  document.getElementById('ro-var').textContent = diagTotalVar.toFixed(4);
+  document.getElementById('ro-vt').textContent = diagVtClass;
+}
+
+// ====================================================================
+//  OBJECT SELECTOR BUTTONS
+// ====================================================================
+
+function initObjectButtons() {
+  const row = document.getElementById('object-btns');
+  const keys = Object.keys(OBJECTS);
+  keys.forEach(k => {
+    const btn = document.createElement('button');
+    btn.className = 'btn';
+    btn.id = 'obj-btn-' + k;
+    btn.textContent = k.toUpperCase();
+    btn.onclick = () => loadObject(k);
+    row.appendChild(btn);
+  });
+}
+
+function updateObjectButtons() {
+  Object.keys(OBJECTS).forEach(k => {
+    const btn = document.getElementById('obj-btn-' + k);
+    btn.classList.toggle('active', k === currentObject);
+  });
+}
+
+// ====================================================================
+//  3D PROJECTION
+// ====================================================================
+
+function project3D(x, y, z) {
+  // Apply rotation
+  let x1 = x, y1 = y * Math.cos(rotX) - z * Math.sin(rotX), z1 = y * Math.sin(rotX) + z * Math.cos(rotX);
+  let x2 = x1 * Math.cos(rotY) + z1 * Math.sin(rotY), y2 = y1, z2 = -x1 * Math.sin(rotY) + z1 * Math.cos(rotY);
+  let x3 = x2 * Math.cos(rotZ) - y2 * Math.sin(rotZ), y3 = x2 * Math.sin(rotZ) + y2 * Math.cos(rotZ), z3 = z2;
+
+  // Perspective (canonical Hˢ projection)
+  const fov = 700;
+  const scale = fov / (fov + z3 + 350) * zoom;
+  return {
+    sx: W / 2 + x3 * scale,
+    sy: H / 2 + y3 * scale,
+    z: z3,
+    scale: scale
+  };
+}
+
+// ====================================================================
+//  RENDER
+// ====================================================================
+
+// For vertex hit-testing
+let vertexScreenPositions = [];
+
+function render() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+
+  ctx.fillStyle = '#030406';
+  ctx.fillRect(0, 0, W, H);
+
+  if (!activeData) return;
+
+  const D = activeData.D;
+  const N = activeData.N;
+  const colors = D === 4 ? COLORS4 : COLORS3;
+  const names = D === 4 ? CARRIER_NAMES4 : CARRIER_NAMES3;
+
+  // Radar polygon parameters
+  const radarRadius = 0.6; // max radius in 3D units
+  const zSpacing = 2.0 * depth / N; // distance between slices along Z
+  const zOffset = -depth; // center the tube
+
+  vertexScreenPositions = [];
+
+  // Collect all polygons with z-depth for painter's algorithm
+  const polys = [];
+
+  for (let i = 0; i < N; i++) {
+    const zPos = zOffset + i * zSpacing;
+    const vertices3D = [];
+    const verticesScreen = [];
+
+    for (let d = 0; d < D; d++) {
+      const angle = (2 * Math.PI * d) / D - Math.PI / 2;
+      const r = (0.1 + 0.9 * normalizedCLR[i][d]) * radarRadius;
+      const vx = r * Math.cos(angle);
+      const vy = r * Math.sin(angle);
+      vertices3D.push({ x: vx, y: vy, z: zPos });
+    }
+
+    // Project
+    let avgZ = 0;
+    for (let d = 0; d < D; d++) {
+      const p = project3D(vertices3D[d].x, vertices3D[d].y, vertices3D[d].z);
+      verticesScreen.push(p);
+      avgZ += p.z;
+    }
+    avgZ /= D;
+
+    polys.push({ i, verticesScreen, avgZ, zPos });
+  }
+
+  // Sort back-to-front
+  polys.sort((a, b) => b.avgZ - a.avgZ);
+
+  // Draw connecting edges (trails) between consecutive slices
+  if (trailsEnabled) {
+    for (let pi = 0; pi < polys.length; pi++) {
+      const poly = polys[pi];
+      const idx = poly.i;
+      if (idx === 0) continue;
+
+      // Find previous polygon
+      const prevIdx = idx - 1;
+      const prevZPos = zOffset + prevIdx * zSpacing;
+
+      for (let d = 0; d < D; d++) {
+        const angle = (2 * Math.PI * d) / D - Math.PI / 2;
+        const r0 = (0.1 + 0.9 * normalizedCLR[prevIdx][d]) * radarRadius;
+        const r1 = (0.1 + 0.9 * normalizedCLR[idx][d]) * radarRadius;
+        const p0 = project3D(r0 * Math.cos(angle), r0 * Math.sin(angle), prevZPos);
+        const p1 = project3D(r1 * Math.cos(angle), r1 * Math.sin(angle), poly.zPos);
+
+        ctx.beginPath();
+        ctx.moveTo(p0.sx, p0.sy);
+        ctx.lineTo(p1.sx, p1.sy);
+        ctx.strokeStyle = colorEnabled ? colors[d] + '30' : '#6898b818';
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Draw polygons
+  for (const poly of polys) {
+    const { i, verticesScreen } = poly;
+    const timeFrac = N > 1 ? i / (N - 1) : 0;
+
+    // Fill polygon
+    ctx.beginPath();
+    for (let d = 0; d <= D; d++) {
+      const v = verticesScreen[d % D];
+      if (d === 0) ctx.moveTo(v.sx, v.sy);
+      else ctx.lineTo(v.sx, v.sy);
+    }
+    ctx.closePath();
+
+    if (colorEnabled) {
+      // Time gradient: blue-start -> teal-end
+      const r = Math.round(20 + timeFrac * 30);
+      const g = Math.round(40 + timeFrac * 80);
+      const b = Math.round(60 + timeFrac * 40);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, 0.08)`;
+      ctx.strokeStyle = `rgba(${40 + timeFrac * 60}, ${80 + timeFrac * 80}, ${120 + timeFrac * 60}, 0.5)`;
+    } else {
+      ctx.fillStyle = 'rgba(104, 152, 184, 0.04)';
+      ctx.strokeStyle = 'rgba(104, 152, 184, 0.3)';
+    }
+    ctx.lineWidth = 1;
+    ctx.fill();
+    ctx.stroke();
+
+    // Draw spoke lines and vertices
+    const centerP = project3D(0, 0, poly.zPos);
+    for (let d = 0; d < D; d++) {
+      const v = verticesScreen[d];
+
+      // Spoke line
+      ctx.beginPath();
+      ctx.moveTo(centerP.sx, centerP.sy);
+      ctx.lineTo(v.sx, v.sy);
+      ctx.strokeStyle = colorEnabled ? colors[d] + '40' : '#6898b825';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+
+      // Vertex dot
+      const dotR = Math.max(1.5, 3 * (v.scale / 200));
+      ctx.beginPath();
+      ctx.arc(v.sx, v.sy, dotR, 0, 2 * Math.PI);
+      ctx.fillStyle = colorEnabled ? colors[d] : '#6898b8';
+      ctx.globalAlpha = 0.7;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // Store for hit testing
+      vertexScreenPositions.push({
+        sx: v.sx, sy: v.sy, r: dotR + 6,
+        timeIdx: i, carrierIdx: d,
+        clrVal: activeData.clr[i][d],
+        normVal: normalizedCLR[i][d]
+      });
+    }
+  }
+
+  // Draw grid ring at center for reference
+  const gridCenter = project3D(0, 0, 0);
+  for (let ring = 0.25; ring <= 1.0; ring += 0.25) {
+    ctx.beginPath();
+    const rr = ring * radarRadius;
+    const segments = 64;
+    for (let s = 0; s <= segments; s++) {
+      const a = (2 * Math.PI * s) / segments;
+      const p = project3D(rr * Math.cos(a), rr * Math.sin(a), 0);
+      if (s === 0) ctx.moveTo(p.sx, p.sy);
+      else ctx.lineTo(p.sx, p.sy);
+    }
+    ctx.strokeStyle = '#253038';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+  }
+
+  // Update frame counter
+  document.getElementById('ro-frame').textContent = N;
+}
+
+// ====================================================================
+//  TOOLTIP
+// ====================================================================
+
+function handleTooltip() {
+  if (mouseX < 0 || !activeData) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  let closest = null, closestDist = Infinity;
+  for (const vp of vertexScreenPositions) {
+    const dx = mouseX - vp.sx, dy = mouseY - vp.sy;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < vp.r && dist < closestDist) {
+      closestDist = dist;
+      closest = vp;
+    }
+  }
+
+  if (!closest) {
+    tooltip.style.display = 'none';
+    return;
+  }
+
+  const D = activeData.D;
+  const colors = D === 4 ? COLORS4 : COLORS3;
+  const names = D === 4 ? CARRIER_NAMES4 : CARRIER_NAMES3;
+
+  let html = `<div class="tt-head">t=${closest.timeIdx} / ${activeData.N - 1}</div>`;
+  for (let d = 0; d < D; d++) {
+    const clrV = activeData.clr[closest.timeIdx][d];
+    const normV = normalizedCLR[closest.timeIdx][d];
+    const highlight = d === closest.carrierIdx ? ' style="color:#fff"' : '';
+    html += `<div class="tt-carrier"${highlight}><span class="tt-dot" style="background:${colors[d]}"></span>${names[d]}: CLR=${clrV.toFixed(4)} norm=${normV.toFixed(3)}</div>`;
+  }
+  tooltip.innerHTML = html;
+  tooltip.style.display = 'block';
+
+  let tx = mouseX + 16, ty = mouseY - 10;
+  if (tx + 260 > W) tx = mouseX - 270;
+  if (ty + 120 > H) ty = mouseY - 120;
+  tooltip.style.left = tx + 'px';
+  tooltip.style.top = ty + 'px';
+}
+
+// ====================================================================
+//  INTERACTION
+// ====================================================================
+
+canvas.addEventListener('mousedown', e => {
+  dragging = true;
+  lastMX = e.clientX;
+  lastMY = e.clientY;
+  orbitEnabled = false;
+  document.getElementById('btn-orbit').classList.remove('active');
+});
+
+canvas.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  if (dragging) {
+    const dx = e.clientX - lastMX;
+    const dy = e.clientY - lastMY;
+    rotY += dx * 0.006;
+    rotX += dy * 0.006;
+    lastMX = e.clientX;
+    lastMY = e.clientY;
+  }
+});
+
+canvas.addEventListener('mouseup', () => { dragging = false; });
+canvas.addEventListener('mouseleave', () => { dragging = false; mouseX = -1; tooltip.style.display = 'none'; });
+
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  if (e.shiftKey) {
+    depth = Math.max(0.2, Math.min(3, depth - e.deltaY * 0.002));
+    document.getElementById('depth-slider').value = depth;
+  } else {
+    zoom = Math.max(0.3, Math.min(3, zoom - e.deltaY * 0.002));
+    document.getElementById('zoom-slider').value = zoom;
+  }
+}, { passive: false });
+
+document.getElementById('zoom-slider').addEventListener('input', e => { zoom = parseFloat(e.target.value); });
+document.getElementById('depth-slider').addEventListener('input', e => { depth = parseFloat(e.target.value); });
+
+// Toggle functions
+function toggleOrbit() {
+  orbitEnabled = !orbitEnabled;
+  document.getElementById('btn-orbit').classList.toggle('active', orbitEnabled);
+}
+function toggleTrails() {
+  trailsEnabled = !trailsEnabled;
+  document.getElementById('btn-trails').classList.toggle('active', trailsEnabled);
+}
+function toggleColor() {
+  colorEnabled = !colorEnabled;
+  document.getElementById('btn-color').classList.toggle('active', colorEnabled);
+}
+
+// View presets
+function setView(view, evt) {
+  // Clear active states on view buttons
+  document.querySelectorAll('#view-btns .btn').forEach(b => b.classList.remove('active'));
+  if (evt && evt.target) {
+    evt.target.classList.add('active');
+  } else {
+    // Programmatic call — highlight the matching button
+    const btns = document.querySelectorAll('#view-btns .btn');
+    btns.forEach(b => { if (b.textContent === view.toUpperCase()) b.classList.add('active'); });
+  }
+
+  switch (view) {
+    case 'front': rotX = 0; rotY = 0; rotZ = 0; break;
+    case 'side':  rotX = 0; rotY = Math.PI / 2; rotZ = 0; break;
+    case 'top':   rotX = -Math.PI / 2; rotY = 0; rotZ = 0; break;
+    case 'iso':   rotX = -0.35; rotY = 0.45; rotZ = 0; break;
+  }
+}
+
+// ====================================================================
+//  ANIMATION LOOP
+// ====================================================================
+
+function animate() {
+  if (orbitEnabled) {
+    rotY += 0.003;
+  }
+  render();
+  handleTooltip();
+  requestAnimationFrame(animate);
+}
+
+// ====================================================================
+//  INIT
+// ====================================================================
+
+initObjectButtons();
+loadObject('line');
+// Set initial view angles without calling setView (which would disable orbit)
+rotX = -0.35; rotY = 0.45; rotZ = 0;
+animate();
+
+window.addEventListener('resize', () => {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+});
+</script>
+</body>
+</html>

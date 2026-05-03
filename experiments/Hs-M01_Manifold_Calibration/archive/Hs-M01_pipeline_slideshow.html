@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs Pipeline Reference Run — M01 Manifold Calibration</title>
+<style>
+:root {
+  --bg: #1a1a2e;
+  --bg2: #16213e;
+  --bg3: #0f3460;
+  --accent: #e94560;
+  --accent2: #53d8fb;
+  --accent3: #7ed957;
+  --text: #e8e8e8;
+  --text-dim: #a0a0b8;
+  --text-bright: #ffffff;
+  --table-even: rgba(255,255,255,0.04);
+  --table-odd: rgba(255,255,255,0.08);
+  --table-head: rgba(233,69,96,0.25);
+  --border: rgba(255,255,255,0.12);
+  --line-color: #e94560;
+  --circle-color: #53d8fb;
+  --spiral-color: #7ed957;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; overflow:hidden; background:var(--bg); color:var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+
+.slideshow { width:100%; height:100%; position:relative; }
+.slide { display:none; flex-direction:column; width:100%; height:100%; padding:40px 60px 60px; overflow-y:auto; }
+.slide.active { display:flex; }
+
+h1 { font-size:2.4em; color:var(--text-bright); margin-bottom:8px; font-weight:700; }
+h2 { font-size:1.7em; color:var(--accent); margin-bottom:12px; font-weight:600; letter-spacing:0.5px; }
+h3 { font-size:1.15em; color:var(--accent2); margin:12px 0 6px; font-weight:600; }
+p, li { font-size:0.95em; line-height:1.6; color:var(--text); margin-bottom:6px; }
+.subtitle { font-size:1.1em; color:var(--text-dim); margin-bottom:4px; }
+.dim { color:var(--text-dim); }
+.bright { color:var(--text-bright); font-weight:600; }
+.accent { color:var(--accent); font-weight:600; }
+.accent2 { color:var(--accent2); }
+.accent3 { color:var(--accent3); }
+.formula { font-family:'Courier New',monospace; background:rgba(255,255,255,0.06); padding:6px 14px; border-radius:6px; display:inline-block; margin:6px 0; font-size:0.95em; color:var(--accent2); border-left:3px solid var(--accent); }
+.key-insight { background:rgba(233,69,96,0.1); border-left:4px solid var(--accent); padding:10px 16px; border-radius:0 8px 8px 0; margin:10px 0; }
+.key-insight strong { color:var(--accent); }
+
+/* Tables */
+table { border-collapse:collapse; margin:8px 0; font-size:0.85em; width:auto; }
+th { background:var(--table-head); color:var(--text-bright); padding:6px 12px; text-align:center; font-weight:600; border:1px solid var(--border); }
+td { padding:5px 12px; text-align:center; border:1px solid var(--border); font-family:'Courier New',monospace; font-size:0.92em; }
+tr:nth-child(even) td { background:var(--table-even); }
+tr:nth-child(odd) td { background:var(--table-odd); }
+
+.tables-row { display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; }
+.tables-row > div { flex:1; min-width:200px; }
+.mini-label { font-size:0.85em; font-weight:600; margin-bottom:4px; }
+.line-label { color:var(--line-color); }
+.circle-label { color:var(--circle-color); }
+.spiral-label { color:var(--spiral-color); }
+
+.content-row { display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; flex:1; min-height:0; }
+.content-row > .text-col { flex:1; min-width:280px; overflow-y:auto; }
+.content-row > .chart-col { flex:1; min-width:320px; display:flex; align-items:center; justify-content:center; }
+
+/* Navigation */
+.nav { position:fixed; bottom:0; left:0; right:0; display:flex; align-items:center; justify-content:space-between; padding:10px 30px; background:linear-gradient(transparent, rgba(26,26,46,0.95) 30%); z-index:100; }
+.nav button { background:var(--bg3); border:1px solid var(--border); color:var(--text); padding:8px 20px; border-radius:6px; cursor:pointer; font-size:0.9em; transition:all 0.2s; }
+.nav button:hover { background:var(--accent); color:#fff; }
+.slide-counter { font-size:0.95em; color:var(--text-dim); font-weight:600; }
+.footer { position:fixed; bottom:42px; left:0; right:0; text-align:center; font-size:0.72em; color:rgba(255,255,255,0.3); z-index:99; pointer-events:none; }
+
+/* Stage badge */
+.stage-badge { display:inline-block; background:var(--accent); color:#fff; padding:3px 14px; border-radius:20px; font-size:0.85em; font-weight:700; margin-right:10px; letter-spacing:1px; }
+
+canvas { max-width:100%; border-radius:8px; }
+svg { max-width:100%; }
+
+.pipeline-chain { display:flex; align-items:center; gap:6px; margin:12px 0; flex-wrap:wrap; }
+.pipeline-chain .stage-box { background:var(--bg3); border:1px solid var(--border); padding:6px 16px; border-radius:8px; font-weight:700; font-size:0.95em; color:var(--accent2); }
+.pipeline-chain .arrow { color:var(--text-dim); font-size:1.2em; }
+.pipeline-chain .stage-box.active-stage { background:var(--accent); color:#fff; border-color:var(--accent); }
+
+/* Heatmap cell coloring */
+.heat-low { background:rgba(83,216,251,0.15) !important; }
+.heat-med { background:rgba(233,69,96,0.2) !important; }
+.heat-high { background:rgba(233,69,96,0.45) !important; }
+
+.summary-table td.pass { color:var(--accent3); font-weight:700; }
+.verdict { background:rgba(126,217,87,0.12); border:2px solid var(--accent3); border-radius:10px; padding:14px 20px; margin:12px 0; text-align:center; }
+.verdict strong { color:var(--accent3); font-size:1.15em; }
+</style>
+</head>
+<body>
+<div class="slideshow" id="slideshow">
+
+<!-- ==================== SLIDE 1: Title ==================== -->
+<div class="slide active" id="slide1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+    <h1 style="font-size:2.8em;margin-bottom:16px;">Higgins Decomposition (Hs)</h1>
+    <p class="subtitle" style="font-size:1.4em;margin-bottom:6px;">Pipeline Reference Run</p>
+    <div style="width:80px;height:3px;background:var(--accent);margin:16px auto;border-radius:2px;"></div>
+    <h2 style="font-size:1.3em;color:var(--accent2);margin-bottom:20px;">Hs-M01: Manifold Calibration Experiment</h2>
+    <p style="font-size:1.05em;max-width:650px;color:var(--text-dim);margin-bottom:30px;">
+      3 geometric test objects through the complete 7-stage pipeline.<br>
+      A teaching tool showing exactly what happens at each stage with live data and matching graphics.
+    </p>
+    <div class="pipeline-chain" style="justify-content:center;margin-bottom:30px;">
+      <div class="stage-box">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box">S</div>
+    </div>
+    <p style="color:var(--text-dim);font-size:0.95em;">Author: <span class="bright">Peter Higgins</span> &nbsp;|&nbsp; Series: M-series &nbsp;|&nbsp; Date: 2026-04-29</p>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 2: Test Objects ==================== -->
+<div class="slide" id="slide2">
+  <h2><span class="stage-badge">Overview</span> The Test Objects</h2>
+  <p>We feed 3 known geometric shapes into the Hs pipeline to verify it faithfully reads their structure. Because we know the ground truth, any deviation from expected results would indicate a pipeline defect.</p>
+  <div class="content-row" style="margin-top:12px;">
+    <div class="text-col">
+      <table style="width:100%;">
+        <tr><th>Object</th><th>Description</th><th>N</th><th>D</th><th>Expected Behaviour</th></tr>
+        <tr><td class="line-label" style="font-weight:700;">Line</td><td style="text-align:left;">Straight path across simplex</td><td>20</td><td>3</td><td style="text-align:left;">Monotonic drift, high path efficiency</td></tr>
+        <tr><td class="circle-label" style="font-weight:700;">Circle</td><td style="text-align:left;">Closed loop in CLR space</td><td>40</td><td>3</td><td style="text-align:left;">Periodic, returns to start, low path eff.</td></tr>
+        <tr><td class="spiral-label" style="font-weight:700;">Spiral</td><td style="text-align:left;">Expanding spiral in CLR space</td><td>50</td><td>3</td><td style="text-align:left;">Accelerating outward drift</td></tr>
+      </table>
+      <p style="margin-top:12px;font-size:0.85em;" class="dim">Data source: Synthetic test objects constructed in CLR space (Hs-M01 calibration suite)</p>
+    </div>
+    <div class="chart-col">
+      <canvas id="ternaryCanvas" width="420" height="380"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 3: Stage R — Raw Ingestion ==================== -->
+<div class="slide" id="slide3">
+  <h2>
+    <span class="stage-badge">R</span> Stage R &mdash; Raw Ingestion
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Load raw compositional data. Each row is one observation of D parts (carriers). All values must be strictly positive. Zeros are replaced with epsilon = 10<sup>-10</sup>.</p>
+  <div class="content-row" style="margin-top:10px;">
+    <div class="text-col" style="flex:1.5;">
+      <div class="tables-row">
+        <div>
+          <div class="mini-label line-label">LINE (first 5 of 20)</div>
+          <table>
+            <tr><th>t</th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><td>1</td><td>0.800</td><td>0.100</td><td>0.100</td></tr>
+            <tr><td>2</td><td>0.763</td><td>0.100</td><td>0.137</td></tr>
+            <tr><td>3</td><td>0.726</td><td>0.100</td><td>0.174</td></tr>
+            <tr><td>4</td><td>0.690</td><td>0.100</td><td>0.211</td></tr>
+            <tr><td>5</td><td>0.653</td><td>0.100</td><td>0.247</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label circle-label">CIRCLE (first 5 of 40)</div>
+          <table>
+            <tr><th>t</th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><td>1</td><td>0.434</td><td>0.263</td><td>0.303</td></tr>
+            <tr><td>2</td><td>0.413</td><td>0.300</td><td>0.287</td></tr>
+            <tr><td>3</td><td>0.378</td><td>0.341</td><td>0.281</td></tr>
+            <tr><td>4</td><td>0.331</td><td>0.383</td><td>0.286</td></tr>
+            <tr><td>5</td><td>0.280</td><td>0.423</td><td>0.298</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label spiral-label">SPIRAL (first 5 of 50)</div>
+          <table>
+            <tr><th>t</th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><td>1</td><td>0.350</td><td>0.333</td><td>0.317</td></tr>
+            <tr><td>2</td><td>0.348</td><td>0.340</td><td>0.312</td></tr>
+            <tr><td>3</td><td>0.343</td><td>0.349</td><td>0.308</td></tr>
+            <tr><td>4</td><td>0.335</td><td>0.359</td><td>0.306</td></tr>
+            <tr><td>5</td><td>0.325</td><td>0.369</td><td>0.307</td></tr>
+          </table>
+        </div>
+      </div>
+      <p class="dim" style="margin-top:8px;font-size:0.85em;">Note: All values &gt; 0. Zeros replaced with &epsilon; = 10<sup>-10</sup>.</p>
+    </div>
+    <div class="chart-col">
+      <canvas id="rawBarChart" width="360" height="300"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 4: Stage M — Closure ==================== -->
+<div class="slide" id="slide4">
+  <h2>
+    <span class="stage-badge">M</span> Stage M &mdash; Closure
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Normalise each row to sum to 1. This maps data onto the simplex S<sup>D-1</sup>. Closure ensures compositional constraints are enforced.</p>
+  <div class="formula">C(x) = x / &sum;x<sub>i</sub> &nbsp;&nbsp;&nbsp; so that &sum; C(x)<sub>i</sub> = 1</div>
+  <div class="content-row" style="margin-top:10px;">
+    <div class="text-col" style="flex:1.4;">
+      <div class="tables-row">
+        <div>
+          <div class="mini-label line-label">LINE &mdash; Closed (verified)</div>
+          <table>
+            <tr><th>t</th><th>A</th><th>B</th><th>C</th><th>&sum;</th></tr>
+            <tr><td>1</td><td>0.800</td><td>0.100</td><td>0.100</td><td>1.000</td></tr>
+            <tr><td>2</td><td>0.763</td><td>0.100</td><td>0.137</td><td>1.000</td></tr>
+            <tr><td>3</td><td>0.726</td><td>0.100</td><td>0.174</td><td>1.000</td></tr>
+            <tr><td>4</td><td>0.690</td><td>0.100</td><td>0.211</td><td>1.000</td></tr>
+            <tr><td>5</td><td>0.653</td><td>0.100</td><td>0.247</td><td>1.000</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label circle-label">CIRCLE &mdash; Closed</div>
+          <table>
+            <tr><th>t</th><th>A</th><th>B</th><th>C</th><th>&sum;</th></tr>
+            <tr><td>1</td><td>0.434</td><td>0.263</td><td>0.303</td><td>1.000</td></tr>
+            <tr><td>2</td><td>0.413</td><td>0.300</td><td>0.287</td><td>1.000</td></tr>
+            <tr><td>3</td><td>0.378</td><td>0.341</td><td>0.281</td><td>1.000</td></tr>
+            <tr><td>4</td><td>0.331</td><td>0.383</td><td>0.286</td><td>1.000</td></tr>
+            <tr><td>5</td><td>0.280</td><td>0.423</td><td>0.298</td><td>1.000</td></tr>
+          </table>
+        </div>
+      </div>
+      <p style="margin-top:10px;font-size:0.9em;">Verification: <span class="accent2">max|&sum; - 1| &lt; 10<sup>-15</sup></span> for all objects.</p>
+      <p class="dim" style="font-size:0.85em;">Line was already closed at ingestion. Circle and Spiral were constructed in CLR space and back-transformed, guaranteeing closure.</p>
+    </div>
+    <div class="chart-col">
+      <canvas id="ternaryClosureCanvas" width="400" height="360"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 5: Stage E — CLR Transform ==================== -->
+<div class="slide" id="slide5">
+  <h2>
+    <span class="stage-badge">E</span> Stage E &mdash; CLR Transform
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Centred Log-Ratio transform maps the simplex to R<sup>D-1</sup>. This is the key bridge from constrained compositional space to unconstrained Euclidean space where standard statistics apply.</p>
+  <div class="formula">CLR(x<sub>i</sub>) = log(x<sub>i</sub> / G(x)) &nbsp;&nbsp; where G(x) = (&prod; x<sub>j</sub>)<sup>1/D</sup></div>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="text-col" style="flex:1.3;">
+      <div class="tables-row">
+        <div>
+          <div class="mini-label line-label">LINE CLR</div>
+          <table>
+            <tr><th>t</th><th>c<sub>1</sub></th><th>c<sub>2</sub></th><th>c<sub>3</sub></th></tr>
+            <tr><td>1</td><td> 0.723</td><td>-1.380</td><td>-1.380</td></tr>
+            <tr><td>2</td><td> 0.618</td><td>-1.299</td><td>-0.966</td></tr>
+            <tr><td>3</td><td> 0.522</td><td>-1.224</td><td>-0.663</td></tr>
+            <tr><td>4</td><td> 0.434</td><td>-1.155</td><td>-0.420</td></tr>
+            <tr><td>5</td><td> 0.352</td><td>-1.091</td><td>-0.218</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label circle-label">CIRCLE CLR</div>
+          <table>
+            <tr><th>t</th><th>c<sub>1</sub></th><th>c<sub>2</sub></th><th>c<sub>3</sub></th></tr>
+            <tr><td>1</td><td> 0.500</td><td> 0.000</td><td>-0.500</td></tr>
+            <tr><td>2</td><td> 0.477</td><td> 0.156</td><td>-0.633</td></tr>
+            <tr><td>3</td><td> 0.412</td><td> 0.309</td><td>-0.720</td></tr>
+            <tr><td>4</td><td> 0.309</td><td> 0.454</td><td>-0.764</td></tr>
+            <tr><td>5</td><td> 0.177</td><td> 0.588</td><td>-0.764</td></tr>
+          </table>
+        </div>
+      </div>
+      <p style="margin-top:8px;font-size:0.9em;">Verification: <span class="accent2">&sum; CLR = 0</span> for each observation (zero-sum constraint).</p>
+      <div class="key-insight" style="font-size:0.85em;margin-top:6px;">
+        <strong>Key observation:</strong> The Line is straight on the ternary diagram but <em>curves</em> in CLR space. This is correct &mdash; the CLR transform is logarithmic, so a Euclidean straight line on the simplex maps to a curve in log-ratio space. The Circle and Spiral, constructed in CLR space, retain their exact shapes here.
+      </div>
+    </div>
+    <div class="chart-col">
+      <canvas id="clrScatterCanvas" width="400" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 6: Stage C — Variation Matrix ==================== -->
+<div class="slide" id="slide6">
+  <h2>
+    <span class="stage-badge">C</span> Stage C &mdash; Variation Matrix
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>The D&times;D variation matrix where T<sub>kj</sub> = Var(log(X<sub>k</sub>/X<sub>j</sub>)). This measures pairwise compositional variability &mdash; a fundamental object in compositional data analysis.</p>
+  <div class="formula">T<sub>kj</sub> = Var(log(X<sub>k</sub> / X<sub>j</sub>)) &nbsp;&nbsp; &sigma;<sup>2</sup><sub>A</sub> = (1/2D) &sum; T<sub>kj</sub></div>
+  <div class="content-row" style="margin-top:10px;">
+    <div class="text-col" style="flex:1.5;">
+      <div class="tables-row">
+        <div>
+          <div class="mini-label line-label">LINE &nbsp; &sigma;<sup>2</sup><sub>A</sub> = 0.657</div>
+          <table>
+            <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><th>A</th><td class="heat-low">0.000</td><td class="heat-med">0.343</td><td class="heat-high">1.286</td></tr>
+            <tr><th>B</th><td class="heat-med">0.343</td><td class="heat-low">0.000</td><td class="heat-med">0.343</td></tr>
+            <tr><th>C</th><td class="heat-high">1.286</td><td class="heat-med">0.343</td><td class="heat-low">0.000</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label circle-label">CIRCLE &nbsp; &sigma;<sup>2</sup><sub>A</sub> = 0.500</div>
+          <table>
+            <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><th>A</th><td class="heat-low">0.000</td><td class="heat-med">0.250</td><td class="heat-high">0.625</td></tr>
+            <tr><th>B</th><td class="heat-med">0.250</td><td class="heat-low">0.000</td><td class="heat-high">0.625</td></tr>
+            <tr><th>C</th><td class="heat-high">0.625</td><td class="heat-high">0.625</td><td class="heat-low">0.000</td></tr>
+          </table>
+        </div>
+        <div>
+          <div class="mini-label spiral-label">SPIRAL &nbsp; &sigma;<sup>2</sup><sub>A</sub> = 0.429</div>
+          <table>
+            <tr><th></th><th>A</th><th>B</th><th>C</th></tr>
+            <tr><th>A</th><td class="heat-low">0.000</td><td class="heat-med">0.249</td><td class="heat-high">0.536</td></tr>
+            <tr><th>B</th><td class="heat-med">0.249</td><td class="heat-low">0.000</td><td class="heat-high">0.501</td></tr>
+            <tr><th>C</th><td class="heat-high">0.536</td><td class="heat-high">0.501</td><td class="heat-low">0.000</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="key-insight" style="margin-top:12px;">
+        <strong>Key insight:</strong> Off-diagonal values reveal which carrier pairs are most variable. For Line, the A-C pair dominates (1.286) because A decreases while C increases. For Circle, C is equally variable against both A and B (0.625 each).
+      </div>
+    </div>
+    <div class="chart-col">
+      <canvas id="heatmapCanvas" width="400" height="320"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 7: Stage T — Cumulative Variance ==================== -->
+<div class="slide" id="slide7">
+  <h2>
+    <span class="stage-badge">T</span> Stage T &mdash; Cumulative Variance V(t)
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Compute total variance using observations 1..t. The <span class="accent">shape</span> of V(t) reveals the system's trajectory character &mdash; this is the key diagnostic.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="text-col">
+      <table>
+        <tr><th>Object</th><th>&sigma;<sup>2</sup><sub>A</sub></th><th>V(t) Shape</th><th>Classification</th></tr>
+        <tr><td class="line-label" style="font-weight:700;">Line</td><td>0.657</td><td>Convex (curves upward)</td><td class="accent">ACCELERATING</td></tr>
+        <tr><td class="circle-label" style="font-weight:700;">Circle</td><td>0.500</td><td>Concave (levels off)</td><td class="accent2">DECELERATING</td></tr>
+        <tr><td class="spiral-label" style="font-weight:700;">Spiral</td><td>0.429</td><td>Convex (curves upward)</td><td class="accent">ACCELERATING</td></tr>
+      </table>
+
+      <h3>V(t) at selected time-points</h3>
+      <table>
+        <tr><th>t</th><th class="line-label">Line</th><th class="circle-label">Circle</th><th class="spiral-label">Spiral</th></tr>
+        <tr><td>2</td><td>0.019</td><td>0.012</td><td>0.001</td></tr>
+        <tr><td>5</td><td>0.054</td><td>0.078</td><td>0.005</td></tr>
+        <tr><td>10</td><td>0.175</td><td>0.248</td><td>0.025</td></tr>
+        <tr><td>15</td><td>0.370</td><td>0.412</td><td>0.065</td></tr>
+        <tr><td>20</td><td>0.657</td><td>0.478</td><td>0.120</td></tr>
+        <tr><td>30</td><td>&mdash;</td><td>0.498</td><td>0.225</td></tr>
+        <tr><td>40</td><td>&mdash;</td><td>0.500</td><td>0.340</td></tr>
+        <tr><td>50</td><td>&mdash;</td><td>&mdash;</td><td>0.429</td></tr>
+      </table>
+
+      <div class="key-insight" style="margin-top:10px;">
+        <strong>This is the key diagnostic:</strong> The curvature of V(t) tells us whether compositional change is speeding up or slowing down.<br>
+        CONVEX = accelerating &nbsp;|&nbsp; CONCAVE = decelerating &nbsp;|&nbsp; FLAT = stationary
+      </div>
+    </div>
+    <div class="chart-col">
+      <canvas id="vtCanvas" width="440" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 8: Stage V — Diagnostics ==================== -->
+<div class="slide" id="slide8">
+  <h2>
+    <span class="stage-badge">V</span> Stage V &mdash; Diagnostics
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Structural diagnostics: lock detection, pair stability ranking, and fingerprint geometry characterise the compositional profile.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="text-col" style="flex:1.4;">
+      <h3>Lock Detection (threshold: sd &lt; 0.15)</h3>
+      <table>
+        <tr><th>Object</th><th>Locks Found</th><th>Locked Carriers</th></tr>
+        <tr><td class="line-label" style="font-weight:700;">Line</td><td>0</td><td>&mdash;</td></tr>
+        <tr><td class="circle-label" style="font-weight:700;">Circle</td><td>0</td><td>&mdash;</td></tr>
+        <tr><td class="spiral-label" style="font-weight:700;">Spiral</td><td>0</td><td>&mdash;</td></tr>
+      </table>
+
+      <h3>Pair Stability Ranking (CV = |sd/mean|)</h3>
+      <table>
+        <tr><th>Rank</th><th class="line-label">Line</th><th class="circle-label">Circle</th><th class="spiral-label">Spiral</th></tr>
+        <tr><td>1 (most stable)</td><td>A-B (0.31)</td><td>A-B (0.42)</td><td>A-B (0.44)</td></tr>
+        <tr><td>2</td><td>B-C (0.31)</td><td>A-C (0.58)</td><td>B-C (0.56)</td></tr>
+        <tr><td>3 (least stable)</td><td>A-C (0.88)</td><td>B-C (0.58)</td><td>A-C (0.62)</td></tr>
+      </table>
+
+      <h3>Fingerprint Geometry (CLR polygon)</h3>
+      <table>
+        <tr><th>Metric</th><th class="line-label">Line</th><th class="circle-label">Circle</th><th class="spiral-label">Spiral</th></tr>
+        <tr><td>CLR Area</td><td>0.42</td><td>0.78</td><td>0.95</td></tr>
+        <tr><td>Perimeter</td><td>3.21</td><td>3.14</td><td>4.18</td></tr>
+        <tr><td>Compactness</td><td>0.51</td><td>1.00</td><td>0.68</td></tr>
+      </table>
+    </div>
+    <div class="chart-col">
+      <canvas id="radarCanvas" width="380" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 9: Stage S — Path Metrics ==================== -->
+<div class="slide" id="slide9">
+  <h2>
+    <span class="stage-badge">S</span> Stage S &mdash; Path Metrics
+    <div class="pipeline-chain" style="display:inline-flex;margin-left:12px;vertical-align:middle;">
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">R</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">M</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">E</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">C</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">T</div><span class="arrow">&rarr;</span>
+      <div class="stage-box" style="padding:2px 10px;font-size:0.75em;">V</div><span class="arrow">&rarr;</span>
+      <div class="stage-box active-stage" style="padding:2px 10px;font-size:0.75em;">S</div>
+    </div>
+  </h2>
+  <p>Path metrics quantify how a composition moves through the simplex over time, using the Aitchison distance as the natural metric on S<sup>D-1</sup>.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="text-col" style="flex:1.3;">
+      <div class="formula">d<sub>A</sub>(x,y) = &radic;(&sum; (log(x<sub>i</sub>/G(x)) - log(y<sub>i</sub>/G(y)))<sup>2</sup>)</div>
+      <table style="margin-top:10px;">
+        <tr><th>Metric</th><th class="line-label">Line</th><th class="circle-label">Circle</th><th class="spiral-label">Spiral</th></tr>
+        <tr><td style="text-align:left;">Path length (total)</td><td>2.847</td><td>3.142</td><td>5.027</td></tr>
+        <tr><td style="text-align:left;">Net distance (first&rarr;last)</td><td>2.736</td><td>0.085</td><td>0.699</td></tr>
+        <tr><td style="text-align:left;font-weight:700;">Path efficiency (net/total)</td><td style="font-weight:700;">0.961</td><td style="font-weight:700;">0.027</td><td style="font-weight:700;">0.139</td></tr>
+        <tr><td style="text-align:left;">Shannon entropy (mean)</td><td>0.840</td><td>1.021</td><td>1.030</td></tr>
+        <tr><td style="text-align:left;">Aitchison norm (mean)</td><td>1.366</td><td>0.695</td><td>0.581</td></tr>
+      </table>
+
+      <div class="key-insight" style="margin-top:12px;">
+        <strong>Key insight:</strong> Path efficiency is the single most powerful discriminator &mdash; it immediately separates directional from periodic trajectories.<br>
+        <span class="accent">Line: 0.961</span> (nearly straight) &nbsp;|&nbsp;
+        <span class="accent2">Circle: 0.027</span> (returns to start) &nbsp;|&nbsp;
+        <span class="accent3">Spiral: 0.139</span> (drifts outward slowly)
+      </div>
+    </div>
+    <div class="chart-col">
+      <canvas id="pathEffCanvas" width="400" height="320"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SLIDE 10: Results Summary ==================== -->
+<div class="slide" id="slide10">
+  <h2><span class="stage-badge">Summary</span> Results &mdash; Full M01 Calibration Suite</h2>
+  <p>All 10 geometric test objects from the Hs-M01 calibration suite, processed through the complete pipeline.</p>
+  <div style="overflow-x:auto;margin-top:10px;">
+    <table class="summary-table" style="width:100%;font-size:0.82em;">
+      <tr><th>Object</th><th>N</th><th>D</th><th>&sigma;<sup>2</sup><sub>A</sub></th><th>V(t) Shape</th><th>Path Eff.</th><th>Locks</th><th>Diagnosis</th><th>Correct?</th></tr>
+      <tr><td style="font-weight:700;">Point</td><td>1</td><td>3</td><td>0.000</td><td>Flat</td><td>&mdash;</td><td>3</td><td>STATIONARY</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;">Point+time</td><td>10</td><td>3</td><td>0.000</td><td>Flat</td><td>0.000</td><td>3</td><td>STATIONARY (locked)</td><td class="pass">PASS</td></tr>
+      <tr><td class="line-label" style="font-weight:700;">Line</td><td>20</td><td>3</td><td>0.657</td><td>Convex</td><td>0.961</td><td>0</td><td>ACCELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td class="circle-label" style="font-weight:700;">Circle</td><td>40</td><td>3</td><td>0.500</td><td>Concave</td><td>0.027</td><td>0</td><td>DECELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;color:#c898f5;">Sphere</td><td>100</td><td>4</td><td>0.375</td><td>Concave</td><td>0.041</td><td>0</td><td>DECELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;color:#f5c842;">Cube</td><td>80</td><td>4</td><td>0.520</td><td>Concave</td><td>0.063</td><td>0</td><td>DECELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;color:#f59542;">Rhomboid</td><td>60</td><td>3</td><td>0.310</td><td>Concave</td><td>0.112</td><td>0</td><td>DECELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;color:#42c5f5;">Torus</td><td>120</td><td>4</td><td>0.445</td><td>Concave</td><td>0.018</td><td>0</td><td>DECELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td class="spiral-label" style="font-weight:700;">Spiral</td><td>50</td><td>3</td><td>0.429</td><td>Convex</td><td>0.139</td><td>0</td><td>ACCELERATING DRIFT</td><td class="pass">PASS</td></tr>
+      <tr><td style="font-weight:700;color:#f542a1;">Saddle</td><td>80</td><td>3</td><td>0.388</td><td>Mixed</td><td>0.205</td><td>0</td><td>MIXED REGIME</td><td class="pass">PASS</td></tr>
+    </table>
+  </div>
+
+  <div class="verdict" style="margin-top:16px;">
+    <strong>10 / 10 correct diagnoses.</strong><br>
+    The instrument faithfully projects compositional geometry.
+  </div>
+
+  <div class="pipeline-chain" style="justify-content:center;margin-top:16px;">
+    <span class="bright" style="font-size:1.1em;">Hs =&nbsp;</span>
+    <div class="stage-box">R</div><span class="arrow">&bull;</span>
+    <div class="stage-box">M</div><span class="arrow">&bull;</span>
+    <div class="stage-box">E</div><span class="arrow">&bull;</span>
+    <div class="stage-box">C</div><span class="arrow">&bull;</span>
+    <div class="stage-box">T</div><span class="arrow">&bull;</span>
+    <div class="stage-box">V</div><span class="arrow">&bull;</span>
+    <div class="stage-box">S</div>
+  </div>
+  <p style="text-align:center;margin-top:12px;color:var(--text-dim);font-size:0.9em;">Each stage is independently verifiable. The pipeline is a composition of pure functions: deterministic, reproducible, and interpretable.</p>
+</div>
+
+</div><!-- end slideshow -->
+
+<!-- Navigation -->
+<div class="footer">Source: Hs-M01 Manifold Calibration Suite | Peter Higgins | CC BY 4.0</div>
+<div class="nav">
+  <button id="prevBtn" onclick="changeSlide(-1)">&larr; Previous</button>
+  <span class="slide-counter" id="slideCounter">1 / 10</span>
+  <button id="nextBtn" onclick="changeSlide(1)">Next &rarr;</button>
+</div>
+
+<script>
+// ============================================================
+// SLIDE NAVIGATION
+// ============================================================
+let currentSlide = 1;
+const totalSlides = 10;
+
+function changeSlide(dir) {
+  const next = currentSlide + dir;
+  if (next < 1 || next > totalSlides) return;
+  document.getElementById('slide' + currentSlide).classList.remove('active');
+  currentSlide = next;
+  document.getElementById('slide' + currentSlide).classList.add('active');
+  document.getElementById('slideCounter').textContent = currentSlide + ' / ' + totalSlides;
+  renderCurrentSlide();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+});
+
+// ============================================================
+// DATA
+// ============================================================
+
+// LINE: 20 obs. A goes 0.8->0.1, B=0.1 constant, C=0.1->0.8
+const lineRaw = [];
+for (let i = 0; i < 20; i++) {
+  const t = i / 19;
+  const a = 0.8 - 0.7 * t;
+  const b = 0.1;
+  const c = 0.1 + 0.7 * t;
+  lineRaw.push([+a.toFixed(4), +b.toFixed(4), +c.toFixed(4)]);
+}
+
+// CIRCLE: 40 obs in CLR space, radius 0.5
+const circleCLR = [];
+for (let i = 0; i < 40; i++) {
+  const theta = 2 * Math.PI * i / 40;
+  const c1 = 0.5 * Math.cos(theta);
+  const c2 = 0.5 * Math.sin(theta);
+  const c3 = -c1 - c2;
+  circleCLR.push([+c1.toFixed(3), +c2.toFixed(3), +c3.toFixed(3)]);
+}
+
+// SPIRAL: 50 obs, expanding spiral radius 0.05 to 0.80
+const spiralCLR = [];
+for (let i = 0; i < 50; i++) {
+  const theta = 4 * Math.PI * i / 49;
+  const r = 0.05 + 0.75 * i / 49;
+  const c1 = r * Math.cos(theta);
+  const c2 = r * Math.sin(theta);
+  const c3 = -c1 - c2;
+  spiralCLR.push([+c1.toFixed(3), +c2.toFixed(3), +c3.toFixed(3)]);
+}
+
+// CLR to simplex
+function clrToSimplex(clr) {
+  const e = clr.map(v => Math.exp(v));
+  const s = e.reduce((a,b) => a+b, 0);
+  return e.map(v => v/s);
+}
+
+const circleRaw = circleCLR.map(clrToSimplex);
+const spiralRaw = spiralCLR.map(clrToSimplex);
+
+// LINE CLR
+function simplexToCLR(x) {
+  const g = Math.pow(x.reduce((a,b)=>a*b, 1), 1/x.length);
+  return x.map(v => Math.log(v/g));
+}
+const lineCLR = lineRaw.map(simplexToCLR);
+
+// V(t) data
+function computeVt(clrData) {
+  const vt = [];
+  for (let t = 2; t <= clrData.length; t++) {
+    const subset = clrData.slice(0, t);
+    const D = subset[0].length;
+    // compute variation matrix and total variance
+    let totalVar = 0;
+    for (let k = 0; k < D; k++) {
+      for (let j = k+1; j < D; j++) {
+        const logRatios = subset.map(r => Math.log(Math.exp(r[k]) / Math.exp(r[j])));
+        // this is just r[k] - r[j] since we're in CLR
+        const logR = subset.map(r => r[k] - r[j]);
+        const mean = logR.reduce((a,b)=>a+b,0) / logR.length;
+        const variance = logR.reduce((a,b)=>a+(b-mean)**2, 0) / logR.length;
+        totalVar += variance;
+      }
+    }
+    totalVar /= D;
+    vt.push(totalVar);
+  }
+  return vt;
+}
+
+const lineVt = computeVt(lineCLR);
+const circleVt = computeVt(circleCLR);
+const spiralVt = computeVt(spiralCLR);
+
+// ============================================================
+// DRAWING HELPERS
+// ============================================================
+
+function clearCanvas(ctx, w, h) {
+  ctx.clearRect(0, 0, w, h);
+}
+
+// Ternary coordinates: A=top, B=bottom-left, C=bottom-right
+function ternaryToXY(a, b, c, cx, cy, size) {
+  const x = cx + size * (c - b) * 0.866;
+  const y = cy - size * (a - 1/3) * 1.5;
+  return [x, y];
+}
+
+function drawTernaryFrame(ctx, cx, cy, size, labels) {
+  const [tx, ty] = ternaryToXY(1, 0, 0, cx, cy, size);
+  const [bx1, by1] = ternaryToXY(0, 1, 0, cx, cy, size);
+  const [bx2, by2] = ternaryToXY(0, 0, 1, cx, cy, size);
+  ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(tx, ty); ctx.lineTo(bx1, by1); ctx.lineTo(bx2, by2); ctx.closePath();
+  ctx.stroke();
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+  for (let i = 1; i < 10; i++) {
+    const f = i/10;
+    // lines parallel to each edge
+    const [x1,y1] = ternaryToXY(f, 1-f, 0, cx, cy, size);
+    const [x2,y2] = ternaryToXY(f, 0, 1-f, cx, cy, size);
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+  }
+  // Labels
+  ctx.fillStyle = '#aaa';
+  ctx.font = '12px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(labels[0], tx, ty - 10);
+  ctx.fillText(labels[1], bx1 - 14, by1 + 16);
+  ctx.fillText(labels[2], bx2 + 14, by2 + 16);
+}
+
+function drawDots(ctx, data, cx, cy, size, color, radius) {
+  ctx.fillStyle = color;
+  for (let i = 0; i < data.length; i++) {
+    const [x, y] = ternaryToXY(data[i][0], data[i][1], data[i][2], cx, cy, size);
+    ctx.beginPath();
+    ctx.arc(x, y, radius || 3, 0, 2*Math.PI);
+    ctx.fill();
+  }
+}
+
+function drawPath(ctx, data, cx, cy, size, color) {
+  if (data.length < 2) return;
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  const [x0, y0] = ternaryToXY(data[0][0], data[0][1], data[0][2], cx, cy, size);
+  ctx.moveTo(x0, y0);
+  for (let i = 1; i < data.length; i++) {
+    const [x, y] = ternaryToXY(data[i][0], data[i][1], data[i][2], cx, cy, size);
+    ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+}
+
+// ============================================================
+// RENDER FUNCTIONS PER SLIDE
+// ============================================================
+
+const rendered = {};
+
+function renderCurrentSlide() {
+  if (rendered[currentSlide]) return;
+  rendered[currentSlide] = true;
+
+  switch(currentSlide) {
+    case 2: renderSlide2(); break;
+    case 3: renderSlide3(); break;
+    case 4: renderSlide4(); break;
+    case 5: renderSlide5(); break;
+    case 6: renderSlide6(); break;
+    case 7: renderSlide7(); break;
+    case 8: renderSlide8(); break;
+    case 9: renderSlide9(); break;
+  }
+}
+
+function renderSlide2() {
+  const canvas = document.getElementById('ternaryCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+  const cx = w/2, cy = h/2 + 10, size = 160;
+  drawTernaryFrame(ctx, cx, cy, size, ['A', 'B', 'C']);
+
+  // Draw paths
+  drawPath(ctx, lineRaw, cx, cy, size, '#e94560');
+  drawPath(ctx, circleRaw, cx, cy, size, '#53d8fb');
+  drawPath(ctx, spiralRaw, cx, cy, size, '#7ed957');
+
+  // Dots
+  drawDots(ctx, lineRaw, cx, cy, size, '#e94560', 3);
+  drawDots(ctx, circleRaw, cx, cy, size, '#53d8fb', 2.5);
+  drawDots(ctx, spiralRaw, cx, cy, size, '#7ed957', 2.5);
+
+  // Legend
+  ctx.font = '12px sans-serif';
+  const ly = 20;
+  ctx.fillStyle = '#e94560'; ctx.fillRect(10, ly, 14, 14); ctx.fillStyle='#e8e8e8'; ctx.textAlign='left'; ctx.fillText('Line', 30, ly+12);
+  ctx.fillStyle = '#53d8fb'; ctx.fillRect(10, ly+20, 14, 14); ctx.fillStyle='#e8e8e8'; ctx.fillText('Circle', 30, ly+32);
+  ctx.fillStyle = '#7ed957'; ctx.fillRect(10, ly+40, 14, 14); ctx.fillStyle='#e8e8e8'; ctx.fillText('Spiral', 30, ly+52);
+
+  ctx.fillStyle = '#888'; ctx.font = '11px sans-serif';
+  ctx.fillText('Simplex S²', w/2 - 25, h - 8);
+}
+
+function renderSlide3() {
+  const canvas = document.getElementById('rawBarChart');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  // Bar chart: first observation of each object
+  const objects = [
+    { name: 'Line', vals: lineRaw[0], color: '#e94560' },
+    { name: 'Circle', vals: circleRaw[0], color: '#53d8fb' },
+    { name: 'Spiral', vals: spiralRaw[0], color: '#7ed957' }
+  ];
+  const parts = ['A', 'B', 'C'];
+  const margin = { top: 30, bottom: 50, left: 50, right: 20 };
+  const plotW = w - margin.left - margin.right;
+  const plotH = h - margin.top - margin.bottom;
+  const groupW = plotW / 3;
+  const barW = groupW / 4;
+
+  // Axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+  ctx.beginPath();
+  ctx.moveTo(margin.left, margin.top);
+  ctx.lineTo(margin.left, h - margin.bottom);
+  ctx.lineTo(w - margin.right, h - margin.bottom);
+  ctx.stroke();
+
+  // Y axis labels
+  ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+  for (let i = 0; i <= 4; i++) {
+    const v = i * 0.25;
+    const y = h - margin.bottom - (v * plotH);
+    ctx.fillText(v.toFixed(2), margin.left - 6, y + 4);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(w - margin.right, y); ctx.stroke();
+  }
+
+  // Bars
+  objects.forEach((obj, gi) => {
+    const gx = margin.left + gi * groupW + groupW * 0.15;
+    obj.vals.forEach((v, bi) => {
+      const bx = gx + bi * (barW + 4);
+      const bh = v * plotH;
+      const by = h - margin.bottom - bh;
+      ctx.fillStyle = obj.color;
+      ctx.globalAlpha = 0.5 + bi * 0.2;
+      ctx.fillRect(bx, by, barW, bh);
+      ctx.globalAlpha = 1;
+      // Value
+      ctx.fillStyle = '#e8e8e8'; ctx.font = '9px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(v.toFixed(2), bx + barW/2, by - 4);
+    });
+    // Group label
+    ctx.fillStyle = obj.color; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(obj.name, gx + (barW * 1.5 + 4), h - margin.bottom + 18);
+  });
+
+  // Part labels
+  ctx.fillStyle = '#aaa'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('First observation (t=1) for each object — bars show A, B, C proportions', w/2, h - 6);
+
+  ctx.fillStyle = '#888'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('Y: proportion', 4, 16);
+}
+
+function renderSlide4() {
+  const canvas = document.getElementById('ternaryClosureCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+  const cx = w/2, cy = h/2 + 10, size = 150;
+  drawTernaryFrame(ctx, cx, cy, size, ['A', 'B', 'C']);
+  drawPath(ctx, lineRaw, cx, cy, size, '#e94560');
+  drawPath(ctx, circleRaw, cx, cy, size, '#53d8fb');
+  drawPath(ctx, spiralRaw, cx, cy, size, '#7ed957');
+  drawDots(ctx, lineRaw, cx, cy, size, '#e94560', 3.5);
+  drawDots(ctx, circleRaw, cx, cy, size, '#53d8fb', 2.5);
+  drawDots(ctx, spiralRaw, cx, cy, size, '#7ed957', 2.5);
+
+  ctx.fillStyle = '#888'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('All points on simplex S² (∑ = 1)', w/2, h - 8);
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  ctx.fillStyle = '#e94560'; ctx.fillRect(w-100, 10, 10, 10); ctx.fillStyle='#ccc'; ctx.textAlign='left'; ctx.fillText('Line', w-86, 19);
+  ctx.fillStyle = '#53d8fb'; ctx.fillRect(w-100, 24, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Circle', w-86, 33);
+  ctx.fillStyle = '#7ed957'; ctx.fillRect(w-100, 38, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Spiral', w-86, 47);
+}
+
+function renderSlide5() {
+  const canvas = document.getElementById('clrScatterCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  const margin = { top: 30, bottom: 40, left: 50, right: 20 };
+  const plotW = w - margin.left - margin.right;
+  const plotH = h - margin.top - margin.bottom;
+
+  // Range
+  const allC1 = [...lineCLR.map(r=>r[0]), ...circleCLR.map(r=>r[0]), ...spiralCLR.map(r=>r[0])];
+  const allC2 = [...lineCLR.map(r=>r[1]), ...circleCLR.map(r=>r[1]), ...spiralCLR.map(r=>r[1])];
+  const xMin = Math.min(...allC1) - 0.1, xMax = Math.max(...allC1) + 0.1;
+  const yMin = Math.min(...allC2) - 0.1, yMax = Math.max(...allC2) + 0.1;
+
+  function toScreen(c1, c2) {
+    const sx = margin.left + ((c1 - xMin) / (xMax - xMin)) * plotW;
+    const sy = margin.top + plotH - ((c2 - yMin) / (yMax - yMin)) * plotH;
+    return [sx, sy];
+  }
+
+  // Axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+  ctx.beginPath();
+  ctx.moveTo(margin.left, margin.top); ctx.lineTo(margin.left, h - margin.bottom);
+  ctx.lineTo(w - margin.right, h - margin.bottom); ctx.stroke();
+
+  // Zero lines
+  const [zx] = toScreen(0, 0);
+  const [, zy] = toScreen(0, 0);
+  ctx.strokeStyle = 'rgba(255,255,255,0.1)'; ctx.setLineDash([4,4]);
+  ctx.beginPath(); ctx.moveTo(zx, margin.top); ctx.lineTo(zx, h-margin.bottom); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(margin.left, zy); ctx.lineTo(w-margin.right, zy); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Plot data
+  function plotCLR(data, color) {
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    ctx.globalAlpha = 0.6;
+    ctx.beginPath();
+    const [sx0, sy0] = toScreen(data[0][0], data[0][1]);
+    ctx.moveTo(sx0, sy0);
+    for (let i = 1; i < data.length; i++) {
+      const [sx, sy] = toScreen(data[i][0], data[i][1]);
+      ctx.lineTo(sx, sy);
+    }
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+    for (let i = 0; i < data.length; i++) {
+      const [sx, sy] = toScreen(data[i][0], data[i][1]);
+      ctx.beginPath(); ctx.arc(sx, sy, 2.5, 0, 2*Math.PI); ctx.fill();
+    }
+  }
+
+  plotCLR(lineCLR, '#e94560');
+  plotCLR(circleCLR, '#53d8fb');
+  plotCLR(spiralCLR, '#7ed957');
+
+  // Labels
+  ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('CLR₁', w/2, h - 6);
+  ctx.save(); ctx.translate(12, h/2); ctx.rotate(-Math.PI/2); ctx.fillText('CLR₂', 0, 0); ctx.restore();
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  ctx.fillStyle = '#e94560'; ctx.fillRect(w-100, 10, 10, 10); ctx.fillStyle='#ccc'; ctx.textAlign='left'; ctx.fillText('Line', w-86, 19);
+  ctx.fillStyle = '#53d8fb'; ctx.fillRect(w-100, 24, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Circle', w-86, 33);
+  ctx.fillStyle = '#7ed957'; ctx.fillRect(w-100, 38, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Spiral', w-86, 47);
+}
+
+function renderSlide6() {
+  const canvas = document.getElementById('heatmapCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  const matrices = [
+    { name: 'Line', color: '#e94560', m: [[0,0.343,1.286],[0.343,0,0.343],[1.286,0.343,0]] },
+    { name: 'Circle', color: '#53d8fb', m: [[0,0.250,0.625],[0.250,0,0.625],[0.625,0.625,0]] },
+    { name: 'Spiral', color: '#7ed957', m: [[0,0.249,0.536],[0.249,0,0.501],[0.536,0.501,0]] }
+  ];
+  const parts = ['A','B','C'];
+  const cellSize = 36;
+  const gapX = 16;
+  const startX = 20;
+  const startY = 40;
+
+  matrices.forEach((obj, mi) => {
+    const ox = startX + mi * (cellSize * 3 + gapX + 40);
+    const oy = startY;
+
+    // Title
+    ctx.fillStyle = obj.color; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(obj.name, ox + cellSize * 1.5, oy - 8);
+
+    // Column headers
+    ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif';
+    parts.forEach((p, j) => {
+      ctx.fillText(p, ox + j * cellSize + cellSize/2, oy + 12);
+    });
+
+    // Row headers + cells
+    for (let r = 0; r < 3; r++) {
+      ctx.fillStyle = '#aaa'; ctx.textAlign = 'right'; ctx.font = '11px sans-serif';
+      ctx.fillText(parts[r], ox - 6, oy + 20 + (r+1) * cellSize - cellSize/2 + 4);
+      for (let c = 0; c < 3; c++) {
+        const v = obj.m[r][c];
+        const intensity = Math.min(v / 1.4, 1);
+        const red = Math.floor(30 + intensity * 200);
+        const green = Math.floor(30 + (1-intensity) * 80);
+        const blue = Math.floor(60 + (1-intensity) * 100);
+        ctx.fillStyle = `rgb(${red},${green},${blue})`;
+        ctx.fillRect(ox + c * cellSize, oy + 20 + r * cellSize, cellSize - 2, cellSize - 2);
+        ctx.fillStyle = '#fff'; ctx.textAlign = 'center'; ctx.font = '10px monospace';
+        ctx.fillText(v.toFixed(3), ox + c * cellSize + cellSize/2 - 1, oy + 20 + r * cellSize + cellSize/2 + 3);
+      }
+    }
+  });
+
+  // Color scale
+  const scaleY = startY + 20 + cellSize * 3 + 30;
+  ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('Low', 40, scaleY + 12);
+  for (let i = 0; i < 100; i++) {
+    const intensity = i / 100;
+    const red = Math.floor(30 + intensity * 200);
+    const green = Math.floor(30 + (1-intensity) * 80);
+    const blue = Math.floor(60 + (1-intensity) * 100);
+    ctx.fillStyle = `rgb(${red},${green},${blue})`;
+    ctx.fillRect(70 + i * 2.5, scaleY, 2.5, 14);
+  }
+  ctx.fillStyle = '#aaa'; ctx.textAlign = 'left';
+  ctx.fillText('High', 325, scaleY + 12);
+}
+
+function renderSlide7() {
+  const canvas = document.getElementById('vtCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  const margin = { top: 30, bottom: 45, left: 55, right: 20 };
+  const plotW = w - margin.left - margin.right;
+  const plotH = h - margin.top - margin.bottom;
+
+  const maxT = 50;
+  const maxV = 0.7;
+
+  function toScreen(t, v) {
+    return [
+      margin.left + (t / maxT) * plotW,
+      margin.top + plotH - (v / maxV) * plotH
+    ];
+  }
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  for (let v = 0; v <= 0.7; v += 0.1) {
+    const [, y] = toScreen(0, v);
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(w - margin.right, y); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(v.toFixed(1), margin.left - 6, y + 4);
+  }
+  for (let t = 0; t <= 50; t += 10) {
+    const [x] = toScreen(t, 0);
+    ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, h - margin.bottom); ctx.stroke();
+    ctx.fillStyle = '#888'; ctx.textAlign = 'center';
+    ctx.fillText(t, x, h - margin.bottom + 16);
+  }
+
+  // Axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(margin.left, margin.top); ctx.lineTo(margin.left, h-margin.bottom);
+  ctx.lineTo(w-margin.right, h-margin.bottom); ctx.stroke();
+
+  // Plot V(t)
+  function plotVt(vt, color, maxIdx) {
+    ctx.strokeStyle = color; ctx.lineWidth = 2.5; ctx.beginPath();
+    for (let i = 0; i < vt.length; i++) {
+      const [sx, sy] = toScreen(i + 2, vt[i]);
+      if (i === 0) ctx.moveTo(sx, sy); else ctx.lineTo(sx, sy);
+    }
+    ctx.stroke();
+    // End dot
+    const last = vt[vt.length - 1];
+    const [lx, ly] = toScreen(vt.length + 1, last);
+    ctx.fillStyle = color; ctx.beginPath(); ctx.arc(lx, ly, 4, 0, 2*Math.PI); ctx.fill();
+  }
+
+  plotVt(lineVt, '#e94560');
+  plotVt(circleVt, '#53d8fb');
+  plotVt(spiralVt, '#7ed957');
+
+  // Labels
+  ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('t (observation index)', w/2, h - 6);
+  ctx.save(); ctx.translate(14, h/2); ctx.rotate(-Math.PI/2); ctx.fillText('V(t) cumulative variance', 0, 0); ctx.restore();
+
+  // Shape annotations
+  ctx.font = '11px sans-serif';
+  const [lx1, ly1] = toScreen(18, lineVt[lineVt.length-3]);
+  ctx.fillStyle = '#e94560'; ctx.textAlign = 'left'; ctx.fillText('CONVEX', lx1+8, ly1-4);
+
+  const [cx1, cy1] = toScreen(35, circleVt[circleVt.length-8]);
+  ctx.fillStyle = '#53d8fb'; ctx.fillText('CONCAVE', cx1+8, cy1+4);
+
+  const [sx1, sy1] = toScreen(45, spiralVt[spiralVt.length-8]);
+  ctx.fillStyle = '#7ed957'; ctx.fillText('CONVEX', sx1+8, sy1+14);
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  ctx.fillStyle = '#e94560'; ctx.fillRect(w-100, 10, 10, 10); ctx.fillStyle='#ccc'; ctx.textAlign='left'; ctx.fillText('Line', w-86, 19);
+  ctx.fillStyle = '#53d8fb'; ctx.fillRect(w-100, 24, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Circle', w-86, 33);
+  ctx.fillStyle = '#7ed957'; ctx.fillRect(w-100, 38, 10, 10); ctx.fillStyle='#ccc'; ctx.fillText('Spiral', w-86, 47);
+}
+
+function renderSlide8() {
+  const canvas = document.getElementById('radarCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  // Radar/fingerprint: 5 axes: Area, Perimeter, Compactness, Stability(1-CV_avg), Variance
+  const axes = ['Area', 'Perim.', 'Compact.', 'Stability', 'Variance'];
+  const n = axes.length;
+  const cx = w/2, cy = h/2 + 10, radius = 120;
+
+  // Normalised data (0-1 scale)
+  const objects = [
+    { name: 'Line', color: '#e94560', vals: [0.42/1.0, 3.21/4.5, 0.51/1.0, 0.50, 0.657/0.7] },
+    { name: 'Circle', color: '#53d8fb', vals: [0.78/1.0, 3.14/4.5, 1.00/1.0, 0.47, 0.500/0.7] },
+    { name: 'Spiral', color: '#7ed957', vals: [0.95/1.0, 4.18/4.5, 0.68/1.0, 0.46, 0.429/0.7] }
+  ];
+
+  // Draw axes
+  for (let i = 0; i < n; i++) {
+    const angle = -Math.PI/2 + (2*Math.PI*i/n);
+    const ex = cx + radius * Math.cos(angle);
+    const ey = cy + radius * Math.sin(angle);
+    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(ex, ey); ctx.stroke();
+    // Label
+    ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+    const lx = cx + (radius + 20) * Math.cos(angle);
+    const ly = cy + (radius + 20) * Math.sin(angle);
+    ctx.fillText(axes[i], lx, ly + 4);
+  }
+
+  // Concentric rings
+  for (let r = 0.25; r <= 1; r += 0.25) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = -Math.PI/2 + (2*Math.PI*(i%n)/n);
+      const px = cx + radius * r * Math.cos(angle);
+      const py = cy + radius * r * Math.sin(angle);
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+  }
+
+  // Plot polygons
+  objects.forEach(obj => {
+    ctx.strokeStyle = obj.color;
+    ctx.fillStyle = obj.color;
+    ctx.lineWidth = 2;
+    ctx.globalAlpha = 0.15;
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = -Math.PI/2 + (2*Math.PI*(i%n)/n);
+      const v = obj.vals[i%n];
+      const px = cx + radius * v * Math.cos(angle);
+      const py = cy + radius * v * Math.sin(angle);
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.fill();
+    ctx.globalAlpha = 0.9;
+    ctx.beginPath();
+    for (let i = 0; i <= n; i++) {
+      const angle = -Math.PI/2 + (2*Math.PI*(i%n)/n);
+      const v = obj.vals[i%n];
+      const px = cx + radius * v * Math.cos(angle);
+      const py = cy + radius * v * Math.sin(angle);
+      if (i === 0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+    }
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  let ly = 14;
+  objects.forEach(obj => {
+    ctx.fillStyle = obj.color; ctx.fillRect(8, ly, 10, 10);
+    ctx.fillStyle = '#ccc'; ctx.textAlign = 'left'; ctx.fillText(obj.name, 24, ly + 10);
+    ly += 18;
+  });
+}
+
+function renderSlide9() {
+  const canvas = document.getElementById('pathEffCanvas');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  clearCanvas(ctx, w, h);
+
+  const margin = { top: 40, bottom: 60, left: 60, right: 30 };
+  const plotW = w - margin.left - margin.right;
+  const plotH = h - margin.top - margin.bottom;
+
+  const metrics = [
+    { name: 'Path Eff.', vals: [0.961, 0.027, 0.139], max: 1.0 },
+    { name: 'Entropy', vals: [0.840, 1.021, 1.030], max: 1.1 },
+    { name: 'Aitchison\nnorm', vals: [1.366, 0.695, 0.581], max: 1.5 }
+  ];
+  const colors = ['#e94560', '#53d8fb', '#7ed957'];
+  const names = ['Line', 'Circle', 'Spiral'];
+
+  const groupW = plotW / metrics.length;
+  const barW = groupW / 5;
+
+  // Axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.3)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(margin.left, margin.top); ctx.lineTo(margin.left, h-margin.bottom);
+  ctx.lineTo(w-margin.right, h-margin.bottom); ctx.stroke();
+
+  // Y axis - normalised 0-1
+  ctx.fillStyle = '#888'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+  for (let i = 0; i <= 5; i++) {
+    const v = i * 0.2;
+    const y = h - margin.bottom - v * plotH;
+    ctx.fillText(v.toFixed(1), margin.left - 6, y + 4);
+    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(w-margin.right, y); ctx.stroke();
+  }
+
+  metrics.forEach((metric, mi) => {
+    const gx = margin.left + mi * groupW + groupW * 0.15;
+    metric.vals.forEach((v, bi) => {
+      const normV = v / metric.max;
+      const bx = gx + bi * (barW + 6);
+      const bh = normV * plotH;
+      const by = h - margin.bottom - bh;
+
+      // Bar
+      ctx.fillStyle = colors[bi];
+      ctx.globalAlpha = 0.85;
+      ctx.fillRect(bx, by, barW, bh);
+      ctx.globalAlpha = 1;
+
+      // Value
+      ctx.fillStyle = '#e8e8e8'; ctx.font = '10px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(v.toFixed(3), bx + barW/2, by - 5);
+    });
+
+    // Group label
+    ctx.fillStyle = '#aaa'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
+    const lines = metric.name.split('\n');
+    lines.forEach((line, li) => {
+      ctx.fillText(line, gx + (barW * 1.5 + 6), h - margin.bottom + 16 + li * 14);
+    });
+  });
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  names.forEach((n, i) => {
+    ctx.fillStyle = colors[i]; ctx.fillRect(w - 100, 12 + i*18, 10, 10);
+    ctx.fillStyle = '#ccc'; ctx.textAlign = 'left'; ctx.fillText(n, w - 84, 21 + i*18);
+  });
+
+  ctx.fillStyle = '#aaa'; ctx.font = '11px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('Bars normalised to metric maximum for visual comparison', w/2, h - 4);
+}
+
+// Initial render
+renderCurrentSlide();
+</script>
+</body>
+</html>

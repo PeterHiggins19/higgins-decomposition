@@ -1,0 +1,79 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-17",
+  "name": "Backblaze Fleet Composition",
+  "domain": "STORAGE",
+  "series": "Core (Hs-01 through Hs-25)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "Validate Hs decomposition on hard drive fleet failure mode compositions from Backblaze operational data.",
+  "data_source": {
+    "origin": "Backblaze Hard Drive Stats",
+    "origin_url": "https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data",
+    "raw_data_path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\BackBlaze\\",
+    "repo_copy": "experiments/Hs-17_Backblaze/Hs-17_fleet_composition.csv",
+    "description": "Ingested from Hs-17_fleet_composition.csv",
+    "license": "CC BY 4.0",
+    "data_hash_sha256_16": "051cca62652b01a6"
+  },
+  "system": {
+    "N": 108,
+    "D": 5,
+    "carriers": [
+      "index",
+      "Mechanical",
+      "Thermal",
+      "Age",
+      "Errors"
+    ],
+    "time_axis": "Quarterly (2013-2023)",
+    "zero_replacement": true,
+    "epsilon": 1e-10
+  },
+  "pipeline": {
+    "version": "1.0 Extended",
+    "runner": "hs_run.py",
+    "instrument": "Hˢ Higgins Decomposition — 12-Step Pipeline v1.0 Extended",
+    "deterministic": true,
+    "run_timestamp": "2026-04-30T21:13:50.123136Z",
+    "run_command": "python hs_run.py ../../experiments/Hs-17_Backblaze/Hs-17_fleet_composition.csv --exp-id \"Hs-17\" --name \"Backblaze Fleet Composition\" --domain STORAGE"
+  },
+  "results_summary": {
+    "total_variance": 1.754366,
+    "variance_shape": "bowl",
+    "variance_R2": 0.883471,
+    "entropy_mean": 0.556089,
+    "entropy_cv": 29.004201,
+    "closure_verified": true,
+    "zero_replacement_applied": true
+  },
+  "classification": {
+    "auto_detected_features": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  },
+  "outputs": {
+    "results_json": "pipeline_output/HS-17_FLEET_COMPOSIT_results.json",
+    "report_en": "pipeline_output/HS-17_FLEET_COMPOSIT_report_en.txt",
+    "helix_exploded": "pipeline_output/Hs-17_helix_exploded.pdf",
+    "manifold_helix": "pipeline_output/Hs-17_manifold_helix.pdf",
+    "projections": "pipeline_output/Hs-17_projections.pdf",
+    "polar_stack": "pipeline_output/Hs-17_polar_stack.pdf",
+    "polar_stack_json": "pipeline_output/Hs-17_polar_stack.json",
+    "manifold_paper": "pipeline_output/Hs-17_manifold_paper.pdf"
+  },
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Pipeline is fully deterministic. No stochastic elements. Bit-identical output on repeated runs with identical input and pipeline version."
+  }
+}

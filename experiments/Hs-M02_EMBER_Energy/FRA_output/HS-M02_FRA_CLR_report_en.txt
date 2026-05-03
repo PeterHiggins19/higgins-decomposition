@@ -1,0 +1,92 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-M02_FRA_CLR
+  System:      EMBER FRA Energy Mix
+  Domain:      ENERGY
+  Carriers:    Year, Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Other Renewables, Solar, Wind
+  N=26, D=10
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-M02_FRA_clr.csv
+  Pipeline:    1.0 Extended
+  Data hash:   7625c53cdc2c5681
+  Timestamp:   2026-04-30T20:07:19.546276Z
+
+
+Total codes: 89
+  Errors:       0
+  Warnings:     2
+  Discoveries: 52
+  Calibration signals: 1
+  Structural modes:  4
+  Information:  30
+
+── WARNINGS ──
+  [MX-CMN-WRN] MX-CMN-WRN
+  [MX-REF-WRN] MX-REF-WRN
+
+── DISCOVERIES ──
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (14)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (12)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.695219, drift_direction=decreasing, max_shift_carrier=Year)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Bioenergy), cv=4.667954)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Coal), cv=9.828819)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Gas), cv=11.014370)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Hydro), cv=4.533988)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Nuclear), cv=2.624348)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Other Fossil), cv=10.171659)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Other Renewables), cv=2.686293)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Solar), cv=18.098449)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Wind), cv=15.930233)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Coal), cv=197.038436)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Gas), cv=682.688504)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Hydro), cv=58.424175)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Other Fossil), cv=271.338265)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Bioenergy/Other Renewables), cv=17.283980)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Solar), cv=172.119057)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Wind), cv=2671.453078)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Gas), cv=230.971899)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Hydro), cv=127.032993)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Nuclear), cv=54.289786)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Other Fossil), cv=74.620010)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Other Renewables), cv=78.398841)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Solar), cv=439.880866)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Coal/Wind), cv=150.530320)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Hydro), cv=85.819570)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Other Fossil), cv=175.902078)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Other Renewables), cv=67.340967)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Solar), cv=172.198940)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Wind), cv=609.905186)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Other Fossil), cv=52.731612)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Other Renewables), cv=89.419849)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Solar), cv=490.614357)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Wind), cv=104.638817)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Other Renewables), cv=143.823213)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Solar), cv=117.392608)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Wind), cv=65.081866)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Fossil/Solar), cv=114.626658)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Fossil/Wind), cv=169.821254)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Renewables/Solar), cv=193.041999)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Renewables/Wind), cv=84.353751)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Solar/Wind), cv=184.068445)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=26, near_zero_carriers=['Bioenergy', 'Coal', 'Gas', 'Hydro', 'Nuclear', 'Other Fossil', 'Other Renewables', 'Solar', 'Wind'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=22541.376344)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.813192, alpha=1.548920)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000003)
+  [MX-TRM-DIS] MX-TRM-DIS (count=14, best={'ratio': 'λ8/λ7', 'value': 0.16106271483690673, 'constant': '1/(2pi)', 'delta': 0.0019077717450113885})
+  [MX-QHI-DIS] MX-QHI-DIS (Q=42.212260)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-CPL-DIS] Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

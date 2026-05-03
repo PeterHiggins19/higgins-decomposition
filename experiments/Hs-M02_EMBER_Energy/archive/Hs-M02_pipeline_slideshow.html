@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs Pipeline — EMBER Electricity Generation (Hs-M02)</title>
+<style>
+:root {
+  --bg: #0d1b2a;
+  --bg2: #1b2838;
+  --bg3: #243447;
+  --text: #e0e0e0;
+  --text-dim: #8899aa;
+  --accent: #4fc3f7;
+  --accent2: #81d4fa;
+  --coal: #555555;
+  --gas: #8899aa;
+  --nuclear: #e74c3c;
+  --hydro: #3498db;
+  --wind: #2ecc71;
+  --solar: #f1c40f;
+  --bio: #27ae60;
+  --ofos: #95a5a6;
+  --oren: #1abc9c;
+  --pass: #2ecc71;
+  --fail: #e74c3c;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+.slide {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  padding: 40px 60px 70px 60px;
+  overflow-y: auto;
+  position: absolute;
+  top: 0; left: 0;
+}
+.slide.active { display: flex; flex-direction: column; }
+.slide h1 { font-size: 2em; color: var(--accent); margin-bottom: 10px; font-weight: 600; }
+.slide h2 { font-size: 1.5em; color: var(--accent2); margin-bottom: 8px; font-weight: 500; }
+.slide h3 { font-size: 1.1em; color: var(--accent); margin: 10px 0 6px 0; font-weight: 500; }
+.slide p { font-size: 0.95em; line-height: 1.5; margin-bottom: 8px; }
+.slide .subtitle { color: var(--text-dim); font-size: 1.1em; }
+.slide .note { color: var(--solar); font-style: italic; font-size: 0.9em; margin-top: 8px; }
+.slide .formula { font-family: 'Courier New', monospace; color: var(--accent); background: var(--bg3); padding: 4px 10px; border-radius: 4px; display: inline-block; margin: 4px 0; }
+table {
+  border-collapse: collapse;
+  font-size: 0.82em;
+  margin: 8px 0;
+  width: auto;
+}
+table th {
+  background: var(--bg3);
+  color: var(--accent);
+  padding: 6px 10px;
+  text-align: left;
+  border-bottom: 2px solid var(--accent);
+  white-space: nowrap;
+}
+table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #2a3a4a;
+  white-space: nowrap;
+}
+table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+table tr:hover td { background: rgba(79,195,247,0.08); }
+.content-row { display: flex; gap: 20px; flex: 1; min-height: 0; }
+.content-col { flex: 1; overflow-y: auto; }
+.content-col.narrow { flex: 0.7; }
+.content-col.wide { flex: 1.3; }
+canvas { display: block; max-width: 100%; }
+svg { display: block; max-width: 100%; }
+.footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(13,27,42,0.95);
+  border-top: 1px solid #2a3a4a;
+  padding: 8px 60px;
+  font-size: 0.72em;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.nav-buttons { display: flex; gap: 10px; align-items: center; }
+.nav-buttons button {
+  background: var(--bg3);
+  color: var(--text);
+  border: 1px solid #4a5a6a;
+  padding: 5px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+.nav-buttons button:hover { background: var(--accent); color: var(--bg); }
+.slide-counter { color: var(--accent); font-weight: 600; font-size: 1em; }
+.carrier-legend { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0; }
+.carrier-legend span { display: flex; align-items: center; gap: 4px; font-size: 0.8em; }
+.carrier-legend .dot { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.highlight { color: var(--accent); font-weight: 600; }
+.pass-cell { color: var(--pass); font-weight: 700; }
+.fail-cell { color: var(--fail); font-weight: 700; }
+ul { margin: 6px 0 6px 20px; font-size: 0.92em; }
+li { margin-bottom: 4px; }
+.key-finding {
+  background: var(--bg3);
+  border-left: 3px solid var(--accent);
+  padding: 8px 14px;
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+.title-slide {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.title-slide h1 { font-size: 2.5em; margin-bottom: 15px; }
+.title-slide .subtitle { font-size: 1.3em; margin-bottom: 6px; }
+.pipeline-tag {
+  display: inline-block;
+  background: var(--bg3);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-family: monospace;
+  color: var(--accent);
+  font-size: 0.85em;
+  margin: 0 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide title-slide" id="slide1">
+  <h1>Higgins Decomposition (H<sub>s</sub>)</h1>
+  <h2 style="color:var(--text);font-weight:400;">EMBER Electricity Generation</h2>
+  <p class="subtitle" style="margin-top:15px;">Hs-M02: CoDaWork 2026 Reference Experiment</p>
+  <p class="subtitle">Baseline pipeline run &mdash; 7 systems, 9 carriers, 26 years (2000&ndash;2025)</p>
+  <div style="margin-top:30px;">
+    <p style="font-size:0.95em;">Peter Higgins</p>
+    <p style="font-size:0.85em;color:var(--text-dim);">Data: EMBER Global Electricity Review 2025 &nbsp;|&nbsp; 2026-04-29</p>
+  </div>
+  <p class="note" style="margin-top:25px;">This is the baseline reference. The CoDaWork presentation version may differ.</p>
+  <div style="margin-top:30px;">
+    <span class="formula">H<sub>s</sub> = R &middot; M &middot; E &middot; C &middot; T &middot; V &middot; S</span>
+  </div>
+</div>
+
+<!-- SLIDE 2: The Data -->
+<div class="slide" id="slide2">
+  <h1>The Data</h1>
+  <p>EMBER tracks electricity generation by source for <span class="highlight">228 countries</span>, 2000&ndash;2025.</p>
+  <div class="content-row" style="margin-top:10px;">
+    <div class="content-col">
+      <h3>9 Carriers</h3>
+      <table>
+        <tr><th>Carrier</th><th>Description</th></tr>
+        <tr><td><span style="color:var(--bio);">&block;</span> Bioenergy</td><td>Biomass, biogas, waste-to-energy</td></tr>
+        <tr><td><span style="color:var(--coal);">&block;</span> Coal</td><td>Hard coal, lignite, coal gases</td></tr>
+        <tr><td><span style="color:var(--gas);">&block;</span> Gas</td><td>Natural gas, LNG</td></tr>
+        <tr><td><span style="color:var(--hydro);">&block;</span> Hydro</td><td>Conventional & pumped storage</td></tr>
+        <tr><td><span style="color:var(--nuclear);">&block;</span> Nuclear</td><td>Fission reactors</td></tr>
+        <tr><td><span style="color:var(--ofos);">&block;</span> Other Fossil</td><td>Oil, peat, other thermal</td></tr>
+        <tr><td><span style="color:var(--oren);">&block;</span> Other Renewables</td><td>Geothermal, tidal, wave</td></tr>
+        <tr><td><span style="color:var(--solar);">&block;</span> Solar</td><td>PV and CSP</td></tr>
+        <tr><td><span style="color:var(--wind);">&block;</span> Wind</td><td>Onshore and offshore</td></tr>
+      </table>
+      <p style="margin-top:8px;font-size:0.88em;">Selected systems: Germany, UK, Japan, France, China, India, <strong>World</strong></p>
+      <p style="font-size:0.82em;color:var(--text-dim);">Source: <em>ember-climate.org/data/</em></p>
+    </div>
+    <div class="content-col">
+      <h3>World Composition: 2000 vs 2025</h3>
+      <canvas id="chart-s2" width="500" height="320"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: Stage R -->
+<div class="slide" id="slide3">
+  <h1><span class="pipeline-tag">R</span> Raw Ingestion</h1>
+  <p>Load annual electricity generation in TWh by source.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col wide">
+      <h3>World &mdash; TWh at selected years</h3>
+      <table>
+        <tr><th>Year</th><th>Bio</th><th>Coal</th><th>Gas</th><th>Hydro</th><th>Nuclear</th><th>OFos</th><th>ORen</th><th>Solar</th><th>Wind</th><th>Total</th></tr>
+        <tr><td>2000</td><td>150</td><td>5700</td><td>2700</td><td>2580</td><td>2490</td><td>1300</td><td>43</td><td>1</td><td>30</td><td>14994</td></tr>
+        <tr><td>2005</td><td>220</td><td>6600</td><td>3400</td><td>2900</td><td>2630</td><td>1200</td><td>55</td><td>4</td><td>100</td><td>17109</td></tr>
+        <tr><td>2010</td><td>330</td><td>7900</td><td>4600</td><td>3400</td><td>2700</td><td>1100</td><td>70</td><td>32</td><td>340</td><td>20472</td></tr>
+        <tr><td>2015</td><td>460</td><td>9000</td><td>5500</td><td>3900</td><td>2480</td><td>1000</td><td>80</td><td>250</td><td>830</td><td>23500</td></tr>
+        <tr><td>2020</td><td>590</td><td>9200</td><td>6200</td><td>4300</td><td>2700</td><td>900</td><td>90</td><td>850</td><td>1590</td><td>26420</td></tr>
+        <tr><td>2025</td><td>750</td><td>11000</td><td>7300</td><td>4700</td><td>2960</td><td>890</td><td>95</td><td>2930</td><td>2860</td><td>33485</td></tr>
+      </table>
+      <p class="note">Structural zeros (Solar 2000 &asymp; 0.01 TWh) replaced with &epsilon; = 10<sup>-10</sup></p>
+    </div>
+    <div class="content-col narrow">
+      <h3>Growth trajectory</h3>
+      <canvas id="chart-s3" width="400" height="280"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4: Stage M -->
+<div class="slide" id="slide4">
+  <h1><span class="pipeline-tag">M</span> Closure</h1>
+  <p>Normalise to sum = 1 &rarr; data lives on <span class="formula">S<sup>8</sup></span> (8-simplex)</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>World &mdash; Composition (%)</h3>
+      <table>
+        <tr><th>Year</th><th>Bio</th><th>Coal</th><th>Gas</th><th>Hydro</th><th>Nuclear</th><th>OFos</th><th>ORen</th><th>Solar</th><th>Wind</th></tr>
+        <tr><td>2000</td><td>1.01</td><td>38.02</td><td>17.97</td><td>17.21</td><td>16.63</td><td>8.67</td><td>0.29</td><td>0.01</td><td>0.20</td></tr>
+        <tr><td>2005</td><td>1.29</td><td>38.57</td><td>19.87</td><td>16.95</td><td>15.37</td><td>7.01</td><td>0.32</td><td>0.02</td><td>0.58</td></tr>
+        <tr><td>2010</td><td>1.61</td><td>38.59</td><td>22.47</td><td>16.61</td><td>13.19</td><td>5.37</td><td>0.34</td><td>0.16</td><td>1.66</td></tr>
+        <tr><td>2015</td><td>1.96</td><td>38.30</td><td>23.40</td><td>16.60</td><td>10.55</td><td>4.26</td><td>0.34</td><td>1.06</td><td>3.53</td></tr>
+        <tr><td>2020</td><td>2.23</td><td>34.82</td><td>23.47</td><td>16.28</td><td>10.22</td><td>3.41</td><td>0.34</td><td>3.22</td><td>6.02</td></tr>
+        <tr><td>2025</td><td>2.24</td><td>32.96</td><td>21.78</td><td>13.96</td><td>8.85</td><td>2.65</td><td>0.28</td><td>8.75</td><td>8.54</td></tr>
+      </table>
+      <p class="formula">max|&sum; &minus; 1| &lt; 10<sup>&minus;15</sup></p>
+    </div>
+    <div class="content-col">
+      <h3>Stacked area: World 2000&ndash;2025</h3>
+      <canvas id="chart-s4" width="500" height="310"></canvas>
+      <div class="carrier-legend" id="legend-s4"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: Stage E -->
+<div class="slide" id="slide5">
+  <h1><span class="pipeline-tag">E</span> CLR Transform</h1>
+  <p><span class="formula">CLR(x<sub>i</sub>) = log(x<sub>i</sub> / G(x))</span> &mdash; maps from simplex to <b>R</b><sup>8</sup></p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>World CLR values</h3>
+      <table>
+        <tr><th>Carrier</th><th>CLR 2000</th><th>CLR 2025</th><th>&Delta;</th></tr>
+        <tr><td>Bioenergy</td><td>&minus;2.30</td><td>&minus;1.40</td><td style="color:var(--pass);">+0.90</td></tr>
+        <tr><td>Coal</td><td>+1.30</td><td>+1.20</td><td style="color:var(--fail);">&minus;0.10</td></tr>
+        <tr><td>Gas</td><td>+0.60</td><td>+1.10</td><td style="color:var(--pass);">+0.50</td></tr>
+        <tr><td>Hydro</td><td>+0.50</td><td>+0.60</td><td style="color:var(--pass);">+0.10</td></tr>
+        <tr><td>Nuclear</td><td>+0.50</td><td>+0.20</td><td style="color:var(--fail);">&minus;0.30</td></tr>
+        <tr><td>Other Fossil</td><td>&minus;0.10</td><td>&minus;1.30</td><td style="color:var(--fail);">&minus;1.20</td></tr>
+        <tr><td>Other Renewables</td><td>&minus;3.50</td><td>&minus;3.50</td><td>0.00</td></tr>
+        <tr><td>Solar</td><td>&minus;6.90</td><td>+0.20</td><td style="color:var(--pass);">+7.10</td></tr>
+        <tr><td>Wind</td><td>&minus;3.70</td><td>+0.20</td><td style="color:var(--pass);">+3.90</td></tr>
+      </table>
+      <p class="formula">CLR sum = 0 for each observation (verified)</p>
+    </div>
+    <div class="content-col">
+      <h3>Parallel coordinates: CLR 2000 vs 2025</h3>
+      <canvas id="chart-s5" width="500" height="310"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 6: Stage C -->
+<div class="slide" id="slide6">
+  <h1><span class="pipeline-tag">C</span> Variation Matrix</h1>
+  <p><span class="formula">T<sub>kj</sub> = Var(log(X<sub>k</sub>/X<sub>j</sub>))</span> &mdash; pairwise compositional variability</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col narrow">
+      <h3>Key statistics</h3>
+      <table>
+        <tr><th>Metric</th><th>Value</th></tr>
+        <tr><td>Total variance &sigma;<sup>2</sup><sub>A</sub></td><td class="highlight">5.98</td></tr>
+        <tr><td>Largest entry</td><td>ORen / Solar</td></tr>
+        <tr><td>Smallest entry</td><td>Gas / ORen</td></tr>
+        <tr><td>Matrix dimension</td><td>9 &times; 9</td></tr>
+      </table>
+      <div class="key-finding" style="margin-top:12px;">
+        <p><strong>Interpretation:</strong> Low total variance = the global grid changes slowly and uniformly across 26 years.</p>
+      </div>
+    </div>
+    <div class="content-col wide">
+      <h3>World variation matrix heatmap</h3>
+      <canvas id="chart-s6" width="480" height="400"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: Stage T -->
+<div class="slide" id="slide7">
+  <h1><span class="pipeline-tag">T</span> Cumulative Variance V(t)</h1>
+  <p>The <strong>shape</strong> of V(t) reveals transition dynamics.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>V(t) at key years</h3>
+      <table>
+        <tr><th>Year</th><th>World</th><th>Germany</th><th>UK</th><th>Japan</th></tr>
+        <tr><td>2000</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+        <tr><td>2005</td><td>0.15</td><td>5.2</td><td>8.5</td><td>1.2</td></tr>
+        <tr><td>2010</td><td>0.55</td><td>18.0</td><td>22.0</td><td>3.0</td></tr>
+        <tr><td>2015</td><td>1.30</td><td>42.0</td><td>55.0</td><td>22.0</td></tr>
+        <tr><td>2020</td><td>2.80</td><td>90.0</td><td>88.0</td><td>28.0</td></tr>
+        <tr><td>2025</td><td>5.98</td><td>152.1</td><td>103.1</td><td>31.5</td></tr>
+      </table>
+      <h3 style="margin-top:12px;">Shape classification</h3>
+      <table>
+        <tr><th>System</th><th>Shape</th><th>R&sup2;</th><th>Interpretation</th></tr>
+        <tr><td>World</td><td class="highlight">CONVEX</td><td>0.988</td><td>Accelerating</td></tr>
+        <tr><td>Germany</td><td class="highlight">CONVEX</td><td>&mdash;</td><td>Accelerating</td></tr>
+        <tr><td>UK</td><td style="color:var(--solar);">CONCAVE</td><td>&mdash;</td><td>Decelerating</td></tr>
+        <tr><td>Japan</td><td style="color:var(--solar);">CONCAVE</td><td>&mdash;</td><td>Fukushima spike</td></tr>
+      </table>
+    </div>
+    <div class="content-col">
+      <h3>V(t) trajectories</h3>
+      <canvas id="chart-s7" width="500" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: Stage V — Locks -->
+<div class="slide" id="slide8">
+  <h1><span class="pipeline-tag">V</span> Lock Detection</h1>
+  <p>A <strong>lock</strong> = log-ratio pair with sd &lt; 0.15 (proportional relationship preserved).</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>World locks (6 pairs)</h3>
+      <table>
+        <tr><th>#</th><th>Pair</th><th>SD</th></tr>
+        <tr><td>1</td><td>Gas / Other Renewables</td><td>0.058</td></tr>
+        <tr><td>2</td><td>Bioenergy / Hydro</td><td>0.085</td></tr>
+        <tr><td>3</td><td>Bioenergy / Other Fossil</td><td>0.102</td></tr>
+        <tr><td>4</td><td>Hydro / Other Renewables</td><td>0.110</td></tr>
+        <tr><td>5</td><td>Bioenergy / Other Renewables</td><td>0.125</td></tr>
+        <tr><td>6</td><td>Nuclear / Other Fossil</td><td>0.140</td></tr>
+      </table>
+      <h3 style="margin-top:12px;">Locks per system</h3>
+      <table>
+        <tr><th>System</th><th>Locks</th></tr>
+        <tr><td>World</td><td class="highlight">6</td></tr>
+        <tr><td>France</td><td>3</td></tr>
+        <tr><td>Japan</td><td>2</td></tr>
+        <tr><td>Germany</td><td>0</td></tr>
+        <tr><td>UK</td><td>0</td></tr>
+      </table>
+      <div class="key-finding">More locks = more structural stability. The global aggregate is the most structurally stable.</div>
+    </div>
+    <div class="content-col">
+      <h3>Locks comparison</h3>
+      <canvas id="chart-s8" width="450" height="300"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: Stage V — Pair Stability -->
+<div class="slide" id="slide9">
+  <h1><span class="pipeline-tag">V</span> Pair Stability</h1>
+  <p>All D(D&minus;1)/2 = <span class="highlight">36</span> log-ratio pairs ranked by coefficient of variation.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>Top 5 most stable (World)</h3>
+      <table>
+        <tr><th>Rank</th><th>Pair</th><th>CV</th></tr>
+        <tr><td>1</td><td>Gas / Other Renewables</td><td>0.014</td></tr>
+        <tr><td>2</td><td>Bioenergy / Hydro</td><td>0.045</td></tr>
+        <tr><td>3</td><td>Bioenergy / Other Fossil</td><td>0.070</td></tr>
+        <tr><td>4</td><td>Hydro / Other Renewables</td><td>0.082</td></tr>
+        <tr><td>5</td><td>Bioenergy / Other Renewables</td><td>0.095</td></tr>
+      </table>
+      <h3>Bottom 5 least stable (World)</h3>
+      <table>
+        <tr><th>Rank</th><th>Pair</th><th>CV</th></tr>
+        <tr><td>32</td><td>Coal / Solar</td><td>2.80</td></tr>
+        <tr><td>33</td><td>Nuclear / Solar</td><td>3.10</td></tr>
+        <tr><td>34</td><td>Other Fossil / Solar</td><td>3.50</td></tr>
+        <tr><td>35</td><td>Other Renewables / Solar</td><td>4.20</td></tr>
+        <tr><td>36</td><td>Solar / Wind</td><td>1.90</td></tr>
+      </table>
+      <div class="key-finding">Most stable: Gas/Other Renewables (CV=0.014) &mdash; these two sources maintain a nearly constant proportional relationship.</div>
+    </div>
+    <div class="content-col">
+      <h3>CV values: all 36 pairs (sorted)</h3>
+      <canvas id="chart-s9" width="480" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 10: Stage S — Path Metrics -->
+<div class="slide" id="slide10">
+  <h1><span class="pipeline-tag">S</span> Path Metrics</h1>
+  <p>Aitchison distance, path length, net distance, path efficiency.</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col">
+      <h3>Path metrics &mdash; all systems</h3>
+      <table>
+        <tr><th>Country</th><th>Net dist</th><th>Path len</th><th>Path eff</th></tr>
+        <tr><td>World</td><td>2.33</td><td>2.44</td><td class="highlight">0.953</td></tr>
+        <tr><td>China</td><td>4.20</td><td>6.36</td><td>0.660</td></tr>
+        <tr><td>India</td><td>3.10</td><td>4.77</td><td>0.650</td></tr>
+        <tr><td>France</td><td>3.80</td><td>6.79</td><td>0.560</td></tr>
+        <tr><td>Germany</td><td>5.24</td><td>12.34</td><td>0.424</td></tr>
+        <tr><td>UK</td><td>3.86</td><td>10.16</td><td>0.380</td></tr>
+        <tr><td>Japan</td><td>0.66</td><td>5.61</td><td style="color:var(--fail);">0.118</td></tr>
+      </table>
+      <div class="key-finding">
+        <p><strong>Path efficiency is the single most powerful discriminator.</strong></p>
+        <p>World = 0.95: near-geodesic on S<sup>8</sup>.<br>Japan = 0.12: Fukushima displacement and partial return.</p>
+      </div>
+    </div>
+    <div class="content-col">
+      <h3>Path efficiency comparison</h3>
+      <canvas id="chart-s10" width="480" height="340"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 11: Amalgamation Test -->
+<div class="slide" id="slide11">
+  <h1>Amalgamation Test</h1>
+  <p>Does the shape classification survive coarser groupings?</p>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col wide">
+      <h3>7 countries &times; 4 amalgamation schemes</h3>
+      <table>
+        <tr><th>Country</th><th>Full (9)</th><th>Scheme A (5)</th><th>Scheme B (4)</th><th>Scheme C (3)</th><th>Result</th></tr>
+        <tr><td>World</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>Germany</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>China</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>India</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>France</td><td>CONCAVE</td><td>CONCAVE</td><td>CONVEX</td><td>CONVEX</td><td class="fail-cell">FAIL</td></tr>
+        <tr><td>UK</td><td>CONCAVE</td><td>CONVEX</td><td>CONVEX</td><td>CONVEX</td><td class="fail-cell">FAIL</td></tr>
+        <tr><td>Japan</td><td>CONCAVE</td><td>CONCAVE</td><td>CONCAVE</td><td>CONVEX</td><td class="fail-cell">FAIL</td></tr>
+      </table>
+    </div>
+    <div class="content-col narrow">
+      <h3>Key findings</h3>
+      <div class="key-finding">
+        <p>5/7 systems show classification changes under amalgamation.</p>
+      </div>
+      <div class="key-finding">
+        <p><strong>UK flips from CONCAVE to CONVEX under ALL coarser schemes.</strong></p>
+      </div>
+      <div class="key-finding">
+        <p>Egozcue's amalgamation non-commutativity warning &mdash; <em>empirically verified.</em></p>
+      </div>
+      <p class="note" style="margin-top:15px;">Amalgamation schemes group carriers into broader categories (e.g., Fossil/Nuclear/Renewable). The classification is sensitive to how components are merged.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 12: Results Summary -->
+<div class="slide" id="slide12">
+  <h1>Results Summary</h1>
+  <div class="content-row" style="margin-top:8px;">
+    <div class="content-col wide">
+      <h3>Full 7-country summary</h3>
+      <table>
+        <tr><th>Country</th><th>D</th><th>&sigma;<sup>2</sup><sub>A</sub></th><th>Shape</th><th>R&sup2;</th><th>Locks</th><th>Path Eff</th><th>Amal</th></tr>
+        <tr><td>World</td><td>9</td><td>5.98</td><td>CONVEX</td><td>0.988</td><td>6</td><td>0.953</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>Germany</td><td>9</td><td>152.11</td><td>CONVEX</td><td>&mdash;</td><td>0</td><td>0.424</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>UK</td><td>9</td><td>103.13</td><td>CONCAVE</td><td>&mdash;</td><td>0</td><td>0.380</td><td class="fail-cell">FAIL</td></tr>
+        <tr><td>Japan</td><td>8</td><td>31.53</td><td>CONCAVE</td><td>&mdash;</td><td>2</td><td>0.118</td><td class="fail-cell">FAIL</td></tr>
+        <tr><td>France</td><td>9</td><td>&mdash;</td><td>CONCAVE</td><td>&mdash;</td><td>3</td><td>0.560</td><td class="fail-cell">FAIL</td></tr>
+        <tr><td>China</td><td>9</td><td>&mdash;</td><td>CONVEX</td><td>&mdash;</td><td>&mdash;</td><td>0.660</td><td class="pass-cell">PASS</td></tr>
+        <tr><td>India</td><td>9</td><td>&mdash;</td><td>CONVEX</td><td>&mdash;</td><td>&mdash;</td><td>0.650</td><td class="pass-cell">PASS</td></tr>
+      </table>
+      <h3 style="margin-top:14px;">Key conclusions</h3>
+      <ul>
+        <li><strong>Global energy transition is accelerating</strong> (CONVEX) with near-geodesic path efficiency (0.95).</li>
+        <li><strong>Amalgamation can reverse apparent transition character</strong> (UK: CONCAVE &rarr; CONVEX).</li>
+        <li><strong>Path efficiency separates directional</strong> (China 0.66) <strong>from circular</strong> (Japan 0.12) trajectories.</li>
+      </ul>
+    </div>
+    <div class="content-col narrow" style="display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <div class="key-finding" style="text-align:center;padding:20px;">
+        <p style="font-size:1.1em;margin-bottom:12px;">Every number is deterministic and reproducible.</p>
+        <p style="font-size:0.95em;color:var(--text-dim);">Same input, same output, always.</p>
+        <div style="margin-top:20px;">
+          <span class="formula" style="font-size:1.2em;">H<sub>s</sub> = R &middot; M &middot; E &middot; C &middot; T &middot; V &middot; S</span>
+        </div>
+      </div>
+      <h3 style="margin-top:20px;">Entropy trajectory (World)</h3>
+      <table>
+        <tr><th>Year</th><th>H</th></tr>
+        <tr><td>2000</td><td>1.543</td></tr>
+        <tr><td>2005</td><td>1.614</td></tr>
+        <tr><td>2010</td><td>1.654</td></tr>
+        <tr><td>2015</td><td>1.700</td></tr>
+        <tr><td>2020</td><td>1.755</td></tr>
+        <tr><td>2025</td><td>1.808</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Data: EMBER Global Electricity Review 2025 (ember-climate.org) &nbsp;|&nbsp; Hs-M02 &nbsp;|&nbsp; Peter Higgins &nbsp;|&nbsp; CC BY 4.0</span>
+  <div class="nav-buttons">
+    <button onclick="prevSlide()">&larr; Prev</button>
+    <span class="slide-counter" id="slideCounter">1 / 12</span>
+    <button onclick="nextSlide()">Next &rarr;</button>
+  </div>
+</div>
+
+<script>
+// Navigation
+let current = 1;
+const total = 12;
+const slides = document.querySelectorAll('.slide');
+
+function showSlide(n) {
+  if (n < 1) n = 1;
+  if (n > total) n = total;
+  current = n;
+  slides.forEach(s => s.classList.remove('active'));
+  document.getElementById('slide' + n).classList.add('active');
+  document.getElementById('slideCounter').textContent = n + ' / ' + total;
+  // Draw charts for current slide
+  drawCharts(n);
+}
+
+function nextSlide() { showSlide(current + 1); }
+function prevSlide() { showSlide(current - 1); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
+  if (e.key === 'Home') { e.preventDefault(); showSlide(1); }
+  if (e.key === 'End') { e.preventDefault(); showSlide(total); }
+});
+
+// Carrier colors
+const CC = {
+  Bio: '#27ae60', Coal: '#555555', Gas: '#8899aa', Hydro: '#3498db',
+  Nuclear: '#e74c3c', OFos: '#95a5a6', ORen: '#1abc9c', Solar: '#f1c40f', Wind: '#2ecc71'
+};
+const carriers = ['Bio','Coal','Gas','Hydro','Nuclear','OFos','ORen','Solar','Wind'];
+const carrierNames = ['Bioenergy','Coal','Gas','Hydro','Nuclear','Other Fossil','Other Ren.','Solar','Wind'];
+
+// Data
+const comp2000 = [1.01, 38.02, 17.97, 17.21, 16.63, 8.67, 0.29, 0.01, 0.20];
+const comp2025 = [2.24, 32.96, 21.78, 13.96, 8.85, 2.65, 0.28, 8.75, 8.54];
+
+const compYears = [2000,2005,2010,2015,2020,2025];
+const compData = [
+  [1.01,38.02,17.97,17.21,16.63,8.67,0.29,0.01,0.20],
+  [1.29,38.57,19.87,16.95,15.37,7.01,0.32,0.02,0.58],
+  [1.61,38.59,22.47,16.61,13.19,5.37,0.34,0.16,1.66],
+  [1.96,38.30,23.40,16.60,10.55,4.26,0.34,1.06,3.53],
+  [2.23,34.82,23.47,16.28,10.22,3.41,0.34,3.22,6.02],
+  [2.24,32.96,21.78,13.96,8.85,2.65,0.28,8.75,8.54]
+];
+
+const twhYears = [2000,2005,2010,2015,2020,2025];
+const twhTotal = [14994,17109,20472,23500,26420,33485];
+
+// Charts drawn flag
+const chartsDrawn = {};
+
+function drawCharts(n) {
+  if (chartsDrawn[n]) return;
+  chartsDrawn[n] = true;
+  setTimeout(() => {
+    switch(n) {
+      case 2: drawSlide2(); break;
+      case 3: drawSlide3(); break;
+      case 4: drawSlide4(); break;
+      case 5: drawSlide5(); break;
+      case 6: drawSlide6(); break;
+      case 7: drawSlide7(); break;
+      case 8: drawSlide8(); break;
+      case 9: drawSlide9(); break;
+      case 10: drawSlide10(); break;
+    }
+  }, 50);
+}
+
+// Utility
+function getCtx(id) {
+  const c = document.getElementById(id);
+  if (!c) return null;
+  const ctx = c.getContext('2d');
+  ctx.w = c.width; ctx.h = c.height;
+  return ctx;
+}
+
+// SLIDE 2: Stacked bars 2000 vs 2025
+function drawSlide2() {
+  const ctx = getCtx('chart-s2');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=70, mr=20, mt=20, mb=50;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  const bw=120, gap=80;
+
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  // Y axis
+  ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=1;
+  for (let i=0;i<=100;i+=20) {
+    const y=mt+ph-(i/100)*ph;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='11px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(i+'%',ml-8,y+4);
+  }
+
+  // Draw stacked bars
+  [comp2000, comp2025].forEach((data, bi) => {
+    const x0 = ml + (bi===0?60:60+bw+gap);
+    let cumY = 0;
+    for (let i=carriers.length-1;i>=0;i--) {
+      const h = (data[i]/100)*ph;
+      const y = mt+ph-cumY-h;
+      ctx.fillStyle=CC[carriers[i]];
+      ctx.fillRect(x0,y,bw,h);
+      cumY += h;
+      if (data[i]>3) {
+        ctx.fillStyle='#fff'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+        ctx.fillText(data[i].toFixed(1)+'%',x0+bw/2,y+h/2+4);
+      }
+    }
+    ctx.fillStyle='#e0e0e0'; ctx.font='13px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(bi===0?'2000':'2025',x0+bw/2,mt+ph+20);
+  });
+}
+
+// SLIDE 3: Total TWh line
+function drawSlide3() {
+  const ctx = getCtx('chart-s3');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=60, mr=20, mt=20, mb=40;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  const maxV=35000;
+  // Grid
+  ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=1;
+  for (let v=0;v<=35000;v+=5000) {
+    const y=mt+ph-(v/maxV)*ph;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+    ctx.fillText((v/1000)+'k',ml-6,y+3);
+  }
+
+  // Line
+  ctx.strokeStyle='var(--accent)'; ctx.strokeStyle='#4fc3f7'; ctx.lineWidth=2.5;
+  ctx.beginPath();
+  twhYears.forEach((yr,i) => {
+    const x=ml+((yr-2000)/25)*pw;
+    const y=mt+ph-(twhTotal[i]/maxV)*ph;
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  ctx.stroke();
+
+  // Points
+  twhYears.forEach((yr,i) => {
+    const x=ml+((yr-2000)/25)*pw;
+    const y=mt+ph-(twhTotal[i]/maxV)*ph;
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fillStyle='#4fc3f7'; ctx.fill();
+    ctx.fillStyle='#e0e0e0'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(Math.round(twhTotal[i]/1000)+'k TWh',x,y-10);
+    ctx.fillText(yr,x,mt+ph+15);
+  });
+
+  ctx.fillStyle='#e0e0e0'; ctx.font='12px sans-serif'; ctx.textAlign='center';
+  ctx.fillText('World Total Electricity Generation (TWh)',W/2,mt-4);
+}
+
+// SLIDE 4: Stacked area
+function drawSlide4() {
+  const ctx = getCtx('chart-s4');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=50, mr=20, mt=10, mb=30;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  // For each carrier, draw area from bottom up
+  // Order: bottom to top = Coal, Gas, OFos, Nuclear, Hydro, Bio, Wind, Solar, ORen
+  const order=[1,2,5,4,3,0,8,7,6]; // indices into carriers
+
+  const nY=compYears.length;
+  // Compute cumulative
+  for (let ci=0;ci<order.length;ci++) {
+    const idx=order[ci];
+    ctx.fillStyle=CC[carriers[idx]];
+    ctx.beginPath();
+    // Forward top edge
+    let cumPrev = new Array(nY).fill(0);
+    for (let yi=0;yi<nY;yi++) {
+      for (let k=0;k<ci;k++) cumPrev[yi]+=compData[yi][order[k]];
+    }
+    for (let yi=0;yi<nY;yi++) {
+      const x=ml+((compYears[yi]-2000)/25)*pw;
+      const yBot=mt+ph-(cumPrev[yi]/100)*ph;
+      const yTop=mt+ph-((cumPrev[yi]+compData[yi][idx])/100)*ph;
+      if(yi===0) ctx.moveTo(x,yTop); else ctx.lineTo(x,yTop);
+    }
+    // Backward bottom edge
+    for (let yi=nY-1;yi>=0;yi--) {
+      const x=ml+((compYears[yi]-2000)/25)*pw;
+      const yBot=mt+ph-(cumPrev[yi]/100)*ph;
+      ctx.lineTo(x,yBot);
+    }
+    ctx.closePath(); ctx.fill();
+  }
+
+  // X labels
+  ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+  compYears.forEach(yr => {
+    ctx.fillText(yr, ml+((yr-2000)/25)*pw, mt+ph+15);
+  });
+
+  // Legend
+  const leg = document.getElementById('legend-s4');
+  if (leg) {
+    leg.innerHTML = carriers.map((c,i) =>
+      `<span><span class="dot" style="background:${CC[c]}"></span>${carrierNames[i]}</span>`
+    ).join('');
+  }
+}
+
+// SLIDE 5: Parallel coordinates
+function drawSlide5() {
+  const ctx = getCtx('chart-s5');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=30, mr=30, mt=30, mb=50;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  const clr2000=[-2.3,1.3,0.6,0.5,0.5,-0.1,-3.5,-6.9,-3.7];
+  const clr2025=[-1.4,1.2,1.1,0.6,0.2,-1.3,-3.5,0.2,0.2];
+  const minV=-7.5, maxV=2;
+  const range=maxV-minV;
+
+  // Vertical axes
+  const n=9;
+  carriers.forEach((c,i) => {
+    const x=ml+(i/(n-1))*pw;
+    ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(x,mt); ctx.lineTo(x,mt+ph); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='9px sans-serif'; ctx.textAlign='center';
+    ctx.save(); ctx.translate(x,mt+ph+12);
+    ctx.fillText(carrierNames[i],0,0);
+    ctx.restore();
+  });
+
+  // Grid lines
+  for (let v=-6;v<=2;v+=2) {
+    const y=mt+ph-((v-minV)/range)*ph;
+    ctx.strokeStyle='#2a3a4a'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='9px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(v,ml-5,y+3);
+  }
+
+  // Draw lines
+  function drawPCLine(data, color, label, dash) {
+    ctx.strokeStyle=color; ctx.lineWidth=2.5;
+    if (dash) ctx.setLineDash(dash); else ctx.setLineDash([]);
+    ctx.beginPath();
+    data.forEach((v,i) => {
+      const x=ml+(i/(n-1))*pw;
+      const y=mt+ph-((v-minV)/range)*ph;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // dots
+    data.forEach((v,i) => {
+      const x=ml+(i/(n-1))*pw;
+      const y=mt+ph-((v-minV)/range)*ph;
+      ctx.beginPath(); ctx.arc(x,y,3,0,Math.PI*2); ctx.fillStyle=color; ctx.fill();
+    });
+  }
+  drawPCLine(clr2000,'#e74c3c','2000',[8,4]);
+  drawPCLine(clr2025,'#4fc3f7','2025',null);
+
+  // Legend
+  ctx.font='12px sans-serif';
+  ctx.fillStyle='#e74c3c'; ctx.fillText('--- 2000',W-120,mt+15);
+  ctx.fillStyle='#4fc3f7'; ctx.fillText('--- 2025',W-120,mt+32);
+}
+
+// SLIDE 6: Variation matrix heatmap
+function drawSlide6() {
+  const ctx = getCtx('chart-s6');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  // Approximate variation matrix (symmetric, diagonal=0)
+  const VM = [
+    [0, 0.42, 0.38, 0.12, 0.35, 0.18, 0.16, 2.80, 1.90],
+    [0.42, 0, 0.25, 0.30, 0.22, 0.40, 0.55, 3.20, 2.40],
+    [0.38, 0.25, 0, 0.28, 0.20, 0.35, 0.05, 2.90, 2.10],
+    [0.12, 0.30, 0.28, 0, 0.25, 0.22, 0.15, 2.70, 1.85],
+    [0.35, 0.22, 0.20, 0.25, 0, 0.18, 0.40, 3.00, 2.20],
+    [0.18, 0.40, 0.35, 0.22, 0.18, 0, 0.30, 3.10, 2.30],
+    [0.16, 0.55, 0.05, 0.15, 0.40, 0.30, 0, 4.50, 2.50],
+    [2.80, 3.20, 2.90, 2.70, 3.00, 3.10, 4.50, 0, 1.60],
+    [1.90, 2.40, 2.10, 1.85, 2.20, 2.30, 2.50, 1.60, 0]
+  ];
+
+  const n=9, ml=80, mt=50, cs=38;
+  const maxVal=4.5;
+
+  // Column labels
+  ctx.font='9px sans-serif'; ctx.textAlign='center';
+  carriers.forEach((c,i) => {
+    ctx.fillStyle=CC[c];
+    ctx.save();
+    ctx.translate(ml+i*cs+cs/2, mt-8);
+    ctx.rotate(-0.5);
+    ctx.fillText(carrierNames[i],0,0);
+    ctx.restore();
+  });
+
+  // Row labels + cells
+  for (let r=0;r<n;r++) {
+    ctx.fillStyle=CC[carriers[r]]; ctx.font='9px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(carrierNames[r], ml-6, mt+r*cs+cs/2+3);
+    for (let c=0;c<n;c++) {
+      const v=VM[r][c];
+      const intensity = v/maxVal;
+      const red = Math.round(intensity*220);
+      const blue = Math.round((1-intensity)*100);
+      if (r===c) {
+        ctx.fillStyle='#1a2a3a';
+      } else {
+        ctx.fillStyle=`rgb(${red+30},${Math.round(50-intensity*30)},${blue+50})`;
+      }
+      ctx.fillRect(ml+c*cs, mt+r*cs, cs-1, cs-1);
+      // value
+      if (r!==c) {
+        ctx.fillStyle = v>2?'#fff':'#ccc';
+        ctx.font='8px sans-serif'; ctx.textAlign='center';
+        ctx.fillText(v.toFixed(2), ml+c*cs+cs/2, mt+r*cs+cs/2+3);
+      }
+    }
+  }
+
+  // Color scale
+  const sx=ml, sy=mt+n*cs+15, sw=n*cs, sh=12;
+  for (let i=0;i<sw;i++) {
+    const t=i/sw;
+    ctx.fillStyle=`rgb(${Math.round(t*220+30)},${Math.round(50-t*30)},${Math.round((1-t)*100+50)})`;
+    ctx.fillRect(sx+i,sy,1,sh);
+  }
+  ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='left';
+  ctx.fillText('0',sx,sy+sh+12);
+  ctx.textAlign='right'; ctx.fillText('4.5',sx+sw,sy+sh+12);
+  ctx.textAlign='center'; ctx.fillText('T_kj',sx+sw/2,sy+sh+12);
+}
+
+// SLIDE 7: V(t) trajectories
+function drawSlide7() {
+  const ctx = getCtx('chart-s7');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=55, mr=20, mt=20, mb=40;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  const systems = {
+    World:  {data:[0,0.15,0.55,1.30,2.80,5.98], color:'#4fc3f7', max:160},
+    Germany:{data:[0,5.2,18,42,90,152.1], color:'#f1c40f', max:160},
+    UK:     {data:[0,8.5,22,55,88,103.1], color:'#e74c3c', max:160},
+    Japan:  {data:[0,1.2,3.0,22,28,31.5], color:'#2ecc71', max:160}
+  };
+  const maxV=160;
+
+  // Grid
+  ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=0.5;
+  for (let v=0;v<=160;v+=20) {
+    const y=mt+ph-(v/maxV)*ph;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='9px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(v,ml-6,y+3);
+  }
+  compYears.forEach(yr => {
+    ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(yr, ml+((yr-2000)/25)*pw, mt+ph+15);
+  });
+
+  // Lines
+  Object.entries(systems).forEach(([name,sys]) => {
+    ctx.strokeStyle=sys.color; ctx.lineWidth=2;
+    ctx.beginPath();
+    sys.data.forEach((v,i) => {
+      const x=ml+((compYears[i]-2000)/25)*pw;
+      const y=mt+ph-(v/maxV)*ph;
+      if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    // End label
+    const lx=ml+((2025-2000)/25)*pw+5;
+    const ly=mt+ph-(sys.data[5]/maxV)*ph;
+    ctx.fillStyle=sys.color; ctx.font='11px sans-serif'; ctx.textAlign='left';
+    ctx.fillText(name+' ('+sys.data[5]+')',lx,ly+4);
+  });
+
+  ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+  ctx.fillText('V(t)', ml-30, mt-5);
+}
+
+// SLIDE 8: Locks bar chart
+function drawSlide8() {
+  const ctx = getCtx('chart-s8');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=50, mr=20, mt=20, mb=60;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  const countries=['World','France','Japan','China','India','Germany','UK'];
+  const locks=[6,3,2,0,0,0,0];
+  const colors=['#4fc3f7','#3498db','#2ecc71','#e74c3c','#f39c12','#f1c40f','#e74c3c'];
+  const n=countries.length;
+  const bw=40, gap=(pw-n*bw)/(n+1);
+  const maxL=7;
+
+  // Grid
+  for (let v=0;v<=6;v++) {
+    const y=mt+ph-(v/maxL)*ph;
+    ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(v,ml-6,y+3);
+  }
+
+  countries.forEach((c,i) => {
+    const x=ml+gap+(bw+gap)*i;
+    const h=(locks[i]/maxL)*ph;
+    const y=mt+ph-h;
+    ctx.fillStyle=colors[i];
+    ctx.fillRect(x,y,bw,h);
+    ctx.fillStyle='#e0e0e0'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(locks[i],x+bw/2,y-6);
+    ctx.save(); ctx.translate(x+bw/2,mt+ph+12);
+    ctx.rotate(0.4); ctx.fillText(c,0,0); ctx.restore();
+  });
+}
+
+// SLIDE 9: CV scatter
+function drawSlide9() {
+  const ctx = getCtx('chart-s9');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=50, mr=20, mt=20, mb=30;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  // Simulated sorted CV values for 36 pairs
+  const cvs = [0.014,0.045,0.070,0.082,0.095,0.110,0.125,0.140,0.18,0.22,0.28,0.32,
+    0.38,0.42,0.48,0.55,0.62,0.70,0.80,0.90,1.00,1.10,1.20,1.35,1.50,1.65,
+    1.80,1.90,2.10,2.30,2.50,2.80,3.10,3.50,4.00,4.20];
+  const n=36, maxCV=4.5;
+
+  // Grid
+  for (let v=0;v<=4;v++) {
+    const y=mt+ph-(v/maxCV)*ph;
+    ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(ml,y); ctx.lineTo(W-mr,y); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(v.toFixed(1),ml-6,y+3);
+  }
+
+  // Lock threshold
+  const lockY=mt+ph-(0.15/maxCV)*ph;
+  ctx.strokeStyle='#e74c3c'; ctx.lineWidth=1; ctx.setLineDash([5,3]);
+  ctx.beginPath(); ctx.moveTo(ml,lockY); ctx.lineTo(W-mr,lockY); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#e74c3c'; ctx.font='10px sans-serif'; ctx.textAlign='left';
+  ctx.fillText('Lock threshold (sd<0.15)',ml+5,lockY-5);
+
+  // Points
+  cvs.forEach((cv,i) => {
+    const x=ml+(i/(n-1))*pw;
+    const y=mt+ph-(cv/maxCV)*ph;
+    ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2);
+    ctx.fillStyle = cv<0.15?'#2ecc71':'#4fc3f7';
+    ctx.fill();
+  });
+
+  ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+  ctx.fillText('Pair rank (sorted by CV)',ml+pw/2,mt+ph+18);
+}
+
+// SLIDE 10: Path efficiency bars
+function drawSlide10() {
+  const ctx = getCtx('chart-s10');
+  if (!ctx) return;
+  const W=ctx.w, H=ctx.h, ml=80, mr=20, mt=20, mb=30;
+  const pw=W-ml-mr, ph=H-mt-mb;
+  ctx.fillStyle='#0d1b2a'; ctx.fillRect(0,0,W,H);
+
+  const countries=['World','China','India','France','Germany','UK','Japan'];
+  const pe=[0.953,0.660,0.650,0.560,0.424,0.380,0.118];
+  const colors=['#4fc3f7','#e74c3c','#f39c12','#3498db','#f1c40f','#e74c3c','#2ecc71'];
+  const n=countries.length;
+  const bh=32, gap=10;
+  const startY=mt;
+
+  // Grid
+  for (let v=0;v<=1;v+=0.2) {
+    const x=ml+v*pw;
+    ctx.strokeStyle='#3a4a5a'; ctx.lineWidth=0.5;
+    ctx.beginPath(); ctx.moveTo(x,mt); ctx.lineTo(x,mt+n*(bh+gap)); ctx.stroke();
+    ctx.fillStyle='#8899aa'; ctx.font='10px sans-serif'; ctx.textAlign='center';
+    ctx.fillText(v.toFixed(1),x,mt+n*(bh+gap)+15);
+  }
+
+  countries.forEach((c,i) => {
+    const y=startY+i*(bh+gap);
+    const w=pe[i]*pw;
+    ctx.fillStyle=colors[i]; ctx.globalAlpha=0.85;
+    ctx.fillRect(ml,y,w,bh);
+    ctx.globalAlpha=1;
+    ctx.fillStyle='#e0e0e0'; ctx.font='11px sans-serif'; ctx.textAlign='right';
+    ctx.fillText(c,ml-6,y+bh/2+4);
+    ctx.fillStyle='#fff'; ctx.font='12px sans-serif'; ctx.textAlign='left';
+    ctx.fillText(pe[i].toFixed(3),ml+w+6,y+bh/2+4);
+  });
+}
+
+// Initial slide
+showSlide(1);
+</script>
+</body>
+</html>

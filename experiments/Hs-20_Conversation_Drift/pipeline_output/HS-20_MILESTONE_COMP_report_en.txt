@@ -1,0 +1,59 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-20_MILESTONE_COMP
+  System:      Conversation Compositional Drift
+  Domain:      COMMUNICATION
+  Carriers:    index, Theory, Engineering, Documentation, Discovery
+  N=18, D=5
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-20_milestone_compositions.csv
+  Pipeline:    1.0 Extended
+  Data hash:   0bc6befa645719a5
+  Timestamp:   2026-04-30T21:13:51.291387Z
+
+
+Total codes: 57
+  Errors:       0
+  Warnings:     0
+  Discoveries: 23
+  Calibration signals: 1
+  Structural modes:  4
+  Information:  29
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.001281)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (11)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (9)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=index, pct=74.001213)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.072010, drift_direction=decreasing, max_shift_carrier=index)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Theory), cv=392.875466)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Engineering), cv=435.009387)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Documentation), cv=978.126007)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Discovery), cv=695.149360)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Theory/Engineering), cv=798.727239)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Theory/Documentation), cv=128.017418)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Theory/Discovery), cv=188.497811)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Engineering/Documentation), cv=131.333062)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Engineering/Discovery), cv=252.700392)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Documentation/Discovery), cv=444.994907)
+  [MX-LCK-DIS] MX-LCK-DIS (overlap=0.999793)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.997823, alpha=-0.747866)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=1, best={'ratio': 'λ3/λ2', 'value': 0.9124485810538665, 'constant': 'catalan', 'delta': 0.003517013123352508})
+  [MX-QHI-DIS] MX-QHI-DIS (Q=129.719246)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

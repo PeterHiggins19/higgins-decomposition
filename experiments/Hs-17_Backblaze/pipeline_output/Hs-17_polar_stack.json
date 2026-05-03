@@ -1,0 +1,2296 @@
+{
+  "experiment": "HS-17_FLEET_COMPOSIT",
+  "test_object": "Backblaze Fleet Composition",
+  "carriers": [
+    "index",
+    "Mechanical",
+    "Thermal",
+    "Age",
+    "Errors"
+  ],
+  "D": 5,
+  "N": 108,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 2.204256,
+    "norm_max": 2.949505,
+    "norm_mean": 2.539181,
+    "norm_range": 0.745249,
+    "phase_range_deg": 358.899,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 3,
+      "type": "DOM_SHIFT",
+      "label": "inde->Erro"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "index": -1.6451570577616002,
+        "Mechanical": -0.2895572630134292,
+        "Thermal": -0.9139597714142884,
+        "Age": -0.9924782078857782,
+        "Errors": 1.4417005318569553
+      },
+      "aitchison_norm": 2.586353,
+      "phase_deg": -170.018
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "index": -1.5965183529842395,
+        "Mechanical": -0.2787230729296045,
+        "Thermal": -0.9008779345614276,
+        "Age": -0.9802941586924381,
+        "Errors": 1.4859412790856794
+      },
+      "aitchison_norm": 2.570435,
+      "phase_deg": -170.097,
+      "delta_norm": -0.015918,
+      "delta_clr": {
+        "index": 0.048639,
+        "Mechanical": 0.010834,
+        "Thermal": 0.013082,
+        "Age": 0.012184,
+        "Errors": 0.044241
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "index": -1.5481004075937848,
+        "Mechanical": -0.26796491174950704,
+        "Thermal": -0.8879279748126507,
+        "Age": -0.9682774693783179,
+        "Errors": 1.5293862805451233
+      },
+      "aitchison_norm": 2.556056,
+      "phase_deg": -170.18,
+      "delta_norm": -0.01438,
+      "delta_clr": {
+        "index": 0.048418,
+        "Mechanical": 0.010758,
+        "Thermal": 0.01295,
+        "Age": 0.012017,
+        "Errors": 0.043445
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "index": -1.5001222693345952,
+        "Mechanical": -0.25735795976021436,
+        "Thermal": -0.8752397664158865,
+        "Age": -0.9565921812824337,
+        "Errors": 1.5712597515492515
+      },
+      "aitchison_norm": 2.542945,
+      "phase_deg": -170.265,
+      "delta_norm": -0.01311,
+      "delta_clr": {
+        "index": 0.047978,
+        "Mechanical": 0.010607,
+        "Thermal": 0.012688,
+        "Age": 0.011685,
+        "Errors": 0.041873
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "index": -1.4527995759370405,
+        "Mechanical": -0.24697570948756298,
+        "Thermal": -0.8629392083247168,
+        "Age": -0.9453957644659555,
+        "Errors": 1.610825328859748
+      },
+      "aitchison_norm": 2.530774,
+      "phase_deg": -170.352,
+      "delta_norm": -0.012171,
+      "delta_clr": {
+        "index": 0.047323,
+        "Mechanical": 0.010382,
+        "Thermal": 0.012301,
+        "Age": 0.011196,
+        "Errors": 0.039566
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "index": -1.4063428831853626,
+        "Mechanical": -0.2368891453899494,
+        "Thermal": -0.851146312134141,
+        "Age": -0.9348359952749108,
+        "Errors": 1.6474045421733496
+      },
+      "aitchison_norm": 2.519172,
+      "phase_deg": -170.439,
+      "delta_norm": -0.011603,
+      "delta_clr": {
+        "index": 0.046457,
+        "Mechanical": 0.010087,
+        "Thermal": 0.011793,
+        "Age": 0.01056,
+        "Errors": 0.036579
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "index": -1.360956032388051,
+        "Mechanical": -0.2271659515465864,
+        "Thermal": -0.8399733794293793,
+        "Age": -0.9250480261173143,
+        "Errors": 1.6803938333794108
+      },
+      "aitchison_norm": 2.507748,
+      "phase_deg": -170.524,
+      "delta_norm": -0.011424,
+      "delta_clr": {
+        "index": 0.045387,
+        "Mechanical": 0.009723,
+        "Thermal": 0.011173,
+        "Age": 0.009788,
+        "Errors": 0.032989
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "index": -1.3168345699084434,
+        "Mechanical": -0.21786975618381194,
+        "Thermal": -0.8295232962288484,
+        "Age": -0.9161517055574354,
+        "Errors": 1.7092796966638848
+      },
+      "aitchison_norm": 2.496117,
+      "phase_deg": -170.606,
+      "delta_norm": -0.011631,
+      "delta_clr": {
+        "index": 0.044121,
+        "Mechanical": 0.009296,
+        "Thermal": 0.01045,
+        "Age": 0.008896,
+        "Errors": 0.028886
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "index": -1.2741642310096029,
+        "Mechanical": -0.2090594214718688,
+        "Thermal": -0.8198879704241048,
+        "Age": -0.9082492018664318,
+        "Errors": 1.7336515596740092
+      },
+      "aitchison_norm": 2.483925,
+      "phase_deg": -170.682,
+      "delta_norm": -0.012193,
+      "delta_clr": {
+        "index": 0.04267,
+        "Mechanical": 0.00881,
+        "Thermal": 0.009635,
+        "Age": 0.007903,
+        "Errors": 0.024372
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "index": -1.2331194997688781,
+        "Mechanical": -0.20078838651927583,
+        "Thermal": -0.8111469359478122,
+        "Age": -0.9014229771514113,
+        "Errors": 1.7532120826229036
+      },
+      "aitchison_norm": 2.470865,
+      "phase_deg": -170.752,
+      "delta_norm": -0.013059,
+      "delta_clr": {
+        "index": 0.041045,
+        "Mechanical": 0.008271,
+        "Thermal": 0.008741,
+        "Age": 0.006826,
+        "Errors": 0.019561
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "index": -1.193862256227753,
+        "Mechanical": -0.19310407089813203,
+        "Thermal": -0.8033661448686413,
+        "Age": -0.8957341522334483,
+        "Errors": 1.7677846169836238
+      },
+      "aitchison_norm": 2.456704,
+      "phase_deg": -170.812,
+      "delta_norm": -0.014161,
+      "delta_clr": {
+        "index": 0.039257,
+        "Mechanical": 0.007684,
+        "Thermal": 0.007781,
+        "Age": 0.005689,
+        "Errors": 0.014573
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "index": -1.1565405212662059,
+        "Mechanical": -0.18604734535806305,
+        "Thermal": -0.7965969657579123,
+        "Age": -0.8912212946970067,
+        "Errors": 1.7773176366732013
+      },
+      "aitchison_norm": 2.441291,
+      "phase_deg": -170.861,
+      "delta_norm": -0.015414,
+      "delta_clr": {
+        "index": 0.037322,
+        "Mechanical": 0.007057,
+        "Thermal": 0.006769,
+        "Age": 0.004513,
+        "Errors": 0.009533
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "index": -1.121287308933118,
+        "Mechanical": -0.17965207563657598,
+        "Thermal": -0.7908754035400752,
+        "Age": -0.8878996541422591,
+        "Errors": 1.7818860305715236
+      },
+      "aitchison_norm": 2.424568,
+      "phase_deg": -170.897,
+      "delta_norm": -0.016723,
+      "delta_clr": {
+        "index": 0.035253,
+        "Mechanical": 0.006395,
+        "Thermal": 0.005722,
+        "Age": 0.003322,
+        "Errors": 0.004568
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "index": -1.0882195951310998,
+        "Mechanical": -0.17394474445770325,
+        "Thermal": -0.786221552675392,
+        "Age": -0.8857608598043033,
+        "Errors": 1.7816892239525464
+      },
+      "aitchison_norm": 2.406577,
+      "phase_deg": -170.918,
+      "delta_norm": -0.017991,
+      "delta_clr": {
+        "index": 0.033068,
+        "Mechanical": 0.005707,
+        "Thermal": 0.004654,
+        "Age": 0.002139,
+        "Errors": -0.000197
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "index": -1.0574374106519695,
+        "Mechanical": -0.1689441559380979,
+        "Thermal": -0.7826392919794894,
+        "Age": -0.8847730865351174,
+        "Errors": 1.7770461759512626
+      },
+      "aitchison_norm": 2.387458,
+      "phase_deg": -170.923,
+      "delta_norm": -0.019119,
+      "delta_clr": {
+        "index": 0.030782,
+        "Mechanical": 0.005001,
+        "Thermal": 0.003582,
+        "Age": 0.000988,
+        "Errors": -0.004643
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "index": -1.029023065594969,
+        "Mechanical": -0.16466122569992875,
+        "Thermal": -0.7801162257146524,
+        "Age": -0.8848816858570338,
+        "Errors": 1.7683873785537179
+      },
+      "aitchison_norm": 2.367444,
+      "phase_deg": -170.909,
+      "delta_norm": -0.020014,
+      "delta_clr": {
+        "index": 0.028414,
+        "Mechanical": 0.004283,
+        "Thermal": 0.002523,
+        "Age": -0.000109,
+        "Errors": -0.008659
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "index": -1.003040511181137,
+        "Mechanical": -0.1610988590332863,
+        "Thermal": -0.7786238718475185,
+        "Age": -0.8860102695747202,
+        "Errors": 1.7562440578134022
+      },
+      "aitchison_norm": 2.34685,
+      "phase_deg": -170.876,
+      "delta_norm": -0.020594,
+      "delta_clr": {
+        "index": 0.025983,
+        "Mechanical": 0.003562,
+        "Thermal": 0.001492,
+        "Age": -0.001129,
+        "Errors": -0.012143
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "index": -0.9795348439119649,
+        "Mechanical": -0.15825191846802167,
+        "Thermal": -0.7781180946140491,
+        "Age": -0.8880622244589769,
+        "Errors": 1.7412348481787985
+      },
+      "aitchison_norm": 2.32606,
+      "phase_deg": -170.823,
+      "delta_norm": -0.020791,
+      "delta_clr": {
+        "index": 0.023506,
+        "Mechanical": 0.002847,
+        "Thermal": 0.000506,
+        "Age": -0.002052,
+        "Errors": -0.015009
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "index": -0.9585319559168128,
+        "Mechanical": -0.15610728111697372,
+        "Thermal": -0.778539774822289,
+        "Age": -0.8909226279680365,
+        "Errors": 1.7240502742032433
+      },
+      "aitchison_norm": 2.305509,
+      "phase_deg": -170.75,
+      "delta_norm": -0.020551,
+      "delta_clr": {
+        "index": 0.021003,
+        "Mechanical": 0.002145,
+        "Thermal": -0.000422,
+        "Age": -0.00286,
+        "Errors": -0.017185
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "index": -0.9400383342000843,
+        "Mechanical": -0.15464398515053338,
+        "Thermal": -0.7798157077128265,
+        "Age": -0.8944605270199736,
+        "Errors": 1.7054354289095206
+      },
+      "aitchison_norm": 2.285666,
+      "phase_deg": -170.658,
+      "delta_norm": -0.019843,
+      "delta_clr": {
+        "index": 0.018494,
+        "Mechanical": 0.001463,
+        "Thermal": -0.001276,
+        "Age": -0.003538,
+        "Errors": -0.018615
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "index": -0.9240410103446889,
+        "Mechanical": -0.15383346376762996,
+        "Thermal": -0.7818597147408881,
+        "Age": -0.8985315346309757,
+        "Errors": 1.686171283318071
+      },
+      "aitchison_norm": 2.267014,
+      "phase_deg": -170.548,
+      "delta_norm": -0.018652,
+      "delta_clr": {
+        "index": 0.015997,
+        "Mechanical": 0.000811,
+        "Thermal": -0.002044,
+        "Age": -0.004071,
+        "Errors": -0.019264
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "index": -0.9105076610617637,
+        "Mechanical": -0.15363986405161167,
+        "Thermal": -0.784573952395106,
+        "Age": -0.9029806929313348,
+        "Errors": 1.6670550959846182
+      },
+      "aitchison_norm": 2.250029,
+      "phase_deg": -170.422,
+      "delta_norm": -0.016985,
+      "delta_clr": {
+        "index": 0.013533,
+        "Mechanical": 0.000194,
+        "Thermal": -0.002714,
+        "Age": -0.004449,
+        "Errors": -0.019116
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "index": -0.8993868588070415,
+        "Mechanical": -0.15402044715202517,
+        "Thermal": -0.7878503981755449,
+        "Age": -0.9076455457890845,
+        "Errors": 1.6488804139690563
+      },
+      "aitchison_norm": 2.235163,
+      "phase_deg": -170.282,
+      "delta_norm": -0.014866,
+      "delta_clr": {
+        "index": 0.011121,
+        "Mechanical": -0.000381,
+        "Thermal": -0.003276,
+        "Age": -0.004665,
+        "Errors": -0.018175
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "index": -0.8906084705207403,
+        "Mechanical": -0.1549260653255607,
+        "Thermal": -0.7915724911630061,
+        "Age": -0.912359360114938,
+        "Errors": 1.632417166906277
+      },
+      "aitchison_norm": 2.222827,
+      "phase_deg": -170.132,
+      "delta_norm": -0.012337,
+      "delta_clr": {
+        "index": 0.008778,
+        "Mechanical": -0.000906,
+        "Thermal": -0.003722,
+        "Age": -0.004714,
+        "Errors": -0.016463
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "index": -0.8840842013993595,
+        "Mechanical": -0.1563017105115439,
+        "Thermal": -0.7956169022638024,
+        "Age": -0.9169544319740204,
+        "Errors": 1.6183923535141889
+      },
+      "aitchison_norm": 2.213378,
+      "phase_deg": -169.974,
+      "delta_norm": -0.009449,
+      "delta_clr": {
+        "index": 0.006524,
+        "Mechanical": -0.001376,
+        "Thermal": -0.004044,
+        "Age": -0.004595,
+        "Errors": -0.014025
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "index": -0.8797082794832967,
+        "Mechanical": -0.15808712831890515,
+        "Thermal": -0.7998554072447791,
+        "Age": -0.9212654119482723,
+        "Errors": 1.607471805013029
+      },
+      "aitchison_norm": 2.207112,
+      "phase_deg": -169.812,
+      "delta_norm": -0.006266,
+      "delta_clr": {
+        "index": 0.004376,
+        "Mechanical": -0.001785,
+        "Thermal": -0.004239,
+        "Age": -0.004311,
+        "Errors": -0.010921
+      }
+    },
+    {
+      "index": 26,
+      "year": 26,
+      "clr": {
+        "index": -0.8773582757523768,
+        "Mechanical": -0.16021749057144774,
+        "Thermal": -0.8041568341122486,
+        "Age": -0.9251325838116878,
+        "Errors": 1.6002434829160312
+      },
+      "aitchison_norm": 2.204256,
+      "phase_deg": -169.651,
+      "delta_norm": -0.002856,
+      "delta_clr": {
+        "index": 0.00235,
+        "Mechanical": -0.00213,
+        "Thermal": -0.004301,
+        "Age": -0.003867,
+        "Errors": -0.007228
+      }
+    },
+    {
+      "index": 27,
+      "year": 27,
+      "clr": {
+        "index": -0.8768960533707407,
+        "Mechanical": -0.16262411890462508,
+        "Thermal": -0.8083890552594282,
+        "Age": -0.9284050315062923,
+        "Errors": 1.5972027301621825
+      },
+      "aitchison_norm": 2.204967,
+      "phase_deg": -169.494,
+      "delta_norm": 0.000711,
+      "delta_clr": {
+        "index": 0.000462,
+        "Mechanical": -0.002407,
+        "Thermal": -0.004232,
+        "Age": -0.003272,
+        "Errors": -0.003041
+      }
+    },
+    {
+      "index": 28,
+      "year": 28,
+      "clr": {
+        "index": -0.8781688387211907,
+        "Mechanical": -0.16523525133720945,
+        "Thermal": -0.8124209941270525,
+        "Age": -0.9309436316216317,
+        "Errors": 1.5987398455627075
+      },
+      "aitchison_norm": 2.209329,
+      "phase_deg": -169.344,
+      "delta_norm": 0.004363,
+      "delta_clr": {
+        "index": -0.001273,
+        "Mechanical": -0.002611,
+        "Thermal": -0.004032,
+        "Age": -0.002539,
+        "Errors": 0.001537
+      }
+    },
+    {
+      "index": 29,
+      "year": 29,
+      "clr": {
+        "index": -0.8810104059248015,
+        "Mechanical": -0.16797684326156193,
+        "Thermal": -0.81612461590142,
+        "Age": -0.9326238120405915,
+        "Errors": 1.6051302932531808
+      },
+      "aitchison_norm": 2.21736,
+      "phase_deg": -169.205,
+      "delta_norm": 0.008031,
+      "delta_clr": {
+        "index": -0.002842,
+        "Mechanical": -0.002742,
+        "Thermal": -0.003704,
+        "Age": -0.00168,
+        "Errors": 0.00639
+      }
+    },
+    {
+      "index": 30,
+      "year": 30,
+      "clr": {
+        "index": -0.8852423656617062,
+        "Mechanical": -0.1707733939120377,
+        "Thermal": -0.81937687201656,
+        "Age": -0.9333380220509959,
+        "Errors": 1.6165277927447042
+      },
+      "aitchison_norm": 2.229008,
+      "phase_deg": -169.081,
+      "delta_norm": 0.011648,
+      "delta_clr": {
+        "index": -0.004232,
+        "Mechanical": -0.002797,
+        "Thermal": -0.003252,
+        "Age": -0.000714,
+        "Errors": 0.011397
+      }
+    },
+    {
+      "index": 31,
+      "year": 31,
+      "clr": {
+        "index": -0.8906755483002752,
+        "Mechanical": -0.17354878908668372,
+        "Thermal": -0.822061568928796,
+        "Age": -0.9329978649437196,
+        "Errors": 1.632960462908486
+      },
+      "aitchison_norm": 2.24416,
+      "phase_deg": -168.974,
+      "delta_norm": 0.015151,
+      "delta_clr": {
+        "index": -0.005433,
+        "Mechanical": -0.002775,
+        "Thermal": -0.002685,
+        "Age": 0.00034,
+        "Errors": 0.016433
+      }
+    },
+    {
+      "index": 32,
+      "year": 32,
+      "clr": {
+        "index": -0.8971114706106927,
+        "Mechanical": -0.17622715071596676,
+        "Thermal": -0.8240711327820824,
+        "Age": -0.9315358508105183,
+        "Errors": 1.6543301166210014
+      },
+      "aitchison_norm": 2.262637,
+      "phase_deg": -168.886,
+      "delta_norm": 0.018477,
+      "delta_clr": {
+        "index": -0.006436,
+        "Mechanical": -0.002678,
+        "Thermal": -0.00201,
+        "Age": 0.001462,
+        "Errors": 0.02137
+      }
+    },
+    {
+      "index": 33,
+      "year": 33,
+      "clr": {
+        "index": -0.9043438746908696,
+        "Mechanical": -0.17873368379584761,
+        "Thermal": -0.8253082431636215,
+        "Age": -0.9289067347857557,
+        "Errors": 1.680414723763386
+      },
+      "aitchison_norm": 2.284202,
+      "phase_deg": -168.82,
+      "delta_norm": 0.021565,
+      "delta_clr": {
+        "index": -0.007232,
+        "Mechanical": -0.002507,
+        "Thermal": -0.001237,
+        "Age": 0.002629,
+        "Errors": 0.026085
+      }
+    },
+    {
+      "index": 34,
+      "year": 34,
+      "clr": {
+        "index": -0.9121603271727333,
+        "Mechanical": -0.18099551123193422,
+        "Thermal": -0.8256873111374397,
+        "Age": -0.9250884141963449,
+        "Errors": 1.7108739807913356
+      },
+      "aitchison_norm": 2.308557,
+      "phase_deg": -168.777,
+      "delta_norm": 0.024355,
+      "delta_clr": {
+        "index": -0.007816,
+        "Mechanical": -0.002262,
+        "Thermal": -0.000379,
+        "Age": 0.003818,
+        "Errors": 0.030459
+      }
+    },
+    {
+      "index": 35,
+      "year": 35,
+      "clr": {
+        "index": -0.9203438663095675,
+        "Mechanical": -0.1829424872763803,
+        "Thermal": -0.8251357791085941,
+        "Age": -0.9200823668305222,
+        "Errors": 1.7452578471642526
+      },
+      "aitchison_norm": 2.335343,
+      "phase_deg": -168.758,
+      "delta_norm": 0.026786,
+      "delta_clr": {
+        "index": -0.008184,
+        "Mechanical": -0.001947,
+        "Thermal": 0.000552,
+        "Age": 0.005006,
+        "Errors": 0.034384
+      }
+    },
+    {
+      "index": 36,
+      "year": 36,
+      "clr": {
+        "index": -0.9286746841738195,
+        "Mechanical": -0.1845079804781404,
+        "Thermal": -0.8235952227765905,
+        "Age": -0.9139136216351286,
+        "Errors": 1.7830178344994458
+      },
+      "aitchison_norm": 2.364145,
+      "phase_deg": -168.763,
+      "delta_norm": 0.028802,
+      "delta_clr": {
+        "index": -0.008331,
+        "Mechanical": -0.001565,
+        "Thermal": 0.001541,
+        "Age": 0.006169,
+        "Errors": 0.03776
+      }
+    },
+    {
+      "index": 37,
+      "year": 37,
+      "clr": {
+        "index": -0.9369318309225709,
+        "Mechanical": -0.1856296174074739,
+        "Thermal": -0.8210222384423238,
+        "Age": -0.9066302624224299,
+        "Errors": 1.8235207652657857
+      },
+      "aitchison_norm": 2.39449,
+      "phase_deg": -168.793,
+      "delta_norm": 0.030346,
+      "delta_clr": {
+        "index": -0.008257,
+        "Mechanical": -0.001122,
+        "Thermal": 0.002573,
+        "Age": 0.007283,
+        "Errors": 0.040503
+      }
+    },
+    {
+      "index": 38,
+      "year": 38,
+      "clr": {
+        "index": -0.9448949279167709,
+        "Mechanical": -0.18624997885342262,
+        "Thermal": -0.8173891021927535,
+        "Age": -0.8983024744273638,
+        "Errors": 1.866064655883426
+      },
+      "aitchison_norm": 2.425858,
+      "phase_deg": -168.849,
+      "delta_norm": 0.031367,
+      "delta_clr": {
+        "index": -0.007963,
+        "Mechanical": -0.00062,
+        "Thermal": 0.003633,
+        "Age": 0.008328,
+        "Errors": 0.042544
+      }
+    },
+    {
+      "index": 39,
+      "year": 39,
+      "clr": {
+        "index": -0.9523458764116803,
+        "Mechanical": -0.18631724072346906,
+        "Thermal": -0.8126841909520794,
+        "Age": -0.8890211526208045,
+        "Errors": 1.9098963258060222
+      },
+      "aitchison_norm": 2.457681,
+      "phase_deg": -168.93,
+      "delta_norm": 0.031823,
+      "delta_clr": {
+        "index": -0.007451,
+        "Mechanical": -6.7e-05,
+        "Thermal": 0.004705,
+        "Age": 0.009281,
+        "Errors": 0.043832
+      }
+    },
+    {
+      "index": 40,
+      "year": 40,
+      "clr": {
+        "index": -0.9590705485703145,
+        "Mechanical": -0.18578575249180557,
+        "Thermal": -0.8069121590047945,
+        "Age": -0.8788960993742794,
+        "Errors": 1.954230290866022
+      },
+      "aitchison_norm": 2.48936,
+      "phase_deg": -169.037,
+      "delta_norm": 0.031679,
+      "delta_clr": {
+        "index": -0.006725,
+        "Mechanical": 0.000531,
+        "Thermal": 0.005772,
+        "Age": 0.010125,
+        "Errors": 0.044334
+      }
+    },
+    {
+      "index": 41,
+      "year": 41,
+      "clr": {
+        "index": -0.9648604476887268,
+        "Mechanical": -0.1846165467397115,
+        "Thermal": -0.800093867309704,
+        "Age": -0.8680538472142275,
+        "Errors": 1.9982684669482036
+      },
+      "aitchison_norm": 2.520274,
+      "phase_deg": -169.168,
+      "delta_norm": 0.030914,
+      "delta_clr": {
+        "index": -0.00579,
+        "Mechanical": 0.001169,
+        "Thermal": 0.006818,
+        "Age": 0.010842,
+        "Errors": 0.044038
+      }
+    },
+    {
+      "index": 42,
+      "year": 42,
+      "clr": {
+        "index": -0.9695143247606957,
+        "Mechanical": -0.18277777410066848,
+        "Thermal": -0.792266066678443,
+        "Age": -0.8566351498378978,
+        "Errors": 2.0412201897297426
+      },
+      "aitchison_norm": 2.549795,
+      "phase_deg": -169.324,
+      "delta_norm": 0.029521,
+      "delta_clr": {
+        "index": -0.004654,
+        "Mechanical": 0.001839,
+        "Thermal": 0.007828,
+        "Age": 0.011419,
+        "Errors": 0.042952
+      }
+    },
+    {
+      "index": 43,
+      "year": 43,
+      "clr": {
+        "index": -0.9728397388478911,
+        "Mechanical": -0.18024505875546049,
+        "Thermal": -0.7834808396301496,
+        "Age": -0.8447921911409526,
+        "Errors": 2.082322048296647
+      },
+      "aitchison_norm": 2.577302,
+      "phase_deg": -169.503,
+      "delta_norm": 0.027507,
+      "delta_clr": {
+        "index": -0.003325,
+        "Mechanical": 0.002533,
+        "Thermal": 0.008785,
+        "Age": 0.011843,
+        "Errors": 0.041102
+      }
+    },
+    {
+      "index": 44,
+      "year": 44,
+      "clr": {
+        "index": -0.9746545491573013,
+        "Mechanical": -0.17700177050930493,
+        "Thermal": -0.7738048093990124,
+        "Age": -0.8326855675983184,
+        "Errors": 2.120857035115257
+      },
+      "aitchison_norm": 2.602202,
+      "phase_deg": -169.707,
+      "delta_norm": 0.0249,
+      "delta_clr": {
+        "index": -0.001815,
+        "Mechanical": 0.003243,
+        "Thermal": 0.009676,
+        "Age": 0.012107,
+        "Errors": 0.038535
+      }
+    },
+    {
+      "index": 45,
+      "year": 45,
+      "clr": {
+        "index": -0.9747883272571958,
+        "Mechanical": -0.17303921041415565,
+        "Thermal": -0.7633181281077251,
+        "Age": -0.8204811038339566,
+        "Errors": 2.1561725319865803
+      },
+      "aitchison_norm": 2.623943,
+      "phase_deg": -169.934,
+      "delta_norm": 0.021741,
+      "delta_clr": {
+        "index": -0.000134,
+        "Mechanical": 0.003963,
+        "Thermal": 0.010487,
+        "Age": 0.012204,
+        "Errors": 0.035315
+      }
+    },
+    {
+      "index": 46,
+      "year": 46,
+      "clr": {
+        "index": -0.9730836784821135,
+        "Mechanical": -0.1683567078643044,
+        "Thermal": -0.7521132594737535,
+        "Age": -0.8083465645228782,
+        "Errors": 2.187696680810297
+      },
+      "aitchison_norm": 2.642035,
+      "phase_deg": -170.184,
+      "delta_norm": 0.018092,
+      "delta_clr": {
+        "index": 0.001705,
+        "Mechanical": 0.004683,
+        "Thermal": 0.011205,
+        "Age": 0.012135,
+        "Errors": 0.031524
+      }
+    },
+    {
+      "index": 47,
+      "year": 47,
+      "clr": {
+        "index": -0.9693974622814494,
+        "Mechanical": -0.16296162808152326,
+        "Thermal": -0.7402935745358131,
+        "Age": -0.7964483278243383,
+        "Errors": 2.2149527285019253
+      },
+      "aitchison_norm": 2.656063,
+      "phase_deg": -170.457,
+      "delta_norm": 0.014027,
+      "delta_clr": {
+        "index": 0.003686,
+        "Mechanical": 0.005395,
+        "Thermal": 0.01182,
+        "Age": 0.011898,
+        "Errors": 0.027256
+      }
+    },
+    {
+      "index": 48,
+      "year": 48,
+      "clr": {
+        "index": -0.9636019020497544,
+        "Mechanical": -0.15686928990620022,
+        "Thermal": -0.727971781727666,
+        "Age": -0.7849480863079281,
+        "Errors": 2.2375709862244912
+      },
+      "aitchison_norm": 2.665698,
+      "phase_deg": -170.754,
+      "delta_norm": 0.009636,
+      "delta_clr": {
+        "index": 0.005796,
+        "Mechanical": 0.006092,
+        "Thermal": 0.012322,
+        "Age": 0.0115,
+        "Errors": 0.022618
+      }
+    },
+    {
+      "index": 49,
+      "year": 49,
+      "clr": {
+        "index": -0.9555855758337537,
+        "Mechanical": -0.15010279481206457,
+        "Thermal": -0.7152682151421698,
+        "Age": -0.7739996407891393,
+        "Errors": 2.2552981029403822
+      },
+      "aitchison_norm": 2.670717,
+      "phase_deg": -171.073,
+      "delta_norm": 0.005019,
+      "delta_clr": {
+        "index": 0.008016,
+        "Mechanical": 0.006766,
+        "Thermal": 0.012704,
+        "Age": 0.010948,
+        "Errors": 0.017727
+      }
+    },
+    {
+      "index": 50,
+      "year": 50,
+      "clr": {
+        "index": -0.94525428023471,
+        "Mechanical": -0.1426927690529982,
+        "Thermal": -0.7023090069822108,
+        "Age": -0.7637458506486858,
+        "Errors": 2.268003420658641
+      },
+      "aitchison_norm": 2.671002,
+      "phase_deg": -171.416,
+      "delta_norm": 0.000285,
+      "delta_clr": {
+        "index": 0.010331,
+        "Mechanical": 0.00741,
+        "Thermal": 0.012959,
+        "Age": 0.010254,
+        "Errors": 0.012705
+      }
+    },
+    {
+      "index": 51,
+      "year": 51,
+      "clr": {
+        "index": -0.9325317608079199,
+        "Mechanical": -0.13467702182003014,
+        "Thermal": -0.6892241719540438,
+        "Age": -0.7543158011069994,
+        "Errors": 2.275682251957938
+      },
+      "aitchison_norm": 2.666553,
+      "phase_deg": -171.782,
+      "delta_norm": -0.004449,
+      "delta_clr": {
+        "index": 0.012723,
+        "Mechanical": 0.008016,
+        "Thermal": 0.013085,
+        "Age": 0.00943,
+        "Errors": 0.007679
+      }
+    },
+    {
+      "index": 52,
+      "year": 52,
+      "clr": {
+        "index": -0.9173603032962457,
+        "Mechanical": -0.1261001232240846,
+        "Thermal": -0.6761456326959181,
+        "Age": -0.7458222436233509,
+        "Errors": 2.2784559975693557
+      },
+      "aitchison_norm": 2.657487,
+      "phase_deg": -172.173,
+      "delta_norm": -0.009066,
+      "delta_clr": {
+        "index": 0.015171,
+        "Mechanical": 0.008577,
+        "Thermal": 0.013079,
+        "Age": 0.008494,
+        "Errors": 0.002774
+      }
+    },
+    {
+      "index": 53,
+      "year": 53,
+      "clr": {
+        "index": -0.8997011811135922,
+        "Mechanical": -0.11701290681493941,
+        "Thermal": -0.6632052162303818,
+        "Age": -0.738359360173332,
+        "Errors": 2.276569101069472
+      },
+      "aitchison_norm": 2.644038,
+      "phase_deg": -172.59,
+      "delta_norm": -0.013449,
+      "delta_clr": {
+        "index": 0.017659,
+        "Mechanical": 0.009087,
+        "Thermal": 0.01294,
+        "Age": 0.007463,
+        "Errors": -0.001887
+      }
+    },
+    {
+      "index": 54,
+      "year": 54,
+      "clr": {
+        "index": -0.879534955608797,
+        "Mechanical": -0.10747190218916122,
+        "Thermal": -0.6505326518687294,
+        "Age": -0.7320008957363185,
+        "Errors": 2.2703829170744836
+      },
+      "aitchison_norm": 2.626555,
+      "phase_deg": -173.033,
+      "delta_norm": -0.017483,
+      "delta_clr": {
+        "index": 0.020166,
+        "Mechanical": 0.009541,
+        "Thermal": 0.012673,
+        "Age": 0.006358,
+        "Errors": -0.006186
+      }
+    },
+    {
+      "index": 55,
+      "year": 55,
+      "clr": {
+        "index": -0.8568616267818601,
+        "Mechanical": -0.09753870402011176,
+        "Thermal": -0.6382536009740056,
+        "Age": -0.7267986960233889,
+        "Errors": 2.2603666467502004
+      },
+      "aitchison_norm": 2.605492,
+      "phase_deg": -173.506,
+      "delta_norm": -0.021063,
+      "delta_clr": {
+        "index": 0.022673,
+        "Mechanical": 0.009933,
+        "Thermal": 0.012279,
+        "Age": 0.005202,
+        "Errors": -0.010016
+      }
+    },
+    {
+      "index": 56,
+      "year": 56,
+      "clr": {
+        "index": -0.8317006332839438,
+        "Mechanical": -0.087279284552766,
+        "Thermal": -0.6264877485051265,
+        "Age": -0.7227816794407518,
+        "Errors": 2.2470855680183583
+      },
+      "aitchison_norm": 2.581402,
+      "phase_deg": -174.009,
+      "delta_norm": -0.024089,
+      "delta_clr": {
+        "index": 0.025161,
+        "Mechanical": 0.010259,
+        "Thermal": 0.011766,
+        "Age": 0.004017,
+        "Errors": -0.013281
+      }
+    },
+    {
+      "index": 57,
+      "year": 57,
+      "clr": {
+        "index": -0.8040907017011434,
+        "Mechanical": -0.0767632572371095,
+        "Thermal": -0.6153469853264001,
+        "Age": -0.7199552636733806,
+        "Errors": 2.2311868557015893
+      },
+      "aitchison_norm": 2.554924,
+      "phase_deg": -174.547,
+      "delta_norm": -0.026478,
+      "delta_clr": {
+        "index": 0.02761,
+        "Mechanical": 0.010516,
+        "Thermal": 0.011141,
+        "Age": 0.002826,
+        "Errors": -0.015899
+      }
+    },
+    {
+      "index": 58,
+      "year": 58,
+      "clr": {
+        "index": -0.7740895462905968,
+        "Mechanical": -0.06606309971926694,
+        "Thermal": -0.6049337088882414,
+        "Age": -0.7183012582589952,
+        "Errors": 2.213383347305143
+      },
+      "aitchison_norm": 2.526766,
+      "phase_deg": -175.122,
+      "delta_norm": -0.028158,
+      "delta_clr": {
+        "index": 0.030001,
+        "Mechanical": 0.0107,
+        "Thermal": 0.010413,
+        "Age": 0.001654,
+        "Errors": -0.017804
+      }
+    },
+    {
+      "index": 59,
+      "year": 59,
+      "clr": {
+        "index": -0.7417734214970069,
+        "Mechanical": -0.05525334486315022,
+        "Thermal": -0.5953392680871407,
+        "Age": -0.7177782252825172,
+        "Errors": 2.194435661666676
+      },
+      "aitchison_norm": 2.497692,
+      "phase_deg": -175.74,
+      "delta_norm": -0.029074,
+      "delta_clr": {
+        "index": 0.032316,
+        "Mechanical": 0.01081,
+        "Thermal": 0.009594,
+        "Age": 0.000523,
+        "Errors": -0.018948
+      }
+    },
+    {
+      "index": 60,
+      "year": 60,
+      "clr": {
+        "index": -0.7072365307191115,
+        "Mechanical": -0.04440974883225153,
+        "Thermal": -0.586642575923252,
+        "Age": -0.7183223010388712,
+        "Errors": 2.175133119023281
+      },
+      "aitchison_norm": 2.468501,
+      "phase_deg": -176.407,
+      "delta_norm": -0.029191,
+      "delta_clr": {
+        "index": 0.034537,
+        "Mechanical": 0.010844,
+        "Thermal": 0.008697,
+        "Age": -0.000544,
+        "Errors": -0.019303
+      }
+    },
+    {
+      "index": 61,
+      "year": 61,
+      "clr": {
+        "index": -0.670590295910185,
+        "Mechanical": -0.03360844551725568,
+        "Thermal": -0.5789089110255772,
+        "Age": -0.7198484623715706,
+        "Errors": 2.156273941111111
+      },
+      "aitchison_norm": 2.440011,
+      "phase_deg": -177.131,
+      "delta_norm": -0.028489,
+      "delta_clr": {
+        "index": 0.036646,
+        "Mechanical": 0.010801,
+        "Thermal": 0.007734,
+        "Age": -0.001526,
+        "Errors": -0.018859
+      }
+    },
+    {
+      "index": 62,
+      "year": 62,
+      "clr": {
+        "index": -0.6319624936756768,
+        "Mechanical": -0.022925096747550833,
+        "Thermal": -0.572188926246333,
+        "Age": -0.7222522125771572,
+        "Errors": 2.1386452279731207
+      },
+      "aitchison_norm": 2.413038,
+      "phase_deg": -177.922,
+      "delta_norm": -0.026973,
+      "delta_clr": {
+        "index": 0.038628,
+        "Mechanical": 0.010683,
+        "Thermal": 0.00672,
+        "Age": -0.002404,
+        "Errors": -0.017629
+      }
+    },
+    {
+      "index": 63,
+      "year": 63,
+      "clr": {
+        "index": -0.5914962645661919,
+        "Mechanical": -0.012434047771775963,
+        "Thermal": -0.5665178793812677,
+        "Age": -0.7254116534460808,
+        "Errors": 2.123003213751703
+      },
+      "aitchison_norm": 2.388374,
+      "phase_deg": -178.796,
+      "delta_norm": -0.024664,
+      "delta_clr": {
+        "index": 0.040466,
+        "Mechanical": 0.010491,
+        "Thermal": 0.005671,
+        "Age": -0.003159,
+        "Errors": -0.015642
+      }
+    },
+    {
+      "index": 64,
+      "year": 64,
+      "clr": {
+        "index": -0.5493490032471914,
+        "Mechanical": -0.002207497433730974,
+        "Thermal": -0.5619150976992044,
+        "Age": -0.7291899023540074,
+        "Errors": 2.1100542967447034
+      },
+      "aitchison_norm": 2.366767,
+      "phase_deg": -179.77,
+      "delta_norm": -0.021607,
+      "delta_clr": {
+        "index": 0.042147,
+        "Mechanical": 0.010227,
+        "Thermal": 0.004603,
+        "Age": -0.003778,
+        "Errors": -0.012949
+      }
+    },
+    {
+      "index": 65,
+      "year": 65,
+      "clr": {
+        "index": -0.5056911381504052,
+        "Mechanical": 0.00768530769404932,
+        "Thermal": -0.5583836844131556,
+        "Age": -0.73343780647561,
+        "Errors": 2.1004373195811095
+      },
+      "aitchison_norm": 2.348902,
+      "phase_deg": 179.129,
+      "delta_norm": -0.017864,
+      "delta_clr": {
+        "index": 0.043658,
+        "Mechanical": 0.009893,
+        "Thermal": 0.003531,
+        "Age": -0.004248,
+        "Errors": -0.009617
+      }
+    },
+    {
+      "index": 66,
+      "year": 66,
+      "clr": {
+        "index": -0.460704810068846,
+        "Mechanical": 0.017178846224167515,
+        "Thermal": -0.5559104715509191,
+        "Age": -0.7379969003013256,
+        "Errors": 2.094707544013766
+      },
+      "aitchison_norm": 2.335384,
+      "phase_deg": 177.865,
+      "delta_norm": -0.013518,
+      "delta_clr": {
+        "index": 0.044986,
+        "Mechanical": 0.009494,
+        "Thermal": 0.002473,
+        "Age": -0.004559,
+        "Errors": -0.00573
+      }
+    },
+    {
+      "index": 67,
+      "year": 67,
+      "clr": {
+        "index": -0.41458245994084325,
+        "Mechanical": 0.026212053288600122,
+        "Thermal": -0.5544662199409245,
+        "Age": -0.7427025478131694,
+        "Errors": 2.0933227223174318
+      },
+      "aitchison_norm": 2.326716,
+      "phase_deg": 176.382,
+      "delta_norm": -0.008669,
+      "delta_clr": {
+        "index": 0.046122,
+        "Mechanical": 0.009033,
+        "Thermal": 0.001444,
+        "Age": -0.004706,
+        "Errors": -0.001385
+      }
+    },
+    {
+      "index": 68,
+      "year": 68,
+      "clr": {
+        "index": -0.36752533677261845,
+        "Mechanical": 0.03472900213031826,
+        "Thermal": -0.5540060632760844,
+        "Age": -0.747387207014126,
+        "Errors": 2.0966316146876514
+      },
+      "aitchison_norm": 2.323285,
+      "phase_deg": 174.602,
+      "delta_norm": -0.00343,
+      "delta_clr": {
+        "index": 0.047057,
+        "Mechanical": 0.008517,
+        "Thermal": 0.00046,
+        "Age": -0.004685,
+        "Errors": 0.003309
+      }
+    },
+    {
+      "index": 69,
+      "year": 69,
+      "clr": {
+        "index": -0.3197419372681185,
+        "Mechanical": 0.042679528344528116,
+        "Thermal": -0.5544701895115227,
+        "Age": -0.7518837520795256,
+        "Errors": 2.1048652406786417
+      },
+      "aitchison_norm": 2.325356,
+      "phase_deg": 172.397,
+      "delta_norm": 0.002071,
+      "delta_clr": {
+        "index": 0.047783,
+        "Mechanical": 0.007951,
+        "Thermal": -0.000464,
+        "Age": -0.004497,
+        "Errors": 0.008234
+      }
+    },
+    {
+      "index": 70,
+      "year": 70,
+      "clr": {
+        "index": -0.2714463892643281,
+        "Mechanical": 0.0500197898018983,
+        "Thermal": -0.5557847492475974,
+        "Age": -0.7560287872562355,
+        "Errors": 2.11813108413565
+      },
+      "aitchison_norm": 2.333054,
+      "phase_deg": 169.559,
+      "delta_norm": 0.007698,
+      "delta_clr": {
+        "index": 0.048296,
+        "Mechanical": 0.00734,
+        "Thermal": -0.001315,
+        "Age": -0.004145,
+        "Errors": 0.013266
+      }
+    },
+    {
+      "index": 71,
+      "year": 71,
+      "clr": {
+        "index": -0.22285679150598664,
+        "Mechanical": 0.0567127560040425,
+        "Thermal": -0.5578629773023328,
+        "Age": -0.7596658867991272,
+        "Errors": 2.136410396989632
+      },
+      "aitchison_norm": 2.346366,
+      "phase_deg": 165.722,
+      "delta_norm": 0.013312,
+      "delta_clr": {
+        "index": 0.04859,
+        "Mechanical": 0.006693,
+        "Thermal": -0.002078,
+        "Age": -0.003637,
+        "Errors": 0.018279
+      }
+    },
+    {
+      "index": 72,
+      "year": 72,
+      "clr": {
+        "index": -0.17419352263214402,
+        "Mechanical": 0.06272862140918851,
+        "Thermal": -0.5606065104396193,
+        "Age": -0.7626486967008755,
+        "Errors": 2.1595586695478612
+      },
+      "aitchison_norm": 2.365139,
+      "phase_deg": 160.196,
+      "delta_norm": 0.018773,
+      "delta_clr": {
+        "index": 0.048663,
+        "Mechanical": 0.006016,
+        "Thermal": -0.002744,
+        "Age": -0.002983,
+        "Errors": 0.023148
+      }
+    },
+    {
+      "index": 73,
+      "year": 73,
+      "clr": {
+        "index": -0.12567753248571933,
+        "Mechanical": 0.06804513811458916,
+        "Thermal": -0.5639068812404509,
+        "Age": -0.7648438367116023,
+        "Errors": 2.18730925548337
+      },
+      "aitchison_norm": 2.389084,
+      "phase_deg": 151.568,
+      "delta_norm": 0.023945,
+      "delta_clr": {
+        "index": 0.048516,
+        "Mechanical": 0.005317,
+        "Thermal": -0.0033,
+        "Age": -0.002195,
+        "Errors": 0.027751
+      }
+    },
+    {
+      "index": 74,
+      "year": 74,
+      "clr": {
+        "index": -0.0775286289942649,
+        "Mechanical": 0.07264786418235332,
+        "Thermal": -0.567647165429346,
+        "Age": -0.7661335451048974,
+        "Errors": 2.219280060591245
+      },
+      "aitchison_norm": 2.417783,
+      "phase_deg": 136.861,
+      "delta_norm": 0.028699,
+      "delta_clr": {
+        "index": 0.048149,
+        "Mechanical": 0.004603,
+        "Thermal": -0.00374,
+        "Age": -0.00129,
+        "Errors": 0.031971
+      }
+    },
+    {
+      "index": 75,
+      "year": 75,
+      "clr": {
+        "index": -0.029963773904497906,
+        "Mechanical": 0.07653032483694225,
+        "Thermal": -0.5717037576375201,
+        "Age": -0.7664180137477621,
+        "Errors": 2.254983127526027
+      },
+      "aitchison_norm": 2.450703,
+      "phase_deg": 111.382,
+      "delta_norm": 0.03292,
+      "delta_clr": {
+        "index": 0.047565,
+        "Mechanical": 0.003882,
+        "Thermal": -0.004057,
+        "Age": -0.000284,
+        "Errors": 0.035703
+      }
+    },
+    {
+      "index": 76,
+      "year": 76,
+      "clr": {
+        "index": 0.016804599415510713,
+        "Mechanical": 0.07969408473508377,
+        "Thermal": -0.5759482486337777,
+        "Age": -0.7656173671729145,
+        "Errors": 2.293836876089462
+      },
+      "aitchison_norm": 2.487209,
+      "phase_deg": 78.093,
+      "delta_norm": 0.036506,
+      "delta_clr": {
+        "index": 0.046768,
+        "Mechanical": 0.003164,
+        "Thermal": -0.004244,
+        "Age": 0.000801,
+        "Errors": 0.038854
+      }
+    },
+    {
+      "index": 77,
+      "year": 77,
+      "clr": {
+        "index": 0.06257023306366999,
+        "Mechanical": 0.08214873050144357,
+        "Thermal": -0.5802493755130661,
+        "Age": -0.7636732464108928,
+        "Errors": 2.335180692024055
+      },
+      "aitchison_norm": 2.526582,
+      "phase_deg": 52.705,
+      "delta_norm": 0.039374,
+      "delta_clr": {
+        "index": 0.045766,
+        "Mechanical": 0.002455,
+        "Thermal": -0.004301,
+        "Age": 0.001944,
+        "Errors": 0.041344
+      }
+    },
+    {
+      "index": 78,
+      "year": 78,
+      "clr": {
+        "index": 0.1071346438101651,
+        "Mechanical": 0.08391176372498708,
+        "Thermal": -0.5844750152246113,
+        "Age": -0.7605499661765177,
+        "Errors": 2.3782914983562025
+      },
+      "aitchison_norm": 2.568041,
+      "phase_deg": 38.069,
+      "delta_norm": 0.041459,
+      "delta_clr": {
+        "index": 0.044564,
+        "Mechanical": 0.001763,
+        "Thermal": -0.004226,
+        "Age": 0.003123,
+        "Errors": 0.043111
+      }
+    },
+    {
+      "index": 79,
+      "year": 79,
+      "clr": {
+        "index": 0.15030866202336612,
+        "Mechanical": 0.08500840561038095,
+        "Thermal": -0.5884941911633355,
+        "Age": -0.7562352224641293,
+        "Errors": 2.4224018936009033
+      },
+      "aitchison_norm": 2.61076,
+      "phase_deg": 29.491,
+      "delta_norm": 0.042718,
+      "delta_clr": {
+        "index": 0.043174,
+        "Mechanical": 0.001097,
+        "Thermal": -0.004019,
+        "Age": 0.004315,
+        "Errors": 0.04411
+      }
+    },
+    {
+      "index": 80,
+      "year": 80,
+      "clr": {
+        "index": 0.19191389838340675,
+        "Mechanical": 0.085471315464869,
+        "Thermal": -0.5921790623498718,
+        "Age": -0.7507403365208609,
+        "Errors": 2.4667194018357366
+      },
+      "aitchison_norm": 2.653889,
+      "phase_deg": 24.006,
+      "delta_norm": 0.043129,
+      "delta_clr": {
+        "index": 0.041605,
+        "Mechanical": 0.000463,
+        "Thermal": -0.003685,
+        "Age": 0.005495,
+        "Errors": 0.044318
+      }
+    },
+    {
+      "index": 81,
+      "year": 81,
+      "clr": {
+        "index": 0.23178412701136092,
+        "Mechanical": 0.0853402261628056,
+        "Thermal": -0.5954068649889114,
+        "Age": -0.7441000303602566,
+        "Errors": 2.5104463517608164
+      },
+      "aitchison_norm": 2.69658,
+      "phase_deg": 20.213,
+      "delta_norm": 0.04269,
+      "delta_clr": {
+        "index": 0.03987,
+        "Mechanical": -0.000131,
+        "Thermal": -0.003228,
+        "Age": 0.00664,
+        "Errors": 0.043727
+      }
+    },
+    {
+      "index": 82,
+      "year": 82,
+      "clr": {
+        "index": 0.2697665742900318,
+        "Mechanical": 0.0846615006567053,
+        "Thermal": -0.5980617769188729,
+        "Age": -0.7363717382675223,
+        "Errors": 2.5527998860834895
+      },
+      "aitchison_norm": 2.738001,
+      "phase_deg": 17.424,
+      "delta_norm": 0.041421,
+      "delta_clr": {
+        "index": 0.037982,
+        "Mechanical": -0.000679,
+        "Thermal": -0.002655,
+        "Age": 0.007728,
+        "Errors": 0.042354
+      }
+    },
+    {
+      "index": 83,
+      "year": 83,
+      "clr": {
+        "index": 0.30572310338355946,
+        "Mechanical": 0.08348761448492739,
+        "Thermal": -0.6000366766369479,
+        "Age": -0.7276344679484148,
+        "Errors": 2.593031599297377
+      },
+      "aitchison_norm": 2.777363,
+      "phase_deg": 15.274,
+      "delta_norm": 0.039362,
+      "delta_clr": {
+        "index": 0.035957,
+        "Mechanical": -0.001174,
+        "Thermal": -0.001975,
+        "Age": 0.008737,
+        "Errors": 0.040232
+      }
+    },
+    {
+      "index": 84,
+      "year": 84,
+      "clr": {
+        "index": 0.33953128527176935,
+        "Mechanical": 0.0818765700521222,
+        "Thermal": -0.6012347701847002,
+        "Age": -0.7179872339037796,
+        "Errors": 2.6304463112469807
+      },
+      "aitchison_norm": 2.813934,
+      "phase_deg": 13.558,
+      "delta_norm": 0.03657,
+      "delta_clr": {
+        "index": 0.033808,
+        "Mechanical": -0.001611,
+        "Thermal": -0.001198,
+        "Age": 0.009647,
+        "Errors": 0.037415
+      }
+    },
+    {
+      "index": 85,
+      "year": 85,
+      "clr": {
+        "index": 0.3710853479950584,
+        "Mechanical": 0.07989124922010259,
+        "Thermal": -0.6015710611862236,
+        "Age": -0.707547094093993,
+        "Errors": 2.664419505547709
+      },
+      "aitchison_norm": 2.847056,
+      "phase_deg": 12.15,
+      "delta_norm": 0.033123,
+      "delta_clr": {
+        "index": 0.031554,
+        "Mechanical": -0.001985,
+        "Thermal": -0.000336,
+        "Age": 0.01044,
+        "Errors": 0.033973
+      }
+    },
+    {
+      "index": 86,
+      "year": 86,
+      "clr": {
+        "index": 0.40029699674992697,
+        "Mechanical": 0.07759871143536791,
+        "Thermal": -0.6009736417129663,
+        "Age": -0.6964468288238316,
+        "Errors": 2.694412995422906
+      },
+      "aitchison_norm": 2.876166,
+      "phase_deg": 10.971,
+      "delta_norm": 0.029109,
+      "delta_clr": {
+        "index": 0.029212,
+        "Mechanical": -0.002293,
+        "Thermal": 0.000597,
+        "Age": 0.0111,
+        "Errors": 0.029993
+      }
+    },
+    {
+      "index": 87,
+      "year": 87,
+      "clr": {
+        "index": 0.4270960984765919,
+        "Mechanical": 0.07506944522741615,
+        "Thermal": -0.5993847843704742,
+        "Age": -0.684832307872626,
+        "Errors": 2.7199884239843013
+      },
+      "aitchison_norm": 2.9008,
+      "phase_deg": 9.969,
+      "delta_norm": 0.024635,
+      "delta_clr": {
+        "index": 0.026799,
+        "Mechanical": -0.002529,
+        "Thermal": 0.001589,
+        "Age": 0.011615,
+        "Errors": 0.025575
+      }
+    },
+    {
+      "index": 88,
+      "year": 88,
+      "clr": {
+        "index": 0.4514312256307872,
+        "Mechanical": 0.07237658143244029,
+        "Thermal": -0.5967618190212175,
+        "Age": -0.672859598076258,
+        "Errors": 2.7408182603047178
+      },
+      "aitchison_norm": 2.920613,
+      "phase_deg": 9.109,
+      "delta_norm": 0.019813,
+      "delta_clr": {
+        "index": 0.024335,
+        "Mechanical": -0.002693,
+        "Thermal": 0.002623,
+        "Age": 0.011973,
+        "Errors": 0.02083
+      }
+    },
+    {
+      "index": 89,
+      "year": 89,
+      "clr": {
+        "index": 0.473270054923649,
+        "Mechanical": 0.06959507692422504,
+        "Thermal": -0.59307778082845,
+        "Age": -0.6606918687140924,
+        "Errors": 2.7566940154493187
+      },
+      "aitchison_norm": 2.935378,
+      "phase_deg": 8.365,
+      "delta_norm": 0.014766,
+      "delta_clr": {
+        "index": 0.021839,
+        "Mechanical": -0.002782,
+        "Thermal": 0.003684,
+        "Age": 0.012168,
+        "Errors": 0.015876
+      }
+    },
+    {
+      "index": 90,
+      "year": 90,
+      "clr": {
+        "index": 0.49259961793808754,
+        "Mechanical": 0.06680087796324014,
+        "Thermal": -0.5883218197790722,
+        "Age": -0.6484961560632045,
+        "Errors": 2.7675314723682987
+      },
+      "aitchison_norm": 2.944999,
+      "phase_deg": 7.723,
+      "delta_norm": 0.00962,
+      "delta_clr": {
+        "index": 0.01933,
+        "Mechanical": -0.002794,
+        "Thermal": 0.004756,
+        "Age": 0.012196,
+        "Errors": 0.010837
+      }
+    },
+    {
+      "index": 91,
+      "year": 91,
+      "clr": {
+        "index": 0.5094264016785062,
+        "Mechanical": 0.064070072502437,
+        "Thermal": -0.582499365465954,
+        "Age": -0.6364400512748077,
+        "Errors": 2.7733727984604775
+      },
+      "aitchison_norm": 2.949505,
+      "phase_deg": 7.168,
+      "delta_norm": 0.004506,
+      "delta_clr": {
+        "index": 0.016827,
+        "Mechanical": -0.002731,
+        "Thermal": 0.005822,
+        "Age": 0.012056,
+        "Errors": 0.005841
+      }
+    },
+    {
+      "index": 92,
+      "year": 92,
+      "clr": {
+        "index": 0.5237762982742644,
+        "Mechanical": 0.06147804091150377,
+        "Thermal": -0.5756320446271199,
+        "Age": -0.624688377248209,
+        "Errors": 2.7743854878146643
+      },
+      "aitchison_norm": 2.949055,
+      "phase_deg": 6.694,
+      "delta_norm": -0.00045,
+      "delta_clr": {
+        "index": 0.01435,
+        "Mechanical": -0.002592,
+        "Thermal": 0.006867,
+        "Age": 0.011752,
+        "Errors": 0.001013
+      }
+    },
+    {
+      "index": 93,
+      "year": 93,
+      "clr": {
+        "index": 0.5356944042268545,
+        "Mechanical": 0.05909861459900097,
+        "Thermal": -0.5677573526941523,
+        "Age": -0.6133999203957924,
+        "Errors": 2.7708581596624113
+      },
+      "aitchison_norm": 2.94393,
+      "phase_deg": 6.295,
+      "delta_norm": -0.005125,
+      "delta_clr": {
+        "index": 0.011918,
+        "Mechanical": -0.002379,
+        "Thermal": 0.007875,
+        "Age": 0.011288,
+        "Errors": -0.003527
+      }
+    },
+    {
+      "index": 94,
+      "year": 94,
+      "clr": {
+        "index": 0.5452446707573149,
+        "Mechanical": 0.05700325192363173,
+        "Thermal": -0.5589280843381044,
+        "Age": -0.6027242821040973,
+        "Errors": 2.7631933184368975
+      },
+      "aitchison_norm": 2.934528,
+      "phase_deg": 5.968,
+      "delta_norm": -0.009402,
+      "delta_clr": {
+        "index": 0.00955,
+        "Mechanical": -0.002095,
+        "Thermal": 0.008829,
+        "Age": 0.010676,
+        "Errors": -0.007665
+      }
+    },
+    {
+      "index": 95,
+      "year": 95,
+      "clr": {
+        "index": 0.5525094079648868,
+        "Mechanical": 0.05526024059293676,
+        "Thermal": -0.5492115316613879,
+        "Age": -0.5927989123226447,
+        "Errors": 2.7518972570500777
+      },
+      "aitchison_norm": 2.921353,
+      "phase_deg": 5.712,
+      "delta_norm": -0.013175,
+      "delta_clr": {
+        "index": 0.007265,
+        "Mechanical": -0.001743,
+        "Thermal": 0.009717,
+        "Age": 0.009925,
+        "Errors": -0.011296
+      }
+    },
+    {
+      "index": 96,
+      "year": 96,
+      "clr": {
+        "index": 0.5575886466413895,
+        "Mechanical": 0.0539339354520452,
+        "Thermal": -0.5386884622129309,
+        "Age": -0.5837463841007866,
+        "Errors": 2.737567356661836
+      },
+      "aitchison_norm": 2.905002,
+      "phase_deg": 5.525,
+      "delta_norm": -0.016351,
+      "delta_clr": {
+        "index": 0.005079,
+        "Mechanical": -0.001326,
+        "Thermal": 0.010523,
+        "Age": 0.009053,
+        "Errors": -0.01433
+      }
+    },
+    {
+      "index": 97,
+      "year": 97,
+      "clr": {
+        "index": 0.560599362689433,
+        "Mechanical": 0.05308404017010781,
+        "Thermal": -0.5274518923477861,
+        "Age": -0.5756719631151577,
+        "Errors": 2.720877101523267
+      },
+      "aitchison_norm": 2.886151,
+      "phase_deg": 5.409,
+      "delta_norm": -0.018851,
+      "delta_clr": {
+        "index": 0.003011,
+        "Mechanical": -0.00085,
+        "Thermal": 0.011237,
+        "Age": 0.008074,
+        "Errors": -0.01669
+      }
+    },
+    {
+      "index": 98,
+      "year": 98,
+      "clr": {
+        "index": 0.5616745701578981,
+        "Mechanical": 0.0527649408420561,
+        "Thermal": -0.5156056745605393,
+        "Age": -0.5686615203810028,
+        "Errors": 2.702559184792983
+      },
+      "aitchison_norm": 2.865539,
+      "phase_deg": 5.367,
+      "delta_norm": -0.020612,
+      "delta_clr": {
+        "index": 0.001075,
+        "Mechanical": -0.000319,
+        "Thermal": 0.011846,
+        "Age": 0.00701,
+        "Errors": -0.018318
+      }
+    },
+    {
+      "index": 99,
+      "year": 99,
+      "clr": {
+        "index": 0.5609622899267642,
+        "Mechanical": 0.05302509894386786,
+        "Thermal": -0.5032629202470964,
+        "Age": -0.5627798295357445,
+        "Errors": 2.6833871291128077
+      },
+      "aitchison_norm": 2.84395,
+      "phase_deg": 5.4,
+      "delta_norm": -0.021589,
+      "delta_clr": {
+        "index": -0.000712,
+        "Mechanical": 0.00026,
+        "Thermal": 0.012343,
+        "Age": 0.005882,
+        "Errors": -0.019172
+      }
+    },
+    {
+      "index": 100,
+      "year": 100,
+      "clr": {
+        "index": 0.5586244020375137,
+        "Mechanical": 0.053906510417029055,
+        "Thermal": -0.49054428184882704,
+        "Age": -0.5580692824575592,
+        "Errors": 2.6641558829861127
+      },
+      "aitchison_norm": 2.822192,
+      "phase_deg": 5.512,
+      "delta_norm": -0.021758,
+      "delta_clr": {
+        "index": -0.002338,
+        "Mechanical": 0.000881,
+        "Thermal": 0.012719,
+        "Age": 0.004711,
+        "Errors": -0.019231
+      }
+    },
+    {
+      "index": 101,
+      "year": 101,
+      "clr": {
+        "index": 0.5548353905674969,
+        "Mechanical": 0.05544423691976297,
+        "Thermal": -0.47757612046864706,
+        "Age": -0.5545490486866631,
+        "Errors": 2.645661879693793
+      },
+      "aitchison_norm": 2.80108,
+      "phase_deg": 5.707,
+      "delta_norm": -0.021113,
+      "delta_clr": {
+        "index": -0.003789,
+        "Mechanical": 0.001538,
+        "Thermal": 0.012968,
+        "Age": 0.00352,
+        "Errors": -0.018494
+      }
+    },
+    {
+      "index": 102,
+      "year": 102,
+      "clr": {
+        "index": 0.5497809907797755,
+        "Mechanical": 0.057666014477089925,
+        "Thermal": -0.46448858678798555,
+        "Age": -0.5522146953169481,
+        "Errors": 2.6286830589649606
+      },
+      "aitchison_norm": 2.781411,
+      "phase_deg": 5.988,
+      "delta_norm": -0.019668,
+      "delta_clr": {
+        "index": -0.005054,
+        "Mechanical": 0.002222,
+        "Thermal": 0.013088,
+        "Age": 0.002334,
+        "Errors": -0.016979
+      }
+    },
+    {
+      "index": 103,
+      "year": 103,
+      "clr": {
+        "index": 0.5436567490376885,
+        "Mechanical": 0.06059194389787305,
+        "Thermal": -0.4514136444303166,
+        "Age": -0.5510382748950478,
+        "Errors": 2.613959352553758
+      },
+      "aitchison_norm": 2.763953,
+      "phase_deg": 6.36,
+      "delta_norm": -0.017459,
+      "delta_clr": {
+        "index": -0.006124,
+        "Mechanical": 0.002926,
+        "Thermal": 0.013075,
+        "Age": 0.001176,
+        "Errors": -0.014724
+      }
+    },
+    {
+      "index": 104,
+      "year": 104,
+      "clr": {
+        "index": 0.536666506649724,
+        "Mechanical": 0.06423426641434166,
+        "Thermal": -0.43848306579100854,
+        "Age": -0.5509688795839051,
+        "Errors": 2.602174123236696
+      },
+      "aitchison_norm": 2.749415,
+      "phase_deg": 6.825,
+      "delta_norm": -0.014538,
+      "delta_clr": {
+        "index": -0.00699,
+        "Mechanical": 0.003642,
+        "Thermal": 0.012931,
+        "Age": 6.9e-05,
+        "Errors": -0.011785
+      }
+    },
+    {
+      "index": 105,
+      "year": 105,
+      "clr": {
+        "index": 0.5290208194001255,
+        "Mechanical": 0.06859722704835092,
+        "Thermal": -0.42582643077141213,
+        "Age": -0.5519336506024578,
+        "Errors": 2.593937022828628
+      },
+      "aitchison_norm": 2.738437,
+      "phase_deg": 7.388,
+      "delta_norm": -0.010978,
+      "delta_clr": {
+        "index": -0.007646,
+        "Mechanical": 0.004363,
+        "Thermal": 0.012657,
+        "Age": -0.000965,
+        "Errors": -0.008237
+      }
+    },
+    {
+      "index": 106,
+      "year": 106,
+      "clr": {
+        "index": 0.5209353250192605,
+        "Mechanical": 0.07367702722945173,
+        "Thermal": -0.41356915881099415,
+        "Age": -0.5538392229255,
+        "Errors": 2.5897686992197184
+      },
+      "aitchison_norm": 2.731571,
+      "phase_deg": 8.05,
+      "delta_norm": -0.006866,
+      "delta_clr": {
+        "index": -0.008085,
+        "Mechanical": 0.00508,
+        "Thermal": 0.012257,
+        "Age": -0.001906,
+        "Errors": -0.004168
+      }
+    },
+    {
+      "index": 107,
+      "year": 107,
+      "clr": {
+        "index": 0.5126290712514907,
+        "Mechanical": 0.07946186719363568,
+        "Thermal": -0.4018306041056252,
+        "Age": -0.5565735765970984,
+        "Errors": 2.5900877360535763
+      },
+      "aitchison_norm": 2.729267,
+      "phase_deg": 8.811,
+      "delta_norm": -0.002304,
+      "delta_clr": {
+        "index": -0.008306,
+        "Mechanical": 0.005785,
+        "Thermal": 0.011739,
+        "Age": -0.002734,
+        "Errors": 0.000319
+      }
+    }
+  ]
+}

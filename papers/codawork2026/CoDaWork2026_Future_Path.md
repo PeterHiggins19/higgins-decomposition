@@ -145,7 +145,7 @@
 
 **Who to find:**
 
-- **Anyone working on entropy and the simplex.** They can evaluate the EITT conjecture. Ask: "Have you encountered entropy preservation under subsampling in your work?"
+- **Anyone working on entropy and the simplex.** They can evaluate the EITT analytic bound. Ask: "Have you encountered entropy preservation under subsampling in your work?"
 - **ILR researchers.** They can run the CLR vs ILR test. Ask: "If I gave you a pipeline that uses CLR, would you be willing to replicate it with ILR and compare?"
 - **Geochemistry practitioners.** They have canonical CoDa benchmark datasets (Aar granite, Coxite, etc.). Ask: "Would you be willing to run one of your standard datasets through Hˢ and tell me what it finds?"
 - **Anyone who asks a hard question during Q&A.** They cared enough to engage. Find them at coffee. Thank them for the question. Ask what they work on.

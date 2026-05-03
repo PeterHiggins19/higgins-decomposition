@@ -161,7 +161,7 @@ The handshake sounds like:
 
 or:
 
-*"The EITT conjecture — I think I can sketch a proof using the Aitchison inner product."*
+*"The EITT analytic bound — I think I can extend it using the Aitchison inner product."*
 
 or:
 

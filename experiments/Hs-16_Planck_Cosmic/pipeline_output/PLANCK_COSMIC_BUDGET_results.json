@@ -1,0 +1,329 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PLANCK_COSMIC_BUDGET",
+  "name": "Planck Cosmic Budget",
+  "domain": "ASTROPHYSICS",
+  "carriers": [
+    "scale_factor",
+    "Omega_radiation",
+    "Omega_matter",
+    "Omega_dark_energy"
+  ],
+  "D": 4,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from planck_cosmic_budget.csv"
+  },
+  "data_hash_sha256_16": "f36321b0771d2fbe",
+  "run_timestamp": "2026-04-30T21:13:48.740563Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PLANCK_COSMIC_BUDGET: Planck Cosmic Budget: 4-part simplex, carriers=['scale_factor', 'Omega_radiation', 'Omega_matter', 'Omega_dark_energy']",
+    "step2_n_samples": 200,
+    "step2_D": 4,
+    "step2_carriers": [
+      "scale_factor",
+      "Omega_radiation",
+      "Omega_matter",
+      "Omega_dark_energy"
+    ],
+    "data_hash_sha256_16": "f36321b0771d2fbe",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      1.06547283013081,
+      -0.29022144523329446,
+      4.40314463154445,
+      -5.17839601644196
+    ],
+    "step4_clr_std_per_part": [
+      0.5713846770446298,
+      3.5248191114887217,
+      1.5211553212778528,
+      4.492132723693108
+    ],
+    "step5_sigma2_range": [
+      0.006969850952290675,
+      35.24400013660392
+    ],
+    "step5_sigma2_final": 35.24400013660392,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9992277395999316,
+      "eigenvalues_final": [
+        35.393751347696906,
+        0.02735431723166017,
+        1.3104286080020781e-15,
+        -4.106802851276799e-15
+      ],
+      "eigenvector_overlap": 0.997252364529469,
+      "condition_number": 2.7009293853603644e+16,
+      "von_neumann_entropy": 0.006306125928225887,
+      "von_neumann_ratio": 0.0045489083019363994,
+      "commutator_norm": 0.1043950928141578,
+      "det_V": -1.285161236362156e-29,
+      "det_amgm_ratio": -2.0900136809906032e-33,
+      "cholesky_last_diag": 1.8554189701406217e-06,
+      "eigenvalue_power_law_alpha": 1.7789581957799339,
+      "eigenvalue_power_law_R2": 0.9970167404666859,
+      "eigenvalue_ratio_matches": 0,
+      "eigenvalue_ratio_best_match": null,
+      "gamma": 0.02778957358558047,
+      "VSWR": 1.057167816412071,
+      "Q_factor": 0,
+      "trace_final": 35.42110566492857,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.0008837050124038662,
+      0.0006949767408142576,
+      0.020821421604085774
+    ],
+    "step6_pll_R2": 0.9999977604368178,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -0.3932176071536432,
+      0.020684783058560564
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 103,
+    "step7_squeeze_closest": {
+      "time_index": 159,
+      "sigma2_A": 22.453386317128412,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.044536712007540565,
+      "delta": 1.1444740617649884e-05
+    },
+    "step7_squeeze_mean": 11.903298769027126,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.12174218181090084,
+      0.7795393785150743
+    ],
+    "step8_entropy_mean": 0.30892453861520636,
+    "step8_entropy_cv": 65.7449634006538,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.30892453861520636,
+        "H_mean_decimated": 0.308927395726786,
+        "variation_pct": 0.0009248574400934758,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.30892453861520636,
+        "H_mean_decimated": 0.3089389334504214,
+        "variation_pct": 0.004659660666505682,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.30892453861520636,
+        "H_mean_decimated": 0.3089868959706714,
+        "variation_pct": 0.020185303422183283,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 2,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.33942296416795786,
+      0.1526058805344262
+    ],
+    "step11_complex_range_im": [
+      -0.5241187203250213,
+      0.10609648118015602
+    ],
+    "step12_radius_range": [
+      0.030635895889678348,
+      0.6244264421048332
+    ],
+    "step12_theta_range": [
+      -3.1008340233174905,
+      3.06758537529485
+    ],
+    "step9_angular_velocity_std": 0.027702478823786517
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.3264804491613959,
+          12.42434976871614,
+          2.313913511451928,
+          20.17925640727446
+        ],
+        "carrier_pct": [
+          0.9263433432526801,
+          35.25238259153332,
+          6.565411140856085,
+          57.25586292435791
+        ],
+        "dominant_carrier": "Omega_dark_energy",
+        "dominant_pct": 57.25586292435791
+      },
+      "match_density": {
+        "density": 2.9230613126311376,
+        "concentration": 0.2917334338768969,
+        "total_matches": 103,
+        "n_constants_hit": 20,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 35.23703028565163
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            16.662809349013656,
+            4.335777792732331,
+            15.551334791503532
+          ],
+          [
+            16.662809349013656,
+            0.0,
+            4.016387638967932,
+            64.26220222348691
+          ],
+          [
+            4.335777792732331,
+            4.016387638967932,
+            0.0,
+            36.14748875071139
+          ],
+          [
+            15.551334791503532,
+            64.26220222348691,
+            36.14748875071139,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          1.06547283013081,
+          -0.29022144523329446,
+          4.40314463154445,
+          -5.17839601644196
+        ],
+        "clr_stds": [
+          0.5713846770446298,
+          3.5248191114887217,
+          1.5211553212778528,
+          4.492132723693108
+        ],
+        "aitchison_distance_mean": 6.857619492185387
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0212771138814571,
+        "drift_direction": "stable",
+        "max_shift_carrier": "scale_factor",
+        "max_shift_magnitude": 0.1845365370330473
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9999977604368178,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Omega_matter",
+        "sources": [
+          "scale_factor",
+          "Omega_radiation"
+        ],
+        "I_source1_target": 2.3614287369800597,
+        "I_source2_target": 2.4400411298947158,
+        "redundancy": 2.3614287369800597,
+        "unique_source1": 0.0,
+        "unique_source2": 0.07861239291465605,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "scale_factor->Omega_radiation": 0.0,
+          "scale_factor->Omega_matter": 0.0,
+          "scale_factor->Omega_dark_energy": 0.0,
+          "Omega_radiation->scale_factor": 0.0,
+          "Omega_radiation->Omega_matter": 0.0,
+          "Omega_radiation->Omega_dark_energy": 0.0,
+          "Omega_matter->scale_factor": 0.0,
+          "Omega_matter->Omega_radiation": 0.0,
+          "Omega_matter->Omega_dark_energy": 0.0,
+          "Omega_dark_energy->scale_factor": 0.0,
+          "Omega_dark_energy->Omega_radiation": 0.0,
+          "Omega_dark_energy->Omega_matter": 0.0
+        },
+        "dominant_flow": "scale_factor->Omega_radiation",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 35.24400013660392,
+        "shuffled_sigma2": 35.244000136603944,
+        "order_matters": false,
+        "relative_difference": 6.048201676932867e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 200,
+        "near_zero_carriers": [
+          "scale_factor",
+          "Omega_radiation",
+          "Omega_dark_energy"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(scale_factor/Omega_radiation)": {
+            "mean": 1.3556942753641041,
+            "std": 4.082010454299898,
+            "cv": 301.101105793456
+          },
+          "ln(scale_factor/Omega_matter)": {
+            "mean": -3.337671801413636,
+            "std": 2.0822530568430753,
+            "cv": 62.38639329250882
+          },
+          "ln(scale_factor/Omega_dark_energy)": {
+            "mean": 6.243868846572773,
+            "std": 3.9435180729272097,
+            "cv": 63.15824643068514
+          },
+          "ln(Omega_radiation/Omega_matter)": {
+            "mean": -4.693366076777739,
+            "std": 2.004092722148337,
+            "cv": 42.70054134631365
+          },
+          "ln(Omega_radiation/Omega_dark_energy)": {
+            "mean": 4.888174571208669,
+            "std": 8.016370888593348,
+            "cv": 163.99518412885138
+          },
+          "ln(Omega_matter/Omega_dark_energy)": {
+            "mean": 9.58154064798641,
+            "std": 6.012278166445012,
+            "cv": 62.74855357116823
+          }
+        },
+        "most_stable": "ln(Omega_radiation/Omega_matter)",
+        "least_stable": "ln(scale_factor/Omega_radiation)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

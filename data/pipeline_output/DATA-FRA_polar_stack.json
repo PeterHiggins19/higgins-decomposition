@@ -1,0 +1,834 @@
+{
+  "experiment": "EMBER_FRA_FRANCE_GEN",
+  "test_object": "FRA France",
+  "carriers": [
+    "Year",
+    "Bioenergy",
+    "Coal",
+    "Gas",
+    "Hydro",
+    "Nuclear",
+    "Other Fossil",
+    "Other Renewables",
+    "Solar",
+    "Wind"
+  ],
+  "D": 10,
+  "N": 26,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 7.096166,
+    "norm_max": 9.275049,
+    "norm_mean": 7.942718,
+    "norm_range": 2.178883,
+    "phase_range_deg": 6.522,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 7,
+      "type": "DOM_SHIFT",
+      "label": "Sola->Year"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "Year": 4.268243667897525,
+        "Bioenergy": -1.3274369834613866,
+        "Coal": -1.7970207549852504,
+        "Gas": -0.08762348165162082,
+        "Hydro": 0.7045634479520246,
+        "Nuclear": 2.6157162293714515,
+        "Other Fossil": -0.9671700119786334,
+        "Other Renewables": -3.8938467024696366,
+        "Solar": -5.792716481672539,
+        "Wind": -2.4120893279597198
+      },
+      "aitchison_norm": 9.275049,
+      "phase_deg": -17.276
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "Year": 4.363674566430591,
+        "Bioenergy": -1.2872448770232612,
+        "Coal": -1.4818469228377327,
+        "Gas": 0.01430118124121331,
+        "Hydro": 0.8465681332256867,
+        "Nuclear": 2.7760406448111543,
+        "Other Fossil": -0.8154832681849193,
+        "Other Renewables": -3.7594764659758355,
+        "Solar": -4.901575872582735,
+        "Wind": -1.9006829905300795
+      },
+      "aitchison_norm": 8.588046,
+      "phase_deg": -16.436,
+      "delta_norm": -0.687003,
+      "delta_clr": {
+        "Year": 0.095431,
+        "Bioenergy": 0.040192,
+        "Coal": 0.315174,
+        "Gas": 0.101925,
+        "Hydro": 0.142005,
+        "Nuclear": 0.160324,
+        "Other Fossil": 0.151687,
+        "Other Renewables": 0.13437,
+        "Solar": 0.891141,
+        "Wind": 0.511406
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "Year": 4.451332880667957,
+        "Bioenergy": -1.2520750875899385,
+        "Coal": -1.2227540051378905,
+        "Gas": 0.09175605301197079,
+        "Hydro": 0.9444142434451495,
+        "Nuclear": 2.8738226758958314,
+        "Other Fossil": -0.7361358247392595,
+        "Other Renewables": -3.7017943423106083,
+        "Solar": -4.608269934873091,
+        "Wind": -1.7864180876874889
+      },
+      "aitchison_norm": 8.408864,
+      "phase_deg": -15.71,
+      "delta_norm": -0.179181,
+      "delta_clr": {
+        "Year": 0.087658,
+        "Bioenergy": 0.03517,
+        "Coal": 0.259093,
+        "Gas": 0.077455,
+        "Hydro": 0.097846,
+        "Nuclear": 0.097782,
+        "Other Fossil": 0.079347,
+        "Other Renewables": 0.057682,
+        "Solar": 0.293306,
+        "Wind": 0.114265
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "Year": 4.524537662679868,
+        "Bioenergy": -1.225939494734917,
+        "Coal": -1.0605603179359182,
+        "Gas": 0.1289075834903505,
+        "Hydro": 0.9735087817233873,
+        "Nuclear": 2.880421834822617,
+        "Other Fossil": -0.7544945869767233,
+        "Other Renewables": -3.738877194087162,
+        "Solar": -4.980803099529126,
+        "Wind": -2.0635180714104018
+      },
+      "aitchison_norm": 8.716381,
+      "phase_deg": -15.16,
+      "delta_norm": 0.307517,
+      "delta_clr": {
+        "Year": 0.073205,
+        "Bioenergy": 0.026136,
+        "Coal": 0.162194,
+        "Gas": 0.037152,
+        "Hydro": 0.029095,
+        "Nuclear": 0.006599,
+        "Other Fossil": -0.018359,
+        "Other Renewables": -0.037083,
+        "Solar": -0.372533,
+        "Wind": -0.2771
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "Year": 4.578637920184971,
+        "Bioenergy": -1.2110323925675073,
+        "Coal": -1.0097127449564218,
+        "Gas": 0.12414667439557328,
+        "Hydro": 0.9397208811963919,
+        "Nuclear": 2.8166244717818683,
+        "Other Fossil": -0.8324824613758012,
+        "Other Renewables": -3.8163748351570903,
+        "Solar": -5.497080714028661,
+        "Wind": -2.3291489808118033
+      },
+      "aitchison_norm": 9.120443,
+      "phase_deg": -14.815,
+      "delta_norm": 0.404062,
+      "delta_clr": {
+        "Year": 0.0541,
+        "Bioenergy": 0.014907,
+        "Coal": 0.050848,
+        "Gas": -0.004761,
+        "Hydro": -0.033788,
+        "Nuclear": -0.063797,
+        "Other Fossil": -0.077988,
+        "Other Renewables": -0.077498,
+        "Solar": -0.516278,
+        "Wind": -0.265631
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "Year": 4.611665834594514,
+        "Bioenergy": -1.2072890208050002,
+        "Coal": -1.054354972459507,
+        "Gas": 0.0906565861239207,
+        "Hydro": 0.8767813365296817,
+        "Nuclear": 2.7413762689111816,
+        "Other Fossil": -0.893303121615488,
+        "Other Renewables": -3.8490488329371,
+        "Solar": -5.507614784409224,
+        "Wind": -2.192112750646786
+      },
+      "aitchison_norm": 9.103907,
+      "phase_deg": -14.67,
+      "delta_norm": -0.016536,
+      "delta_clr": {
+        "Year": 0.033028,
+        "Bioenergy": 0.003743,
+        "Coal": -0.044642,
+        "Gas": -0.03349,
+        "Hydro": -0.06294,
+        "Nuclear": -0.075248,
+        "Other Fossil": -0.060821,
+        "Other Renewables": -0.032674,
+        "Solar": -0.010534,
+        "Wind": 0.137036
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "Year": 4.624613135285223,
+        "Bioenergy": -1.2123985938613626,
+        "Coal": -1.1526428352200624,
+        "Gas": 0.05176010631489582,
+        "Hydro": 0.8313373186852754,
+        "Nuclear": 2.7198299820207246,
+        "Other Fossil": -0.8713075038018082,
+        "Other Renewables": -3.7859186036229198,
+        "Solar": -4.811131909113942,
+        "Wind": -1.6697353763884466
+      },
+      "aitchison_norm": 8.561786,
+      "phase_deg": -14.69,
+      "delta_norm": -0.542121,
+      "delta_clr": {
+        "Year": 0.012947,
+        "Bioenergy": -0.00511,
+        "Coal": -0.098288,
+        "Gas": -0.038896,
+        "Hydro": -0.045444,
+        "Nuclear": -0.021546,
+        "Other Fossil": 0.021996,
+        "Other Renewables": 0.06313,
+        "Solar": 0.696483,
+        "Wind": 0.522377
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "Year": 4.621291814155539,
+        "Bioenergy": -1.2222692066366596,
+        "Coal": -1.2481323385562662,
+        "Gas": 0.032688126349609076,
+        "Hydro": 0.8422841611350194,
+        "Nuclear": 2.7880285589242217,
+        "Other Fossil": -0.7546220009156954,
+        "Other Renewables": -3.649224892228988,
+        "Solar": -3.8329515829559657,
+        "Wind": -1.1702889066599655
+      },
+      "aitchison_norm": 7.927113,
+      "phase_deg": -14.815,
+      "delta_norm": -0.634673,
+      "delta_clr": {
+        "Year": -0.003321,
+        "Bioenergy": -0.009871,
+        "Coal": -0.09549,
+        "Gas": -0.019072,
+        "Hydro": 0.010947,
+        "Nuclear": 0.068199,
+        "Other Fossil": 0.116686,
+        "Other Renewables": 0.136694,
+        "Solar": 0.97818,
+        "Wind": 0.499446
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "Year": 4.607798742691867,
+        "Bioenergy": -1.2318510828453384,
+        "Coal": -1.2851410701621593,
+        "Gas": 0.05167478162769086,
+        "Hydro": 0.9235317945463176,
+        "Nuclear": 2.933367600203489,
+        "Other Fossil": -0.5928584041097034,
+        "Other Renewables": -3.5174315987785003,
+        "Solar": -3.248047319249209,
+        "Wind": -1.0787809482813984
+      },
+      "aitchison_norm": 7.635343,
+      "phase_deg": -14.967,
+      "delta_norm": -0.29177,
+      "delta_clr": {
+        "Year": -0.013493,
+        "Bioenergy": -0.009582,
+        "Coal": -0.037009,
+        "Gas": 0.018987,
+        "Hydro": 0.081248,
+        "Nuclear": 0.145339,
+        "Other Fossil": 0.161764,
+        "Other Renewables": 0.131793,
+        "Solar": 0.584904,
+        "Wind": 0.091508
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "Year": 4.591659384486856,
+        "Bioenergy": -1.2361525369664117,
+        "Coal": -1.2239023448857562,
+        "Gas": 0.11352199055036245,
+        "Hydro": 1.0578415987312926,
+        "Nuclear": 3.101427734558114,
+        "Other Fossil": -0.4648992608728333,
+        "Other Renewables": -3.465257328076799,
+        "Solar": -3.3828522058602846,
+        "Wind": -1.366347001798192
+      },
+      "aitchison_norm": 7.771412,
+      "phase_deg": -15.068,
+      "delta_norm": 0.136069,
+      "delta_clr": {
+        "Year": -0.016139,
+        "Bioenergy": -0.004301,
+        "Coal": 0.061239,
+        "Gas": 0.061847,
+        "Hydro": 0.13431,
+        "Nuclear": 0.16806,
+        "Other Fossil": 0.127959,
+        "Other Renewables": 0.052174,
+        "Solar": -0.134805,
+        "Wind": -0.287566
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "Year": 4.5807708662417985,
+        "Bioenergy": -1.2312442489419444,
+        "Coal": -1.0513878339791458,
+        "Gas": 0.20790469038710901,
+        "Hydro": 1.2044644111279512,
+        "Nuclear": 3.225473332602284,
+        "Other Fossil": -0.4276767246675063,
+        "Other Renewables": -3.5065693966120444,
+        "Solar": -3.9259579835710072,
+        "Wind": -1.6195348042275661
+      },
+      "aitchison_norm": 8.125112,
+      "phase_deg": -15.045,
+      "delta_norm": 0.3537,
+      "delta_clr": {
+        "Year": -0.010889,
+        "Bioenergy": 0.004908,
+        "Coal": 0.172515,
+        "Gas": 0.094383,
+        "Hydro": 0.146623,
+        "Nuclear": 0.124046,
+        "Other Fossil": 0.037223,
+        "Other Renewables": -0.041312,
+        "Solar": -0.543106,
+        "Wind": -0.253188
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "Year": 4.582292849789939,
+        "Bioenergy": -1.2150498021025395,
+        "Coal": -0.7848532660098988,
+        "Gas": 0.31301491127443404,
+        "Hydro": 1.3171954781742952,
+        "Nuclear": 3.262627405329451,
+        "Other Fossil": -0.47920455014502933,
+        "Other Renewables": -3.5837853091788467,
+        "Solar": -4.204100231851482,
+        "Wind": -1.459770386230812
+      },
+      "aitchison_norm": 8.27321,
+      "phase_deg": -14.851,
+      "delta_norm": 0.148098,
+      "delta_clr": {
+        "Year": 0.001522,
+        "Bioenergy": 0.016194,
+        "Coal": 0.266535,
+        "Gas": 0.10511,
+        "Hydro": 0.112731,
+        "Nuclear": 0.037154,
+        "Other Fossil": -0.051528,
+        "Other Renewables": -0.077216,
+        "Solar": -0.278142,
+        "Wind": 0.159764
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "Year": 4.6016419788689005,
+        "Bioenergy": -1.1877634363923415,
+        "Coal": -0.4671422257064234,
+        "Gas": 0.40325856780147723,
+        "Hydro": 1.3648466448298957,
+        "Nuclear": 3.2171136224772967,
+        "Other Fossil": -0.5598678305450806,
+        "Other Renewables": -3.6118819528722903,
+        "Solar": -3.7788381314356014,
+        "Wind": -0.9274385198074159
+      },
+      "aitchison_norm": 7.979866,
+      "phase_deg": -14.473,
+      "delta_norm": -0.293345,
+      "delta_clr": {
+        "Year": 0.019349,
+        "Bioenergy": 0.027286,
+        "Coal": 0.317711,
+        "Gas": 0.090244,
+        "Hydro": 0.047651,
+        "Nuclear": -0.045514,
+        "Other Fossil": -0.080663,
+        "Other Renewables": -0.028097,
+        "Solar": 0.425262,
+        "Wind": 0.532332
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "Year": 4.641731127604797,
+        "Bioenergy": -1.1518109693324017,
+        "Coal": -0.1550261367478602,
+        "Gas": 0.45828850254707587,
+        "Hydro": 1.3450650587479507,
+        "Nuclear": 3.1379668185150864,
+        "Other Fossil": -0.5911330064397107,
+        "Other Renewables": -3.5433771276114285,
+        "Solar": -2.835122099808453,
+        "Wind": -0.4409105369887686
+      },
+      "aitchison_norm": 7.476611,
+      "phase_deg": -13.936,
+      "delta_norm": -0.503255,
+      "delta_clr": {
+        "Year": 0.040089,
+        "Bioenergy": 0.035952,
+        "Coal": 0.312116,
+        "Gas": 0.05503,
+        "Hydro": -0.019782,
+        "Nuclear": -0.079147,
+        "Other Fossil": -0.031265,
+        "Other Renewables": 0.068505,
+        "Solar": 0.943716,
+        "Wind": 0.486528
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "Year": 4.70256029599763,
+        "Bioenergy": -1.1113617470141277,
+        "Coal": 0.0962462609066238,
+        "Gas": 0.47018570611128063,
+        "Hydro": 1.2853756612626082,
+        "Nuclear": 3.092453035662932,
+        "Other Fossil": -0.5265424061488087,
+        "Other Renewables": -3.404619278759796,
+        "Solar": -2.0173817117496657,
+        "Wind": -0.37208765419907563
+      },
+      "aitchison_norm": 7.132458,
+      "phase_deg": -13.297,
+      "delta_norm": -0.344154,
+      "delta_clr": {
+        "Year": 0.060829,
+        "Bioenergy": 0.040449,
+        "Coal": 0.251272,
+        "Gas": 0.011897,
+        "Hydro": -0.059689,
+        "Nuclear": -0.045514,
+        "Other Fossil": 0.064591,
+        "Other Renewables": 0.138758,
+        "Solar": 0.81774,
+        "Wind": 0.068823
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "Year": 4.781216609921285,
+        "Bioenergy": -1.0714898154568857,
+        "Coal": 0.24798503049392873,
+        "Gas": 0.446254211151686,
+        "Hydro": 1.2309855630836302,
+        "Nuclear": 3.129607108390099,
+        "Other Fossil": -0.3818808093513369,
+        "Other Renewables": -3.27564988691403,
+        "Solar": -1.8584007832514002,
+        "Wind": -0.6690903347814912
+      },
+      "aitchison_norm": 7.096166,
+      "phase_deg": -12.632,
+      "delta_norm": -0.036291,
+      "delta_clr": {
+        "Year": 0.078656,
+        "Bioenergy": 0.039872,
+        "Coal": 0.151739,
+        "Gas": -0.023931,
+        "Hydro": -0.05439,
+        "Nuclear": 0.037154,
+        "Other Fossil": 0.144662,
+        "Other Renewables": 0.128969,
+        "Solar": 0.158981,
+        "Wind": -0.297003
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "Year": 4.872283425638137,
+        "Bioenergy": -1.037153075842284,
+        "Coal": 0.2885886272145178,
+        "Gas": 0.40644324504358487,
+        "Hydro": 1.2247538857774976,
+        "Nuclear": 3.253652706434269,
+        "Other Fossil": -0.2249258468997349,
+        "Other Renewables": -3.229029303175825,
+        "Solar": -2.3071383715051548,
+        "Wind": -0.9088924299564447
+      },
+      "aitchison_norm": 7.333197,
+      "phase_deg": -12.017,
+      "delta_norm": 0.237031,
+      "delta_clr": {
+        "Year": 0.091067,
+        "Bioenergy": 0.034337,
+        "Coal": 0.040604,
+        "Gas": -0.039811,
+        "Hydro": -0.006232,
+        "Nuclear": 0.124046,
+        "Other Fossil": 0.156955,
+        "Other Renewables": 0.046621,
+        "Solar": -0.448738,
+        "Wind": -0.239802
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "Year": 4.968601081314943,
+        "Bioenergy": -1.012195806869927,
+        "Coal": 0.2367012953756249,
+        "Gas": 0.3763064532114923,
+        "Hydro": 1.2882019394700195,
+        "Nuclear": 3.4217128407888944,
+        "Other Fossil": -0.1314376546577795,
+        "Other Renewables": -3.274380267863332,
+        "Solar": -2.7739637475335233,
+        "Wind": -0.7265003769936386
+      },
+      "aitchison_norm": 7.631401,
+      "phase_deg": -11.515,
+      "delta_norm": 0.298203,
+      "delta_clr": {
+        "Year": 0.096318,
+        "Bioenergy": 0.024957,
+        "Coal": -0.051887,
+        "Gas": -0.030137,
+        "Hydro": 0.063448,
+        "Nuclear": 0.16806,
+        "Other Fossil": 0.093488,
+        "Other Renewables": -0.045351,
+        "Solar": -0.466825,
+        "Wind": 0.182392
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "Year": 5.0622724502504095,
+        "Bioenergy": -0.9985752362600255,
+        "Coal": 0.13613897828255742,
+        "Gas": 0.3779831282707695,
+        "Hydro": 1.4119776598212619,
+        "Nuclear": 3.5670518820681614,
+        "Other Fossil": -0.13596521236605827,
+        "Other Renewables": -3.3510334350945334,
+        "Solar": -2.653215902745666,
+        "Wind": -0.18525570897996857
+      },
+      "aitchison_norm": 7.734629,
+      "phase_deg": -11.159,
+      "delta_norm": 0.103228,
+      "delta_clr": {
+        "Year": 0.093671,
+        "Bioenergy": 0.013621,
+        "Coal": -0.100562,
+        "Gas": 0.001677,
+        "Hydro": 0.123776,
+        "Nuclear": 0.145339,
+        "Other Fossil": -0.004528,
+        "Other Renewables": -0.076653,
+        "Solar": 0.120748,
+        "Wind": 0.541245
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "Year": 5.145772068851889,
+        "Bioenergy": -0.9959677670931114,
+        "Coal": 0.04396467056377629,
+        "Gas": 0.42238448311126936,
+        "Hydro": 1.5599992776444822,
+        "Nuclear": 3.6352504589716585,
+        "Other Fossil": -0.20941250317264984,
+        "Other Renewables": -3.3743957874050703,
+        "Solar": -1.8599698710352208,
+        "Wind": 0.2874278009392731
+      },
+      "aitchison_norm": 7.633637,
+      "phase_deg": -10.954,
+      "delta_norm": -0.100992,
+      "delta_clr": {
+        "Year": 0.0835,
+        "Bioenergy": 0.002607,
+        "Coal": -0.092174,
+        "Gas": 0.044401,
+        "Hydro": 0.148022,
+        "Nuclear": 0.068199,
+        "Other Fossil": -0.073447,
+        "Other Renewables": -0.023362,
+        "Solar": 0.793246,
+        "Wind": 0.472684
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "Year": 5.213003065632974,
+        "Bioenergy": -1.0018340821114542,
+        "Coal": 0.01495854354332693,
+        "Gas": 0.5053427041065454,
+        "Hydro": 1.6854422631081702,
+        "Nuclear": 3.613704172081202,
+        "Other Fossil": -0.2779315578054784,
+        "Other Renewables": -3.30060345259561,
+        "Solar": -0.9053013752815919,
+        "Wind": 0.3336947814849702
+      },
+      "aitchison_norm": 7.499093,
+      "phase_deg": -10.878,
+      "delta_norm": -0.134544,
+      "delta_clr": {
+        "Year": 0.067231,
+        "Bioenergy": -0.005866,
+        "Coal": -0.029006,
+        "Gas": 0.082958,
+        "Hydro": 0.125443,
+        "Nuclear": -0.021546,
+        "Other Fossil": -0.068519,
+        "Other Renewables": 0.073792,
+        "Solar": 0.954668,
+        "Wind": 0.046267
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "Year": 5.260153448695227,
+        "Bioenergy": -1.0119300276805292,
+        "Coal": 0.0867093482021073,
+        "Gas": 0.609081917602308,
+        "Hydro": 1.7514861228742047,
+        "Nuclear": 3.5384559692105153,
+        "Other Fossil": -0.2708744801913716,
+        "Other Renewables": -3.160046017919068,
+        "Solar": -0.4433465980923703,
+        "Wind": 0.028308754304146214
+      },
+      "aitchison_norm": 7.410581,
+      "phase_deg": -10.889,
+      "delta_norm": -0.088512,
+      "delta_clr": {
+        "Year": 0.04715,
+        "Bioenergy": -0.010096,
+        "Coal": 0.071751,
+        "Gas": 0.103739,
+        "Hydro": 0.066044,
+        "Nuclear": -0.075248,
+        "Other Fossil": 0.007057,
+        "Other Renewables": 0.140557,
+        "Solar": 0.461955,
+        "Wind": -0.305386
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "Year": 5.286231488661918,
+        "Bioenergy": -1.0211604929233764,
+        "Coal": 0.26938451760692594,
+        "Gas": 0.7084919144137393,
+        "Hydro": 1.7476286547964441,
+        "Nuclear": 3.474658606169766,
+        "Other Fossil": -0.16666755551653006,
+        "Other Renewables": -3.034140352818896,
+        "Solar": -0.6915747965018151,
+        "Wind": -0.1971988467922376
+      },
+      "aitchison_norm": 7.378343,
+      "phase_deg": -10.933,
+      "delta_norm": -0.032238,
+      "delta_clr": {
+        "Year": 0.026078,
+        "Bioenergy": -0.00923,
+        "Coal": 0.182675,
+        "Gas": 0.09941,
+        "Hydro": -0.003857,
+        "Nuclear": -0.063797,
+        "Other Fossil": 0.104207,
+        "Other Renewables": 0.125906,
+        "Solar": -0.248228,
+        "Wind": -0.225508
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "Year": 5.293205004121801,
+        "Bioenergy": -1.0246044925144178,
+        "Coal": 0.542963067815198,
+        "Gas": 0.7799904166011968,
+        "Hydro": 1.6943392153045929,
+        "Nuclear": 3.4812577650965517,
+        "Other Fossil": -0.006819805040515894,
+        "Other Renewables": -2.9931052609488966,
+        "Solar": -1.2380564410587038,
+        "Wind": 0.007663128901202132
+      },
+      "aitchison_norm": 7.446646,
+      "phase_deg": -10.955,
+      "delta_norm": 0.068303,
+      "delta_clr": {
+        "Year": 0.006974,
+        "Bioenergy": -0.003444,
+        "Coal": 0.273579,
+        "Gas": 0.071499,
+        "Hydro": -0.053289,
+        "Nuclear": 0.006599,
+        "Other Fossil": 0.159848,
+        "Other Renewables": 0.041035,
+        "Solar": -0.546482,
+        "Wind": 0.204862
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "Year": 5.28572498735623,
+        "Bioenergy": -1.0185052172412012,
+        "Coal": 0.8626843720336329,
+        "Gas": 0.8098460841302394,
+        "Hydro": 1.6339892511805205,
+        "Nuclear": 3.5790397961812284,
+        "Other Fossil": 0.13103024864371998,
+        "Other Renewables": -3.042294598580025,
+        "Solar": -1.4065352534030868,
+        "Wind": 0.5567563934200228
+      },
+      "aitchison_norm": 7.577388,
+      "phase_deg": -10.907,
+      "delta_norm": 0.130742,
+      "delta_clr": {
+        "Year": -0.00748,
+        "Bioenergy": 0.006099,
+        "Coal": 0.319721,
+        "Gas": 0.029856,
+        "Hydro": -0.06035,
+        "Nuclear": 0.097782,
+        "Other Fossil": 0.13785,
+        "Other Renewables": -0.049189,
+        "Solar": -0.168479,
+        "Wind": 0.549093
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "Year": 5.270472386294958,
+        "Bioenergy": -1.0010258645596817,
+        "Coal": 1.1712299068949148,
+        "Gas": 0.7990247826855448,
+        "Hydro": 1.6120785539595992,
+        "Nuclear": 3.7393642116209316,
+        "Other Fossil": 0.18352794383361173,
+        "Other Renewables": -3.118105425186708,
+        "Solar": -0.855759499154793,
+        "Wind": 1.0147044167903676
+      },
+      "aitchison_norm": 7.673982,
+      "phase_deg": -10.754,
+      "delta_norm": 0.096595,
+      "delta_clr": {
+        "Year": -0.015253,
+        "Bioenergy": 0.017479,
+        "Coal": 0.308546,
+        "Gas": -0.010821,
+        "Hydro": -0.021911,
+        "Nuclear": 0.160324,
+        "Other Fossil": 0.052498,
+        "Other Renewables": -0.075811,
+        "Solar": 0.550776,
+        "Wind": 0.457948
+      }
+    }
+  ]
+}

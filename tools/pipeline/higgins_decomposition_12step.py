@@ -14,7 +14,9 @@ Pipeline Steps:
   3. Load/simulate data → raw matrix (N × D)
   4. Close to simplex (row sums = 1, zero replacement)
   5. CLR transform (centered log-ratio)
+  5.5 EDI control gate (eigenstructure distortion — engine self-test)
   6. Aitchison variance (σ²_A trajectory)
+  6.5 Matrix analysis (V(t) eigenstructure diagnostics)
   7. HVLD vertex lock (Higgins Vertex Lock Diagnostic)
   8. Super squeeze (transcendental constant proximity)
   9. EITT entropy (Shannon H on simplex, invariance test)
@@ -164,7 +166,7 @@ FOURIER_PAIR_WATCHLIST = {
     "airy_cubic_phase": {
         "window": "Airy function Ai(t) — boundary/caustic behavior",
         "conjugate": "Cubic phase exp(iπν³/3)/√3",
-        "risk": "Simplex edge dynamics — compositions near vertex produce Airy-like behavior",
+        "risk": "Compositional horizon dynamics — compositions near vertex produce Airy-like behavior",
         "status": "P13 — added 2026-04-23 per Gemini suggestion, confirmed by pipeline test",
         "discovered_by": "Gemini (suggested), Peter Higgins / Claude (confirmed)",
         "date": "2026-04-23",
@@ -226,6 +228,7 @@ class HigginsDecomposition:
         self.ternary_result = None # Step 10: Ternary projection
         self.complex_result = None # Step 11: Complex plane
         self.helix_result = None   # Step 12: 3D Helix/Polar
+        self.matrix_result = None  # Step 6.5: Matrix eigendecomposition
 
         # Pipeline metadata
         self.results = {}
@@ -355,6 +358,176 @@ class HigginsDecomposition:
         self.results["step4_clr_std_per_part"] = self.clr_data.std(axis=0).tolist()
 
     # --------------------------------------------------------
+    # STEP 5.5: EDI CONTROL GATE — Engine Self-Test
+    # --------------------------------------------------------
+    def edi_control_gate(self):
+        """Eigenstructure Distortion Index — internal engine control.
+
+        Compares eigenstructure of raw composition covariance against
+        CLR (Higgins Coordinate) covariance to validate that the CLR
+        transform is doing meaningful work on this input.
+
+        This is instrumentation on the instrument — a gauge on the
+        engine, not on the data. It is logged to the audit trail
+        but never surfaced as a user-facing diagnostic code.
+
+        Control regimes:
+          EDI near 0:    CLR correction minimal — raw and CoDa converge
+          EDI 0.3-0.7:   Engine operating in designed regime
+          EDI > 0.7:     Extreme correction — check near-zero carriers
+
+        Correlation sign flips quantify how many carrier-pair
+        relationships reverse direction under proper CoDa geometry.
+        """
+        assert self.clr_data is not None, "CLR transform first (step 5)"
+        assert self.simplex_data is not None, "Close to simplex first (step 4)"
+
+        N, D = self.clr_data.shape
+
+        if N < 3 or D < 2:
+            self.results["edi_control_gate"] = {
+                "status": "SKIPPED",
+                "reason": "insufficient data (N < 3 or D < 2)"
+            }
+            return
+
+        # Covariance matrices (Bessel-corrected)
+        Cov_raw = np.cov(self.simplex_data.T)
+        Cov_clr = np.cov(self.clr_data.T)
+
+        # Ensure 2D
+        if Cov_raw.ndim == 0:
+            Cov_raw = np.array([[Cov_raw]])
+        if Cov_clr.ndim == 0:
+            Cov_clr = np.array([[Cov_clr]])
+
+        # Eigendecomposition
+        evals_raw, evecs_raw = np.linalg.eigh(Cov_raw)
+        evals_clr, evecs_clr = np.linalg.eigh(Cov_clr)
+
+        # Sort descending
+        idx_raw = np.argsort(evals_raw)[::-1]
+        idx_clr = np.argsort(evals_clr)[::-1]
+        evals_raw = evals_raw[idx_raw]
+        evecs_raw = evecs_raw[:, idx_raw]
+        evals_clr = evals_clr[idx_clr]
+        evecs_clr = evecs_clr[:, idx_clr]
+
+        # Clamp tiny negatives from numerical noise
+        evals_raw = np.maximum(evals_raw, 0)
+        evals_clr = np.maximum(evals_clr, 0)
+
+        # Principal angles between corresponding eigenvectors
+        angles = []
+        for i in range(D):
+            cos_theta = abs(np.dot(evecs_raw[:, i], evecs_clr[:, i]))
+            cos_theta = min(cos_theta, 1.0)
+            angles.append(np.arccos(cos_theta))
+
+        rms_angle = float(np.sqrt(np.mean(np.array(angles)**2)))
+
+        # Trace ratio (eigenvalue amplification)
+        tr_raw = float(evals_raw.sum())
+        tr_clr = float(evals_clr.sum())
+        tr_ratio = tr_clr / tr_raw if tr_raw > 1e-15 else float('inf')
+
+        # Dominance shift
+        dom_raw = float(evals_raw[0] / tr_raw) if tr_raw > 1e-15 else 0.0
+        dom_clr = float(evals_clr[0] / tr_clr) if tr_clr > 1e-15 else 0.0
+
+        # Frobenius norm of eigenvector difference (sign-aligned)
+        evecs_aligned = evecs_clr.copy()
+        for i in range(D):
+            if np.dot(evecs_raw[:, i], evecs_clr[:, i]) < 0:
+                evecs_aligned[:, i] *= -1
+        frob = float(np.linalg.norm(evecs_raw - evecs_aligned, 'fro'))
+        frob_norm = frob / (2 * np.sqrt(D))
+
+        # EDI composite index
+        angular_component = rms_angle / (np.pi / 2)
+        spec_raw = evals_raw / np.linalg.norm(evals_raw) if np.linalg.norm(evals_raw) > 1e-15 else evals_raw
+        spec_clr = evals_clr / np.linalg.norm(evals_clr) if np.linalg.norm(evals_clr) > 1e-15 else evals_clr
+        spectral_component = float(np.linalg.norm(spec_raw - spec_clr) / np.sqrt(2))
+        EDI = float(np.sqrt(angular_component**2 + spectral_component**2) / np.sqrt(2))
+
+        # Correlation sign flips
+        def cov_to_corr(C):
+            d = np.sqrt(np.diag(C))
+            d[d < 1e-15] = 1.0
+            return C / np.outer(d, d)
+
+        Corr_raw = cov_to_corr(Cov_raw)
+        Corr_clr = cov_to_corr(Cov_clr)
+
+        sign_flips = 0
+        total_pairs = 0
+        max_corr_shift = 0.0
+        for i in range(D):
+            for j in range(i + 1, D):
+                total_pairs += 1
+                if Corr_raw[i, j] * Corr_clr[i, j] < 0:
+                    sign_flips += 1
+                delta = abs(Corr_clr[i, j] - Corr_raw[i, j])
+                if delta > max_corr_shift:
+                    max_corr_shift = delta
+
+        sign_flip_fraction = sign_flips / total_pairs if total_pairs > 0 else 0.0
+
+        # Near-zero carrier count (within 1 order of magnitude of delta)
+        ZERO_DELTA = 1e-6
+        near_zero_count = int(np.sum(self.simplex_data.min(axis=0) < ZERO_DELTA * 10))
+
+        # Determine control regime
+        if EDI < 0.1:
+            regime = "MINIMAL"
+            flag = "CLR correction minimal — raw and CoDa analyses converge"
+        elif EDI < 0.3:
+            regime = "MODERATE"
+            flag = "CLR correction moderate — CoDa geometry applies"
+        elif EDI <= 0.7:
+            regime = "WORKING"
+            flag = "Engine operating in designed regime"
+        else:
+            if near_zero_count > 0:
+                regime = "EXTREME_NEAR_ZERO"
+                flag = f"Extreme correction — {near_zero_count} near-zero carriers amplified by ln"
+            else:
+                regime = "EXTREME"
+                flag = "Extreme correction — strong closure distortion"
+
+        # CoDa correction necessity
+        if sign_flip_fraction > 0.5:
+            correction_necessity = "ESSENTIAL"
+        elif sign_flip_fraction > 0.2:
+            correction_necessity = "SIGNIFICANT"
+        elif sign_flip_fraction > 0.05:
+            correction_necessity = "MODERATE"
+        else:
+            correction_necessity = "CONFIRMATORY"
+
+        # Store as internal control data (not user-facing)
+        self.results["edi_control_gate"] = {
+            "status": "PASS",
+            "EDI": round(EDI, 6),
+            "regime": regime,
+            "flag": flag,
+            "correction_necessity": correction_necessity,
+            "rms_angle_deg": round(np.degrees(rms_angle), 4),
+            "trace_ratio": round(tr_ratio, 4),
+            "dominance_raw": round(dom_raw, 6),
+            "dominance_clr": round(dom_clr, 6),
+            "dominance_shift_pp": round((dom_clr - dom_raw) * 100, 2),
+            "frobenius_normalised": round(frob_norm, 6),
+            "angular_component": round(float(angular_component), 6),
+            "spectral_component": round(spectral_component, 6),
+            "sign_flips": sign_flips,
+            "total_pairs": total_pairs,
+            "sign_flip_fraction": round(sign_flip_fraction, 4),
+            "max_correlation_shift": round(float(max_corr_shift), 4),
+            "near_zero_carriers": near_zero_count,
+        }
+
+    # --------------------------------------------------------
     # STEP 6: Aitchison Variance Trajectory
     # --------------------------------------------------------
     def aitchison_variance(self):
@@ -376,6 +549,191 @@ class HigginsDecomposition:
             float(sigma2[2:].max()) if N > 2 else 0.0,
         ]
         self.results["step5_sigma2_final"] = float(sigma2[-1]) if N > 0 else 0.0
+
+    # --------------------------------------------------------
+    # STEP 6.5: Matrix Analysis (Variation Matrix Eigendecomposition)
+    # --------------------------------------------------------
+    def matrix_analysis(self):
+        """Compute deep matrix diagnostics on the variation matrix V(t) = Cov(CLR).
+
+        This is the pre-Trace tensor analysis — what the impedance bridge sees
+        before the Trace gate contracts V to a scalar trajectory.
+
+        Computes:
+          - Eigendecomposition: λᵢ, vᵢ for V(t) at multiple time slices
+          - Eigenvector stability: overlap |⟨v₁(first), v₁(last)⟩|
+          - Condition number: κ = λ_max / λ_min
+          - Von Neumann entropy: S = -Tr(ρ ln ρ), ρ = V/Tr(V)
+          - Commutator norm: ‖[V(t₁), V(t₂)]‖_F / (‖V₁‖·‖V₂‖)
+          - Determinant dynamics: det(V) / (Tr(V)/D)^D
+          - Cholesky factor: conditional standard deviations
+          - Eigenvalue power law: λ₁(t) ~ c·t^α
+          - Eigenvalue ratio scan: λᵢ/λⱼ vs transcendental constants
+          - Balun metrics: Γ, VSWR, Q factor
+        """
+        assert self.clr_data is not None, "CLR transform first (step 5)"
+        N, D = self.clr_data.shape
+
+        # Build variation matrices at multiple time slices
+        n_slices = min(10, N // 3)
+        if n_slices < 2:
+            n_slices = 2
+        slice_indices = np.linspace(2, N - 1, n_slices, dtype=int)
+
+        eigenvalues_over_t = []
+        eigenvectors_over_t = []
+        V_matrices = []
+
+        for t in slice_indices:
+            window = self.clr_data[:t + 1]
+            V_t = np.cov(window.T)
+            if V_t.ndim == 0:
+                V_t = np.array([[V_t]])
+            vals, vecs = np.linalg.eigh(V_t)
+            # Sort descending
+            idx = np.argsort(vals)[::-1]
+            vals = vals[idx]
+            vecs = vecs[:, idx]
+            eigenvalues_over_t.append(vals)
+            eigenvectors_over_t.append(vecs)
+            V_matrices.append(V_t)
+
+        # Final variation matrix (full data)
+        V_final = np.cov(self.clr_data.T)
+        if V_final.ndim == 0:
+            V_final = np.array([[V_final]])
+        vals_final, vecs_final = np.linalg.eigh(V_final)
+        idx = np.argsort(vals_final)[::-1]
+        vals_final = vals_final[idx]
+        vecs_final = vecs_final[:, idx]
+
+        trace_final = float(np.trace(V_final))
+
+        # ── λ₁/Tr (eigenvalue dominance) ──
+        lambda1_frac = float(vals_final[0] / trace_final) if trace_final > 0 else 0
+
+        # ── Eigenvector stability ──
+        v1_first = eigenvectors_over_t[0][:, 0]
+        v1_last = eigenvectors_over_t[-1][:, 0]
+        overlap = float(abs(np.dot(v1_first, v1_last)))
+
+        # ── Condition number ──
+        positive_vals = vals_final[vals_final > 1e-15]
+        kappa = float(positive_vals[0] / positive_vals[-1]) if len(positive_vals) > 1 else float('inf')
+
+        # ── Von Neumann entropy ──
+        rho = V_final / trace_final if trace_final > 0 else V_final
+        rho_eigs = vals_final / trace_final if trace_final > 0 else vals_final
+        rho_eigs_safe = rho_eigs[rho_eigs > 1e-15]
+        S_vn = float(-np.sum(rho_eigs_safe * np.log(rho_eigs_safe)))
+        S_max = float(np.log(D))
+        vn_ratio = S_vn / S_max if S_max > 0 else 0
+
+        # ── Commutator ──
+        if len(V_matrices) >= 2:
+            V1 = V_matrices[0]
+            V2 = V_matrices[-1]
+            comm = V1 @ V2 - V2 @ V1
+            comm_norm = float(np.linalg.norm(comm, 'fro'))
+            norm_product = np.linalg.norm(V1, 'fro') * np.linalg.norm(V2, 'fro')
+            comm_normalized = comm_norm / norm_product if norm_product > 0 else 0
+        else:
+            comm_normalized = 0
+
+        # ── Determinant dynamics ──
+        det_V = float(np.linalg.det(V_final))
+        mean_eig = trace_final / D if D > 0 else 1
+        det_isotropic = mean_eig ** D
+        det_ratio = det_V / det_isotropic if abs(det_isotropic) > 1e-30 else 0
+
+        # ── Cholesky ──
+        cholesky_last = 0
+        try:
+            # V must be positive definite; add small regularisation
+            V_reg = V_final + np.eye(D) * 1e-12
+            L = np.linalg.cholesky(V_reg)
+            cholesky_last = float(L[-1, -1])
+        except np.linalg.LinAlgError:
+            cholesky_last = 0
+
+        # ── Eigenvalue power law: λ₁(t) ~ c·t^α ──
+        power_law_alpha = 0
+        power_law_R2 = 0
+        if len(slice_indices) >= 3:
+            t_vals = slice_indices.astype(float)
+            lam1_vals = np.array([ev[0] for ev in eigenvalues_over_t])
+            # Only fit where both are positive
+            mask = (t_vals > 0) & (lam1_vals > 0)
+            if mask.sum() >= 3:
+                log_t = np.log(t_vals[mask])
+                log_lam = np.log(lam1_vals[mask])
+                coeffs = np.polyfit(log_t, log_lam, 1)
+                power_law_alpha = float(coeffs[0])
+                # R²
+                y_pred = np.polyval(coeffs, log_t)
+                ss_res = np.sum((log_lam - y_pred) ** 2)
+                ss_tot = np.sum((log_lam - log_lam.mean()) ** 2)
+                power_law_R2 = float(1 - ss_res / ss_tot) if ss_tot > 0 else 0
+
+        # ── Eigenvalue ratio scan ──
+        ratio_matches = 0
+        best_match = None
+        best_delta = 999
+        if len(vals_final) >= 2:
+            for i in range(len(vals_final)):
+                for j in range(len(vals_final)):
+                    if i == j or vals_final[j] < 1e-15:
+                        continue
+                    ratio = vals_final[i] / vals_final[j]
+                    for cname, cval in TRANSCENDENTAL_CONSTANTS.items():
+                        if cval <= 0:
+                            continue
+                        delta = abs(ratio - cval)
+                        if delta < 0.01:
+                            ratio_matches += 1
+                            if delta < best_delta:
+                                best_delta = delta
+                                best_match = {
+                                    "ratio": f"λ{i+1}/λ{j+1}",
+                                    "value": float(ratio),
+                                    "constant": cname,
+                                    "delta": float(delta),
+                                }
+
+        # ── Balun metrics ──
+        gamma = float(np.sqrt(1 - lambda1_frac)) if lambda1_frac <= 1 else 0
+        vswr = (1 + gamma) / (1 - gamma) if gamma < 1 else float('inf')
+
+        # Q factor from eigenvalue ratio scan
+        q_factor = 0
+        if best_match and best_delta > 0:
+            q_factor = float(best_match['value'] / (2 * best_delta))
+
+        # Store results
+        mx = {
+            "lambda1_fraction": lambda1_frac,
+            "eigenvalues_final": vals_final.tolist(),
+            "eigenvector_overlap": overlap,
+            "condition_number": kappa,
+            "von_neumann_entropy": S_vn,
+            "von_neumann_ratio": float(vn_ratio),
+            "commutator_norm": float(comm_normalized),
+            "det_V": det_V,
+            "det_amgm_ratio": float(det_ratio),
+            "cholesky_last_diag": cholesky_last,
+            "eigenvalue_power_law_alpha": power_law_alpha,
+            "eigenvalue_power_law_R2": power_law_R2,
+            "eigenvalue_ratio_matches": ratio_matches,
+            "eigenvalue_ratio_best_match": best_match,
+            "gamma": gamma,
+            "VSWR": float(vswr) if not np.isinf(vswr) else "inf",
+            "Q_factor": q_factor,
+            "trace_final": trace_final,
+            "n_slices": n_slices,
+        }
+
+        self.results["matrix_analysis"] = mx
+        self.matrix_result = mx
 
     # --------------------------------------------------------
     # STEP 7: HVLD Vertex Lock
@@ -741,7 +1099,9 @@ class HigginsDecomposition:
 
         self.close_to_simplex()     # Step 4
         self.clr_transform()        # Step 5
+        self.edi_control_gate()     # Step 5.5: EDI engine self-test
         self.aitchison_variance()   # Step 6
+        self.matrix_analysis()      # Step 6.5: V(t) eigendecomposition
         self.pll_parabola()         # Step 7
         self.super_squeeze()        # Step 8
         self.eitt_entropy()         # Step 9
@@ -1076,7 +1436,7 @@ class HigginsDecomposition:
         )
         gs = GridSpec(2, 3, figure=fig, hspace=0.35, wspace=0.3)
 
-        # Panel 1: σ²_A trajectory + PLL
+        # Panel 1: σ²_A trajectory + HVLD
         ax1 = fig.add_subplot(gs[0, 0])
         N = len(self.sigma2_A)
         valid = np.arange(2, N)

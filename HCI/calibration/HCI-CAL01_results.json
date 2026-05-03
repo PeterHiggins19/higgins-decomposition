@@ -1,0 +1,99 @@
+{
+  "_meta": {
+    "type": "HCI_CALIBRATION",
+    "experiment": "HCI-CAL01",
+    "name": "CNT Calibration Suite",
+    "date": "2026-05-02",
+    "generator": "hci_cal01_cnt_calibration.py",
+    "total_tests": 10,
+    "total_passed": 10,
+    "status": "ALL PASS"
+  },
+  "tests": {
+    "T01_identity": {
+      "pass": true,
+      "N": 20,
+      "D": 4,
+      "max_omega": 0.0,
+      "hs_range": [
+        0.07678032766449217,
+        0.07678032766449217
+      ]
+    },
+    "T02_single_drift": {
+      "pass": true,
+      "N": 20,
+      "D": 4,
+      "mean_omega": 9.473684736478127
+    },
+    "T03_rotation": {
+      "pass": true,
+      "N": 24,
+      "D": 3,
+      "mean_omega": 14.999999999999995,
+      "omega_std": 3.170728270056958e-14
+    },
+    "T04_divergence": {
+      "pass": true,
+      "N": 20,
+      "D": 3,
+      "kappa2_first": 3.333333333333334,
+      "kappa2_last": 1010.1010101010198,
+      "kappa2_ratio": 303.0303030303059
+    },
+    "T05_lock": {
+      "pass": true,
+      "N": 20,
+      "D": 4,
+      "locks_found": 1,
+      "lock_pairs": [
+        [
+          0,
+          1,
+          8.62
+        ]
+      ]
+    },
+    "T06_reversal": {
+      "pass": true,
+      "N": 20,
+      "D": 3,
+      "bearing_01_start": -42.81,
+      "bearing_01_end": 132.81
+    },
+    "T07_symmetry": {
+      "pass": true,
+      "N": 15,
+      "D": 3,
+      "omega_max_diff": 1.829647544582258e-13
+    },
+    "T08_contraction": {
+      "pass": true,
+      "N": 15,
+      "D": 4
+    },
+    "T09_decomposition": {
+      "pass": true,
+      "N": 20,
+      "D": 3,
+      "max_omega": 9.735504229674565e-07
+    },
+    "T10_navigation": {
+      "pass": true,
+      "N": 40,
+      "D": 4
+    }
+  },
+  "test_descriptions": {
+    "T01_identity": "Stationary composition \u2014 omega=0, bearings constant",
+    "T02_single_drift": "Single-carrier linear drift \u2014 carrier 0 is helmsman",
+    "T03_rotation": "Constant-velocity rotation \u2014 omega constant across intervals",
+    "T04_divergence": "Carrier approaching zero \u2014 kappa diverges (Corollary 5)",
+    "T05_lock": "Constant ratio pair \u2014 lock detection (Corollary 3)",
+    "T06_reversal": "Geometric-mean crossover \u2014 bearing sign change (Corollary 4)",
+    "T07_symmetry": "Carrier relabelling \u2014 omega and kappa permutation invariance",
+    "T08_contraction": "Trace preservation \u2014 Tr(kappa) = sum(1/x_j) exactly",
+    "T09_decomposition": "Rank-1 trajectory \u2014 constant bearing, zero omega",
+    "T10_navigation": "Multi-phase sequence \u2014 identity/drift/divergence/recovery"
+  }
+}

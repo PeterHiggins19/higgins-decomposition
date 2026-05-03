@@ -3,7 +3,7 @@
     "type": "HS_MACHINE_MANIFEST",
     "version": "1.1",
     "created": "2026-04-25",
-    "updated": "2026-04-28",
+    "updated": "2026-05-02",
     "author": "Peter Higgins",
     "purpose": "Machine-readable entry point for all systems interacting with the Hˢ repository. Read this file first. It provides: identity, navigation, protocol, governance, and authority resolution.",
     "read_order": "This file → HS_ADMIN.json → experiment results → reference standards → archive",
@@ -40,10 +40,16 @@
       "pt",
       "it"
     ],
-    "pipeline_version": "1.0 Extended + Amalgamation",
+    "pipeline_version": "2.0 Extended + Amalgamation + Matrix + Tensor + EDI Control Gate + CNT",
     "constants": 35,
-    "diagnostic_codes": 78,
-    "structural_modes": 10,
+    "diagnostic_codes": "106 + 9 PD-* Poincaré codes",
+    "structural_modes": 14,
+    "hci_instruments": 1,
+    "hci_calibration_tests": 10,
+    "hci_calibration_status": "ALL PASS",
+    "hci_precision_experiments": 10,
+    "hci_precision_status": "ENGINE AT IEEE 754 FLOOR",
+    "hci_engine_refinements": ["atan2_angular_velocity", "helmert_basis", "condition_number_diagnostic"],
     "instrument_metrology": "QUALIFIED (6/6 metrics pass)",
     "deterministic": true
   },
@@ -67,6 +73,19 @@
       "controller": "tools/pipeline/hs_controller.py",
       "sensitivity": "tools/pipeline/hs_sensitivity.py",
       "amalgamation": "tools/pipeline/hs_amalgamation.py",
+      "projector_export": "tools/pipeline/hs_projector_export.py",
+      "run": "tools/pipeline/hs_run.py",
+      "helix_exploded": "tools/pipeline/hs_helix_exploded.py",
+      "manifold_helix": "tools/pipeline/hs_manifold_helix.py",
+      "manifold_projections": "tools/pipeline/hs_manifold_projections.py",
+      "polar_stack": "tools/pipeline/hs_polar_stack.py",
+      "manifold_paper": "tools/pipeline/hs_manifold_paper.py",
+      "projector_gen": "tools/pipeline/hs_projector_gen.py",
+      "cinema_gen": "tools/pipeline/hs_cinema_gen.py",
+      "tensor": "tools/pipeline/hs_tensor.py",
+      "balun_matrix": "tools/pipeline/balun_matrix_analysis.py",
+      "impedance_bridge": "tools/pipeline/impedance_bridge.py",
+      "tr_basis_experiment": "tools/pipeline/tr_basis_experiment.py",
       "locales": "tools/pipeline/locales/",
       "entry_point": "from higgins_decomposition_12step import HigginsDecomposition; hd = HigginsDecomposition(id, name, domain, carriers); hd.load_data(matrix); result = hd.run_full_extended()"
     },
@@ -82,7 +101,9 @@
       "stress_test_report": "experiments/Hs_STRESS_TEST_REPORT_2026-04-28.json",
       "pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_results.json",
       "rerun_pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_rerun_2026-04-28.json",
-      "range": "Hs-01 through Hs-25",
+      "range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD = 30 experiment folders",
+      "m_series_pattern": "experiments/Hs-M{NN}_{Name}/Hs-M{NN}_results.json",
+      "mc_series_pattern": "experiments/Hs-MC{N}_{Name}/Hs-MC{N}_results.json",
       "rerun_plan": "Hs_EXPERIMENT_RERUN_PLAN.json"
     },
     "teaching": {
@@ -120,7 +141,8 @@
       "cosmic_cone": "tools/interactive/cosmic_cone_5min_loop.html",
       "duality_dance": "tools/interactive/cosmic_duality_dance.html",
       "cosmic_future": "tools/interactive/cosmic_future_projection.html",
-      "total": 9,
+      "universal_projector": "tools/interactive/hs_projector.html",
+      "total": 10,
       "note": "All interactive tools in one folder for fast demo access. CoDaWork demos are copies from papers/codawork2026/."
     },
     "metrology": {
@@ -139,7 +161,59 @@
     "journals": {
       "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md",
       "Hs-24": "experiments/Hs-24_HEPData_Validation/Hs-24_JOURNAL.md",
-      "Hs-25": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_JOURNAL.md"
+      "Hs-25": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_JOURNAL.md",
+      "Hs-M01": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_JOURNAL.md",
+      "Hs-M02": "experiments/Hs-M02_EMBER_Energy/Hs-M02_JOURNAL.md",
+      "Hs-MC4": "experiments/Hs-MC4_Shape_Calibration/Hs-MC4_JOURNAL.md",
+      "Hs-STD": "experiments/Hs-STD_Standards_Test/Hs-STD_JOURNAL.md"
+    },
+    "hci": {
+      "foundation": "HCI/HCI_FOUNDATION.md",
+      "cbs_engine": "HCI/hci_cbs.py",
+      "readme": "HCI/README.md",
+      "calibration_suite": "HCI/calibration/hci_cal01_cnt_calibration.py",
+      "precision_experiments": "HCI/calibration/cnt_precision_experiment.py",
+      "precision_diagnostic": "HCI/calibration/CNT_PRECISION_DIAGNOSTIC.md",
+      "math_handbook": "papers/flagship/CNT_Engine_Mathematics_Handbook.docx"
+    },
+    "higgins_coordinates": {
+      "specification": "Higgins_Coordinate_System/HIGGINS_COORDINATES.md",
+      "handbook": "Higgins_Coordinate_System/Higgins_Coordinate_System_Handbook_v4.2.docx",
+      "experiment": "Higgins_Coordinate_System/experiment_01_diagnostic.html"
+    },
+    "hs_direct": {
+      "japan_pptx": "Hs_Direct/JPN_Hs_Direct_CoDaWork2026.pptx",
+      "japan_analysis": "Hs_Direct/JPN_direct_analysis.json"
+    },
+    "m_series_tools": {
+      "M01_slideshow": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_pipeline_slideshow.html",
+      "M01_manifold": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_manifold.html",
+      "M01_helix": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_helix.html",
+      "M02_slideshow": "experiments/Hs-M02_EMBER_Energy/Hs-M02_pipeline_slideshow.html",
+      "M02_manifold": "experiments/Hs-M02_EMBER_Energy/Hs-M02_manifold.html",
+      "M02_helix": "experiments/Hs-M02_EMBER_Energy/Hs-M02_helix.html",
+      "M01_projector": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_projector.html",
+      "M02_projector": "experiments/Hs-M02_EMBER_Energy/Hs-M02_projector.html",
+      "total": 8,
+      "note": "M-series HTML tools live in their experiment folders (not tools/interactive/) as they are experiment-specific baseline references."
+    },
+    "visualization_standard": {
+      "terminal_output": "Manifold Projector",
+      "description": "The Manifold Projector is the mandatory terminal visualization for every Hˢ analysis. It renders the compositional data manifold as a 3D interactive radar-polygon tube — each time step is a radar chart fingerprint (per-carrier CLR values normalized to 0-1) stacked along the Z-axis with perspective projection (FOV=700). The slideshow leads to this display. This IS the diagram of the system.",
+      "features": ["3D rotating radar-polygon tube", "per-run min-max CLR normalization (each run normalized independently to preserve shape fidelity)", "perturbation mapping (|ΔCLR| as outward spikes, green→yellow→red)", "perspective projection FOV=700, sc = fov/(fov+z+350)", "painter's sort depth ordering", "auto-orbit with mouse drag override", "trails, ghost, labels, time slider, view presets"],
+      "projection_fidelity": "A data straight line on the simplex projects as a smooth monotonic radar polygon deformation — no false curvature because normalization is per-run min-max and linear. Per-run normalization ensures each system's shape is faithfully rendered without cross-run scale contamination.",
+      "normalization_rule": "Per-run min-max. Each run's CLR values are normalized to [0,1] using that run's own min and max. This preserves the geometric identity of each system. Global normalization across runs is prohibited — it distorts shape fidelity. Validated by MC-4 (5/5 PASS) and STD (3/3 PASS) calibration series.",
+      "boundary_markers": {
+        "degenerate": "DEGEN diamond marker at center axis when CLR spread < 1e-4. No polygon drawn.",
+        "missing": "Red X marker at vertex when carrier CLR < -10. Polygon drawn with valid carriers only.",
+        "lock_acquisition": "Green dashed ring with offset value. First valid timestep after DEGEN. Documents instrument resolving boundary.",
+        "lock_loss": "Amber dashed ring with offset value. Last valid timestep before DEGEN. Symmetric with acquisition."
+      },
+      "pipeline_rule": "Every experiment MUST generate a Manifold Projector HTML as its final visual output. The pipeline slideshow is the journey; the projector is the destination.",
+      "canonical_reference": "viz_manifold_projector.html (uploaded reference, 4-country EMBER subset)",
+      "universal_instrument": "tools/interactive/hs_projector.html",
+      "export_tool": "tools/pipeline/hs_projector_export.py",
+      "usage": "Open hs_projector.html in a browser, drop any pipeline results JSON or projector manifest. The universal instrument replaces the need to generate per-experiment projector HTML files."
     },
     "directory_readmes": {
       "tools": "tools/README.md",
@@ -186,7 +260,19 @@
       "D_derivative": "Waypoint system in EXECUTIVE_SUMMARY.md. Declares position, target, gate, drift boundary.",
       "FF_feed_forward": "New information is forward-biased. Diagnosed for current use. Historical data checked but not privileged."
     },
+    "instrument_certification": {
+      "document": "HS_DATA_INTEGRITY_LAW.md",
+      "status": "CERTIFIED — MC-4 calibration passed (5/5 test objects), CoDaWork-certifiable methodology chain, DUT posture active",
+      "three_laws": {
+        "first": "The instrument does not fabricate. If the shape does not match expectation, the data contains that structure.",
+        "second": "Every nibble is preserved. No data point is discarded, smoothed, or suppressed. Degenerate and missing markers tag all boundary conditions.",
+        "third": "Confidence is stated. The methodology chain (closure, CLR, spline, normalization, projection) is certifiable to CoDaWork standards. No known misstep exists."
+      },
+      "dut_principle": "The data is always the Device Under Test. The projector is never the DUT. An unexpected shape is a finding about the data, not a defect of the instrument. The anomaly is the interesting part — it must never be lost.",
+      "confidence_statement": "The methodology chain is sound, the instrument is calibrated, and the projection is a faithful geometric rendering of the compositional structure within the data."
+    },
     "authority_stack": [
+      "0. HS_DATA_INTEGRITY_LAW.md — three laws of data integrity, instrument certification, DUT principle (governing)",
       "1. HS_MACHINE_MANIFEST.json — structure and navigation (this file)",
       "2. HS_ADMIN.json — identity, terminology, communication standards",
       "3. Reference standard library — calibration values and thresholds",
@@ -345,9 +431,61 @@
       "stress_test": "15/15 PASS — OPERATIONAL",
       "R2_mean": 0.7761,
       "R2_range": "0.1007 to 0.9999",
-      "PLL_shapes": {"bowl": 17, "hill": 8},
+      "HVLD_shapes": {"bowl": 17, "hill": 8},
       "deliverables": ["Hs_FULL_CHAIN_REPORT_2026-04-28.json", "Hs_STRESS_TEST_REPORT_2026-04-28.json"],
       "reference": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json"
+    },
+    "tensor_functor": {
+      "status": "Implemented (April 30, 2026)",
+      "statement": "Hˢ formulated as a five-layer tensor functor: Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S with explicit rank changes (1,1)→(1,1)→(1,1)→(0,2)→(0,0)→label.",
+      "naturality": "CLR ≡ ILR (orthonormal Helmert). ALR breaks naturality.",
+      "implementation": "tools/pipeline/hs_tensor.py",
+      "reference": "EXECUTIVE_SUMMARY.md (April 30 entry)"
+    },
+    "matrix_diagnostics": {
+      "status": "Implemented (April 30, 2026)",
+      "statement": "24 MX-* diagnostic codes from V(t) covariance matrix eigendecomposition. 4 new structural modes (SM-FRZ, SM-THR, SM-MXR, SM-EDP). Pipeline Step 6.5.",
+      "new_codes": 24,
+      "new_structural_modes": 4,
+      "total_codes": 106,
+      "total_structural_modes": 14,
+      "reference": "EXECUTIVE_SUMMARY.md (April 30 entry)"
+    },
+    "impedance_match_observation": {
+      "status": "Empirical (April 30, 2026)",
+      "statement": "Low reflection coefficient Γ = √(1 − λ₁/Tr(V)) is a measured consequence of rank-1 dominant covariance across tested systems.",
+      "note": "Previously labelled 'Balun Theorem'. Renamed to 'Impedance Match Observation' per science-neutral stance.",
+      "reference": "tools/pipeline/impedance_bridge.py"
+    },
+    "poincare_disc_connection": {
+      "status": "Implemented (May 1, 2026)",
+      "statement": "Circularity ratio ρ = r_min/r_max mapped to Poincaré disc via Cayley transform. 9 PD-* diagnostic codes for hyperbolic structure analysis.",
+      "codes": ["PD-RHO", "PD-RAD", "PD-DHY", "PD-MET", "PD-ZON", "PD-EFF", "PD-KAP", "PD-CRO", "PD-BUS"],
+      "reference": "papers/flagship/Manifold_Characterization_by_Decomposition.docx"
+    },
+    "higgins_coordinate_system": {
+      "status": "Specified (May 1, 2026)",
+      "statement": "Complete coordinate system on the simplex with Euclidean, polar, hyperbolic, and projective representations. Handbook v4.2.",
+      "reference": "Higgins_Coordinate_System/HIGGINS_COORDINATES.md"
+    },
+    "edi_control_gate": {
+      "status": "Implemented (May 1, 2026)",
+      "statement": "Eigenstructure Distortion Index as internal engine control (Step 5.5). EDI = √(angular² + spectral²)/√2. Validates CLR transform necessity.",
+      "regimes": ["MINIMAL (<0.1)", "MODERATE (0.1-0.3)", "WORKING (0.3-0.7)", "EXTREME (>0.7)"],
+      "reference": "tools/pipeline/higgins_decomposition_12step.py"
+    },
+    "compositional_navigation_tensor": {
+      "status": "Implemented (May 2, 2026)",
+      "statement": "CNT(x) = (θ, ω, κ, σ) — bearing, angular velocity, steering sensitivity, helmsman from any closed composition via CLR polar decomposition.",
+      "components": {
+        "theta": "Bearing tensor — atan2(h_j, h_i) for all D(D-1)/2 pairs",
+        "omega": "Angular velocity — arccos of normalised CLR dot product",
+        "kappa": "Steering sensitivity — g_{jj} = 1/x_j (Aitchison metric)",
+        "sigma": "Helmsman — argmax_j |Δh_j|"
+      },
+      "findings": ["Coal-Gas informational lock (8.4° spread, 26 years)", "Hydro-OFossil maximum fan-out (167° spread)", "Steering sensitivity divergence at simplex boundary"],
+      "implementation": "HCI/hci_cbs.py",
+      "reference": "HCI/HCI_FOUNDATION.md"
     },
     "codawork_posture": {
       "previous": "Scientific Surrender — presenting an empirical mystery",

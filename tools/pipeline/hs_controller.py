@@ -122,7 +122,7 @@ VALID_TRANSITIONS = {
 EVENT_TYPES = {
     "STATE_CHANGE", "STEP_COMPLETE", "BREAKPOINT_HIT", "CLASSIFICATION",
     "FINGERPRINT", "CODES_READY", "HOLD_WAITING", "ERROR", "AUDIT_CHAIN",
-    "COMMAND_RECEIVED", "POLICY_CHECK", "RESUME",
+    "COMMAND_RECEIVED", "POLICY_CHECK", "RESUME", "MATRIX_ANALYSIS",
 }
 
 
@@ -403,6 +403,20 @@ class HsController:
                     "constant": sq.get('constant') if sq else None,
                     "delta": delta,
                 })
+
+                # Matrix analysis event — balun diagnostics
+                mx = steps.get('matrix_analysis', {})
+                if mx:
+                    self.events.emit("MATRIX_ANALYSIS", {
+                        "lambda1_fraction": mx.get('lambda1_fraction'),
+                        "eigenvector_overlap": mx.get('eigenvector_overlap'),
+                        "von_neumann_ratio": mx.get('von_neumann_ratio'),
+                        "gamma": mx.get('gamma'),
+                        "Q_factor": mx.get('Q_factor'),
+                        "condition_number": mx.get('condition_number'),
+                        "ratio_matches": mx.get('eigenvalue_ratio_matches'),
+                        "balun_matched": mx.get('gamma', 1) < 0.2,
+                    })
 
             self.events.emit("AUDIT_CHAIN", {
                 "chain_hash": self._audit._chain_hash(),

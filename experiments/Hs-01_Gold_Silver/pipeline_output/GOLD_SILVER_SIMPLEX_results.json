@@ -1,0 +1,232 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "GOLD_SILVER_SIMPLEX",
+  "name": "Gold/Silver Price Ratio",
+  "domain": "COMMODITIES",
+  "carriers": [
+    "Gold",
+    "Silver"
+  ],
+  "D": 2,
+  "N": 624,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from gold_silver_simplex.csv"
+  },
+  "data_hash_sha256_16": "5349a921c85695da",
+  "run_timestamp": "2026-04-30T21:00:11.416635Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "GOLD_SILVER_SIMPLEX: Gold/Silver Price Ratio: 2-part simplex, carriers=['Gold', 'Silver']",
+    "step2_n_samples": 624,
+    "step2_D": 2,
+    "step2_carriers": [
+      "Gold",
+      "Silver"
+    ],
+    "data_hash_sha256_16": "5349a921c85695da",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      1.8711082553635294,
+      -1.8711082553635294
+    ],
+    "step4_clr_std_per_part": [
+      0.384583240886362,
+      0.38458324088636214
+    ],
+    "step5_sigma2_range": [
+      2.4456443271315585e-06,
+      0.3212516069604754
+    ],
+    "step5_sigma2_final": 0.29580853834131515,
+    "matrix_analysis": {
+      "lambda1_fraction": 1.0,
+      "eigenvalues_final": [
+        0.29628335140446366,
+        0.0
+      ],
+      "eigenvector_overlap": 0.9999999999999998,
+      "condition_number": Infinity,
+      "von_neumann_entropy": -0.0,
+      "von_neumann_ratio": -0.0,
+      "commutator_norm": 1.1769590127892248e-13,
+      "det_V": 0.0,
+      "det_amgm_ratio": 0.0,
+      "cholesky_last_diag": 1.4142175461049083e-06,
+      "eigenvalue_power_law_alpha": 2.153891842988687,
+      "eigenvalue_power_law_R2": 0.8241024477595734,
+      "eigenvalue_ratio_matches": 0,
+      "eigenvalue_ratio_best_match": null,
+      "gamma": 0.0,
+      "VSWR": 1.0,
+      "Q_factor": 0,
+      "trace_final": 0.29628335140446366,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      8.280148836582731e-08,
+      0.0006651001186749298,
+      -0.06507448484305633
+    ],
+    "step6_pll_R2": 0.907148120256416,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -4016.232870938469,
+      -1.4006729643867213
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 209,
+    "step7_squeeze_closest": {
+      "time_index": 488,
+      "sigma2_A": 0.31834159776395354,
+      "constant": "1/pi",
+      "constant_value": 0.3183098861837907,
+      "test_type": "direct",
+      "test_value": 0.31834159776395354,
+      "delta": 3.171158016285203e-05
+    },
+    "step7_squeeze_mean": 0.153524925776371,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.07712453719592371,
+      0.351007044878914
+    ],
+    "step8_entropy_mean": 0.18457743669619064,
+    "step8_entropy_cv": 58.194916165603146,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.18457743669619064,
+        "H_mean_decimated": 0.18452463430898655,
+        "variation_pct": 0.02860717330851445,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.18457743669619064,
+        "H_mean_decimated": 0.18443396006686055,
+        "variation_pct": 0.07773248556173748,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.18457743669619064,
+        "H_mean_decimated": 0.18427289462599994,
+        "variation_pct": 0.16499420278111954,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 533,
+      "stalls": 70,
+      "spikes": 2,
+      "reversals": 461
+    },
+    "step10_ternary_type": "1-simplex",
+    "step11_complex_range_re": [
+      -0.035682445512820404,
+      0.02091755448717969
+    ],
+    "step11_complex_range_im": [
+      0.0,
+      0.0
+    ],
+    "step12_radius_range": [
+      0.00011055448717967042,
+      0.035682445512820404
+    ],
+    "step12_theta_range": [
+      0.0,
+      3.141592653589793
+    ],
+    "step9_angular_velocity_std": 0.4874479417480891
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.14790426917065752,
+          0.14790426917065763
+        ],
+        "carrier_pct": [
+          49.999999999999986,
+          50.00000000000002
+        ],
+        "dominant_carrier": "Silver",
+        "dominant_pct": 50.00000000000002
+      },
+      "match_density": {
+        "density": 590.568902062784,
+        "concentration": 0.4837572399899268,
+        "total_matches": 209,
+        "n_constants_hit": 6,
+        "dominant_constant": "1/pi",
+        "trajectory_length": 0.35389604713351636
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.591617076682631
+          ],
+          [
+            0.591617076682631,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          1.8711082553635294,
+          -1.8711082553635294
+        ],
+        "clr_stds": [
+          0.384583240886362,
+          0.38458324088636214
+        ],
+        "aitchison_distance_mean": 0.6093740664632274
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.12200999862293595,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Gold",
+        "max_shift_magnitude": 0.03604373076923084
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.907148120256416,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "transfer_entropy": {
+        "te_matrix": {
+          "Gold->Silver": 0.0,
+          "Silver->Gold": 4.440892098500626e-16
+        },
+        "dominant_flow": "Silver->Gold",
+        "dominant_te": 4.440892098500626e-16
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 0.29580853834131515,
+        "shuffled_sigma2": 0.2958085383413154,
+        "order_matters": false,
+        "relative_difference": 7.506362262904926e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 36,
+        "near_zero_carriers": [
+          "Silver"
+        ],
+        "zero_threshold": 0.01
+      }
+    },
+    "auto_detected": [
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector"
+    ]
+  }
+}

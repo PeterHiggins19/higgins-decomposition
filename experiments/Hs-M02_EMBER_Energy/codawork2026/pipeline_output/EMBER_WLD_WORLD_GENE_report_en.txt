@@ -1,0 +1,91 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  EMBER_WLD_WORLD_GENE
+  System:      EMBER World Generation
+  Domain:      ENERGY
+  Carriers:    Year, Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Other Renewables, Solar, Wind
+  N=26, D=10
+  Source:      LOCAL FILE
+  Description: Ingested from ember_WLD_World_generation_TWh.csv
+  Pipeline:    1.0 Extended
+  Data hash:   8644e6e0079364fa
+  Timestamp:   2026-05-01T06:09:56.163504Z
+
+
+Total codes: 87
+  Errors:       0
+  Warnings:     1
+  Discoveries: 49
+  Calibration signals: 1
+  Structural modes:  7
+  Information:  29
+
+── WARNINGS ──
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(2pi), delta=0.000080)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(2pi), delta=0.000080)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (1)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (4)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Solar, pct=66.839747)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.398172, drift_direction=decreasing, max_shift_carrier=Wind)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Coal), cv=12.463538)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Nuclear), cv=13.547865)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Year/Other Renewables), cv=7.091228)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Year/Solar), cv=75.752712)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Year/Wind), cv=88.787397)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Bioenergy/Coal), cv=10.649834)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Bioenergy/Gas), cv=9.030801)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Bioenergy/Hydro), cv=14.361253)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Other Fossil), cv=60.682386)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Bioenergy/Other Renewables), cv=15.638755)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Solar), cv=123.731810)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Bioenergy/Wind), cv=487.671809)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Coal/Gas), cv=19.151497)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Coal/Hydro), cv=4.708508)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Coal/Nuclear), cv=15.721910)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Coal/Other Fossil), cv=15.930395)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Coal/Other Renewables), cv=1.918577)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Gas/Other Renewables), cv=1.385066)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gas/Solar), cv=53.671796)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Nuclear), cv=64.705246)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Hydro/Other Renewables), cv=1.770384)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Solar), cv=60.384547)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Hydro/Wind), cv=56.512552)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Nuclear/Other Renewables), cv=6.584946)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Solar), cv=70.087737)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Nuclear/Wind), cv=75.382894)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Other Fossil/Other Renewables), cv=14.387126)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Fossil/Solar), cv=98.514195)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Fossil/Wind), cv=166.316450)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Renewables/Solar), cv=4388.909147)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Other Renewables/Wind), cv=59.771686)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Solar/Wind), cv=65.794833)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=26, near_zero_carriers=['Bioenergy', 'Other Renewables', 'Solar', 'Wind'], zero_threshold=0.010000)
+  [MX-RK1-DIS] MX-RK1-DIS (lambda1_fraction=0.995544)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=118657.097959)
+  [MX-VNL-DIS] MX-VNL-DIS (S_ratio=0.014239)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.986051, alpha=1.776095)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000003)
+  [MX-TRM-DIS] MX-TRM-DIS (count=13, best={'ratio': 'λ4/λ2', 'value': 0.04540838151701491, 'constant': '1/(pi^e)', 'delta': 0.0008831142500919931})
+  [MX-BAL-DIS] MX-BAL-DIS (gamma=0.066754, VSWR=1.143057)
+  [MX-QHI-DIS] MX-QHI-DIS (Q=25.709234)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-CPL-DIS] Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

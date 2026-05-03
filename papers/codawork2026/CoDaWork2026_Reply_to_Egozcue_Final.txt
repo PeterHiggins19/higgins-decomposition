@@ -1,0 +1,66 @@
+Dear Prof. Egozcue,
+
+Thank you very much for taking the time to read my proposal and for
+your thoughtful comments. I also appreciate you sharing your paper on
+subcompositional coherence — I have read it carefully and it has
+sharpened my thinking on several points. Let me respond to each of
+your queries.
+
+(1) Entropy invariance.
+
+You are right to flag this. Shannon entropy is not scale invariant,
+and I should not have implied it was an Aitchison-geometric property.
+What I observe empirically is narrower: when the closed composition
+is temporally decimated (every 2nd, 4th, 8th year), the entropy of
+the closed composition changes very little. This is a statement about
+the smoothness of the trajectory on the simplex, not about entropy
+being a proper CoDa functional. I will present it as an empirical
+observation about trajectory robustness, not as a geometric theorem.
+I note your work with Pawlowsky-Glahn on evidence information as the
+proper scale-invariant alternative, and I would welcome guidance on
+whether that measure could replace Shannon entropy in this role.
+
+(2) CLR versus ILR for classification.
+
+Thank you for your encouraging answer. I use CLR throughout the
+pipeline because it preserves the one-to-one correspondence between
+components and carriers, which matters for interpretation in the
+energy domain. As you note, the Aitchison distances are the same in
+either coordinate system, so the classification should survive the
+substitution. Your warning about amalgamation not commuting with
+perturbation is important — in my pipeline, amalgamation is always
+applied to the raw composition before any centering or transformation,
+precisely to avoid this ordering problem. I will make the order of
+operations explicit in the presentation.
+
+(3) Independent validation.
+
+I understand that the CoDa community works primarily in R. The
+pipeline is written in Python, but the underlying operations are
+standard CoDa computations — closure, CLR, variation matrix, Aitchison
+distance — that can be reproduced in any language. I will make the
+data and the step-by-step methodology available so that R users can
+verify the results independently. The live demonstration at the end
+of the talk runs in a web browser and requires no software installation.
+
+Regarding the abstract: I would like to proceed with the original
+scope — compositional monitoring of energy-mix drift on the simplex —
+with one update. EMBER has released their 2025 Global Electricity
+Review, and the energy landscape has shifted significantly. Renewables
+overtook coal generation globally for the first time, and the countries
+in my study (Germany, Japan, United Kingdom) have all moved
+substantially. I have recomputed the full pipeline with the updated
+dataset through 2025 using the current version of the system. Same
+method, same scope, fresh data. The results will be current as of
+the conference.
+
+I look forward to presenting in Coimbra and to learning from the
+community. If you have any further suggestions, I am happy to
+incorporate them.
+
+With respect,
+
+Peter Higgins
+Independent Researcher
+Markham, Ontario, Canada
+peterhiggins2016@gmail.com

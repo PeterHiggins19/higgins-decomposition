@@ -1,0 +1,203 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-LAB01",
+  "name": "Titration Standards — Chemistry Calibration",
+  "domain": "CHEMISTRY",
+  "series": "LAB-series (Laboratory Calibration Experiments)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "Calibrate the Hs instrument for chemical research using standard polyprotic acid titrations with exactly known equilibrium chemistry. Species fractions computed from closed-form alpha expressions using NIST pKa values.",
+  "data_source": {
+    "origin": "Computed from first-principles equilibrium chemistry",
+    "origin_url": null,
+    "description": "Species mole fractions (alpha values) for polyprotic acid titrations, computed exactly from acid dissociation constants (pKa) using the closed-form alpha expressions. No numerical approximation — analytical solution only.",
+    "pKa_sources": {
+      "phosphoric_acid": "pKa1=2.148, pKa2=7.198, pKa3=12.375 (NIST Critical Stability Constants, 25C, I->0)",
+      "citric_acid": "pKa1=3.13, pKa2=4.76, pKa3=6.40 (CRC Handbook of Chemistry and Physics)",
+      "carbonic_acid": "pKa1=6.35, pKa2=10.33 (apparent, includes CO2(aq) equilibrium, 25C)"
+    },
+    "closure": "Machine precision (max deviation < 2.22e-16)",
+    "license": "Public domain — equilibrium constants are physical constants"
+  },
+  "runs": [
+    {
+      "run_id": "H3PO4",
+      "name": "Phosphoric Acid",
+      "N": 200,
+      "D": 4,
+      "carriers": [
+        "H3PO4",
+        "H2PO4_minus",
+        "HPO4_2minus",
+        "PO4_3minus"
+      ],
+      "data_source_csv": "experiments/Hs-LAB01_Titration_Standards/data/phosphoric_acid_titration.csv",
+      "data_hash_sha256_16": "ba3349752b312208",
+      "run_timestamp": "2026-05-01T03:51:36.984472Z",
+      "run_command": "python hs_run.py ../../experiments/Hs-LAB01_Titration_Standards/data/phosphoric_acid_titration.csv --exp-id \"Hs-LAB01-H3PO4\" --name \"Phosphoric Acid Titration\" --domain CHEMISTRY",
+      "results_summary": {
+        "total_variance": 137.761,
+        "variance_shape": "bowl",
+        "variance_R2": 0.986303,
+        "entropy_mean": 0.222125,
+        "entropy_cv": 73.3,
+        "closure_verified": true,
+        "zero_replacement_applied": true,
+        "squeeze_count": 35,
+        "chaos_stalls": 0,
+        "chaos_spikes": 0,
+        "chaos_reversals": 0
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "transfer_entropy",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/PHOSPHORIC_ACID_TITR_results.json",
+        "report_en": "pipeline_output/PHOSPHORIC_ACID_TITR_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-LAB01-H3PO4_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-LAB01-H3PO4_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-LAB01-H3PO4_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-LAB01-H3PO4_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-LAB01-H3PO4_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-LAB01-H3PO4_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "CITRIC",
+      "name": "Citric Acid",
+      "N": 200,
+      "D": 4,
+      "carriers": [
+        "H3Cit",
+        "H2Cit_minus",
+        "HCit_2minus",
+        "Cit_3minus"
+      ],
+      "data_source_csv": "experiments/Hs-LAB01_Titration_Standards/data/citric_acid_titration.csv",
+      "data_hash_sha256_16": "9d443ef0afc83f2a",
+      "run_timestamp": "2026-05-01T03:51:38.396097Z",
+      "run_command": "python hs_run.py ../../experiments/Hs-LAB01_Titration_Standards/data/citric_acid_titration.csv --exp-id \"Hs-LAB01-CITRIC\" --name \"Citric Acid Titration\" --domain CHEMISTRY",
+      "results_summary": {
+        "total_variance": 121.3381,
+        "variance_shape": "bowl",
+        "variance_R2": 0.973186,
+        "entropy_mean": 0.309566,
+        "entropy_cv": 71.88,
+        "closure_verified": true,
+        "zero_replacement_applied": true,
+        "squeeze_count": 40,
+        "chaos_stalls": 0,
+        "chaos_spikes": 0,
+        "chaos_reversals": 0
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "transfer_entropy",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/CITRIC_ACID_TITRATIO_results.json",
+        "report_en": "pipeline_output/CITRIC_ACID_TITRATIO_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-LAB01-CITRIC_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-LAB01-CITRIC_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-LAB01-CITRIC_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-LAB01-CITRIC_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-LAB01-CITRIC_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-LAB01-CITRIC_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "H2CO3",
+      "name": "Carbonic Acid",
+      "N": 200,
+      "D": 3,
+      "carriers": [
+        "H2CO3",
+        "HCO3_minus",
+        "CO3_2minus"
+      ],
+      "data_source_csv": "experiments/Hs-LAB01_Titration_Standards/data/carbonic_acid_titration.csv",
+      "data_hash_sha256_16": "77ec106b581f0275",
+      "run_timestamp": "2026-05-01T03:51:39.721570Z",
+      "run_command": "python hs_run.py ../../experiments/Hs-LAB01_Titration_Standards/data/carbonic_acid_titration.csv --exp-id \"Hs-LAB01-H2CO3\" --name \"Carbonic Acid Titration\" --domain CHEMISTRY",
+      "results_summary": {
+        "total_variance": 85.8308,
+        "variance_shape": "bowl",
+        "variance_R2": 0.995081,
+        "entropy_mean": 0.257608,
+        "entropy_cv": 81.16,
+        "closure_verified": true,
+        "zero_replacement_applied": true,
+        "squeeze_count": 59,
+        "chaos_stalls": 0,
+        "chaos_spikes": 0,
+        "chaos_reversals": 0
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "transfer_entropy",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/CARBONIC_ACID_TITRAT_results.json",
+        "report_en": "pipeline_output/CARBONIC_ACID_TITRAT_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-LAB01-H2CO3_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-LAB01-H2CO3_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-LAB01-H2CO3_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-LAB01-H2CO3_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-LAB01-H2CO3_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-LAB01-H2CO3_manifold_paper.pdf"
+      }
+    }
+  ],
+  "interactive_tools": {
+    "titration_projector": {
+      "file": "titration_projector.html",
+      "type": "3D Manifold Projector",
+      "description": "Interactive 3D stacked polar polygon manifold with perspective projection, mouse-drag rotation, zoom, orbit mode, system tabs, pH slider, and view presets. All data embedded as JS object literals — no external dependencies.",
+      "systems": ["H3PO4", "Citric", "H2CO3"],
+      "features": ["3D rotation", "zoom", "orbit", "system tabs", "pH slider", "FRONT/SIDE/TOP/ISO views", "TRAILS/LABELS/GHOST/COLOR toggles"],
+      "architecture": "Based on Hs-M02_projector.html proven file:// compatible design",
+      "encoding": "Pure ASCII, zero non-ASCII bytes, var-only, window.onload"
+    },
+    "titration_cinema": {
+      "file": "titration_cinema.pptx",
+      "type": "PowerPoint Compositional Cinema",
+      "description": "155-slide PPTX with polar stack slice frames for movie-like playback. 50 frames per system (every 4th pH point), section dividers, title and closing slides. Set auto-advance to 0.5s for smooth animation.",
+      "systems": ["H3PO4", "Citric", "H2CO3"],
+      "total_slides": 155,
+      "frames_per_system": 50,
+      "playback_note": "Set PowerPoint slideshow auto-advance to 0.5 seconds per slide"
+    }
+  },
+  "archive": {
+    "folder": "archive/",
+    "files": ["titration_movie.html", "titration_movie_data.json"],
+    "reason": "Chrome/Edge file:// security origin error prevented local playback. Superseded by titration_projector.html and titration_cinema.pptx.",
+    "note": "ARCHIVE_NOTE.md documents the issue and future solution (user file selector via File System API)."
+  },
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Both the data generation (exact equilibrium chemistry) and the pipeline are fully deterministic. Bit-identical output guaranteed."
+  }
+}

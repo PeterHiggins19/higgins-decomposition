@@ -4,8 +4,8 @@
 
 **Speaker:** Peter Higgins, Independent Researcher, Markham, Ontario, Canada
 **Format:** 15-minute presentation + 5-minute Q&A
-**Status:** CONFIRMED — Revised abstract submitted
-**Gold Seal:** Coherence achieved — v3.0 framework, collaboration path, all materials aligned
+**Status:** CONFIRMED — Original abstract (energy-mix drift) retained per Egozcue guidance. Refined wording proposed (282 words). Broader instrument paper reserved for journal submission.
+**Gold Seal:** Strategy pivot complete — energy-mix drift focus with live 2024-2025 EMBER data update planned
 
 ---
 
@@ -158,9 +158,15 @@ A: We have an empirical result (< 5% entropy variation across 25 experiments) an
 | **Collaboration path** (reverse-engineered from paper to handshake) | Done | ✓ |
 | **Revised abstract** (submitted to Egozcue) | Done | ✓ |
 | **Action plan — final coherence seal** | Done | ✓ |
-| Slide deck rebuild (v3 — 16 slides) | Before June | |
+| **Egozcue rejected revised abstract — return to original** | Done | ✓ |
+| **Refined original abstract** (282 words, minor improvements) | Done | ✓ |
+| **Reply to Egozcue** (grateful, strategic) | Done | ✓ |
+| **Energy situation briefing** (headline angles) | Done | ✓ |
+| Download EMBER 2025 data (Germany, Japan, UK) | Before June | |
+| Run Hˢ on 9-carrier EMBER data (2000–2025) | Before June | |
+| Rebuild slide deck for energy-mix focus (~7 slides) | Before June | |
 | Print handouts | Before June | |
-| Live demo rehearsal (3 HTML demos) | Before June | |
+| Live demo rehearsal (energy drift detection) | Before June | |
 | Q&A rehearsal | Before June | |
 | Travel/logistics | Before June | |
 
@@ -181,7 +187,11 @@ A: We have an empirical result (< 5% entropy variation across 25 experiments) an
 | File | Purpose |
 |------|---------|
 | `papers/codawork2026/CoDaWork2026_Action_Plan.md` | This document (final) |
-| `papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md` | **Letter to Egozcue + revised abstract** |
+| `papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md` | Letter to Egozcue + revised abstract (superseded — Egozcue preferred original) |
+| `papers/codawork2026/CoDaWork2026_Refined_Abstract.md` | **Refined original abstract — 282 words, energy-mix drift** |
+| `papers/codawork2026/CoDaWork2026_Reply_to_Egozcue.md` | **Reply to Egozcue + refined abstract (April 29, 2026)** |
+| `papers/codawork2026/CoDaWork2026_Reply_Email.txt` | **Plain-text email ready to paste** |
+| `papers/codawork2026/CoDaWork2026_Energy_Briefing.md` | **Energy situation briefing — headline angles for presentation** |
 | `papers/codawork2026/CoDaWork2026_Collaboration_Path.md` | **Reverse-engineered path from paper to handshake** |
 | `papers/codawork2026/CoDaWork2026_Strategic_Agenda.md` | v2 strategic agenda — integration maps, cross-benefits |
 | `papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md` | **v3 gift ramp script — 180 words, THE presentation script** |

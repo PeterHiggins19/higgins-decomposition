@@ -20,7 +20,7 @@
       "N": 118,
       "D": 4,
       "eitt_result": "PASS at M=2,3,4,6 (max 0.59%), FAIL at M=12 (1.16% — boundary)",
-      "pll_result": "σ²_A is L-shaped (R²=0.20), NOT parabolic — nuclear structure is richer than parabola",
+      "hvld_result": "σ²_A is L-shaped (R²=0.20), NOT parabolic — nuclear structure is richer than parabola",
       "f17_result": {
         "b": 0.00243,
         "b_positive": true,
@@ -50,14 +50,14 @@
       "N": "11-15 per chain",
       "D": 2,
       "eitt_result": "3/3 PASS — all sub-0.2% deviation",
-      "pll_result": "All chains show ∩-shaped parabolas — unstable equilibria (correct: decay IS instability)",
+      "hvld_result": "All chains show ∩-shaped parabolas — unstable equilibria (correct: decay IS instability)",
       "f17_result": "N too small for reliable F17 (11-15 points)",
       "noise_squeeze": "51-94% squeeze — rich higher-order structure",
       "nature_confirms": [
         "Radioactive decay IS a compositional walk through the simplex",
         "Each decay step moves the Z/A composition deterministically",
         "EITT holds: entropy is preserved through the decay chain",
-        "∩-shaped parabola = unstable equilibrium — physics says decay, PLL says unlock"
+        "∩-shaped parabola = unstable equilibrium — physics says decay, HVLD says unlock"
       ],
       "confidence": "HIGH",
       "chatgpt_tier": "Tier 1"
@@ -97,7 +97,7 @@
       "N": 300,
       "D": 5,
       "eitt_result": "PASS — drift 0.013-0.142%",
-      "pll_result": "PLL vertex at 20.1 keV = optimal D-T ignition (R²=0.9962)",
+      "hvld_result": "HVLD vertex at 20.1 keV = optimal D-T ignition (R²=0.9962)",
       "f17_result": {
         "b": 1.02e-05,
         "b_positive": true,
@@ -109,7 +109,7 @@
       "noise_squeeze": "100% in ITER window — deterministic physics",
       "nature_confirms": [
         "Fusion reactivities ARE a composition — they sum to total reactivity",
-        "The PLL vertex at 20.1 keV matches the known optimal D-T temperature",
+        "The HVLD vertex at 20.1 keV matches the known optimal D-T temperature",
         "100% noise squeeze means the physics IS the signal, no noise",
         "D-He3 as boundary species matches known fusion engineering reality",
         "F17 R²=1.000 — perfect quadratic, nature writes its own equation"
@@ -126,7 +126,7 @@
       "data_source": "Plasma physics parameterization",
       "data_type": "PHYSICS",
       "eitt_result": "PASS",
-      "pll_result": "Bremsstrahlung is boundary species (34.9% variance)",
+      "hvld_result": "Bremsstrahlung is boundary species (34.9% variance)",
       "nature_confirms": [
         "Energy partition in a tokamak IS a composition",
         "Bremsstrahlung as boundary species = the main loss channel in fusion",
@@ -243,12 +243,12 @@
     {
       "id": "NS-12",
       "experiment": "EXP-10",
-      "system": "Color Confinement PLL",
+      "system": "Color Confinement HVLD",
       "domain": "Quantum Chromodynamics",
-      "description": "PLL vertex at r=1.38 fm — Coulomb→String transition",
+      "description": "HVLD vertex at r=1.38 fm — Coulomb→String transition",
       "data_source": "Lattice QCD potential",
       "data_type": "PHYSICS",
-      "pll_result": "R²=0.497 — confinement is NOT a clean parabola",
+      "hvld_result": "R²=0.497 — confinement is NOT a clean parabola",
       "nature_confirms": [
         "Confinement HAS a compositional vertex — the Coulomb/String crossover",
         "Low R² is correct: confinement is not a simple quadratic process"
@@ -333,7 +333,7 @@
       "data_source": "Nuclear EOS calculations",
       "data_type": "PHYSICS",
       "eitt_result": "BROKE at 6.7% — correctly. Muon threshold = drift flag.",
-      "pll_result": "EOS-universal: R² > 0.94 for all three models",
+      "hvld_result": "EOS-universal: R² > 0.94 for all three models",
       "nature_confirms": [
         "Neutron star matter IS a composition — particle fractions sum to 1",
         "σ²_A trajectory is EOS-UNIVERSAL — all three models agree (R²>0.94)",
@@ -360,12 +360,12 @@
     {
       "id": "NS-19",
       "experiment": "EXP-11",
-      "system": "Nuclide Z-Chains (Isobar PLL)",
+      "system": "Nuclide Z-Chains (Isobar HVLD)",
       "domain": "Nuclear Physics",
-      "description": "8 isobaric chains scanned with PLL, magic number signatures",
+      "description": "8 isobaric chains scanned with HVLD, magic number signatures",
       "data_source": "AME2020",
       "data_type": "REAL",
-      "pll_result": "Mean R²=0.346, 8 chains tested, magic numbers [8, 20, 50, 82, 126] detected",
+      "hvld_result": "Mean R²=0.346, 8 chains tested, magic numbers [8, 20, 50, 82, 126] detected",
       "f17_result": {
         "b": -5.71e-06,
         "b_positive": false,
@@ -376,7 +376,7 @@
       "nature_confirms": [
         "Z-chains ARE compositional walks — proton/neutron fraction evolves along isobars",
         "b < 0 is CORRECT: deterministic nuclear walk, not stochastic",
-        "Magic numbers appear as compositional stability points — PLL lock positions",
+        "Magic numbers appear as compositional stability points — HVLD lock positions",
         "Nuclear shell structure IS compositional structure"
       ],
       "confidence": "HIGH"
@@ -484,7 +484,7 @@
           "NS-05"
         ],
         "count": 2,
-        "agreement": "2/2 — F17 R²=1.000, PLL vertex = ignition temperature",
+        "agreement": "2/2 — F17 R²=1.000, HVLD vertex = ignition temperature",
         "highlight": "100% noise squeeze at ITER temperature — physics IS the signal"
       },
       "particle_physics": {
@@ -556,7 +556,7 @@
       "tier_1_flagship": [
         "QGP freeze-out (0.27% EITT, real STAR/ALICE data)",
         "Nuclear SEMF (F17 R²=0.998, a≈0 zero doctrine)",
-        "Fusion reactivity (F17 R²=1.000, PLL vertex = ignition)",
+        "Fusion reactivity (F17 R²=1.000, HVLD vertex = ignition)",
         "GW150914 (real LIGO data, 93% phase bound)"
       ],
       "tier_2_strong": [

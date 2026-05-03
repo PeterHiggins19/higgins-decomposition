@@ -60,7 +60,7 @@
   "file_count_validation": {
     "counts_to_verify": {
       "pipeline_py_files": {
-        "expected": 13,
+        "expected": 18,
         "check": "find tools/pipeline -name '*.py' -not -path '*__pycache__*' | wc -l"
       },
       "interactive_html_files": {
@@ -114,8 +114,9 @@
       "4. Update ai-refresh/HS_MACHINE_MANIFEST.json",
       "5. Update ai-refresh/HS_SYSTEM_INVENTORY.json",
       "6. Update ai-refresh/PREPARE_FOR_REPO.json (delta section)",
-      "7. Update ai-refresh/HS_GITHUB_CONFIG.json (push counter)",
-      "8. Update root README.md if counts or structure changed"
+      "7. Update ai-refresh/HS_SYSTEM_BACKUP.json (regenerate full file tree snapshot)",
+      "8. Update ai-refresh/HS_GITHUB_CONFIG.json (push counter)",
+      "9. Update root README.md if counts or structure changed"
     ]
   },
 
@@ -125,6 +126,7 @@
       "Verify all README links resolve to existing files",
       "Verify naming convention compliance on new files",
       "Verify PREPARE_FOR_REPO.json delta section is current",
+      "Regenerate HS_SYSTEM_BACKUP.json — full file tree snapshot of Hs and Hs-Lab",
       "Verify HS_GITHUB_CONFIG.json push counter is incremented",
       "Run the pipeline on at least one reference standard to confirm no regressions",
       "Check for any leftover test/temp files"

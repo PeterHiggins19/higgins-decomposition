@@ -427,7 +427,7 @@ All three natural radioactive decay chains decomposed into energy partitions
    pass on first decomposition. Per HTCT protocol, this triggers alternate
    decomposition testing. The U-235 chain has the most variable gamma/recoil
    partition (the Ac-227 beta decay has near-zero gamma), creating a degenerate
-   simplex edge that the tool correctly flags.
+   compositional horizon that the tool correctly flags.
 
 4. **Most stable ratio: ln(Particle_KE/Recoil)** in all three chains — particle
    kinetic energy and nuclear recoil are compositionally locked. This makes
@@ -1349,7 +1349,7 @@ What remains is the Hessian trace:
 
 where R(M, ρ) is the VAR(1) variance retention factor. Three boundaries cleanly
 separated: synthetic noise fails (ρ→0, gap→1), persistent systems pass (ρ→1,
-gap→0), simplex edge explodes (x_i→0, λ_max→∞).
+gap→0), compositional horizon explodes (x_i→0, λ_max→∞).
 
 **Why the standard bounds were 10,000x too loose:** They measured the volume of
 the entire covariance ellipsoid. The EITT residual is governed strictly by the
@@ -1441,7 +1441,7 @@ analysis were completed in a single session.
 
 **Full chain results (25 experiments, 3,044 total rows, 0.34s total):**
 - R² range: 0.1007 to 0.9999, mean = 0.7761
-- PLL shapes: 17 bowl, 8 hill
+- HVLD shapes: 17 bowl, 8 hill
 - Total chaos events: 1,792 (1,444 reversals, 26 spikes, 322 stalls)
 - High R² systems (>0.95): Hs-02 US Energy, Hs-05 Geochemistry, Hs-09 Stellar,
   Hs-11 AME2020, Hs-16 Planck Cosmic, Hs-18 Urban Markham, Hs-23 Radionuclides,
@@ -1467,4 +1467,233 @@ analysis were completed in a single session.
 - Hs_STRESS_TEST_REPORT_2026-04-28.json — 15-test engine verification
 
 ---
-*The collective built the proof. The simplex held the answer.*
+
+## 2026-04-29: Hs-M01 — Manifold Calibration (M-Series Experiment 1)
+
+**New experimental track established: M-series (Manifold Projection System Testing)**
+
+Motivated by Egozcue's review of the CoDaWork 2026 abstract and the question of whether Hs functions as an imaging system for compositional manifolds, a formal calibration suite was designed and executed.
+
+Ten geometric test objects with known mathematical structure — point, stationary point, line, circle, sphere, cube, rhomboid, torus, spiral, and saddle — were constructed as compositional data on the simplex and passed through the complete Hs diagnostic pipeline. All 10 produce diagnostic signatures matching their known ground truth. Zero false positives, zero false negatives.
+
+Key discriminators: path efficiency (0.96 line vs 0.03 circle vs 0.02 torus), V(t) shape (convex = expanding, concave = bounded), Aitchison norm range (simple vs compound periodicity).
+
+The experiment also compares Shannon entropy with the Aitchison norm (evidence information, Egozcue and Pawlowsky-Glahn 2018) across known geometries. The Aitchison norm is scale invariant; Shannon entropy is not. Both are tracked going forward.
+
+**Verdict: The instrument is a faithful projector of compositional geometry. It does not create structure where none exists, and it does not miss structure where it is present.**
+
+Future M-series: M03 noise sensitivity, M04 dimensional scaling, M05 temporal decimation (entropy invariance), M06 subcompositional coherence, M07 mixed geometry, M08 real data cross-validation.
+
+---
+
+## 2026-04-29: Hs-M02 — EMBER Electricity Generation (M-Series Experiment 2)
+
+**The CoDaWork 2026 reference experiment: real-world compositional data for the CoDa community to scrutinise.**
+
+The full Hs v3.0 pipeline was applied to EMBER Global Electricity Review 2025 data for 7 systems: Germany, United Kingdom, Japan, France, China, India, and World. 9 carriers (or 8 where Other Renewables is absent), 26 years (2000-2025), deterministic pipeline, reproducible results.
+
+**Summary of findings:**
+
+| Country | D | sigma^2_A | V(t) Shape | Path Eff | Locks | Amalgamation |
+|---------|---|-----------|------------|----------|-------|-------------|
+| Germany | 9 | 152.11 | CONVEX (accelerating) | 0.4244 | 0 | ALL PASS |
+| UK | 9 | 103.13 | CONCAVE (decelerating) | 0.3801 | 0 | ALL FAIL |
+| Japan | 8 | 31.53 | CONCAVE (decelerating) | 0.1184 | 2 | 3/4 PASS |
+| France | 9 | 12.64 | CONCAVE (decelerating) | 0.5579 | 3 | 1/4 PASS |
+| China | 8 | 10.74 | CONVEX (accelerating) | 0.6571 | 1 | 3/4 PASS |
+| India | 8 | 11.96 | CONVEX (accelerating) | 0.6471 | 1 | 1/4 PASS |
+| World | 9 | 5.98 | CONVEX (accelerating) | 0.9529 | 6 | ALL PASS |
+
+**Key discoveries:** (1) Path efficiency separates directional transitions (World = 0.95) from near-loop trajectories (Japan = 0.12, Fukushima displacement and partial return). (2) Lock detection identifies structural couplings that survive exogenous shocks (India Coal/Nuclear CV = 0.042 — the tightest lock). (3) Amalgamation non-commutativity (Egozcue warning) is empirically verified: 5/7 systems show shape classification changes under at least one coarser grouping. The UK flips from CONCAVE to CONVEX under all 4 schemes — opposite policy conclusions depending on carrier resolution. (4) The World aggregate is a near-geodesic on S^8 (path efficiency 0.95), revealing that the global energy transition is an accelerating, directional trajectory despite country-level turbulence.
+
+---
+
+## 2026-04-30: The V Operator Deep Analysis — Transformation Point
+
+**What was done:** Deep analysis of the V operator (Step 6: Aitchison variance) as the transformation point where the pipeline converts from spatial (compositional) to temporal (trajectory) representation.
+
+Vector analysis, tensor decomposition, data-in/data-out comparison tables, variable sensitivity analysis, Monte Carlo study (500 trials × 3 noise levels × 3 datasets), ANOVA, and stochastic pattern search were performed on three domains: Nuclear SEMF (D=3, N=92), Energy Mix (D=7, N=25), Adversarial Random (D=5, N=50).
+
+**Key findings:**
+- The V operator is a **dimensional funnel**: (D-1)-dimensional compositional covariance → 1-dimensional scalar trajectory
+- Monte Carlo linearity: CV ratio at 10%/1% perturbation = 9.81 (Nuclear), 9.36 (Energy), 10.35 (Adversarial) — all near theoretical 10.0
+- Scale invariance by construction: multiplicative carrier scaling produces exactly zero change in σ²_A
+- Natural systems exhibit 1/f noise spectrum + self-similarity (r > 0.96); adversarial data shows white noise + phase change (r = 0.29)
+- Power law dynamics: Nuclear Tr~t^0.28 (sublinear), Energy Tr~t^1.04 (linear drift), Adversarial Tr~t^0.06 (constant/locked)
+
+**Deliverables:** `v_operator_analysis.py` — 500-line analysis script with 8 analysis functions
+
+---
+
+## 2026-04-30: The Trace Formulation — Hˢ Reformulated from Tr
+
+**What was done:** Complete reformulation of the Higgins Decomposition from the perspective of Trace as the fundamental invariant.
+
+The trace functional Tr: Sym_D → ℝ was examined as the central object of the pipeline: what it is, what it encodes, what it loses, and what happens when you decompose it. Seven analysis sections were computed across all three domains.
+
+**The Reformulated Pipeline:**
+
+    Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ Tr ∘ Cov ∘ clr ∘ S
+
+Left of Tr: Matrix world (D×D, spatial, compositional). Right of Tr: Scalar world (ℝ¹, temporal, trajectory). The Trace is the dimensional gate.
+
+**The Compression Paradox resolved:** Trace discards most of V's information (6:1 for D=3, 28:1 for D=7) yet downstream operators produce accurate structural diagnoses. Why? Because natural compositions have LOW spectral entropy — one eigenvalue dominates. When λ₁ ≫ λ₂, the trace IS λ₁ to first order. For adversarial data, spectral entropy is HIGH (eigenvalues evenly spread), Trace captures less, and the pipeline correctly classifies it as FLAG.
+
+**Pipeline completeness:** Hˢ tests Trace + exactly what Trace is NOT invariant under: amalgamation tests carrier merging, EITT tests observation decimation, sensitivity tests zero replacement level.
+
+**Deliverables:** `trace_formulation.py` — 596-line analysis with TraceDecomposition class
+
+---
+
+## 2026-04-30: Basis Invariance Proof — CLR × ILR × ALR × {T, C, E}
+
+**What was done:** Full 3×3 experiment mapping all three log-ratio bases (CLR, ILR, ALR) against all three downstream pipeline steps (T: SuperSqueeze, C: HVLD, E: EITT). Tagged diagnostics with [Step.N] [Op.NAME] on every operation.
+
+**Key result — CLR ≡ ILR across all 9 cells:**
+
+| Metric | CLR ≡ ILR? | CLR ≡ ALR? |
+|--------|-----------|-----------|
+| Trace value | YES (exact) | NO (Δ up to 6.59) |
+| T matches | YES (identical) | NO (different counts) |
+| C shape | YES (identical) | NO (Energy: bowl→hill flip) |
+| E variation | YES (identical) | NO (different percentages) |
+
+**Theory confirmed:** Tr(Ψᵀ·Cov_CLR·Ψ) = Tr(Cov_CLR) because Ψ (Helmert basis) is orthonormal and Cov_CLR is rank D-1. ILR is an isometry of the Aitchison inner product — it preserves the trace exactly.
+
+**ALR breaks invariance:** Non-orthogonal projection inflates the trace (Nuclear: 1.26→3.78). For Energy, ALR flips HVLD shape from bowl to hill — a qualitative misdiagnosis. The reference-carrier bias contaminates the trajectory.
+
+**Conclusion:** Hˢ is coordinate-free within the Aitchison isometry class {CLR, ILR}. ALR is excluded.
+
+**Deliverables:** `tr_basis_experiment.py` — tagged diagnostic engine with [Step.N] [Op.NAME] convention
+
+---
+
+## 2026-04-30: The Impedance Bridge — Trace as Balun Transformer
+
+**What was done:** The Trace operator was characterised as a **balun transformer** — a device that converts between balanced (differential) and unbalanced (common-mode) signals. The analogy:
+
+- **Balanced input:** V(t) ∈ Sym_D — the full D×D covariance matrix (differential mode, multi-dimensional)
+- **Unbalanced output:** Tr(V(t)) ∈ ℝ — the scalar trajectory (common mode, one-dimensional)
+- **Impedance match:** How much of V's spectral energy the dominant eigenvalue captures
+- **Reflection coefficient Γ:** Fraction of energy NOT in the dominant mode
+- **VSWR:** Standing wave ratio — 1.0 = perfect match, ∞ = total mismatch
+- **Q factor:** Sharpness of resonance with transcendental constants
+
+Full matrix run: all 3 bases × all 3 downstream steps × all 3 datasets × all 35 constants × every time step. Every match captured (δ < 0.05), not just closest. 11,261 lines of JSON results.
+
+**The Balun Proof — Cross-Domain Results:**
+
+| System | Γ | VSWR | Q | λ₁/Tr | Verdict |
+|--------|---|------|---|-------|---------|
+| Nuclear SEMF | 0.064 | 1.14 | 12,156 | 99.6% | MATCHED BALUN |
+| Energy Mix | 0.275 | 1.76 | 4,786 | 92.5% | MATCHED BALUN |
+| Adversarial | 0.803 | 9.16 | 4,826 | 35.5% | MISMATCHED |
+
+**Why tested natural systems show low Γ:** The compositional systems tested (nuclear binding, energy mix, cosmic budget) exhibit low spectral entropy — one eigenvalue dominates. When the covariance tensor is effectively rank-1, the Trace contraction from (0,2) → (0,0) preserves >95% of the spectral information. This corresponds to Γ < 0.2 (low reflection).
+
+**Why adversarial data mismatches:** Dirichlet noise has HIGH spectral entropy — all eigenvalues equal. The covariance matrix is isotropic. Off-spectral energy equals dominant energy. The balun reflects most of the signal. There is no natural impedance to match.
+
+**Trace contraction in rank-1 systems:** When λ₁/Tr(V) > 0.95, the Trace contraction retains >95% of spectral information. The information loss from contracting a rank-2 tensor to a scalar is minimal when the tensor is dominated by a single eigenvalue. In mismatched systems (Γ > 0.5), the information loss itself serves as a discriminative diagnostic.
+
+**Hs-03 Nuclear SEMF appended:** Original pipeline result (σ²_A → 1/(π^e) at δ = 5.87×10⁻⁶) confirmed and extended with impedance bridge metrics: Γ = 0.064, Q = 12,156, VSWR = 1.14, 34 exact transcendental matches (CLR), 158 near matches.
+
+**Deliverables:**
+- `tools/pipeline/impedance_bridge.py` — full impedance bridge engine (750 lines)
+- `tools/pipeline/tr_basis_experiment.py` — tagged basis × step diagnostic engine
+- `experiments/impedance_bridge_results.json` — 11,261-line full results (every nibble)
+- `experiments/Hs-03_Nuclear_SEMF/Hs-03_impedance_bridge.json` — appended bridge results
+
+---
+
+## 2026-04-30: System and Software Status Update
+
+**Pipeline version:** v3.0 Extended + Impedance Bridge Extension
+
+**Tool inventory (updated):**
+- `higgins_decomposition_12step.py` — Core 12-step pipeline engine (~1,500 lines)
+- `impedance_bridge.py` — Balun transformer analysis engine (~750 lines)
+- `tr_basis_experiment.py` — Basis invariance diagnostic with [Step.N][Op.NAME] tags
+- `trace_formulation.py` — Trace-centric reformulation analysis (~600 lines)
+- `v_operator_analysis.py` — V operator deep analysis (~500 lines)
+- `hs_sensitivity.py` — Component Power Mapper
+- `hs_amalgamation.py` — Subcompositional recursion engine
+- `hs_fingerprint.py` — System fingerprint generator
+- `hs_controller.py` — Industrial state machine controller
+- Plus 9 interactive HTML visualisation tools
+
+**Constant library:** 35 transcendental constants (expanded from original 29)
+
+**Tagged diagnostic convention adopted:**
+- `[Step.N]` — Pipeline step number (1–12)
+- `[Op.NAME]` — Operation name (e.g., Op.CLR, Op.HVLD, Op.EITT)
+
+**New analytic framework established:**
+- **The Trace Formulation:** Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ Tr ∘ Cov ∘ clr ∘ S
+- **The Impedance Bridge:** Tr as balun transformer with measurable Γ, Q, VSWR
+- **Basis Invariance Proof:** CLR ≡ ILR (exact), ALR excluded (non-isometric)
+- **Impedance Match Observation (Empirical):** Tested compositional systems with known physical structure exhibit low Γ at the Trace gate (Γ < 0.3), while synthetic/adversarial data shows high Γ (> 0.6). This correlation is observed across all tested domains.
+
+**Experiment count:** 25 primary (Hs-01 through Hs-25) + 2 M-series (M01, M02) + impedance bridge cross-domain validation
+
+**Method for using the impedance bridge:**
+1. Close data to simplex → apply CLR (or ILR) transform
+2. Compute cumulative covariance V(t) at each time step
+3. Extract Tr(V(t)) — this is σ²_A(t), the Aitchison variance trajectory
+4. Compute eigenvalues of V(N) — check spectral entropy and λ₁/Tr ratio
+5. If λ₁/Tr > 90%: MATCHED BALUN → Trace captures essentially all structure
+6. If λ₁/Tr < 50%: MISMATCHED → significant off-diagonal information lost
+7. Run T (SuperSqueeze against 35 constants), C (HVLD quadratic fit), E (EITT decimation)
+8. Compare results across CLR/ILR to confirm basis invariance
+
+---
+
+## 2026-04-30: Matrix Integration and Tensor Functor — The Pipeline Becomes Algebraic
+
+**What happened:**
+The entire Hs code system was updated to integrate matrix diagnostics into every diagnostic decision. Simultaneously, the question "Is there enough Hs construction to form a tensor transformation function?" was answered definitively: YES.
+
+**Matrix diagnostic codes (MX-*):** 24 new diagnostic codes added to `hs_codes.py` (version 2.0), covering eigenvalue dominance (MX-RK1), eigenvector stability (MX-LCK/ROT/SCR), condition number (MX-KHI/KLO), commutator norm (MX-CMZ/CMN), von Neumann entropy (MX-VNL/VNH/VNM), AM-GM determinant ratio (MX-ANI/ISO), eigenvalue power law (MX-PWR), Cholesky degeneracy (MX-CHD), transcendental ratio matches (MX-TRM/TRC), and balun impedance metrics (MX-BAL/REF, MX-QHI/QLO). Total defined codes: 106.
+
+**Matrix-informed structural modes:** 4 new second-order modes that fire from matrix code combinations: SM-FRZ (frozen eigenbasis: locked + low entropy + vanishing commutator), SM-THR (thermal state: scrambled + high entropy + low condition number), SM-MXR (matrix resonance: multiple transcendental eigenvalue ratio matches), SM-EDP (eigenvalue power dynamics: deterministic λ₁(t) scaling). Total structural modes: 14.
+
+**Pipeline integration (Step 6.5):** The core `higgins_decomposition_12step.py` now executes a full matrix analysis between Step 6 (Aitchison variance) and Step 7 (HVLD vertex lock). The new `matrix_analysis()` method computes eigendecomposition at multiple time slices, eigenvector overlap, condition number, von Neumann entropy, commutator norm, determinant dynamics, Cholesky factorisation, eigenvalue power law, eigenvalue ratio transcendental scan, and balun metrics (Γ, VSWR, Q). All results stored in `results['matrix_analysis']` for downstream consumption.
+
+**Controller integration:** `hs_controller.py` updated with MATRIX_ANALYSIS event type. After classification, the controller emits matrix diagnostic summary (λ₁/Tr, Γ, Q, S/S_max, eigenvector overlap, balun_matched boolean) to the event bus for external system subscribers.
+
+**Code generation:** `generate_codes()` in `hs_codes.py` now reads `matrix_analysis` from the result dict and emits the appropriate MX-* codes with quantitative values. These codes participate in the structural mode detection matrix alongside all existing codes.
+
+**The Tensor Functor (`hs_tensor.py`):** Hˢ expressed as a 5-layer tensor transformation:
+
+    Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S
+
+Each layer has explicit tensor rank:
+
+| Layer | Name | Input Rank | Output Rank | Operation |
+|-------|------|------------|-------------|-----------|
+| S | Simplex Projection | (1,1) | (1,1) | Closure to unit simplex |
+| Λ | Log-Ratio Transform | (1,1) | (1,1) | CLR/ILR/ALR embedding |
+| Σ | Covariance Tensor | (1,1) | (0,2) sym | V(t) = Cov(Λ(S(X))) |
+| Tr | Trace Contraction | (0,2) | (0,0) | Balanced → unbalanced gate |
+| ρ | Classification | (0,0) | Label | Pattern match to constants |
+
+The functor is NATURAL with respect to orthonormal basis changes (CLR → ILR via Helmert Ψ). The naturality square commutes because Tr(Ψᵀ · V · Ψ) = Tr(V). ALR breaks naturality because its transformation matrix is non-orthogonal. This is proven both algebraically and computationally in `hs_tensor.py`.
+
+The enriched functor Hˢ_enriched maps Data → (Sym₊(D), λ_spectrum, v_stability, S_vN, Γ, VSWR, Q, Label). The matrix diagnostics ARE the enrichment of the tensor functor — they are what you get when you stop at Layer 3 (Σ) and inspect the tensor before contracting it at Layer 4 (Tr).
+
+**Verification:** The tensor functor produces identical results to the original pipeline. CLR ≡ ILR confirmed (trace identical to 10 decimal places). ALR deviation measured. Nuclear-like data: Γ = 0.03 (matched). Adversarial: Γ = 0.79 (reflecting). All 24 MX codes emit correctly with quantitative values.
+
+**Files created/modified:**
+- `tools/pipeline/hs_codes.py` v2.0 — 24 MX codes, 4 matrix structural modes
+- `tools/pipeline/higgins_decomposition_12step.py` — Step 6.5 matrix_analysis()
+- `tools/pipeline/hs_controller.py` — MATRIX_ANALYSIS event type
+- `tools/pipeline/hs_tensor.py` — complete tensor functor implementation
+- `tools/pipeline/balun_matrix_analysis.py` — deep V(t) analysis engine
+
+**Running totals:**
+- Diagnostic codes: 106 (was 82)
+- Structural modes: 14 (was 10)
+- Pipeline tools: 19 Python modules
+- Experiments: 27 (25 primary + 2 M-series)
+
+---
+*The instrument reads. The expert decides. The loop stays open.*

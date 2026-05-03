@@ -3,6 +3,7 @@
 ## Higgins Decomposition Validation Suite
 
 **25 experiments across 18 domains -- spanning 44 orders of magnitude**
+**Plus M-series: instrument calibration and manifold projection testing**
 
 This directory contains the complete experimental validation of the Higgins Decomposition (Hs) pipeline. From 2-carrier commodity markets to 5-carrier cosmic energy budgets, these experiments demonstrate that compositional structure is universal: the simplex geometry that governs gold/silver ratios is the same geometry that governs the energy budget of the observable universe.
 
@@ -100,6 +101,15 @@ Higher D (carrier count) means higher-dimensional simplex geometry. N is the num
 | Hs-22 | Natural Pairs | Cross-domain | -- | -- | 7 pair families, 14 sub-experiments testing natural compositional relationships |
 | Hs-24 | HEPData Validation | Particle physics | -- | -- | Cross-validation against published high-energy physics datasets |
 
+### M-Series: Manifold Projection System Testing
+
+A new experimental track dedicated to testing Hs as a data-information manifold projection system. Unlike the numbered experiments which apply the instrument to physical data, the M-series tests the instrument itself against known geometric ground truth.
+
+| ID | Name | Domain | D | N | Description |
+|----|------|--------|---|---|-------------|
+| Hs-M01 | Manifold Calibration | INSTRUMENT | 3-4 | 1-80 | Gold standard calibration: 10 known geometric objects (point, line, circle, sphere, cube, rhomboid, torus, spiral, saddle) fed through full pipeline. All 10 pass -- instrument faithfully projects compositional geometry with zero false positives and zero false negatives. |
+| Hs-M02 | EMBER Energy | ENERGY | 8-9 | 26 | CoDaWork 2026 reference experiment: EMBER 2025 electricity generation for 7 systems (Germany, UK, Japan, France, China, India, World). Full pipeline + amalgamation stability testing (5/7 systems show shape classification changes under coarser groupings) + decimation invariance. The par excellence applied CoDa experiment. |
+
 ---
 
 ## Summary Files
@@ -122,6 +132,23 @@ The experiment suite spans approximately 44 orders of magnitude in the physical 
 - **Carrier range**: From D=2 (commodity price ratios) through D=3 (majority of experiments) to D=5 (full LCDM cosmology)
 
 The consistent diagnostic behaviour across this range is the primary evidence that compositional geometry is scale-invariant: the simplex does not care whether it describes gold prices or dark energy.
+
+The M-series extends this validation by testing against mathematically exact geometric objects, establishing that the instrument itself introduces no artifacts, distortions, or blind spots.
+
+---
+
+## Visualization Standard
+
+Each M-series experiment (and all future experiments) produces a standard suite of 4 interactive HTML tools:
+
+| Tool | Purpose |
+|------|---------|
+| Pipeline Slideshow | Step-by-step walkthrough of the decomposition pipeline |
+| Manifold View | 2D CLR trajectory projection |
+| Helix | Helical decomposition — drift vs oscillation separation |
+| **Manifold Projector** | **Mandatory terminal output** — 3D rotating radar-polygon tube showing the compositional data manifold in space and time. This IS the diagram of the system. The slideshow is the journey; the projector is the destination. |
+
+The Manifold Projector renders per-carrier CLR values normalized to 0-1 as radar chart fingerprints stacked along the Z-axis with perspective projection (FOV=700). Perturbation mapping shows inter-step changes as outward spikes (green to yellow to red).
 
 ---
 

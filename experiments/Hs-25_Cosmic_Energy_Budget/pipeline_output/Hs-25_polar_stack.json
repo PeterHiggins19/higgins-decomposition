@@ -1,0 +1,2412 @@
+{
+  "experiment": "HS-25_COSMIC_ENERGY_",
+  "test_object": "Cosmic Energy Budget",
+  "carriers": [
+    "redshift",
+    "Dark_Energy",
+    "Cold_Dark_Matter",
+    "Baryonic_Matter",
+    "Photon_Radiation",
+    "Neutrinos"
+  ],
+  "D": 6,
+  "N": 103,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 7.514646,
+    "norm_max": 12.462947,
+    "norm_mean": 9.094712,
+    "norm_range": 4.948301,
+    "phase_range_deg": 105.127,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 15,
+      "type": "DOM_SHIFT",
+      "label": "Dark->Neut"
+    },
+    {
+      "t": 30,
+      "type": "DOM_SHIFT",
+      "label": "Neut->Dark"
+    },
+    {
+      "t": 50,
+      "type": "DOM_SHIFT",
+      "label": "Dark->Neut"
+    },
+    {
+      "t": 56,
+      "type": "DOM_SHIFT",
+      "label": "Neut->reds"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "redshift": 1.5435243568595394,
+        "Dark_Energy": -8.882690729324672,
+        "Cold_Dark_Matter": 2.8581198513642576,
+        "Baryonic_Matter": 1.1853014955145293,
+        "Photon_Radiation": -5.477300343645122,
+        "Neutrinos": -5.8707560695400804
+      },
+      "aitchison_norm": 12.462947,
+      "phase_deg": -80.142
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "redshift": 1.686471764942982,
+        "Dark_Energy": -8.521001528302548,
+        "Cold_Dark_Matter": 2.8724775171993744,
+        "Baryonic_Matter": 1.2010112023041368,
+        "Photon_Radiation": -5.3290978916958345,
+        "Neutrinos": -5.710875476564805
+      },
+      "aitchison_norm": 12.089607,
+      "phase_deg": -78.805,
+      "delta_norm": -0.37334,
+      "delta_clr": {
+        "redshift": 0.142947,
+        "Dark_Energy": 0.361689,
+        "Cold_Dark_Matter": 0.014358,
+        "Baryonic_Matter": 0.01571,
+        "Photon_Radiation": 0.148202,
+        "Neutrinos": 0.159881
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "redshift": 1.828705286692919,
+        "Dark_Energy": -8.16210496261072,
+        "Cold_Dark_Matter": 2.886675940449278,
+        "Baryonic_Matter": 1.2164835103916651,
+        "Photon_Radiation": -5.183827894069469,
+        "Neutrinos": -5.55501092459089
+      },
+      "aitchison_norm": 11.726341,
+      "phase_deg": -77.372,
+      "delta_norm": -0.363266,
+      "delta_clr": {
+        "redshift": 0.142234,
+        "Dark_Energy": 0.358897,
+        "Cold_Dark_Matter": 0.014198,
+        "Baryonic_Matter": 0.015472,
+        "Photon_Radiation": 0.14527,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "redshift": 1.9695171264023357,
+        "Dark_Energy": -7.808759369196948,
+        "Cold_Dark_Matter": 2.9005585395693316,
+        "Baryonic_Matter": 1.231486200351064,
+        "Photon_Radiation": -5.04434187373279,
+        "Neutrinos": -5.4070416931601075
+      },
+      "aitchison_norm": 11.378357,
+      "phase_deg": -75.844,
+      "delta_norm": -0.347984,
+      "delta_clr": {
+        "redshift": 0.140812,
+        "Dark_Energy": 0.353346,
+        "Cold_Dark_Matter": 0.013883,
+        "Baryonic_Matter": 0.015003,
+        "Photon_Radiation": 0.139486,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "redshift": 2.108211617654113,
+        "Dark_Energy": -7.463654909487281,
+        "Cold_Dark_Matter": 2.913974010628435,
+        "Baryonic_Matter": 1.2457972983131986,
+        "Photon_Radiation": -4.9133317245247214,
+        "Neutrinos": -5.270578196142522
+      },
+      "aitchison_norm": 11.05051,
+      "phase_deg": -74.227,
+      "delta_norm": -0.327846,
+      "delta_clr": {
+        "redshift": 0.138694,
+        "Dark_Energy": 0.345104,
+        "Cold_Dark_Matter": 0.013415,
+        "Baryonic_Matter": 0.014311,
+        "Photon_Radiation": 0.13101,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "redshift": 2.2441111585016182,
+        "Dark_Energy": -7.129380529559962,
+        "Cold_Dark_Matter": 2.9267788556898613,
+        "Baryonic_Matter": 1.2592099187216415,
+        "Photon_Radiation": -4.793255418909976,
+        "Neutrinos": -5.148839033422366
+      },
+      "aitchison_norm": 10.747166,
+      "phase_deg": -72.528,
+      "delta_norm": -0.303344,
+      "delta_clr": {
+        "redshift": 0.1359,
+        "Dark_Energy": 0.334274,
+        "Cold_Dark_Matter": 0.012805,
+        "Baryonic_Matter": 0.013413,
+        "Photon_Radiation": 0.120076,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "redshift": 2.376561992529596,
+        "Dark_Energy": -6.808392163418516,
+        "Cold_Dark_Matter": 2.9388397807491593,
+        "Baryonic_Matter": 1.271536777910015,
+        "Photon_Radiation": -4.6862691716129845,
+        "Neutrinos": -5.044541385339269
+      },
+      "aitchison_norm": 10.472075,
+      "phase_deg": -70.758,
+      "delta_norm": -0.275092,
+      "delta_clr": {
+        "redshift": 0.132451,
+        "Dark_Energy": 0.320988,
+        "Cold_Dark_Matter": 0.012061,
+        "Baryonic_Matter": 0.012327,
+        "Photon_Radiation": 0.106986,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "redshift": 2.504939786473394,
+        "Dark_Energy": -6.502982569882732,
+        "Cold_Dark_Matter": 2.950035923158146,
+        "Baryonic_Matter": 1.2826142800291507,
+        "Photon_Radiation": -4.594167931314404,
+        "Neutrinos": -4.959808482370679
+      },
+      "aitchison_norm": 10.228265,
+      "phase_deg": -68.933,
+      "delta_norm": -0.24381,
+      "delta_clr": {
+        "redshift": 0.128378,
+        "Dark_Energy": 0.30541,
+        "Cold_Dark_Matter": 0.011196,
+        "Baryonic_Matter": 0.011078,
+        "Photon_Radiation": 0.092101,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "redshift": 2.628654956810247,
+        "Dark_Energy": -6.215253173552586,
+        "Cold_Dark_Matter": 2.960260871313361,
+        "Baryonic_Matter": 1.2923060861822697,
+        "Photon_Radiation": -4.51833584275046,
+        "Neutrinos": -4.896097301064502
+      },
+      "aitchison_norm": 10.01796,
+      "phase_deg": -67.075,
+      "delta_norm": -0.210304,
+      "delta_clr": {
+        "redshift": 0.123715,
+        "Dark_Energy": 0.287729,
+        "Cold_Dark_Matter": 0.010225,
+        "Baryonic_Matter": 0.009692,
+        "Photon_Radiation": 0.075832,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "redshift": 2.7471576998780076,
+        "Dark_Energy": -5.947088255686638,
+        "Cold_Dark_Matter": 2.9694244428587573,
+        "Baryonic_Matter": 1.3005060889011464,
+        "Photon_Radiation": -4.459708046387111,
+        "Neutrinos": -4.854148948450203
+      },
+      "aitchison_norm": 9.842525,
+      "phase_deg": -65.206,
+      "delta_norm": -0.175436,
+      "delta_clr": {
+        "redshift": 0.118503,
+        "Dark_Energy": 0.268165,
+        "Cold_Dark_Matter": 0.009164,
+        "Baryonic_Matter": 0.0082,
+        "Photon_Radiation": 0.058628,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "redshift": 2.859942682606138,
+        "Dark_Energy": -5.700131811975522,
+        "Cold_Dark_Matter": 2.9774541916877966,
+        "Baryonic_Matter": 1.3071407270697417,
+        "Photon_Radiation": -4.418744869940952,
+        "Neutrinos": -4.8339634245277825
+      },
+      "aitchison_norm": 9.702429,
+      "phase_deg": -63.356,
+      "delta_norm": -0.140095,
+      "delta_clr": {
+        "redshift": 0.112785,
+        "Dark_Energy": 0.246956,
+        "Cold_Dark_Matter": 0.00803,
+        "Baryonic_Matter": 0.006635,
+        "Photon_Radiation": 0.040963,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "redshift": 2.966553353839295,
+        "Dark_Energy": -5.475767361436983,
+        "Cold_Dark_Matter": 2.9842966185620035,
+        "Baryonic_Matter": 1.3121705907911303,
+        "Photon_Radiation": -4.395419124022294,
+        "Neutrinos": -4.8347996222677745
+      },
+      "aitchison_norm": 9.597254,
+      "phase_deg": -61.553,
+      "delta_norm": -0.105175,
+      "delta_clr": {
+        "redshift": 0.106611,
+        "Dark_Energy": 0.224364,
+        "Cold_Dark_Matter": 0.006842,
+        "Baryonic_Matter": 0.00503,
+        "Photon_Radiation": 0.023326,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "redshift": 3.0665858394708065,
+        "Dark_Energy": -5.275100954414092,
+        "Cold_Dark_Matter": 2.9899180651158206,
+        "Baryonic_Matter": 1.3155912811846784,
+        "Photon_Radiation": -4.389216852521672,
+        "Neutrinos": -4.855200565122274
+      },
+      "aitchison_norm": 9.525714,
+      "phase_deg": -59.829,
+      "delta_norm": -0.07154,
+      "delta_clr": {
+        "redshift": 0.100032,
+        "Dark_Energy": 0.200666,
+        "Cold_Dark_Matter": 0.005621,
+        "Baryonic_Matter": 0.003421,
+        "Photon_Radiation": 0.006202,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "redshift": 3.1596923881541525,
+        "Dark_Energy": -5.098947588367765,
+        "Cold_Dark_Matter": 2.994305276308396,
+        "Baryonic_Matter": 1.3174335063554705,
+        "Photon_Radiation": -4.39915151703026,
+        "Neutrinos": -4.893043022613832
+      },
+      "aitchison_norm": 9.485717,
+      "phase_deg": -58.215,
+      "delta_norm": -0.039997,
+      "delta_clr": {
+        "redshift": 0.093107,
+        "Dark_Energy": 0.176153,
+        "Cold_Dark_Matter": 0.004387,
+        "Baryonic_Matter": 0.001842,
+        "Photon_Radiation": -0.009935,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "redshift": 3.2455843381948384,
+        "Dark_Energy": -4.94782119830108,
+        "Cold_Dark_Matter": 2.9974656219233866,
+        "Baryonic_Matter": 1.3177624114422355,
+        "Photon_Radiation": -4.423791223825366,
+        "Neutrinos": -4.94560981440282
+      },
+      "aitchison_norm": 9.474441,
+      "phase_deg": -56.737,
+      "delta_norm": -0.011276,
+      "delta_clr": {
+        "redshift": 0.085892,
+        "Dark_Energy": 0.151126,
+        "Cold_Dark_Matter": 0.00316,
+        "Baryonic_Matter": 0.000329,
+        "Photon_Radiation": -0.02464,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "redshift": 3.324034580310192,
+        "Dark_Energy": -4.821928344750281,
+        "Cold_Dark_Matter": 2.9994269734153867,
+        "Baryonic_Matter": 1.3166761573599746,
+        "Photon_Radiation": -4.461298241996915,
+        "Neutrinos": -5.009682340605005
+      },
+      "aitchison_norm": 9.48844,
+      "phase_deg": -55.419,
+      "delta_norm": 0.013999,
+      "delta_clr": {
+        "redshift": 0.07845,
+        "Dark_Energy": 0.125893,
+        "Cold_Dark_Matter": 0.001961,
+        "Baryonic_Matter": -0.001086,
+        "Photon_Radiation": -0.037507,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "redshift": 3.394879495245688,
+        "Dark_Energy": -4.721165676864835,
+        "Cold_Dark_Matter": 3.000237238160945,
+        "Baryonic_Matter": 1.3143037792445553,
+        "Photon_Radiation": -4.509479722073701,
+        "Neutrinos": -5.081650187350323
+      },
+      "aitchison_norm": 9.52376,
+      "phase_deg": -54.281,
+      "delta_norm": 0.03532,
+      "delta_clr": {
+        "redshift": 0.070845,
+        "Dark_Energy": 0.100763,
+        "Cold_Dark_Matter": 0.00081,
+        "Baryonic_Matter": -0.002372,
+        "Photon_Radiation": -0.048181,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "redshift": 3.458020349716737,
+        "Dark_Energy": -4.645121201734265,
+        "Cold_Dark_Matter": 2.9999635588971314,
+        "Baryonic_Matter": 1.310802371321119,
+        "Photon_Radiation": -4.565848215391125,
+        "Neutrinos": -5.1576340750970004
+      },
+      "aitchison_norm": 9.576074,
+      "phase_deg": -53.334,
+      "delta_norm": 0.052314,
+      "delta_clr": {
+        "redshift": 0.063141,
+        "Dark_Energy": 0.076044,
+        "Cold_Dark_Matter": -0.000274,
+        "Baryonic_Matter": -0.003501,
+        "Photon_Radiation": -0.056368,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "redshift": 3.5134241387662577,
+        "Dark_Energy": -4.593079344372291,
+        "Cold_Dark_Matter": 2.9986911917255132,
+        "Baryonic_Matter": 1.3063536596134202,
+        "Photon_Radiation": -4.62769032395633,
+        "Neutrinos": -5.2336179628436765
+      },
+      "aitchison_norm": 9.640825,
+      "phase_deg": -52.586,
+      "delta_norm": 0.064751,
+      "delta_clr": {
+        "redshift": 0.055404,
+        "Dark_Energy": 0.052042,
+        "Cold_Dark_Matter": -0.001272,
+        "Baryonic_Matter": -0.004449,
+        "Photon_Radiation": -0.061842,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "redshift": 3.561123867351331,
+        "Dark_Energy": -4.56402973621289,
+        "Cold_Dark_Matter": 2.9965220814307725,
+        "Baryonic_Matter": 1.3011600372665535,
+        "Photon_Radiation": -4.69214158617707,
+        "Neutrinos": -5.305585809588994
+      },
+      "aitchison_norm": 9.71337,
+      "phase_deg": -52.037,
+      "delta_norm": 0.072545,
+      "delta_clr": {
+        "redshift": 0.0477,
+        "Dark_Energy": 0.02905,
+        "Cold_Dark_Matter": -0.002169,
+        "Baryonic_Matter": -0.005194,
+        "Photon_Radiation": -0.064451,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "redshift": 3.601218268756547,
+        "Dark_Energy": -4.556679624180392,
+        "Cold_Dark_Matter": 2.99357315792128,
+        "Baryonic_Matter": 1.2954401489795746,
+        "Photon_Radiation": -4.756265531720126,
+        "Neutrinos": -5.36965833579118
+      },
+      "aitchison_norm": 9.789129,
+      "phase_deg": -51.68,
+      "delta_norm": 0.075758,
+      "delta_clr": {
+        "redshift": 0.040094,
+        "Dark_Energy": 0.00735,
+        "Cold_Dark_Matter": -0.002949,
+        "Baryonic_Matter": -0.00572,
+        "Photon_Radiation": -0.064124,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "redshift": 3.6338709622364305,
+        "Dark_Energy": -4.56946974792881,
+        "Cold_Dark_Matter": 2.989974382259112,
+        "Baryonic_Matter": 1.289424120881491,
+        "Photon_Radiation": -4.81713472370334,
+        "Neutrinos": -5.422225127580167
+      },
+      "aitchison_norm": 9.863719,
+      "phase_deg": -51.507,
+      "delta_norm": 0.07459,
+      "delta_clr": {
+        "redshift": 0.032653,
+        "Dark_Energy": -0.01279,
+        "Cold_Dark_Matter": -0.003599,
+        "Baryonic_Matter": -0.006016,
+        "Photon_Radiation": -0.060869,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "redshift": 3.6593090570736537,
+        "Dark_Energy": -4.600593490250507,
+        "Cold_Dark_Matter": 2.985866574931562,
+        "Baryonic_Matter": 1.2833485399193827,
+        "Photon_Radiation": -4.871911551577908,
+        "Neutrinos": -5.460067585071725
+      },
+      "aitchison_norm": 9.933088,
+      "phase_deg": -51.501,
+      "delta_norm": 0.06937,
+      "delta_clr": {
+        "redshift": 0.025438,
+        "Dark_Energy": -0.031124,
+        "Cold_Dark_Matter": -0.004108,
+        "Baryonic_Matter": -0.006076,
+        "Photon_Radiation": -0.054777,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "redshift": 3.677821214962712,
+        "Dark_Energy": -4.6480190654541,
+        "Cold_Dark_Matter": 2.9813990626550435,
+        "Baryonic_Matter": 1.2774512922922565,
+        "Photon_Radiation": -4.917926544938119,
+        "Neutrinos": -5.4804685279262255
+      },
+      "aitchison_norm": 9.993628,
+      "phase_deg": -51.647,
+      "delta_norm": 0.06054,
+      "delta_clr": {
+        "redshift": 0.018512,
+        "Dark_Energy": -0.047426,
+        "Cold_Dark_Matter": -0.004468,
+        "Baryonic_Matter": -0.005897,
+        "Photon_Radiation": -0.046015,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "redshift": 3.6897551872501246,
+        "Dark_Energy": -4.709514473200035,
+        "Cold_Dark_Matter": 2.9767271830347166,
+        "Baryonic_Matter": 1.2719663735394022,
+        "Photon_Radiation": -4.95275204691449,
+        "Neutrinos": -5.481304725666217
+      },
+      "aitchison_norm": 10.042265,
+      "phase_deg": -51.922,
+      "delta_norm": 0.048636,
+      "delta_clr": {
+        "redshift": 0.011934,
+        "Dark_Energy": -0.061495,
+        "Cold_Dark_Matter": -0.004672,
+        "Baryonic_Matter": -0.005485,
+        "Photon_Radiation": -0.034826,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "redshift": 3.695514848042564,
+        "Dark_Energy": -4.782674911317661,
+        "Cold_Dark_Matter": 2.9720096887785155,
+        "Baryonic_Matter": 1.2671187835104292,
+        "Photon_Radiation": -4.97426921387472,
+        "Neutrinos": -5.461119201743796
+      },
+      "aitchison_norm": 10.076528,
+      "phase_deg": -52.307,
+      "delta_norm": 0.034264,
+      "delta_clr": {
+        "redshift": 0.00576,
+        "Dark_Energy": -0.07316,
+        "Cold_Dark_Matter": -0.004717,
+        "Baryonic_Matter": -0.004848,
+        "Photon_Radiation": -0.021517,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 26,
+      "year": 26,
+      "clr": {
+        "redshift": 3.695556748495373,
+        "Dark_Energy": -4.864952310927082,
+        "Cold_Dark_Matter": 2.967406094842715,
+        "Baryonic_Matter": 1.2631196175923134,
+        "Photon_Radiation": -4.980726492340899,
+        "Neutrinos": -5.419170849129498
+      },
+      "aitchison_norm": 10.094599,
+      "phase_deg": -52.779,
+      "delta_norm": 0.01807,
+      "delta_clr": {
+        "redshift": 4.2e-05,
+        "Dark_Energy": -0.082277,
+        "Cold_Dark_Matter": -0.004604,
+        "Baryonic_Matter": -0.003999,
+        "Photon_Radiation": -0.006457,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 27,
+      "year": 27,
+      "clr": {
+        "redshift": 3.6903862216790895,
+        "Dark_Energy": -4.953686631123491,
+        "Cold_Dark_Matter": 2.9630740128398743,
+        "Baryonic_Matter": 1.2601614612870944,
+        "Photon_Radiation": -4.970787959247429,
+        "Neutrinos": -5.35545966782332
+      },
+      "aitchison_norm": 10.095319,
+      "phase_deg": -53.315,
+      "delta_norm": 0.00072,
+      "delta_clr": {
+        "redshift": -0.005171,
+        "Dark_Energy": -0.088734,
+        "Cold_Dark_Matter": -0.004332,
+        "Baryonic_Matter": -0.002958,
+        "Photon_Radiation": 0.009939,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 28,
+      "year": 28,
+      "clr": {
+        "redshift": 3.680553071255861,
+        "Dark_Energy": -5.046138528871277,
+        "Cold_Dark_Matter": 2.9591665172528088,
+        "Baryonic_Matter": 1.2584141886157167,
+        "Photon_Radiation": -4.943570191420831,
+        "Neutrinos": -5.270726764854731
+      },
+      "aitchison_norm": 10.07818,
+      "phase_deg": -53.894,
+      "delta_norm": -0.017139,
+      "delta_clr": {
+        "redshift": -0.009833,
+        "Dark_Energy": -0.092452,
+        "Cold_Dark_Matter": -0.003907,
+        "Baryonic_Matter": -0.001747,
+        "Photon_Radiation": 0.027218,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 29,
+      "year": 29,
+      "clr": {
+        "redshift": 3.6666468807484534,
+        "Dark_Energy": -5.1395230028651815,
+        "Cold_Dark_Matter": 2.955829587466761,
+        "Baryonic_Matter": 1.2580212560133364,
+        "Photon_Radiation": -4.898666646738872,
+        "Neutrinos": -5.166429116771633
+      },
+      "aitchison_norm": 10.04328,
+      "phase_deg": -54.495,
+      "delta_norm": -0.0349,
+      "delta_clr": {
+        "redshift": -0.013906,
+        "Dark_Energy": -0.093384,
+        "Cold_Dark_Matter": -0.003337,
+        "Baryonic_Matter": -0.000393,
+        "Photon_Radiation": 0.044904,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 30,
+      "year": 30,
+      "clr": {
+        "redshift": 3.649291983421517,
+        "Dark_Energy": -5.231043598153827,
+        "Cold_Dark_Matter": 2.953199668364977,
+        "Baryonic_Matter": 1.2590965725713659,
+        "Photon_Radiation": -4.83615888408547,
+        "Neutrinos": -5.044689954051478
+      },
+      "aitchison_norm": 9.991256,
+      "phase_deg": -55.1,
+      "delta_norm": -0.052024,
+      "delta_clr": {
+        "redshift": -0.017355,
+        "Dark_Energy": -0.091521,
+        "Cold_Dark_Matter": -0.00263,
+        "Baryonic_Matter": 0.001075,
+        "Photon_Radiation": 0.062508,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 31,
+      "year": 31,
+      "clr": {
+        "redshift": 3.6291421356903095,
+        "Dark_Energy": -5.3179267514337685,
+        "Cold_Dark_Matter": 2.9514013902516134,
+        "Baryonic_Matter": 1.2617220149075175,
+        "Photon_Radiation": -4.756614312447416,
+        "Neutrinos": -4.9082264570338925
+      },
+      "aitchison_norm": 9.923195,
+      "phase_deg": -55.689,
+      "delta_norm": -0.068061,
+      "delta_clr": {
+        "redshift": -0.02015,
+        "Dark_Energy": -0.086883,
+        "Cold_Dark_Matter": -0.001798,
+        "Baryonic_Matter": 0.002625,
+        "Photon_Radiation": 0.079545,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 32,
+      "year": 32,
+      "clr": {
+        "redshift": 3.6068749395014623,
+        "Dark_Energy": -5.397455855194638,
+        "Cold_Dark_Matter": 2.95054548620346,
+        "Baryonic_Matter": 1.2659456408813796,
+        "Photon_Radiation": -4.661070531274442,
+        "Neutrinos": -4.760257225603109
+      },
+      "aitchison_norm": 9.840531,
+      "phase_deg": -56.247,
+      "delta_norm": -0.082664,
+      "delta_clr": {
+        "redshift": -0.022267,
+        "Dark_Energy": -0.079529,
+        "Cold_Dark_Matter": -0.000856,
+        "Baryonic_Matter": 0.004224,
+        "Photon_Radiation": 0.095544,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 33,
+      "year": 33,
+      "clr": {
+        "redshift": 3.583186061272094,
+        "Dark_Energy": -5.467004622348782,
+        "Cold_Dark_Matter": 2.9507269416527913,
+        "Baryonic_Matter": 1.2717806411265107,
+        "Photon_Radiation": -4.551006694285315,
+        "Neutrinos": -4.604392673629195
+      },
+      "aitchison_norm": 9.744931,
+      "phase_deg": -56.758,
+      "delta_norm": -0.0956,
+      "delta_clr": {
+        "redshift": -0.023689,
+        "Dark_Energy": -0.069549,
+        "Cold_Dark_Matter": 0.000181,
+        "Baryonic_Matter": 0.005835,
+        "Photon_Radiation": 0.110064,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 34,
+      "year": 34,
+      "clr": {
+        "redshift": 3.5587832967092217,
+        "Dark_Energy": -5.524069341570235,
+        "Cold_Dark_Matter": 2.9520234071229483,
+        "Baryonic_Matter": 1.2792050512732458,
+        "Photon_Radiation": -4.428302687036101,
+        "Neutrinos": -4.44451208065392
+      },
+      "aitchison_norm": 9.638187,
+      "phase_deg": -57.209,
+      "delta_norm": -0.106744,
+      "delta_clr": {
+        "redshift": -0.024403,
+        "Dark_Energy": -0.057065,
+        "Cold_Dark_Matter": 0.001296,
+        "Baryonic_Matter": 0.007424,
+        "Photon_Radiation": 0.122704,
+        "Neutrinos": 0.159881
+      }
+    },
+    {
+      "index": 35,
+      "year": 35,
+      "clr": {
+        "redshift": 3.534380532146349,
+        "Dark_Energy": -5.566299627191723,
+        "Cold_Dark_Matter": 2.9544939006408066,
+        "Baryonic_Matter": 1.2881622311405894,
+        "Photon_Radiation": -4.295187244888699,
+        "Neutrinos": -4.284631487678644
+      },
+      "aitchison_norm": 9.522113,
+      "phase_deg": -57.586,
+      "delta_norm": -0.116074,
+      "delta_clr": {
+        "redshift": -0.024403,
+        "Dark_Energy": -0.04223,
+        "Cold_Dark_Matter": 0.00247,
+        "Baryonic_Matter": 0.008957,
+        "Photon_Radiation": 0.133115,
+        "Neutrinos": 0.159881
+      }
+    },
+    {
+      "index": 36,
+      "year": 36,
+      "clr": {
+        "redshift": 3.510691653916981,
+        "Dark_Energy": -5.59152728599792,
+        "Cold_Dark_Matter": 2.9581778215096093,
+        "Baryonic_Matter": 1.2985621004427672,
+        "Photon_Radiation": -4.154176443246153,
+        "Neutrinos": -4.128766935704731
+      },
+      "aitchison_norm": 9.398463,
+      "phase_deg": -57.877,
+      "delta_norm": -0.12365,
+      "delta_clr": {
+        "redshift": -0.023689,
+        "Dark_Energy": -0.025228,
+        "Cold_Dark_Matter": 0.003684,
+        "Baryonic_Matter": 0.0104,
+        "Photon_Radiation": 0.141011,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 37,
+      "year": 37,
+      "clr": {
+        "redshift": 3.4884244577281347,
+        "Dark_Energy": -5.5977929463808875,
+        "Cold_Dark_Matter": 2.963094291922611,
+        "Baryonic_Matter": 1.310283104051297,
+        "Photon_Radiation": -4.008004257632327,
+        "Neutrinos": -3.9807977042739475
+      },
+      "aitchison_norm": 9.268873,
+      "phase_deg": -58.07,
+      "delta_norm": -0.12959,
+      "delta_clr": {
+        "redshift": -0.022267,
+        "Dark_Energy": -0.006266,
+        "Cold_Dark_Matter": 0.004916,
+        "Baryonic_Matter": 0.011721,
+        "Photon_Radiation": 0.146172,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 38,
+      "year": 38,
+      "clr": {
+        "redshift": 3.4682746099969264,
+        "Dark_Energy": -5.583370122805705,
+        "Cold_Dark_Matter": 2.9692418374195886,
+        "Baryonic_Matter": 1.3231748639368806,
+        "Photon_Radiation": -3.859547110053931,
+        "Neutrinos": -3.844334207256362
+      },
+      "aitchison_norm": 9.134832,
+      "phase_deg": -58.152,
+      "delta_norm": -0.134042,
+      "delta_clr": {
+        "redshift": -0.02015,
+        "Dark_Energy": 0.014423,
+        "Cold_Dark_Matter": 0.006148,
+        "Baryonic_Matter": 0.012892,
+        "Photon_Radiation": 0.148457,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 39,
+      "year": 39,
+      "clr": {
+        "redshift": 3.4509197126699904,
+        "Dark_Energy": -5.546786420033113,
+        "Cold_Dark_Matter": 2.9765984115259663,
+        "Baryonic_Matter": 1.3370614599342754,
+        "Photon_Radiation": -3.7117444840525593,
+        "Neutrinos": -3.722595044536207
+      },
+      "aitchison_norm": 8.997684,
+      "phase_deg": -58.112,
+      "delta_norm": -0.137148,
+      "delta_clr": {
+        "redshift": -0.017355,
+        "Dark_Energy": 0.036584,
+        "Cold_Dark_Matter": 0.007357,
+        "Baryonic_Matter": 0.013887,
+        "Photon_Radiation": 0.147803,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 40,
+      "year": 40,
+      "clr": {
+        "redshift": 3.4370135221625824,
+        "Dark_Energy": -5.486841616674718,
+        "Cold_Dark_Matter": 2.9851217641628334,
+        "Baryonic_Matter": 1.3517452677544113,
+        "Photon_Radiation": -3.567517799352588,
+        "Neutrinos": -3.6182973964531087
+      },
+      "aitchison_norm": 8.858664,
+      "phase_deg": -57.937,
+      "delta_norm": -0.139021,
+      "delta_clr": {
+        "redshift": -0.013906,
+        "Dark_Energy": 0.059945,
+        "Cold_Dark_Matter": 0.008523,
+        "Baryonic_Matter": 0.014684,
+        "Photon_Radiation": 0.144227,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 41,
+      "year": 41,
+      "clr": {
+        "redshift": 3.427180371739354,
+        "Dark_Energy": -5.40262240598347,
+        "Cold_Dark_Matter": 2.9947501476714917,
+        "Baryonic_Matter": 1.36701127051067,
+        "Photon_Radiation": -3.4296897850434656,
+        "Neutrinos": -3.5335644934845187
+      },
+      "aitchison_norm": 8.718944,
+      "phase_deg": -57.611,
+      "delta_norm": -0.139719,
+      "delta_clr": {
+        "redshift": -0.009833,
+        "Dark_Energy": 0.084219,
+        "Cold_Dark_Matter": 0.009628,
+        "Baryonic_Matter": 0.015266,
+        "Photon_Radiation": 0.137828,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 42,
+      "year": 42,
+      "clr": {
+        "redshift": 3.4220098449230703,
+        "Dark_Energy": -5.293513612837081,
+        "Cold_Dark_Matter": 3.0054033486544345,
+        "Baryonic_Matter": 1.3826317496956988,
+        "Photon_Radiation": -3.3009065764759855,
+        "Neutrinos": -3.4698533121783415
+      },
+      "aitchison_norm": 8.57971,
+      "phase_deg": -57.119,
+      "delta_norm": -0.139234,
+      "delta_clr": {
+        "redshift": -0.005171,
+        "Dark_Energy": 0.109109,
+        "Cold_Dark_Matter": 0.010653,
+        "Baryonic_Matter": 0.01562,
+        "Photon_Radiation": 0.128783,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 43,
+      "year": 43,
+      "clr": {
+        "redshift": 3.4220517453758794,
+        "Dark_Energy": -5.159205749150441,
+        "Cold_Dark_Matter": 3.0169840283900697,
+        "Baryonic_Matter": 1.398371253266728,
+        "Photon_Radiation": -3.183564685881804,
+        "Neutrinos": -3.427904959564043
+      },
+      "aitchison_norm": 8.442221,
+      "phase_deg": -56.444,
+      "delta_norm": -0.137489,
+      "delta_clr": {
+        "redshift": 4.2e-05,
+        "Dark_Energy": 0.134308,
+        "Cold_Dark_Matter": 0.011581,
+        "Baryonic_Matter": 0.01574,
+        "Photon_Radiation": 0.117342,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 44,
+      "year": 44,
+      "clr": {
+        "redshift": 3.4278114061683183,
+        "Dark_Energy": -4.999698814923553,
+        "Cold_Dark_Matter": 3.0293793494220314,
+        "Baryonic_Matter": 1.413991732451757,
+        "Photon_Radiation": -3.0797448622179324,
+        "Neutrinos": -3.4077194356416225
+      },
+      "aitchison_norm": 8.307874,
+      "phase_deg": -55.565,
+      "delta_norm": -0.134347,
+      "delta_clr": {
+        "redshift": 0.00576,
+        "Dark_Energy": 0.159507,
+        "Cold_Dark_Matter": 0.012395,
+        "Baryonic_Matter": 0.01562,
+        "Photon_Radiation": 0.10382,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 45,
+      "year": 45,
+      "clr": {
+        "redshift": 3.439745378455731,
+        "Dark_Energy": -4.815302298241524,
+        "Cold_Dark_Matter": 3.042462861141793,
+        "Baryonic_Matter": 1.4292577352080158,
+        "Photon_Radiation": -2.991154665605632,
+        "Neutrinos": -3.4085556333816136
+      },
+      "aitchison_norm": 8.178239,
+      "phase_deg": -54.46,
+      "delta_norm": -0.129635,
+      "delta_clr": {
+        "redshift": 0.011934,
+        "Dark_Energy": 0.184397,
+        "Cold_Dark_Matter": 0.013084,
+        "Baryonic_Matter": 0.015266,
+        "Photon_Radiation": 0.08859,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 46,
+      "year": 46,
+      "clr": {
+        "redshift": 3.458257536344789,
+        "Dark_Energy": -4.606631374226641,
+        "Cold_Dark_Matter": 3.056096612855343,
+        "Baryonic_Matter": 1.4439415430281517,
+        "Photon_Radiation": -2.919081341223363,
+        "Neutrinos": -3.428956576236115
+      },
+      "aitchison_norm": 8.055065,
+      "phase_deg": -53.104,
+      "delta_norm": -0.123175,
+      "delta_clr": {
+        "redshift": 0.018512,
+        "Dark_Energy": 0.208671,
+        "Cold_Dark_Matter": 0.013634,
+        "Baryonic_Matter": 0.014684,
+        "Photon_Radiation": 0.072073,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 47,
+      "year": 47,
+      "clr": {
+        "redshift": 3.4836956311820124,
+        "Dark_Energy": -4.374599349625956,
+        "Cold_Dark_Matter": 3.070133459023288,
+        "Baryonic_Matter": 1.4578281390255465,
+        "Photon_Radiation": -2.8643562932639233,
+        "Neutrinos": -3.4667990337276713
+      },
+      "aitchison_norm": 7.940244,
+      "phase_deg": -51.468,
+      "delta_norm": -0.114821,
+      "delta_clr": {
+        "redshift": 0.025438,
+        "Dark_Energy": 0.232032,
+        "Cold_Dark_Matter": 0.014037,
+        "Baryonic_Matter": 0.013887,
+        "Photon_Radiation": 0.054725,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 48,
+      "year": 48,
+      "clr": {
+        "redshift": 3.5163483246618963,
+        "Dark_Energy": -4.120406445827861,
+        "Cold_Dark_Matter": 3.084419518152426,
+        "Baryonic_Matter": 1.47071989891113,
+        "Photon_Radiation": -2.8273321394214244,
+        "Neutrinos": -3.51936582551666
+      },
+      "aitchison_norm": 7.835742,
+      "phase_deg": -49.523,
+      "delta_norm": -0.104501,
+      "delta_clr": {
+        "redshift": 0.032653,
+        "Dark_Energy": 0.254193,
+        "Cold_Dark_Matter": 0.014286,
+        "Baryonic_Matter": 0.012892,
+        "Photon_Radiation": 0.037024,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 49,
+      "year": 49,
+      "clr": {
+        "redshift": 3.5564427260671123,
+        "Dark_Energy": -3.8455250580716154,
+        "Cold_Dark_Matter": 3.0987967442492086,
+        "Baryonic_Matter": 1.4824409025196599,
+        "Photon_Radiation": -2.8078729791699977,
+        "Neutrinos": -3.583438351718845
+      },
+      "aitchison_norm": 7.743494,
+      "phase_deg": -47.237,
+      "delta_norm": -0.092248,
+      "delta_clr": {
+        "redshift": 0.040094,
+        "Dark_Energy": 0.274881,
+        "Cold_Dark_Matter": 0.014377,
+        "Baryonic_Matter": 0.011721,
+        "Photon_Radiation": 0.019459,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 50,
+      "year": 50,
+      "clr": {
+        "redshift": 3.604142454652185,
+        "Dark_Energy": -3.5516816718921413,
+        "Cold_Dark_Matter": 3.1131055678645385,
+        "Baryonic_Matter": 1.4928407718218377,
+        "Photon_Radiation": -2.8053581444151776,
+        "Neutrinos": -3.6554061984641613
+      },
+      "aitchison_norm": 7.665267,
+      "phase_deg": -44.58,
+      "delta_norm": -0.078227,
+      "delta_clr": {
+        "redshift": 0.0477,
+        "Dark_Energy": 0.293843,
+        "Cold_Dark_Matter": 0.014309,
+        "Baryonic_Matter": 0.0104,
+        "Photon_Radiation": 0.002515,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 51,
+      "year": 51,
+      "clr": {
+        "redshift": 3.6595462437017057,
+        "Dark_Energy": -3.2408356588973746,
+        "Cold_Dark_Matter": 3.1271875625964407,
+        "Baryonic_Matter": 1.5017979516891813,
+        "Photon_Radiation": -2.8186993290055895,
+        "Neutrinos": -3.731390086210839
+      },
+      "aitchison_norm": 7.602521,
+      "phase_deg": -41.528,
+      "delta_norm": -0.062745,
+      "delta_clr": {
+        "redshift": 0.055404,
+        "Dark_Energy": 0.310846,
+        "Cold_Dark_Matter": 0.014082,
+        "Baryonic_Matter": 0.008957,
+        "Photon_Radiation": -0.013341,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 52,
+      "year": 52,
+      "clr": {
+        "redshift": 3.722687098172754,
+        "Dark_Energy": -2.9151552123026447,
+        "Cold_Dark_Matter": 3.1408880924917146,
+        "Baryonic_Matter": 1.5092223618359164,
+        "Photon_Radiation": -2.8463706243560316,
+        "Neutrinos": -3.8073739739575165
+      },
+      "aitchison_norm": 7.556281,
+      "phase_deg": -38.064,
+      "delta_norm": -0.04624,
+      "delta_clr": {
+        "redshift": 0.063141,
+        "Dark_Energy": 0.32568,
+        "Cold_Dark_Matter": 0.013701,
+        "Baryonic_Matter": 0.007424,
+        "Photon_Radiation": -0.027671,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 53,
+      "year": 53,
+      "clr": {
+        "redshift": 3.7935320131082517,
+        "Dark_Energy": -2.57699071777522,
+        "Cold_Dark_Matter": 3.154058896106884,
+        "Baryonic_Matter": 1.5150573620810477,
+        "Photon_Radiation": -2.886450632243637,
+        "Neutrinos": -3.8793418207028334
+      },
+      "aitchison_norm": 7.527027,
+      "phase_deg": -34.189,
+      "delta_norm": -0.029253,
+      "delta_clr": {
+        "redshift": 0.070845,
+        "Dark_Energy": 0.338164,
+        "Cold_Dark_Matter": 0.013171,
+        "Baryonic_Matter": 0.005835,
+        "Photon_Radiation": -0.04008,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 54,
+      "year": 54,
+      "clr": {
+        "redshift": 3.871982255223605,
+        "Dark_Energy": -2.2288458866410745,
+        "Cold_Dark_Matter": 3.1665605640472054,
+        "Baryonic_Matter": 1.5192809880549096,
+        "Photon_Radiation": -2.9366754925269043,
+        "Neutrinos": -3.9434143469050187
+      },
+      "aitchison_norm": 7.514646,
+      "phase_deg": -29.926,
+      "delta_norm": -0.012382,
+      "delta_clr": {
+        "redshift": 0.07845,
+        "Dark_Energy": 0.348145,
+        "Cold_Dark_Matter": 0.012502,
+        "Baryonic_Matter": 0.004224,
+        "Photon_Radiation": -0.050225,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 55,
+      "year": 55,
+      "clr": {
+        "redshift": 3.95787420526429,
+        "Dark_Energy": -1.873347005987855,
+        "Cold_Dark_Matter": 3.178264868582551,
+        "Baryonic_Matter": 1.5219064303910612,
+        "Photon_Radiation": -2.9945013623017864,
+        "Neutrinos": -3.995981138694007
+      },
+      "aitchison_norm": 7.518422,
+      "phase_deg": -25.329,
+      "delta_norm": 0.003776,
+      "delta_clr": {
+        "redshift": 0.085892,
+        "Dark_Energy": 0.355499,
+        "Cold_Dark_Matter": 0.011704,
+        "Baryonic_Matter": 0.002625,
+        "Photon_Radiation": -0.057826,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 56,
+      "year": 56,
+      "clr": {
+        "redshift": 4.050980753947638,
+        "Dark_Energy": -1.5132106833259305,
+        "Cold_Dark_Matter": 3.189056906410868,
+        "Baryonic_Matter": 1.5229817469490907,
+        "Photon_Radiation": -3.057174622163554,
+        "Neutrinos": -4.033823596185565
+      },
+      "aitchison_norm": 7.537099,
+      "phase_deg": -20.483,
+      "delta_norm": 0.018677,
+      "delta_clr": {
+        "redshift": 0.093107,
+        "Dark_Energy": 0.360136,
+        "Cold_Dark_Matter": 0.010792,
+        "Baryonic_Matter": 0.001075,
+        "Photon_Radiation": -0.062673,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 57,
+      "year": 57,
+      "clr": {
+        "redshift": 4.151013239579148,
+        "Dark_Energy": -1.151210481958748,
+        "Cold_Dark_Matter": 3.1988370187623283,
+        "Baryonic_Matter": 1.5225888143467103,
+        "Photon_Radiation": -3.121807871986501,
+        "Neutrinos": -4.0542245390400655
+      },
+      "aitchison_norm": 7.56898,
+      "phase_deg": -15.5,
+      "delta_norm": 0.031881,
+      "delta_clr": {
+        "redshift": 0.100032,
+        "Dark_Energy": 0.362,
+        "Cold_Dark_Matter": 0.00978,
+        "Baryonic_Matter": -0.000393,
+        "Photon_Radiation": -0.064633,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 58,
+      "year": 58,
+      "clr": {
+        "redshift": 4.2576239108123035,
+        "Dark_Energy": -0.790142856837687,
+        "Cold_Dark_Matter": 3.2075224567580616,
+        "Baryonic_Matter": 1.520841541675333,
+        "Photon_Radiation": -3.185459618851607,
+        "Neutrinos": -4.055060736780057
+      },
+      "aitchison_norm": 7.612064,
+      "phase_deg": -10.514,
+      "delta_norm": 0.043084,
+      "delta_clr": {
+        "redshift": 0.106611,
+        "Dark_Energy": 0.361068,
+        "Cold_Dark_Matter": 0.008685,
+        "Baryonic_Matter": -0.001747,
+        "Photon_Radiation": -0.063652,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 59,
+      "year": 59,
+      "clr": {
+        "redshift": 4.370408893540437,
+        "Dark_Energy": -0.4327928092679969,
+        "Cold_Dark_Matter": 3.2150487641943184,
+        "Baryonic_Matter": 1.5178833853701137,
+        "Photon_Radiation": -3.2452154578544294,
+        "Neutrinos": -4.034875212857636
+      },
+      "aitchison_norm": 7.664198,
+      "phase_deg": -5.655,
+      "delta_norm": 0.052134,
+      "delta_clr": {
+        "redshift": 0.112785,
+        "Dark_Energy": 0.35735,
+        "Cold_Dark_Matter": 0.007526,
+        "Baryonic_Matter": -0.002958,
+        "Photon_Radiation": -0.059756,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 60,
+      "year": 60,
+      "clr": {
+        "redshift": 4.488911636608196,
+        "Dark_Energy": -0.08189968228530031,
+        "Cold_Dark_Matter": 3.2213708546448805,
+        "Baryonic_Matter": 1.513884219451998,
+        "Photon_Radiation": -3.2982685053242817,
+        "Neutrinos": -3.992926860243337
+      },
+      "aitchison_norm": 7.723222,
+      "phase_deg": -1.045,
+      "delta_norm": 0.059023,
+      "delta_clr": {
+        "redshift": 0.118503,
+        "Dark_Energy": 0.350893,
+        "Cold_Dark_Matter": 0.006322,
+        "Baryonic_Matter": -0.003999,
+        "Photon_Radiation": -0.053053,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 61,
+      "year": 61,
+      "clr": {
+        "redshift": 4.612626806945048,
+        "Dark_Energy": 0.2598764832056041,
+        "Cold_Dark_Matter": 3.2264637648827037,
+        "Baryonic_Matter": 1.5090366294230249,
+        "Photon_Radiation": -3.3419968646180793,
+        "Neutrinos": -3.9292156789371604
+      },
+      "aitchison_norm": 7.787092,
+      "phase_deg": 3.225,
+      "delta_norm": 0.06387,
+      "delta_clr": {
+        "redshift": 0.123715,
+        "Dark_Energy": 0.341776,
+        "Cold_Dark_Matter": 0.005093,
+        "Baryonic_Matter": -0.004848,
+        "Photon_Radiation": -0.043728,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 62,
+      "year": 62,
+      "clr": {
+        "redshift": 4.7410046008888465,
+        "Dark_Energy": 0.5899876183248158,
+        "Cold_Dark_Matter": 3.230323072030644,
+        "Baryonic_Matter": 1.5035517106701708,
+        "Photon_Radiation": -3.3740359865487246,
+        "Neutrinos": -3.8444827759685714
+      },
+      "aitchison_norm": 7.853982,
+      "phase_deg": 7.094,
+      "delta_norm": 0.06689,
+      "delta_clr": {
+        "redshift": 0.128378,
+        "Dark_Energy": 0.330111,
+        "Cold_Dark_Matter": 0.003859,
+        "Baryonic_Matter": -0.005485,
+        "Photon_Radiation": -0.032039,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 63,
+      "year": 63,
+      "clr": {
+        "redshift": 4.873455434916825,
+        "Dark_Energy": 0.9060289209016879,
+        "Cold_Dark_Matter": 3.2329649674704264,
+        "Baryonic_Matter": 1.4976544630430446,
+        "Photon_Radiation": -3.392343927408358,
+        "Neutrinos": -3.7401851278854727
+      },
+      "aitchison_norm": 7.92234,
+      "phase_deg": 10.532,
+      "delta_norm": 0.068358,
+      "delta_clr": {
+        "redshift": 0.132451,
+        "Dark_Energy": 0.316041,
+        "Cold_Dark_Matter": 0.002642,
+        "Baryonic_Matter": -0.005897,
+        "Photon_Radiation": -0.018308,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 64,
+      "year": 64,
+      "clr": {
+        "redshift": 5.00935497576433,
+        "Dark_Energy": 1.2057683905966625,
+        "Cold_Dark_Matter": 3.234425986274797,
+        "Baryonic_Matter": 1.4915788820809361,
+        "Photon_Radiation": -3.3952577035625913,
+        "Neutrinos": -3.6184459651653174
+      },
+      "aitchison_norm": 7.990917,
+      "phase_deg": 13.534,
+      "delta_norm": 0.068577,
+      "delta_clr": {
+        "redshift": 0.1359,
+        "Dark_Energy": 0.299739,
+        "Cold_Dark_Matter": 0.001461,
+        "Baryonic_Matter": -0.006076,
+        "Photon_Radiation": -0.002914,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 65,
+      "year": 65,
+      "clr": {
+        "redshift": 5.148049467016106,
+        "Dark_Energy": 1.4871742417183569,
+        "Cold_Dark_Matter": 3.234762396684207,
+        "Baryonic_Matter": 1.4855628539828527,
+        "Photon_Radiation": -3.381539187313143,
+        "Neutrinos": -3.4819824681477334
+      },
+      "aitchison_norm": 8.058765,
+      "phase_deg": 16.113,
+      "delta_norm": 0.067848,
+      "delta_clr": {
+        "redshift": 0.138694,
+        "Dark_Energy": 0.281406,
+        "Cold_Dark_Matter": 0.000336,
+        "Baryonic_Matter": -0.006016,
+        "Photon_Radiation": 0.013719,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 66,
+      "year": 66,
+      "clr": {
+        "redshift": 5.288861306725524,
+        "Dark_Energy": 1.748439857059138,
+        "Cold_Dark_Matter": 3.234049259830252,
+        "Baryonic_Matter": 1.4798429656958738,
+        "Photon_Radiation": -3.35040927737167,
+        "Neutrinos": -3.3340132367169484
+      },
+      "aitchison_norm": 8.125207,
+      "phase_deg": 18.293,
+      "delta_norm": 0.066442,
+      "delta_clr": {
+        "redshift": 0.140812,
+        "Dark_Energy": 0.261266,
+        "Cold_Dark_Matter": -0.000713,
+        "Baryonic_Matter": -0.00572,
+        "Photon_Radiation": 0.03113,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 67,
+      "year": 67,
+      "clr": {
+        "redshift": 5.4310948284754605,
+        "Dark_Energy": 1.9880059762730136,
+        "Cold_Dark_Matter": 3.232379175418449,
+        "Baryonic_Matter": 1.474649343349007,
+        "Photon_Radiation": -3.301569400890804,
+        "Neutrinos": -3.178148684743036
+      },
+      "aitchison_norm": 8.189799,
+      "phase_deg": 20.105,
+      "delta_norm": 0.064592,
+      "delta_clr": {
+        "redshift": 0.142234,
+        "Dark_Energy": 0.239566,
+        "Cold_Dark_Matter": -0.00167,
+        "Baryonic_Matter": -0.005194,
+        "Photon_Radiation": 0.04884,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 68,
+      "year": 68,
+      "clr": {
+        "redshift": 5.5740422365589035,
+        "Dark_Energy": 2.2045798462843176,
+        "Cold_Dark_Matter": 3.2298607343307655,
+        "Baryonic_Matter": 1.470200631641308,
+        "Photon_Radiation": -3.235209753628454,
+        "Neutrinos": -3.01826809176776
+      },
+      "aitchison_norm": 8.252281,
+      "phase_deg": 21.579,
+      "delta_norm": 0.062481,
+      "delta_clr": {
+        "redshift": 0.142947,
+        "Dark_Energy": 0.216574,
+        "Cold_Dark_Matter": -0.002518,
+        "Baryonic_Matter": -0.004449,
+        "Photon_Radiation": 0.06636,
+        "Neutrinos": 0.159881
+      }
+    },
+    {
+      "index": 69,
+      "year": 69,
+      "clr": {
+        "redshift": 5.7169896446423465,
+        "Dark_Energy": 2.397151098527027,
+        "Cold_Dark_Matter": 3.2266167040058567,
+        "Baryonic_Matter": 1.4666992237178718,
+        "Photon_Radiation": -3.152004050829176,
+        "Neutrinos": -2.8583874987924838
+      },
+      "aitchison_norm": 8.312525,
+      "phase_deg": 22.748,
+      "delta_norm": 0.060245,
+      "delta_clr": {
+        "redshift": 0.142947,
+        "Dark_Energy": 0.192571,
+        "Cold_Dark_Matter": -0.003244,
+        "Baryonic_Matter": -0.003501,
+        "Photon_Radiation": 0.083206,
+        "Neutrinos": 0.159881
+      }
+    },
+    {
+      "index": 70,
+      "year": 70,
+      "clr": {
+        "redshift": 5.859223166392283,
+        "Dark_Energy": 2.565004158014857,
+        "Cold_Dark_Matter": 3.2227819769203987,
+        "Baryonic_Matter": 1.4643268456024525,
+        "Photon_Radiation": -3.053090933690437,
+        "Neutrinos": -2.70252294681857
+      },
+      "aitchison_norm": 8.370503,
+      "phase_deg": 23.642,
+      "delta_norm": 0.057977,
+      "delta_clr": {
+        "redshift": 0.142234,
+        "Dark_Energy": 0.167853,
+        "Cold_Dark_Matter": -0.003835,
+        "Baryonic_Matter": -0.002372,
+        "Photon_Radiation": 0.098913,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 71,
+      "year": 71,
+      "clr": {
+        "redshift": 6.0000350061017,
+        "Dark_Energy": 2.707727031837337,
+        "Cold_Dark_Matter": 3.218501316453658,
+        "Baryonic_Matter": 1.4632405915201916,
+        "Photon_Radiation": -2.940042544567488,
+        "Neutrinos": -2.554553715387787
+      },
+      "aitchison_norm": 8.426246,
+      "phase_deg": 24.289,
+      "delta_norm": 0.055744,
+      "delta_clr": {
+        "redshift": 0.140812,
+        "Dark_Energy": 0.142723,
+        "Cold_Dark_Matter": -0.004281,
+        "Baryonic_Matter": -0.001086,
+        "Photon_Radiation": 0.113048,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 72,
+      "year": 72,
+      "clr": {
+        "redshift": 6.138729497353477,
+        "Dark_Energy": 2.8252163691439307,
+        "Cold_Dark_Matter": 3.2139269378032664,
+        "Baryonic_Matter": 1.4635694966069566,
+        "Photon_Radiation": -2.8148211381942594,
+        "Neutrinos": -2.4180902183702013
+      },
+      "aitchison_norm": 8.479834,
+      "phase_deg": 24.713,
+      "delta_norm": 0.053588,
+      "delta_clr": {
+        "redshift": 0.138694,
+        "Dark_Energy": 0.117489,
+        "Cold_Dark_Matter": -0.004574,
+        "Baryonic_Matter": 0.000329,
+        "Photon_Radiation": 0.125221,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 73,
+      "year": 73,
+      "clr": {
+        "redshift": 6.274629038200982,
+        "Dark_Energy": 2.9176787304708807,
+        "Cold_Dark_Matter": 3.2092159643765723,
+        "Baryonic_Matter": 1.4654117217777487,
+        "Photon_Radiation": -2.6797249263856986,
+        "Neutrinos": -2.296351055650047
+      },
+      "aitchison_norm": 8.531382,
+      "phase_deg": 24.938,
+      "delta_norm": 0.051547,
+      "delta_clr": {
+        "redshift": 0.1359,
+        "Dark_Energy": 0.092462,
+        "Cold_Dark_Matter": -0.004711,
+        "Baryonic_Matter": 0.001842,
+        "Photon_Radiation": 0.135096,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 74,
+      "year": 74,
+      "clr": {
+        "redshift": 6.407079872228959,
+        "Dark_Energy": 2.985628050821268,
+        "Cold_Dark_Matter": 3.2045278021628207,
+        "Baryonic_Matter": 1.468832412171297,
+        "Photon_Radiation": -2.5373246508268283,
+        "Neutrinos": -2.1920534075669487
+      },
+      "aitchison_norm": 8.581039,
+      "phase_deg": 24.985,
+      "delta_norm": 0.049657,
+      "delta_clr": {
+        "redshift": 0.132451,
+        "Dark_Energy": 0.067949,
+        "Cold_Dark_Matter": -0.004688,
+        "Baryonic_Matter": 0.003421,
+        "Photon_Radiation": 0.1424,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 75,
+      "year": 75,
+      "clr": {
+        "redshift": 6.535457666172759,
+        "Dark_Energy": 3.0298793276560056,
+        "Cold_Dark_Matter": 3.2000214759619947,
+        "Baryonic_Matter": 1.4738622758926854,
+        "Photon_Radiation": -2.390392634444742,
+        "Neutrinos": -2.1073205045983583
+      },
+      "aitchison_norm": 8.628995,
+      "phase_deg": 24.873,
+      "delta_norm": 0.047956,
+      "delta_clr": {
+        "redshift": 0.128378,
+        "Dark_Energy": 0.044251,
+        "Cold_Dark_Matter": -0.004506,
+        "Baryonic_Matter": 0.00503,
+        "Photon_Radiation": 0.146932,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 76,
+      "year": 76,
+      "clr": {
+        "redshift": 6.659172836509611,
+        "Dark_Energy": 3.0515386113181675,
+        "Cold_Dark_Matter": 3.195852971983568,
+        "Baryonic_Matter": 1.480496914061281,
+        "Photon_Radiation": -2.241826269439639,
+        "Neutrinos": -2.0436093232921815
+      },
+      "aitchison_norm": 8.675479,
+      "phase_deg": 24.619,
+      "delta_norm": 0.046484,
+      "delta_clr": {
+        "redshift": 0.123715,
+        "Dark_Energy": 0.021659,
+        "Cold_Dark_Matter": -0.004169,
+        "Baryonic_Matter": 0.006635,
+        "Photon_Radiation": 0.148566,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 77,
+      "year": 77,
+      "clr": {
+        "redshift": 6.777675579577371,
+        "Dark_Energy": 3.051989420825496,
+        "Cold_Dark_Matter": 3.192172631221953,
+        "Baryonic_Matter": 1.4886969167801574,
+        "Photon_Radiation": -2.0945680535908364,
+        "Neutrinos": -2.0016609706778827
+      },
+      "aitchison_norm": 8.720755,
+      "phase_deg": 24.242,
+      "delta_norm": 0.045276,
+      "delta_clr": {
+        "redshift": 0.118503,
+        "Dark_Energy": 0.000451,
+        "Cold_Dark_Matter": -0.00368,
+        "Baryonic_Matter": 0.0082,
+        "Photon_Radiation": 0.147258,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 78,
+      "year": 78,
+      "clr": {
+        "redshift": 6.890460562305503,
+        "Dark_Energy": 3.0328757518686276,
+        "Cold_Dark_Matter": 3.1891226371669257,
+        "Baryonic_Matter": 1.4983887229332764,
+        "Photon_Radiation": -1.9515243817162344,
+        "Neutrinos": -1.9814754467554616
+      },
+      "aitchison_norm": 8.76511,
+      "phase_deg": 23.757,
+      "delta_norm": 0.044354,
+      "delta_clr": {
+        "redshift": 0.112785,
+        "Dark_Energy": -0.019114,
+        "Cold_Dark_Matter": -0.00305,
+        "Baryonic_Matter": 0.009692,
+        "Photon_Radiation": 0.143044,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 79,
+      "year": 79,
+      "clr": {
+        "redshift": 6.997071233538659,
+        "Dark_Energy": 2.9960818857061216,
+        "Cold_Dark_Matter": 3.1868346398309293,
+        "Baryonic_Matter": 1.509466225052412,
+        "Photon_Radiation": -1.8154853335195555,
+        "Neutrinos": -1.9823116444954536
+      },
+      "aitchison_norm": 8.808829,
+      "phase_deg": 23.18,
+      "delta_norm": 0.043719,
+      "delta_clr": {
+        "redshift": 0.106611,
+        "Dark_Energy": -0.036794,
+        "Cold_Dark_Matter": -0.002288,
+        "Baryonic_Matter": 0.011078,
+        "Photon_Radiation": 0.136039,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 80,
+      "year": 80,
+      "clr": {
+        "redshift": 7.09710371917017,
+        "Dark_Energy": 2.943709246937952,
+        "Cold_Dark_Matter": 3.1854275557971925,
+        "Baryonic_Matter": 1.5217930842407856,
+        "Photon_Radiation": -1.6890476715608749,
+        "Neutrinos": -2.0027125873499547
+      },
+      "aitchison_norm": 8.852166,
+      "phase_deg": 22.528,
+      "delta_norm": 0.043338,
+      "delta_clr": {
+        "redshift": 0.100032,
+        "Dark_Energy": -0.052373,
+        "Cold_Dark_Matter": -0.001407,
+        "Baryonic_Matter": 0.012327,
+        "Photon_Radiation": 0.126438,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 81,
+      "year": 81,
+      "clr": {
+        "redshift": 7.190210267853517,
+        "Dark_Energy": 2.87805059438391,
+        "Cold_Dark_Matter": 3.185005581051204,
+        "Baryonic_Matter": 1.5352057046492285,
+        "Photon_Radiation": -1.5745431744913483,
+        "Neutrinos": -2.0405550448415117
+      },
+      "aitchison_norm": 8.895306,
+      "phase_deg": 21.815,
+      "delta_norm": 0.04314,
+      "delta_clr": {
+        "redshift": 0.093107,
+        "Dark_Energy": -0.065659,
+        "Cold_Dark_Matter": -0.000422,
+        "Baryonic_Matter": 0.013413,
+        "Photon_Radiation": 0.114504,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 82,
+      "year": 82,
+      "clr": {
+        "redshift": 7.276102217894202,
+        "Dark_Energy": 2.8015618620475244,
+        "Cold_Dark_Matter": 3.1856564498023463,
+        "Baryonic_Matter": 1.549516802611363,
+        "Photon_Radiation": -1.4739742834477774,
+        "Neutrinos": -2.093121836630499
+      },
+      "aitchison_norm": 8.938321,
+      "phase_deg": 21.059,
+      "delta_norm": 0.043015,
+      "delta_clr": {
+        "redshift": 0.085892,
+        "Dark_Energy": -0.076489,
+        "Cold_Dark_Matter": 0.000651,
+        "Baryonic_Matter": 0.014311,
+        "Photon_Radiation": 0.100569,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 83,
+      "year": 83,
+      "clr": {
+        "redshift": 7.354552460009556,
+        "Dark_Energy": 2.7168319960070306,
+        "Cold_Dark_Matter": 3.187449968391824,
+        "Baryonic_Matter": 1.564519492570762,
+        "Photon_Radiation": -1.388958837670293,
+        "Neutrinos": -2.157194362832685
+      },
+      "aitchison_norm": 8.98114,
+      "phase_deg": 20.275,
+      "delta_norm": 0.042819,
+      "delta_clr": {
+        "redshift": 0.07845,
+        "Dark_Energy": -0.08473,
+        "Cold_Dark_Matter": 0.001794,
+        "Baryonic_Matter": 0.015003,
+        "Photon_Radiation": 0.085015,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 84,
+      "year": 84,
+      "clr": {
+        "redshift": 7.425397374945053,
+        "Dark_Energy": 2.6265511576884792,
+        "Cold_Dark_Matter": 3.190436848786195,
+        "Baryonic_Matter": 1.57999180065829,
+        "Photon_Radiation": -1.320685424557522,
+        "Neutrinos": -2.229162209578001
+      },
+      "aitchison_norm": 9.023521,
+      "phase_deg": 19.48,
+      "delta_norm": 0.042381,
+      "delta_clr": {
+        "redshift": 0.070845,
+        "Dark_Energy": -0.090281,
+        "Cold_Dark_Matter": 0.002987,
+        "Baryonic_Matter": 0.015472,
+        "Photon_Radiation": 0.068273,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 85,
+      "year": 85,
+      "clr": {
+        "redshift": 7.488538229416101,
+        "Dark_Energy": 2.533477684039636,
+        "Cold_Dark_Matter": 3.1946478611495266,
+        "Baryonic_Matter": 1.5957015074478977,
+        "Photon_Radiation": -1.2698805764309742,
+        "Neutrinos": -2.3051460973246787
+      },
+      "aitchison_norm": 9.065045,
+      "phase_deg": 18.691,
+      "delta_norm": 0.041524,
+      "delta_clr": {
+        "redshift": 0.063141,
+        "Dark_Energy": -0.093073,
+        "Cold_Dark_Matter": 0.004211,
+        "Baryonic_Matter": 0.01571,
+        "Photon_Radiation": 0.050805,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 86,
+      "year": 86,
+      "clr": {
+        "redshift": 7.543942018465622,
+        "Dark_Energy": 2.440404210390791,
+        "Cold_Dark_Matter": 3.200093319655213,
+        "Baryonic_Matter": 1.611411214237505,
+        "Photon_Radiation": -1.2367887193289246,
+        "Neutrinos": -2.381129985071357
+      },
+      "aitchison_norm": 9.105125,
+      "phase_deg": 17.926,
+      "delta_norm": 0.04008,
+      "delta_clr": {
+        "redshift": 0.055404,
+        "Dark_Energy": -0.093073,
+        "Cold_Dark_Matter": 0.005445,
+        "Baryonic_Matter": 0.01571,
+        "Photon_Radiation": 0.033092,
+        "Neutrinos": -0.075984
+      }
+    },
+    {
+      "index": 87,
+      "year": 87,
+      "clr": {
+        "redshift": 7.591641747050696,
+        "Dark_Energy": 2.350123372072239,
+        "Cold_Dark_Matter": 3.2067629101298594,
+        "Baryonic_Matter": 1.626883522325033,
+        "Photon_Radiation": -1.2211654272130987,
+        "Neutrinos": -2.4530978318166725
+      },
+      "aitchison_norm": 9.143037,
+      "phase_deg": 17.201,
+      "delta_norm": 0.037911,
+      "delta_clr": {
+        "redshift": 0.0477,
+        "Dark_Energy": -0.090281,
+        "Cold_Dark_Matter": 0.00667,
+        "Baryonic_Matter": 0.015472,
+        "Photon_Radiation": 0.015623,
+        "Neutrinos": -0.071968
+      }
+    },
+    {
+      "index": 88,
+      "year": 88,
+      "clr": {
+        "redshift": 7.631736148455911,
+        "Dark_Energy": 2.265393506031744,
+        "Cold_Dark_Matter": 3.2146258624093997,
+        "Baryonic_Matter": 1.6418862122844322,
+        "Photon_Radiation": -1.2222841677619867,
+        "Neutrinos": -2.5171703580188605
+      },
+      "aitchison_norm": 9.17797,
+      "phase_deg": 16.533,
+      "delta_norm": 0.034934,
+      "delta_clr": {
+        "redshift": 0.040094,
+        "Dark_Energy": -0.08473,
+        "Cold_Dark_Matter": 0.007863,
+        "Baryonic_Matter": 0.015003,
+        "Photon_Radiation": -0.001119,
+        "Neutrinos": -0.064073
+      }
+    },
+    {
+      "index": 89,
+      "year": 89,
+      "clr": {
+        "redshift": 7.664388841935795,
+        "Dark_Energy": 2.1889047736953566,
+        "Cold_Dark_Matter": 3.223631464527275,
+        "Baryonic_Matter": 1.656197310246567,
+        "Photon_Radiation": -1.23895635357696,
+        "Neutrinos": -2.569737149807847
+      },
+      "aitchison_norm": 9.209099,
+      "phase_deg": 15.939,
+      "delta_norm": 0.031129,
+      "delta_clr": {
+        "redshift": 0.032653,
+        "Dark_Energy": -0.076489,
+        "Cold_Dark_Matter": 0.009006,
+        "Baryonic_Matter": 0.014311,
+        "Photon_Radiation": -0.016672,
+        "Neutrinos": -0.052567
+      }
+    },
+    {
+      "index": 90,
+      "year": 90,
+      "clr": {
+        "redshift": 7.689826936773019,
+        "Dark_Energy": 2.1232461211413183,
+        "Cold_Dark_Matter": 3.2337099101422813,
+        "Baryonic_Matter": 1.6696099306550096,
+        "Photon_Radiation": -1.2695641454178896,
+        "Neutrinos": -2.607579607299404
+      },
+      "aitchison_norm": 9.235657,
+      "phase_deg": 15.435,
+      "delta_norm": 0.026557,
+      "delta_clr": {
+        "redshift": 0.025438,
+        "Dark_Energy": -0.065659,
+        "Cold_Dark_Matter": 0.010078,
+        "Baryonic_Matter": 0.013413,
+        "Photon_Radiation": -0.030608,
+        "Neutrinos": -0.037842
+      }
+    },
+    {
+      "index": 91,
+      "year": 91,
+      "clr": {
+        "redshift": 7.708339094662076,
+        "Dark_Energy": 2.0708734823731474,
+        "Cold_Dark_Matter": 3.244773465045036,
+        "Baryonic_Matter": 1.6819367898433832,
+        "Photon_Radiation": -1.312105102147974,
+        "Neutrinos": -2.6279805501539046
+      },
+      "aitchison_norm": 9.257018,
+      "phase_deg": 15.038,
+      "delta_norm": 0.021361,
+      "delta_clr": {
+        "redshift": 0.018512,
+        "Dark_Energy": -0.052373,
+        "Cold_Dark_Matter": 0.011064,
+        "Baryonic_Matter": 0.012327,
+        "Photon_Radiation": -0.042541,
+        "Neutrinos": -0.020401
+      }
+    },
+    {
+      "index": 92,
+      "year": 92,
+      "clr": {
+        "redshift": 7.720273066949489,
+        "Dark_Energy": 2.0340796162106427,
+        "Cold_Dark_Matter": 3.25671793325005,
+        "Baryonic_Matter": 1.6930142919625186,
+        "Photon_Radiation": -1.3642474451160542,
+        "Neutrinos": -2.6288167478938966
+      },
+      "aitchison_norm": 9.27278,
+      "phase_deg": 14.76,
+      "delta_norm": 0.015763,
+      "delta_clr": {
+        "redshift": 0.011934,
+        "Dark_Energy": -0.036794,
+        "Cold_Dark_Matter": 0.011944,
+        "Baryonic_Matter": 0.011078,
+        "Photon_Radiation": -0.052142,
+        "Neutrinos": -0.000836
+      }
+    },
+    {
+      "index": 93,
+      "year": 93,
+      "clr": {
+        "redshift": 7.726032727741929,
+        "Dark_Energy": 2.0149659472537733,
+        "Cold_Dark_Matter": 3.269424398174095,
+        "Baryonic_Matter": 1.702706098115638,
+        "Photon_Radiation": -1.4233944117620583,
+        "Neutrinos": -2.608631223971476
+      },
+      "aitchison_norm": 9.282835,
+      "phase_deg": 14.617,
+      "delta_norm": 0.010055,
+      "delta_clr": {
+        "redshift": 0.00576,
+        "Dark_Energy": -0.019114,
+        "Cold_Dark_Matter": 0.012706,
+        "Baryonic_Matter": 0.009692,
+        "Photon_Radiation": -0.059147,
+        "Neutrinos": 0.020186
+      }
+    },
+    {
+      "index": 94,
+      "year": 94,
+      "clr": {
+        "redshift": 7.726074628194739,
+        "Dark_Energy": 2.0154167567611028,
+        "Cold_Dark_Matter": 3.2827612098047276,
+        "Baryonic_Matter": 1.7109061008345146,
+        "Photon_Radiation": -1.4867559223822655,
+        "Neutrinos": -2.5666828713571777
+      },
+      "aitchison_norm": 9.287419,
+      "phase_deg": 14.62,
+      "delta_norm": 0.004585,
+      "delta_clr": {
+        "redshift": 4.2e-05,
+        "Dark_Energy": 0.000451,
+        "Cold_Dark_Matter": 0.013337,
+        "Baryonic_Matter": 0.0082,
+        "Photon_Radiation": -0.063362,
+        "Neutrinos": 0.041948
+      }
+    },
+    {
+      "index": 95,
+      "year": 95,
+      "clr": {
+        "redshift": 7.720904101378453,
+        "Dark_Energy": 2.037076040423263,
+        "Cold_Dark_Matter": 3.2965861846521722,
+        "Baryonic_Matter": 1.7175407390031099,
+        "Photon_Radiation": -1.5514255821587721,
+        "Neutrinos": -2.502971690051
+      },
+      "aitchison_norm": 9.287155,
+      "phase_deg": 14.78,
+      "delta_norm": -0.000264,
+      "delta_clr": {
+        "redshift": -0.005171,
+        "Dark_Energy": 0.021659,
+        "Cold_Dark_Matter": 0.013825,
+        "Baryonic_Matter": 0.006635,
+        "Photon_Radiation": -0.06467,
+        "Neutrinos": 0.063711
+      }
+    },
+    {
+      "index": 96,
+      "year": 96,
+      "clr": {
+        "redshift": 7.711070950955226,
+        "Dark_Energy": 2.081327317258001,
+        "Cold_Dark_Matter": 3.310748981722016,
+        "Baryonic_Matter": 1.7225706027244985,
+        "Photon_Radiation": -1.6144608933122586,
+        "Neutrinos": -2.4182387870824114
+      },
+      "aitchison_norm": 9.28306,
+      "phase_deg": 15.105,
+      "delta_norm": -0.004095,
+      "delta_clr": {
+        "redshift": -0.009833,
+        "Dark_Energy": 0.044251,
+        "Cold_Dark_Matter": 0.014163,
+        "Baryonic_Matter": 0.00503,
+        "Photon_Radiation": -0.063035,
+        "Neutrinos": 0.084733
+      }
+    },
+    {
+      "index": 97,
+      "year": 97,
+      "clr": {
+        "redshift": 7.697164760447817,
+        "Dark_Energy": 2.149276637608388,
+        "Cold_Dark_Matter": 3.3250936148047856,
+        "Baryonic_Matter": 1.7259912931180466,
+        "Photon_Radiation": -1.6729644636425323,
+        "Neutrinos": -2.3139411389993123
+      },
+      "aitchison_norm": 9.276538,
+      "phase_deg": 15.601,
+      "delta_norm": -0.006522,
+      "delta_clr": {
+        "redshift": -0.013906,
+        "Dark_Energy": 0.067949,
+        "Cold_Dark_Matter": 0.014345,
+        "Baryonic_Matter": 0.003421,
+        "Photon_Radiation": -0.058504,
+        "Neutrinos": 0.104298
+      }
+    },
+    {
+      "index": 98,
+      "year": 98,
+      "clr": {
+        "redshift": 7.679809863120882,
+        "Dark_Energy": 2.2417389989353396,
+        "Cold_Dark_Matter": 3.3394610591004974,
+        "Baryonic_Matter": 1.727833518288839,
+        "Photon_Radiation": -1.724163970222497,
+        "Neutrinos": -2.192201976279158
+      },
+      "aitchison_norm": 9.269346,
+      "phase_deg": 16.273,
+      "delta_norm": -0.007192,
+      "delta_clr": {
+        "redshift": -0.017355,
+        "Dark_Energy": 0.092462,
+        "Cold_Dark_Matter": 0.014367,
+        "Baryonic_Matter": 0.001842,
+        "Photon_Radiation": -0.0512,
+        "Neutrinos": 0.121739
+      }
+    },
+    {
+      "index": 99,
+      "year": 99,
+      "clr": {
+        "redshift": 7.659660015389674,
+        "Dark_Energy": 2.3592283362419315,
+        "Cold_Dark_Matter": 3.3536919086199064,
+        "Baryonic_Matter": 1.7281624233756037,
+        "Photon_Radiation": -1.7654886713671278,
+        "Neutrinos": -2.0557384792615725
+      },
+      "aitchison_norm": 9.263539,
+      "phase_deg": 17.119,
+      "delta_norm": -0.005807,
+      "delta_clr": {
+        "redshift": -0.02015,
+        "Dark_Energy": 0.117489,
+        "Cold_Dark_Matter": 0.014231,
+        "Baryonic_Matter": 0.000329,
+        "Photon_Radiation": -0.041325,
+        "Neutrinos": 0.136463
+      }
+    },
+    {
+      "index": 100,
+      "year": 100,
+      "clr": {
+        "redshift": 7.637392819200828,
+        "Dark_Energy": 2.5019512100644112,
+        "Cold_Dark_Matter": 3.367629039955665,
+        "Baryonic_Matter": 1.727076169293343,
+        "Photon_Radiation": -1.7946403552614796,
+        "Neutrinos": -1.9077692478307906
+      },
+      "aitchison_norm": 9.261402,
+      "phase_deg": 18.138,
+      "delta_norm": -0.002137,
+      "delta_clr": {
+        "redshift": -0.022267,
+        "Dark_Energy": 0.142723,
+        "Cold_Dark_Matter": 0.013937,
+        "Baryonic_Matter": -0.001086,
+        "Photon_Radiation": -0.029152,
+        "Neutrinos": 0.147969
+      }
+    },
+    {
+      "index": 101,
+      "year": 101,
+      "clr": {
+        "redshift": 7.613703940971458,
+        "Dark_Energy": 2.6698042695522433,
+        "Cold_Dark_Matter": 3.381120237910141,
+        "Baryonic_Matter": 1.7247037911779235,
+        "Photon_Radiation": -1.8096567671716222,
+        "Neutrinos": -1.7519046958568731
+      },
+      "aitchison_norm": 9.265363,
+      "phase_deg": 19.324,
+      "delta_norm": 0.003961,
+      "delta_clr": {
+        "redshift": -0.023689,
+        "Dark_Energy": 0.167853,
+        "Cold_Dark_Matter": 0.013491,
+        "Baryonic_Matter": -0.002372,
+        "Photon_Radiation": -0.015016,
+        "Neutrinos": 0.155865
+      }
+    },
+    {
+      "index": 102,
+      "year": 102,
+      "clr": {
+        "redshift": 7.589301176408586,
+        "Dark_Energy": 2.8623755217949505,
+        "Cold_Dark_Matter": 3.394020739104067,
+        "Baryonic_Matter": 1.7212023832544874,
+        "Photon_Radiation": -1.8089657647423016,
+        "Neutrinos": -1.5920241028815996
+      },
+      "aitchison_norm": 9.277904,
+      "phase_deg": 20.664,
+      "delta_norm": 0.012541,
+      "delta_clr": {
+        "redshift": -0.024403,
+        "Dark_Energy": 0.192571,
+        "Cold_Dark_Matter": 0.012901,
+        "Baryonic_Matter": -0.003501,
+        "Photon_Radiation": 0.000691,
+        "Neutrinos": 0.159881
+      }
+    }
+  ]
+}

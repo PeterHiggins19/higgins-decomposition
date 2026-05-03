@@ -1,0 +1,58 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  PLANCK_COSMIC_BUDGET
+  System:      Planck Cosmic Budget
+  Domain:      ASTROPHYSICS
+  Carriers:    scale_factor, Omega_radiation, Omega_matter, Omega_dark_energy
+  N=200, D=4
+  Source:      LOCAL FILE
+  Description: Ingested from planck_cosmic_budget.csv
+  Pipeline:    1.0 Extended
+  Data hash:   f36321b0771d2fbe
+  Timestamp:   2026-04-30T21:13:48.740563Z
+
+
+Total codes: 56
+  Errors:       0
+  Warnings:     1
+  Discoveries: 18
+  Calibration signals: 2
+  Structural modes:  4
+  Information:  31
+
+── WARNINGS ──
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000011)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000011)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(scale_factor/Omega_radiation), cv=301.101106)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(scale_factor/Omega_matter), cv=62.386393)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(scale_factor/Omega_dark_energy), cv=63.158246)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Omega_radiation/Omega_dark_energy), cv=163.995184)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Omega_matter/Omega_dark_energy), cv=62.748554)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=200, near_zero_carriers=['scale_factor', 'Omega_radiation', 'Omega_dark_energy'], zero_threshold=0.010000)
+  [MX-RK1-DIS] MX-RK1-DIS (lambda1_fraction=0.999228)
+  [MX-LCK-DIS] MX-LCK-DIS (overlap=0.997252)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=27009293853603644.000000)
+  [MX-VNL-DIS] MX-VNL-DIS (S_ratio=0.004549)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.997017, alpha=1.778958)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-BAL-DIS] MX-BAL-DIS (gamma=0.027790, VSWR=1.057168)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

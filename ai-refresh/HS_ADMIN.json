@@ -46,7 +46,45 @@
         "Respect domain expertise. The tool does not replace geochemists, physicists, engineers, or any domain expert. It provides a compositional reading that the expert interprets.",
         "Use metric units. Use ISO 8601 dates (YYYY-MM-DD). Use Unicode for mathematical symbols.",
         "Avoid jargon from any single field when a simpler term exists. If a CoDa term is used, define it on first use. If a physics term is used, explain what it means compositionally."
-      ]
+      ],
+      "science_neutral_stance": {
+        "principle": "Present facts. Let measurements speak. Always generate a science-neutral stance — our facts do the speaking, we smile.",
+        "rules": [
+          "State observations and measurements, never editorial assertions. 'Tested systems exhibit rank-1 dominance' not 'Nature is low-dimensional'.",
+          "Report numerical results with units and uncertainty where available. Let the reader draw conclusions.",
+          "Never personify nature, the simplex, or mathematical operations. 'The trace contraction yields a scalar' not 'The trace recognises structure'.",
+          "Never use rhetorical emphasis (capitals for effect, exclamation marks in technical prose). 'The reflection coefficient is 0.064' not 'It RECOGNISES!'.",
+          "Frame impedance, balun, and eigenstructure results as measured consequences of the covariance structure, not as intrinsic properties of nature.",
+          "Use 'observed in tested systems' or 'measured across N experiments' rather than universal claims about what nature 'is' or 'does'.",
+          "Verdicts in JSON results use measurement-based language: 'LOW REFLECTION — Γ = 0.064, consistent with rank-1 dominant covariance' not 'MATCHED BALUN — Natural system with impedance-matched Trace gate'.",
+          "Closing lines use the canonical statement: 'The instrument reads. The expert decides. The loop stays open.' — never poetic or rhetorical alternatives.",
+          "When describing tensor operations, use standard mathematical notation and terminology. Reference rank changes explicitly: (1,1) → (0,2) → (0,0).",
+          "Empirical findings are labelled 'Observation (Empirical)' not 'Theorem' unless a formal proof exists."
+        ],
+        "banned_rhetorical_patterns": [
+          "Nature IS ...",
+          "Nature doesn't ...",
+          "Nature knows ...",
+          "Nature chose ...",
+          "The simplex speaks ...",
+          "The trace recognises ...",
+          "The trace doesn't compress — it ...",
+          "naturally matched because nature ...",
+          "The collective built the proof",
+          "The simplex held the answer",
+          "ANY_WORD in ALL CAPS for emphasis in technical prose (exceptions: acronyms, code identifiers)",
+          "Exclamation marks in technical descriptions",
+          "Poetic or metaphorical closing statements (use canonical closing only)"
+        ],
+        "replacement_patterns": {
+          "Nature is low-dimensional": "Tested systems exhibit rank-1 dominant covariance in {N} of {M} cases",
+          "Nature IS the balun": "The impedance match is a consequence of the eigenstructure of the covariance matrix",
+          "The trace recognises structure": "Trace contraction in rank-1 systems preserves the dominant eigenvalue fraction",
+          "MATCHED BALUN": "LOW REFLECTION — Γ = {value}, consistent with rank-1 dominant covariance",
+          "naturally matched": "low reflection coefficient (Γ < 0.1), consistent with rank-1 dominance",
+          "The collective built the proof. The simplex held the answer.": "The instrument reads. The expert decides. The loop stays open."
+        }
+      }
     },
     "content_labels": {
       "note": "Instead of 'for AI' or 'for humans', use these labels:",
@@ -57,6 +95,268 @@
         "specification": "This file defines thresholds, criteria, and standards.",
         "experiment_journal": "This file documents a specific experiment with reproducibility data."
       }
+    }
+  },
+  "repository_segregation": {
+    "principle": "Information is split across three repositories by function. Pure mathematics stays in Hs. Applications and lab work live in Hs-Lab. Historical development and legacy content lives in HUF. No repository duplicates code from another.",
+    "repositories": {
+      "Hs": {
+        "path": "Current-Repo/Hs",
+        "role": "Mathematical fixture — the proven, validated, stable instrument",
+        "github": "github.com/PeterHiggins19/higgins-decomposition",
+        "contains": [
+          "26-file pipeline (tools/pipeline/) — core + generators + analysis + experiments",
+          "Diagnostic codes (106) and structural modes (14)",
+          "Transcendental constant library (35 constants)",
+          "25 + LAB01 + M01 + M02 + MC4 + STD = 30 experiment folders with full results and reports",
+          "Theory documents, mathematical proofs, and derivations",
+          "Governance framework (Hs-GOV) and ai-refresh metadata",
+          "Reference standards and calibration data",
+          "Interactive HTML visualization tools (10 + universal projector)",
+          "Higgins Coordinate System specification and handbook",
+          "Hs_Direct analysis outputs (Japan EMBER cube face projections)",
+          "HS_DATA_INTEGRITY_LAW.md (instrument certification and DUT principle)",
+          "Jupyter notebooks (3)",
+          "CoDaWork 2026 presentation materials",
+          "Naming convention, terminology migration, and admin files",
+          "Discovery Registry (canonical copy)",
+          "HCI — Higgins Computational Instruments (pure math discovery instruments, monochrome)"
+        ],
+        "does_NOT_contain": [
+          "Application code or domain-specific adapters",
+          "GUI applications or desktop tools",
+          "API wrappers, REST/gRPC services",
+          "Cloud deployments or CI/CD beyond validation",
+          "Production monitoring or dashboards",
+          "Lab notebooks targeting specific publications"
+        ],
+        "governance_files": [
+          "ai-refresh/HS_ADMIN.json (this file)",
+          "ai-refresh/HS_MACHINE_MANIFEST.json",
+          "ai-refresh/HS_SYSTEM_INVENTORY.json",
+          "ai-refresh/HS_MAINTENANCE.json",
+          "ai-refresh/PREPARE_FOR_REPO.json",
+          "ai-refresh/HS_GITHUB_CONFIG.json"
+        ],
+        "governing_principles": [
+          "HS_DATA_INTEGRITY_LAW.md"
+        ],
+        "data_integrity_law": {
+          "document": "HS_DATA_INTEGRITY_LAW.md",
+          "principle": "The instrument is certified. The data is the Device Under Test. Anomalies are findings, not faults. Every nibble is preserved.",
+          "status": "CERTIFIED — instrument calibrated via MC-4 series, CoDaWork-certifiable methodology chain, DUT posture active",
+          "three_laws": [
+            "First Law: The instrument does not fabricate. If the shape does not match expectation, the data contains that structure.",
+            "Second Law: Every nibble is preserved. No data point is discarded, smoothed, or suppressed. Degenerate and missing markers tag all boundary conditions.",
+            "Third Law: Confidence is stated. The methodology chain (closure, CLR, spline, normalization, projection) is certifiable to CoDaWork standards. No known misstep exists."
+          ],
+          "dut_principle": "The data is always the DUT. The projector is never the DUT. An unexpected shape is a finding about the data, not a defect of the instrument.",
+          "carrier_lock_points": "Signal acquisition/loss boundaries. Lock-acquisition (LOCK-ACQ) = first valid timestep after DEGEN. Lock-loss (LOCK-LOSS) = last valid timestep before DEGEN. Offset value documents exact CLR spread at boundary — the instrument's resolving band.",
+          "standards_test": {
+            "experiment": "Hs-STD",
+            "path": "experiments/Hs-STD_Standards_Test/",
+            "test_objects": ["cylinder (41/41 degen, 0 lock)", "sphere (2/41 degen, 2 lock, offset=0.125110)", "cube (0/41 degen, 0 lock)"],
+            "result": "ALL PASS (3/3)",
+            "supplements": "MC-4 calibration (5/5 PASS) with boundary condition and lock point validation"
+          },
+          "applies_to": "All projector outputs, all normalization decisions, all calibration experiments, all real dataset projections"
+        }
+      },
+      "Hs-Lab": {
+        "path": "Current-Repo/Hs-Lab",
+        "role": "Applied research — where the instrument gets used for publications and tools",
+        "github": "github.com/PeterHiggins19/hs-lab",
+        "contains": [
+          "12 application components (Phase 0-3) wrapping pipeline modules",
+          "Lab notebooks targeting 10 specific publications",
+          "Completed application papers (AI Compositional Analysis)",
+          "Discovery Registry (mirror copy for lab reference)",
+          "Lab Work Directory — prioritised by discovery value",
+          "Component specifications with interfaces and dependencies"
+        ],
+        "does_NOT_contain": [
+          "Pipeline code (imports from ../Hs/tools/pipeline/)",
+          "Experiment results (those stay in Hs/experiments/)",
+          "Theory documents or mathematical proofs",
+          "Governance metadata or admin files"
+        ],
+        "relationship_to_Hs": "Components import from ../Hs/tools/pipeline/. Lab notebooks use components. Nothing is duplicated — only referenced."
+      },
+      "HUF": {
+        "path": "Current-Repo/HUF",
+        "role": "Historical parent — the Higgins Unity Framework development archive",
+        "github": "github.com/PeterHiggins19/Higgins-Unity-Framework",
+        "contains": [
+          "Legacy HUF framework code and data",
+          "Historical development archive (pre-Hs)",
+          "Briefings, CoDa responses, and correspondence",
+          "EITT framework documents and Hessian bound proof",
+          "Claim classification and index files",
+          "Legacy experiment data and early results",
+          "Development history and phase transition records"
+        ],
+        "does_NOT_contain": [
+          "Current pipeline code (migrated to Hs)",
+          "New experiments (created in Hs)",
+          "Application components (created in Hs-Lab)"
+        ],
+        "relationship_to_Hs": "Historical parent. Some theory documents originated here and were refined in Hs. HUF terminology (Unity Framework, CIP, PLL) is retired in Hs."
+      }
+    },
+    "segregation_rules": [
+      "If it extends the mathematics or validates the instrument → Hs",
+      "If it applies the instrument to produce a publication or tool → Hs-Lab",
+      "If it is historical development or legacy content → HUF",
+      "Components in Hs-Lab import from Hs — they never duplicate pipeline code",
+      "The Discovery Registry canonical copy lives in Hs/docs/; Hs-Lab holds a mirror",
+      "Governance metadata (HS_ADMIN, HS_MACHINE_MANIFEST, etc.) lives only in Hs/ai-refresh/",
+      "Each repo has its own README.md at root and in every directory with content"
+    ],
+    "workspace_structure": {
+      "root": "Claude CoWorker/Current-Repo/",
+      "repos": ["Hs", "Hs-Lab", "HUF"],
+      "backup_file": "Hs/ai-refresh/HS_SYSTEM_BACKUP.json"
+    }
+  },
+  "paper_generation": {
+    "purpose": "Standard paper-quality output formats for the Hs engine. Every pipeline run MUST produce publication-ready figures as PDF. The five mandatory generators (exploded helix, manifold helix, projection suite, polar stack, manifold paper) produce complete geometric characterisation. The helix is the plan map. The projections are the rulers. The polar stack gives the cross-sections. The manifold paper stacks them in 3D projected space to reveal the shape. Any compositional system in any domain produces these views.",
+    "mandatory": true,
+    "mandatory_note": "As of 2026-05-01, all seven generators must be run for every experiment: 5 PDF generators (manifold_helix, exploded_helix, manifold_projections, polar_stack, manifold_paper) plus 2 interactive generators (manifold_projector HTML, compositional_cinema PPTX). The PDFs are the publication record. The projector is for interactive insight — spin, flip, zoom the manifold. The cinema is for understanding — watch structure unfold frame by frame. Together they form the complete projection standard.",
+    "unified_runner": {
+      "generator": "tools/pipeline/hs_run.py",
+      "description": "Standard I/O — unified pipeline runner. Chains ingest → 12-step pipeline (with EDI control gate at step 5.5 and matrix analysis at step 6.5) → diagnostic codes → reports → all 5 mandatory projection PDFs → polar stack JSON. One command produces the complete standard output for any compositional dataset.",
+      "usage_cli": "python hs_run.py mydata.csv --exp-id Hs-M03 --name 'My System' --domain ENERGY",
+      "usage_programmatic": "from hs_run import run_full; outputs = run_full('mydata.csv', name='My System')",
+      "outputs": ["results JSON", "diagnostic report (1 or 5 languages)", "exploded helix PDF", "manifold helix PDF", "projection suite PDF (4 pages)", "polar stack PDF (N+6 pages)", "polar stack JSON", "manifold paper PDF (3 pages)", "manifold projector HTML (interactive 3D)", "compositional cinema PPTX (polar slice movie)"],
+      "options": ["--exp-id", "--name", "--domain", "--lang", "--all-languages", "--output", "--metrology", "--no-projections", "--quiet"]
+    },
+    "standard_outputs": {
+      "manifold_helix": {
+        "generator": "tools/pipeline/hs_manifold_helix.py",
+        "format": "1-page A4 PDF",
+        "description": "3D isometric projection of the real CLR manifold trajectory. Ground plane = CLR1 x CLR2. Vertical axis = time (observation index). Data points connected by lines with colour gradient (green start, blue middle, red end). Ground-plane projection shown as shadow. Waypoint callout tags at 0%, 25%, 50%, 75%, 100% of trajectory. Summary strip with key diagnostics.",
+        "usage": "python hs_manifold_helix.py <results.json> [output.pdf]",
+        "axes": {
+          "ground": "CLR dimension 1 vs CLR dimension 2",
+          "vertical": "time / observation index",
+          "projection": "Isometric (30 degrees)"
+        },
+        "when_to_use": "Primary paper figure for any pipeline run. Shows the actual manifold shape that the decomposition measured. Replaces HTML helix tools for publication."
+      },
+      "exploded_helix": {
+        "generator": "tools/pipeline/hs_helix_exploded.py",
+        "format": "1-page A4 PDF",
+        "description": "Bill-of-materials view showing the 10 pipeline analysis layers as a 3D helix with alternating left/right callout tags. Each turn represents one pipeline step (INPUT, CLR, VAR, V(t), ENTROPY, AITCHISON, LOCKS, FINGERPRINT, PATH, DIAGNOSIS).",
+        "usage": "python hs_helix_exploded.py <results.json> [output.pdf]",
+        "when_to_use": "Manufacturing/inspection document. Shows what the pipeline measured at each step. Complements the manifold helix which shows the shape."
+      },
+      "manifold_projections": {
+        "generator": "tools/pipeline/hs_manifold_projections.py",
+        "format": "4-page A4 PDF",
+        "description": "Complete orthographic projection suite. Page 1: Front elevation (CLR1 vs Time). Page 2: Side elevation (CLR2 vs Time). Page 3: Plan view (CLR1 vs CLR2, square aspect). Page 4: Polar plot (Aitchison norm vs CLR phase angle). Each page is a clean 2D projection with grid, axes, colour-graded trajectory, and year/index labels at key waypoints.",
+        "usage": "python hs_manifold_projections.py <results.json> [output.pdf]",
+        "axes": {
+          "front": "Time vs CLR1 (cube face XY)",
+          "side": "Time vs CLR2 (cube face ZY)",
+          "plan": "CLR1 vs CLR2 (cube face XZ, ground plane)",
+          "polar": "r = Aitchison norm, theta = atan2(CLR2, CLR1)"
+        },
+        "when_to_use": "Complete geometric verification suite. Scientists need all projections to trust the manifold data. Complements the isometric helix with every orthographic view."
+      },
+      "polar_stack": {
+        "generator": "tools/pipeline/hs_polar_stack.py",
+        "format": "Multi-page A4 PDF (N+2 pages: 1 helix overview + N interval slices + 1 summary)",
+        "description": "Per-interval polar projection stack. Page 1: 3D helix overview with numbered polar slice markers at each data interval. Pages 2 to N+1: One full-dimension polar radar plot per interval showing ALL CLR dimensions as a coloured polygon with carrier labels, value annotations, delta Aitchison norm, and phase angle. Final page: small-multiple summary grid comparing all intervals side by side. The 3D helix is the plan map; these are the cross-sections.",
+        "usage": "python hs_polar_stack.py <results.json> [output.pdf]",
+        "axes": {
+          "radar": "One radial axis per carrier (D axes total), radius = |CLR_j| / max",
+          "scaling": "Global max across all intervals for consistent comparison"
+        },
+        "when_to_use": "Complete per-interval characterisation. Shows how composition changes at every data level. Essential for time-series compositional data where the manifold evolves."
+      },
+      "manifold_paper": {
+        "generator": "tools/pipeline/hs_manifold_paper.py",
+        "format": "3-page A4 PDF",
+        "description": "3D manifold-on-paper — polar radar slices stacked in projected 3-space. Page 1: Optimal-angle manifold view with auto-detected azimuth, carrier mesh lines, depth-sorted translucent polygons, time colour bar, and Aitchison norm range. Page 2: Three-panel canonical views (FRONT az=0 el=5, 3/4 VIEW az=35 el=20, PLAN az=0 el=85). Page 3: Individual carrier trace separation with CLR range table.",
+        "usage": "python hs_manifold_paper.py <polar_stack.json> [output.pdf]",
+        "input_preference": "Polar stack JSON (has real per-year CLR values). Falls back to pipeline results JSON (reconstructs from CLR means/stds).",
+        "axes": {
+          "x_z_plane": "Polar radar dimensions (D CLR carriers as polygon vertices)",
+          "y_axis": "Time / observation index (vertical, pointing up)",
+          "projection": "Rotation + oblique projection with depth cue"
+        },
+        "when_to_use": "Publication-quality 3D manifold view replacing the need for interactive HTML projectors. Shows the complete compositional evolution as a geometric object in projected space. The polar stack gives the cross-sections; the manifold paper stacks them to reveal the shape."
+      },
+      "manifold_projector": {
+        "generator": "tools/pipeline/hs_projector_gen.py",
+        "format": "Self-contained HTML file (pure ASCII, file:// compatible)",
+        "description": "Interactive 3D manifold projector — stacked polar polygon slices with perspective projection, mouse-drag rotation, zoom, orbit mode. Each data interval becomes a D-vertex polygon where vertex radius encodes CLR magnitude. Tabs for multi-run experiments, slider for interval selection, view presets (FRONT/SIDE/TOP/ISO), and toggles (TRAILS/LABELS/GHOST/COLOR). All data embedded as JavaScript object literals — zero external dependencies. Works from file:// on all platforms.",
+        "usage": "python hs_projector_gen.py <polar_stack.json> [output.html]",
+        "input": "Polar stack JSON from hs_polar_stack.py",
+        "architecture": "Pure ASCII HTML with embedded JS data. Uses var-only declarations, window.onload init, canvas-based rendering with FOV perspective projection. Proven file:// compatible on Windows Chrome/Edge.",
+        "when_to_use": "Interactive structural morphology examination. Spin, flip, zoom the manifold to find patterns. Use with VR glasses for immersive data inspection. The insight tool — complements the cinema for real understanding."
+      },
+      "compositional_cinema": {
+        "generator": "tools/pipeline/hs_cinema_gen.py",
+        "format": "PPTX slideshow (one slide per polar slice)",
+        "description": "Polar stack slice movie for compositional cinema. Each slide shows a single polar polygon at one data interval with species fraction bars, dominant carrier indicator, progress bar, and interval readout. Dark themed per-system palettes. Set auto-advance to 0.5s for smooth movie playback. Section dividers for multi-run experiments.",
+        "usage": "python hs_cinema_gen.py <polar_stack.json> [output.pptx]",
+        "input": "Polar stack JSON from hs_polar_stack.py",
+        "playback": "Set PowerPoint slideshow auto-advance to 0.5 seconds per slide",
+        "when_to_use": "Movie-like playback of compositional transitions. Shows how structure evolves across time/pH/energy. The understanding tool — every scientist can watch a system unfold frame by frame. Better than interactive HTML for building real comprehension of structural change."
+      }
+    },
+    "design_rules": [
+      "Paper outputs use reportlab (Python) or equivalent — no browser dependency",
+      "A4 page size, single page per figure (multi-page suites allowed for projection sets)",
+      "Colour palette: navy (#1B3A5C), accent blue (#2E75B6), body (#333333), muted (#777777)",
+      "Font: Helvetica family at 5.5-14pt",
+      "All text must be science-neutral — no rhetorical or editorial language",
+      "Footer: 'Hs Decomposition Engine | Peter Higgins / Rogue Wave Audio / CC BY 4.0'",
+      "Summary strip at bottom with key numeric values",
+      "Leader lines connect data points to callout tags — no floating labels",
+      "Simple points and lines — reproducible in Python, R, or any plotting language"
+    ],
+    "r_compatibility": "The manifold helix layout (isometric 3D with ground projection) can be reproduced in R using scatterplot3d or rgl. The key is: x = CLR[1], z = CLR[2], y = time. Points connected by lines. Ground projection as segments from each point to y=0.",
+    "python_compatibility": "matplotlib with mpl_toolkits.mplot3d or reportlab canvas. The generators in tools/pipeline/ use reportlab for publication-quality PDF output."
+  },
+  "data_sources": {
+    "purpose": "Documents the source of truth for all raw data used in Hs experiments and pipeline testing.",
+    "primary_source": {
+      "path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\",
+      "description": "The original raw data library. Contains complete, unmodified datasets from their original scientific sources. This is the source of truth for all raw data testing. Files here remain in their original form and are never modified by the pipeline.",
+      "subfolders": {
+        "Energy": "EMBER Climate electricity generation data (2025 release). Contains pipeline_ready/ subfolder with 7-country CoDaWork 2026 validation CSVs.",
+        "Commodities": "Gold/silver price ratios from MeasuringWorth.com. Monthly data 1258-present.",
+        "Nuclear": "AME2020 atomic mass evaluation, SEMF binding energy decomposition, valley of stability data.",
+        "Geochemistry": "EarthChem datasets including Ball (2022) intraplate volcanic rock oxide compositions (26,266 samples).",
+        "ATOMIC": "AME2020 raw mass tables, Duflo-Zuker model programs, covariance data.",
+        "Acoustics": "Bessel function acoustics experiment results.",
+        "BackBlaze": "Hard drive fleet failure statistics, quarterly SMART data.",
+        "chemistry": "ChemixHub compositional chemistry datasets.",
+        "esa-planck": "ESA Planck CMB data, COBE DMR sky maps.",
+        "financial data": "Stock market indices (S&P 500, NASDAQ, Dow Jones), portfolio data.",
+        "IIASA Data": "NGFS climate scenarios, Antarctic climate model outputs.",
+        "Urban Data": "City of Markham municipal data (budgets, geospatial, infrastructure).",
+        "Working_Example": "Original Hs working example with step-by-step pipeline images.",
+        "World Bank Group Data": "FAO agricultural and commodity statistics."
+      }
+    },
+    "repo_copy": {
+      "path": "data/",
+      "description": "Math-validation-only copies in the repository. These are pipeline-ready extracts — cleaned, formatted, and ready for hs_run.py. They exist for reproducibility so anyone cloning the repository can run the pipeline from raw data without needing the original data library.",
+      "contents": {
+        "Energy/EMBER_pipeline_ready/": "7 country CSVs (CHN, DEU, FRA, GBR, IND, JPN, WLD) — electricity generation by source in TWh, 2000-2025",
+        "Commodities/": "Gold/silver ratio data, constructed 2-part simplex",
+        "Nuclear/": "SEMF binding energy composition (5 terms), valley of stability nuclides",
+        "Geochemistry/": "Ball intraplate volcanic oxide compositions (10 oxides, 26,266 samples)"
+      },
+      "note": "These are NOT general-purpose datasets. They are the specific subsets used in Hs experiments and CoDaWork 2026 demonstrations. The originals in the DATA folder are the source of truth."
+    },
+    "root_json_files": {
+      "HIGGINS_coda_eitt_integration.json": "CoDa-EITT integration test results",
+      "HIGGINS_gold_standard_results.json": "Gold standard pipeline validation results",
+      "HIGGINS_two_pass_results.json": "Two-pass instrument calibration results"
     }
   },
   "canonical_names": {
@@ -75,9 +375,23 @@
       "short": "HVLD",
       "NOT": [
         "PLL",
+        "pll",
         "Phase-Locked Loop",
-        "Pipeline Lock List"
-      ]
+        "phase-locked loop",
+        "Pipeline Lock List",
+        "PLL vertex",
+        "PLL lock",
+        "PLL parabola",
+        "PLL lock point",
+        "pll_parabola"
+      ],
+      "legacy_api_keys_preserved": [
+        "step6_pll_shape",
+        "step6_pll_R2",
+        "step6_pll_coeffs",
+        "self.pll_result"
+      ],
+      "legacy_note": "Pipeline code retains step6_pll_* dictionary keys for API compatibility. These are internal data keys, not user-facing terminology. All documentation, comments, and new code must use HVLD."
     },
     "closing_statement": "The instrument reads. The expert decides. The loop stays open.",
     "eitt_analytic_bound": {
@@ -100,6 +414,179 @@
       "full": "Compositional Pruning",
       "one_sentence": "Geometric-mean decimation as a smooth pruning process that preserves robust structure and dissolves fragile structure.",
       "NOT": ["data cleaning", "outlier removal"]
+    },
+    "tensor_functor": {
+      "full": "Hˢ Tensor Functor",
+      "symbol": "Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S",
+      "one_sentence": "Five tensor transformation layers with explicit rank changes: (1,1)→(1,1)→(1,1)→(0,2)→(0,0)→label.",
+      "layers": {
+        "S": "SimplexProjection — raw vector → composition, rank (1,1)→(1,1)",
+        "Λ": "LogRatioTransform — CLR/ILR log-ratio mapping, rank (1,1)→(1,1)",
+        "Σ": "CovarianceTensor — outer product to covariance, rank (1,1)→(0,2)",
+        "Tr": "TraceContraction — trace of covariance to scalar, rank (0,2)→(0,0)",
+        "ρ": "DiagnosticClassification — scalar to diagnostic label"
+      },
+      "naturality": "CLR ≡ ILR because Helmert Ψ is orthonormal: Tr(Ψᵀ·Cov·Ψ) = Tr(Cov). ALR breaks naturality.",
+      "implementation": "tools/pipeline/hs_tensor.py",
+      "NOT": ["tensor network", "TensorFlow", "tensor product decomposition"]
+    },
+    "matrix_diagnostics": {
+      "full": "Matrix Diagnostic Codes (MX-*)",
+      "one_sentence": "24 diagnostic codes covering eigenvalue, eigenvector, entropy, condition number, commutator, and impedance metrics from V(t) covariance matrix analysis.",
+      "code_prefix": "MX-",
+      "code_count": 24,
+      "pipeline_step": "Step 6.5 — matrix_analysis() between HVLD (Step 6) and entropy (Step 7)",
+      "structural_modes": ["SM-FRZ (frozen eigenbasis)", "SM-THR (thermal state)", "SM-MXR (matrix resonance)", "SM-EDP (eigenvalue power dynamics)"],
+      "implementation": "tools/pipeline/higgins_decomposition_12step.py (Step 6.5), tools/pipeline/hs_codes.py (code emission)"
+    },
+    "edi_control_gate": {
+      "full": "Eigenstructure Distortion Index (EDI) Control Gate",
+      "one_sentence": "Internal engine control comparing eigenstructure of raw composition covariance against CLR covariance — instrumentation on the instrument, not a user-facing diagnostic.",
+      "pipeline_step": "Step 5.5 — edi_control_gate() between CLR transform (Step 5) and Aitchison variance (Step 6)",
+      "purpose": "Validates that the CLR transform is doing meaningful work on the input data. Quantifies eigenstructure distortion introduced by compositional closure and removed by the CLR. A gauge on the engine, not on the data.",
+      "implementation": "tools/pipeline/higgins_decomposition_12step.py (method edi_control_gate())",
+      "edi_formula": "EDI = √(angular² + spectral²) / √2, where angular = RMS(principal_angles) / (π/2), spectral = ‖spec_raw − spec_clr‖ / √2",
+      "control_regimes": {
+        "MINIMAL": "EDI < 0.1 — CLR correction minimal, raw and CoDa analyses converge",
+        "MODERATE": "EDI 0.1–0.3 — CLR correction moderate, CoDa geometry applies",
+        "WORKING": "EDI 0.3–0.7 — engine operating in designed regime",
+        "EXTREME": "EDI > 0.7 — extreme correction, strong closure distortion",
+        "EXTREME_NEAR_ZERO": "EDI > 0.7 with near-zero carriers — extreme correction amplified by ln"
+      },
+      "correction_necessity": {
+        "ESSENTIAL": "> 50% correlation sign flips — raw correlations deeply misleading",
+        "SIGNIFICANT": "> 20% sign flips — substantial spurious correlation present",
+        "MODERATE": "> 5% sign flips — some correlation distortion",
+        "CONFIRMATORY": "< 5% sign flips — CoDa confirms raw structure"
+      },
+      "outputs": {
+        "EDI": "Composite distortion index [0, 1]",
+        "regime": "Control regime classification",
+        "correction_necessity": "Sign-flip-based CoDa necessity assessment",
+        "rms_angle_deg": "RMS principal angle between eigenvectors (degrees)",
+        "trace_ratio": "CLR total variance / raw total variance (amplification factor)",
+        "dominance_raw": "λ₁/Tr(V) in raw covariance",
+        "dominance_clr": "λ₁/Tr(V) in CLR covariance",
+        "dominance_shift_pp": "Dominance change in percentage points",
+        "sign_flips": "Count of carrier pairs whose correlation changes sign under CLR",
+        "total_pairs": "Total carrier pairs D(D-1)/2",
+        "near_zero_carriers": "Count of carriers within 10× of zero-replacement delta"
+      },
+      "user_facing": false,
+      "determinism_property": "Same data must produce identical EDI — validates Hˢ(X) = Hˢ(X). Tested and confirmed.",
+      "empirical_results": {
+        "EMBER_energy_8_carrier": "EDI 0.49–0.54, WORKING regime, SIGNIFICANT correction necessity, 30–43% sign flips",
+        "near_uniform_synthetic": "EDI 0.000366, MINIMAL regime, CONFIRMATORY, 0 sign flips",
+        "note": "Validated on GBR, DEU, USA, CHN EMBER data plus synthetic calibration"
+      },
+      "NOT": ["user diagnostic", "data quality metric", "EDI score", "distortion warning"]
+    },
+    "hci": {
+      "full": "Higgins Computational Instruments",
+      "abbreviation": "HCI",
+      "path": "HCI/",
+      "one_sentence": "Pure mathematical discovery instruments. Monochrome, ASCII symbology, 32-level grayscale, no colour.",
+      "NOT": ["HCI dashboard", "HCI app", "HCI GUI"]
+    },
+    "cbs": {
+      "full": "Compositional Bearing Scope",
+      "abbreviation": "CBS",
+      "one_sentence": "Oscilloscope-class instrument displaying compositional bearing, heading, and helmsman on calibrated sweep axes.",
+      "display_standard": "8-bit monochrome, ASCII symbology, full sweep 0-1 and 0-360 degrees, no scale factor",
+      "implementation": "HCI/hci_cbs.py",
+      "NOT": ["bearing chart", "polar plot", "compass"]
+    },
+    "cnt": {
+      "full": "Compositional Navigation Tensor",
+      "abbreviation": "CNT",
+      "symbol": "CNT(x) = (theta, omega, kappa, sigma)",
+      "one_sentence": "Tensor engine computing bearing, angular velocity, steering sensitivity, and helmsman index from any closed composition.",
+      "components": {
+        "theta": "Bearing tensor — atan2(h_j, h_i) for all carrier pairs",
+        "omega": "Angular velocity — arccos of normalised CLR dot product",
+        "kappa": "Steering sensitivity tensor — g_{jj} = 1/x_j (Aitchison metric)",
+        "sigma": "Helmsman index — argmax_j |delta h_j|"
+      },
+      "NOT": ["CNN", "neural network", "convolutional"]
+    },
+    "impedance_match_observation": {
+      "full": "Impedance Match Observation (Empirical)",
+      "one_sentence": "Low reflection coefficient Γ = √(1 − λ₁/Tr(V)) is a consequence of rank-1 dominant covariance, measured across tested systems.",
+      "NOT": ["Balun Theorem", "Natural balun", "Nature IS the balun"],
+      "note": "Previously labelled 'Balun Theorem (Empirical)'. Renamed to observation to maintain science-neutral stance."
+    },
+    "poincare_diagnostics": {
+      "full": "Poincaré Diagnostic Codes (PD-*)",
+      "one_sentence": "Diagnostic codes for hyperbolic structure in the circularity ratio ρ, derived from the Cayley transform connection to the Poincaré disc model.",
+      "code_prefix": "PD-",
+      "codes": {
+        "PD-RHO": "Circularity ratio ρ = r_min/r_max. Range [f, 1]. Reports polygon asymmetry as a dimensionless ratio.",
+        "PD-RAD": "Poincaré radius r_P = (1−ρ)/(1+ρ). Range [0, α]. Position in the unit disc.",
+        "PD-DHY": "Hyperbolic distance d_H = −ln(ρ) = 2·arctanh(α·a). Distance from uniform composition in hyperbolic space.",
+        "PD-MET": "Poincaré metric factor (1+ρ)²/(2ρ). Resolving sensitivity at current ρ. Higher = more sensitive to small changes.",
+        "PD-ZON": "Hyperbolic zone classification. E = Euclidean (d_H < 0.3), T = transition (0.3−1.0), H = hyperbolic (1.0−2.0), D = deep hyperbolic (> 2.0).",
+        "PD-EFF": "Geodesic efficiency = |d_H(last) − d_H(first)| / Σ|Δd_H|. Range [0, 1]. Ratio of direct displacement to total path length in hyperbolic space.",
+        "PD-KAP": "Geodesic curvature κ_g. Rate of deviation from hyperbolic geodesic. |κ_g| > 0.5 = high curvature event.",
+        "PD-CRO": "Cross-ratio (ρ₁,ρ₂;ρ₃,ρ₄). Möbius invariant preserved under floor parameter changes.",
+        "PD-BUS": "Busemann function value ln(ρ). Signed distance to horocycle at the boundary."
+      },
+      "principle": "All PD-codes report mathematical quantities only. No interpretive, governance, or policy language. The instrument reports process output. Domain experts apply interpretation.",
+      "NOT": ["policy diagnostic", "policy", "structural transition", "structural oscillation", "efficiency as policy", "energy transition", "Energiewende"]
+    },
+    "reporting_principle": {
+      "full": "Descriptive Mathematics Reporting Principle",
+      "one_sentence": "Hˢ reports raw mathematical findings as descriptive process results. Governance, policy, and interpretive language is the domain of the expert, not the instrument.",
+      "rules": [
+        "Report ρ, d_H, κ_g, efficiency as numerical values with diagnostic codes.",
+        "Name carriers by their data labels (e.g., 'carrier: Coal', 'carrier: Gas') without commentary on what they represent in policy terms.",
+        "Report dominant carrier shifts as mathematical events (e.g., 'argmax(clr) transitions from carrier j=2 to j=3 at t=16').",
+        "Never characterise a trajectory as 'good', 'bad', 'efficient policy', 'failed transition', or any evaluative term.",
+        "The geodesic efficiency PD-EFF is a geometric ratio, not a policy grade.",
+        "Country names appear as data labels only, not as subjects of evaluative statements.",
+        "The phrase 'The instrument reads. The expert decides.' is the enforcement mechanism."
+      ],
+      "NOT": ["policy diagnostic", "policy recommendation", "energy policy", "structural transition", "transition success", "transition failure"]
+    }
+  },
+  "document_creation_checklist": {
+    "purpose": "MANDATORY review before creating or updating any document in the Hˢ repository. This checklist prevents reintroduction of retired terminology and non-scientific language.",
+    "steps": [
+      "1. Review canonical_names in this file — every entry with a NOT list defines banned terms.",
+      "2. Review Hs_Naming_Convention.md — the Retired Terminology Migration Table is the definitive mapping.",
+      "3. Search all source content for banned terms BEFORE writing. Older source files (theory docs, experiment results, HUF-era documents) may contain retired terms.",
+      "4. When quoting or adapting content from pre-convention files, apply the migration table during transcription. Never copy banned terms into new documents.",
+      "5. After document generation, grep the output for all banned terms. If any appear (except in explicitly marked legacy/lineage sections), fix before delivery.",
+      "6. Legacy API keys (step6_pll_shape, step6_pll_R2, step6_pll_coeffs) are internal code identifiers preserved for compatibility. They may appear in code listings but must never appear in prose, headings, or explanatory text without a note that they are legacy keys for HVLD.",
+      "7. TONE REVIEW: Apply science_neutral_stance rules. Grep for banned_rhetorical_patterns. Replace any editorial, rhetorical, or personification language with measurement-based statements. Use replacement_patterns as a guide.",
+      "8. Verify all verdicts and conclusions use measurement-based language (e.g., 'Γ = 0.064' not 'MATCHED BALUN').",
+      "9. Verify closing statement is canonical: 'The instrument reads. The expert decides. The loop stays open.'",
+      "10. For tensor-related content, verify standard mathematical notation is used and rank changes are stated explicitly."
+    ],
+    "banned_terms_master_list": {
+      "note": "Aggregated from all NOT lists above plus rhetorical patterns. Search for ALL of these before delivering any document.",
+      "terminology_bans": [
+        "PLL", "pll", "Phase-Locked Loop", "phase-locked loop", "Pipeline Lock List",
+        "PLL vertex", "PLL lock", "PLL parabola", "PLL lock point", "pll_parabola",
+        "HD", "Higgins Decomp", "H-decomp",
+        "EITT conjecture", "EITT hypothesis", "open problem O-1",
+        "boundary threshold", "simplex edge",
+        "dimension reduction", "PCA",
+        "data cleaning", "outlier removal",
+        "tensor network", "TensorFlow", "tensor product decomposition",
+        "Balun Theorem", "Natural balun", "Nature IS the balun",
+        "policy diagnostic", "energy policy", "energy transition",
+        "structural transition", "structural oscillation",
+        "Energiewende", "Fukushima", "dash-for-gas",
+        "transition success", "transition failure",
+        "policy recommendation", "policy grade"
+      ],
+      "rhetorical_bans": [
+        "Nature IS", "Nature doesn't", "Nature knows", "Nature chose",
+        "The simplex speaks", "The trace recognises",
+        "naturally matched because nature",
+        "The collective built the proof",
+        "The simplex held the answer"
+      ]
     }
   }
 }

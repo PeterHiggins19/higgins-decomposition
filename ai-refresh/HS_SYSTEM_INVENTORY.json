@@ -1,6 +1,6 @@
 {
   "title": "Hˢ Complete System Inventory",
-  "timestamp": "2026-04-25",
+  "timestamp": "2026-05-02",
   "domains_tested": {
     "COMMODITIES": {
       "systems": [
@@ -150,6 +150,16 @@
       "scale": "text/conversational",
       "N_range": "18"
     },
+    "CALIBRATION": {
+      "systems": [
+        "MC4 Shape Calibration (5 test objects: cylinder, sphere, cube, cone, helix — 27 carriers each)",
+        "HCI-CAL01 CNT Calibration (10 test objects: identity, drift, rotation, divergence, lock, reversal, symmetry, contraction, decomposition, navigation)"
+      ],
+      "data_type": "SYNTHETIC",
+      "scale": "mathematical (dimensionless)",
+      "N_range": "20-40",
+      "note": "Instrument self-tests. MC4 validates projector normalization. HCI-CAL01 validates all four CNT channels (bearing, angular velocity, steering sensitivity, helmsman) and all five HCI Foundation corollaries."
+    },
     "HEP_COLLIDER": {
       "systems": [
         "W boson decay branching fractions (DELPHI/LEP)",
@@ -171,20 +181,25 @@
     "core": ["higgins_decomposition_12step.py", "higgins_transcendental_pretest.py"],
     "diagnostics": ["hs_codes.py", "hs_reporter.py", "hs_metrology.py"],
     "ingestion": ["hs_ingest.py", "hs_hepdata.py"],
-    "analysis": ["hs_fingerprint.py", "hs_sensitivity.py", "hs_amalgamation.py"],
+    "analysis": ["hs_fingerprint.py", "hs_sensitivity.py", "hs_amalgamation.py", "hs_tensor.py"],
     "testing": ["hs_testgen.py"],
     "infrastructure": ["hs_audit.py", "hs_controller.py"],
-    "total": 13
+    "visualization": ["hs_projector_export.py", "hs_projector_gen.py", "hs_cinema_gen.py"],
+    "projection_generators": ["hs_helix_exploded.py", "hs_manifold_helix.py", "hs_manifold_projections.py", "hs_polar_stack.py", "hs_manifold_paper.py"],
+    "unified_runner": ["hs_run.py"],
+    "experiments": ["balun_matrix_analysis.py", "impedance_bridge.py", "tr_basis_experiment.py"],
+    "total": 26
   },
   "summary": {
-    "domains": 18,
-    "systems": 36,
-    "experiments": "Hs-01 through Hs-25 (includes HEPData catalog, 9 validated runs)",
-    "total_DUTs": 53,
-    "diagnostic_codes": 78,
-    "structural_modes": 10,
-    "pipeline_files": 13,
-    "framework": "v3.0 — Hs = R . M . E . C . T . V . S",
+    "domains": 19,
+    "systems": 38,
+    "experiments": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD = 30 experiment folders",
+    "total_DUTs": 60,
+    "diagnostic_codes": "106 + 9 PD-* Poincaré codes",
+    "structural_modes": 14,
+    "pipeline_files": 26,
+    "hci_instruments": 1,
+    "framework": "v3.0 — Hs = R . M . E . C . T . V . S (tensor functor: ρ ∘ Tr ∘ Σ ∘ Λ ∘ S)",
     "instrument_metrology": "QUALIFIED",
     "gold_seal": true,
     "directory_readmes": [
@@ -196,7 +211,9 @@
       "papers/README.md",
       "ai-refresh/README.md"
     ],
-    "maintenance_procedure": "ai-refresh/HS_MAINTENANCE.json"
+    "maintenance_procedure": "ai-refresh/HS_MAINTENANCE.json",
+    "data_integrity_law": "HS_DATA_INTEGRITY_LAW.md",
+    "first_law_principle": "The projector reveals data structure. If the shape does not match expectation, the data failed, not the engine."
   },
   "reference_standards": {
     "MATH_FUNCTIONS": [

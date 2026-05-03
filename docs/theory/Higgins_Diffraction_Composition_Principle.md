@@ -58,7 +58,7 @@
 
 **name:** The Diffraction Vertex Theorem
 
-**statement:** At the transition frequency f* where λ = a (the characteristic dimension), the compositional stress σ²_A of the diffraction composition reaches a vertex. Below f*: one radiation regime dominates (vertex approach from left). Above f*: another regime dominates (vertex departure to right). The vertex IS the PLL lock point of the diffraction transition.
+**statement:** At the transition frequency f* where λ = a (the characteristic dimension), the compositional stress σ²_A of the diffraction composition reaches a vertex. Below f*: one radiation regime dominates (vertex approach from left). Above f*: another regime dominates (vertex departure to right). The vertex IS the HVLD lock point of the diffraction transition.
 
 **proof_sketch:** Below transition: composition near a vertex of the simplex (one component dominates). Above transition: composition moves toward barycenter (energy spreads across components). The Aitchison variance σ²_A = (1/D)Σclr_i² therefore forms a parabola with vertex at the transition. d(σ²_A)/df = 0 at f = f*.
 
@@ -88,7 +88,7 @@
 
 - **prediction_1:** {'statement': 'X-ray diffraction intensity distributions across Bragg peaks for a given crystal should pass EITT when peaks are compressed (adjacent peaks merged by geometric mean).', 'data_source': 'Cambridge Structural Database (CSD) or Protein Data Bank (PDB) — millions of structure factors available', 'expected_result': 'Entropy invariance under peak-merging, because the structure factor magnitudes are determined by atomic positions (geometry).'}
 - **prediction_2:** {'statement': 'Optical grating efficiency as a function of order number should form a composition whose entropy is invariant under order-merging.', 'data_source': 'Manufacturer efficiency curves (Thorlabs, Newport, etc.)', 'expected_result': 'EITT pass, because blaze geometry determines the energy partition.'}
-- **prediction_3:** {'statement': 'The PLL parabola should appear in diffraction transition data: plot σ²_A vs frequency (or λ/a) for a loudspeaker, and the vertex should lock at Fc = 115/W.', 'data_source': 'BTL measurement data (already in HUF repo for room acoustics)', 'expected_result': 'PLL lock at Fc. The vertex IS the diffraction transition.'}
+- **prediction_3:** {'statement': 'The HVLD parabola should appear in diffraction transition data: plot σ²_A vs frequency (or λ/a) for a loudspeaker, and the vertex should lock at Fc = 115/W.', 'data_source': 'BTL measurement data (already in HUF repo for room acoustics)', 'expected_result': 'HVLD lock at Fc. The vertex IS the diffraction transition.'}
 - **prediction_4:** {'statement': 'Babinet-complementary diffraction patterns, when summed as compositions, should yield the simplex barycenter (maximum entropy).', 'data_source': 'Any complementary aperture/obstacle pair measurement', 'expected_result': 'H(x_screen ⊕ x_complement) = H_max, because the sum reconstructs the unobstructed (uniform) beam.'}
 
 ## Catalog of Diffraction Compositions

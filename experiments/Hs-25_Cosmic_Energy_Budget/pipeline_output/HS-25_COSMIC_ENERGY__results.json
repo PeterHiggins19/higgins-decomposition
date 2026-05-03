@@ -1,0 +1,419 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "HS-25_COSMIC_ENERGY_",
+  "name": "Cosmic Energy Budget",
+  "domain": "COSMOLOGY",
+  "carriers": [
+    "redshift",
+    "Dark_Energy",
+    "Cold_Dark_Matter",
+    "Baryonic_Matter",
+    "Photon_Radiation",
+    "Neutrinos"
+  ],
+  "D": 6,
+  "N": 103,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from Hs-25_cosmic_energy_budget.csv"
+  },
+  "data_hash_sha256_16": "8624395e73842820",
+  "run_timestamp": "2026-04-30T21:13:53.833117Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "HS-25_COSMIC_ENERGY_: Cosmic Energy Budget: 6-part simplex, carriers=['redshift', 'Dark_Energy', 'Cold_Dark_Matter', 'Baryonic_Matter', 'Photon_Radiation', 'Neutrinos']",
+    "step2_n_samples": 103,
+    "step2_D": 6,
+    "step2_carriers": [
+      "redshift",
+      "Dark_Energy",
+      "Cold_Dark_Matter",
+      "Baryonic_Matter",
+      "Photon_Radiation",
+      "Neutrinos"
+    ],
+    "data_hash_sha256_16": "8624395e73842820",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      4.566412766634063,
+      -2.0329896813060877,
+      3.1043598585242105,
+      1.4315415026745504,
+      -3.337934360315894,
+      -3.7313900862108396
+    ],
+    "step4_clr_std_per_part": [
+      3.022888409774523,
+      6.849701048018583,
+      0.24624000715995292,
+      0.24624000716002092,
+      2.1393659833292276,
+      2.1393659833292404
+    ],
+    "step5_sigma2_range": [
+      3.940152075038173,
+      65.33130068868086
+    ],
+    "step5_sigma2_final": 65.33130068868086,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9815755223155936,
+      "eigenvalues_final": [
+        64.75630761270635,
+        1.2154960239027466,
+        1.4946348184310102e-15,
+        9.664542171154156e-18,
+        -2.937505616223305e-16,
+        -3.1187446225543267e-15
+      ],
+      "eigenvector_overlap": 0.39770862624868253,
+      "condition_number": 4.332583907063275e+16,
+      "von_neumann_entropy": 0.09184244408430803,
+      "von_neumann_ratio": 0.051258244011891045,
+      "commutator_norm": 0.5062741394707865,
+      "det_V": -1.3801404680453713e-61,
+      "det_amgm_ratio": -7.810532552438359e-68,
+      "cholesky_last_diag": 1.0941958278826368e-06,
+      "eigenvalue_power_law_alpha": 0.07293650618638567,
+      "eigenvalue_power_law_R2": 0.007092215634009746,
+      "eigenvalue_ratio_matches": 0,
+      "eigenvalue_ratio_best_match": null,
+      "gamma": 0.1357367956171294,
+      "VSWR": 1.3141098566473222,
+      "Q_factor": 0,
+      "trace_final": 65.9718036366091,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.013304015389822819,
+      -1.00223075096472,
+      18.709178078656326
+    ],
+    "step6_pll_R2": 0.9463472046586985,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      37.66647593219852,
+      -0.16607215120461305
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 19,
+    "step7_squeeze_closest": {
+      "time_index": 83,
+      "sigma2_A": 23.113370223282157,
+      "constant": "1/(e^pi)",
+      "constant_value": 0.04321391826377226,
+      "test_type": "reciprocal",
+      "test_value": 0.04326500161333882,
+      "delta": 5.1083349566563574e-05
+    },
+    "step7_squeeze_mean": 13.87564972392121,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.0017033629035465275,
+      0.7056256887988217
+    ],
+    "step8_entropy_mean": 0.3797492605454155,
+    "step8_entropy_cv": 67.89077692400997,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.3834555928752377,
+        "H_mean_decimated": 0.3832054469576475,
+        "variation_pct": 0.06523465095776909,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.3910329182983383,
+        "H_mean_decimated": 0.3902467984892472,
+        "variation_pct": 0.2010367343271422,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.40706154146238216,
+        "H_mean_decimated": 0.40501316161175605,
+        "variation_pct": 0.5032113432448669,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 7,
+      "stalls": 6,
+      "spikes": 0,
+      "reversals": 1
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.31144042009080347,
+      0.5513092966726225
+    ],
+    "step11_complex_range_im": [
+      -0.17319174393064599,
+      0.1423124000221277
+    ],
+    "step12_radius_range": [
+      0.13127205609653944,
+      0.5550481967416608
+    ],
+    "step12_theta_range": [
+      -3.084991733470025,
+      3.1103103140948587
+    ],
+    "step9_angular_velocity_std": 0.04764007088957987
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          9.137854337949147,
+          46.918404447226884,
+          0.06063414112613367,
+          0.060634141126167156,
+          4.576886810626232,
+          4.576886810626289
+        ],
+        "carrier_pct": [
+          13.98694690236337,
+          71.8161186944742,
+          0.09281024637037266,
+          0.09281024637042391,
+          7.005656955210769,
+          7.005656955210856
+        ],
+        "dominant_carrier": "Dark_Energy",
+        "dominant_pct": 71.8161186944742
+      },
+      "match_density": {
+        "density": 0.2590441300975884,
+        "concentration": 0.35734072022160657,
+        "total_matches": 19,
+        "n_constants_hit": 3,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 73.34657609435976
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            95.14785939451961,
+            10.32245458038665,
+            10.322454580381066,
+            2.182829080547714,
+            2.18282908054076
+          ],
+          [
+            95.14785939451961,
+            0.0,
+            45.304896235951865,
+            45.3048962359692,
+            80.54203775279836,
+            80.54203775280324
+          ],
+          [
+            10.32245458038665,
+            45.304896235951865,
+            0.0,
+            3.1068037535168043e-22,
+            5.033877359548973,
+            5.033877359550189
+          ],
+          [
+            10.322454580381066,
+            45.3048962359692,
+            3.106803274848644e-22,
+            0.0,
+            5.033877359543191,
+            5.033877359544408
+          ],
+          [
+            2.182829080547714,
+            80.54203775279836,
+            5.033877359548973,
+            5.033877359543191,
+            0.0,
+            2.9731274764414057e-22
+          ],
+          [
+            2.18282908054076,
+            80.54203775280324,
+            5.033877359550189,
+            5.033877359544408,
+            2.9731262395405353e-22,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          4.566412766634063,
+          -2.0329896813060877,
+          3.1043598585242105,
+          1.4315415026745504,
+          -3.337934360315894,
+          -3.7313900862108396
+        ],
+        "clr_stds": [
+          3.022888409774523,
+          6.849701048018583,
+          0.24624000715995292,
+          0.24624000716002092,
+          2.1393659833292276,
+          2.1393659833292404
+        ],
+        "aitchison_distance_mean": 8.574108526904164
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 11.6364862686833,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "redshift",
+        "max_shift_magnitude": 0.6599227380925573
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9463472046586985,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Cold_Dark_Matter",
+        "sources": [
+          "redshift",
+          "Dark_Energy"
+        ],
+        "I_source1_target": 1.182578675856556,
+        "I_source2_target": 0.9885300604463132,
+        "redundancy": 0.9885300604463132,
+        "unique_source1": 0.19404861541024276,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "redshift->Dark_Energy": 0.0,
+          "redshift->Cold_Dark_Matter": 0.5273321482971411,
+          "redshift->Baryonic_Matter": 0.5273321482971411,
+          "Dark_Energy->redshift": 0.0,
+          "Dark_Energy->Cold_Dark_Matter": 0.4359027011734158,
+          "Dark_Energy->Baryonic_Matter": 0.4359027011734158,
+          "Cold_Dark_Matter->redshift": 0.0,
+          "Cold_Dark_Matter->Dark_Energy": 0.0,
+          "Cold_Dark_Matter->Baryonic_Matter": 0.0,
+          "Baryonic_Matter->redshift": 0.0,
+          "Baryonic_Matter->Dark_Energy": 0.0,
+          "Baryonic_Matter->Cold_Dark_Matter": 0.0
+        },
+        "dominant_flow": "redshift->Cold_Dark_Matter",
+        "dominant_te": 0.5273321482971411
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 65.33130068868086,
+        "shuffled_sigma2": 65.33130068868087,
+        "order_matters": false,
+        "relative_difference": 2.1751984983308533e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 103,
+        "near_zero_carriers": [
+          "redshift",
+          "Dark_Energy",
+          "Cold_Dark_Matter",
+          "Baryonic_Matter",
+          "Photon_Radiation",
+          "Neutrinos"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(redshift/Dark_Energy)": {
+            "mean": 6.599402447940151,
+            "std": 9.75437642263818,
+            "cv": 147.80696433633594
+          },
+          "ln(redshift/Cold_Dark_Matter)": {
+            "mean": 1.462052908109852,
+            "std": 3.212857696877758,
+            "cv": 219.74975591214096
+          },
+          "ln(redshift/Baryonic_Matter)": {
+            "mean": 3.134871263959514,
+            "std": 3.2128576968768887,
+            "cv": 102.48770767125133
+          },
+          "ln(redshift/Photon_Radiation)": {
+            "mean": 7.9043471269499594,
+            "std": 1.4774400429620533,
+            "cv": 18.69148734529516
+          },
+          "ln(redshift/Neutrinos)": {
+            "mean": 8.297802852844903,
+            "std": 1.4774400429597,
+            "cv": 17.805195774844897
+          },
+          "ln(Dark_Energy/Cold_Dark_Matter)": {
+            "mean": -5.137349539830301,
+            "std": 6.730891191807506,
+            "cv": 131.01875080958268
+          },
+          "ln(Dark_Energy/Baryonic_Matter)": {
+            "mean": -3.4645311839806374,
+            "std": 6.7308911918087935,
+            "cv": 194.28000021853492
+          },
+          "ln(Dark_Energy/Photon_Radiation)": {
+            "mean": 1.3049446790098072,
+            "std": 8.974521589076398,
+            "cv": 687.7319577935112
+          },
+          "ln(Dark_Energy/Neutrinos)": {
+            "mean": 1.698400404904751,
+            "std": 8.97452158907667,
+            "cv": 528.4102360762199
+          },
+          "ln(Cold_Dark_Matter/Baryonic_Matter)": {
+            "mean": 1.6728183558496619,
+            "std": 1.762612763347867e-11,
+            "cv": 1.0536785163698164e-09
+          },
+          "ln(Cold_Dark_Matter/Photon_Radiation)": {
+            "mean": 6.442294218840108,
+            "std": 2.243630397268894,
+            "cv": 34.82657452538459
+          },
+          "ln(Cold_Dark_Matter/Neutrinos)": {
+            "mean": 6.835749944735054,
+            "std": 2.2436303972691647,
+            "cv": 32.82200805190696
+          },
+          "ln(Baryonic_Matter/Photon_Radiation)": {
+            "mean": 4.769475862990445,
+            "std": 2.243630397267605,
+            "cv": 47.04144567912451
+          },
+          "ln(Baryonic_Matter/Neutrinos)": {
+            "mean": 5.16293158888539,
+            "std": 2.2436303972678764,
+            "cv": 43.45651997593575
+          },
+          "ln(Photon_Radiation/Neutrinos)": {
+            "mean": 0.3934557258949446,
+            "std": 1.7242759281627188e-11,
+            "cv": 4.382388702669719e-09
+          }
+        },
+        "most_stable": "ln(Cold_Dark_Matter/Baryonic_Matter)",
+        "least_stable": "ln(Dark_Energy/Photon_Radiation)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

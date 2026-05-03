@@ -1,0 +1,338 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "HS-20_MILESTONE_COMP",
+  "name": "Conversation Compositional Drift",
+  "domain": "COMMUNICATION",
+  "carriers": [
+    "index",
+    "Theory",
+    "Engineering",
+    "Documentation",
+    "Discovery"
+  ],
+  "D": 5,
+  "N": 18,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from Hs-20_milestone_compositions.csv"
+  },
+  "data_hash_sha256_16": "0bc6befa645719a5",
+  "run_timestamp": "2026-04-30T21:13:51.291387Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "HS-20_MILESTONE_COMP: Conversation Compositional Drift: 5-part simplex, carriers=['index', 'Theory', 'Engineering', 'Documentation', 'Discovery']",
+    "step2_n_samples": 18,
+    "step2_D": 5,
+    "step2_carriers": [
+      "index",
+      "Theory",
+      "Engineering",
+      "Documentation",
+      "Discovery"
+    ],
+    "data_hash_sha256_16": "0bc6befa645719a5",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      0.47566121001410383,
+      -0.36462855113618947,
+      -0.27452519377881957,
+      0.15133263848116119,
+      0.01215989641974343
+    ],
+    "step4_clr_std_per_part": [
+      2.571332220561631,
+      0.8273506220602929,
+      0.7836566254718704,
+      0.672569095861966,
+      0.7562569927138953
+    ],
+    "step5_sigma2_range": [
+      8.93464997470517,
+      28.74089360587219
+    ],
+    "step5_sigma2_final": 8.93464997470517,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9259137887856191,
+      "eigenvalues_final": [
+        8.759345939526282,
+        0.29052223183586784,
+        0.26508659820324004,
+        0.14526285071067185,
+        8.399057230155118e-16
+      ],
+      "eigenvector_overlap": 0.9997928013495611,
+      "condition_number": 60.29997275058825,
+      "von_neumann_entropy": 0.342536917623535,
+      "von_neumann_ratio": 0.21283015329587027,
+      "commutator_norm": 0.027905059035530942,
+      "det_V": 2.6110480055043852e-17,
+      "det_amgm_ratio": 1.0768599960031084e-18,
+      "cholesky_last_diag": 2.236341132079125e-06,
+      "eigenvalue_power_law_alpha": -0.7478664142599353,
+      "eigenvalue_power_law_R2": 0.9978225434944836,
+      "eigenvalue_ratio_matches": 1,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb3/\u03bb2",
+        "value": 0.9124485810538665,
+        "constant": "catalan",
+        "delta": 0.003517013123352508
+      },
+      "gamma": 0.27218782341313663,
+      "VSWR": 1.7479617191610735,
+      "Q_factor": 129.71924599816347,
+      "trace_final": 9.460217620276062,
+      "n_slices": 6
+    },
+    "step6_pll_coeffs": [
+      0.09917711235157103,
+      -3.0574263287857475,
+      33.0769555807832
+    ],
+    "step6_pll_R2": 0.9884758028426338,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      15.413971309970872,
+      9.513414723656659
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 8,
+    "step7_squeeze_closest": {
+      "time_index": 4,
+      "sigma2_A": 21.831054505512647,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.04580630769564915,
+      "delta": 0.0012810404287262322
+    },
+    "step7_squeeze_mean": 15.089653484518767,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.4666031366898674,
+      1.0000000000000002
+    ],
+    "step8_entropy_mean": 0.830800669648262,
+    "step8_entropy_cv": 13.749095786206542,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.830800669648262,
+        "H_mean_decimated": 0.8277426818737665,
+        "variation_pct": 0.3680771918239034,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.8563677012147859,
+        "H_mean_decimated": 0.8501757391278774,
+        "variation_pct": 0.7230494655654374,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.8563677012147859,
+        "H_mean_decimated": 0.8935895503290642,
+        "variation_pct": 4.346479796176088,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 11,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 9
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.1865558725596512,
+      0.4844952590207962
+    ],
+    "step11_complex_range_im": [
+      -0.11240178699361894,
+      0.27502976446435534
+    ],
+    "step12_radius_range": [
+      0.02065243262190289,
+      0.5571149139584645
+    ],
+    "step12_theta_range": [
+      -3.0981055085613947,
+      2.3024061337686983
+    ],
+    "step9_angular_velocity_std": 1.136334686471641
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          6.611749388498409,
+          0.6845090518235536,
+          0.6141177066459593,
+          0.4523491887085825,
+          0.5719246390286647
+        ],
+        "carrier_pct": [
+          74.00121333479083,
+          7.661285598892658,
+          6.873438896706463,
+          5.0628641299796335,
+          6.401198039630393
+        ],
+        "dominant_carrier": "index",
+        "dominant_pct": 74.00121333479083
+      },
+      "match_density": {
+        "density": 0.40391303616053836,
+        "concentration": 0.5,
+        "total_matches": 8,
+        "n_constants_hit": 2,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 19.80624363116703
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            10.89853093996227,
+            10.649657334733881,
+            10.063754429447824,
+            10.381454213053228
+          ],
+          [
+            10.89853093996227,
+            0.0,
+            0.5179393863410586,
+            0.43628692757219434,
+            0.5044379799474127
+          ],
+          [
+            10.649657334733881,
+            0.5179393863410586,
+            0.0,
+            0.3128076856201198,
+            0.5248341012399055
+          ],
+          [
+            10.063754429447824,
+            0.43628692757219434,
+            0.31280768562011985,
+            0.0,
+            0.3835468756079438
+          ],
+          [
+            10.381454213053228,
+            0.5044379799474127,
+            0.5248341012399055,
+            0.3835468756079438,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          0.47566121001410383,
+          -0.36462855113618947,
+          -0.27452519377881957,
+          0.15133263848116119,
+          0.01215989641974343
+        ],
+        "clr_stds": [
+          2.571332220561631,
+          0.8273506220602929,
+          0.7836566254718704,
+          0.672569095861966,
+          0.7562569927138953
+        ],
+        "aitchison_distance_mean": 2.5999295971395338
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.07201026284301033,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "index",
+        "max_shift_magnitude": 0.20933031371638972
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9884758028426338,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Engineering",
+        "sources": [
+          "index",
+          "Theory"
+        ],
+        "I_source1_target": 0.901472932822552,
+        "I_source2_target": 1.4938857262110654,
+        "redundancy": 0.901472932822552,
+        "unique_source1": 0.0,
+        "unique_source2": 0.5924127933885134,
+        "dominant": "redundancy"
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(index/Theory)": {
+            "mean": 0.8402897611502933,
+            "std": 3.301292313619361,
+            "cv": 392.875465851225
+          },
+          "ln(index/Engineering)": {
+            "mean": 0.7501864037929233,
+            "std": 3.263381273270698,
+            "cv": 435.00938656994117
+          },
+          "ln(index/Documentation)": {
+            "mean": 0.3243285715329427,
+            "std": 3.1723421047307974,
+            "cv": 978.1260065176145
+          },
+          "ln(index/Discovery)": {
+            "mean": 0.4635013135943605,
+            "std": 3.222026414083725,
+            "cv": 695.1493597930827
+          },
+          "ln(Theory/Engineering)": {
+            "mean": -0.09010335735736988,
+            "std": 0.7196800583183187,
+            "cv": 798.7272388351836
+          },
+          "ln(Theory/Documentation)": {
+            "mean": -0.5159611896173506,
+            "std": 0.6605201946740117,
+            "cv": 128.01741835735157
+          },
+          "ln(Theory/Discovery)": {
+            "mean": -0.3767884475559329,
+            "std": 0.7102379741659922,
+            "cv": 188.49781058124398
+          },
+          "ln(Engineering/Documentation)": {
+            "mean": -0.42585783225998075,
+            "std": 0.5592921290525371,
+            "cv": 131.3330615723175
+          },
+          "ln(Engineering/Discovery)": {
+            "mean": -0.286685090198563,
+            "std": 0.7244543472434308,
+            "cv": 252.7003921765382
+          },
+          "ln(Documentation/Discovery)": {
+            "mean": 0.13917274206141775,
+            "std": 0.6193116143008653,
+            "cv": 444.99490714033607
+          }
+        },
+        "most_stable": "ln(Theory/Documentation)",
+        "least_stable": "ln(index/Documentation)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  }
+}

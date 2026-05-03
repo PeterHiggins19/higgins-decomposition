@@ -1,0 +1,373 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "HS-17_FLEET_COMPOSIT",
+  "name": "Backblaze Fleet Composition",
+  "domain": "STORAGE",
+  "carriers": [
+    "index",
+    "Mechanical",
+    "Thermal",
+    "Age",
+    "Errors"
+  ],
+  "D": 5,
+  "N": 108,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from Hs-17_fleet_composition.csv"
+  },
+  "data_hash_sha256_16": "051cca62652b01a6",
+  "run_timestamp": "2026-04-30T21:13:50.123136Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "HS-17_FLEET_COMPOSIT: Backblaze Fleet Composition: 5-part simplex, carriers=['index', 'Mechanical', 'Thermal', 'Age', 'Errors']",
+    "step2_n_samples": 108,
+    "step2_D": 5,
+    "step2_carriers": [
+      "index",
+      "Mechanical",
+      "Thermal",
+      "Age",
+      "Errors"
+    ],
+    "data_hash_sha256_16": "051cca62652b01a6",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -0.5662639932550547,
+      -0.07434598460303427,
+      -0.6786425836470362,
+      -0.792185276888255,
+      2.1114378383933805
+    ],
+    "step4_clr_std_per_part": [
+      1.0788930645065453,
+      0.21521127841039495,
+      0.23531718776725216,
+      0.2002929309975232,
+      0.6697373065364252
+    ],
+    "step5_sigma2_range": [
+      1.7543656358282935,
+      6.820840459662981
+    ],
+    "step5_sigma2_final": 1.7543656358282935,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9430077542441173,
+      "eigenvalues_final": [
+        1.6698418974156364,
+        0.06406094109723741,
+        0.036248955759134144,
+        0.0006097820780449798,
+        2.039724297872801e-16
+      ],
+      "eigenvector_overlap": 0.9318593802221642,
+      "condition_number": 2738.4240330075145,
+      "von_neumann_entropy": 0.2577719176767138,
+      "von_neumann_ratio": 0.16016269760096663,
+      "commutator_norm": 0.4602647700531154,
+      "det_V": 2.6907473384471e-22,
+      "det_amgm_ratio": 4.829725995479402e-20,
+      "cholesky_last_diag": 2.2361673691635214e-06,
+      "eigenvalue_power_law_alpha": -0.44415162938329505,
+      "eigenvalue_power_law_R2": 0.9954463752477785,
+      "eigenvalue_ratio_matches": 3,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb3/\u03bb2",
+        "value": 0.5658511276647067,
+        "constant": "omega_lambert",
+        "delta": 0.0012921627450771522
+      },
+      "gamma": 0.2387304876966549,
+      "VSWR": 1.627190459721254,
+      "Q_factor": 218.9550541603492,
+      "trace_final": 1.7707615763500528,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.00047462107687282716,
+      -0.07945448731025621,
+      5.1460619431134935
+    ],
+    "step6_pll_R2": 0.883470656182184,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      83.70307512865229,
+      1.8207694827940304
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 52,
+    "step7_squeeze_closest": {
+      "time_index": 38,
+      "sigma2_A": 2.716374054822717,
+      "constant": "1/e",
+      "constant_value": 0.36787944117144233,
+      "test_type": "reciprocal",
+      "test_value": 0.36813781158915704,
+      "delta": 0.0002583704177147039
+    },
+    "step7_squeeze_mean": 2.6698996215082302,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.11478286638949943,
+      0.7426756862195092
+    ],
+    "step8_entropy_mean": 0.5560887825594076,
+    "step8_entropy_cv": 29.004201308825895,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.5560887825594076,
+        "H_mean_decimated": 0.556031263839322,
+        "variation_pct": 0.010343441890862386,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.5560887825594076,
+        "H_mean_decimated": 0.5559372130791113,
+        "variation_pct": 0.027256345578268146,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.549281093759996,
+        "H_mean_decimated": 0.5481211993892819,
+        "variation_pct": 0.21116590100966987,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 66,
+      "stalls": 14,
+      "spikes": 3,
+      "reversals": 49
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.09006405788009464,
+      0.2354994183196819
+    ],
+    "step11_complex_range_im": [
+      -0.11617031192584117,
+      0.16553124816222287
+    ],
+    "step12_radius_range": [
+      0.0371880552781694,
+      0.27885201334689846
+    ],
+    "step12_theta_range": [
+      -3.124990820386947,
+      3.113783799126018
+    ],
+    "step9_angular_velocity_std": 0.2574023004780882
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          1.1640102446403247,
+          0.046315894355036524,
+          0.055374178858688214,
+          0.040117258207578596,
+          0.44854805976666556
+        ],
+        "carrier_pct": [
+          66.34935277279055,
+          2.640036569866422,
+          3.1563647695677903,
+          2.2867102152646717,
+          25.567535672510555
+        ],
+        "dominant_carrier": "index",
+        "dominant_pct": 66.34935277279055
+      },
+      "match_density": {
+        "density": 10.263546510755678,
+        "concentration": 0.09763313609467456,
+        "total_matches": 52,
+        "n_constants_hit": 16,
+        "dominant_constant": "omega_lambert",
+        "trajectory_length": 5.066474823834688
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            1.3275879151324999,
+            1.664851269930808,
+            1.5995494170860833,
+            2.9824282568805267
+          ],
+          [
+            1.3275879151324996,
+            0.0,
+            0.1026233928543914,
+            0.07690559253012433,
+            0.47882820708646073
+          ],
+          [
+            1.664851269930808,
+            0.1026233928543914,
+            0.0,
+            0.003204656945940281,
+            0.26055721039059515
+          ],
+          [
+            1.5995494170860833,
+            0.07690559253012431,
+            0.003204656945940281,
+            0.0,
+            0.27529226030403864
+          ],
+          [
+            2.9824282568805267,
+            0.47882820708646073,
+            0.26055721039059504,
+            0.2752922603040387,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -0.5662639932550547,
+          -0.07434598460303427,
+          -0.6786425836470362,
+          -0.792185276888255,
+          2.1114378383933805
+        ],
+        "clr_stds": [
+          1.0788930645065453,
+          0.21521127841039495,
+          0.23531718776725216,
+          0.2002929309975232,
+          0.6697373065364252
+        ],
+        "aitchison_distance_mean": 1.0633790190306733
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.02768946134838885,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Errors",
+        "max_shift_magnitude": 0.14706363447988968
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.883470656182184,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Thermal",
+        "sources": [
+          "index",
+          "Mechanical"
+        ],
+        "I_source1_target": 0.8593489051943671,
+        "I_source2_target": 0.9174607519256155,
+        "redundancy": 0.8593489051943671,
+        "unique_source1": 0.0,
+        "unique_source2": 0.05811184673124836,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "index->Mechanical": 0.0,
+          "index->Thermal": 0.0,
+          "index->Age": 0.0,
+          "Mechanical->index": 0.0,
+          "Mechanical->Thermal": 0.0,
+          "Mechanical->Age": 0.0,
+          "Thermal->index": 0.0030445076080367617,
+          "Thermal->Mechanical": 0.0,
+          "Thermal->Age": 0.06647695230184492,
+          "Age->index": 0.0,
+          "Age->Mechanical": 0.0,
+          "Age->Thermal": 0.0
+        },
+        "dominant_flow": "Thermal->Age",
+        "dominant_te": 0.06647695230184492
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 1.7543656358282935,
+        "shuffled_sigma2": 1.754365635828293,
+        "order_matters": false,
+        "relative_difference": 2.5313378282195636e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 12,
+        "near_zero_carriers": [
+          "index",
+          "Age"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(index/Mechanical)": {
+            "mean": -0.49191800865202023,
+            "std": 1.152210013466512,
+            "cv": 234.2280610185138
+          },
+          "ln(index/Thermal)": {
+            "mean": 0.11237859039198173,
+            "std": 1.2902911570381346,
+            "cv": 1148.1645681241766
+          },
+          "ln(index/Age)": {
+            "mean": 0.2259212836332009,
+            "std": 1.2647329429907657,
+            "cv": 559.8113301463658
+          },
+          "ln(index/Errors)": {
+            "mean": -2.677701831648435,
+            "std": 1.726970832666414,
+            "cv": 64.4945158663638
+          },
+          "ln(Mechanical/Thermal)": {
+            "mean": 0.6042965990440018,
+            "std": 0.3203488611723029,
+            "cv": 53.011859024044696
+          },
+          "ln(Mechanical/Age)": {
+            "mean": 0.717839292285221,
+            "std": 0.2773185758836294,
+            "cv": 38.6324040581275
+          },
+          "ln(Mechanical/Errors)": {
+            "mean": -2.185783822996415,
+            "std": 0.6919741375849684,
+            "cv": 31.657940291477004
+          },
+          "ln(Thermal/Age)": {
+            "mean": 0.11354269324121918,
+            "std": 0.05660968950577525,
+            "cv": 49.85762437879565
+          },
+          "ln(Thermal/Errors)": {
+            "mean": -2.7900804220404165,
+            "std": 0.5104480486695929,
+            "cv": 18.29510162636447
+          },
+          "ln(Age/Errors)": {
+            "mean": -2.9036231152816354,
+            "std": 0.5246830093533034,
+            "cv": 18.069941880264032
+          }
+        },
+        "most_stable": "ln(Age/Errors)",
+        "least_stable": "ln(index/Thermal)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Hˢ Tools Library
 
-**Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S** — Seven operators. One composition. The simplex speaks.
+**Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S** — Seven operators. One composition. One deterministic reading.
 
 This directory contains every runnable tool in the Higgins Decomposition system: the Python pipeline that performs the 12-step analysis, the interactive HTML visualizations, and the Jupyter notebooks that tie it all together. Everything here reads compositional structure — it does not create or destroy it.
 
