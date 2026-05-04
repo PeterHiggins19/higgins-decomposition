@@ -129,10 +129,127 @@ def cnt_helmsman(h1, h2, carriers=None):
     return best[2], name, best[1]
 
 
-def cnt_condition_number(x):
+def cnt_closure(x, eps=1e-15):
+    """Close a positive vector to the simplex with a numerical floor.
+
+    Returns a list of D values summing to 1.0.
+    """
+    x_pos = [max(float(v), eps) for v in x]
+    total = sum(x_pos)
+    if total <= 0:
+        raise ValueError("Composition must have positive sum.")
+    return [v / total for v in x_pos]
+
+
+def cnt_aitchison_metric_tensor(x, normalized=False, eps=1e-15):
+    """Full Higgins Steering Metric Tensor kappa^Hs(x).
+
+    Given a closed composition x in the D-simplex, the CLR differential is:
+        dh = P diag(1/x) dx
+        P  = I - (1/D) 11^T
+
+    The covariant metric tensor in composition coordinates is:
+        G(x) = diag(1/x) P diag(1/x)
+
+    Component form:
+        G_ij = (delta_ij - 1/D) / (x_i * x_j)
+
+    This is the full Aitchison pullback metric. The repo's existing
+    diagonal quantity 1/x_j is the diagonal steering sensitivity —
+    a special case of this tensor.
+
+    Set normalized=True for standard CoDa convention (scales G by 1/D).
+    Default normalized=False is the Hs-native unnormalised CLR convention.
+
+    Mathematical lineage:
+        Aitchison (1986) — Aitchison geometry on the simplex
+        Egozcue et al. (2003) — ILR and metric structure
+        Higgins (2026) — Steering metric tensor in CNT/HCI instrument
+
+    Returns D x D matrix as list of lists.
+    """
+    x = cnt_closure(x, eps=eps)
+    D = len(x)
+    G = []
+    for i in range(D):
+        row = []
+        for j in range(D):
+            delta = 1.0 if i == j else 0.0
+            gij = (delta - 1.0 / D) / (x[i] * x[j])
+            if normalized:
+                gij /= D
+            row.append(gij)
+        G.append(row)
+    return G
+
+
+def cnt_metric_apply(G, u, v):
+    """Compute u^T G v — inner product under the Higgins metric."""
+    D = len(G)
+    if len(u) != D or len(v) != D:
+        raise ValueError("Vector dimensions must match metric tensor.")
+    return sum(u[i] * G[i][j] * v[j] for i in range(D) for j in range(D))
+
+
+def cnt_metric_norm(G, u):
+    """Compute sqrt(u^T G u), guarded against roundoff."""
+    q = cnt_metric_apply(G, u, u)
+    return math.sqrt(max(0.0, q))
+
+
+def cnt_metric_distance(x1, x2, eps=1e-15):
+    """Aitchison distance between two compositions under the Higgins metric.
+
+    d(x1, x2) = sqrt( sum_{i<j} (log(x1_i/x1_j) - log(x2_i/x2_j))^2 / D )
+
+    This is equivalent to the CLR Euclidean distance sqrt(sum (h1_j - h2_j)^2).
+    """
+    x1 = cnt_closure(x1, eps=eps)
+    x2 = cnt_closure(x2, eps=eps)
+    D = len(x1)
+    h1 = _clr(x1)
+    h2 = _clr(x2)
+    return math.sqrt(sum((h1[j] - h2[j]) ** 2 for j in range(D)))
+
+
+def cnt_metric_angle(x1, x2, eps=1e-15):
+    """Angle between two CLR vectors in degrees.
+
+    Uses the atan2 form for numerical stability.
+    """
+    x1 = cnt_closure(x1, eps=eps)
+    x2 = cnt_closure(x2, eps=eps)
+    h1 = _clr(x1)
+    h2 = _clr(x2)
+    return cnt_angular_velocity(h1, h2)
+
+
+def cnt_metric_energy(x, eps=1e-15):
+    """Metric energy: ||h||^2 = h^T h.
+
+    Measures displacement from the barycenter in Higgins coordinate space.
+    """
+    x = cnt_closure(x, eps=eps)
+    h = _clr(x)
+    return sum(v ** 2 for v in h)
+
+
+def _clr(x):
+    """Internal CLR transform for closed composition x."""
+    D = len(x)
+    log_x = [math.log(v) for v in x]
+    mean_log = sum(log_x) / D
+    return [lx - mean_log for lx in log_x]
+
+
+def cnt_condition_number(x, eps=1e-15):
     """Condition number of the Aitchison metric tensor.
 
     kappa(G) = max(1/x_j) / min(1/x_j) = max(x) / min(x)
+
+    The full tensor G is rank D-1 in ambient coordinates, so its
+    raw matrix condition number is singular. This proxy is the
+    correct simplex-facing conditioning diagnostic.
 
     Precision diagnostic: CNT operations lose approximately
     log10(kappa) digits of precision. For well-conditioned
@@ -144,6 +261,26 @@ def cnt_condition_number(x):
     """
     x_pos = [max(v, 1e-300) for v in x]
     return max(x_pos) / min(x_pos)
+
+
+def cnt_steering_sensitivity_tensor(x, eps=1e-15):
+    """Back-compatible CNT kappa channel.
+
+    Returns both:
+      - diagonal_sensitivity: existing repo quantity 1/x_j
+      - metric_tensor: full Aitchison pullback metric G_ij
+      - condition_number: max(x)/min(x)
+
+    This bridges the old diagonal-only readout to the full
+    Higgins Steering Metric Tensor.
+    """
+    x = cnt_closure(x, eps=eps)
+    return {
+        "x": x,
+        "diagonal_sensitivity": [1.0 / v for v in x],
+        "metric_tensor": cnt_aitchison_metric_tensor(x, eps=eps),
+        "condition_number": cnt_condition_number(x, eps=eps),
+    }
 
 
 def cnt_helmert_basis(D):

@@ -72,25 +72,44 @@ Note: The atan2 form replaces the original arccos formulation. Both are
 mathematically equivalent, but atan2 eliminates up to 8 digits of precision
 loss near 0° and 180° (see CNT_PRECISION_DIAGNOSTIC.md, experiment P03).
 
-**Definition 3 (Steering Sensitivity Tensor).** The diagonal metric tensor
-on the simplex is:
+**Definition 3 (Higgins Steering Metric Tensor).** The full Aitchison
+pullback metric tensor on the simplex is:
 
 ```
-kappa_{jj}(x) = g_{jj} = 1 / x_j
+kappa^Hs_ij(x) = (delta_ij - 1/D) / (x_i * x_j)
 ```
 
-This is the Aitchison metric tensor. Carrier j with fraction x_j has
-sensitivity 1/x_j. As x_j --> 0, sensitivity diverges: infinite steering
-authority at the simplex boundary.
-
-**Definition 4 (Helmsman Index).** Between consecutive compositions x(t)
-and x(t+1), the helmsman is the carrier with maximum CLR displacement:
+In matrix form:
 
 ```
-sigma(t, t+1) = argmax_j |h_j(t+1) - h_j(t)|
+kappa^Hs(x) = diag(1/x) * P * diag(1/x)
+P = I - (1/D) * 1 * 1^T
 ```
 
-The helmsman is the carrier that turned the wheel most in CLR space.
+The diagonal elements kappa^Hs_jj(x) = (1 - 1/D) / x_j^2 govern
+single-carrier sensitivity. The off-diagonal elements kappa^Hs_ij(x) =
+-1 / (D * x_i * x_j) govern inter-carrier metric coupling.
+
+The repo's existing quantity 1/x_j is the **diagonal steering sensitivity**
+— a readout from the metric tensor, not the tensor itself.
+
+Mathematical lineage: Aitchison (1986) simplex geometry, Egozcue et al.
+(2003) ILR metric structure, Higgins (2026) steering metric tensor in
+CNT/HCI instrument.
+
+**Definition 4 (Dominant Carrier Displacement Index / Helmsman Index).**
+Between consecutive compositions x(t) and x(t+1), the Dominant Carrier
+Displacement Index identifies the carrier with maximum CLR displacement:
+
+```
+sigma^Hs(t, t+1) = argmax_j |h_j(t+1) - h_j(t)|
+```
+
+Formal name: **Dominant Carrier Displacement Index (DCDI)**
+HCI instrument alias: **Helmsman Index**
+
+The selected carrier sigma^Hs is the Helmsman: the carrier channel
+responsible for the largest local displacement in Higgins Coordinate space.
 
 
 ## Corollaries
@@ -209,12 +228,80 @@ All operations are:
 - Domain-agnostic (energy, nuclear, geochemistry, finance, acoustics)
 
 
+## HCI Staged Analysis Architecture
+
+### Stage 1 — HCI Section Engine
+
+Composition stream → closure S → Higgins Coordinate Λ = CLR →
+local metric tensor κ^Hs → section triads → metric ledgers →
+morphographic section plates → section cine-deck.
+
+### Stage 2 — HCI Metric Cross-Examination Engine
+
+Stage 1 outputs → grouping → pairwise comparison → carrier pair
+cross-examination → section view cross-examination → ranked contrasts.
+
+Methods:
+- Group barycenter analysis
+- Pairwise group cross-examination
+- Carrier pair cross-examination
+- Section view cross-examination
+
+### Stage 3 — HCI Higher-Degree Analysis Engine
+
+Pairs → triads → subcompositions → regimes → structural signatures.
+
+Methods:
+- Triadic day analysis (metric triangles in CLR space)
+- Carrier triad analysis (three-carrier interaction structures)
+- Subcomposition degree ladder (k-degree carrier subsets)
+- Metric regime detection (time windows with similar metric structure)
+
+Degree ladder:
+- D0: Point state
+- D1: Temporal increment
+- D2: Pairwise contrast (Stage 2)
+- D3: Triadic structure (Stage 3)
+- Dk: Subcomposition / k-face structure (Stage 3)
+- DD: Full simplex structure
+
+
+## HCI Tensor Terminology Standard
+
+### Core names
+
+| Term | Meaning |
+|------|---------|
+| HCI | Higgins Compositional Instrument |
+| κ^Hs(x) | Higgins Steering Metric Tensor |
+| DCDI | Dominant Carrier Displacement Index (formal operator) |
+| Helmsman Index | DCDI instrument alias |
+| Carrier channel | Processing lane for one compositional component |
+| Parallel carrier channels | Multiple carrier channels under shared geometry |
+| Metric ledger | Numerical output table (the measurement authority) |
+| Morphographic plate | Symbolic visual rendering |
+| Section triad | XY + XZ + YZ metric sections at one time index |
+| Section atlas | Time-indexed collection of section triads |
+| Section cine-deck | PowerPoint/HTML scroll deck of section triads |
+
+### Naming rules
+
+- Use **Dominant Carrier Displacement Index** at first mention
+- Use **Helmsman Index** as instrument alias at second mention
+- Use **parallel carrier channels** for the processing architecture
+- Use **metric ledger** as the numerical authority, never the plates
+- Use **section**, not "slice," for scientific terminology
+
+
 ## File Inventory
 
 | File | Description |
 |------|-------------|
-| HCI_FOUNDATION.md | This file. Pure math proofs and instrument specification |
-| hci_cbs.py | Compositional Bearing Scope engine (CBS) |
+| HCI_FOUNDATION.md | This file. Pure math proofs, instrument specification, stage architecture |
+| hci_cbs.py | Compositional Bearing Scope engine (CBS) with full metric tensor |
+| hci_stage2.py | Stage 2 — Metric Cross-Examination Engine |
+| hci_stage3.py | Stage 3 — Higher-Degree Analysis Engine |
+| hci_test_stage23.py | Stage 2/3 acceptance test suite (10 tests, synthetic data) |
 | README.md | Folder purpose and usage |
 
 

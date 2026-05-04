@@ -1,0 +1,146 @@
+{
+  "stage": "Stage 2 \u2014 HCI Metric Cross-Examination Engine",
+  "top_group_divergences": [
+    {
+      "pair_id": "P014",
+      "group_A": "2000",
+      "group_B": "2014",
+      "metric_distance": 39.17866470882883,
+      "higgins_angle": 103.05574593553527,
+      "metric_energy_delta": 1255.6203425192402,
+      "dominant_contrast_carrier": "Nuclear",
+      "boundary_pressure_delta": 999999999990003.5,
+      "rank": 1,
+      "classification": "STRONG_DIVERGENCE"
+    },
+    {
+      "pair_id": "P038",
+      "group_A": "2001",
+      "group_B": "2014",
+      "metric_distance": 38.96233322754501,
+      "higgins_angle": 103.84780036317933,
+      "metric_energy_delta": 1267.6668477759915,
+      "dominant_contrast_carrier": "Nuclear",
+      "boundary_pressure_delta": 999999999995668.0,
+      "rank": 2,
+      "classification": "STRONG_DIVERGENCE"
+    },
+    {
+      "pair_id": "P061",
+      "group_A": "2002",
+      "group_B": "2014",
+      "metric_distance": 38.77242429496364,
+      "higgins_angle": 103.84194303358693,
+      "metric_energy_delta": 1274.4322783557122,
+      "dominant_contrast_carrier": "Nuclear",
+      "boundary_pressure_delta": 999999999997310.1,
+      "rank": 3,
+      "classification": "STRONG_DIVERGENCE"
+    },
+    {
+      "pair_id": "P104",
+      "group_A": "2004",
+      "group_B": "2014",
+      "metric_distance": 38.328395052045764,
+      "higgins_angle": 103.61461869509516,
+      "metric_energy_delta": 1288.524577436497,
+      "dominant_contrast_carrier": "Nuclear",
+      "boundary_pressure_delta": 999999999999117.6,
+      "rank": 4,
+      "classification": "STRONG_DIVERGENCE"
+    },
+    {
+      "pair_id": "P083",
+      "group_A": "2003",
+      "group_B": "2014",
+      "metric_distance": 38.2521498364839,
+      "higgins_angle": 101.25631587358534,
+      "metric_energy_delta": 1282.7975188195833,
+      "dominant_contrast_carrier": "Nuclear",
+      "boundary_pressure_delta": 999999999998684.1,
+      "rank": 5,
+      "classification": "STRONG_DIVERGENCE"
+    }
+  ],
+  "top_carrier_oppositions": [
+    {
+      "carrier_pair": "Coal-Nuclear",
+      "co_movement_score": 0.0,
+      "opposition_score": 0.9989854865733426,
+      "metric_coupling_score": 14367915549027.521,
+      "dominant_day": "2000",
+      "dominant_section_view": "XY",
+      "rank": 1,
+      "classification": "STRONG_OPPOSITION"
+    },
+    {
+      "carrier_pair": "Gas-Nuclear",
+      "co_movement_score": 0.0,
+      "opposition_score": 0.998419008830715,
+      "metric_coupling_score": 11331686411538.408,
+      "dominant_day": "2000",
+      "dominant_section_view": "XY",
+      "rank": 2,
+      "classification": "STRONG_OPPOSITION"
+    },
+    {
+      "carrier_pair": "Bioenergy-Nuclear",
+      "co_movement_score": 0.0,
+      "opposition_score": 0.997203744258574,
+      "metric_coupling_score": 216217975845694.44,
+      "dominant_day": "2000",
+      "dominant_section_view": "XY",
+      "rank": 3,
+      "classification": "STRONG_OPPOSITION"
+    },
+    {
+      "carrier_pair": "Hydro-Nuclear",
+      "co_movement_score": 0.0,
+      "opposition_score": 0.9969267608424979,
+      "metric_coupling_score": 62528830855881.75,
+      "dominant_day": "2000",
+      "dominant_section_view": "XY",
+      "rank": 4,
+      "classification": "STRONG_OPPOSITION"
+    },
+    {
+      "carrier_pair": "Nuclear-Solar",
+      "co_movement_score": 0.0,
+      "opposition_score": 0.9956191928541072,
+      "metric_coupling_score": 216952474277664.47,
+      "dominant_day": "2000",
+      "dominant_section_view": "XY",
+      "rank": 5,
+      "classification": "STRONG_OPPOSITION"
+    }
+  ],
+  "section_view_summary": [
+    {
+      "view_pair": "XY-YZ",
+      "agreement_score": 0.804529856533272,
+      "divergence_score": 0.19547014346672797,
+      "dominant_carrier": "Gas",
+      "dominant_day": "2000",
+      "rank": 1,
+      "classification": "CONSISTENT_VIEWS"
+    },
+    {
+      "view_pair": "XZ-YZ",
+      "agreement_score": 0.830049165435085,
+      "divergence_score": 0.16995083456491494,
+      "dominant_carrier": "Gas",
+      "dominant_day": "2000",
+      "rank": 2,
+      "classification": "CONSISTENT_VIEWS"
+    },
+    {
+      "view_pair": "XY-XZ",
+      "agreement_score": 0.973603801081314,
+      "divergence_score": 0.026396198918686106,
+      "dominant_carrier": "Gas",
+      "dominant_day": "2000",
+      "rank": 3,
+      "classification": "CONSISTENT_VIEWS"
+    }
+  ]
+}

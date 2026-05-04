@@ -500,14 +500,38 @@
       "full": "Compositional Navigation Tensor",
       "abbreviation": "CNT",
       "symbol": "CNT(x) = (theta, omega, kappa, sigma)",
-      "one_sentence": "Tensor engine computing bearing, angular velocity, steering sensitivity, and helmsman index from any closed composition.",
+      "one_sentence": "Tensor engine computing bearing, angular velocity, steering metric tensor, and Dominant Carrier Displacement Index from any closed composition.",
       "components": {
         "theta": "Bearing tensor — atan2(h_j, h_i) for all carrier pairs",
-        "omega": "Angular velocity — arccos of normalised CLR dot product",
-        "kappa": "Steering sensitivity tensor — g_{jj} = 1/x_j (Aitchison metric)",
-        "sigma": "Helmsman index — argmax_j |delta h_j|"
+        "omega": "Angular velocity — atan2(||h1 x h2||, <h1,h2>) via Lagrange identity",
+        "kappa": "Higgins Steering Metric Tensor — kappa^Hs_ij(x) = (delta_ij - 1/D) / (x_i * x_j)",
+        "sigma": "Dominant Carrier Displacement Index (DCDI) / Helmsman Index — argmax_j |delta h_j|"
       },
       "NOT": ["CNN", "neural network", "convolutional"]
+    },
+    "dcdi": {
+      "full": "Dominant Carrier Displacement Index",
+      "abbreviation": "DCDI",
+      "instrument_alias": "Helmsman Index",
+      "symbol": "sigma^Hs(t,t+1) = argmax_j |h_j(t+1) - h_j(t)|",
+      "one_sentence": "The carrier channel with maximal local CLR displacement between consecutive compositions.",
+      "NOT": ["helmsman metric", "steering index"]
+    },
+    "higgins_steering_metric_tensor": {
+      "full": "Higgins Steering Metric Tensor",
+      "symbol": "kappa^Hs_ij(x) = (delta_ij - 1/D) / (x_i * x_j)",
+      "one_sentence": "Full Aitchison pullback metric tensor on the simplex, governing distance, sensitivity, coupling, and boundary pressure.",
+      "NOT": ["Higgins metric", "steering sensitivity tensor"]
+    },
+    "hci_stage2": {
+      "full": "HCI Metric Cross-Examination Engine",
+      "one_sentence": "Performs pairwise and group-level metric cross-examinations on Stage 1 section-atlas outputs.",
+      "implementation": "HCI/hci_stage2.py"
+    },
+    "hci_stage3": {
+      "full": "HCI Higher-Degree Analysis Engine",
+      "one_sentence": "Extends analysis beyond pairs into triadic, subcomposition, and regime-level structural signatures.",
+      "implementation": "HCI/hci_stage3.py"
     },
     "impedance_match_observation": {
       "full": "Impedance Match Observation (Empirical)",

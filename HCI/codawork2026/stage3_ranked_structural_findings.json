@@ -1,0 +1,154 @@
+{
+  "stage": "Stage 3 \u2014 HCI Higher-Degree Analysis Engine",
+  "top_day_triads": [
+    {
+      "triad_id": "T245",
+      "day_A": "2000",
+      "day_B": "2014",
+      "day_C": "2025",
+      "side_AB": 39.17866470882883,
+      "side_BC": 36.481284055004956,
+      "side_CA": 7.223275777699131,
+      "metric_triangle_area": 126.16538580520917,
+      "triadic_imbalance": 5.423946961818565,
+      "orientation_score": -1.0,
+      "dominant_carrier": "Nuclear",
+      "rank": 1,
+      "classification": "LARGE_TRIADIC_STRUCTURE"
+    },
+    {
+      "triad_id": "T244",
+      "day_A": "2000",
+      "day_B": "2014",
+      "day_C": "2024",
+      "side_AB": 39.17866470882883,
+      "side_BC": 36.4144716617125,
+      "side_CA": 7.166770537617042,
+      "metric_triangle_area": 124.39729648969768,
+      "triadic_imbalance": 5.466711192047705,
+      "orientation_score": -1.0,
+      "dominant_carrier": "Nuclear",
+      "rank": 2,
+      "classification": "LARGE_TRIADIC_STRUCTURE"
+    },
+    {
+      "triad_id": "T243",
+      "day_A": "2000",
+      "day_B": "2014",
+      "day_C": "2023",
+      "side_AB": 39.17866470882883,
+      "side_BC": 36.31773494874354,
+      "side_CA": 7.026002874809416,
+      "metric_triangle_area": 120.59226852226482,
+      "triadic_imbalance": 5.576238069770442,
+      "orientation_score": -1.0,
+      "dominant_carrier": "Nuclear",
+      "rank": 3,
+      "classification": "LARGE_TRIADIC_STRUCTURE"
+    },
+    {
+      "triad_id": "T241",
+      "day_A": "2000",
+      "day_B": "2014",
+      "day_C": "2021",
+      "side_AB": 39.17866470882883,
+      "side_BC": 36.113550302795424,
+      "side_CA": 6.995876484093234,
+      "metric_triangle_area": 117.85987355127924,
+      "triadic_imbalance": 5.600251061880626,
+      "orientation_score": -1.0,
+      "dominant_carrier": "Nuclear",
+      "rank": 4,
+      "classification": "LARGE_TRIADIC_STRUCTURE"
+    },
+    {
+      "triad_id": "T240",
+      "day_A": "2000",
+      "day_B": "2014",
+      "day_C": "2020",
+      "side_AB": 39.17866470882883,
+      "side_BC": 35.86064921823433,
+      "side_CA": 7.096571174718825,
+      "metric_triangle_area": 117.15530238849583,
+      "triadic_imbalance": 5.520787961431408,
+      "orientation_score": -1.0,
+      "dominant_carrier": "Nuclear",
+      "rank": 5,
+      "classification": "LARGE_TRIADIC_STRUCTURE"
+    }
+  ],
+  "top_carrier_triads": [
+    {
+      "carrier_triad": "Coal-Gas-Nuclear",
+      "triadic_coupling_score": 0.9985300506014508,
+      "triadic_opposition_score": 0.6658014984680193,
+      "dominant_time_window": "2000",
+      "dominant_section_view": "XY",
+      "rank": 1,
+      "classification": "STRONG_TRIADIC_COUPLING"
+    },
+    {
+      "carrier_triad": "Bioenergy-Coal-Nuclear",
+      "triadic_coupling_score": 0.9979356490768997,
+      "triadic_opposition_score": 0.6653964102773056,
+      "dominant_time_window": "2000",
+      "dominant_section_view": "XY",
+      "rank": 2,
+      "classification": "STRONG_TRIADIC_COUPLING"
+    },
+    {
+      "carrier_triad": "Coal-Hydro-Nuclear",
+      "triadic_coupling_score": 0.997536191324217,
+      "triadic_opposition_score": 0.6653040824719468,
+      "dominant_time_window": "2000",
+      "dominant_section_view": "XY",
+      "rank": 3,
+      "classification": "STRONG_TRIADIC_COUPLING"
+    },
+    {
+      "carrier_triad": "Gas-Hydro-Nuclear",
+      "triadic_coupling_score": 0.9972840472492094,
+      "triadic_opposition_score": 0.6651152565577376,
+      "dominant_time_window": "2000",
+      "dominant_section_view": "XY",
+      "rank": 4,
+      "classification": "STRONG_TRIADIC_COUPLING"
+    },
+    {
+      "carrier_triad": "Coal-Gas-Hydro",
+      "triadic_coupling_score": 0.9971294516771735,
+      "triadic_opposition_score": 0.0,
+      "dominant_time_window": "2000",
+      "dominant_section_view": "XY",
+      "rank": 5,
+      "classification": "STRONG_TRIADIC_COUPLING"
+    }
+  ],
+  "subcomposition_summary": {
+    "total_subsets": 238,
+    "stable_count": 3,
+    "unstable_count": 218
+  },
+  "regime_summary": [
+    {
+      "regime_id": "R01",
+      "time_window_start": "2000_pt0",
+      "time_window_end": "2013_pt0",
+      "member_points": 14,
+      "within_regime_metric_variance": 217.39324176084205,
+      "between_regime_distance": 4.272237986121414,
+      "dominant_carriers": "Nuclear;Wind;Solar",
+      "classification": "VOLATILE_REGIME"
+    },
+    {
+      "regime_id": "R02",
+      "time_window_start": "2015_pt0",
+      "time_window_end": "2025_pt0",
+      "member_points": 11,
+      "within_regime_metric_variance": 10.365618595100607,
+      "between_regime_distance": 0.0,
+      "dominant_carriers": "Nuclear;Other Fossil;Bioenergy",
+      "classification": "VOLATILE_REGIME"
+    }
+  ]
+}

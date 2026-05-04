@@ -2,10 +2,10 @@
   "_meta": {
     "type": "PREPARE_FOR_REPO",
     "purpose": "Pre-push readiness manifest. Full repository scrape with consistency verification.",
-    "generated": "2026-05-02T18:00:00",
-    "generator": "Cowork session — push #13 preparation: HCI, Higgins Coordinates, EDI, Poincaré, Hs_Direct, complete projection standard, 8 new pipeline generators, 3 new experiment folders",
+    "generated": "2026-05-04T02:00:00",
+    "generator": "Cowork session — push #14 preparation: Stage 1 standard tool with Higgins tensor data field layout v1.0, fixed-scale display, EMBER Analysis Evolution, field-deployable matplotlib generator",
     "protocol": "Scrape → verify → cross-reference → fix → re-verify → set status",
-    "previous_version": "2026-04-28T21:30:00 (push #12 — O-1 resolution, dimensional collapse)"
+    "previous_version": "2026-05-02T18:00:00 (push #13 — HCI, Higgins Coordinates, EDI, Poincaré, Hs_Direct, 8 projection generators)"
   },
   "status": "READY",
   "issues": "None — all checks passed",
@@ -27,7 +27,7 @@
       { "commit": "1a4031a", "message": "Hs = R . M . E . C . T . V . S", "date": "2026-04-27T14:00:00" },
       { "commit": "289427e", "message": "CoDaWork2026", "date": "2026-04-27T16:45:00" }
     ],
-    "note": "Hs repo created 2026-04-25. Twelve pushes to date. Push 12 (df5a904) delivered O-1 resolution, dimensional collapse framework, full 25-experiment chain re-run, stress test. Push 13 (pending) adds HCI instruments, Higgins Coordinates, EDI control gate, Poincaré connection, Hs_Direct, 8 projection generators, 3 new experiment folders, complete projection/cinema standard."
+    "note": "Hs repo created 2026-04-25. Push 12 (df5a904) delivered O-1 resolution, dimensional collapse framework. Push 13 added HCI instruments, Higgins Coordinates, EDI control gate, Poincaré connection, Hs_Direct, 8 projection generators, 3 new experiment folders, complete projection/cinema standard. Push 14 (pending) adds: Stage 1 standard tool with Higgins tensor data field layout v1.0 (Visio spec), fixed-scale display, EMBER Analysis Evolution document (10-era validity comparison), CBS display range theory. Stage 1 output system concluded."
   },
   "canonical_counts": {
     "domains": 18,
@@ -47,7 +47,20 @@
     "interactive_tools_note": "9 prior + hs_projector.html universal instrument (2026-05-01)",
     "languages": 5,
     "hci_instruments": 1,
-    "hci_instruments_note": "CBS (Compositional Bearing Scope) — oscilloscope-class, monochrome ASCII",
+    "hci_instruments_note": "CBS (Compositional Bearing Scope) — oscilloscope-class, layout v1.0, fixed-scale display, field-deployable (stage1_plates_raw.py is STANDARD METHOD)",
+    "hci_stage1_standard": "stage1_plates_raw.py — Higgins tensor data field layout v1.0, fixed-scale matplotlib generator, 2x3 grid (Info|Legend|XZ / XY|YZ)",
+    "hci_stage1_layout": "v1.0 — from Visio spec tensor_data_field_layout_v1.0.vsdx — CONCLUDED",
+    "hci_display_ranges": {
+      "bearings": "[-180, +180] deg — exact (atan2 bound)",
+      "hs": "[0, 1] — exact (by definition)",
+      "clr": "data-adaptive — pre-scanned, padded 10%, locked for all frames",
+      "angular_velocity": "[0, 180] deg — exact"
+    },
+    "hci_stages": 3,
+    "hci_stage2_methods": 4,
+    "hci_stage3_methods": 4,
+    "hci_acceptance_tests": 10,
+    "hci_acceptance_status": "ALL PASS",
     "flagship_documents": 4,
     "codawork_documents": 18,
     "reference_documents": 6,
@@ -169,6 +182,9 @@
       "tools/interactive/hs_projector.html": true,
       "HCI/HCI_FOUNDATION.md": true,
       "HCI/hci_cbs.py": true,
+      "HCI/hci_stage2.py": true,
+      "HCI/hci_stage3.py": true,
+      "HCI/hci_test_stage23.py": true,
       "HCI/README.md": true,
       "HCI/calibration/hci_cal01_cnt_calibration.py": true,
       "HCI/calibration/cnt_precision_experiment.py": true,
@@ -271,7 +287,9 @@
     "pipeline_files": { "actual": 26, "expected": 26, "consistent": true },
     "locale_files": { "actual": 5, "expected": 5, "all_complete": true, "consistent": true },
     "rerun_files": { "actual": 24, "expected": 24, "note": "Hs-01 ran directly on 2026-04-28 as Hs-01_results.json", "consistent": true },
-    "chain_reports": { "actual": 2, "expected": 2, "consistent": true }
+    "chain_reports": { "actual": 2, "expected": 2, "consistent": true },
+    "hci_stages": { "manifest": 3, "inventory": 3, "foundation": 3, "consistent": true },
+    "hci_acceptance_tests": { "manifest": 10, "inventory": 10, "test_suite": 10, "all_pass": true, "consistent": true }
   },
   "codawork_2026": {
     "talk_confirmed": true,
@@ -306,6 +324,12 @@
       "Compositional Navigation Tensor (CNT) — bearing/velocity/sensitivity/helmsman from any composition",
       "Compositional Bearing Scope (CBS) — oscilloscope-class instrument, 8-bit monochrome, ASCII",
       "HCI folder created — Higgins Computational Instruments, pure math discovery instruments",
+      "Full Aitchison pullback metric tensor κᴴˢᵢⱼ(x) = (δᵢⱼ − 1/D) / (xᵢ xⱼ) integrated into CBS engine",
+      "HCI Stage 2 — Metric Cross-Examination Engine (4 methods: group barycenter, pairwise group, carrier pair, section view)",
+      "HCI Stage 3 — Higher-Degree Analysis Engine (4 methods: triadic day, carrier triad, subcomposition degree ladder, metric regime detection)",
+      "Deterministic synthetic test suite — 10 days × 10 points × 10 carriers, 5 designed patterns, 10 acceptance tests, ALL PASS",
+      "Dominant Carrier Displacement Index (DCDI) formalized — σᴴˢ(t,t+1) = argmax_j |hⱼ(t+1) − hⱼ(t)|, Helmsman Index as instrument alias",
+      "HCI Staged Analysis Architecture — D0→D1→D2(Stage 2)→D3(Stage 3)→Dk degree ladder",
       "Coal-Gas informational lock confirmed — 8.4° bearing spread over 26 years",
       "Hydro vs Other Fossil maximum fan-out — 167° bearing spread",
       "Manifold Character Handbook, Software Handbook, CoDa publication paper written",
@@ -314,7 +338,7 @@
       "Hs-M02 EMBER Energy — 7 countries, 9 carriers, full pipeline"
     ],
     "new_folders": [
-      "HCI/ — Higgins Computational Instruments (3 core + 5 calibration files: foundation, CBS engine, README, cal suite, precision experiments, precision diagnostic, journal, results JSON)",
+      "HCI/ — Higgins Computational Instruments (6 core + 5 calibration files: foundation, CBS engine, Stage 2 engine, Stage 3 engine, test suite, README, cal suite, precision experiments, precision diagnostic, journal, results JSON)",
       "Higgins_Coordinate_System/ — coordinate spec, handbook v4.1/v4.2, diagnostic experiment",
       "Hs_Direct/ — Japan PPTX, PDF, SVGs, analysis JSON, QA images",
       "experiments/Hs-LAB01_Titration_Standards/",
