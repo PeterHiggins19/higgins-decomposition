@@ -1,15 +1,18 @@
 {
   "_meta": {
     "schema": "hs_admin/3.0",
-    "generated": "2026-05-06T19:15:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added"
+    "generated": "2026-05-06T21:00:00Z",
+    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added + Higgins_Coordinate_System docs refreshed + 102 folder-level READMEs + talk_deck cleanup. Pushes #15-#19 verified green.",
+    "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol."
   },
   "engine": {
     "type": "CNT_V2_EXPERIMENT_INDEX",
     "schema": "1.0",
     "engine": "cnt 2.0.3",
     "last_updated": "2026-05-06T01:23:58.594544+00:00",
-    "n_experiments": 25
+    "n_experiments": 25,
+    "push_status": "Push #19 verified green (Validate Repository #19, commit 7d2b25e, 2026-05-06 — lock+temp-file cleanup). Cumulative pushes through push #19: #15 HCI-CNT migration, #16 INDEX engine version + per-country snapshots refresh, #17 community-presence assets, #18 Hs-CNT_2026-05 corpus + Higgins_Coordinate_System docs refresh + 102 folder READMEs, #19 talk_deck cleanup (lu4422tlij.tmp + soffice lock removed, .gitignore extended).",
+    "fault_tolerance": "Peter operates a dual-folder fault-tolerant method. The Claude Cowork mirror at D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs is NOT the canonical git working tree — it is a mirror that Peter syncs to a separate local repo before each push. In the event of a Cowork-folder issue, the canonical repo can be used to recover as long as the corresponding push has not yet been verified green. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the full protocol."
   },
   "experiments_summary": {
     "n_total": 25,
@@ -333,47 +336,47 @@
       "metadata.engine_config.active_overrides for full audit trail"
     ],
     "atlas_modules_shipped": [
-      "atlas/stage1_v4.py             \u2014 Order-1 ILR-Helmert ortho plate (locked)",
-      "atlas/atlas_stage1_complete.py \u2014 Stage 1 driver: T plates + 1 summary",
-      "atlas/stage2_locked.py         \u2014 Order-2 19-plate atlas (locked)",
-      "atlas/spectrum_paper.py        \u2014 paper cross-dataset spectrum (Order 2)",
-      "atlas/plate_time_projector.html \u2014 interactive HTML projector (Order 1+2)",
-      "atlas/det_pdf.py               \u2014 deterministic PDF metadata helper"
+      "atlas/stage1_v4.py             — Order-1 ILR-Helmert ortho plate (locked)",
+      "atlas/atlas_stage1_complete.py — Stage 1 driver: T plates + 1 summary",
+      "atlas/stage2_locked.py         — Order-2 19-plate atlas (locked)",
+      "atlas/spectrum_paper.py        — paper cross-dataset spectrum (Order 2)",
+      "atlas/plate_time_projector.html — interactive HTML projector (Order 1+2)",
+      "atlas/det_pdf.py               — deterministic PDF metadata helper"
     ],
     "orchestration": [
-      "mission_command/mission_command.py  \u2014 25-experiment driver",
-      "mission_command/modules.py          \u2014 post-CNT module registry",
-      "mission_command/master_control.json \u2014 projects[] + experiments[] config",
-      "tools/run_pipeline.py               \u2014 module-only driver",
-      "tools/verify_package.py             \u2014 package-readiness verifier"
+      "mission_command/mission_command.py  — 25-experiment driver",
+      "mission_command/modules.py          — post-CNT module registry",
+      "mission_command/master_control.json — projects[] + experiments[] config",
+      "tools/run_pipeline.py               — module-only driver",
+      "tools/verify_package.py             — package-readiness verifier"
     ],
     "documentation": [
-      "atlas/OUTPUT_DOCTRINE.md            \u2014 order classification (hash-stamped)",
-      "atlas/STAGE2_PSEUDOCODE.md          \u2014 language-neutral Stage 2 reference",
-      "atlas/V1.1_FEATURE_MENU.md          \u2014 A\u2013G feature list with status",
-      "PUBLIC_TRIAL_READINESS.md           \u2014 claim-by-claim evidence map",
-      "codawork2026_conference/README.md   \u2014 conference demo package",
-      "codawork2026_conference/DEMO_GUIDE.md \u2014 30-minute walkthrough script"
+      "atlas/OUTPUT_DOCTRINE.md            — order classification (hash-stamped)",
+      "atlas/STAGE2_PSEUDOCODE.md          — language-neutral Stage 2 reference",
+      "atlas/V1.1_FEATURE_MENU.md          — A–G feature list with status",
+      "PUBLIC_TRIAL_READINESS.md           — claim-by-claim evidence map",
+      "codawork2026_conference/README.md   — conference demo package",
+      "codawork2026_conference/DEMO_GUIDE.md — 30-minute walkthrough script"
     ],
     "extended_adapters_built": [
-      "adapters/markham_budget.py        \u2014 8-dept municipal budget (15y)",
-      "adapters/iiasa_ngfs.py            \u2014 7-sector NZ-2050 (31y)",
-      "adapters/esa_planck_cosmic.py     \u2014 5-component Planck \u00d7 redshift",
-      "adapters/financial_sector.py      \u2014 10-sector daily portfolio (252d)",
-      "adapters/chemixhub_oxide.py       \u2014 7-oxide HOIP-7 trajectory"
+      "adapters/markham_budget.py        — 8-dept municipal budget (15y)",
+      "adapters/iiasa_ngfs.py            — 7-sector NZ-2050 (31y)",
+      "adapters/esa_planck_cosmic.py     — 5-component Planck × redshift",
+      "adapters/financial_sector.py      — 10-sector daily portfolio (252d)",
+      "adapters/chemixhub_oxide.py       — 7-oxide HOIP-7 trajectory"
     ]
   },
   "audit_chain": {
     "raw_data_to_csv": "adapters/<*>.py + adapters/ADAPTERS_DISCLOSURE.md",
-    "csv_to_json": "cnt/cnt.py \u2014 content_sha256 deterministic",
-    "json_to_pdf": "atlas/* \u2014 det_pdf.py for byte-stable metadata",
+    "csv_to_json": "cnt/cnt.py — content_sha256 deterministic",
+    "json_to_pdf": "atlas/* — det_pdf.py for byte-stable metadata",
     "pdf_to_catalog": "atlas/catalog.py + catalog_html.py",
-    "module_pipeline": "mission_command/modules.py \u2014 _pipeline_manifest.json per project"
+    "module_pipeline": "mission_command/modules.py — _pipeline_manifest.json per project"
   },
   "open_items": {
-    "stage3_plate": "OPEN \u2014 Order-3 view (depth tower / IR / attractor)",
-    "stage4_plate": "OPEN \u2014 Order-4+ view (EITT, cross-dataset, inference)",
-    "raw_data_swap_in": "OPEN \u2014 replace synthetic baselines in 5 extended adapters with raw source data when accessible"
+    "stage3_plate": "OPEN — Order-3 view (depth tower / IR / attractor)",
+    "stage4_plate": "OPEN — Order-4+ view (EITT, cross-dataset, inference)",
+    "raw_data_swap_in": "OPEN — replace synthetic baselines in 5 extended adapters with raw source data when accessible"
   },
   "hci_cnt_subsystem": {
     "_description": "CNT subsystem now part of the Hs canonical line, located at HCI-CNT/.",
@@ -405,12 +408,12 @@
       "CNT_VERIFICATION_VALUE_FOR_CODA.md"
     ],
     "reliability_contribution_to_hs": [
-      "Hash-chained provenance from raw CSV \u2192 engine signature \u2192 canonical JSON \u2192 PDF \u2014 extends Hs Data Integrity Law into a fully audit-traceable workflow.",
+      "Hash-chained provenance from raw CSV → engine signature → canonical JSON → PDF — extends Hs Data Integrity Law into a fully audit-traceable workflow.",
       "Deterministic engine: byte-identical content_sha256 across Python and R, across runs, by design.",
       "25-experiment determinism gate: corpus is reproducible end-to-end in ~21 seconds.",
       "Calibration fixtures with mathematically-known answers verify the engine residuals at IEEE floor.",
       "Cross-dataset Stage 4 reports give Hs a structural-comparison apparatus over multiple datasets in one document.",
-      "CoDa-community preprints position the work as additive infrastructure \u2014 supportive of the established CoDa toolkit, not competitive."
+      "CoDa-community preprints position the work as additive infrastructure — supportive of the established CoDa toolkit, not competitive."
     ],
     "push_status": "Ready for push #15 (per PREPARE_FOR_REPO.json checklist; READY_TO_PUSH=true)."
   },

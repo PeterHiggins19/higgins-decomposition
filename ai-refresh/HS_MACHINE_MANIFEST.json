@@ -137,6 +137,40 @@
     "current_location": "Current-Repo/Hs/HCI-CNT/",
     "migration_date": "2026-05-06",
     "active_repo_branch": "main",
-    "last_validated_commit": "6f7fb26  (Validate Repository #14)"
+    "last_validated_commit": "7d2b25e  (Validate Repository #19 — lock+temp-file cleanup)"
+  },
+  "fault_tolerance_dual_folder_method": {
+    "_principle": "Peter operates a deliberate two-folder fault-tolerant method. The Claude Cowork mirror and the canonical local working repo are kept in lockstep but live independently, so a corruption or unintended edit in either folder can be recovered from the other as long as the push has not been verified as landed on origin/main.",
+    "claude_cowork_mirror": {
+      "path_windows": "D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs",
+      "path_sandbox": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs",
+      "role": "MIRROR — the folder Claude Cowork has read/write access to. All Claude-driven edits land here first.",
+      "writers": "Claude Cowork sessions",
+      "readers": "Claude Cowork sessions; user can read for review"
+    },
+    "canonical_local_repo": {
+      "path_windows": "<Peter's primary local repo folder — separate from the Cowork mirror>",
+      "role": "CANONICAL — the actual git-managed working tree where pushes originate. Mirrored from the Cowork folder before each push, then `git add / commit / push` is run from here.",
+      "writers": "Peter (manual) and `git pull` from origin",
+      "readers": "Peter; git tooling"
+    },
+    "synchronisation_flow": [
+      "1. Claude edits land in the Cowork mirror.",
+      "2. Peter reviews + copies/syncs the changed files into the canonical local repo.",
+      "3. Push procedure (PREPARE_FOR_REPO.json) is run from the canonical repo.",
+      "4. GitHub Actions 'Validate Repository #N' workflow runs and is verified green.",
+      "5. Once the workflow conclusion is `success` and the live tree matches expectation, the push is considered VERIFIED."
+    ],
+    "recovery_rules": {
+      "before_push_verified": "Either folder may be authoritative. If the Cowork mirror gets corrupted or an unintended edit lands, recover from the canonical local repo (and vice versa). Pushes that have not yet been validated by the GitHub Actions workflow are still recoverable from either side.",
+      "after_push_verified": "origin/main becomes the source of truth. To recover either folder, `git fetch origin && git reset --hard origin/main` from the canonical repo, then re-mirror to the Cowork folder.",
+      "claude_responsibility": "Claude Cowork sessions edit only the Cowork mirror. They MUST NOT attempt to write to the canonical repo or to push directly. All `git push` operations are run by Peter from the canonical repo."
+    },
+    "verification_signals": [
+      "GitHub Actions: https://github.com/PeterHiggins19/higgins-decomposition/actions — each push triggers a 'Validate Repository #N' workflow.",
+      "Conclusion `success` on the workflow run + live-repo browse via api.github.com/repos/PeterHiggins19/higgins-decomposition/contents/* = push verified.",
+      "Until both signals are green, Peter retains the canonical local repo as the recovery source."
+    ],
+    "documented_at": "2026-05-06 (push #19 — lock+temp-file cleanup)"
   }
 }
