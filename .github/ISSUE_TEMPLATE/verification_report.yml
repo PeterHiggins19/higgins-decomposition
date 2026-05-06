@@ -1,0 +1,50 @@
+name: Verification report
+description: Report the result of independently verifying a published Hˢ or CNT result.
+title: "[verification] "
+labels: ["verification"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for verifying. Both matches and mismatches are valuable.
+        See `HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md`
+        Part B for the recipe.
+  - type: input
+    id: experiment_id
+    attributes:
+      label: Experiment id
+      placeholder: "ember_jpn"
+    validations:
+      required: true
+  - type: input
+    id: published_sha
+    attributes:
+      label: Published content_sha256 (from INDEX.json)
+    validations:
+      required: true
+  - type: input
+    id: observed_sha
+    attributes:
+      label: Observed content_sha256 (from your re-run)
+    validations:
+      required: true
+  - type: dropdown
+    id: result
+    attributes:
+      label: Result
+      options:
+        - "MATCH — result reproduces"
+        - "MISMATCH — different SHA"
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python/R version, matplotlib version, engine version used.
+      render: shell
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Any context (mismatch root cause if known, alternative configs tested, etc.).

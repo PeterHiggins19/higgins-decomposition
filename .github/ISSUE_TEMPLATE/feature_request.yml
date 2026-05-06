@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest a new capability for the engine, atlas, or tooling.
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: What problem does this feature solve, or what new use case does it enable?
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Proposed feature
+      description: A clear description of the new capability.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - "engine (cnt.py / cnt.R)"
+        - "atlas (Stage 1, 2, 3, 4)"
+        - "spectrum / projector"
+        - "mission_command / module pipeline"
+        - "adapters"
+        - "documentation"
+        - "tools"
+        - "other"
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered

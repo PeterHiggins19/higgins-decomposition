@@ -6,6 +6,13 @@ A deterministic compositional inference instrument operating within Aitchison ge
 
 Validated across 18 physical domains, 25 experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
+[![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
+[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
+[![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
+[![25 reference experiments](https://img.shields.io/badge/reference%20experiments-25-2ca02c.svg)](HCI-CNT/experiments/INDEX.json)
+[![CodaWork 2026](https://img.shields.io/badge/CodaWork-2026-f0c020.svg)](HCI-CNT/conference_demo/)
+
 *Peter Higgins — Independent Researcher, Markham, Ontario, Canada*
 *Rogue Wave Audio — PeterHiggins@RogueWaveAudio.com*
 

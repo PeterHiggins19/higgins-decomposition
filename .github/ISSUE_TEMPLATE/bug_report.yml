@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a defect in the engine, atlas, or pipeline.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. The more reproducible
+        the report, the faster the fix. Please include the engine version,
+        the dataset (or a minimal CSV that triggers the issue), and the
+        observed `content_sha256` if applicable.
+  - type: input
+    id: engine_version
+    attributes:
+      label: Engine version
+      placeholder: "cnt 2.0.4"
+    validations:
+      required: true
+  - type: input
+    id: schema_version
+    attributes:
+      label: Schema version
+      placeholder: "2.1.0"
+    validations:
+      required: true
+  - type: input
+    id: dataset
+    attributes:
+      label: Dataset (experiment id, or path to a minimal CSV)
+      placeholder: "ember_jpn  /  custom CSV attached"
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened
+      description: A clear description of the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: what_expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Commands or code that triggers the issue.
+      render: shell
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python/R version, matplotlib version, etc.
+      render: shell

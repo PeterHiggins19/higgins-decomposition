@@ -1,0 +1,4 @@
+# Configure how to support the project. Uncomment and fill in any platforms
+# you wish to enable. See: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+# github: [PeterHiggins19]
+# custom: ["https://roguewaveaudio.com/support"]
