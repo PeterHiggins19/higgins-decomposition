@@ -1,0 +1,12 @@
+# HCI-CNT — Python build artefacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# LibreOffice / soffice temp files (can be left by PDF conversion)
+*.tmp
+.~lock.*
+
+# Regenerable artefacts (kept in tree by default; uncomment to exclude)
+# conference_demo/cnt_demo/02_per_country/*/stage*.pdf

@@ -7,15 +7,15 @@
     "protocol": "Scrape \u2192 verify \u2192 cross-reference \u2192 fix \u2192 re-verify \u2192 set status",
     "previous_version": "2026-05-04T02:00:00 (push #14 \u2014 HCI navigation plotter / Validate Repository #14 / commit 6f7fb26)"
   },
-  "status": "READY",
-  "issues": "None \u2014 all checks passed; HCI-CNT integration verified (PACKAGE READY)",
+  "status": "PUSHED \u2014 push #15 landed clean",
+  "issues": "None",
   "last_verified_push": {
     "repository": "github.com/PeterHiggins19/higgins-decomposition",
     "branch": "main",
-    "commit": "6f7fb26",
-    "message": "HCI Stage 1 projection / Validate Repository #14",
-    "date": "2026-05-05T?",
-    "push_number": 14,
+    "commit": "f38a7c9",
+    "message": "HCI-CNT migration / Validate Repository #15",
+    "date": "2026-05-06T?",
+    "push_number": 15,
     "next_push_number": 15,
     "push_history": [
       {
@@ -62,8 +62,24 @@
         "commit": "289427e",
         "message": "CoDaWork2026",
         "date": "2026-04-27T16:45:00"
+      },
+      {
+        "commit": "6f7fb26",
+        "message": "HCI Stage 1 projection / Validate Repository #14",
+        "date": "2026-05-05T?",
+        "push_number": 14
+      },
+      {
+        "commit": "f38a7c9",
+        "message": "HCI-CNT migration / Validate Repository #15",
+        "date": "2026-05-06T?",
+        "push_number": 15,
+        "validation_runtime_sec": 34,
+        "validation_status": "PASS"
       }
-    ]
+    ],
+    "validation_runtime_sec": 34,
+    "validation_status": "PASS"
   },
   "canonical_counts": {
     "domains": 18,
@@ -616,8 +632,9 @@
     "presentation_structure": "16 slides, 10 gifts, ~180 words, gift ramp format"
   },
   "delta_since_last_push": {
-    "last_push": "6f7fb26 (HCI Stage 1 projection / Validate Repository #14, 2026-05-05)",
-    "next_push": "TBD \u2014 push #15 (HCI-CNT migration)",
+    "last_push": "f38a7c9 (HCI-CNT migration / Validate Repository #15, 2026-05-06)",
+    "validation": "PASS in 34 seconds",
+    "next_push": "TBD",
     "session_achievements": [
       "HUF-CNT-System folded into Current-Repo/Hs/HCI-CNT/ \u2014 CNT is now part of the Hs canonical line.",
       "Engine cnt 2.0.3 \u2192 2.0.4: engine_config_overrides honoured + native units adopted (schema 2.1.0).",
@@ -637,13 +654,6 @@
       "25-experiment determinism gate: bit-identical reproduction across runs and across Python/R, audit-grade.",
       "Public-trial readiness audit: claim-by-claim evidence map (Volume III).",
       "Calibration fixtures with mathematically known answers (Stage 1 27-point HLR grid; Stage 2 straight-line directness=1.0 / closed-loop directness=0.0 at IEEE floor)."
-    ],
-    "what_did_not_change": [
-      "Hs/HCI/ original folder \u2014 preserved, no edits.",
-      "Hs/data/ \u2014 unchanged.",
-      "Hs/experiments/Hs-* \u2014 unchanged (different experiment line from CNT's 25-experiment corpus).",
-      "Hs/papers/ \u2014 unchanged.",
-      "HS_DATA_INTEGRITY_LAW.md \u2014 unchanged (CNT inherits the three laws)."
     ]
   },
   "push_checklist": {

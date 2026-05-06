@@ -1,7 +1,7 @@
 {
   "_meta": {
     "project_id": "codawork2026_ember",
-    "generated": "2026-05-06T00:55:44.466497+00:00",
+    "generated": "2026-05-06T18:36:59.565682+00:00",
     "experiments": [
       "ember_chn",
       "ember_deu",
@@ -30,8 +30,8 @@
   "group": {
     "spectrum_paper": {
       "kind": "spectrum_paper",
-      "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/03_combined/spectrum_paper_codawork2026_ember.pdf",
-      "sha256": "585c281bfb4037a88ebbe0560423e3ca46f5232b485dc15082e470d821d7408d",
+      "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/spectrum_paper_codawork2026_ember.pdf",
+      "sha256": "5feb281ffc509128e6e9f7bcd5624969e513b0a9454e3235b572d7906a403918",
       "bytes": 99672,
       "members": [
         "ember_chn_cnt",
@@ -46,8 +46,8 @@
     },
     "projector_html": {
       "kind": "projector_html",
-      "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/03_combined/plate_time_projector_codawork2026_ember.html",
-      "sha256": "e3a3c1eac3b55b4fb1b6747c8373b062e6ad3f1be2f757ae87a836f7d819d0ee",
+      "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/plate_time_projector_codawork2026_ember.html",
+      "sha256": "461c43d3102a122a46b07b96f7fc978c12e297d7269f9c27513a2a2e207ab2a8",
       "bytes": 234789,
       "members": [
         "ember_chn_cnt",

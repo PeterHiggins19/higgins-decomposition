@@ -2,7 +2,8 @@
   "_meta": {
     "schema": "huf_cnt_history/1.0",
     "generated": "2026-05-06T17:30:00Z",
-    "purpose": "Complete chronological project history for the HUF-CNT system. One row per milestone, ordered by date."
+    "purpose": "Complete chronological project history for the HUF-CNT system. One row per milestone, ordered by date.",
+    "last_updated": "2026-05-06T18:30:00Z"
   },
   "phases": [
     {
@@ -124,6 +125,11 @@
       "date": "2026-05-06",
       "phase": "HCI-CNT migration into Hs repository",
       "summary": "HUF-CNT-System folded into Current-Repo/Hs/HCI-CNT/. Hs README + EXECUTIVE_SUMMARY + AI_REFRESH + HS_MACHINE_MANIFEST + PROJECT_HISTORY all updated. Three handbook volumes preserved. Three CoDa community papers placed at HCI-CNT/coda_community/. Conference demo + 10-slide PowerPoint at HCI-CNT/conference_demo/. Engine 2.0.4 / Schema 2.1.0 / 25 experiments / determinism gate passes."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "Push #15 landed \u2014 HCI-CNT integration is live",
+      "summary": "Commit f38a7c9 pushed to main. Validate Repository #15 PASS in 34 seconds. HCI-CNT now part of github.com/PeterHiggins19/higgins-decomposition. All 6 pre-flight checks of PREPARE_FOR_REPO.json passed prior to push."
     }
   ],
   "by_topic": {

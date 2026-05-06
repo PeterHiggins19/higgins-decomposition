@@ -1,9 +1,9 @@
 {
   "_meta": {
     "type": "CNT_V2_EXPERIMENT_INDEX",
-    "schema": "1.0",
-    "engine": "cnt 2.0.3",
-    "last_updated": "2026-05-06T01:23:58.594544+00:00",
+    "schema": "2.1.0",
+    "engine": "cnt 2.0.4",
+    "last_updated": "2026-05-06T18:45:00+00:00",
     "n_experiments": 25
   },
   "experiments": {
