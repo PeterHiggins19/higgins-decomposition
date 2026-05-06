@@ -1,0 +1,54 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>HLR Unit Family -- Round-Trip Conversion Evidence</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 18px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 20px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .mono { font-size: 16px; font-family: 'Courier New', monospace; fill: #cccccc; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+  </style>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">HLR Unit Family -- Conversion Evidence</text>
+
+  <!-- k-factor table -->
+  <text x="500" y="75" text-anchor="middle" class="label-bold">All log-ratio systems share one operation: value_B = value_A x (k_A / k_B)</text>
+
+  <text x="80" y="115" class="mono">System          k-factor to HLR</text>
+  <text x="80" y="140" class="mono">------          ---------------</text>
+  <text x="80" y="165" class="mono">HLR (Np)        1.000000</text>
+  <text x="80" y="190" class="mono">dB (amplitude)  ln(10)/20 = 0.115129</text>
+  <text x="80" y="215" class="mono">dB (power)      ln(10)/10 = 0.230259</text>
+  <text x="80" y="240" class="mono">log2 FC         ln(2)     = 0.693147</text>
+  <text x="80" y="265" class="mono">Cents           ln(2)/1200= 0.000578</text>
+  <text x="80" y="290" class="mono">Magnitudes     -ln(10)/2.5=-0.921034</text>
+  <text x="80" y="315" class="mono">pH             -ln(10)   = -2.302585</text>
+
+  <!-- Round-trip evidence -->
+  <rect x="550" y="100" width="420" height="230" class="box"/>
+  <text x="760" y="130" text-anchor="middle" class="label-bold">Round-Trip Evidence</text>
+  <text x="760" y="155" text-anchor="middle" class="dim">Start: 1.000000 HLR</text>
+  <text x="570" y="185" class="mono">HLR->dB_amp->HLR   = 1.000000</text>
+  <text x="570" y="210" class="mono">HLR->dB_pow->HLR   = 1.000000</text>
+  <text x="570" y="235" class="mono">HLR->log2FC->HLR   = 1.000000</text>
+  <text x="570" y="260" class="mono">HLR->Cents->HLR    = 1.000000</text>
+  <text x="570" y="285" class="mono">HLR->Mag->HLR      = 1.000000</text>
+  <text x="570" y="310" class="mono">HLR->pH->HLR       = 1.000000</text>
+
+  <!-- WHY box -->
+  <rect x="50" y="340" width="900" height="100" class="box"/>
+  <text x="500" y="372" text-anchor="middle" class="label-bold">Why: Scalar multiplication around a cycle cancels algebraically</text>
+  <text x="500" y="405" text-anchor="middle" class="math">k_A/k_B x k_B/k_C x k_C/k_D x ... x k_N/k_A = 1   (exact)</text>
+  <text x="500" y="432" text-anchor="middle" class="dim">No rounding. No approximation. No model. No parameter.</text>
+
+  <!-- Evidence statement -->
+  <text x="500" y="480" text-anchor="middle" class="label-bold">The math reproduces the data in each exchange. That is the evidence.</text>
+  <text x="500" y="510" text-anchor="middle" class="label">Any system using log-ratios is compositional and directly displayable on a CNT plate.</text>
+
+  <!-- Footer -->
+  <text x="500" y="550" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

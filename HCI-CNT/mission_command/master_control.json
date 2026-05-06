@@ -1,0 +1,115 @@
+{
+  "_meta": {
+    "purpose": "Per-experiment ordering overrides + per-project module pipeline declarations.",
+    "schema":  "1.2",
+    "comment": "Two top-level blocks: 'experiments' (engine-side overrides) and 'projects' (post-CNT module bundles). Stage 2 plate options now configurable per project + per experiment."
+  },
+  "experiments": {
+    "_example_ember_jpn": {
+      "is_temporal": true,
+      "ordering_method": "by-time",
+      "engine_config_overrides": {
+        "_comment": "Reserved per-experiment engine override block. Empty by default."
+      }
+    }
+  },
+  "engine_config_overrides": {},
+  "projects": {
+    "codawork2026_ember": {
+      "_description": "EMBER 8 countries + World — the conference demo corpus.",
+      "experiments": [
+        "ember_chn", "ember_deu", "ember_fra", "ember_gbr",
+        "ember_ind", "ember_jpn", "ember_usa", "ember_wld"
+      ],
+      "modules": ["stage1", "stage2", "spectrum_paper", "projector_html"],
+      "output_dir": "codawork2026_conference/cnt_demo/03_combined",
+      "options": {
+        "spectrum_paper": {
+          "title": "EMBER 8 countries + World — Spectrum (Paper)"
+        },
+        "projector_html": {
+          "canonical_carriers": [
+            "Bioenergy", "Coal", "Gas", "Hydro",
+            "Nuclear",   "Other Fossil", "Solar", "Wind"
+          ]
+        },
+        "stage2": {
+          "_description": "Stage 2 plate options. biplot_top_n applies to every experiment in the project. Per-experiment ternary_triplets override the default heuristic.",
+          "biplot_top_n": 6,
+          "per_experiment": {
+            "ember_jpn": {
+              "ternary_triplets": [
+                {"name": "Fossil block", "carriers": ["Coal", "Gas", "Other Fossil"]},
+                {"name": "Renewables",   "carriers": ["Solar", "Wind", "Hydro"]},
+                {"name": "Low-carbon",   "carriers": ["Nuclear", "Hydro", "Solar"]}
+              ]
+            },
+            "ember_deu": {
+              "ternary_triplets": [
+                {"name": "Lignite trio",  "carriers": ["Coal", "Gas", "Nuclear"]},
+                {"name": "Energiewende",  "carriers": ["Solar", "Wind", "Bioenergy"]},
+                {"name": "Storage axis",  "carriers": ["Hydro", "Wind", "Solar"]}
+              ]
+            },
+            "ember_fra": {
+              "ternary_triplets": [
+                {"name": "French mix",     "carriers": ["Nuclear", "Hydro", "Gas"]},
+                {"name": "Decarbon",       "carriers": ["Solar", "Wind", "Hydro"]},
+                {"name": "Backup fossils", "carriers": ["Coal", "Gas", "Other Fossil"]}
+              ]
+            }
+          }
+        }
+      }
+    },
+    "extended_battery": {
+      "_description": "v1.1.x extended adapters — high-D variations exercise the top-N biplot.",
+      "experiments": [
+        "markham_budget", "iiasa_ngfs", "esa_planck_cosmic",
+        "financial_sector", "chemixhub_oxide"
+      ],
+      "modules": ["stage1", "stage2"],
+      "output_dir": "codawork2026_conference/cnt_demo/08_extended",
+      "options": {
+        "stage2": {
+          "biplot_top_n": 5,
+          "per_experiment": {
+            "financial_sector": {
+              "biplot_top_n": 5,
+              "ternary_triplets": [
+                {"name": "Tech / Health / Financials", "carriers": ["Information Tech", "Health Care", "Financials"]},
+                {"name": "Cyclicals",                  "carriers": ["Cons Discretionary", "Industrials", "Financials"]},
+                {"name": "Defensives",                 "carriers": ["Cons Staples", "Utilities", "Health Care"]}
+              ]
+            },
+            "esa_planck_cosmic": {
+              "ternary_triplets": [
+                {"name": "Energy budget", "carriers": ["Dark Energy", "Cold Dark Matter", "Baryons"]},
+                {"name": "Radiation",     "carriers": ["Photons", "Neutrinos", "Baryons"]},
+                {"name": "Matter",        "carriers": ["Cold Dark Matter", "Baryons", "Neutrinos"]}
+              ]
+            }
+          }
+        }
+      }
+    },
+    "codawork2026_geochem": {
+      "_description": "Geochemistry binning suite — 7 datasets; no projector (mismatched carrier sets).",
+      "experiments": [
+        "geochem_ball_region", "geochem_ball_age", "geochem_ball_tas",
+        "geochem_stracke_oib", "geochem_stracke_morb",
+        "geochem_tappe_kim1",  "geochem_qin_cpx"
+      ],
+      "modules": ["stage1", "stage2"],
+      "output_dir": "codawork2026_conference/cnt_demo/06_geochem",
+      "options": {}
+    },
+    "reference_set": {
+      "_description": "Reference experiments — Gold/Silver and Nuclear SEMF.",
+      "experiments": ["commodities_gold_silver", "nuclear_semf"],
+      "modules": ["stage1", "stage2"],
+      "output_dir": "codawork2026_conference/cnt_demo/07_reference",
+      "options": {}
+    }
+  }
+}

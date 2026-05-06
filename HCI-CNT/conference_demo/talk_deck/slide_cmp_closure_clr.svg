@@ -1,0 +1,57 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>Math step 1+2 — Closure + CLR (parallel views)</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 26px; font-weight: 700; fill: #ffffff; }
+    .h2 { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 19px; font-family: 'Georgia', serif; font-style: italic; fill: #e8e8e8; }
+    .label { font-size: 17px; fill: #cccccc; }
+    .label-bold { font-size: 17px; font-weight: 700; fill: #ffffff; }
+    .small { font-size: 14px; fill: #aaaaaa; }
+    .ok { font-size: 17px; fill: #80d050; font-weight: 700; }
+    .accent { font-size: 17px; fill: #66aaff; font-weight: 700; }
+    .box { fill: #2a2a2a; stroke: #555; stroke-width: 2; }
+    .box-cnt { fill: #2a2a3a; stroke: #66aaff; stroke-width: 2; }
+    .divider { stroke: #555; stroke-width: 2; stroke-dasharray: 4,4; }
+  </style>
+  <text x="500" y="38" text-anchor="middle" class="title">Math step 1+2 — Closure to simplex + CLR transform</text>
+  <text x="500" y="62" text-anchor="middle" class="small">Same operation in both pipelines. CNT adds the audit metadata.</text>
+
+  <line x1="500" y1="90" x2="500" y2="430" class="divider"/>
+
+  <text x="250" y="110" text-anchor="middle" class="h2">Classical CoDa</text>
+  <rect x="60" y="135" width="380" height="80" class="box"/>
+  <text x="250" y="160" text-anchor="middle" class="label-bold">closure</text>
+  <text x="250" y="190" text-anchor="middle" class="math">x_j = Y_j / sum(Y)</text>
+
+  <rect x="60" y="240" width="380" height="80" class="box"/>
+  <text x="250" y="265" text-anchor="middle" class="label-bold">zero replacement</text>
+  <text x="250" y="295" text-anchor="middle" class="math">x_j ← max(x_j, δ)</text>
+
+  <rect x="60" y="345" width="380" height="80" class="box"/>
+  <text x="250" y="370" text-anchor="middle" class="label-bold">CLR (Aitchison 1986)</text>
+  <text x="250" y="400" text-anchor="middle" class="math">clr(x)_j = ln(x_j) - ⟨ln x⟩</text>
+
+  <text x="250" y="475" text-anchor="middle" class="accent">δ chosen by practitioner</text>
+  <text x="250" y="500" text-anchor="middle" class="small">Foundation method, well-understood.</text>
+
+  <text x="750" y="110" text-anchor="middle" class="h2">CNT  (built on top)</text>
+  <rect x="560" y="135" width="380" height="80" class="box-cnt"/>
+  <text x="750" y="160" text-anchor="middle" class="label-bold">closure  (same)</text>
+  <text x="750" y="190" text-anchor="middle" class="math">x_j = Y_j / sum(Y)</text>
+
+  <rect x="560" y="240" width="380" height="80" class="box-cnt"/>
+  <text x="750" y="265" text-anchor="middle" class="label-bold">zero replacement  (disclosed)</text>
+  <text x="750" y="288" text-anchor="middle" class="math">x_j ← max(x_j, DEFAULT_DELTA)</text>
+  <text x="750" y="310" text-anchor="middle" class="small">δ recorded in metadata.engine_config</text>
+
+  <rect x="560" y="345" width="380" height="80" class="box-cnt"/>
+  <text x="750" y="370" text-anchor="middle" class="label-bold">CLR  (same)</text>
+  <text x="750" y="400" text-anchor="middle" class="math">clr(x)_j = ln(x_j) - ⟨ln x⟩</text>
+
+  <text x="750" y="475" text-anchor="middle" class="ok">δ enters content_sha256</text>
+  <text x="750" y="500" text-anchor="middle" class="small">Same arithmetic, with audit-grade lineage.</text>
+
+  <text x="500" y="540" text-anchor="middle" class="small">CNT preserves the established CoDa step and adds an explicit lineage record.</text>
+</svg>

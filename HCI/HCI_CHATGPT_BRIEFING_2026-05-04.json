@@ -1,0 +1,105 @@
+{
+  "_meta": {
+    "type": "HCI_CHATGPT_BRIEFING",
+    "created": "2026-05-04",
+    "source": "ChatGPT session with Peter Higgins",
+    "purpose": "Authoritative briefing for HCI documentation and output stabilization. Contains scale provenance, terminology corrections, unit definitions, Stage 1 extensions, and CoDaWork2026 output plan.",
+    "consumed_by": "Claude (Cowork) for implementation"
+  },
+  "system_identity": {
+    "name": "HCI - Higgins Compositional Instrument",
+    "identity": "Compositional systems navigation plotter",
+    "description": "HCI charts where the system is, where it has been, which carriers drove displacement, and which metric directions support future guidance.",
+    "closing_statement": "The instrument reads. The expert decides. The loop stays open."
+  },
+  "unit_standard": {
+    "formal_name": "Higgins Log-Ratio Level",
+    "short_name": "HLR",
+    "symbol": "h_j(t)",
+    "unit_type": "dimensionless natural-log ratio unit",
+    "definition": "h_j(t) = ln(x_j(t)) - mean_k ln(x_k(t))",
+    "equivalent_ratio_form": "exp(h_j(t)) = x_j(t) / geometric_mean_share",
+    "interpretation": {
+      "h_equals_zero": "carrier is at geometric-mean share",
+      "h_positive": "carrier is above geometric-mean share",
+      "h_negative": "carrier is below geometric-mean share",
+      "h_plus_one": "carrier is e^1 = 2.718x geometric-mean share",
+      "h_minus_one": "carrier is e^-1 = 0.368x geometric-mean share"
+    },
+    "nearest_relative": "neper (natural-log amplitude ratio)",
+    "audio_analogy": "Like decibels, HCI uses logarithmic ratio levels. HLR is a natural-log compositional ratio, not an audio amplitude or power unit.",
+    "conversions": {
+      "carrier_multiplier": "exp(h_j)",
+      "dB_amplitude_equivalent": "8.685889638 * h_j",
+      "dB_power_equivalent": "4.342944819 * h_j",
+      "log2_fold_change": "h_j / ln(2) = 1.442695 * h_j"
+    }
+  },
+  "scale_provenance_chain": {
+    "raw_carrier_value": "Y_j(t)",
+    "raw_total": "T(t) = sum_k Y_k(t)",
+    "closed_composition": "x_j(t) = Y_j(t) / T(t)",
+    "geometric_mean_share": "g(x(t)) = exp(mean_k ln x_k(t))",
+    "higgins_coordinate": "h_j(t) = ln(x_j(t)) - mean_k ln x_k(t)",
+    "relative_multiplier": "exp(h_j(t)) = x_j(t) / g(x(t))",
+    "section_coordinate": "projection onto XY/XZ/YZ face"
+  },
+  "hci_readout_table": [
+    {"readout": "HLR level", "formula": "h_j = ln(x_j/g(x))", "meaning": "carrier log-ratio level"},
+    {"readout": "Carrier multiplier", "formula": "exp(h_j)", "meaning": "carrier relative to geometric-mean share"},
+    {"readout": "Carrier change", "formula": "delta_h_j", "meaning": "log-ratio change between plates"},
+    {"readout": "Change multiplier", "formula": "exp(delta_h_j)", "meaning": "readable carrier rise/fall"},
+    {"readout": "Metric distance", "formula": "||h(t2)-h(t1)||", "meaning": "compositional distance between plates"},
+    {"readout": "Metric energy", "formula": "||h(t)||^2", "meaning": "displacement from barycentric balance"},
+    {"readout": "Dynamic range", "formula": "max(h)-min(h)", "meaning": "strongest-to-weakest carrier spread"},
+    {"readout": "Dynamic range ratio", "formula": "exp(max(h)-min(h))", "meaning": "strongest/weakest carrier ratio"},
+    {"readout": "HLR-dB amplitude", "formula": "8.686 * h", "meaning": "audio-like level analogy"},
+    {"readout": "HLR-dB power", "formula": "4.343 * h", "meaning": "power-ratio analogy"}
+  ],
+  "terminology_corrections": {
+    "full_metric_tensor": {
+      "name": "Higgins Steering Metric Tensor",
+      "symbol": "kappa_HS(x)",
+      "formula": "kappa_HS_ij(x) = (delta_ij - 1/D) / (x_i * x_j)"
+    },
+    "diagonal_sensitivity": {
+      "name": "Diagonal Carrier Steering Sensitivity",
+      "symbol": "s_j(x)",
+      "formula": "s_j(x) = 1 / x_j",
+      "note": "This is NOT the full tensor. It is one diagnostic channel."
+    },
+    "cnt_tuple": "CNT(x) = (theta, omega, kappa_HS, sigma)",
+    "dcdi": "Dominant Carrier Displacement Index (sigma_HS)",
+    "helmsman": "Helmsman Index (instrument alias for DCDI)"
+  },
+  "dual_coordinate_standard": {
+    "display_frame": "CLR / Higgins Coordinate — one coordinate per carrier, carrier-readable",
+    "computation_frame": "ILR — orthonormal, full-rank, better for tensor algebra and Stage 2/3",
+    "bridge": "h_CLR = B * z_ILR; z_ILR = B_transpose * h_CLR",
+    "policy": "Use CLR for plates, DCDI, and carrier language. Use ILR for orthogonal decomposition and numerical stability."
+  },
+  "system_course_plot": {
+    "name": "System Course Plot",
+    "description": "Whole-run barycentric plan view showing complete path from first to final observation",
+    "required_elements": ["barycentre marker", "start marker", "final marker", "all observation points", "connecting course line", "start-to-final net vector", "DCDI/Helmsman turn markers", "raw total side readout", "fixed scale", "scale provenance map"],
+    "required_metrics": {
+      "h_start": "Higgins coordinate at first observation",
+      "h_final": "Higgins coordinate at final observation",
+      "V_net": "h_final - h_start",
+      "net_distance": "||V_net||",
+      "path_length": "sum_t ||h(t+1) - h(t)||",
+      "course_directness": "net_distance / path_length",
+      "dynamic_range_start": "max(h_start) - min(h_start)",
+      "dynamic_range_final": "max(h_final) - min(h_final)"
+    }
+  },
+  "documentation_chain": [
+    {"filename": "HCI_USER_GUIDE.md", "priority": 1, "purpose": "Main user-facing guide for reading HCI outputs"},
+    {"filename": "HCI_UNITS_AND_SCALE_PROVENANCE.md", "priority": 2, "purpose": "Define HCI units and scale provenance map"},
+    {"filename": "HCI_CNT_METRIC_TENSOR_STANDARD.md", "priority": 3, "purpose": "Stabilize CNT/HCI metric tensor terminology"},
+    {"filename": "HCI_STAGE1_EXTENDED_PLATES.md", "priority": 4, "purpose": "Stage 1 section plates and System Course Plot"},
+    {"filename": "HCI_STAGE2_STAGE3_ANALYSIS_GUIDE.md", "priority": 5, "purpose": "Post-Stage-1 analysis methods"},
+    {"filename": "CODAWORK2026_OUTPUT_PLAN.md", "priority": 6, "purpose": "Presentation and output package for CoDaWork2026"}
+  ],
+  "implementation_note": "The arc came full circle. HCI started from audio/log thinking, moved into compositional geometry, built a navigation instrument, and can now return to audio with stronger mathematics. The system can compute its own path."
+}

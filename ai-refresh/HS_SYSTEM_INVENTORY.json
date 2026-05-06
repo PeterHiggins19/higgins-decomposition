@@ -1,5 +1,5 @@
 {
-  "title": "Hˢ Complete System Inventory",
+  "title": "H\u02e2 Complete System Inventory",
   "timestamp": "2026-05-02",
   "domains_tested": {
     "COMMODITIES": {
@@ -27,12 +27,12 @@
         "Radionuclide decay chains (U-238, Th-232, U-235)"
       ],
       "data_type": "DERIVED",
-      "scale": "~10⁻¹⁵ m (femtometer)",
+      "scale": "~10\u207b\u00b9\u2075 m (femtometer)",
       "N_range": "10-500"
     },
     "ACOUSTICS": {
       "systems": [
-        "Circular piston directivity (Bessel J₁)"
+        "Circular piston directivity (Bessel J\u2081)"
       ],
       "data_type": "DERIVED",
       "scale": "~0.01-1 m (audio)",
@@ -51,7 +51,7 @@
         "Quark flavor fractions (u/d/s)"
       ],
       "data_type": "DERIVED",
-      "scale": "~10⁻¹⁸ m (attometer)",
+      "scale": "~10\u207b\u00b9\u2078 m (attometer)",
       "N_range": "20"
     },
     "PARTICLE": {
@@ -61,15 +61,15 @@
         "SEMF subset"
       ],
       "data_type": "DERIVED",
-      "scale": "~10⁻¹⁸ m",
+      "scale": "~10\u207b\u00b9\u2078 m",
       "N_range": "11"
     },
     "ASTROPHYSICS": {
       "systems": [
-        "Stellar nucleosynthesis (pp-chain → CNO → triple-α)"
+        "Stellar nucleosynthesis (pp-chain \u2192 CNO \u2192 triple-\u03b1)"
       ],
       "data_type": "SIMULATED",
-      "scale": "~10⁸ m (stellar)",
+      "scale": "~10\u2078 m (stellar)",
       "N_range": "30"
     },
     "GRAVITY": {
@@ -77,7 +77,7 @@
         "GW150914 gravitational wave (binary BH merger)"
       ],
       "data_type": "SIMULATED",
-      "scale": "~10²⁶ m (cosmological)",
+      "scale": "~10\u00b2\u2076 m (cosmological)",
       "N_range": "40"
     },
     "MATERIALS": {
@@ -86,7 +86,7 @@
         "X-ray crystallography (6 crystals)"
       ],
       "data_type": "DERIVED",
-      "scale": "~10⁻⁹ m (nanometer)",
+      "scale": "~10\u207b\u2079 m (nanometer)",
       "N_range": "20-200"
     },
     "MATTER": {
@@ -99,8 +99,8 @@
     },
     "FORCE": {
       "systems": [
-        "Spring-mass damped oscillator (light ζ=0.1)",
-        "Spring-mass (heavy ζ=0.5)"
+        "Spring-mass damped oscillator (light \u03b6=0.1)",
+        "Spring-mass (heavy \u03b6=0.5)"
       ],
       "data_type": "SIMULATED",
       "scale": "~0.01-1 m (mechanical)",
@@ -108,10 +108,10 @@
     },
     "COSMOLOGY": {
       "systems": [
-        "Planck 2018 cosmic energy budget (Ω_r, Ω_m, Ω_Λ evolution)"
+        "Planck 2018 cosmic energy budget (\u03a9_r, \u03a9_m, \u03a9_\u039b evolution)"
       ],
       "data_type": "DERIVED",
-      "scale": "~10²⁶ m (Hubble radius)",
+      "scale": "~10\u00b2\u2076 m (Hubble radius)",
       "N_range": "103"
     },
     "ENGINEERING": {
@@ -152,7 +152,7 @@
     },
     "CALIBRATION": {
       "systems": [
-        "MC4 Shape Calibration (5 test objects: cylinder, sphere, cube, cone, helix — 27 carriers each)",
+        "MC4 Shape Calibration (5 test objects: cylinder, sphere, cube, cone, helix \u2014 27 carriers each)",
         "HCI-CAL01 CNT Calibration (10 test objects: identity, drift, rotation, divergence, lock, reversal, symmetry, contraction, decomposition, navigation)"
       ],
       "data_type": "SYNTHETIC",
@@ -171,23 +171,59 @@
         "Proton momentum fractions (NNPDF4.0)"
       ],
       "data_type": "REAL (published HEP measurements via HEPData)",
-      "scale": "~10⁻¹⁸ m (attometer to femtometer)",
+      "scale": "~10\u207b\u00b9\u2078 m (attometer to femtometer)",
       "N_range": "15-60",
       "source": "HEPData (hepdata.net) public repository",
       "fetch_tool": "tools/pipeline/hs_hepdata.py"
     }
   },
   "pipeline_tools": {
-    "core": ["higgins_decomposition_12step.py", "higgins_transcendental_pretest.py"],
-    "diagnostics": ["hs_codes.py", "hs_reporter.py", "hs_metrology.py"],
-    "ingestion": ["hs_ingest.py", "hs_hepdata.py"],
-    "analysis": ["hs_fingerprint.py", "hs_sensitivity.py", "hs_amalgamation.py", "hs_tensor.py"],
-    "testing": ["hs_testgen.py"],
-    "infrastructure": ["hs_audit.py", "hs_controller.py"],
-    "visualization": ["hs_projector_export.py", "hs_projector_gen.py", "hs_cinema_gen.py"],
-    "projection_generators": ["hs_helix_exploded.py", "hs_manifold_helix.py", "hs_manifold_projections.py", "hs_polar_stack.py", "hs_manifold_paper.py"],
-    "unified_runner": ["hs_run.py"],
-    "experiments": ["balun_matrix_analysis.py", "impedance_bridge.py", "tr_basis_experiment.py"],
+    "core": [
+      "higgins_decomposition_12step.py",
+      "higgins_transcendental_pretest.py"
+    ],
+    "diagnostics": [
+      "hs_codes.py",
+      "hs_reporter.py",
+      "hs_metrology.py"
+    ],
+    "ingestion": [
+      "hs_ingest.py",
+      "hs_hepdata.py"
+    ],
+    "analysis": [
+      "hs_fingerprint.py",
+      "hs_sensitivity.py",
+      "hs_amalgamation.py",
+      "hs_tensor.py"
+    ],
+    "testing": [
+      "hs_testgen.py"
+    ],
+    "infrastructure": [
+      "hs_audit.py",
+      "hs_controller.py"
+    ],
+    "visualization": [
+      "hs_projector_export.py",
+      "hs_projector_gen.py",
+      "hs_cinema_gen.py"
+    ],
+    "projection_generators": [
+      "hs_helix_exploded.py",
+      "hs_manifold_helix.py",
+      "hs_manifold_projections.py",
+      "hs_polar_stack.py",
+      "hs_manifold_paper.py"
+    ],
+    "unified_runner": [
+      "hs_run.py"
+    ],
+    "experiments": [
+      "balun_matrix_analysis.py",
+      "impedance_bridge.py",
+      "tr_basis_experiment.py"
+    ],
     "total": 26
   },
   "summary": {
@@ -195,18 +231,23 @@
     "systems": 38,
     "experiments": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD = 30 experiment folders",
     "total_DUTs": 60,
-    "diagnostic_codes": "106 + 9 PD-* Poincaré codes",
+    "diagnostic_codes": "106 + 9 PD-* Poincar\u00e9 codes",
     "structural_modes": 14,
     "pipeline_files": 26,
     "hci_instruments": 1,
+    "hci_programs": 4,
+    "hci_programs_note": "Four-program pipeline: (1) cnt_tensor_engine.py \u2014 CSV\u2192CNT JSON, (2) cnt_analysis.py \u2014 CNT JSON\u2192analysis JSON, (3) cnt_spectrum_analyzer.py \u2014 CNT JSON\u219214-page spectral PDF, (4) cnt_depth_sounder.py \u2014 CNT JSON\u2192recursive depth JSON with limit cycle detection",
     "hci_stages": 3,
     "hci_stage2_methods": 4,
     "hci_stage3_methods": 4,
     "hci_acceptance_tests": 10,
     "hci_acceptance_status": "ALL PASS",
     "hci_metric_tensor": "kappa^Hs_ij(x) = (delta_ij - 1/D) / (x_i * x_j)",
-    "hci_dcdi": "Dominant Carrier Displacement Index — sigma^Hs(t,t+1) = argmax_j |h_j(t+1) - h_j(t)|",
-    "framework": "v3.0 — Hs = R . M . E . C . T . V . S (tensor functor: ρ ∘ Tr ∘ Σ ∘ Λ ∘ S)",
+    "hci_dcdi": "Dominant Carrier Displacement Index \u2014 sigma^Hs(t,t+1) = argmax_j |h_j(t+1) - h_j(t)|",
+    "hci_depth_sounder": "Recursive depth sounding via energy/curvature/spectral derived compositions. 1% convergence precision, period-1 and period-2 limit cycle detection, residual storage.",
+    "hci_metric_dual": "M(x)_j = (1/x_j)/\u03a3(1/x_k), M\u00b2=I (involution), clr(M(x))=-clr(x), fixed point at barycenter",
+    "hci_math_handbook": "v3.1 \u2014 22 chapters (Parts I-V), publication-ready reference. Ch 22: Key Discoveries (6 findings from exploratory cycle)",
+    "framework": "v3.0 \u2014 Hs = R . M . E . C . T . V . S (tensor functor: \u03c1 \u2218 Tr \u2218 \u03a3 \u2218 \u039b \u2218 S)",
     "instrument_metrology": "QUALIFIED",
     "gold_seal": true,
     "directory_readmes": [
@@ -232,7 +273,7 @@
       "Cosine"
     ],
     "DIFFRACTION": [
-      "Circular piston (J₁)",
+      "Circular piston (J\u2081)",
       "Rectangular aperture",
       "Babinet complement"
     ],
@@ -246,5 +287,24 @@
       "Gaussian noise",
       "Near-constant"
     ]
+  },
+  "_meta": {
+    "last_updated": "2026-05-06T18:00:00Z",
+    "last_change": "HCI-CNT subsystem added (CNT engine 2.0.4 / schema 2.1.0 / 25 experiments folded into the Hs repo)."
+  },
+  "subsystems": {
+    "HCI-CNT": {
+      "path": "HCI-CNT/",
+      "engine_version": "2.0.4",
+      "schema_version": "2.1.0",
+      "n_experiments": 25,
+      "n_top_subfolders": 10,
+      "n_handbook_volumes": 3,
+      "n_post_cnt_modules": 6,
+      "n_coda_papers": 3,
+      "n_total_files": 236,
+      "license": "Apache-2.0",
+      "verification": "PACKAGE READY (HCI-CNT/tools/verify_package.py)"
+    }
   }
 }

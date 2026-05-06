@@ -30,7 +30,7 @@ NODE_PATH=/usr/local/lib/node_modules_global/lib/node_modules node build_plates_
 | `tensor data field layout v1.0.vsdx` | Visio specification — canonical plate layout (Info + Legend + 3 faces) |
 | `build_plates_pptx.js` | PPTX generator: reads JSON, produces 29-slide section cine-deck (1 plate per year) |
 | `stage1_output.json` | Complete Stage 1 output — all years, all carriers, all tensor channels |
-| `stage1_plates_fixed.pdf` | Generated PDF — 26 plates, fixed scales, legend in info panel, rapid-scroll comparable |
+| `stage1_plates_fixed.pdf` | Generated PDF — 27 pages (26 section plates + System Course Plot), fixed scales, HLR units |
 | `HCI_Stage1_Plates.pptx` | Generated PowerPoint — section cine-deck |
 | `EMBER_Analysis_Evolution.docx` | Historical comparison — 10 eras of EMBER Japan analysis with validity assessment |
 
@@ -50,7 +50,7 @@ Higgins tensor data field layout v1.0 — maximum information density, no wasted
 
 | Panel | Position | Content |
 |-------|----------|---------|
-| **Info** | Top-left | Hs, ring, E_metric, kappa, omega, d_A, helmsman, scale ranges |
+| **Info** | Top-left | HCI Stage 1 header, HLR unit, scale provenance, Hs, ring, E_metric, kappa_HS, omega, d_A, helmsman, DR, scale ranges |
 | **Legend** | Top-centre | All D(D-1)/2 pair indices with carrier names |
 | **XZ Face** | Top-right | Bar graph of all pairwise bearings in degrees |
 | **XY Face** | Bottom-left (wide) | CLR scatter plan view — angle from origin = bearing |
@@ -81,6 +81,12 @@ The `stage1_output.json` contains:
   - `metric_energy`, `condition_number`: displacement and conditioning
   - `d_aitchison`: Aitchison distance from previous year
 - `locks[]`: informationally locked carrier pairs (bearing spread < 10 deg)
+
+## System Course Plot (Final Page)
+
+The last page of the PDF is the System Course Plot — a whole-run barycentric plan view showing the complete compositional path from first to final observation. The CLR vectors are projected onto PC1 vs PC2 for 2D visualization.
+
+Elements: barycentre crosshairs, start marker (S), final marker (F), course path with year labels, net displacement vector (S→F arrow), DCDI/Helmsman markers at top displacement events, and a metrics panel showing net distance, path length, course directness, dynamic range, metric energy, and PC loadings.
 
 ## CBS Display Range Theory — Fixed-Scale Instrument
 

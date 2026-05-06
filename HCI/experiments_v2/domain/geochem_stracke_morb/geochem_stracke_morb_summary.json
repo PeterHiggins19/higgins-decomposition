@@ -1,0 +1,40 @@
+{
+  "scheme": "Stracke 2022 MORB by Location",
+  "source": "2022_09-0SVW6S_Stracke_data.xlsx",
+  "oxides": [
+    "SiO2",
+    "TiO2",
+    "Al2O3",
+    "FeO",
+    "CaO",
+    "MgO",
+    "MnO",
+    "K2O",
+    "Na2O",
+    "P2O5"
+  ],
+  "n_locations_kept": 5,
+  "min_samples_per_location": 5,
+  "locations": [
+    {
+      "location": "MORB-Arctic",
+      "n_samples": 25
+    },
+    {
+      "location": "MORB-Atlantic",
+      "n_samples": 56
+    },
+    {
+      "location": "MORB-Gakkel",
+      "n_samples": 14
+    },
+    {
+      "location": "MORB-Indian",
+      "n_samples": 134
+    },
+    {
+      "location": "MORB-Pacific",
+      "n_samples": 200
+    }
+  ]
+}

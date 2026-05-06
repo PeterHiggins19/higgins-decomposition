@@ -165,13 +165,47 @@ Year           Hs   Ring      omega     Helmsman        d_A
 2025       0.197825   Hs-2     3.7598    Bioenergy   0.221651
 ```
 
+## Session 2 — 2026-05-04
+
+### HCI Navigation Plotter Upgrade
+
+Implemented the ChatGPT briefing session upgrades. HCI is now formally a "compositional systems navigation plotter."
+
+Changes:
+1. **System Course Plot** added to stage1_plates_raw.py as final PDF page (page 27). Shows whole-run barycentric plan view with PCA projection of CLR trajectory, start/end markers, net displacement vector, DCDI/Helmsman turn markers, and full course metrics panel (net distance, path length, directness, dynamic range, metric energy, PC loadings).
+
+2. **Scale Provenance Map** added to info panel: header now reads "HCI Stage 1 | FIXED SCALE", with "Unit: HLR (Higgins Log-Ratio)" and "Y→x=Y/T→h=CLR→section" provenance chain.
+
+3. **HLR unit standard** integrated throughout. Info panel now reports dynamic range (DR) in HLR and as ratio.
+
+4. **kappa_HS terminology** corrected: info panel now shows kappa_HS (Higgins Steering Metric Tensor) instead of kappa.
+
+5. **HCI README.md** rewritten with correct CNT tuple (theta, omega, kappa_HS, sigma), scale provenance, HLR unit definition, and full file inventory.
+
+6. **HCI_USER_GUIDE.md** created — comprehensive 11-section user guide covering all HCI concepts from data input through Stage 3 analysis.
+
+7. **HCI_CHATGPT_BRIEFING_2026-05-04.json** saved — authoritative briefing for terminology and implementation standards.
+
+### Files Modified
+
+| File | Change |
+|------|--------|
+| `HCI/codawork2026/stage1_plates/stage1_plates_raw.py` | System Course Plot, HLR/kappa_HS/DR in info panel |
+| `HCI/codawork2026/stage1_plates/stage1_plates_fixed.pdf` | Regenerated — 27 pages (26 section + course plot) |
+| `HCI/README.md` | Full rewrite — navigation plotter identity, kappa_HS, HLR |
+| `HCI/HCI_USER_GUIDE.md` | New — comprehensive user guide |
+| `HCI/HCI_CHATGPT_BRIEFING_2026-05-04.json` | New — ChatGPT briefing for implementation |
+
 ## Status
 
 - Engine: VERIFIED
-- Fixed scales: CONFIRMED (axis limits identical on all 26 plates)
+- Fixed scales: CONFIRMED (axis limits identical on all 26 section plates)
 - Layout: v1.0 FINAL (Higgins tensor data field layout, from Visio spec)
+- System Course Plot: IMPLEMENTED (page 27, PCA course view)
+- HLR unit standard: INTEGRATED (info panel, course metrics, README)
+- kappa_HS terminology: CORRECTED (info panel, README, user guide)
 - Standard method: DESIGNATED (stage1_plates_raw.py)
-- Stage 1 output system: CONCLUDED — tool display makes sense, ready for deployment
+- Stage 1 output system: EXTENDED — 26 section plates + 1 course plot
 - Ready for: collective cross-check by other AIs
 - Push #14: READY
 

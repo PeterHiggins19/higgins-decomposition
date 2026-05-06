@@ -83,7 +83,10 @@ This period achieved six major milestones:
 | `papers/flagship/Hs_Manifold_Character_Handbook.docx` | Complete manifold characterisation handbook |
 | `papers/flagship/Hs_Software_Handbook.docx` | Complete codebase publication (pseudocode, Python, R) |
 | `papers/flagship/Manifold_Characterization_by_Decomposition.docx` | CoDa publication paper |
-| `papers/flagship/CNT_Engine_Mathematics_Handbook.docx` | CNT engine math reference (11 chapters, 17 pages) |
+| `papers/flagship/CNT_Engine_Mathematics_Handbook.docx` | CNT engine math reference v2.0 (17 chapters, 23 pages — dynamical systems, control theory, information theory) |
+| `HCI/cnt_tensor_engine.py` | Program 1: CSV → complete CNT tensor JSON (all channels, distance matrix, system course plot) |
+| `HCI/cnt_analysis.py` | Program 2: CNT JSON → Stage 1/2/3 + dynamical systems + control theory + information theory analysis JSON |
+| `HCI/cnt_spectrum_analyzer.py` | Program 3: CNT JSON → 12-page spectral PDF (magnitude, phase, transfer function, Welch coherence, group delay, impulse response, STFT waterfall, cepstrum, velocity field, metric tensor evolution, navigation summary) |
 | `Higgins_Coordinate_System/Higgins_Coordinate_System_Handbook_v4.2.docx` | Coordinate system handbook |
 
 ### Governance Updates
@@ -91,7 +94,7 @@ This period achieved six major milestones:
 | File | Change |
 |------|--------|
 | `HS_ADMIN.json` | Added HCI, CBS, CNT, EDI control gate, Poincaré diagnostics, reporting principle to canonical_names. Added "policy diagnostic" to banned terminology. |
-| `HS_MACHINE_MANIFEST.json` | Added paper_generation section with 7 mandatory generators. Added visualization_standard for Manifold Projector. Added HCI navigation entries. |
+| `HS_MACHINE_MANIFEST.json` | Added paper_generation section with 7 mandatory generators. Added visualization_standard for Manifold Projector. Added HCI navigation entries. Added spectrum_analyzer entry and updated pipeline_note to three-program pipeline. |
 | `HS_SYSTEM_INVENTORY.json` | Pipeline tools updated to 26. Interactive tools updated to 10. New experiment folders documented. |
 | `PREPARE_FOR_REPO.json` | Updated canonical counts, delta changelog, experiment verification for all new folders. |
 
@@ -135,7 +138,7 @@ Eigenstructure Distortion Index: EDI = √(angular² + spectral²) / √2. Quant
 | Diagnostic codes | 106 + PD-* (Poincaré) |
 | Structural modes | 14 |
 | Interactive tools | 10 |
-| HCI instruments | 1 (CBS) |
+| HCI instruments | 1 (CBS) + 4 programs (tensor engine, analysis, spectrum analyzer, depth sounder) |
 | Reference standards | 15 |
 | Transcendental constants | 35 |
 | Languages | 5 (en, zh, hi, pt, it) |
@@ -158,8 +161,15 @@ Since push #12 (df5a904, April 29, 2026), the following has been added:
 - Manifold Character Handbook, Software Handbook, CoDa publication paper
 - CNT precision audit (10 experiments P01–P10, engine refined to IEEE 754 floor)
 - CNT Precision Diagnostic — multi-view analysis with flowchart, state machine, tensor chain
-- CNT Engine Mathematics Handbook (.docx) — 11-chapter, 17-page publication-ready reference
+- CNT Engine Mathematics Handbook (.docx) — 21-chapter, v3.0 publication-ready reference (v2.0 was 17 chapters)
 - AI Verification Document — comprehensive changelog and verification commands since push #12
+- CNT Recursive Depth Sounder (Program 4) — iterates tensor through itself via energy/curvature/spectral derived compositions until signal exhaustion
+- Metric dual involution M²=I — verified to 3.93e-17, CLR negation property, fixed point at barycenter
+- Curvature tower period-2 limit cycle discovery — Hs oscillates between 0.296/0.664 with Dark Energy as helmsman at all levels
+- 1% convergence precision target with limit cycle detection (period-1 and period-2)
+- Spectrum analyzer upgraded to v2.0 — 14 pages with depth sounding and convergence plates (--depth flag)
+- CNT Mathematics Handbook v3.0 — 4 new chapters: metric dual involution, recursive depth theory, convergence theory, completeness theorem
+- Full governance update — HS_MACHINE_MANIFEST (four-program pipeline), HS_ADMIN (depth sounder, metric dual, dynamical depth canonical names)
 
 ---
 

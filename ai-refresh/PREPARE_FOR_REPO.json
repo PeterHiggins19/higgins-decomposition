@@ -2,32 +2,68 @@
   "_meta": {
     "type": "PREPARE_FOR_REPO",
     "purpose": "Pre-push readiness manifest. Full repository scrape with consistency verification.",
-    "generated": "2026-05-04T02:00:00",
-    "generator": "Cowork session — push #14 preparation: Stage 1 standard tool with Higgins tensor data field layout v1.0, fixed-scale display, EMBER Analysis Evolution, field-deployable matplotlib generator",
-    "protocol": "Scrape → verify → cross-reference → fix → re-verify → set status",
-    "previous_version": "2026-05-02T18:00:00 (push #13 — HCI, Higgins Coordinates, EDI, Poincaré, Hs_Direct, 8 projection generators)"
+    "generated": "2026-05-06T18:00:00",
+    "generator": "Cowork session \u2014 push #15 preparation: HCI-CNT migration into Hs repo. CNT engine 2.0.4 + schema 2.1.0, 25 reference experiments, 3 consolidated handbook volumes, 3 CoDa-community preprint papers, CodaWork 2026 demo + slide deck, full hash-chained provenance.",
+    "protocol": "Scrape \u2192 verify \u2192 cross-reference \u2192 fix \u2192 re-verify \u2192 set status",
+    "previous_version": "2026-05-04T02:00:00 (push #14 \u2014 HCI navigation plotter / Validate Repository #14 / commit 6f7fb26)"
   },
   "status": "READY",
-  "issues": "None — all checks passed",
+  "issues": "None \u2014 all checks passed; HCI-CNT integration verified (PACKAGE READY)",
   "last_verified_push": {
     "repository": "github.com/PeterHiggins19/higgins-decomposition",
     "branch": "main",
-    "commit": "289427e",
-    "message": "CoDaWork2026",
-    "date": "2026-04-27T16:45:00",
-    "push_number": 9,
+    "commit": "6f7fb26",
+    "message": "HCI Stage 1 projection / Validate Repository #14",
+    "date": "2026-05-05T?",
+    "push_number": 14,
+    "next_push_number": 15,
     "push_history": [
-      { "commit": "9c125a7", "message": "Higgins Decomposition workflow", "date": "2026-04-25T21:36:00" },
-      { "commit": "8568cb4", "message": "Hs Md Json transfer", "date": "2026-04-25T22:49:00" },
-      { "commit": "16f3bfb", "message": "Codawork demo", "date": "2026-04-26T00:08:00" },
-      { "commit": "8f2811c", "message": "Experiments and report system update", "date": "2026-04-26T01:16:00" },
-      { "commit": "d608ad7", "message": "demo updates", "date": "2026-04-26T02:06:00" },
-      { "commit": "1117769", "message": "Jupyter Lab Hs", "date": "2026-04-26T02:55:00" },
-      { "commit": "fa06804", "message": "Higgins Index Platform", "date": "2026-04-27T10:43:00" },
-      { "commit": "1a4031a", "message": "Hs = R . M . E . C . T . V . S", "date": "2026-04-27T14:00:00" },
-      { "commit": "289427e", "message": "CoDaWork2026", "date": "2026-04-27T16:45:00" }
-    ],
-    "note": "Hs repo created 2026-04-25. Push 12 (df5a904) delivered O-1 resolution, dimensional collapse framework. Push 13 added HCI instruments, Higgins Coordinates, EDI control gate, Poincaré connection, Hs_Direct, 8 projection generators, 3 new experiment folders, complete projection/cinema standard. Push 14 (pending) adds: Stage 1 standard tool with Higgins tensor data field layout v1.0 (Visio spec), fixed-scale display, EMBER Analysis Evolution document (10-era validity comparison), CBS display range theory. Stage 1 output system concluded."
+      {
+        "commit": "9c125a7",
+        "message": "Higgins Decomposition workflow",
+        "date": "2026-04-25T21:36:00"
+      },
+      {
+        "commit": "8568cb4",
+        "message": "Hs Md Json transfer",
+        "date": "2026-04-25T22:49:00"
+      },
+      {
+        "commit": "16f3bfb",
+        "message": "Codawork demo",
+        "date": "2026-04-26T00:08:00"
+      },
+      {
+        "commit": "8f2811c",
+        "message": "Experiments and report system update",
+        "date": "2026-04-26T01:16:00"
+      },
+      {
+        "commit": "d608ad7",
+        "message": "demo updates",
+        "date": "2026-04-26T02:06:00"
+      },
+      {
+        "commit": "1117769",
+        "message": "Jupyter Lab Hs",
+        "date": "2026-04-26T02:55:00"
+      },
+      {
+        "commit": "fa06804",
+        "message": "Higgins Index Platform",
+        "date": "2026-04-27T10:43:00"
+      },
+      {
+        "commit": "1a4031a",
+        "message": "Hs = R . M . E . C . T . V . S",
+        "date": "2026-04-27T14:00:00"
+      },
+      {
+        "commit": "289427e",
+        "message": "CoDaWork2026",
+        "date": "2026-04-27T16:45:00"
+      }
+    ]
   },
   "canonical_counts": {
     "domains": 18,
@@ -47,14 +83,18 @@
     "interactive_tools_note": "9 prior + hs_projector.html universal instrument (2026-05-01)",
     "languages": 5,
     "hci_instruments": 1,
-    "hci_instruments_note": "CBS (Compositional Bearing Scope) — oscilloscope-class, layout v1.0, fixed-scale display, field-deployable (stage1_plates_raw.py is STANDARD METHOD)",
-    "hci_stage1_standard": "stage1_plates_raw.py — Higgins tensor data field layout v1.0, fixed-scale matplotlib generator, 2x3 grid (Info|Legend|XZ / XY|YZ)",
-    "hci_stage1_layout": "v1.0 — from Visio spec tensor_data_field_layout_v1.0.vsdx — CONCLUDED",
+    "hci_programs": 4,
+    "hci_programs_note": "Four-program CNT pipeline: tensor engine \u2192 analysis \u2192 spectrum analyzer (v2.0, 14 pages) \u2192 depth sounder (1% convergence, limit cycle detection)",
+    "hci_instruments_note": "HCI navigation plotter \u2014 layout v1.0, fixed-scale display, System Course Plot, HLR unit standard, kappa_HS terminology, field-deployable (stage1_plates_raw.py is STANDARD METHOD)",
+    "hci_math_handbook_version": "v3.1 \u2014 22 chapters (Parts I-V: Foundations, Core Theory, Signal Theory, Applied Theory, Recursive Depth Theory + Key Discoveries)",
+    "hci_depth_sounder_note": "Recursive depth via energy/curvature/spectral derived compositions. Hs-25 empirical: energy depth=1 (OMEGA_FLAT), curvature depth=9 (LIMIT_CYCLE_P2, residual 0.73%)",
+    "hci_stage1_standard": "stage1_plates_raw.py \u2014 Higgins tensor data field layout v1.0, fixed-scale matplotlib generator, 2x3 grid (Info|Legend|XZ / XY|YZ)",
+    "hci_stage1_layout": "v1.0 \u2014 from Visio spec tensor_data_field_layout_v1.0.vsdx \u2014 CONCLUDED",
     "hci_display_ranges": {
-      "bearings": "[-180, +180] deg — exact (atan2 bound)",
-      "hs": "[0, 1] — exact (by definition)",
-      "clr": "data-adaptive — pre-scanned, padded 10%, locked for all frames",
-      "angular_velocity": "[0, 180] deg — exact"
+      "bearings": "[-180, +180] deg \u2014 exact (atan2 bound)",
+      "hs": "[0, 1] \u2014 exact (by definition)",
+      "clr": "data-adaptive \u2014 pre-scanned, padded 10%, locked for all frames",
+      "angular_velocity": "[0, 180] deg \u2014 exact"
     },
     "hci_stages": 3,
     "hci_stage2_methods": 4,
@@ -67,11 +107,26 @@
     "docs_markdown": 6,
     "scale_range": "10^-18 m to 10^26 m (44 orders of magnitude)",
     "rerun_result_files": 24,
-    "chain_reports": 2
+    "chain_reports": 2,
+    "hci_cnt_engine_version": "2.0.4",
+    "hci_cnt_schema_version": "2.1.0",
+    "hci_cnt_experiments": 25,
+    "hci_cnt_atlas_modules": 6,
+    "hci_cnt_handbook_volumes": 3,
+    "hci_cnt_coda_papers": 3,
+    "hci_cnt_total_files": 236
   },
   "v3_framework": {
     "decomposition": "Hs = R . M . E . C . T . V . S",
-    "operators": ["S (Simplex closure)", "V (Variance trajectory)", "T (CLR Transform)", "C (Classification)", "E (Entropy test / EITT)", "M (Mode synthesis)", "R (Report)"],
+    "operators": [
+      "S (Simplex closure)",
+      "V (Variance trajectory)",
+      "T (CLR Transform)",
+      "C (Classification)",
+      "E (Entropy test / EITT)",
+      "M (Mode synthesis)",
+      "R (Report)"
+    ],
     "axiom": "For all X : Hs(X) = Hs(X) (determinism)",
     "fixed_point": "Hs(X) = FIX(lambda f. R(M(E(C(T(V(S(GUARD(X)))))))))",
     "reference_document": "docs/reference/Higgins_Decomposition_Reference_v3.0.docx",
@@ -93,11 +148,14 @@
   "dimensional_collapse_framework": {
     "status": "Theoretical framework (April 28, 2026)",
     "new_concepts": [
-      "Compositional Horizon — threshold (min(x_i) ~ 0.05) below which components are causally disconnected",
-      "Dimensional Collapse Cycle — D to D-k threshold-triggered phase transition with reconstitution",
-      "Pruning Process — geometric-mean decimation as smooth pruning (preserves robust, dissolves fragile)"
+      "Compositional Horizon \u2014 threshold (min(x_i) ~ 0.05) below which components are causally disconnected",
+      "Dimensional Collapse Cycle \u2014 D to D-k threshold-triggered phase transition with reconstitution",
+      "Pruning Process \u2014 geometric-mean decimation as smooth pruning (preserves robust, dissolves fragile)"
     ],
-    "new_open_problems": ["D-6: Compositional Horizon Formalisation", "D-7: Dimensional Collapse Dynamics"],
+    "new_open_problems": [
+      "D-6: Compositional Horizon Formalisation",
+      "D-7: Dimensional Collapse Dynamics"
+    ],
     "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md section 8"
   },
   "full_chain_execution": {
@@ -108,10 +166,31 @@
     "throughput_rows_per_sec": 8877,
     "R2_mean": 0.7761,
     "R2_range": "0.1007 to 0.9999",
-    "HVLD_shapes": { "bowl": 17, "hill": 8 },
-    "chaos_totals": { "reversals": 1444, "spikes": 26, "stalls": 322 },
-    "high_R2_experiments": ["Hs-02", "Hs-05", "Hs-09", "Hs-11", "Hs-16", "Hs-18", "Hs-23", "Hs-25"],
-    "low_R2_experiments": ["Hs-17", "Hs-20", "Hs-22", "Hs-24"],
+    "HVLD_shapes": {
+      "bowl": 17,
+      "hill": 8
+    },
+    "chaos_totals": {
+      "reversals": 1444,
+      "spikes": 26,
+      "stalls": 322
+    },
+    "high_R2_experiments": [
+      "Hs-02",
+      "Hs-05",
+      "Hs-09",
+      "Hs-11",
+      "Hs-16",
+      "Hs-18",
+      "Hs-23",
+      "Hs-25"
+    ],
+    "low_R2_experiments": [
+      "Hs-17",
+      "Hs-20",
+      "Hs-22",
+      "Hs-24"
+    ],
     "report": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json"
   },
   "stress_test": {
@@ -191,6 +270,10 @@
       "HCI/calibration/CNT_PRECISION_DIAGNOSTIC.md": true,
       "HCI/calibration/JOURNAL.md": true,
       "HCI/calibration/HCI-CAL01_results.json": true,
+      "HCI/cnt_tensor_engine.py": true,
+      "HCI/cnt_analysis.py": true,
+      "HCI/cnt_spectrum_analyzer.py": true,
+      "HCI/cnt_depth_sounder.py": true,
       "papers/flagship/CNT_Engine_Mathematics_Handbook.docx": true,
       "ai-refresh/AI_VERIFICATION_SINCE_PUSH12.md": true,
       "Higgins_Coordinate_System/HIGGINS_COORDINATES.md": true,
@@ -236,134 +319,332 @@
       "hs_cinema_gen.py": true
     },
     "all_critical_present": true,
-    "all_pipeline_present": true
+    "all_pipeline_present": true,
+    "hci_cnt_root": {
+      "path": "HCI-CNT/",
+      "exists": true,
+      "files": 236,
+      "key_subfolders": [
+        "engine",
+        "atlas",
+        "mission_command",
+        "tools",
+        "adapters",
+        "experiments",
+        "examples",
+        "handbook",
+        "coda_community",
+        "conference_demo"
+      ]
+    }
   },
   "locale_verification": {
-    "en": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
-    "zh": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
-    "hi": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
-    "pt": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
-    "it": { "code_count": 106, "missing": 28, "status": "PENDING — 24 MX-* codes + 4 SM-* modes need locale entries" },
+    "en": {
+      "code_count": 106,
+      "missing": 28,
+      "status": "PENDING \u2014 24 MX-* codes + 4 SM-* modes need locale entries"
+    },
+    "zh": {
+      "code_count": 106,
+      "missing": 28,
+      "status": "PENDING \u2014 24 MX-* codes + 4 SM-* modes need locale entries"
+    },
+    "hi": {
+      "code_count": 106,
+      "missing": 28,
+      "status": "PENDING \u2014 24 MX-* codes + 4 SM-* modes need locale entries"
+    },
+    "pt": {
+      "code_count": 106,
+      "missing": 28,
+      "status": "PENDING \u2014 24 MX-* codes + 4 SM-* modes need locale entries"
+    },
+    "it": {
+      "code_count": 106,
+      "missing": 28,
+      "status": "PENDING \u2014 24 MX-* codes + 4 SM-* modes need locale entries"
+    },
     "note": "Locale files need updating for 24 new MX-* diagnostic codes and 4 new SM-* structural modes before push"
   },
   "experiment_verification": {
-    "Hs-01_Gold_Silver": { "file_count": 6, "has_reports": true, "has_rerun": false, "note": "Original run was on 2026-04-28 with current engine" },
-    "Hs-02_US_Energy": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-03_Nuclear_SEMF": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-04_Bessel_Acoustics": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-05_Geochemistry": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-06_Fusion": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-07_QCD": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-08_CKM_PMNS": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-09_Stellar": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-10_GW150914": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-11_AME2020": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-12_Spring_Mass": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-13_Steel": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-14_Conjugate_Pairs": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-15_hBN_Dielectric": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-16_Planck_Cosmic": { "file_count": 8, "has_reports": true, "has_rerun": true },
-    "Hs-17_Backblaze": { "file_count": 35, "has_reports": true, "has_rerun": true },
-    "Hs-18_Urban_Markham": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-19_Traffic_Signals": { "file_count": 7, "has_reports": true, "has_rerun": true },
-    "Hs-20_Conversation_Drift": { "file_count": 11, "has_reports": true, "has_rerun": true },
-    "Hs-21_Reference_Standards": { "file_count": 4, "has_reports": false, "has_rerun": true, "note": "Library experiment — now has rerun results from full chain" },
-    "Hs-22_Natural_Pairs": { "file_count": 75, "has_reports": true, "has_rerun": true },
-    "Hs-23_Radionuclides": { "file_count": 30, "has_reports": true, "has_rerun": true, "has_journal": true },
-    "Hs-24_HEPData_Validation": { "file_count": 4, "has_reports": false, "has_rerun": true, "has_journal": true },
-    "Hs-25_Cosmic_Energy_Budget": { "file_count": 13, "has_reports": true, "has_rerun": true, "has_journal": true },
-    "Hs-M01_Manifold_Calibration": { "file_count": 8, "has_reports": false, "has_rerun": false, "has_journal": true, "html_tools": 4, "note": "M-series — calibration suite with 10 geometric test objects, 4 interactive HTML tools (slideshow, manifold, helix, projector)" },
-    "Hs-M02_EMBER_Energy": { "file_count": 14, "has_reports": false, "has_rerun": false, "has_journal": true, "html_tools": 4, "note": "M-series — 7 countries, 9 carriers, 7 CLR CSVs, 4 interactive HTML tools (slideshow, manifold, helix, projector)" },
-    "Hs-LAB01_Titration_Standards": { "has_journal": true, "note": "LAB-series — titration standards for compositional analysis" },
-    "Hs-MC4_Shape_Calibration": { "has_journal": true, "note": "MC-series — shape calibration with 5 test objects (cylinder, sphere, cube, cone, helix), 27 carriers each, per-run min-max normalization validation" },
-    "Hs-STD_Standards_Test": { "has_journal": true, "note": "STD-series — instrument calibration suite with cylinder/sphere/cube subfolders, lock point detection, 3/3 PASS" }
+    "Hs-01_Gold_Silver": {
+      "file_count": 6,
+      "has_reports": true,
+      "has_rerun": false,
+      "note": "Original run was on 2026-04-28 with current engine"
+    },
+    "Hs-02_US_Energy": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-03_Nuclear_SEMF": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-04_Bessel_Acoustics": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-05_Geochemistry": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-06_Fusion": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-07_QCD": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-08_CKM_PMNS": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-09_Stellar": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-10_GW150914": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-11_AME2020": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-12_Spring_Mass": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-13_Steel": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-14_Conjugate_Pairs": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-15_hBN_Dielectric": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-16_Planck_Cosmic": {
+      "file_count": 8,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-17_Backblaze": {
+      "file_count": 35,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-18_Urban_Markham": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-19_Traffic_Signals": {
+      "file_count": 7,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-20_Conversation_Drift": {
+      "file_count": 11,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-21_Reference_Standards": {
+      "file_count": 4,
+      "has_reports": false,
+      "has_rerun": true,
+      "note": "Library experiment \u2014 now has rerun results from full chain"
+    },
+    "Hs-22_Natural_Pairs": {
+      "file_count": 75,
+      "has_reports": true,
+      "has_rerun": true
+    },
+    "Hs-23_Radionuclides": {
+      "file_count": 30,
+      "has_reports": true,
+      "has_rerun": true,
+      "has_journal": true
+    },
+    "Hs-24_HEPData_Validation": {
+      "file_count": 4,
+      "has_reports": false,
+      "has_rerun": true,
+      "has_journal": true
+    },
+    "Hs-25_Cosmic_Energy_Budget": {
+      "file_count": 13,
+      "has_reports": true,
+      "has_rerun": true,
+      "has_journal": true
+    },
+    "Hs-M01_Manifold_Calibration": {
+      "file_count": 8,
+      "has_reports": false,
+      "has_rerun": false,
+      "has_journal": true,
+      "html_tools": 4,
+      "note": "M-series \u2014 calibration suite with 10 geometric test objects, 4 interactive HTML tools (slideshow, manifold, helix, projector)"
+    },
+    "Hs-M02_EMBER_Energy": {
+      "file_count": 14,
+      "has_reports": false,
+      "has_rerun": false,
+      "has_journal": true,
+      "html_tools": 4,
+      "note": "M-series \u2014 7 countries, 9 carriers, 7 CLR CSVs, 4 interactive HTML tools (slideshow, manifold, helix, projector)"
+    },
+    "Hs-LAB01_Titration_Standards": {
+      "has_journal": true,
+      "note": "LAB-series \u2014 titration standards for compositional analysis"
+    },
+    "Hs-MC4_Shape_Calibration": {
+      "has_journal": true,
+      "note": "MC-series \u2014 shape calibration with 5 test objects (cylinder, sphere, cube, cone, helix), 27 carriers each, per-run min-max normalization validation"
+    },
+    "Hs-STD_Standards_Test": {
+      "has_journal": true,
+      "note": "STD-series \u2014 instrument calibration suite with cylinder/sphere/cube subfolders, lock point detection, 3/3 PASS"
+    }
   },
   "cross_reference_consistency": {
-    "domains": { "manifest": 18, "inventory": 18, "actual": 18, "consistent": true },
-    "systems": { "manifest": 36, "inventory": 36, "actual": 36, "consistent": true },
-    "diagnostic_codes": { "manifest": 106, "inventory": 106, "code_dictionary": 106, "consistent": true },
-    "structural_modes": { "manifest": 14, "inventory": 14, "actual": 14, "consistent": true },
-    "experiments": { "manifest_range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD", "actual_folders": 30, "m_series": 2, "mc_series": 1, "lab_series": 1, "std_series": 1, "consistent": true },
-    "pipeline_files": { "actual": 26, "expected": 26, "consistent": true },
-    "locale_files": { "actual": 5, "expected": 5, "all_complete": true, "consistent": true },
-    "rerun_files": { "actual": 24, "expected": 24, "note": "Hs-01 ran directly on 2026-04-28 as Hs-01_results.json", "consistent": true },
-    "chain_reports": { "actual": 2, "expected": 2, "consistent": true },
-    "hci_stages": { "manifest": 3, "inventory": 3, "foundation": 3, "consistent": true },
-    "hci_acceptance_tests": { "manifest": 10, "inventory": 10, "test_suite": 10, "all_pass": true, "consistent": true }
+    "domains": {
+      "manifest": 18,
+      "inventory": 18,
+      "actual": 18,
+      "consistent": true
+    },
+    "systems": {
+      "manifest": 36,
+      "inventory": 36,
+      "actual": 36,
+      "consistent": true
+    },
+    "diagnostic_codes": {
+      "manifest": 106,
+      "inventory": 106,
+      "code_dictionary": 106,
+      "consistent": true
+    },
+    "structural_modes": {
+      "manifest": 14,
+      "inventory": 14,
+      "actual": 14,
+      "consistent": true
+    },
+    "experiments": {
+      "manifest_range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD",
+      "actual_folders": 30,
+      "m_series": 2,
+      "mc_series": 1,
+      "lab_series": 1,
+      "std_series": 1,
+      "consistent": true
+    },
+    "pipeline_files": {
+      "actual": 26,
+      "expected": 26,
+      "consistent": true
+    },
+    "locale_files": {
+      "actual": 5,
+      "expected": 5,
+      "all_complete": true,
+      "consistent": true
+    },
+    "rerun_files": {
+      "actual": 24,
+      "expected": 24,
+      "note": "Hs-01 ran directly on 2026-04-28 as Hs-01_results.json",
+      "consistent": true
+    },
+    "chain_reports": {
+      "actual": 2,
+      "expected": 2,
+      "consistent": true
+    },
+    "hci_stages": {
+      "manifest": 3,
+      "inventory": 3,
+      "foundation": 3,
+      "consistent": true
+    },
+    "hci_acceptance_tests": {
+      "manifest": 10,
+      "inventory": 10,
+      "test_suite": 10,
+      "all_pass": true,
+      "consistent": true
+    },
+    "hci_programs": {
+      "manifest": 4,
+      "inventory": 4,
+      "actual": 4,
+      "consistent": true
+    }
   },
   "codawork_2026": {
     "talk_confirmed": true,
     "format": "15-minute presentation + 5-minute Q&A",
-    "framework": "v3.0 — Hs = R . M . E . C . T . V . S",
+    "framework": "v3.0 \u2014 Hs = R . M . E . C . T . V . S",
     "revised_abstract_title": "The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex",
     "revised_abstract_submitted": false,
     "revised_abstract_ready": true,
     "deliverables_complete": true,
     "gold_seal_coherence": true,
-    "o1_posture": "Calibration Proof — O-1 resolved, no open conjecture vulnerability",
+    "o1_posture": "Calibration Proof \u2014 O-1 resolved, no open conjecture vulnerability",
     "centrepiece_experiment": "experiments/Hs-25_Cosmic_Energy_Budget/",
     "presentation_structure": "16 slides, 10 gifts, ~180 words, gift ramp format"
   },
   "delta_since_last_push": {
-    "last_push": "df5a904 (O-1 resolution, 2026-04-29)",
+    "last_push": "6f7fb26 (HCI Stage 1 projection / Validate Repository #14, 2026-05-05)",
+    "next_push": "TBD \u2014 push #15 (HCI-CNT migration)",
     "session_achievements": [
-      "Matrix analysis integrated as Step 6.5 — 24 MX-* codes, 4 structural modes, V(t) eigendecomposition",
-      "Tensor functor formulation — Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S with naturality proof (CLR ≡ ILR)",
-      "Science-neutral tone pass — all rhetorical language replaced with measurement-based statements",
-      "Complete projection standard — 8 mandatory generators (5 PDF + projector HTML + cinema PPTX + polar JSON)",
-      "hs_run.py — unified pipeline runner, data in → complete standard output in one command",
-      "Hs-LAB01 Titration Standards — pH curves as compositional trajectories",
-      "Hs-MC4 Shape Calibration — 5 geometric test objects for projector validation",
-      "Hs-STD Standards Test — instrument calibration suite with cylinder/sphere/cube, lock point detection",
-      "Carrier lock point detection — LOCK-ACQ/LOCK-LOSS boundaries with offset values",
-      "HS_DATA_INTEGRITY_LAW.md established — three laws, DUT principle, instrument certification",
-      "Poincaré disc connection — circularity ratio mapped to hyperbolic space, 9 PD-* diagnostic codes",
-      "Higgins Coordinate System — pure math specification with Euclidean/polar/hyperbolic/projective, Handbook v4.2",
-      "EDI control gate — Eigenstructure Distortion Index at Step 5.5, validates CLR transform necessity",
-      "Hˢ Direct analysis — Japan EMBER 26-year cube face projection, 83-slide PPTX, Hydro vs OFossil XY face",
-      "Compositional Navigation Tensor (CNT) — bearing/velocity/sensitivity/helmsman from any composition",
-      "Compositional Bearing Scope (CBS) — oscilloscope-class instrument, 8-bit monochrome, ASCII",
-      "HCI folder created — Higgins Computational Instruments, pure math discovery instruments",
-      "Full Aitchison pullback metric tensor κᴴˢᵢⱼ(x) = (δᵢⱼ − 1/D) / (xᵢ xⱼ) integrated into CBS engine",
-      "HCI Stage 2 — Metric Cross-Examination Engine (4 methods: group barycenter, pairwise group, carrier pair, section view)",
-      "HCI Stage 3 — Higher-Degree Analysis Engine (4 methods: triadic day, carrier triad, subcomposition degree ladder, metric regime detection)",
-      "Deterministic synthetic test suite — 10 days × 10 points × 10 carriers, 5 designed patterns, 10 acceptance tests, ALL PASS",
-      "Dominant Carrier Displacement Index (DCDI) formalized — σᴴˢ(t,t+1) = argmax_j |hⱼ(t+1) − hⱼ(t)|, Helmsman Index as instrument alias",
-      "HCI Staged Analysis Architecture — D0→D1→D2(Stage 2)→D3(Stage 3)→Dk degree ladder",
-      "Coal-Gas informational lock confirmed — 8.4° bearing spread over 26 years",
-      "Hydro vs Other Fossil maximum fan-out — 167° bearing spread",
-      "Manifold Character Handbook, Software Handbook, CoDa publication paper written",
-      "Universal Manifold Projector instrument built (tools/interactive/hs_projector.html)",
-      "Hs-M01 Manifold Calibration — 10 test objects, all pass",
-      "Hs-M02 EMBER Energy — 7 countries, 9 carriers, full pipeline"
+      "HUF-CNT-System folded into Current-Repo/Hs/HCI-CNT/ \u2014 CNT is now part of the Hs canonical line.",
+      "Engine cnt 2.0.3 \u2192 2.0.4: engine_config_overrides honoured + native units adopted (schema 2.1.0).",
+      "Schema 2.0.0 \u2192 2.1.0 (additive metadata.units block \u2014 input_units, higgins_scale_units, units_scale_factor_to_neper).",
+      "R port (cnt.R) brought to 2.0.4 / 2.1.0 parity.",
+      "Stage tower complete: Stage 1 (per-timestep ortho), Stage 2 (28-plate single report incl. CoDa standard plates), Stage 3 (depth/IR/attractor, 11 plates), Stage 4 (cross-dataset inference, 11 plates).",
+      "Mission Command module pipeline registers six post-CNT modules (stage1, stage2, stage3, stage4, spectrum_paper, projector_html) selectable per project via master_control.json.",
+      "5 deferred adapters built (markham_budget, iiasa_ngfs, esa_planck_cosmic, financial_sector, chemixhub_oxide); reference corpus grows from 20 to 25.",
+      "Three handbook volumes consolidate the documentation tree (Theory, Practitioner, Verification).",
+      "Three CoDa-community preprint papers shipped (Balance Book, ROI Use-Case, Verification Value).",
+      "CodaWork 2026 talk plan + 10-slide editable PowerPoint deck shipped at HCI-CNT/conference_demo/talk_deck/.",
+      "Tone-flip applied across all CNT documentation (additive/supportive framing toward classical CoDa).",
+      "Hs README + EXECUTIVE_SUMMARY + ai-refresh JSONs all updated for the HCI-CNT integration."
     ],
-    "new_folders": [
-      "HCI/ — Higgins Computational Instruments (6 core + 5 calibration files: foundation, CBS engine, Stage 2 engine, Stage 3 engine, test suite, README, cal suite, precision experiments, precision diagnostic, journal, results JSON)",
-      "Higgins_Coordinate_System/ — coordinate spec, handbook v4.1/v4.2, diagnostic experiment",
-      "Hs_Direct/ — Japan PPTX, PDF, SVGs, analysis JSON, QA images",
-      "experiments/Hs-LAB01_Titration_Standards/",
-      "experiments/Hs-MC4_Shape_Calibration/",
-      "experiments/Hs-STD_Standards_Test/ (with cylinder/sphere/cube subfolders)"
+    "reliability_improvements_for_hs": [
+      "Hash-chained provenance: every CNT plate footer carries engine version + engine_signature + content_sha256 + source_sha + date \u2014 extends the Hs Data Integrity Law to the CNT subsystem.",
+      "25-experiment determinism gate: bit-identical reproduction across runs and across Python/R, audit-grade.",
+      "Public-trial readiness audit: claim-by-claim evidence map (Volume III).",
+      "Calibration fixtures with mathematically known answers (Stage 1 27-point HLR grid; Stage 2 straight-line directness=1.0 / closed-loop directness=0.0 at IEEE floor)."
     ],
-    "new_pipeline_files": [
-      "hs_run.py — unified pipeline runner",
-      "hs_helix_exploded.py — exploded helix PDF generator",
-      "hs_manifold_helix.py — 3D manifold helix PDF generator",
-      "hs_manifold_projections.py — 4-page projection suite PDF",
-      "hs_polar_stack.py — per-interval polar stack PDF + JSON",
-      "hs_manifold_paper.py — 3D manifold-on-paper PDF",
-      "hs_projector_gen.py — interactive 3D projector HTML generator",
-      "hs_cinema_gen.py — compositional cinema PPTX generator",
-      "hs_tensor.py — tensor functor implementation",
-      "balun_matrix_analysis.py — deep matrix eigenstructure analysis",
-      "impedance_bridge.py — Tr × basis × step impedance bridge",
-      "tr_basis_experiment.py — trace basis experiment runner"
-    ],
-    "updated_pipeline_files": [
-      "higgins_decomposition_12step.py — Step 5.5 EDI control gate + Step 6.5 matrix analysis",
-      "hs_codes.py — v2.0, 106 codes + 9 PD-*, 14 structural modes"
-    ],
-    "summary": "Massive expansion: 3 new top-level folders (HCI, Higgins Coordinates, Hs_Direct), 3 new experiment folders (LAB01, MC4, STD), 8 new projection generators, EDI control gate, Poincaré disc connection, Compositional Navigation Tensor, complete projection/cinema standard. CNT precision audit: 10 precision experiments (P01-P10), engine refined to IEEE 754 floor (arccos→atan2, Helmert basis, condition number diagnostic). Pipeline grows from 18 to 26 files. Interactive tools grow from 9 to 10. Experiment folders grow from 29 to 30."
+    "what_did_not_change": [
+      "Hs/HCI/ original folder \u2014 preserved, no edits.",
+      "Hs/data/ \u2014 unchanged.",
+      "Hs/experiments/Hs-* \u2014 unchanged (different experiment line from CNT's 25-experiment corpus).",
+      "Hs/papers/ \u2014 unchanged.",
+      "HS_DATA_INTEGRITY_LAW.md \u2014 unchanged (CNT inherits the three laws)."
+    ]
   },
   "push_checklist": {
     "1_all_files_present": true,
@@ -373,14 +654,15 @@
     "5_all_experiments_rerun": true,
     "6_stress_test_passed": true,
     "7_executive_summary_current": true,
-    "8_o1_status_consistent": true,
-    "9_dimensional_collapse_documented": true,
-    "10_codawork_preparation_complete": true,
-    "11_v3_reference_document_complete": true,
+    "8_hci_cnt_integrated": true,
+    "9_three_handbook_volumes_present": true,
+    "10_codawork_demo_complete": true,
+    "11_admin_json_files_updated": true,
     "12_ai_refresh_updated": true,
-    "13_no_blocking_issues": true,
-    "14_m_series_complete": true,
-    "15_governance_drift_audit_passed": true,
+    "13_machine_manifest_pointers_correct": true,
+    "14_no_blocking_issues": true,
+    "15_cnt_determinism_gate_passes": true,
+    "16_governance_drift_audit_passed": true,
     "READY_TO_PUSH": true
   }
 }

@@ -1,0 +1,322 @@
+{
+  "metadata": {
+    "program": "CNT Recursive Depth Sounder v1.0",
+    "generated": "2026-05-04T21:00:46.373571Z",
+    "input_D": 5,
+    "input_T": 103,
+    "carriers": [
+      "Dark_Energy",
+      "Cold_Dark_Matter",
+      "Baryonic_Matter",
+      "Photon_Radiation",
+      "Neutrinos"
+    ]
+  },
+  "involution_proof": {
+    "sample_t": 51,
+    "x": [
+      0.11482322234978527,
+      0.7447129232086074,
+      0.13979547341973858,
+      0.00039909987764925366,
+      0.00026928114421949644
+    ],
+    "Mx": [
+      0.0013964773812551986,
+      0.00021531522799879646,
+      0.0011470187763008854,
+      0.40177419697239886,
+      0.5954669916420462
+    ],
+    "MMx": [
+      0.11482322234978525,
+      0.7447129232086074,
+      0.13979547341973855,
+      0.0003990998776492536,
+      0.0002692811442194964
+    ],
+    "residual": 3.925238633486559e-17,
+    "verified": true,
+    "clr_negation_residual": 1.2560739669470201e-15,
+    "duality_distance": 14.646684821940454
+  },
+  "level_0": {
+    "T": 103,
+    "D": 5,
+    "hs_mean": 0.5353769977757584,
+    "hs_var": 0.010940104316807916,
+    "omega_mean": 1.2066511746416513,
+    "omega_var": 1.7061745645802788,
+    "helmsman": "Dark_Energy",
+    "helmsman_pct": 100.0
+  },
+  "energy_tower": [
+    {
+      "level": 1,
+      "T": 102,
+      "hs_mean": 0.4910511640098509,
+      "hs_var": 0.0023874380759943536,
+      "omega_mean": 3.9472384802914647e-07,
+      "omega_var": 5.263400010538354e-13,
+      "omega_max": 4.365383357465753e-06,
+      "helmsman": "E_Baryonic_Matter",
+      "helmsman_pct": 65.34653465346535,
+      "bearing_spread": 97.96563532506116,
+      "metric_trace": 115588.07285814632,
+      "spectral_comp": [
+        0.344731707918613,
+        0.27454809681731734,
+        0.2745481057156054,
+        0.053086045597022805,
+        0.053086043951441654
+      ],
+      "status": "OMEGA_FLAT"
+    }
+  ],
+  "curvature_tower": [
+    {
+      "level": 1,
+      "T": 103,
+      "hs_mean": 0.7217180059169801,
+      "hs_var": 0.03404689789337159,
+      "omega_mean": 1.2168255430527755,
+      "omega_var": 1.6776378995612982,
+      "omega_max": 4.121068920520422,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 98.0392156862745,
+      "bearing_spread": 106.18498279022427,
+      "metric_trace": 1.8939527679202883e+29,
+      "spectral_comp": [
+        0.7182250615470437,
+        0.0021325751631656713,
+        0.004102859538625717,
+        0.1365050349490849,
+        0.13903446880208
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 2,
+      "T": 103,
+      "hs_mean": 0.8669907734422827,
+      "hs_var": 0.043192258500401086,
+      "omega_mean": 1.2500642867542138,
+      "omega_var": 1.8123382832488482,
+      "omega_max": 4.755078553001387,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 51.9607843137255,
+      "bearing_spread": 67.96595234869098,
+      "metric_trace": 7.04396003808741e+29,
+      "spectral_comp": [
+        0.6309834416252097,
+        0.0149804800058141,
+        0.00718283976413918,
+        0.16583635387716572,
+        0.18101688472767136
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 3,
+      "T": 103,
+      "hs_mean": 0.8336352291329875,
+      "hs_var": 0.02895071685221184,
+      "omega_mean": 1.169957819315953,
+      "omega_var": 5.606766400649715,
+      "omega_max": 9.687116477214868,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 50.98039215686274,
+      "bearing_spread": 99.60713983618727,
+      "metric_trace": 2.3931854684909795e+30,
+      "spectral_comp": [
+        0.5642602896781382,
+        0.018209575830041905,
+        0.018209575830041905,
+        0.17547760622138278,
+        0.22384295244039518
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 4,
+      "T": 103,
+      "hs_mean": 0.33001989270421456,
+      "hs_var": 0.017634492223789395,
+      "omega_mean": 1.1800384277056055,
+      "omega_var": 8.947311725034119,
+      "omega_max": 15.135388677182089,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 87.25490196078431,
+      "bearing_spread": 63.99776117964458,
+      "metric_trace": 1.421650033751567e+30,
+      "spectral_comp": [
+        0.5708162679313108,
+        0.03137785743716696,
+        0.03137785743716696,
+        0.20197061865373722,
+        0.16445739854061803
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 5,
+      "T": 103,
+      "hs_mean": 0.6770815987029466,
+      "hs_var": 0.04673580226963764,
+      "omega_mean": 1.2268921112550748,
+      "omega_var": 24.70203974934486,
+      "omega_max": 30.47695410076032,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 94.11764705882352,
+      "bearing_spread": 98.73607165957807,
+      "metric_trace": 2.520024612283878e+30,
+      "spectral_comp": [
+        0.549813452112094,
+        0.027230528673764787,
+        0.027230528673764787,
+        0.20792800039845175,
+        0.18779749014192457
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 6,
+      "T": 103,
+      "hs_mean": 0.2977020685411393,
+      "hs_var": 0.014679730818868635,
+      "omega_mean": 1.305487380678547,
+      "omega_var": 37.46521098581023,
+      "omega_max": 41.41921838344091,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 95.09803921568627,
+      "bearing_spread": 61.8652396481827,
+      "metric_trace": 1.444660232622991e+30,
+      "spectral_comp": [
+        0.5490385458962512,
+        0.032536085360186526,
+        0.032536085360186526,
+        0.20561811072185954,
+        0.18027117266151627
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 7,
+      "T": 103,
+      "hs_mean": 0.6685684223999333,
+      "hs_var": 0.0479193999505018,
+      "omega_mean": 1.2645209048956765,
+      "omega_var": 39.92095038218442,
+      "omega_max": 48.58692399044972,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 97.05882352941177,
+      "bearing_spread": 97.96069752170587,
+      "metric_trace": 2.5320389515166343e+30,
+      "spectral_comp": [
+        0.5492211111237434,
+        0.028770855019355876,
+        0.028770855019355876,
+        0.20200633560909512,
+        0.19123084322844983
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 8,
+      "T": 103,
+      "hs_mean": 0.29570715078007875,
+      "hs_var": 0.014993445280613475,
+      "omega_mean": 1.2106216405113706,
+      "omega_var": 55.67234792217859,
+      "omega_max": 55.96697464131424,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 98.0392156862745,
+      "bearing_spread": 61.51059186809615,
+      "metric_trace": 1.4601941747572806e+30,
+      "spectral_comp": [
+        0.5483765136470877,
+        0.03400734306204226,
+        0.03400734306204226,
+        0.1964921001947681,
+        0.1871167000340596
+      ],
+      "status": "PRODUCTIVE"
+    },
+    {
+      "level": 9,
+      "T": 103,
+      "hs_mean": 0.663676783514789,
+      "hs_var": 0.050098811894980826,
+      "omega_mean": 1.1185768877657913,
+      "omega_var": 64.09913406650027,
+      "omega_max": 65.90515744788931,
+      "helmsman": "K_Dark_Energy",
+      "helmsman_pct": 99.01960784313727,
+      "bearing_spread": 97.81048938591927,
+      "metric_trace": 2.5398058252427155e+30,
+      "spectral_comp": [
+        0.551675380466469,
+        0.030586815246032736,
+        0.030586815246032736,
+        0.1935754945207328,
+        0.1935754945207328
+      ],
+      "status": "LIMIT_CYCLE_P2",
+      "cycle_period": 2,
+      "cycle_residual": 0.007316586786412978,
+      "converged_at_level": 9
+    }
+  ],
+  "depth_summary": {
+    "energy_depth": 1,
+    "curvature_depth": 9,
+    "max_depth": 9,
+    "energy_hs_trajectory": [
+      0.5353769977757584,
+      0.4910511640098509
+    ],
+    "curvature_hs_trajectory": [
+      0.5353769977757584,
+      0.7217180059169801,
+      0.8669907734422827,
+      0.8336352291329875,
+      0.33001989270421456,
+      0.6770815987029466,
+      0.2977020685411393,
+      0.6685684223999333,
+      0.29570715078007875,
+      0.663676783514789
+    ],
+    "energy_convergence_rate": 0.04432583376590754,
+    "curvature_convergence_rate": 0.3007470167531656,
+    "energy_termination": "OMEGA_FLAT",
+    "curvature_termination": "LIMIT_CYCLE_P2",
+    "energy_cycle": {
+      "detected": false,
+      "period": 0,
+      "residual": 1.0,
+      "convergence_level": 2
+    },
+    "curvature_cycle": {
+      "detected": true,
+      "period": 2,
+      "residual": 0.007316586786412978,
+      "convergence_level": 9
+    },
+    "energy_residuals": {},
+    "curvature_residuals": {
+      "final_hs_delta": 0.36796963273471023,
+      "final_hs_p2_delta": 0.004891638885144323,
+      "final_hs_p2_pct": 0.007316586786412978,
+      "attractor_even": 0.29570715078007875,
+      "attractor_odd": 0.663676783514789,
+      "attractor_amplitude": 0.36796963273471023
+    },
+    "mean_duality_distance": 18.28720754657791,
+    "convergence_precision": 0.01,
+    "noise_floor_omega_var": 1e-06,
+    "min_timesteps": 5,
+    "max_levels": 50,
+    "interpretation": "This system supports 9 levels of recursive tensor analysis before the signal exhausts. Energy tower reaches depth 1 (termination: OMEGA_FLAT), curvature tower reaches depth 9 (termination: LIMIT_CYCLE_P2). Convergence precision target: 1%. The dynamical depth measures the system's compositional complexity: how many orders of derivative structure contain non-trivial information."
+  }
+}

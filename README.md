@@ -47,6 +47,40 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 
 ---
 
+## HCI-CNT — Compositional Navigation Tensor (active development line)
+
+The `HCI-CNT/` subsystem extends Hˢ with the Compositional Navigation
+Tensor (CNT) — a deterministic, hash-traceable instrument for
+compositional time series and cross-sections. Engine 2.0.4 / Schema
+2.1.0 / 25 reference experiments, all passing the determinism gate.
+
+CNT shares Hˢ's foundations (Aitchison geometry, simplex closure,
+*same input → same output → always*) and adds trajectory-native
+operators (bearings, angular velocity, helmsman, period-2 attractor,
+IR class), a four-stage paged report family, end-to-end hash
+provenance, and cross-dataset inference reports.
+
+Three handbook volumes in [`HCI-CNT/handbook/`](HCI-CNT/handbook/)
+cover the system in full:
+
+| Volume | Audience |
+|---|---|
+| [`VOLUME_1_THEORY_AND_MATHEMATICS.md`](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md) | math, schema, doctrine, balance vs classical CoDa |
+| [`VOLUME_2_PRACTITIONER_AND_OPERATIONS.md`](HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md) | engine, atlas, mission command, demo, ROI, integrations |
+| [`VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md`](HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md) | determinism, hash chain, talk plan, public-trial readiness |
+
+Quickstart: see [`HCI-CNT/README.md`](HCI-CNT/README.md).
+
+Three CoDa-community preprint papers live at [`HCI-CNT/coda_community/`](HCI-CNT/coda_community/),
+and the CodaWork 2026 demo package at [`HCI-CNT/conference_demo/`](HCI-CNT/conference_demo/)
+is self-contained.
+
+The previous standalone `HUF-CNT-System` package outside the Hˢ repo
+is preserved as archived history. Active CNT development from this
+point forward happens inside `HCI-CNT/`.
+
+---
+
 ## Prime Documents
 
 These are the governing documents of the Hˢ system — the ones that define what it is, what it does, and what it claims.

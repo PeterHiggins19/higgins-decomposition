@@ -1,0 +1,166 @@
+{
+  "_meta": {
+    "schema": "huf_cnt_history/1.0",
+    "generated": "2026-05-06T17:30:00Z",
+    "purpose": "Complete chronological project history for the HUF-CNT system. One row per milestone, ordered by date."
+  },
+  "phases": [
+    {
+      "date": "2026-04-09",
+      "phase": "S016 cut backup",
+      "summary": "Pre-S016 HUF repo backed up to HUF-repo-pre-S016-2026-04-09-bak; baseline before the cnt_v2 rebuild."
+    },
+    {
+      "date": "2026-04-12",
+      "phase": "EITT Decomposition Framework drafted",
+      "summary": "HUF-Decomposition-Dev/EITT_DECOMPOSITION_FRAMEWORK.md + initial EMPIRICAL_VALIDATION JSON."
+    },
+    {
+      "date": "2026-04-13",
+      "phase": "HUF-Project layout + 25-experiment Hs research scaffolding",
+      "summary": "Current-Repo/Hs/experiments/Hs-01..Hs-25 scaffolded; CodaWork 2026 talk + handouts."
+    },
+    {
+      "date": "2026-04-15",
+      "phase": "repo-update / rwa-update staging",
+      "summary": "Earlier release-staging shells; superseded by Current-Repo."
+    },
+    {
+      "date": "2026-04-23",
+      "phase": "Workspace consolidation",
+      "summary": "Top-level CoWorker folder organised into Current-Repo/* structure."
+    },
+    {
+      "date": "2026-04-27",
+      "phase": "AI Refresh \u2014 Hs research canon",
+      "summary": "AI_REFRESH_2026-04-27.md captures the pre-cnt_v2 Hs state."
+    },
+    {
+      "date": "2026-04-30",
+      "phase": "Hs-Lab component prototyping (12 components)",
+      "summary": "amalgamation-tester, archetype-classifier, causal-flow-detector, decomposer, fingerprint-comparator, governor, matrix-diagnostics, reader-adapter, report-generator, sensitivity-engine, tensor-bridge, constant-library."
+    },
+    {
+      "date": "2026-05-02",
+      "phase": "cnt_v2 single-engine spec drafted",
+      "summary": "AI_REFRESH_2026-05-02.md; consolidation of three-program path into one engine."
+    },
+    {
+      "date": "2026-05-03",
+      "phase": "Schema 2.0.0 designed",
+      "summary": "AI_REFRESH_2026-05-03.md; dual classification (coda_standard / higgins_extensions + composer/review/formatter/provenance)."
+    },
+    {
+      "date": "2026-05-04",
+      "phase": "cnt.py + cnt.R parity at engine 2.0.3",
+      "summary": "19 experiments running; full-corpus determinism gate passing."
+    },
+    {
+      "date": "2026-05-05 (AM)",
+      "phase": "v1.0.0 release build",
+      "summary": "HUF-CNT-System repository scaffolded; 20 reference experiments verified; HCI-Atlas Phase A+B (analytical plates + tour plates); mission_command from run_experiments; CNT Software System Handbook (10 sections); adapter disclosure; HTML user manual; quickstart examples."
+    },
+    {
+      "date": "2026-05-05 (afternoon-1)",
+      "phase": "v1.1 features A/B/C/D/E/F/G shipped",
+      "summary": "Deterministic PDF backend, native-units helper, PNG/SVG export, comparison atlas, carrier alias map, trajectory windowing, schema validator."
+    },
+    {
+      "date": "2026-05-05 (afternoon-2)",
+      "phase": "Stage 1 ortho triplet locked",
+      "summary": "atlas/stage1_v4.py \u2014 ILR-Helmert orthogonal triplet, FIXED HLR scale, automatic magnitude factor; Stage 1 calibration fixture (27-point HLR grid)."
+    },
+    {
+      "date": "2026-05-05 (afternoon-3)",
+      "phase": "Output Doctrine v1.0 / v1.0.1 locked",
+      "summary": "atlas/OUTPUT_DOCTRINE.md hash-stamped; integer orders only; trajectory aggregates round UP."
+    },
+    {
+      "date": "2026-05-05 (afternoon-4)",
+      "phase": "Stage 2 locked",
+      "summary": "atlas/stage2_locked.py \u2014 19-plate Order-2 atlas (System Course Plot, CBS, divergence ranking, etc.) + STAGE2_PSEUDOCODE.md + stage2.R; Stage 2 calibration fixtures (straight=1.0 / loop=0.0)."
+    },
+    {
+      "date": "2026-05-05 (afternoon-5)",
+      "phase": "EMBER 8 countries + World \u2014 full Stage 1 + Stage 2 PDFs",
+      "summary": "atlas/codawork2026_ember/ \u2014 per-country PDFs (Stage 1 + Stage 2)."
+    },
+    {
+      "date": "2026-05-05 (afternoon-6)",
+      "phase": "Spectrum (paper) + Plate-time projector (HTML)",
+      "summary": "atlas/spectrum_paper.py \u2014 cross-dataset paper spectrum (FIXED scales). atlas/plate_time_projector.html \u2014 interactive 3D viewer; barycenter z-spine; only valid/known connection lines; COMBINED view across 8 countries with shared PCA frame."
+    },
+    {
+      "date": "2026-05-05 (afternoon-7)",
+      "phase": "Mission Command module pipeline",
+      "summary": "mission_command/modules.py registers stage1 / stage2 / spectrum_paper / projector_html. master_control.json projects[] declares per-project module bundles. tools/run_pipeline.py drives module-only execution."
+    },
+    {
+      "date": "2026-05-05 (afternoon-8)",
+      "phase": "CodaWork 2026 conference package",
+      "summary": "codawork2026_conference/cnt_demo/ \u2014 self-contained: 01_engine, 02_per_country (8+World), 03_combined, 04_calibration, 05_doctrine. README + DEMO_GUIDE."
+    },
+    {
+      "date": "2026-05-05 (afternoon-9)",
+      "phase": "Public-trial readiness",
+      "summary": "PUBLIC_TRIAL_READINESS.md (claim-by-claim evidence map); tools/verify_package.py."
+    },
+    {
+      "date": "2026-05-05 (evening-1)",
+      "phase": "Engine 2.0.4 / Schema 2.1.0",
+      "summary": "engine_config_overrides honoured (kwarg + master_control); INPUT_UNITS adopted; metadata.units block (additive 2.1.0 fields); metadata.engine_config.active_overrides for full audit. 25 PASS / 0 FAIL re-verify after INDEX update."
+    },
+    {
+      "date": "2026-05-05 (evening-2)",
+      "phase": "5 deferred adapters built",
+      "summary": "adapters/markham_budget.py (15y / 8 dept), iiasa_ngfs.py (31y / 7 sector), esa_planck_cosmic.py (17 epochs / 5 component, exact Friedmann), financial_sector.py (252d / 10 GICS sector), chemixhub_oxide.py (24 sample / 7 oxide). Reference corpus 20 \u2192 25."
+    },
+    {
+      "date": "2026-05-05 (evening-3)",
+      "phase": "Admin refresh + workspace audit",
+      "summary": "HS_ADMIN.json + HS_MACHINE_MANIFEST.json rebuilt clean; AI_REFRESH_2026-05-05_v1.1.x.md written; WORKSPACE_AUDIT_2026-05-05.{md,json} produced; PROJECT_HISTORY.json (this file) created."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "HCI-CNT migration into Hs repository",
+      "summary": "HUF-CNT-System folded into Current-Repo/Hs/HCI-CNT/. Hs README + EXECUTIVE_SUMMARY + AI_REFRESH + HS_MACHINE_MANIFEST + PROJECT_HISTORY all updated. Three handbook volumes preserved. Three CoDa community papers placed at HCI-CNT/coda_community/. Conference demo + 10-slide PowerPoint at HCI-CNT/conference_demo/. Engine 2.0.4 / Schema 2.1.0 / 25 experiments / determinism gate passes."
+    }
+  ],
+  "by_topic": {
+    "engine": [
+      "2.0.0 \u2192 2.0.3 (CodaWork build)",
+      "2.0.4 (v1.1.x)"
+    ],
+    "schema": [
+      "2.0.0 \u2192 2.1.0 (additive units block)"
+    ],
+    "atlas": [
+      "Stage 1 ortho",
+      "Stage 1 v4 locked",
+      "Stage 2 v2",
+      "Stage 2 locked",
+      "Spectrum (paper)",
+      "Projector (HTML)"
+    ],
+    "doctrine": [
+      "v1.0 (orders 1/2/3/4+)",
+      "v1.0.1 (round-UP integer-only)"
+    ],
+    "experiments": [
+      "20 (CodaWork 2026 deliverable)",
+      "25 (extended battery with 5 deferred adapters built)"
+    ],
+    "orchestration": [
+      "mission_command (engine driver)",
+      "module pipeline (Stage 1/2 + Spectrum + Projector)"
+    ]
+  },
+  "milestone_counts": {
+    "engines_released": 2,
+    "schemas_released": 2,
+    "atlas_modules": 6,
+    "experiments_total": 25,
+    "v1_1_features": 8,
+    "deferred_built": 5
+  }
+}

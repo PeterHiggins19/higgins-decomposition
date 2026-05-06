@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "schema": "workspace_audit/1.0",
+    "generated": "2026-05-05T19:35:00Z",
+    "purpose": "Last-modified census of every tree under D:\\HUF_Research\\Claude CoWorker. Used to find unfinished projects or stale assets."
+  },
+  "trees": [
+    {
+      "path": "HUF-CNT-System",
+      "newest_file_date": "2026-05-06",
+      "n_files": 366,
+      "newest_file": "HUF-CNT-System/PUBLIC_TRIAL_READINESS.md"
+    },
+    {
+      "path": "Current-Repo/Hs",
+      "newest_file_date": "2026-05-06",
+      "n_files": 1435,
+      "newest_file": "Current-Repo/Hs/ai-refresh/AI_REFRESH_2026-05-05_v1.1.x.md"
+    },
+    {
+      "path": "Collective Documents",
+      "newest_file_date": "2026-05-03",
+      "n_files": 5,
+      "newest_file": "Collective Documents/Chatgpt/Hs_Instrument_Contract_v1.0.md"
+    },
+    {
+      "path": "Current-Repo/Hs-Lab",
+      "newest_file_date": "2026-04-30",
+      "n_files": 21,
+      "newest_file": "Current-Repo/Hs-Lab/applications/ai-compositional-analysis/README.md"
+    },
+    {
+      "path": "DATA",
+      "newest_file_date": "2026-04-29",
+      "n_files": 1397,
+      "newest_file": "DATA/Energy/Embers 2025/viz_manifold_future.html"
+    },
+    {
+      "path": "CoDa-Responses",
+      "newest_file_date": "2026-04-29",
+      "n_files": 2,
+      "newest_file": "CoDa-Responses/Egozcue-Pawlowsky-subcoherence-SORT2023+supplemetary.pdf"
+    },
+    {
+      "path": "Current-Repo/HUF",
+      "newest_file_date": "2026-04-28",
+      "n_files": 1486,
+      "newest_file": "Current-Repo/HUF/INDEX.json"
+    },
+    {
+      "path": "External_Published_Papers",
+      "newest_file_date": "2026-04-23",
+      "n_files": 8,
+      "newest_file": "External_Published_Papers/s41586-025-09920-0.pdf"
+    },
+    {
+      "path": "Chatgpt",
+      "newest_file_date": "2026-04-17",
+      "n_files": 106,
+      "newest_file": "Chatgpt/huf-gov/EITT_Closing_Directions_for_Claude.json"
+    },
+    {
+      "path": "Githubrepo",
+      "newest_file_date": "2026-04-16",
+      "n_files": 816,
+      "newest_file": "Githubrepo/HUF/drafts/codawork-2026/abstract_v5.md"
+    },
+    {
+      "path": "rwa-update",
+      "newest_file_date": "2026-04-16",
+      "n_files": 8,
+      "newest_file": "rwa-update/_PUSH_INSTRUCTIONS.md"
+    },
+    {
+      "path": "repo-update",
+      "newest_file_date": "2026-04-15",
+      "n_files": 195,
+      "newest_file": "repo-update/ai-refresh/MASTER_LINEAGE.json"
+    },
+    {
+      "path": "HUF-Project",
+      "newest_file_date": "2026-04-13",
+      "n_files": 286,
+      "newest_file": "HUF-Project/archive/README.md"
+    },
+    {
+      "path": "repo-staging",
+      "newest_file_date": "2026-04-13",
+      "n_files": 75,
+      "newest_file": "repo-staging/drafts/codawork-2026/DANCE_CARD_S018.md"
+    },
+    {
+      "path": "HUF-Decomposition-Dev",
+      "newest_file_date": "2026-04-12",
+      "n_files": 19,
+      "newest_file": "HUF-Decomposition-Dev/HUF_DOC_MANIFEST.json"
+    },
+    {
+      "path": "HUF",
+      "newest_file_date": "2026-04-10",
+      "n_files": 443,
+      "newest_file": "HUF/archive/misc/HUF_SESSION_TRANSFER.md"
+    },
+    {
+      "path": "HUF-repo",
+      "newest_file_date": "2026-04-10",
+      "n_files": 1,
+      "newest_file": "HUF-repo/drafts/codawork-2026/email_draft_committee.md"
+    },
+    {
+      "path": "EITT",
+      "newest_file_date": "2026-04-09",
+      "n_files": 7640,
+      "newest_file": "EITT/eitt_lab/eitt_ar1_calibrator_suite.json"
+    },
+    {
+      "path": "HUF-repo-pre-S016-2026-04-09-bak",
+      "newest_file_date": "2026-04-09",
+      "n_files": 354,
+      "newest_file": "HUF-repo-pre-S016-2026-04-09-bak/process/REPO_CLEANUP_PLAN_S016.md"
+    },
+    {
+      "path": "code",
+      "newest_file_date": "2026-04-09",
+      "n_files": 1,
+      "newest_file": "code/analysis/honesty_tests_results_2026april9.txt"
+    },
+    {
+      "path": "RogueWaveAudio",
+      "newest_file_date": "2026-03-20",
+      "n_files": 87,
+      "newest_file": "RogueWaveAudio/BTL/BTL Small Studio Lab/Current Design Simulation/design sheet print march 20, 2026.pdf"
+    },
+    {
+      "path": "Unity",
+      "newest_file_date": "2026-03-08",
+      "n_files": 28,
+      "newest_file": "Unity/s41586-025-09784-4.pdf"
+    },
+    {
+      "path": "regimes",
+      "newest_file_date": "2026-01-09",
+      "n_files": 21,
+      "newest_file": "regimes/physical_regimes_500.csv"
+    }
+  ]
+}

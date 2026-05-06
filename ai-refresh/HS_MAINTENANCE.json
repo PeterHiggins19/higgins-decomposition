@@ -3,16 +3,15 @@
   "_version": "1.0",
   "_generated": "2026-04-28",
   "_purpose": "Self-updating maintenance procedure for the Higgins Decomposition repository. Any AI assistant or human contributor reads this to understand what needs checking and when.",
-
   "site_boundary": {
-    "this_repository": "Mathematical fixture — the proven, validated, stable instrument",
+    "this_repository": "Mathematical fixture \u2014 the proven, validated, stable instrument",
     "stays_here": [
       "The 12-step pipeline (tools/pipeline/)",
       "Diagnostic codes and structural modes",
       "The transcendental constant library",
       "All 25+ experiments and their results",
       "Theory documents and mathematical proofs",
-      "Governance framework (Hˢ-GOV)",
+      "Governance framework (H\u02e2-GOV)",
       "Reference standards and calibration data",
       "Naming convention and branding rules",
       "CoDaWork 2026 presentation materials"
@@ -24,12 +23,11 @@
       "Cloud deployments and CI/CD pipelines",
       "Industry-specific integrations",
       "Production monitoring dashboards",
-      "Anything that USES Hˢ without extending the mathematics"
+      "Anything that USES H\u02e2 without extending the mathematics"
     ],
-    "applications_site": "To be created — the Hˢ applications development repository",
+    "applications_site": "To be created \u2014 the H\u02e2 applications development repository",
     "rule": "If it extends the math or validates the instrument, it belongs here. If it applies the instrument to a specific use case, it belongs in the applications site."
   },
-
   "readme_files": {
     "locations": [
       "tools/README.md",
@@ -50,13 +48,11 @@
     ],
     "update_procedure": "Read the affected README, add or update the entry for the new/changed file, verify all links still resolve, update file counts if mentioned."
   },
-
   "link_freshness": {
     "check_frequency": "Every push",
     "procedure": "For each README.md, extract all relative links ([text](path)), verify each target file exists. Report broken links before pushing.",
     "automated_check": "find . -name 'README.md' -exec grep -oP '\\(([^)]+)\\)' {} + | while read link; do test -e \"$link\" || echo \"BROKEN: $link\"; done"
   },
-
   "file_count_validation": {
     "counts_to_verify": {
       "pipeline_py_files": {
@@ -88,23 +84,21 @@
       "ai-refresh/PREPARE_FOR_REPO.json"
     ]
   },
-
   "naming_convention_enforcement": {
     "governing_document": "docs/Hs_Naming_Convention.md",
     "rules": {
-      "pipeline_files": "hs_ prefix (lowercase) — e.g., hs_codes.py",
-      "interactive_tools": "Hs_ prefix (title case) — e.g., Hs_Spectrum_Analyzer.html",
-      "machine_config": "HS_ prefix (uppercase) — e.g., HS_MACHINE_MANIFEST.json",
-      "experiments": "Hs-NN_ prefix — e.g., Hs-25_Cosmic_Energy_Budget/",
-      "documents": "Hs_ prefix (title case) — e.g., Hs_Applications_Guide.md"
+      "pipeline_files": "hs_ prefix (lowercase) \u2014 e.g., hs_codes.py",
+      "interactive_tools": "Hs_ prefix (title case) \u2014 e.g., Hs_Spectrum_Analyzer.html",
+      "machine_config": "HS_ prefix (uppercase) \u2014 e.g., HS_MACHINE_MANIFEST.json",
+      "experiments": "Hs-NN_ prefix \u2014 e.g., Hs-25_Cosmic_Energy_Budget/",
+      "documents": "Hs_ prefix (title case) \u2014 e.g., Hs_Applications_Guide.md"
     },
     "retired_terms": {
-      "HUF": "Replace with Hˢ in display text; preserve in Python identifiers for API compatibility",
+      "HUF": "Replace with H\u02e2 in display text; preserve in Python identifiers for API compatibility",
       "CIP": "Replace with HVLD in active references; preserve in historical/lineage context",
-      "Unity Framework": "Never use — SEO conflict with Unity game engine"
+      "Unity Framework": "Never use \u2014 SEO conflict with Unity game engine"
     }
   },
-
   "governing_files_update_order": {
     "description": "When making changes, update these files in this order to maintain consistency.",
     "order": [
@@ -119,20 +113,18 @@
       "9. Update root README.md if counts or structure changed"
     ]
   },
-
   "pre_push_checklist": {
     "steps": [
       "Verify all file counts match reality",
       "Verify all README links resolve to existing files",
       "Verify naming convention compliance on new files",
       "Verify PREPARE_FOR_REPO.json delta section is current",
-      "Regenerate HS_SYSTEM_BACKUP.json — full file tree snapshot of Hs and Hs-Lab",
+      "Regenerate HS_SYSTEM_BACKUP.json \u2014 full file tree snapshot of Hs and Hs-Lab",
       "Verify HS_GITHUB_CONFIG.json push counter is incremented",
       "Run the pipeline on at least one reference standard to confirm no regressions",
       "Check for any leftover test/temp files"
     ]
   },
-
   "experiment_addition_procedure": {
     "steps": [
       "Create folder: experiments/Hs-NN_Name/",
@@ -145,7 +137,6 @@
       "Update ai-refresh/PREPARE_FOR_REPO.json"
     ]
   },
-
   "interactive_tool_addition_procedure": {
     "steps": [
       "Save HTML to tools/interactive/",
@@ -156,5 +147,25 @@
       "Update ai-refresh/HS_MACHINE_MANIFEST.json",
       "Update ai-refresh/HS_SYSTEM_INVENTORY.json"
     ]
+  },
+  "_meta": {
+    "last_updated": "2026-05-06T18:00:00Z"
+  },
+  "routine_checks": {
+    "hci_cnt_determinism_gate": {
+      "command": "cd HCI-CNT && python mission_command/mission_command.py",
+      "expected": "25 PASS / 0 FAIL / 0 ERR",
+      "frequency": "before each push"
+    },
+    "hci_cnt_package_verifier": {
+      "command": "cd HCI-CNT && python tools/verify_package.py",
+      "expected": "PACKAGE READY",
+      "frequency": "before each push"
+    },
+    "python_r_parity": {
+      "command": "cd HCI-CNT/engine && bash tests/test_parity.sh",
+      "expected": "all SHAs match between Python and R outputs",
+      "frequency": "before any release"
+    }
   }
 }

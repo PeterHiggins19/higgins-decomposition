@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>Math step 3 — Helmert ILR  (shared foundation)</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 26px; font-weight: 700; fill: #ffffff; }
+    .h2 { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 19px; font-family: 'Georgia', serif; font-style: italic; fill: #e8e8e8; }
+    .label { font-size: 17px; fill: #cccccc; }
+    .label-bold { font-size: 17px; font-weight: 700; fill: #ffffff; }
+    .small { font-size: 14px; fill: #aaaaaa; }
+    .ok { font-size: 17px; fill: #80d050; font-weight: 700; }
+    .accent { font-size: 17px; fill: #66aaff; font-weight: 700; }
+    .box { fill: #2a2a2a; stroke: #555; stroke-width: 2; }
+    .box-cnt { fill: #2a2a3a; stroke: #66aaff; stroke-width: 2; }
+    .divider { stroke: #555; stroke-width: 2; stroke-dasharray: 4,4; }
+  </style>
+  <text x="500" y="38" text-anchor="middle" class="title">Math step 3 — Helmert orthonormal ILR projection</text>
+  <text x="500" y="62" text-anchor="middle" class="small">Egozcue (2003) basis. Both pipelines use it. CNT publishes V in the JSON.</text>
+
+  <line x1="500" y1="90" x2="500" y2="430" class="divider"/>
+
+  <text x="250" y="110" text-anchor="middle" class="h2">Classical CoDa</text>
+  <rect x="60" y="135" width="380" height="120" class="box"/>
+  <text x="250" y="162" text-anchor="middle" class="label-bold">build Helmert basis V</text>
+  <text x="250" y="195" text-anchor="middle" class="math">V is (D-1) × D, orthonormal</text>
+  <text x="250" y="225" text-anchor="middle" class="small">computed inline; published per workflow</text>
+
+  <rect x="60" y="280" width="380" height="120" class="box"/>
+  <text x="250" y="307" text-anchor="middle" class="label-bold">project</text>
+  <text x="250" y="340" text-anchor="middle" class="math">ilr(x) = V · clr(x)</text>
+  <text x="250" y="370" text-anchor="middle" class="small">three orthogonal views, per-pair scaling</text>
+
+  <text x="250" y="475" text-anchor="middle" class="accent">flexible, well-understood</text>
+
+  <text x="750" y="110" text-anchor="middle" class="h2">CNT  (additions)</text>
+  <rect x="560" y="135" width="380" height="120" class="box-cnt"/>
+  <text x="750" y="162" text-anchor="middle" class="label-bold">basis published in JSON</text>
+  <text x="750" y="195" text-anchor="middle" class="math">tensor.helmert_basis.coefficients</text>
+  <text x="750" y="225" text-anchor="middle" class="small">V part of the canonical output</text>
+
+  <rect x="560" y="280" width="380" height="120" class="box-cnt"/>
+  <text x="750" y="307" text-anchor="middle" class="label-bold">one matmul + shared window</text>
+  <text x="750" y="340" text-anchor="middle" class="math">ILR_T × (D-1) = V · CLR_T × Dᵀ</text>
+  <text x="750" y="370" text-anchor="middle" class="small">XY, XZ, YZ are slices of the same matrix</text>
+
+  <text x="750" y="475" text-anchor="middle" class="ok">FIXED scale across all 3 panels</text>
+
+  <text x="500" y="540" text-anchor="middle" class="small">CNT keeps Egozcue's projection and adds caching plus a shared display scale.</text>
+</svg>

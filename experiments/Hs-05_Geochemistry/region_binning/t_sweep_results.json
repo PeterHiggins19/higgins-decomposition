@@ -1,0 +1,81 @@
+{
+  "t_sweep_results": [
+    {
+      "T": 10,
+      "energy_depth": 6,
+      "energy_period": 0,
+      "curv_depth": 4,
+      "curv_period": 1,
+      "energy_to_T": 0.6
+    },
+    {
+      "T": 20,
+      "energy_depth": 4,
+      "energy_period": 1,
+      "curv_depth": 14,
+      "curv_period": 2,
+      "energy_to_T": 0.2
+    },
+    {
+      "T": 40,
+      "energy_depth": 4,
+      "energy_period": 1,
+      "curv_depth": 13,
+      "curv_period": 2,
+      "energy_to_T": 0.1
+    },
+    {
+      "T": 60,
+      "energy_depth": 13,
+      "energy_period": 1,
+      "curv_depth": 14,
+      "curv_period": 2,
+      "energy_to_T": 0.21666666666666667
+    },
+    {
+      "T": 80,
+      "energy_depth": 11,
+      "energy_period": 1,
+      "curv_depth": 14,
+      "curv_period": 2,
+      "energy_to_T": 0.1375
+    },
+    {
+      "T": 95,
+      "energy_depth": 17,
+      "energy_period": 1,
+      "curv_depth": 14,
+      "curv_period": 2,
+      "energy_to_T": 0.17894736842105263
+    }
+  ],
+  "cross_dataset_points": [
+    {
+      "name": "Tappe-KIM",
+      "T": 8,
+      "energy_depth": 4
+    },
+    {
+      "name": "Ball-Age",
+      "T": 10,
+      "energy_depth": 6
+    },
+    {
+      "name": "Stracke-OIB",
+      "T": 15,
+      "energy_depth": 11
+    },
+    {
+      "name": "Qin-Cpx",
+      "T": 30,
+      "energy_depth": 26
+    }
+  ],
+  "fit": {
+    "model": "E_depth = alpha * T + beta",
+    "alpha": 0.09675819468866946,
+    "beta": 6.639298435456963,
+    "R2": 0.18230297260920503,
+    "n_points": 10
+  }
+}

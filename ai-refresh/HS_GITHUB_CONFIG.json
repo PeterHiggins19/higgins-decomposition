@@ -7,16 +7,18 @@
     "pages_url": "https://peterhiggins19.github.io/higgins-decomposition/",
     "visibility": "public",
     "created": "2026-04-25",
-    "total_pushes": 12,
-    "last_push_commit": "df5a904",
-    "last_push_message": "O-1 resolution",
-    "last_push_date": "2026-04-28",
+    "total_pushes": 14,
+    "last_push_commit": "6f7fb26",
+    "last_push_message": "HCI Stage 1 projection / Validate Repository #14",
+    "last_push_date": "2026-05-05",
     "license": "CC-BY-4.0",
-    "default_branch": "main"
+    "default_branch": "main",
+    "next_push_number": 15,
+    "next_push_summary": "HCI-CNT migration into Hs repo \u2014 engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes / CodaWork 2026 demo + slide deck"
   },
   "description": {
-    "short": "Higgins Decomposition (Hˢ) — compositional inference on the simplex. A deterministic 12-step pipeline for reading the geometric fingerprint of any compositional system.",
-    "one_line_seo": "A mathematical tool for compositional data analysis — reads structure on the simplex without creating or destroying it",
+    "short": "Higgins Decomposition (H\u02e2) \u2014 compositional inference on the simplex. A deterministic 12-step pipeline for reading the geometric fingerprint of any compositional system.",
+    "one_line_seo": "A mathematical tool for compositional data analysis \u2014 reads structure on the simplex without creating or destroying it",
     "about": "Compositional inference engine operating on the Aitchison simplex. 18 domains tested, 44 orders of magnitude, 5 languages."
   },
   "topics": [
@@ -31,14 +33,18 @@
     "mathematical-analysis",
     "data-analysis",
     "python",
-    "codawork"
+    "codawork",
+    "compositional-navigation-tensor",
+    "cnt-engine",
+    "deterministic-pipeline",
+    "hash-chain-provenance"
   ],
   "social_preview": {
-    "note": "Create an image showing the Hˢ symbol with the tagline. Recommended: 1280x640px, dark background, gold Hˢ symbol, subtitle 'Compositional Inference on the Simplex'."
+    "note": "Create an image showing the H\u02e2 symbol with the tagline. Recommended: 1280x640px, dark background, gold H\u02e2 symbol, subtitle 'Compositional Inference on the Simplex'."
   },
   "seo_notes": {
-    "hausdorff_disambiguation": "The symbol Hˢ may overlap with the Hausdorff measure H^s in fractal geometry. This is a different mathematical domain (measure theory vs compositional data analysis). The README explicitly defines Hˢ on first use to prevent confusion.",
-    "unity_avoidance": "The parent project was called 'Higgins Unity Framework' which was confused with the Unity game engine. This repository uses 'Higgins Decomposition' exclusively — no reference to 'Unity' in the name, description, or primary documentation.",
+    "hausdorff_disambiguation": "The symbol H\u02e2 may overlap with the Hausdorff measure H^s in fractal geometry. This is a different mathematical domain (measure theory vs compositional data analysis). The README explicitly defines H\u02e2 on first use to prevent confusion.",
+    "unity_avoidance": "The parent project was called 'Higgins Unity Framework' which was confused with the Unity game engine. This repository uses 'Higgins Decomposition' exclusively \u2014 no reference to 'Unity' in the name, description, or primary documentation.",
     "game_engine_keywords_to_avoid": [
       "unity",
       "game",
@@ -49,5 +55,15 @@
       "asset",
       "SDK"
     ]
+  },
+  "subsystems": {
+    "HCI-CNT": {
+      "purpose": "Compositional Navigation Tensor \u2014 deterministic, hash-chained, 4-stage paged report system",
+      "engine_version": "2.0.4",
+      "schema_version": "2.1.0",
+      "license": "Apache-2.0 (separate license grant within the parent CC-BY-4.0 repo)",
+      "license_note": "HCI-CNT/ subfolder ships under Apache-2.0 to enable commercial use; the parent Hs repo remains CC-BY-4.0 for the research content.",
+      "entry": "HCI-CNT/README.md"
+    }
   }
 }

@@ -1,523 +1,142 @@
 {
   "_meta": {
-    "type": "HS_MACHINE_MANIFEST",
-    "version": "1.1",
-    "created": "2026-04-25",
-    "updated": "2026-05-04",
-    "author": "Peter Higgins",
-    "purpose": "Machine-readable entry point for all systems interacting with the Hˢ repository. Read this file first. It provides: identity, navigation, protocol, governance, and authority resolution.",
-    "read_order": "This file → HS_ADMIN.json → experiment results → reference standards → archive",
-    "authority": "When this file disagrees with any other file, this file wins on structure and navigation. When experimental results disagree with reference standards, the reference standards win until regression testing validates the new results across the full experiment chain."
+    "schema": "hs_machine_manifest/3.0",
+    "generated": "2026-05-06T17:30:00Z",
+    "last_writer": "Claude Cowork session \u2014 HCI-CNT migration into Hs repo",
+    "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context."
   },
-  "identity": {
-    "name": "Higgins Decomposition",
-    "symbol": "Hˢ",
-    "symbol_meaning": "H-superscript-S — Higgins on the Simplex",
-    "one_sentence": "A deterministic compositional knowledge engine that reads, fingerprints, and catalogs the geometric identity of any system on the simplex — accumulating structural knowledge with full audit trail and traceability.",
-    "operating_principle": "Compositional Knowledge Engine — every pipeline run produces a diagnosis, a fingerprint, and an audit trail. Each run enriches a searchable catalog. The tool accumulates structural knowledge: past analyses become reference points for future discoveries. The tool makes tools.",
-    "decomposition": "Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S",
-    "operators": {
-      "S": "Simplex closure — compositional constraint enforcement",
-      "V": "Variance trajectory — cumulative Aitchison variance as shape",
-      "T": "CLR Transform — per-carrier deviation mapping",
-      "C": "Classification — transcendental squeeze (novel)",
-      "E": "Entropy test — EITT geometric-mean decimation (novel / analytically bounded — O-1 resolved April 28, 2026)",
-      "M": "Mode synthesis — conjunction of diagnostic predicates",
-      "R": "Report — assembly and SHA-256 verification"
-    },
-    "axiom": "∀𝒳 : Hˢ(𝒳) = Hˢ(𝒳) — determinism as generating principle",
-    "framework_version": "v3.0",
-    "gold_seal": true,
-    "closing_statement": "The instrument reads. The expert decides. The loop stays open.",
-    "domains_tested": 18,
-    "systems_analysed": 36,
-    "reference_standards": 15,
-    "scale_range": "10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude)",
-    "languages": [
-      "en",
-      "zh",
-      "hi",
-      "pt",
-      "it"
-    ],
-    "pipeline_version": "2.0 Extended + Amalgamation + Matrix + Tensor + EDI Control Gate + CNT",
-    "constants": 35,
-    "diagnostic_codes": "106 + 9 PD-* Poincaré codes",
-    "structural_modes": 14,
-    "hci_instruments": 1,
-    "hci_stages": 3,
-    "hci_stage2_methods": 4,
-    "hci_stage3_methods": 4,
-    "hci_acceptance_tests": 10,
-    "hci_acceptance_status": "ALL PASS",
-    "hci_metric_tensor": "kappa^Hs_ij(x) = (delta_ij - 1/D) / (x_i * x_j)",
-    "hci_dcdi": "Dominant Carrier Displacement Index — formal name for Helmsman",
-    "hci_calibration_tests": 10,
-    "hci_calibration_status": "ALL PASS",
-    "hci_precision_experiments": 10,
-    "hci_precision_status": "ENGINE AT IEEE 754 FLOOR",
-    "hci_engine_refinements": ["atan2_angular_velocity", "helmert_basis", "condition_number_diagnostic", "full_aitchison_metric_tensor", "stage2_cross_examination", "stage3_higher_degree", "fixed_scale_display", "layout_v1.0"],
-    "hci_stage1_standard_tool": "HCI/codawork2026/stage1_plates/stage1_plates_raw.py",
-    "hci_stage1_standard_note": "Higgins tensor data field layout v1.0. Fixed-scale matplotlib plate generator — 2x3 grid (Info|Legend|XZ / XY|YZ). Field-deployable, no AI dependency. Pre-scans dataset for global axis limits. Stage 1 output system CONCLUDED.",
-    "hci_stage1_layout_spec": "HCI/codawork2026/stage1_plates/tensor_data_field_layout_v1.0.vsdx",
-    "hci_display_ranges": {
-      "bearings_deg": "[-180, +180] — exact (atan2)",
-      "hs": "[0, 1] — exact (definition)",
-      "clr": "data-adaptive, pre-scanned, padded 10%",
-      "angular_velocity_deg": "[0, 180] — exact"
-    },
-    "instrument_metrology": "QUALIFIED (6/6 metrics pass)",
-    "deterministic": true
+  "system": {
+    "name": "HUF-CNT (HCI-CNT) inside the H\u02e2 repository",
+    "engine_version": "2.0.4",
+    "schema_version": "2.1.0",
+    "release": "v1.0.0 + v1.1.x  (CodaWork 2026 demo build)",
+    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (H\u02e2 research)",
+    "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT",
+    "n_experiments": 25
   },
-  "navigation": {
-    "_note": "All paths are relative to repository root.",
-    "start_here": "EXECUTIVE_SUMMARY.md",
-    "machine_config": "ai-refresh/HS_MACHINE_MANIFEST.json",
-    "admin_register": "ai-refresh/HS_ADMIN.json",
-    "system_inventory": "ai-refresh/HS_SYSTEM_INVENTORY.json",
-    "pipeline": {
-      "core": "tools/pipeline/higgins_decomposition_12step.py",
-      "pretest": "tools/pipeline/higgins_transcendental_pretest.py",
-      "codes": "tools/pipeline/hs_codes.py",
-      "reporter": "tools/pipeline/hs_reporter.py",
-      "metrology": "tools/pipeline/hs_metrology.py",
-      "ingest": "tools/pipeline/hs_ingest.py",
-      "hepdata": "tools/pipeline/hs_hepdata.py",
-      "fingerprint": "tools/pipeline/hs_fingerprint.py",
-      "testgen": "tools/pipeline/hs_testgen.py",
-      "audit": "tools/pipeline/hs_audit.py",
-      "controller": "tools/pipeline/hs_controller.py",
-      "sensitivity": "tools/pipeline/hs_sensitivity.py",
-      "amalgamation": "tools/pipeline/hs_amalgamation.py",
-      "projector_export": "tools/pipeline/hs_projector_export.py",
-      "run": "tools/pipeline/hs_run.py",
-      "helix_exploded": "tools/pipeline/hs_helix_exploded.py",
-      "manifold_helix": "tools/pipeline/hs_manifold_helix.py",
-      "manifold_projections": "tools/pipeline/hs_manifold_projections.py",
-      "polar_stack": "tools/pipeline/hs_polar_stack.py",
-      "manifold_paper": "tools/pipeline/hs_manifold_paper.py",
-      "projector_gen": "tools/pipeline/hs_projector_gen.py",
-      "cinema_gen": "tools/pipeline/hs_cinema_gen.py",
-      "tensor": "tools/pipeline/hs_tensor.py",
-      "balun_matrix": "tools/pipeline/balun_matrix_analysis.py",
-      "impedance_bridge": "tools/pipeline/impedance_bridge.py",
-      "tr_basis_experiment": "tools/pipeline/tr_basis_experiment.py",
-      "locales": "tools/pipeline/locales/",
-      "entry_point": "from higgins_decomposition_12step import HigginsDecomposition; hd = HigginsDecomposition(id, name, domain, carriers); hd.load_data(matrix); result = hd.run_full_extended()"
-    },
-    "reference_standards": {
-      "library_json": "experiments/Hs-21_Reference_Standards/Hs-21_reference_library.json",
-      "library_readable": "docs/reference/Hs_Reference_Standard_Library.md",
-      "natural_pairs_json": "experiments/Hs-22_Natural_Pairs/Hs-22_pair_library.json",
-      "natural_pairs_readable": "docs/reference/Hs_Natural_Pairs_Baseline.md"
-    },
-    "experiments": {
-      "results_summary": "experiments/Hs_Extended_Executive_Summary.json",
-      "full_chain_report": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json",
-      "stress_test_report": "experiments/Hs_STRESS_TEST_REPORT_2026-04-28.json",
-      "pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_results.json",
-      "rerun_pattern": "experiments/Hs-{NN}_{Name}/Hs-{NN}_rerun_2026-04-28.json",
-      "range": "Hs-01 through Hs-25 + Hs-LAB01 + Hs-M01 + Hs-M02 + Hs-MC4 + Hs-STD = 30 experiment folders",
-      "m_series_pattern": "experiments/Hs-M{NN}_{Name}/Hs-M{NN}_results.json",
-      "mc_series_pattern": "experiments/Hs-MC{N}_{Name}/Hs-MC{N}_results.json",
-      "rerun_plan": "Hs_EXPERIMENT_RERUN_PLAN.json"
-    },
-    "teaching": {
-      "learning_path": "docs/Hs_Learning_Path.md",
-      "architecture_overview": "docs/Hs_Architecture_Overview.md",
-      "applications_guide": "docs/Hs_Applications_Guide.md",
-      "platform_guide": "docs/Hs_High_Index_Platform_Guide.md"
-    },
-    "theory": {
-      "decomposition_function": "docs/Hs_Decomposition_Function.md",
-      "logic_map": "docs/Hs_Logic_Map_and_State_Machine.md",
-      "symbolic_logic": "papers/codawork2026/Hs_Symbolic_Logic_Definition.md",
-      "v3_reference": "docs/reference/Higgins_Decomposition_Reference_v3.0.docx",
-      "v1_reference": "docs/reference/Higgins_Decomposition_Reference_v1.0.docx"
-    },
-    "papers": {
-      "flagship": "papers/flagship/Higgins_Decomposition_Character_Analysis.docx",
-      "precision_inference": "papers/flagship/Hs_EXP03_Precision_Inference.docx",
-      "applications_guide": "papers/flagship/Hs_Applications_Guide.docx",
-      "platform_guide": "papers/flagship/Hs_High_Index_Platform_Guide.docx",
-      "codawork_strategy": "papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md",
-      "codawork_collaboration": "papers/codawork2026/CoDaWork2026_Collaboration_Path.md",
-      "codawork_letter_abstract": "papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md",
-      "codawork_gift_ramp": "papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md",
-      "codawork_action_plan": "papers/codawork2026/CoDaWork2026_Action_Plan.md",
-      "codawork_duality_dance": "papers/codawork2026/cosmic_duality_dance.html"
-    },
-    "interactive_tools": {
-      "fourier_theorem": "tools/interactive/EXP-19_Fourier_Conjugate_Preservation_Theorem.html",
-      "simplex_scope": "tools/interactive/EXP-19_Interactive_Simulator.html",
-      "spring_mass": "tools/interactive/EXP16_Interactive_Simulator.html",
-      "spectrum_analyzer": "tools/interactive/Hs_Spectrum_Analyzer.html",
-      "codawork_demo": "tools/interactive/Hs_CoDaWork_Demo.html",
-      "cosmic_slider": "tools/interactive/cosmic_composition_interactive.html",
-      "cosmic_cone": "tools/interactive/cosmic_cone_5min_loop.html",
-      "duality_dance": "tools/interactive/cosmic_duality_dance.html",
-      "cosmic_future": "tools/interactive/cosmic_future_projection.html",
-      "universal_projector": "tools/interactive/hs_projector.html",
-      "total": 10,
-      "note": "All interactive tools in one folder for fast demo access. CoDaWork demos are copies from papers/codawork2026/."
-    },
-    "metrology": {
-      "report": "docs/reference/Hs_Instrument_Metrology.json",
-      "runner": "tools/pipeline/hs_metrology.py"
-    },
-    "dashboard": "tools/Hs_Dashboard.ipynb",
-    "standards_edition": {
-      "primary": "tools/Hs_Standards_Edition.ipynb",
-      "conference_copy": "papers/codawork2026/Hs_Standards_Edition.ipynb",
-      "description": "Self-contained Jupyter notebook — 18 cells, auto-installs dependencies, auto-fetches pipeline from GitHub, 3 built-in reference standards, runs all advanced analyses (amalgamation, power map, fingerprint). Conference handout tool.",
-      "cells": 18,
-      "reference_standards": 3,
-      "self_contained": true
-    },
-    "journals": {
-      "Hs-23": "experiments/Hs-23_Radionuclides/Hs-23_JOURNAL.md",
-      "Hs-24": "experiments/Hs-24_HEPData_Validation/Hs-24_JOURNAL.md",
-      "Hs-25": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_JOURNAL.md",
-      "Hs-M01": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_JOURNAL.md",
-      "Hs-M02": "experiments/Hs-M02_EMBER_Energy/Hs-M02_JOURNAL.md",
-      "Hs-MC4": "experiments/Hs-MC4_Shape_Calibration/Hs-MC4_JOURNAL.md",
-      "Hs-STD": "experiments/Hs-STD_Standards_Test/Hs-STD_JOURNAL.md"
-    },
-    "hci": {
-      "foundation": "HCI/HCI_FOUNDATION.md",
-      "cbs_engine": "HCI/hci_cbs.py",
-      "stage2_engine": "HCI/hci_stage2.py",
-      "stage3_engine": "HCI/hci_stage3.py",
-      "test_suite": "HCI/hci_test_stage23.py",
-      "readme": "HCI/README.md",
-      "calibration_suite": "HCI/calibration/hci_cal01_cnt_calibration.py",
-      "precision_experiments": "HCI/calibration/cnt_precision_experiment.py",
-      "precision_diagnostic": "HCI/calibration/CNT_PRECISION_DIAGNOSTIC.md",
-      "math_handbook": "papers/flagship/CNT_Engine_Mathematics_Handbook.docx"
-    },
-    "higgins_coordinates": {
-      "specification": "Higgins_Coordinate_System/HIGGINS_COORDINATES.md",
-      "handbook": "Higgins_Coordinate_System/Higgins_Coordinate_System_Handbook_v4.2.docx",
-      "experiment": "Higgins_Coordinate_System/experiment_01_diagnostic.html"
-    },
-    "hs_direct": {
-      "japan_pptx": "Hs_Direct/JPN_Hs_Direct_CoDaWork2026.pptx",
-      "japan_analysis": "Hs_Direct/JPN_direct_analysis.json"
-    },
-    "m_series_tools": {
-      "M01_slideshow": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_pipeline_slideshow.html",
-      "M01_manifold": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_manifold.html",
-      "M01_helix": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_helix.html",
-      "M02_slideshow": "experiments/Hs-M02_EMBER_Energy/Hs-M02_pipeline_slideshow.html",
-      "M02_manifold": "experiments/Hs-M02_EMBER_Energy/Hs-M02_manifold.html",
-      "M02_helix": "experiments/Hs-M02_EMBER_Energy/Hs-M02_helix.html",
-      "M01_projector": "experiments/Hs-M01_Manifold_Calibration/Hs-M01_projector.html",
-      "M02_projector": "experiments/Hs-M02_EMBER_Energy/Hs-M02_projector.html",
-      "total": 8,
-      "note": "M-series HTML tools live in their experiment folders (not tools/interactive/) as they are experiment-specific baseline references."
-    },
-    "visualization_standard": {
-      "terminal_output": "Manifold Projector",
-      "description": "The Manifold Projector is the mandatory terminal visualization for every Hˢ analysis. It renders the compositional data manifold as a 3D interactive radar-polygon tube — each time step is a radar chart fingerprint (per-carrier CLR values normalized to 0-1) stacked along the Z-axis with perspective projection (FOV=700). The slideshow leads to this display. This IS the diagram of the system.",
-      "features": ["3D rotating radar-polygon tube", "per-run min-max CLR normalization (each run normalized independently to preserve shape fidelity)", "perturbation mapping (|ΔCLR| as outward spikes, green→yellow→red)", "perspective projection FOV=700, sc = fov/(fov+z+350)", "painter's sort depth ordering", "auto-orbit with mouse drag override", "trails, ghost, labels, time slider, view presets"],
-      "projection_fidelity": "A data straight line on the simplex projects as a smooth monotonic radar polygon deformation — no false curvature because normalization is per-run min-max and linear. Per-run normalization ensures each system's shape is faithfully rendered without cross-run scale contamination.",
-      "normalization_rule": "Per-run min-max. Each run's CLR values are normalized to [0,1] using that run's own min and max. This preserves the geometric identity of each system. Global normalization across runs is prohibited — it distorts shape fidelity. Validated by MC-4 (5/5 PASS) and STD (3/3 PASS) calibration series.",
-      "boundary_markers": {
-        "degenerate": "DEGEN diamond marker at center axis when CLR spread < 1e-4. No polygon drawn.",
-        "missing": "Red X marker at vertex when carrier CLR < -10. Polygon drawn with valid carriers only.",
-        "lock_acquisition": "Green dashed ring with offset value. First valid timestep after DEGEN. Documents instrument resolving boundary.",
-        "lock_loss": "Amber dashed ring with offset value. Last valid timestep before DEGEN. Symmetric with acquisition."
-      },
-      "pipeline_rule": "Every experiment MUST generate a Manifold Projector HTML as its final visual output. The pipeline slideshow is the journey; the projector is the destination.",
-      "canonical_reference": "viz_manifold_projector.html (uploaded reference, 4-country EMBER subset)",
-      "universal_instrument": "tools/interactive/hs_projector.html",
-      "export_tool": "tools/pipeline/hs_projector_export.py",
-      "usage": "Open hs_projector.html in a browser, drop any pipeline results JSON or projector manifest. The universal instrument replaces the need to generate per-experiment projector HTML files."
-    },
-    "directory_readmes": {
-      "tools": "tools/README.md",
-      "tools_pipeline": "tools/pipeline/README.md",
-      "tools_interactive": "tools/interactive/README.md",
-      "experiments": "experiments/README.md",
-      "docs": "docs/README.md",
-      "papers": "papers/README.md",
-      "ai_refresh": "ai-refresh/README.md"
-    },
-    "maintenance": {
-      "procedure": "ai-refresh/HS_MAINTENANCE.json",
-      "description": "Self-updating maintenance procedure — checklist for repo upkeep after any structural change"
-    }
+  "engine": {
+    "python": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.py",
+    "r": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.R",
+    "native_units": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/native_units.py",
+    "tests": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/tests"
   },
-  "protocol": {
-    "onboarding_sequence": [
-      "1. Read this manifest (identity + navigation)",
-      "2. Read HS_ADMIN.json (communication standards + terminology)",
-      "3. Read EXECUTIVE_SUMMARY.md (chronological development log)",
-      "4. Load the pipeline: higgins_decomposition_12step.py",
-      "5. Run a reference standard to verify the pipeline works",
-      "6. Compare your DUT results against the reference library",
-      "7. Report using hs_codes.py → hs_reporter.py"
-    ],
-    "terminology_gate": {
-      "file": "ai-refresh/HS_ADMIN.json",
-      "rule": "Check canonical_names and communication_standards before generating any text. If a term appears in a NOT list, do not use it."
-    },
-    "claim_tiers": [
-      "core_science — primary Hˢ scientific content (proven or strongly evidenced)",
-      "validated_companion — strong secondary instrument or descriptor",
-      "engineering_control — integrity, release, regression, operating-envelope layer",
-      "conference_safe — suitable for CoDa/math audience with minimal editing",
-      "exploratory_overlay — interesting but not canonical",
-      "point_of_interest — noteworthy finding, not yet promoted to core",
-      "archived — superseded, retired, or historical (preserved, not active)"
+  "atlas": {
+    "stage1_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage1_v4.py",
+    "stage1_complete": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/atlas_stage1_complete.py",
+    "stage2_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage2_locked.py",
+    "stage3_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage3_locked.py",
+    "stage4_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage4_locked.py",
+    "spectrum_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/spectrum_paper.py",
+    "projector_html": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/plate_time_projector.html",
+    "det_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/det_pdf.py",
+    "calibration": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/STANDARD_CALIBRATION_*"
+  },
+  "mission_command": {
+    "orchestrator": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/mission_command.py",
+    "module_registry": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/modules.py",
+    "master_control": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/master_control.json",
+    "registered_modules": [
+      "stage1",
+      "stage2",
+      "stage3",
+      "stage4",
+      "spectrum_paper",
+      "projector_html"
     ]
   },
-  "governance": {
-    "feed_forward_model": {
-      "P_proportional": "Mainstream pipeline and active experiments. Responds to current findings.",
-      "I_integral": "Archive of all past experiments, methods, and decisions. JSON snapshots. Never deleted. Provides long-term stability.",
-      "D_derivative": "Waypoint system in EXECUTIVE_SUMMARY.md. Declares position, target, gate, drift boundary.",
-      "FF_feed_forward": "New information is forward-biased. Diagnosed for current use. Historical data checked but not privileged."
-    },
-    "instrument_certification": {
-      "document": "HS_DATA_INTEGRITY_LAW.md",
-      "status": "CERTIFIED — MC-4 calibration passed (5/5 test objects), CoDaWork-certifiable methodology chain, DUT posture active",
-      "three_laws": {
-        "first": "The instrument does not fabricate. If the shape does not match expectation, the data contains that structure.",
-        "second": "Every nibble is preserved. No data point is discarded, smoothed, or suppressed. Degenerate and missing markers tag all boundary conditions.",
-        "third": "Confidence is stated. The methodology chain (closure, CLR, spline, normalization, projection) is certifiable to CoDaWork standards. No known misstep exists."
-      },
-      "dut_principle": "The data is always the Device Under Test. The projector is never the DUT. An unexpected shape is a finding about the data, not a defect of the instrument. The anomaly is the interesting part — it must never be lost.",
-      "confidence_statement": "The methodology chain is sound, the instrument is calibrated, and the projection is a faithful geometric rendering of the compositional structure within the data."
-    },
-    "authority_stack": [
-      "0. HS_DATA_INTEGRITY_LAW.md — three laws of data integrity, instrument certification, DUT principle (governing)",
-      "1. HS_MACHINE_MANIFEST.json — structure and navigation (this file)",
-      "2. HS_ADMIN.json — identity, terminology, communication standards",
-      "3. Reference standard library — calibration values and thresholds",
-      "4. Accumulated experiment results — validated chain of evidence",
-      "5. Individual experiment results — newest, lowest authority until regression-tested",
-      "6. Archive — historical context, not active authority"
-    ],
-    "conflict_resolution": {
-      "rule": "When sources disagree, higher-numbered authority yields to lower-numbered. Exception: a consistent pattern of new results that survives full regression testing (HIVP chain) can update any authority level. The pattern must be documented in EXECUTIVE_SUMMARY.md before the update takes effect.",
-      "example": "If a new experiment contradicts the reference standards, the reference standards win until the new result is replicated, regression-tested, and documented. If the new result survives, the reference standards are updated and the old values are archived."
-    },
-    "acceptance_criteria": [
-      "Pass all 4 input guards (D≥2, N≥5, no NaN/Inf, scale sanity)",
-      "Produce a valid extended pipeline run (no crashes, all codes emitted)",
-      "Document with full diagnostic codes and claim tier assignment",
-      "Compare against reference standard library (position relative to ceiling, floor, physical standard)",
-      "Survive regression against existing experiments (HIVP chain principle)",
-      "Meet communication standards (terminology, tone, language, content labels)"
-    ],
-    "archive_protocol": {
-      "trigger": "Content is archived when superseded, retired, or no longer actively referenced.",
-      "format": "JSON snapshot with timestamp, reason, and pointer to replacement.",
-      "retention": "Permanent. Archive is the integral term — it provides stability.",
-      "refresh": "Full archive review included in every major waypoint."
-    },
-    "audit_system": {
-      "tool": "tools/pipeline/hs_audit.py",
-      "principle": "Every pipeline operation produces an audit record. Every record captures: what ran, when, input hash, output hash, duration, status, and breakpoint decisions. The chain hash provides tamper-evident integrity across the full trail.",
-      "record_fields": ["seq", "operation", "timestamp", "duration_ms", "input_hash", "output_hash", "input_shape", "output_shape", "status", "breakpoint", "breakpoint_action", "notes", "metadata"],
-      "breakpoints": {
-        "count": 16,
-        "actions": ["CONTINUE", "HOLD", "ABORT", "LOG_ONLY"],
-        "presets": {
-          "permissive": "All CONTINUE — no stops (default)",
-          "cautious": "HOLD on FLAG, errors, and guard failures",
-          "strict": "ABORT on errors and guard failures, HOLD on FLAG",
-          "audit": "LOG_ONLY everywhere — maximum traceability, no stops",
-          "development": "HOLD at every step — step-through debugging"
-        },
-        "safety_rule": "Every loop (catalog batch, regression suite, cross-check) has an explicit break condition at BP-LOOP-ITER. No infinite loops are possible — the audit system enforces termination."
-      },
-      "traceability": "Full chain of custody from raw data to final diagnosis. Each operation records input/output hashes. The chain hash is a SHA-256 of the sequential operation record — modifying any record invalidates the chain. ISO 17025-compatible."
-    },
-    "controller_architecture": {
-      "principle": "Hˢ operates as an industrial compositional analysis component. The controller wraps the pipeline in a state machine with event-driven integration. Hˢ-GOV provides top-level supervisory governance.",
-      "stack": "Hˢ-GOV → HsController → Pipeline → Audit Trail",
-      "controller": {
-        "states": ["IDLE", "RUNNING", "HELD", "COMPLETED", "ABORTED", "ERROR"],
-        "commands": ["start", "resume", "abort", "inspect", "reconfigure", "get_result", "get_audit", "get_events"],
-        "event_bus": "Publish-subscribe pattern for external system integration. Events: state_change, classification, fingerprint, hold, error, flag."
-      },
-      "governor": {
-        "modes": ["OPEN", "SUPERVISED", "LOCKED", "QUARANTINE"],
-        "capabilities": ["Controller registry with concurrent limit", "Policy engine on state transitions", "Cross-run fingerprint database", "Event aggregation", "Emergency quarantine", "Full state persistence"]
-      },
-      "verified": "Multi-controller supervised run passed — 2 controllers, both completed, fingerprints registered, audit chains valid."
-    },
-    "knowledge_engine": {
-      "principle": "Hˢ is a compositional knowledge engine. Every run produces: (1) a diagnosis (codes + structural modes), (2) a fingerprint (searchable geometric identity), (3) an audit trail (chain of custody). Each run enriches the catalog. Past analyses become reference points for future discoveries.",
-      "accumulation_cycle": "run → diagnose → fingerprint → catalog → compare → discover → run",
-      "loop_safety": "The accumulation cycle is open-ended but never closed-loop. Every catalog batch has BP-LOOP-ITER between iterations and BP-LOOP-END at termination. Every loop has a maximum iteration count or explicit termination condition. The audit trail records every iteration with input/output hashes for post-hoc verification.",
-      "tools_generated": {
-        "regression_suite": "hs_testgen.py --regression — generates self-contained regression test from catalog",
-        "health_check": "hs_testgen.py --healthcheck — perturbation stability test",
-        "cross_check": "hs_testgen.py --crosscheck — cross-database fingerprint comparison",
-        "stability_test": "hs_testgen.py --stability — bootstrap subsampling analysis"
-      }
-    },
-    "waypoint_protocol": {
-      "requirement": "Every waypoint in EXECUTIVE_SUMMARY.md must declare:",
-      "fields": [
-        "accomplished — what was completed (past)",
-        "next_waypoint — what the next target is (future)",
-        "gate_conditions — what must be true to advance",
-        "drift_boundary — what would constitute deviation from trajectory"
+  "tools": {
+    "run_pipeline": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/tools/run_pipeline.py",
+    "verify_package": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/tools/verify_package.py"
+  },
+  "experiments": {
+    "index": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/experiments/INDEX.json",
+    "by_subdir": {
+      "codawork2026": [
+        "ember_chn",
+        "ember_deu",
+        "ember_fra",
+        "ember_gbr",
+        "ember_ind",
+        "ember_jpn",
+        "ember_usa",
+        "ember_wld",
+        "ember_combined_panel",
+        "backblaze_fleet"
+      ],
+      "domain": [
+        "fao_irrigation_methods",
+        "geochem_ball_age",
+        "geochem_ball_region",
+        "geochem_ball_tas",
+        "geochem_qin_cpx",
+        "geochem_stracke_morb",
+        "geochem_stracke_oib",
+        "geochem_tappe_kim1"
+      ],
+      "reference": [
+        "commodities_gold_silver",
+        "nuclear_semf"
+      ],
+      "extended": [
+        "markham_budget",
+        "iiasa_ngfs",
+        "esa_planck_cosmic",
+        "financial_sector",
+        "chemixhub_oxide"
       ]
     }
   },
-  "api": {
-    "_note": "Minimal programmatic interface for any system to use Hˢ.",
-    "run_experiment": {
-      "import": "from higgins_decomposition_12step import HigginsDecomposition",
-      "create": "hd = HigginsDecomposition(experiment_id, name, domain, carriers=carrier_list)",
-      "load": "hd.load_data(numpy_array_NxD)",
-      "run_core": "result = hd.run_full_pipeline()",
-      "run_extended": "result = hd.run_full_extended()",
-      "save": "hd.save_results('output.json')",
-      "codes": "from hs_codes import generate_codes; codes = generate_codes(result)",
-      "report": "from hs_reporter import report; text = report(codes, lang='en')",
-      "report_all": "from hs_reporter import report_all_languages; all_reports = report_all_languages(codes)",
-      "metrology": "from hs_metrology import run_full_metrology; report = run_full_metrology()",
-      "ingest_csv": "python hs_ingest.py mydata.csv --name 'My System' --domain 'MY_DOMAIN' --all-languages",
-      "hepdata_list": "python hs_hepdata.py --list",
-      "hepdata_fetch": "python hs_hepdata.py --fetch w_decay --run",
-      "hepdata_fetch_all": "python hs_hepdata.py --fetch-all --run",
-      "hepdata_custom": "python hs_hepdata.py --inspire 1249595 --table 'Table 2' --run",
-      "fingerprint_single": "python hs_fingerprint.py results.json -o fingerprint.json",
-      "fingerprint_catalog": "python hs_fingerprint.py --catalog /path/to/hep_validation",
-      "fingerprint_compare": "python hs_fingerprint.py --compare fp1.json fp2.json",
-      "fingerprint_match": "python hs_fingerprint.py --match fp.json --database /path/to/catalog",
-      "audit_list_breakpoints": "python hs_audit.py --list-breakpoints",
-      "audit_run_cautious": "python hs_audit.py --preset cautious --run data.csv -v",
-      "audit_run_strict": "python hs_audit.py --preset strict --run data.csv -v",
-      "audit_view": "python hs_audit.py --view audit_trail.json",
-      "testgen_regression": "python hs_testgen.py --regression /path/to/catalog",
-      "testgen_healthcheck": "python hs_testgen.py --healthcheck results.json",
-      "testgen_crosscheck": "python hs_testgen.py --crosscheck /path/db1 /path/db2",
-      "controller_single": "from hs_controller import HsController; ctrl = HsController('ID','Name','DOMAIN',carriers); ctrl.start(data, preset='cautious'); result = ctrl.get_result()",
-      "controller_governed": "from hs_controller import HufGov; gov = HufGov(mode='SUPERVISED'); cid = gov.register_controller(ctrl); gov.run_controller(cid, data); gov.save_state('gov_state.json')",
-      "controller_inspect": "ctrl.inspect()  # returns state, audit summary, breakpoint status",
-      "controller_resume": "ctrl.resume(decision='continue', notes='Expert reviewed')",
-      "governor_quarantine": "gov.quarantine(reason='Anomaly detected')  # locks all controllers",
-      "power_map_from_data": "from hs_sensitivity import ComponentPowerMapper; mapper = ComponentPowerMapper(data, carriers, domain='DOMAIN'); power_map = mapper.run_full_analysis()",
-      "power_map_from_csv": "python hs_sensitivity.py data.csv -o power_map.json",
-      "power_map_from_results": "python hs_sensitivity.py results.json --from-results -o power_map.json",
-      "amalgamation_run": "from hs_amalgamation import AmalgamationEngine; engine = AmalgamationEngine(data, carriers); results = engine.run_all_levels()",
-      "amalgamation_from_csv": "python hs_amalgamation.py data.csv -o amalgamation_results.json"
-    },
-    "quick_test": {
-      "description": "Verify pipeline is working by running a reference standard.",
-      "code": "import numpy as np; data = np.array([[0.5,0.3,0.2],[0.4,0.4,0.2],[0.3,0.5,0.2],[0.45,0.35,0.2],[0.35,0.45,0.2]]); hd = HigginsDecomposition('TEST','Quick Test','TEST',carriers=['A','B','C']); hd.load_data(data); r = hd.run_full_extended(); print(r['extended']['universal']['claim_status'])"
-    }
+  "conference_demo": {
+    "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo",
+    "talk_pptx": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.pptx",
+    "talk_plan": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/CODAWORK2026_TALK_PLAN.md",
+    "demo_guide": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/DEMO_GUIDE.md",
+    "spectrum_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/spectrum_paper_codawork2026_ember.pdf",
+    "projector_html": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/plate_time_projector_codawork2026_ember.html"
   },
-  "theoretical_extensions": {
-    "_note": "Extensions beyond the core pipeline, documented in HUF/science/ and Hs EXECUTIVE_SUMMARY.md.",
-    "o1_resolution": {
-      "status": "RESOLVED (April 28, 2026)",
-      "statement": "EITT residual is analytically bounded by closed-form Hessian trace bound.",
-      "formula": "|ΔH(M)| ≤ 0.5 · λ_max(|ℋ_H(μ)|) · Tr(Σ₁) · [1 - R(M, ρ)]",
-      "resolved_by": "Gemini via CLR Taylor expansion proof",
-      "collective": "Peter Higgins + Grok + Copilot + ChatGPT + Gemini + Claude",
-      "reference": "HUF/science/eitt/EITT_HESSIAN_BOUND.md §8"
-    },
-    "dimensional_collapse": {
-      "status": "Theoretical framework (April 28, 2026)",
-      "statement": "Components below the compositional horizon (min(x_i) ≈ 0.05) undergo dimensional collapse. Survivors reconstitute on a lower-dimensional simplex with higher coherence.",
-      "cycle": ["Structure forms on D-simplex", "Pruning separates weakly bound", "Collapse at critical ratio", "Reconstitution at D-k with new interior stability"],
-      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8"
-    },
-    "compositional_horizon": {
-      "status": "Empirical (formal derivation is Open Problem D-6 / O-4)",
-      "threshold": 0.05,
-      "statement": "Below min(x_i) ≈ 0.05, components are causally disconnected from the analysis. Curvature artefacts dominate signal.",
-      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8.2"
-    },
-    "pruning_process": {
-      "statement": "Geometric-mean decimation is a smooth pruning process: preserves robust interior structure, dissolves fragile boundary structure.",
-      "reference": "HUF/science/core/EITT_DECOMPOSITION_FRAMEWORK.md §8.1"
-    },
-    "full_chain_execution": {
-      "status": "COMPLETE (April 28, 2026)",
-      "experiments_run": 25,
-      "total_rows": 3044,
-      "total_time_seconds": 0.34,
-      "throughput_rows_per_sec": 8877,
-      "stress_test": "15/15 PASS — OPERATIONAL",
-      "R2_mean": 0.7761,
-      "R2_range": "0.1007 to 0.9999",
-      "HVLD_shapes": {"bowl": 17, "hill": 8},
-      "deliverables": ["Hs_FULL_CHAIN_REPORT_2026-04-28.json", "Hs_STRESS_TEST_REPORT_2026-04-28.json"],
-      "reference": "experiments/Hs_FULL_CHAIN_REPORT_2026-04-28.json"
-    },
-    "tensor_functor": {
-      "status": "Implemented (April 30, 2026)",
-      "statement": "Hˢ formulated as a five-layer tensor functor: Hˢ = ρ ∘ Tr ∘ Σ ∘ Λ ∘ S with explicit rank changes (1,1)→(1,1)→(1,1)→(0,2)→(0,0)→label.",
-      "naturality": "CLR ≡ ILR (orthonormal Helmert). ALR breaks naturality.",
-      "implementation": "tools/pipeline/hs_tensor.py",
-      "reference": "EXECUTIVE_SUMMARY.md (April 30 entry)"
-    },
-    "matrix_diagnostics": {
-      "status": "Implemented (April 30, 2026)",
-      "statement": "24 MX-* diagnostic codes from V(t) covariance matrix eigendecomposition. 4 new structural modes (SM-FRZ, SM-THR, SM-MXR, SM-EDP). Pipeline Step 6.5.",
-      "new_codes": 24,
-      "new_structural_modes": 4,
-      "total_codes": 106,
-      "total_structural_modes": 14,
-      "reference": "EXECUTIVE_SUMMARY.md (April 30 entry)"
-    },
-    "impedance_match_observation": {
-      "status": "Empirical (April 30, 2026)",
-      "statement": "Low reflection coefficient Γ = √(1 − λ₁/Tr(V)) is a measured consequence of rank-1 dominant covariance across tested systems.",
-      "note": "Previously labelled 'Balun Theorem'. Renamed to 'Impedance Match Observation' per science-neutral stance.",
-      "reference": "tools/pipeline/impedance_bridge.py"
-    },
-    "poincare_disc_connection": {
-      "status": "Implemented (May 1, 2026)",
-      "statement": "Circularity ratio ρ = r_min/r_max mapped to Poincaré disc via Cayley transform. 9 PD-* diagnostic codes for hyperbolic structure analysis.",
-      "codes": ["PD-RHO", "PD-RAD", "PD-DHY", "PD-MET", "PD-ZON", "PD-EFF", "PD-KAP", "PD-CRO", "PD-BUS"],
-      "reference": "papers/flagship/Manifold_Characterization_by_Decomposition.docx"
-    },
-    "higgins_coordinate_system": {
-      "status": "Specified (May 1, 2026)",
-      "statement": "Complete coordinate system on the simplex with Euclidean, polar, hyperbolic, and projective representations. Handbook v4.2.",
-      "reference": "Higgins_Coordinate_System/HIGGINS_COORDINATES.md"
-    },
-    "edi_control_gate": {
-      "status": "Implemented (May 1, 2026)",
-      "statement": "Eigenstructure Distortion Index as internal engine control (Step 5.5). EDI = √(angular² + spectral²)/√2. Validates CLR transform necessity.",
-      "regimes": ["MINIMAL (<0.1)", "MODERATE (0.1-0.3)", "WORKING (0.3-0.7)", "EXTREME (>0.7)"],
-      "reference": "tools/pipeline/higgins_decomposition_12step.py"
-    },
-    "compositional_navigation_tensor": {
-      "status": "Implemented (May 2, 2026)",
-      "statement": "CNT(x) = (θ, ω, κ, σ) — bearing, angular velocity, steering sensitivity, helmsman from any closed composition via CLR polar decomposition.",
-      "components": {
-        "theta": "Bearing tensor — atan2(h_j, h_i) for all D(D-1)/2 pairs",
-        "omega": "Angular velocity — arccos of normalised CLR dot product",
-        "kappa": "Steering sensitivity — g_{jj} = 1/x_j (Aitchison metric)",
-        "sigma": "Helmsman — argmax_j |Δh_j|"
-      },
-      "findings": ["Coal-Gas informational lock (8.4° spread, 26 years)", "Hydro-OFossil maximum fan-out (167° spread)", "Steering sensitivity divergence at simplex boundary"],
-      "implementation": "HCI/hci_cbs.py",
-      "reference": "HCI/HCI_FOUNDATION.md"
-    },
-    "codawork_posture": {
-      "previous": "Scientific Surrender — presenting an empirical mystery",
-      "current": "Calibration Proof — presenting a fully bounded, analytically governed instrument",
-      "trigger": "O-1 resolution neutralizes the Jensen's inequality attack"
-    }
+  "doctrine_locks": {
+    "output_doctrine": "v1.0.1 (integer orders only; trajectory aggregates round UP to next order)",
+    "stage1_standard": "atlas/stage1_v4.py \u2014 ILR-Helmert orthogonal triplet",
+    "stage2_standard": "atlas/stage2_locked.py \u2014 19-plate Order-2 atlas",
+    "schema": "2.1.0 \u2014 additive units block"
   },
-  "lineage": {
-    "origin": "Higgins Unity Framework (HUF — lineage only), github.com/PeterHiggins19/Higgins-Unity-Framework",
-    "engineering_ancestry": "Rogue Wave Audio DADC-DADI-ADAC loudspeaker diffraction correction chain (2024-2025)",
-    "mathematical_foundation": "Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, Varley (2025) information theory for complex systems",
-    "computational_support": "Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft)",
-    "separation_date": "2026-04-25",
-    "separation_reason": "Hˢ matured into a standalone mathematical instrument. Hˢ-GOV provides governance. The parent HUF repository remains as the historical development sibling."
+  "v1_1_status": {
+    "A_deterministic_pdf": "shipped (atlas/det_pdf.py)",
+    "B_native_units": "shipped (cnt/native_units.py + engine adoption)",
+    "C_png_svg_export": "shipped (atlas/stage1_v4.py PNG_DETERMINISTIC flag)",
+    "D_comparison_atlas": "shipped (atlas/compare.py)",
+    "E_carrier_alias_map": "shipped (atlas/alias_map.py)",
+    "F_trajectory_windowing": "shipped (atlas/atlas.py)",
+    "G_schema_validator": "shipped (tools/validate_cnt_schema.py)",
+    "H_ortho_triplet": "shipped + locked",
+    "MC_module_pipeline": "shipped (mission_command/modules.py)",
+    "spectrum_paper": "shipped (atlas/spectrum_paper.py)",
+    "projector_html": "shipped (atlas/plate_time_projector.html)",
+    "engine_config_overrides": "wired (cnt.py 2.0.4)",
+    "schema_2_1_0_units": "wired (cnt.py 2.0.4)",
+    "deferred_adapters_5": "all built (extended/markham_budget, iiasa_ngfs, esa_planck_cosmic, financial_sector, chemixhub_oxide)",
+    "conference_package": "shipped (codawork2026_conference/)",
+    "public_trial_readiness": "shipped (PUBLIC_TRIAL_READINESS.md)"
+  },
+  "open_items": [
+    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II \u00a7H); raw-data swap-in for the 5 extended adapters (checklist in Volume II \u00a7C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
+  ],
+  "handbook": {
+    "volume_1_theory": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
+    "volume_2_practitioner": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md",
+    "volume_3_verification": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md"
+  },
+  "coda_community": {
+    "balance_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_VS_CODA_BALANCE.md",
+    "roi_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_ROI_AND_USE_CASES.md",
+    "verification_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_VERIFICATION_VALUE_FOR_CODA.md",
+    "ternary_figure_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/cnt_roi_ternary.pdf"
+  },
+  "history": {
+    "previous_location": "D:\\HUF_Research\\Claude CoWorker\\HUF-CNT-System  (now archived)",
+    "current_location": "Current-Repo/Hs/HCI-CNT/",
+    "migration_date": "2026-05-06",
+    "active_repo_branch": "main",
+    "last_validated_commit": "6f7fb26  (Validate Repository #14)"
   }
 }

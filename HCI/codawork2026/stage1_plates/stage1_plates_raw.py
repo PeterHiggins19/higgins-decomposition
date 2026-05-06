@@ -222,9 +222,14 @@ def render_plate(data, t, scales, fig=None):
     ax_info.set_ylim(0, 1)
     ax_info.axis("off")
 
+    # Compute dynamic range for this plate
+    dr_hlr = max(clr) - min(clr)
+    dr_ratio = math.exp(dr_hlr)
+
     info_lines = [
-        f"CBS / CNT Stage 1",
-        f"FIXED SCALE",
+        f"HCI Stage 1  |  FIXED SCALE",
+        f"Unit: HLR (Higgins Log-Ratio)",
+        f"Y→x=Y/T→h=CLR→section",
         f"",
         f"Dataset : {data.get('dataset', '—')}",
         f"Year    : {year}",
@@ -235,11 +240,13 @@ def render_plate(data, t, scales, fig=None):
         f"Hs      = {hs:.6f}",
         f"Ring    = {ring}",
         f"E_metric= {e_metric:.4f}",
-        f"kappa   = {kappa:.2f}",
+        f"kappa_HS= {kappa:.2f}",
         f"omega   = {omega:.4f} deg",
         f"d_A     = {d_a:.6f}",
         f"Helm    = {helm if helm else '---'}",
         f"Helm d  = {helm_d:+.6f}" if helm else "Helm d  = ---",
+        f"DR      = {dr_hlr:.3f} HLR",
+        f"DR ratio= {dr_ratio:.1f}x",
         f"",
         f"XZ [{scales['bearing_ylim'][0]:.0f},{scales['bearing_ylim'][1]:.0f}]",
         f"CLR[{scales['clr_ylim'][0]:.1f},{scales['clr_ylim'][1]:.1f}]",
@@ -407,6 +414,312 @@ def render_plate(data, t, scales, fig=None):
 
 
 # ══════════════════════════════════════════════════════════════════
+# SYSTEM COURSE PLOT — whole-run barycentric plan view
+# ══════════════════════════════════════════════════════════════════
+
+def render_course_plot(data, scales, fig=None):
+    """
+    Render the System Course Plot — whole-run barycentric plan view.
+
+    Shows the complete compositional path from first observation to final
+    observation projected onto a 2D plane (top-2 principal CLR axes).
+    This is the navigation chart of the system.
+
+    Required elements:
+      - Barycentre marker (origin crosshairs)
+      - Start marker (S) at h(t=0)
+      - Final marker (F) at h(t=N-1)
+      - All observation points connected by course line
+      - Start-to-final net vector (arrow S→F)
+      - DCDI/Helmsman annotations at major displacement events
+      - Fixed global Higgins-coordinate scale
+      - Course metrics panel
+
+    Parameters
+    ----------
+    data   : dict   — full stage1_output.json contents
+    scales : dict   — fixed axis limits from compute_fixed_scales()
+    fig    : Figure — optional existing figure to draw on
+
+    Returns
+    -------
+    fig : matplotlib Figure
+    """
+    records  = data["records"]
+    carriers = data["carriers"]
+    D        = data["D"]
+    N        = data["N"]
+
+    if fig is None:
+        fig = plt.figure(figsize=(FIG_W, FIG_H), dpi=DPI,
+                         facecolor=BG_COLOR)
+    fig.clf()
+
+    # ── Compute 2D projection via PCA of CLR vectors ─────────────
+    # CLR matrix: N x D
+    clr_matrix = [rec["clr"] for rec in records]
+
+    # Compute mean CLR vector
+    mean_clr = [0.0] * D
+    for t in range(N):
+        for j in range(D):
+            mean_clr[j] += clr_matrix[t][j]
+    for j in range(D):
+        mean_clr[j] /= N
+
+    # Centre the data
+    centred = [[clr_matrix[t][j] - mean_clr[j] for j in range(D)]
+               for t in range(N)]
+
+    # Compute covariance matrix (D x D)
+    cov = [[0.0] * D for _ in range(D)]
+    for t in range(N):
+        for i in range(D):
+            for j in range(D):
+                cov[i][j] += centred[t][i] * centred[t][j]
+    for i in range(D):
+        for j in range(D):
+            cov[i][j] /= (N - 1)
+
+    # Power iteration for top-2 eigenvectors
+    def power_iter(mat, n_dim, n_iter=200):
+        """Simple power iteration with deflation for top eigenvectors."""
+        import random
+        random.seed(42)
+        eigvecs = []
+        mat_work = [row[:] for row in mat]
+        for _ in range(min(2, n_dim)):
+            # Random initial vector
+            v = [random.gauss(0, 1) for _ in range(n_dim)]
+            norm = math.sqrt(sum(x*x for x in v))
+            v = [x/norm for x in v]
+            for _ in range(n_iter):
+                # Matrix-vector multiply
+                w = [sum(mat_work[i][j] * v[j] for j in range(n_dim))
+                     for i in range(n_dim)]
+                norm = math.sqrt(sum(x*x for x in w))
+                if norm < 1e-15:
+                    break
+                v = [x/norm for x in w]
+            eigvecs.append(v)
+            # Deflate: remove component along v
+            eigenval = sum(sum(mat_work[i][j] * v[j] for j in range(n_dim)) * v[i]
+                          for i in range(n_dim))
+            for i in range(n_dim):
+                for j in range(n_dim):
+                    mat_work[i][j] -= eigenval * v[i] * v[j]
+        return eigvecs
+
+    eigvecs = power_iter(cov, D)
+
+    # Project all CLR vectors onto PC1 and PC2
+    if len(eigvecs) >= 2:
+        pc1 = eigvecs[0]
+        pc2 = eigvecs[1]
+    else:
+        # Fallback: use first two carriers
+        pc1 = [1.0 if j == 0 else 0.0 for j in range(D)]
+        pc2 = [1.0 if j == 1 else 0.0 for j in range(D)]
+
+    proj_x = [sum(clr_matrix[t][j] * pc1[j] for j in range(D))
+              for t in range(N)]
+    proj_y = [sum(clr_matrix[t][j] * pc2[j] for j in range(D))
+              for t in range(N)]
+
+    # ── Course metrics ───────────────────────────────────────────
+    h_start = clr_matrix[0]
+    h_final = clr_matrix[-1]
+    v_net = [h_final[j] - h_start[j] for j in range(D)]
+    net_distance = math.sqrt(sum(v*v for v in v_net))
+
+    path_length = 0.0
+    for t in range(N - 1):
+        step = [clr_matrix[t+1][j] - clr_matrix[t][j] for j in range(D)]
+        path_length += math.sqrt(sum(s*s for s in step))
+
+    course_directness = net_distance / path_length if path_length > 0 else 0.0
+
+    # Dynamic range at start and final
+    dr_start = max(h_start) - min(h_start)
+    dr_final = max(h_final) - min(h_final)
+
+    # Metric energy at start and final
+    e_start = sum(h*h for h in h_start)
+    e_final = sum(h*h for h in h_final)
+
+    # ── Identify major DCDI/Helmsman events (top-3 by d_A) ───────
+    dcdi_events = []
+    for t in range(N):
+        rec = records[t]
+        if rec["helmsman"] and rec["d_aitchison"] > 0:
+            dcdi_events.append((t, rec["d_aitchison"], rec["helmsman"]))
+    dcdi_events.sort(key=lambda x: x[1], reverse=True)
+    top_dcdi = dcdi_events[:5]  # top-5 displacement events
+
+    # ── Figure layout: main plot + metrics panel ─────────────────
+    gs = fig.add_gridspec(1, 2,
+                          width_ratios=[3, 1],
+                          hspace=0.15, wspace=0.15,
+                          left=0.08, right=0.95,
+                          top=0.90, bottom=0.08)
+
+    fig.suptitle(
+        f"SYSTEM COURSE PLOT  |  {data.get('dataset', '—')}  |  "
+        f"D={D}  N={N}  |  Years {records[0]['year']}–{records[-1]['year']}",
+        fontsize=13, fontfamily=FONT_MONO, fontweight="bold",
+        color=TEXT_COLOR
+    )
+
+    # ── Main course plot ─────────────────────────────────────────
+    ax = fig.add_subplot(gs[0, 0])
+
+    # Course path line
+    ax.plot(proj_x, proj_y, color="0.50", linewidth=1.2,
+            linestyle="-", zorder=2)
+
+    # All observation points
+    ax.scatter(proj_x, proj_y, s=20, c="0.30", marker="o",
+               zorder=3, edgecolors="none")
+
+    # Year labels on every point
+    for t in range(N):
+        ax.annotate(str(records[t]["year"]),
+                    (proj_x[t], proj_y[t]),
+                    fontsize=5.5, fontfamily=FONT_MONO,
+                    textcoords="offset points",
+                    xytext=(4, 4), color="0.4")
+
+    # Barycentre marker (projection of origin)
+    bary_x = sum(0.0 * pc1[j] for j in range(D))  # origin projects to 0,0 only if mean_clr = 0
+    bary_y = sum(0.0 * pc2[j] for j in range(D))
+    ax.axhline(bary_y, color="0.7", linewidth=0.5, linestyle="--", zorder=1)
+    ax.axvline(bary_x, color="0.7", linewidth=0.5, linestyle="--", zorder=1)
+    ax.scatter([bary_x], [bary_y], s=80, c="black", marker="+",
+               zorder=4, linewidths=1.5)
+
+    # Start marker (S)
+    ax.scatter([proj_x[0]], [proj_y[0]], s=100, c="none",
+               marker="s", edgecolors="black", linewidths=2, zorder=5)
+    ax.annotate("S", (proj_x[0], proj_y[0]),
+                fontsize=11, fontfamily=FONT_MONO, fontweight="bold",
+                textcoords="offset points", xytext=(-12, -12),
+                color="black")
+
+    # Final marker (F)
+    ax.scatter([proj_x[-1]], [proj_y[-1]], s=100, c="none",
+               marker="D", edgecolors="black", linewidths=2, zorder=5)
+    ax.annotate("F", (proj_x[-1], proj_y[-1]),
+                fontsize=11, fontfamily=FONT_MONO, fontweight="bold",
+                textcoords="offset points", xytext=(8, -12),
+                color="black")
+
+    # Net displacement vector (arrow S → F)
+    ax.annotate("", xy=(proj_x[-1], proj_y[-1]),
+                xytext=(proj_x[0], proj_y[0]),
+                arrowprops=dict(arrowstyle="->", color="black",
+                                lw=2.0, linestyle="--"))
+
+    # DCDI/Helmsman markers at major events
+    for t_ev, d_a_ev, helm_ev in top_dcdi:
+        ax.scatter([proj_x[t_ev]], [proj_y[t_ev]], s=60,
+                   c="none", marker="^", edgecolors="black",
+                   linewidths=1.5, zorder=6)
+        ax.annotate(f"{helm_ev[:4]}",
+                    (proj_x[t_ev], proj_y[t_ev]),
+                    fontsize=6, fontfamily=FONT_MONO, fontweight="bold",
+                    textcoords="offset points", xytext=(5, -10),
+                    color="0.2")
+
+    # Fixed scale — data-adaptive per axis with padding
+    x_min, x_max = min(proj_x), max(proj_x)
+    y_min, y_max = min(proj_y), max(proj_y)
+    x_range = x_max - x_min if x_max > x_min else 1.0
+    y_range = y_max - y_min if y_max > y_min else 1.0
+    x_pad = x_range * 0.12
+    y_pad = y_range * 0.15
+    ax.set_xlim(x_min - x_pad, x_max + x_pad)
+    ax.set_ylim(y_min - y_pad, y_max + y_pad)
+
+    ax.set_title("Compositional Course (PC1 vs PC2 of CLR)",
+                 fontsize=10, fontfamily=FONT_MONO, fontweight="bold",
+                 color=TEXT_COLOR)
+    ax.set_xlabel("PC1 (HLR)", fontsize=8, fontfamily=FONT_MONO,
+                  color=TEXT_COLOR)
+    ax.set_ylabel("PC2 (HLR)", fontsize=8, fontfamily=FONT_MONO,
+                  color=TEXT_COLOR)
+    ax.grid(True, color=GRID_COLOR, linewidth=0.5)
+    ax.tick_params(labelsize=7)
+
+    # ── Metrics panel ────────────────────────────────────────────
+    ax_met = fig.add_subplot(gs[0, 1])
+    ax_met.set_xlim(0, 1)
+    ax_met.set_ylim(0, 1)
+    ax_met.axis("off")
+
+    # PC loadings — which carriers dominate each axis
+    pc1_load = sorted(range(D), key=lambda j: abs(pc1[j]), reverse=True)
+    pc2_load = sorted(range(D), key=lambda j: abs(pc2[j]), reverse=True)
+
+    metrics_lines = [
+        "COURSE METRICS",
+        "═" * 30,
+        "",
+        "Scale Provenance:",
+        "  Y_j → x_j=Y_j/T → h_j=CLR",
+        "  → PC projection",
+        "  Unit: HLR (Higgins Log-Ratio)",
+        "",
+        f"Net distance   = {net_distance:.4f} HLR",
+        f"Path length    = {path_length:.4f} HLR",
+        f"Directness     = {course_directness:.4f}",
+        "",
+        f"DR start       = {dr_start:.3f} HLR",
+        f"  ratio        = {math.exp(dr_start):.1f}x",
+        f"DR final       = {dr_final:.3f} HLR",
+        f"  ratio        = {math.exp(dr_final):.1f}x",
+        "",
+        f"E_metric start = {e_start:.4f}",
+        f"E_metric final = {e_final:.4f}",
+        "",
+        "PC1 loadings:",
+        f"  {carriers[pc1_load[0]][:8]:8s} {pc1[pc1_load[0]]:+.3f}",
+        f"  {carriers[pc1_load[1]][:8]:8s} {pc1[pc1_load[1]]:+.3f}",
+        f"  {carriers[pc1_load[2]][:8]:8s} {pc1[pc1_load[2]]:+.3f}",
+        "",
+        "PC2 loadings:",
+        f"  {carriers[pc2_load[0]][:8]:8s} {pc2[pc2_load[0]]:+.3f}",
+        f"  {carriers[pc2_load[1]][:8]:8s} {pc2[pc2_load[1]]:+.3f}",
+        f"  {carriers[pc2_load[2]][:8]:8s} {pc2[pc2_load[2]]:+.3f}",
+        "",
+        "Top displacement events:",
+    ]
+    for t_ev, d_a_ev, helm_ev in top_dcdi:
+        metrics_lines.append(
+            f"  {records[t_ev]['year']} {helm_ev[:8]:8s} "
+            f"d={d_a_ev:.3f}")
+
+    metrics_lines.extend([
+        "",
+        "═" * 30,
+        "The instrument reads.",
+        "The expert decides.",
+        "The loop stays open.",
+    ])
+
+    metrics_text = "\n".join(metrics_lines)
+    ax_met.text(0.05, 0.97, metrics_text,
+                transform=ax_met.transAxes,
+                fontsize=7.5, fontfamily=FONT_MONO,
+                verticalalignment="top",
+                color=TEXT_COLOR,
+                bbox=dict(boxstyle="square,pad=0.4",
+                          facecolor="0.97", edgecolor="0.5",
+                          linewidth=1))
+
+    return fig
+
+
+# ══════════════════════════════════════════════════════════════════
 # OUTPUT — PDF (multi-page) or PNG (one file per year)
 # ══════════════════════════════════════════════════════════════════
 
@@ -432,9 +745,14 @@ def generate_pdf(data, output_path):
             year = data["records"][t]["year"]
             print(f"  Plate t={t:3d}  Year={year}  -> page {t+1}")
 
+        # ── System Course Plot — final page ──────────────────────
+        render_course_plot(data, scales, fig)
+        pdf.savefig(fig, facecolor=BG_COLOR)
+        print(f"  System Course Plot  -> page {N+1}")
+
     plt.close(fig)
     print(f"\nPDF written: {output_path}")
-    print(f"Pages: {N}")
+    print(f"Pages: {N + 1}  (section plates + course plot)")
 
 
 def generate_pngs(data, output_dir):

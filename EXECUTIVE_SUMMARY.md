@@ -1697,3 +1697,225 @@ The enriched functor Hˢ_enriched maps Data → (Sym₊(D), λ_spectrum, v_stabi
 
 ---
 *The instrument reads. The expert decides. The loop stays open.*
+
+## 2026-05-05 — cnt_v2: Single-Engine Canonical JSON Generator
+
+The three-program CNT pipeline (cnt_tensor_engine + cnt_analysis +
+cnt_depth_sounder) is consolidated into one program at
+`HCI/cnt_v2/cnt.py` (Python canonical) and `HCI/cnt_v2/cnt.R` (R port).
+One CSV in, one schema-2.0.0 conformant JSON out.
+
+**Architecture**
+
+Two engines: a JSON Builder and an unbounded set of viewers (plates,
+projector, spectrum analyser, future contributors). The JSON is the
+authority. The viewers are disposable. Schema (`CNT_JSON_SCHEMA.md`
+v2.0.0) defines the contract; `CNT_PSEUDOCODE.md` is the
+language-neutral algorithm reference.
+
+**Schema 2.0.0 split**
+
+Every analytic block (`tensor`, `stages/{1,2,3}`, `bridges`, `depth`,
+`diagnostics`) is split into `coda_standard/` (Aitchison/Egozcue/
+Pawlowsky-Glahn/Shannon lineage) and `higgins_extensions/` (HUF-
+framework readings of the same simplex). Every block also declares a
+functional role: `composer`, `review`, `formatter`, or `provenance`.
+A CoDa-community reviewer can read just the `coda_standard/` fields and
+audit the engine without engaging Higgins-specific machinery. Schema §8
+documents that every Higgins extension is computable from CoDa-standard
+quantities.
+
+**Engine fix log within 2.0.x**
+
+| Engine | Fix |
+|---|---|
+| 2.0.0 | Initial schema-2 layout |
+| 2.0.1 | Period-1 detection requires TWO consecutive convergences (was 1) — fixed false-positive DEGENERATE on USA EMBER and Ball/TAS |
+| 2.0.1 | Curvature composition uses 1/x_j² (was 1/x_j) — Math Handbook Ch 19.2(b) |
+| 2.0.1 | TRIADIC_T_LIMIT default lowered 1000 → 500 |
+| 2.0.2 | USER CONFIGURATION block at top of cnt.py / cnt.R; metadata.engine_config echo |
+
+**USER CONFIGURATION block (engine 2.0.2)**
+
+Every controllable engine constant is now a documented variable in a
+clearly-labelled USER CONFIGURATION block at the top of cnt.py and
+cnt.R. Active values are echoed in `metadata.engine_config` of every
+JSON output. Two runs with identical config and identical input produce
+identical `diagnostics.content_sha256`; two runs with different config
+produce different content_sha256, and the JSON records exactly which
+config was active. The user controls the tool, not the tool — Peter's
+directive captured in code.
+
+**Experiment battery — `HCI/experiments_v2/`**
+
+A registry-driven runner (`run_experiments.py`) executes 19 experiments
+across three subdirectories. Each experiment folder contains a source
+CSV (or built input CSV), a canonical CNT JSON, and an auto-generated
+`JOURNAL.md`. Selected experiments also have an `INTERPRETATION.md`
+(BackBlaze fleet, FAO irrigation, USA EMBER diagnosis).
+
+* `codawork2026/` (10): EMBER 8 countries + combined panel + BackBlaze
+  fleet (T=731 daily, 2024-2025).
+* `domain/` (7): Ball geochem (3 binnings) + Stracke OIB + Tappe KIM +
+  Qin Cpx + FAO Aquastat irrigation methods.
+* `reference/` (2): Gold/Silver D=2 (T=1338) + Nuclear SEMF D=5 (T=76).
+
+Three working adapters in `adapters/` (backblaze_adapter.py,
+fao_irrigation_adapter.py, in-script combined-panel + gold-silver +
+nuclear-SEMF builders).
+
+**Empirical results**
+
+* Period-2 attractor universality: 5 confirmed period-2 systems in the
+  geochem battery alone (Ball/Region, Ball/Age, Ball/TAS-after-fix,
+  Stracke OIB, Tappe KIM, Qin Cpx). Across 19 experiments only two
+  remain genuinely DEGENERATE — Gold/Silver D=2 (no off-diagonal
+  metric structure) and BackBlaze fleet (curvature recursion driven to
+  vertex by Errors carrier dominating 60-96 % of composition).
+* BackBlaze two-tower split: energy tower converges to period-1 fixed
+  point at Hs=0.31, depth=8 (the "memoryless fleet" signature from
+  Hs-17), while curvature tower hits HS_FLAT due to single-carrier
+  concentration. Both readings are valid.
+* FAO 3-paradigm clustering: D=3 cross-section over 83 countries
+  cleanly separates surface-dominated, sprinkler-dominated, and
+  localized-dominated regimes. Pure CoDa setup, ternary-plot
+  visualizable.
+* Cross-domain A ≈ 0.066 match: Tappe kimberlite (D=10, T=8) and FAO
+  irrigation (D=3, T=83) both converge to the same critically-damped
+  attractor amplitude. Suggests A may be a structural property of
+  cross-sectional compositions on the simplex.
+
+**Diagnostic notes**
+
+* USA EMBER (curv_depth=3, DEGENERATE) and Ball/TAS (curv_depth=3,
+  DEGENERATE) were both engine artefacts of the period-1 false-positive
+  bug. After the 2.0.1 fix: USA recovered to curv_depth=16 /
+  LIGHTLY_DAMPED, Ball/TAS to curv_depth=12 / LIGHTLY_DAMPED. The
+  earlier ROBUSTNESS_JOURNAL_v2.md claim that "TAS is degenerate by
+  design" was wrong; corrected via inline erratum.
+* USA EMBER also has a separate data issue: the pipeline-ready CSV
+  covers 2000-2024 (T=25), missing 2025. The newer EMBER 2025 release
+  has CSVs for the other 7 countries but not USA. Action item: extract
+  USA 2025 from EMBER monthly long-format data.
+
+**Status**
+
+cnt_v2 engine VERIFIED. Schema 2.0.0 authoritative. 19/19 experiments
+ok. Admin manifests (HS_MACHINE_MANIFEST, HS_ADMIN) updated.
+AI_REFRESH_2026-05-05.md written.
+
+The instrument reads. The expert decides. The loop stays open.
+
+
+---
+
+## Update — 2026-05-05 (v1.1.x consolidation)
+
+Engine **2.0.4** / Schema **2.1.0** / **25** experiments / Conference
+package locked / Public-trial readiness audit shipped.
+
+### What's new since the v1.0.0 entry above
+
+* **Output Doctrine v1.0.1** — integer orders only; trajectory
+  aggregates round UP to next integer order. Hash-stamped at
+  `HUF-CNT-System/atlas/OUTPUT_DOCTRINE.md`.
+* **Stage 1 standard locked** — `atlas/stage1_v4.py` (ILR-Helmert
+  orthogonal triplet, FIXED HLR, automatic magnitude factor).
+* **Stage 2 standard locked** — `atlas/stage2_locked.py` (19-plate
+  Order-2 atlas with System Course Plot, CBS three orthogonal faces,
+  pairwise divergence ranking, helmsman lineage, lock timeline,
+  variation matrix, etc.) + `STAGE2_PSEUDOCODE.md` + `stage2.R`.
+* **Calibration fixtures** — Stage 1 27-point grid (drift O(1e-10));
+  Stage 2 straight (directness=1.0) / loop (directness=0.0) at IEEE
+  floor.
+* **Spectrum (paper)** — `atlas/spectrum_paper.py` cross-dataset
+  spectrum PDF with FIXED scales.
+* **Plate-time projector (interactive HTML)** — barycenter as the
+  z-axis spine; per-timestep PCA-frame plates stacked along year axis;
+  COMBINED view across all 8 EMBER countries; only valid/known
+  connection lines (every edge attributable to a JSON field).
+* **Mission Command module pipeline** — `mission_command/modules.py`
+  registers Stage 1 / Stage 2 / Spectrum / Projector; users select
+  modules per project in `master_control.json`; manifests record
+  every artefact's path + sha256 + bytes.
+* **Engine 2.0.4** — `engine_config_overrides` honoured (per-call kwarg
+  + per-experiment from master_control); `metadata.engine_config
+  .active_overrides` always echoed.
+* **Schema 2.1.0** (additive) — `metadata.units` block:
+  `input_units`, `higgins_scale_units`,
+  `units_scale_factor_to_neper`. Native units adopted in the engine.
+* **5 deferred adapters built** — `markham_budget`, `iiasa_ngfs`,
+  `esa_planck_cosmic`, `financial_sector`, `chemixhub_oxide`. Each
+  ships with a structurally-faithful synthetic baseline; raw-data
+  swap-in points documented. Reference corpus 20 → 25.
+* **Conference demo package** — `codawork2026_conference/cnt_demo/`
+  (engine, per-country, combined views, calibration, doctrine) with
+  `DEMO_GUIDE.md` for a 30-minute walkthrough.
+* **Public-trial readiness** — `PUBLIC_TRIAL_READINESS.md`
+  (claim-by-claim evidence map); `tools/verify_package.py` ;
+  full corpus run = **25 PASS / 0 FAIL / 0 ERR** at engine 2.0.4.
+
+The instrument reads. The expert decides. The loop stays open.
+
+
+---
+
+## Update — 2026-05-06: HCI-CNT folded into the Hˢ repository
+
+The Compositional Navigation Tensor work, previously developed as the
+standalone `HUF-CNT-System` package outside the Hˢ repository, has
+been moved into `HCI-CNT/` inside this repository. CNT shares Hˢ's
+Aitchison-geometry foundations, simplex-closure operator, and the
+single-axiom determinism principle — keeping the two as separate
+repositories was redundant given how tightly they fit together.
+
+### What's in `HCI-CNT/`
+
+* **engine/** — `cnt.py` (Python canonical, 2.0.4) + `cnt.R` (parity
+  port, 2.0.4) + `native_units.py` (v1.1-B units helper) + tests.
+* **atlas/** — the four-stage paged report system: Stage 1 ortho
+  triplet plate (Order 1), Stage 2 single report (Order 2, 28 plates
+  including the standard CoDa set: variation matrix, biplot, balance
+  dendrogram, SBP, ternary, scree), Stage 3 depth/IR/attractor
+  (Order 3, 11 plates), Stage 4 cross-dataset inference (Order 4+,
+  11 plates), spectrum paper PDF, interactive HTML projector.
+* **mission_command/** — orchestrator, module registry,
+  `master_control.json`. Six post-CNT modules: stage1, stage2,
+  stage3, stage4, spectrum_paper, projector_html.
+* **adapters/** — 13 fully-disclosed pre-parsers.
+* **experiments/** — 25 reference experiments, all passing the
+  determinism gate at engine 2.0.4 (8 EMBER countries + World, 1
+  combined panel, 1 BackBlaze, 7 geochem, 2 reference, 5 extended).
+* **examples/** — quickstart + tutorials.
+* **handbook/** — three consolidated volumes:
+  * Volume I — Theory and Mathematics (15,985 words)
+  * Volume II — Practitioner and Operations (23,745 words)
+  * Volume III — Verification, Reference and Release (7,960 words)
+* **coda_community/** — three CoDa-community preprint papers
+  (technical balance book, ROI / use-case decisions,
+  hash-chain verification proposal) plus the time-budget ternary
+  figure.
+* **conference_demo/** — CodaWork 2026 self-contained package
+  with the 30-minute walkthrough script, the 10-slide editable
+  PowerPoint deck, and the per-country output suite (Stage 1/2 PDFs
+  + canonical JSON for all 8 EMBER countries + World, plus
+  cross-dataset spectrum + projector + extended-battery output).
+
+### What changed in the Hˢ repo
+
+* `README.md` — added the **HCI-CNT** section pointing at the new
+  subfolder and the three handbook volumes.
+* `EXECUTIVE_SUMMARY.md` — this entry.
+* `ai-refresh/AI_REFRESH_2026-05-06_HCI-CNT_migration.md` — fresh
+  AI-refresh entry covering the migration.
+* `ai-refresh/HS_MACHINE_MANIFEST.json` — pointers updated to
+  reflect the new location.
+* `ai-refresh/PROJECT_HISTORY.json` — phase appended.
+
+### Status
+
+CNT is now part of the Hˢ canonical development line. The previous
+standalone `HUF-CNT-System` location is archived and read-only;
+ongoing CNT work happens inside this repository under `HCI-CNT/`.
+
+The instrument reads. The expert decides. The hashes carry the receipts.

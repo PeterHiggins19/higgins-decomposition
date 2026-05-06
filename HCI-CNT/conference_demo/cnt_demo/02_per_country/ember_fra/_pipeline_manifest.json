@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "project_id": "ember_fra",
+    "generated": "2026-05-06T00:56:08.701299+00:00",
+    "experiments": [
+      "ember_fra"
+    ],
+    "modules": [
+      "stage1",
+      "stage2"
+    ]
+  },
+  "per_experiment": {
+    "ember_fra": [
+      {
+        "kind": "stage1",
+        "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/02_per_country/ember_fra/stage1_ember_fra.pdf",
+        "sha256": "587a422fb6d307c3aebee2ed9f92c7d7696a41a2a8c6425b6993f62718bc16c4",
+        "bytes": 285246
+      },
+      {
+        "kind": "stage2",
+        "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/02_per_country/ember_fra/stage2_ember_fra.pdf",
+        "sha256": "c0264364be4cdda2db1c2737caef0eb3c74ec5d272b7053c2e72d1c2e343fb75",
+        "bytes": 200044
+      }
+    ]
+  },
+  "group": {}
+}
