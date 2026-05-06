@@ -7,15 +7,15 @@
     "protocol": "Scrape \u2192 verify \u2192 cross-reference \u2192 fix \u2192 re-verify \u2192 set status",
     "previous_version": "2026-05-04T02:00:00 (push #14 \u2014 HCI navigation plotter / Validate Repository #14 / commit 6f7fb26)"
   },
-  "status": "PUSHED \u2014 push #15 landed clean",
-  "issues": "None",
+  "status": "PUSHED \u2014 push #17 landed clean",
+  "issues": "Cosmetic: lu4422tlij.tmp still in tree (LibreOffice leak from deck build). Future leaks blocked by HCI-CNT/.gitignore. Single git-rm fixes when convenient.",
   "last_verified_push": {
     "repository": "github.com/PeterHiggins19/higgins-decomposition",
     "branch": "main",
-    "commit": "f38a7c9",
-    "message": "HCI-CNT migration / Validate Repository #15",
+    "commit": "0efda90",
+    "message": "HCI Community / Validate Repository #17",
     "date": "2026-05-06T?",
-    "push_number": 15,
+    "push_number": 17,
     "next_push_number": 15,
     "push_history": [
       {
@@ -76,9 +76,25 @@
         "push_number": 15,
         "validation_runtime_sec": 34,
         "validation_status": "PASS"
+      },
+      {
+        "commit": "a92c35b",
+        "message": "HCI updates / Validate Repository #16",
+        "date": "2026-05-06T?",
+        "push_number": 16,
+        "validation_runtime_sec": 42,
+        "validation_status": "PASS"
+      },
+      {
+        "commit": "0efda90",
+        "message": "HCI Community / Validate Repository #17",
+        "date": "2026-05-06T?",
+        "push_number": 17,
+        "validation_runtime_sec": 37,
+        "validation_status": "PASS"
       }
     ],
-    "validation_runtime_sec": 34,
+    "validation_runtime_sec": 37,
     "validation_status": "PASS"
   },
   "canonical_counts": {

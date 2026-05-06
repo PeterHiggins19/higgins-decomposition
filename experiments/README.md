@@ -154,3 +154,29 @@ The Manifold Projector renders per-carrier CLR values normalized to 0-1 as radar
 
 *Peter Higgins / Rogue Wave Audio*
 *Licensed under CC BY 4.0*
+
+---
+
+## CNT canonical corpus (added 2026-05-06)
+
+A dated release snapshot of the **25-experiment Compositional Navigation
+Tensor (CNT) canonical corpus** lives in this directory at:
+
+* [`Hs-CNT_2026-05/`](Hs-CNT_2026-05/) — engine 2.0.4 / schema 2.1.0 release snapshot
+
+The CNT corpus sits alongside the historical Hs-01 to Hs-25 experiment
+series. Both series remain part of the Hs canon. The Hs-NN series
+predates CNT and uses the original Hs pipeline; the Hs-CNT_2026-05
+series uses the CNT engine (`HCI-CNT/`) and produces the audit-traceable
+JSON-and-PDF chain documented in
+[`../HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md`](../HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md).
+
+The live working folder for the CNT corpus (used by the engine and
+atlas modules) is at [`../HCI-CNT/experiments/`](../HCI-CNT/experiments/).
+The `Hs-CNT_2026-05/` folder is the as-published snapshot.
+
+When the CNT engine evolves and re-runs the corpus, the next dated
+snapshot (`Hs-CNT_<later-date>/`) captures the new state. Earlier
+snapshots are kept for lineage.
+
+---

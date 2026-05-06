@@ -1,8 +1,8 @@
 {
   "_meta": {
     "schema": "hs_admin/3.0",
-    "generated": "2026-05-06T18:00:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes)"
+    "generated": "2026-05-06T19:15:00Z",
+    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added"
   },
   "engine": {
     "type": "CNT_V2_EXPERIMENT_INDEX",
@@ -413,5 +413,30 @@
       "CoDa-community preprints position the work as additive infrastructure \u2014 supportive of the established CoDa toolkit, not competitive."
     ],
     "push_status": "Ready for push #15 (per PREPARE_FOR_REPO.json checklist; READY_TO_PUSH=true)."
+  },
+  "experiment_series": {
+    "historical_Hs_01_to_25": {
+      "path": "experiments/",
+      "naming": "Hs-NN_<descriptive>",
+      "engine": "Hs pipeline (pre-CNT)",
+      "n": 25,
+      "status": "preserved as historical record"
+    },
+    "Hs_CNT_2026_05": {
+      "path": "experiments/Hs-CNT_2026-05/",
+      "naming": "<subdir>/<cnt-id> (e.g. codawork2026/ember_jpn)",
+      "engine": "cnt 2.0.4",
+      "schema": "2.1.0",
+      "n": 25,
+      "subdir_breakdown": {
+        "codawork2026": 10,
+        "domain": 8,
+        "reference": 2,
+        "extended": 5
+      },
+      "live_working_folder": "HCI-CNT/experiments/",
+      "status": "release snapshot at push #18; determinism gate 25/25 PASS",
+      "verifiable_via": "HCI-CNT/mission_command/mission_command.py"
+    }
   }
 }

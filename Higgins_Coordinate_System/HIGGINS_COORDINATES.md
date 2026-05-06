@@ -8,6 +8,23 @@ The instrument reads. The expert decides. The loop stays open.
 
 ---
 
+> **Status note (2026-05-06).** This document is the **foundational
+> specification** of the Higgins Coordinate System as it stood at the
+> close of its first development cycle (April–May 2026). The same
+> axiom, simplex foundations, CLR coordinates, and projection cube
+> remain canonical. The operational implementation has since matured
+> into the **Compositional Navigation Tensor (CNT)** engine 2.0.4 /
+> schema 2.1.0, which now lives at [`HCI-CNT/`](../HCI-CNT/). CNT is
+> the current canonical engine and report system; the 12-step
+> pipeline described in §8 is preserved here as the original
+> reference. For active use, the three CNT handbook volumes at
+> [`HCI-CNT/handbook/`](../HCI-CNT/handbook/) are the current
+> documentation, and the 25-experiment canonical corpus lives at
+> [`experiments/Hs-CNT_2026-05/`](../experiments/Hs-CNT_2026-05/).
+
+
+---
+
 ## 1. What This Document Is
 
 This is the complete specification of the Higgins Coordinate System — a deterministic instrument for reading the geometric structure of compositional data. Everything in this document derives from a single axiom, builds through CoDa-approved mathematics, and terminates in a standardised diagnostic output.
@@ -249,9 +266,45 @@ Empirically, tested systems exhibit low reflection coefficient (GAMMA near 0), c
 
 ## 8. The Pipeline
 
-### 8.1 The 12-Step Decomposition
+### 8.1 The 12-Step Decomposition (foundational reference)
 
-The pipeline is the operational implementation of the tensor functor, extended with diagnostics:
+The 12-step pipeline below was the operational implementation of the
+tensor functor at the close of the first development cycle (May 2026).
+It is preserved here as the **foundational reference** — the original
+end-to-end recipe the system was built on.
+
+**The current canonical engine is CNT 2.0.4** in
+[`HCI-CNT/engine/cnt.py`](../HCI-CNT/engine/cnt.py) (Python) and
+[`HCI-CNT/engine/cnt.R`](../HCI-CNT/engine/cnt.R) (R, parity). CNT
+preserves every axiom and every operator named here — closure, CLR,
+variance trajectory, matrix analysis, transcendental squeeze, EITT,
+report — and additionally provides:
+
+* a single canonical JSON output conforming to schema 2.1.0
+  (recorded in [`HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md`](../HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md) Part E);
+* a four-stage paged atlas (Order 1 through Order 4+) replacing the
+  scattered standalone outputs;
+* trajectory-native operators — bearings θ, angular velocity ω,
+  helmsman σ, period-2 attractor, IR class — built on the same
+  tensor structure;
+* end-to-end hash-chained provenance (`source_file_sha256` →
+  `engine_signature` → `content_sha256` → PDF page footer);
+* a determinism gate over a 25-experiment canonical corpus,
+  passing 25 of 25 byte-identically.
+
+The 12 steps below remain mathematically valid; users running new
+analyses should reach for CNT (`HCI-CNT/`) rather than re-implementing
+the steps directly. The 12-step recipe is documented here for
+historical lineage and to make the inheritance from this foundational
+spec to the current engine explicit.
+
+For the operational mapping from each step below into its CNT
+counterpart, see Volume I §C ("The CNT Engine: tensor decomposition
+over the simplex") and Volume I §D (engine pseudocode).
+
+---
+
+The pipeline as originally specified:
 
 | Step | Operation | What It Computes |
 |------|-----------|-----------------|
@@ -648,3 +701,31 @@ The decomposition is the decimation turned inside out. What it decimates: observ
 Peter Higgins — Independent Researcher — Markham, Ontario, Canada
 Rogue Wave Audio — RWA-001
 Hs — The instrument reads. The expert decides. The loop stays open.
+
+
+---
+
+## Cross-reference — current canonical implementation
+
+The Higgins Coordinate System as specified in this document has matured
+into the Compositional Navigation Tensor (CNT) engine. The mapping from
+this foundational spec to the current canon:
+
+| Section in this document | Current home |
+|---|---|
+| §2 The Generating Axiom | [Volume I Part A — Foundations](../HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md) |
+| §3 The Barycentre | Volume I Part B — Compositional-data foundations |
+| §4 The Higgins Coordinate (CLR) | Volume I Part B + Part C |
+| §5 The Projection Cube | [`HCI-CNT/atlas/stage1_v4.py`](../HCI-CNT/atlas/stage1_v4.py) (Stage 1 plate) + Volume II Part A |
+| §6 The Polar Slice | [`HCI-CNT/atlas/stage2_locked.py`](../HCI-CNT/atlas/stage2_locked.py) (Stage 2 plate book — polar bearing rose) |
+| §7 The Tensor Functor | Volume I Part C — The CNT Engine |
+| §8 The Pipeline (12 steps) | [`HCI-CNT/engine/cnt.py`](../HCI-CNT/engine/cnt.py) (single deterministic engine) + Volume I Part D pseudocode |
+| §8.5 EITT | Cross-dataset EITT lives in Stage 4 ([`HCI-CNT/atlas/stage4_locked.py`](../HCI-CNT/atlas/stage4_locked.py)) |
+| §9 Diagnostic Code System | Schema 2.1.0 ([Volume I Part E](../HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)) + IR taxonomy in `j["depth"]["higgins_extensions"]` |
+
+For the current 25-experiment canonical corpus, see
+[`experiments/Hs-CNT_2026-05/`](../experiments/Hs-CNT_2026-05/) (release
+snapshot at engine 2.0.4) or [`HCI-CNT/experiments/`](../HCI-CNT/experiments/)
+(live working folder).
+
+The instrument reads. The expert decides. The hashes carry the receipts.

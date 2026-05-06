@@ -7,14 +7,15 @@
     "pages_url": "https://peterhiggins19.github.io/higgins-decomposition/",
     "visibility": "public",
     "created": "2026-04-25",
-    "total_pushes": 15,
-    "last_push_commit": "f38a7c9",
-    "last_push_message": "HCI-CNT migration / Validate Repository #15",
+    "total_pushes": 17,
+    "last_push_commit": "0efda90",
+    "last_push_message": "HCI Community / Validate Repository #17",
     "last_push_date": "2026-05-06",
     "license": "CC-BY-4.0",
     "default_branch": "main",
-    "last_validation_runtime_sec": 34,
-    "last_validation_status": "PASS"
+    "last_validation_runtime_sec": 37,
+    "last_validation_status": "PASS",
+    "community_standards_status": "GREEN \u2014 all 7 community-health checks satisfied (CoC, contributing, security, license, README, citation, issue templates) plus optional FUNDING.yml + PR template"
   },
   "description": {
     "short": "Higgins Decomposition (H\u02e2) \u2014 compositional inference on the simplex. A deterministic 12-step pipeline for reading the geometric fingerprint of any compositional system.",

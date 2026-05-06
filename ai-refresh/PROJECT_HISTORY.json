@@ -3,7 +3,7 @@
     "schema": "huf_cnt_history/1.0",
     "generated": "2026-05-06T17:30:00Z",
     "purpose": "Complete chronological project history for the HUF-CNT system. One row per milestone, ordered by date.",
-    "last_updated": "2026-05-06T18:30:00Z"
+    "last_updated": "2026-05-06T19:30:00Z"
   },
   "phases": [
     {
@@ -130,6 +130,26 @@
       "date": "2026-05-06",
       "phase": "Push #15 landed \u2014 HCI-CNT integration is live",
       "summary": "Commit f38a7c9 pushed to main. Validate Repository #15 PASS in 34 seconds. HCI-CNT now part of github.com/PeterHiggins19/higgins-decomposition. All 6 pre-flight checks of PREPARE_FOR_REPO.json passed prior to push."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "Push #16 landed \u2014 HCI-CNT version-coherence cleanup",
+      "summary": "Commit a92c35b (Validate Repository #16, PASS in 42s). Per-country snapshots refreshed to engine 2.0.4 / schema 2.1.0; INDEX meta updated; .gitignore added."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "Push #17 landed \u2014 community standards + README badges",
+      "summary": "Commit 0efda90 (Validate Repository #17, PASS in 37s). Added CODE_OF_CONDUCT (Contributor Covenant 2.1), CONTRIBUTING, SECURITY, 3 issue templates including verification_report, PR template, FUNDING placeholder, 6 README badges. GitHub community page now satisfies all 7 standard checks plus optional extras."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "Hs-CNT_2026-05 corpus snapshot added under experiments/",
+      "summary": "Created Hs/experiments/Hs-CNT_2026-05/ as dated release snapshot of the 25-experiment HCI-CNT canonical corpus. Each experiment self-contained (input CSV + canonical JSON + journal). Sits alongside the historical Hs-01..Hs-25 series. HCI-CNT/experiments/ remains the live engine working folder; this is the as-published record at engine 2.0.4 / schema 2.1.0."
+    },
+    {
+      "date": "2026-05-06",
+      "phase": "Higgins_Coordinate_System docs updated to point at CNT successor",
+      "summary": "HIGGINS_COORDINATES.md got a status banner, \u00a78.1 successor pointer, and a cross-reference appendix. experiment_01_diagnostic.html got a status banner. New README.md in the folder maps every section of the foundational spec to its current CNT location. The two .docx files (v4.1, v4.2) are flagged in the README as foundational artefacts; CNT canon lives in HCI-CNT/handbook/. Tone preserves the foundational work \u2014 CNT is described as the matured successor, not the replacement of incorrect work."
     }
   ],
   "by_topic": {

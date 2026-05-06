@@ -289,8 +289,8 @@
     ]
   },
   "_meta": {
-    "last_updated": "2026-05-06T18:00:00Z",
-    "last_change": "HCI-CNT subsystem added (CNT engine 2.0.4 / schema 2.1.0 / 25 experiments folded into the Hs repo)."
+    "last_updated": "2026-05-06T19:15:00Z",
+    "last_change": "Hs-CNT_2026-05 dated release snapshot added under experiments/."
   },
   "subsystems": {
     "HCI-CNT": {
@@ -305,6 +305,20 @@
       "n_total_files": 236,
       "license": "Apache-2.0",
       "verification": "PACKAGE READY (HCI-CNT/tools/verify_package.py)"
+    }
+  },
+  "experiment_series": {
+    "Hs_pipeline_25": {
+      "n": 25,
+      "path": "experiments/Hs-NN_*/",
+      "engine": "Hs pipeline"
+    },
+    "Hs_CNT_2026-05": {
+      "n": 25,
+      "path": "experiments/Hs-CNT_2026-05/",
+      "engine": "cnt 2.0.4",
+      "schema": "2.1.0",
+      "files": 71
     }
   }
 }
