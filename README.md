@@ -54,6 +54,8 @@ both human researchers and AI assistants:
 
 The protocol is identical in both modes. Pilot acceptance test: an AI given only the spec and a raw CSV reproduced the canonical `content_sha256` byte-for-byte. → [`ai-refresh/CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md)
 
+**🆕 Volume IV — The Quaternion View (May 7, 2026).**  Names the algebra CNT has been computing in.  Three IEEE-floor confirmations on drive failures, Planck CMB photons, and Standard Model neutrino oscillation establish that compositional dynamics on the simplex carries three structural invariances simultaneously — simplex rotation, mass-flow handedness, time-reversal symmetry — which is exactly the definition of a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.**  Engine unchanged; 25-experiment determinism gate unchanged; what changes is what we can say about what the engine is doing.  → [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
+
 **🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
 
 Both protocols are model-agnostic, registered in [`ai-refresh/HS_ADMIN.json`](ai-refresh/HS_ADMIN.json) for future cold-start discovery, and proven end-to-end on the live repo (see [`OPERATIONS_PROTOCOL_PILOT_REPORT.md`](OPERATIONS_PROTOCOL_PILOT_REPORT.md) and [`ai-refresh/CCTT_PILOT_REPORT.md`](ai-refresh/CCTT_PILOT_REPORT.md)).

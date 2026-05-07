@@ -1,16 +1,16 @@
 {
   "_meta": {
     "schema": "hs_machine_manifest/3.0",
-    "generated": "2026-05-06T17:30:00Z",
-    "last_writer": "Claude Cowork session \u2014 HCI-CNT migration into Hs repo",
+    "generated": "2026-05-07T09:30:00Z",
+    "last_writer": "Claude Cowork session - Volume IV (Quaternion View) integration",
     "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context."
   },
   "system": {
-    "name": "HUF-CNT (HCI-CNT) inside the H\u02e2 repository",
+    "name": "HUF-CNT (HCI-CNT) inside the Hˢ repository",
     "engine_version": "2.0.4",
     "schema_version": "2.1.0",
     "release": "v1.0.0 + v1.1.x  (CodaWork 2026 demo build)",
-    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (H\u02e2 research)",
+    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (Hˢ research)",
     "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT",
     "n_experiments": 25
   },
@@ -96,9 +96,9 @@
   },
   "doctrine_locks": {
     "output_doctrine": "v1.0.1 (integer orders only; trajectory aggregates round UP to next order)",
-    "stage1_standard": "atlas/stage1_v4.py \u2014 ILR-Helmert orthogonal triplet",
-    "stage2_standard": "atlas/stage2_locked.py \u2014 19-plate Order-2 atlas",
-    "schema": "2.1.0 \u2014 additive units block"
+    "stage1_standard": "atlas/stage1_v4.py — ILR-Helmert orthogonal triplet",
+    "stage2_standard": "atlas/stage2_locked.py — 19-plate Order-2 atlas",
+    "schema": "2.1.0 — additive units block"
   },
   "v1_1_status": {
     "A_deterministic_pdf": "shipped (atlas/det_pdf.py)",
@@ -119,7 +119,7 @@
     "public_trial_readiness": "shipped (PUBLIC_TRIAL_READINESS.md)"
   },
   "open_items": [
-    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II \u00a7H); raw-data swap-in for the 5 extended adapters (checklist in Volume II \u00a7C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
+    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II §H); raw-data swap-in for the 5 extended adapters (checklist in Volume II §C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
   ],
   "handbook": {
     "volume_1_theory": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
@@ -137,7 +137,7 @@
     "current_location": "Current-Repo/Hs/HCI-CNT/",
     "migration_date": "2026-05-06",
     "active_repo_branch": "main",
-    "last_validated_commit": "7d2b25e  (Validate Repository #19 — lock+temp-file cleanup)"
+    "last_validated_commit": "7d2b25e (push #19); push #21 c9dec16 + #22 (Volume IV integration) pending"
   },
   "fault_tolerance_dual_folder_method": {
     "_principle": "Peter operates a deliberate two-folder fault-tolerant method. The Claude Cowork mirror and the canonical local working repo are kept in lockstep but live independently, so a corruption or unintended edit in either folder can be recovered from the other as long as the push has not been verified as landed on origin/main.",
@@ -172,5 +172,18 @@
       "Until both signals are green, Peter retains the canonical local repo as the recovery source."
     ],
     "documented_at": "2026-05-06 (push #19 — lock+temp-file cleanup)"
+  },
+  "quaternion_view": {
+    "_description": "Volume IV of the canonical handbook (integrated 2026-05-07). Names the algebra CNT computes in.",
+    "central_claim": "CNT measures invariance. CNQ names the algebra that invariance lives in.",
+    "canonical_volume": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md",
+    "engine_docstring_pointer": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.py (top docstring 'Mathematical interpretation' block)",
+    "ops_protocol_section": "OPERATIONS_PROTOCOL.md Section 13",
+    "cctt_runbook_section": "ai-refresh/CCTT_RUNBOOK.md 'What CNT is measuring (Volume IV)'",
+    "experimental_archive_at_workspace_root": "D:/HUF_Research/Claude CoWorker/Quaternion Decomposition/",
+    "ieee_floor_confirmations_count": 3,
+    "engine_unchanged": true,
+    "determinism_gate_preserved": true,
+    "schema_unchanged": "2.1.0"
   }
 }

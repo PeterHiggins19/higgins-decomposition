@@ -8,6 +8,8 @@ citable, that together cover the system end-to-end.
 | [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md) | Mathematicians, reviewers | 16k words |
 | [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md) | Users running the system | 24k words |
 | [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md) | Reviewers, journals, partner labs | 8k words |
+| [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md) | mathematicians, cross-domain reviewers (post-CodaWork integration) | 4k words |
+| [Glossary (minimal-now refresh)](GLOSSARY.md) | any reader needing definitions for Volume IV-touched terms | ~3k words |
 
 ---
 
@@ -47,6 +49,24 @@ community, CodaWork 2026 talk plan + Q&A study list, public-trial
 readiness audit, citations, license. **CCTT phase 6 (the gate) and
 OPERATIONS_PROTOCOL Section 10 (corpus-drift recovery) route here for
 the formal determinism semantics.**
+
+## Volume IV — The Quaternion View
+
+Names the algebra in which CNT's measured invariances live.  The engine's
+operations decompose, at IEEE-floor precision, into three structural
+invariances on D=4 compositional data: simplex rotation under SO(D-1),
+mass-flow handedness preserved by the SU(2) lift, and time-reversal
+symmetry as quaternion conjugation.  The central claim — *CNT measures
+invariance; CNQ names the algebra it lives in* — is supported by three
+independent IEEE-floor confirmations on drive-failure, CMB-photon, and
+Standard Model neutrino oscillation datasets.  Nothing in the engine
+changes; what changes is what we can say about what the engine is doing.
+Provides the operation map (CNT step → quaternion-native equivalent) and
+the Hs-CNQ engineering plan for the proposed quaternion-native engine.
+
+## Glossary
+
+[`GLOSSARY.md`](GLOSSARY.md) holds the minimal-now refresh of CNT vocabulary, scoped to the ~40 terms touched by Volume IV's central-claim chain. Includes the teaching aliases for CLR ("close to simplex") and ILR ("image simplex"), the new ILR-quaternion specialisation at D=4, all four CNT channels, the IR taxonomy, the Volume IV quaternion-view terms, the tier system (CoDa → CNT → CNQ), standard symbols, and Volume IV-touched formulas. A full glossary refresh covering the broader CNT vocabulary (atlas modules, schema fields, audit-chain terms) is scheduled for a separate push cycle after CodaWork 2026.
 
 ---
 

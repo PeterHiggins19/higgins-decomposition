@@ -287,6 +287,34 @@ data, see [`ai-refresh/CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md).
 
 ---
 
+## Section 13 — Validating a result using the quaternion view (Volume IV)
+
+As of 2026-05-07, the canonical handbook includes Volume IV — the Quaternion View, which names
+the algebra CNT has been computing in.  This adds an optional second verification path:
+any CNT result whose `diagnostics.content_sha256` matches the corpus can additionally be
+checked against its quaternion-view consistency by computing the per-timestep quaternion
+sandwich-product reconstruction.
+
+**Local checklist (optional, for D=4 datasets):**
+
+- [ ] Read the engine's CNT JSON; confirm `diagnostics.content_sha256` matches expected.
+- [ ] Compute the Helmert-projected unit-vector trajectory.
+- [ ] For each consecutive pair, compute the rotation quaternion and verify the sandwich
+      product `q · v · q*` reproduces the next timestep.  Gate: max diff ≤ 1e-12 (typical: ≈ 1e-16, IEEE floor).
+- [ ] Verify `M_squared_I_residual` is at IEEE floor (typical: ≈ 7e-17).
+
+If both checks pass, the result is doubly verified: once against the canonical determinism
+gate, once against the quaternion-algebra interpretation.  Two independent paths confirming
+each other is stronger than one.
+
+**Canonical document:** [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
+
+Reference reproduction script (in the QD experimental folder, outside the canonical repo):
+`Quaternion Decomposition/QD_round_2.py` — performs the Concept-1 sandwich-product test on
+any D=4 CNT JSON, reproducing the IEEE-floor result documented in Volume IV §B.1.
+
+---
+
 ## When in doubt
 
 Three rules:

@@ -1,9 +1,10 @@
 {
   "_meta": {
     "schema": "hs_admin/3.0",
-    "generated": "2026-05-06T22:55:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added + Higgins_Coordinate_System docs refreshed + 102 folder-level READMEs + talk_deck cleanup + CCTT v1.0 (CNT Compositional Tensor Train AI-build helper) shipped + OPERATIONS_PROTOCOL v1.0 (Gawande meta-checklist for the whole repo) shipped. Pushes #15-#20 verified green.",
-    "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol."
+    "generated": "2026-05-07T09:30:00Z",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations of the quaternion identification on backblaze, Planck CMB, and SM neutrino. Pushes #15-#21 verified green; push #22 pending (Volume IV integration).",
+    "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
+    "volume_iv_integrated_at": "2026-05-07T09:30:00Z"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -38,6 +39,28 @@
       "trigger": "CodaWork 2026 reviewer asked whether an AI could build a CNT-grade pipeline from raw data. Reviewer's response to the design: 'wonderful, can this be done? amazing.'",
       "status": "v1.0 shipped — pilot acceptance test on geochem_tappe_kim1 expected to reproduce content_sha256=707034ec... bit-for-bit."
     }
+  },
+  "quaternion_view": {
+    "_description": "Volume IV of the canonical CNT handbook (integrated 2026-05-07). Names the algebra the engine has been computing in: CNT measures invariance, CNQ names the algebra it lives in. Three IEEE-floor confirmations on disparate datasets establish that compositional dynamics on the simplex carries three structural invariances simultaneously - simplex rotation, mass-flow handedness, time-reversal symmetry - which is exactly the definition of a quaternion. Engine and determinism gate unchanged.",
+    "version": "Volume IV v1.0",
+    "integrated_at": "2026-05-07",
+    "central_claim": "CNT measures invariance. CNQ names the algebra that invariance lives in.",
+    "canonical_volume": "HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md",
+    "engine_docstring_updated": "HCI-CNT/engine/cnt.py (mathematical interpretation block in top docstring)",
+    "operations_protocol_section": "OPERATIONS_PROTOCOL.md Section 13",
+    "cctt_runbook_section": "ai-refresh/CCTT_RUNBOOK.md 'What CNT is measuring (Volume IV)'",
+    "ieee_floor_confirmations": {
+      "round_2_backblaze_fleet": "max diff 4.441e-16 on D=4 drive-failure trajectory T=731",
+      "round_2_5_planck_cmb": "max diff 4.441e-16 (bit-identical) on D=4 photon power T=2499 + M2=I residual 7.63e-17",
+      "round_2_6_sm_neutrino": "LIMIT_CYCLE_P2 confirmed + M2=I residual 7.40e-17 on D=3 PMNS oscillation T=1000"
+    },
+    "determinism_gate_preserved": "Verified via geochem_tappe_kim1 reproduction: content_sha256 707034ec... bit-identical after docstring change",
+    "experimental_archive": "Quaternion Decomposition/ at workspace root - all working files for round 2/2.5/2.6 retained for audit",
+    "next_steps_open": [
+      "Round 3: full 25-experiment quaternion-view validation across the corpus",
+      "Hs-CNQ engine implementation (~14 days of focused work, see Quaternion Decomposition/Hs-CNQ/CNQ_ENGINE_PROPOSAL.md)",
+      "Volume IV proofreading + handbook cross-reference final pass"
+    ]
   },
   "engine": {
     "type": "CNT_V2_EXPERIMENT_INDEX",

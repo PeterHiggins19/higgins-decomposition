@@ -34,6 +34,28 @@ closure is. You do, and this runbook tells you how.
 
 ---
 
+## What CNT is measuring (Volume IV — Quaternion View)
+
+As of 2026-05-07 the canonical handbook includes Volume IV, which names what the CNT engine
+is computing in algebraic terms.  A CCTT user does not need to know any of this to use CCTT —
+the engine handles the math regardless.  But for users who want to know what the protocol
+is actually verifying:
+
+**CNT measures invariance.  CNQ names the algebra it lives in.**
+
+Specifically, CNT detects that compositional time-series carry three structural invariances —
+simplex rotation (SO(D-1)), mass-flow handedness preservation, and time-reversal symmetry.
+These three invariances are the defining properties of a quaternion (the SU(2) cover of SO(3)).
+The IEEE-floor reproducibility CCTT phase 6 verifies (the determinism gate, the M²=I residual,
+the corpus-match check) is, in algebraic terms, verification that the trajectory carries the
+full quaternion-invariance structure at hardware-precision floor.
+
+Three independent IEEE-floor confirmations underpin this — drive failures (T=731), Planck CMB
+photons (T=2499), Standard Model neutrino oscillation (T=1000) — across roughly 30 orders of
+magnitude in physical scale.  See [`../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md).
+
+---
+
 ## How to use this runbook
 
 If you are a fresh AI session that has never seen CNT before, read these files
