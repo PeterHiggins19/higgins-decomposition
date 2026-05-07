@@ -62,7 +62,13 @@ independent IEEE-floor confirmations on drive-failure, CMB-photon, and
 Standard Model neutrino oscillation datasets.  Nothing in the engine
 changes; what changes is what we can say about what the engine is doing.
 Provides the operation map (CNT step → quaternion-native equivalent) and
-the Hs-CNQ engineering plan for the proposed quaternion-native engine.
+the engineering plan for the (pending) quaternion-native `cnq.py` engine.
+
+**The CNQ tier is live and canonical** since push #23 (2026-05-07). Doctrine,
+three reproducible IEEE-floor demonstrations, three-tier comparison
+(CoDa → CNT → CNQ), ROI/use-case guidance, and the engineering proposal
+all sit in a sibling folder: [`../../HCI-CNQ/`](../../HCI-CNQ/). Volume IV
+is the canonical reference; HCI-CNQ is the live engineering tier.
 
 ## Glossary
 

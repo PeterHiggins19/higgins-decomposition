@@ -41,7 +41,9 @@ points right back here at CCTT. → [`../OPERATIONS_PROTOCOL.md`](../OPERATIONS_
 If you are coming to HCI-CNT as a new researcher or new AI session: read the
 two quickstarts first, then the handbook reading order below for depth.
 
-**🆕 Volume IV — The Quaternion View** (integrated 2026-05-07) names the algebra the engine has been computing in.  Three IEEE-floor confirmations across drive-failure, Planck CMB photon, and Standard Model neutrino oscillation datasets establish that CNT measures three structural invariances (simplex rotation, mass-flow handedness, time-reversal symmetry) that together define a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.** → [`handbook/VOLUME_4_QUATERNION_VIEW.md`](handbook/VOLUME_4_QUATERNION_VIEW.md)
+**🆕 Volume IV — The Quaternion View** (integrated 2026-05-07, push #22) names the algebra the engine has been computing in.  Three IEEE-floor confirmations across drive-failure, Planck CMB photon, and Standard Model neutrino oscillation datasets establish that CNT measures three structural invariances (simplex rotation, mass-flow handedness, time-reversal symmetry) that together define a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.** → [`handbook/VOLUME_4_QUATERNION_VIEW.md`](handbook/VOLUME_4_QUATERNION_VIEW.md)
+
+**🆕 HCI-CNQ — sibling tier, live (push #23, 2026-05-07).** The CNQ tier is now canonical at [`../HCI-CNQ/`](../HCI-CNQ/). Doctrine, three reproducible IEEE-floor demonstrations, three-tier comparison (CoDa → CNT → CNQ), ROI/use-case guidance, and the engineering proposal for a compiled `cnq.py` engine. CNT remains the canonical engine for the 25-experiment corpus; CNQ is what comes above CNT for higher-D, larger-T, multi-trajectory bundles. Both tiers built and tested in public.
 
 ---
 

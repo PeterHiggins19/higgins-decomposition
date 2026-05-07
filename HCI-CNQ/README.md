@@ -1,0 +1,151 @@
+# HCI-CNQ — Compositional Navigation Quaternion
+
+**Status:** live tier in the Hs system. Promoted from experimental to canonical on 2026-05-07.
+**Sibling of:** [`HCI-CNT/`](../HCI-CNT/) (the established trajectory-navigation tier) and the [`HCI/`](../HCI/) instrument family.
+**Foundation:** three IEEE-floor confirmations across drive failures, Planck CMB photons, and Standard-Model neutrino oscillation. See [`experiments/`](experiments/).
+
+---
+
+## What this folder is
+
+This is the canonical home for the **CNQ tier** of the Hs compositional analytics stack. It contains the doctrine that established the tier, the documents that describe how it composes with the rest of the system, and the three reproducible experiments that demonstrate it works.
+
+Two things to be clear about:
+
+1. **The tier is live.** CoDa → CNT → CNQ is now the documented three-level stack. The doctrine, the comparisons with CoDa and CNT, the use-case decision rules, and the engineering proposal for a quaternion-native engine all live in this folder, in public, where they can be inspected, copied, and built on.
+
+2. **The compiled `cnq.py` engine is still proposed.** A quaternion-native sibling to `cnt.py` is sketched in [`tier_system/CNQ_ENGINE_PROPOSAL.md`](tier_system/CNQ_ENGINE_PROPOSAL.md) — about 14 days of focused work. Until that lands, the three experiments in this folder are the working demonstrations. The CNT engine produces the underlying compositional data; the quaternion identification is computed in the experiment scripts.
+
+---
+
+## How we work — demonstration first
+
+The tools in this repo are built and tested in public. For every tool in the family — CoDa methods (in the standard CoDa toolkit), CNT (in [`HCI-CNT/`](../HCI-CNT/)), CNQ (here), and the HCI instrument family (in [`HCI/`](../HCI/) and across the repo) — the pattern is the same:
+
+- **We show what the tool is.** Defined in the doctrine, named in the canonical [`HCI-CNT/handbook/GLOSSARY.md`](../HCI-CNT/handbook/GLOSSARY.md).
+- **We show what it does, by demonstration.** Real datasets, real outputs, hash-traceable from raw input to plate. The three experiments in this folder are the CNQ-tier demonstrations; the 25-experiment corpus in `HCI-CNT/experiments/` is the CNT-tier demonstration.
+- **We document when to use it.** [`tier_system/CNQ_ROI_AND_USE_CASES.md`](tier_system/CNQ_ROI_AND_USE_CASES.md) covers when CNQ is the right tier vs CNT vs straight CoDa.
+- **We document how to use it.** Each experiment folder has its script, its inputs, its outputs, and its report. Anyone can re-run.
+- **We offer to help build it to specification, free.** If you have a compositional dataset and want to know whether CNQ (or CNT, or HCI) is the right tier for it — open an issue on the repo, find Peter at a conference, or follow the build-to-spec contact in the project README. We will help you size the problem, pick the tier, and build the analysis.
+
+The repo cannot talk about a phantom method. This folder exists because Peter chose to make the CNQ tier public on the same terms as the rest of the Hs system: in the open, with the code, with the receipts, with the help available.
+
+---
+
+## Folder map
+
+```
+HCI-CNQ/
+├── README.md                       (this file)
+├── HCI-CNQ_ADMIN.json              project state and provenance
+├── ARCHIVE_README.json             original QD-project state record (preserved as audit)
+│
+├── doctrine/                       what the tier is and why
+│   ├── CENTRAL_CLAIM.md            "CNT measures invariance. CNQ names the algebra it lives in."
+│   ├── DEEPER_CONNECTIONS.md       ten correspondences with claim-strength labels
+│   ├── CONCEPTS_FOR_TEST.md        operational test catalogue
+│   ├── CORPUS_COMPARISON_PLAN.md   surpass-and-include methodology vs the CNT corpus
+│   └── BENEFITS_POST_CODA.md       integration benefits for the CoDa community
+│
+├── tier_system/                    how CoDa + CNT + CNQ compose
+│   ├── README.md                   the CNQ tier overview (originally Hs-CNQ/README.md)
+│   ├── CNQ_TIERED_SYSTEM.md        three-tier explanation
+│   ├── CNQ_VS_CODA_VS_CNT_COMPARE.md   updated comparison table
+│   ├── CNQ_ROI_AND_USE_CASES.md    when CNQ makes sense, decision rules
+│   └── CNQ_ENGINE_PROPOSAL.md      proposed cnq.py engineering plan (~14 days)
+│
+└── experiments/                    the three working demonstrations
+    ├── backblaze_fleet_quaternion/   Round 2 — drive failures (D=4, T=731)
+    │   ├── QD_round_2.py             script
+    │   ├── QD_round_2_results.json   per-pair quaternion sandwich-product results
+    │   └── QD_ROUND_2_REPORT.md      verdict and reasoning
+    │
+    ├── planck_cmb_quaternion/        Round 2.5 — Planck CMB best-fit theory (D=4, T=2499)
+    │   ├── QD_round_2_5_planck.py    script
+    │   ├── QD_round_2_5_results.json results
+    │   ├── QD_ROUND_2_5_REPORT.md    verdict (boson sector falsification + reformulation)
+    │   ├── planck_cmb_boson_input.csv
+    │   ├── planck_cmb_boson_cnt.json
+    │   └── planck_theory_raw.txt
+    │
+    └── sm_neutrino_quaternion/       Round 2.6 — SM 3-flavour νμ oscillation (D=3, T=1000)
+        ├── QD_round_2_6_neutrino.py  script
+        ├── QD_round_2_6_results.json results
+        ├── sm_numu_oscillation_input.csv
+        └── sm_numu_oscillation_cnt.json
+```
+
+---
+
+## The three demonstrations (what you can re-run today)
+
+| Round | Dataset | D | T | Test | Result |
+|---|---|---:|---:|---|---|
+| 2 | `backblaze_fleet` (drive-failure compositions) | 4 | 731 | Sandwich product reproduces Aitchison rotation | max diff **4.441 × 10⁻¹⁶** (IEEE floor) |
+| 2.5 | Planck 2018 CMB best-fit theory spectrum | 4 | 2499 | Sandwich + M²=I | bit-identical residual + M²=I 7.63 × 10⁻¹⁷ |
+| 2.6 | Standard-Model 3-flavour νμ oscillation | 3 | 1000 | LIMIT_CYCLE_P2 + M²=I | LIMIT_CYCLE_P2 confirmed + M²=I 7.40 × 10⁻¹⁷ |
+
+The 4.441 × 10⁻¹⁶ figure is exactly 2 × IEEE 754 machine epsilon — the hardware floor. Bit-identical residual across two completely different datasets shows the quaternion identification is **mathematically exact**, not approximate. Three datasets span ~30 orders of magnitude in physical scale: subatomic neutrinos → drive failures → cosmic photons. All three agree at the same hardware-precision floor.
+
+To re-run any of them:
+
+```
+cd HCI-CNQ/experiments/backblaze_fleet_quaternion
+python QD_round_2.py     # produces QD_round_2_results.json
+```
+
+(Each script is self-contained and reads from its own folder. The Planck and neutrino scripts use the matching input CSVs in their respective experiment folders.)
+
+---
+
+## Where this fits in the Hs system
+
+| Tier | Engine | Doctrine | Demonstrations | Status |
+|---|---|---|---|---|
+| **CoDa** | community-standard tools (Aitchison closure, CLR, ILR, balance, ternary, biplot) | classical CoDa references | the literature | foundational layer the rest sits on |
+| **CNT** | [`HCI-CNT/engine/cnt.py`](../HCI-CNT/engine/cnt.py) (2.0.4) | [`HCI-CNT/handbook/`](../HCI-CNT/handbook/) (Volumes I–IV) | 25-experiment corpus, all green, byte-identical | live; deterministic; field-use across small-to-medium D |
+| **CNQ** | (proposed) `HCI-CNQ/engine_proposal/` cnq.py — see [`tier_system/CNQ_ENGINE_PROPOSAL.md`](tier_system/CNQ_ENGINE_PROPOSAL.md) | this folder, plus [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md) | three IEEE-floor confirmations (this folder) | tier live; compiled engine pending |
+| **HCI** family | [`HCI/`](../HCI/) (CBS, Stage 1 plate generator, more) | [`HCI/HCI_FOUNDATION.md`](../HCI/HCI_FOUNDATION.md) | calibration suite + EMBER plates | live; deterministic; specialised instruments |
+
+The four tiers are siblings, not replacements. Picking the right tier for a problem is part of what we offer to help with — see [`tier_system/CNQ_ROI_AND_USE_CASES.md`](tier_system/CNQ_ROI_AND_USE_CASES.md).
+
+---
+
+## How to engage
+
+- **Re-run a demonstration.** Each `experiments/*/` folder is self-contained.
+- **Read the doctrine.** `doctrine/CENTRAL_CLAIM.md` first; then `doctrine/DEEPER_CONNECTIONS.md` if you want the ten correspondences; then any of the tier_system docs.
+- **Compare against your data.** Open an issue on the public repo describing the dataset; we can talk about whether CNQ, CNT, or straight CoDa is the right tier.
+- **Ask for build-to-spec help.** Free. If your data is novel and the tooling needs an extension or an adapter, we will help you build it. The catch is just that it lands in the public repo on the same terms as everything else: open code, hash-chained outputs, doctrine published.
+- **Sit in on the engine build.** When `cnq.py` lands, the build will be in public. Watch the commit stream, raise issues, propose tests.
+
+---
+
+## What this isn't
+
+**Not a closed product.** Every script, every JSON, every doctrine document in this folder is licensed on the same terms as the rest of the repo. Use it. Cite it. Improve it.
+
+**Not a CNT replacement.** CNT remains the canonical engine for the 25-experiment corpus and for everything in field use today. CNQ is for the cases CNT was not designed for — high D, large T, multi-trajectory bundles, problems where the cross-dataset structure is the primary observable.
+
+**Not a finished theory.** Three IEEE-floor confirmations is strong evidence and is enough to make the tier public. It is not enough to claim the architecture is right at every dimension. Help us test it.
+
+---
+
+## Provenance — how this folder got here
+
+The CNQ tier was developed in an experimental folder at the Cowork workspace root (`Quaternion Decomposition/`) between 2026-05-06 and 2026-05-07. It was kept outside the canonical repo while the foundational claim was being tested. After the third IEEE-floor confirmation landed, and after independent cross-check from a second AI platform (ChatGPT) confirmed the architectural framing, Peter promoted the entire body of work to canonical status on 2026-05-07.
+
+The promotion is documented in:
+
+- [`../ai-refresh/AI_REFRESH_2026-05-07_quaternion_integration.md`](../ai-refresh/AI_REFRESH_2026-05-07_quaternion_integration.md) — push #22 narrative (Volume IV integration into the handbook).
+- [`../ai-refresh/AI_REFRESH_2026-05-07_chatgpt_crosscheck.md`](../ai-refresh/AI_REFRESH_2026-05-07_chatgpt_crosscheck.md) — the cross-check turn that confirmed the framing.
+- [`../ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md`](../ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md) — push #23 narrative (this folder's promotion + ChatGPT vocabulary integration).
+- [`ARCHIVE_README.json`](ARCHIVE_README.json) — the original Quaternion Decomposition project-state record, preserved as audit trail.
+
+The original `Quaternion Decomposition/` folder at the Cowork workspace root is retained in place as a working area for any future experiments before they are ready for canonical promotion. Nothing in this canonical folder depends on it.
+
+---
+
+*The instrument reads. The expert decides. The hashes carry the receipts.*
+*CNT measures invariance. CNQ names the algebra it lives in.*
+*Built in public. Free to use. Help available.*

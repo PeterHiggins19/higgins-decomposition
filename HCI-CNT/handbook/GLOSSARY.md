@@ -1,8 +1,8 @@
-# Glossary — Minimal-Now Refresh (Volume IV-touched terms)
+# Glossary — Minimal-Now Refresh (Volume IV-touched terms + HCI vocabulary cross-check)
 
-**Scope:** terms touched by the Volume IV (Quaternion View) integration of 2026-05-07. Approximately 40 entries.
-**Companions:** [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md).
-**Full refresh planned for a separate cycle.** This document covers the terms used in the central-claim chain so the four volumes are internally cross-referenceable today; the broader CNT vocabulary (atlas modules, schema fields, audit-chain terms) will be added in a dedicated glossary push after CodaWork.
+**Scope:** terms touched by the Volume IV (Quaternion View) integration of 2026-05-07, plus the HCI instrument-family vocabulary promoted from `HCI/HCI_FOUNDATION.md` and `HCI/README.md` during the 2026-05-07 ChatGPT cross-check pass (push #23). Approximately 47 entries.
+**Companions:** [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md), and [HCI/HCI_FOUNDATION.md](../../HCI/HCI_FOUNDATION.md).
+**Full refresh planned for a separate cycle.** This document covers (i) terms used in the central-claim chain so the four volumes are internally cross-referenceable today, and (ii) the most-used HCI instrument-family vocabulary so the handbook and HCI specs share one authoritative naming layer. The broader CNT vocabulary (atlas modules, schema fields, audit-chain terms) will be added in a dedicated glossary push after CodaWork.
 
 ---
 
@@ -68,13 +68,13 @@
 
 ## §C — Volume IV (Quaternion View) terms
 
-**Bi-quaternion.** The natural algebra for D=8 compositional dynamics, factoring as SU(2) × SU(2) under the SO(8) ⊃ SU(2) × SU(2) decomposition. Each EMBER country trajectory (D=8) potentially decomposes into two coupled quaternion paths under this factoring. → Volume IV §C, Hs-CNQ engine proposal §H.
+**Bi-quaternion.** The natural algebra for D=8 compositional dynamics, factoring as SU(2) × SU(2) under the SO(8) ⊃ SU(2) × SU(2) decomposition. Each EMBER country trajectory (D=8) potentially decomposes into two coupled quaternion paths under this factoring. → Volume IV §C; [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md) §H.
 
 **Central claim.** *CNT measures invariance. CNQ names the algebra that invariance lives in.* → Volume IV §A.
 
 **Clifford algebra Cl(D−1).** The dimensional generalisation of quaternions to arbitrary D. For D=4, Cl(3) is the quaternions; for D=8, the natural factoring is bi-quaternions; for arbitrary D, Cl(D−1) is the algebra in which the three Volume-IV invariances are unified. → Volume IV §A.
 
-**CNQ (Compositional Navigation Quaternion).** The proposed quaternion-native engine sibling to `cnt.py`. Computes the same JSON as CNT but via Hamilton products instead of channel arithmetic, exposing operations (SLERP, bi-quaternion factoring, spinor parity) that the channel form leaves implicit. Status: proposed, not yet implemented; ~14 days of focused work per the engineering proposal. → Hs-CNQ engine proposal (in QD experimental folder).
+**CNQ (Compositional Navigation Quaternion).** The quaternion-native sibling tier to CNT in the Hs system. Doctrine, three IEEE-floor demonstrations, three-tier comparison, ROI/use-case guidance, and the engineering proposal for a compiled `cnq.py` engine all live canonically at [`../../HCI-CNQ/`](../../HCI-CNQ/). The tier is live since push #23 (2026-05-07); the compiled `cnq.py` engine is pending (~14 days per the engineering proposal). When implemented, `cnq.py` produces the same JSON as CNT but via Hamilton products instead of channel arithmetic, exposing operations (SLERP, bi-quaternion factoring, spinor parity) that the channel form leaves implicit. → [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md).
 
 **Conjugation q\*.** Quaternion involution mapping (a, b, c, d) → (a, −b, −c, −d). Negates the imaginary part. Up to sign convention, the unique antiautomorphism of the quaternion algebra fixing the scalar part. Physically: time reversal. CNT's M² = I is structurally q → q*. → Volume IV §B.3.
 
@@ -100,7 +100,7 @@
 
 **CCTT (CNT Compositional Tensor Train).** The 7-phase user/AI access protocol. Lets any researcher (by hand) or AI assistant (Claude, ChatGPT, Gemini, in-house) take a raw compositional CSV and produce a CNT-grade analysis end-to-end with hash-chained provenance. → `ai-refresh/CCTT_RUNBOOK.md`.
 
-**CNQ tier.** The proposed high-performance compositional analytics tier above CNT. Quaternion-native operations sized for dimensionally larger systems (climate modeling, multi-decade economics, microbiome cohorts). Builds on Volume IV. → Hs-CNQ engine proposal (in QD experimental folder).
+**CNQ tier.** The high-performance compositional analytics tier above CNT in the Hs three-tier stack (CoDa → CNT → CNQ). Quaternion-native operations sized for dimensionally larger systems (climate modeling, multi-decade economics, microbiome cohorts). Built on Volume IV. **Tier is live and canonical since push #23 (2026-05-07)**: doctrine, three IEEE-floor demonstrations, comparisons, and the compiled-engine proposal all sit in [`../../HCI-CNQ/`](../../HCI-CNQ/). The compiled `cnq.py` engine itself is the next milestone (~14 days). → [`../../HCI-CNQ/README.md`](../../HCI-CNQ/README.md).
 
 **CNT tier.** The current canonical engine: trajectory-navigation tensor for medium-scale compositional analysis. Engine 2.0.4, schema 2.1.0, 25-experiment determinism gate. → Volumes I-III.
 
@@ -154,6 +154,69 @@ SLERP:                    slerp(Q_t, Q_{t+1}, α) = sin((1-α)Ω)/sinΩ · Q_t +
 ## §G — Pointers to Volume IV-only content
 
 The central claim, the three IEEE-floor confirmations, the operation map (CNT step → quaternion-native equivalent), and the Hs-CNQ engineering proposal are all in [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md). This glossary defines the vocabulary; Volume IV gives the math chains, the evidence summary, and the integration plan.
+
+---
+
+## §H — HCI instrument-family vocabulary (cross-check refresh, push #23)
+
+The HCI (Higgins Compositional Instrument) family has its own working
+vocabulary defined in `HCI/HCI_FOUNDATION.md` and `HCI/README.md`. The
+following entries promote the most-used HCI terms into the canonical
+glossary so the handbook volumes and the HCI-side specifications share
+one authoritative naming layer. Sourced from the HCI files plus the
+2026-05-07 ChatGPT cross-check pass.
+
+**HLR (Higgins Log-Ratio Level).** The dimensionless natural-log unit in
+which all HCI plate coordinates are reported. Defined as
+`h_j(t) = ln(x_j(t)) − mean_k ln(x_k(t)) = ln(x_j(t) / g(x(t)))`. Nearest
+relative in the log-level family: the neper. → `HCI/README.md` Unit
+Standard, `HCI/HCI_USER_GUIDE.md`.
+
+**κᴴˢ (Higgins Steering Metric Tensor).** The full D×D Aitchison pullback
+metric on the simplex, written `κᴴˢ_ij(x) = (δ_ij − 1/D) / (x_i · x_j)`.
+In matrix form, `κᴴˢ(x) = diag(1/x) · P · diag(1/x)` with `P = I − (1/D)·11ᵀ`.
+The diagonal `κᴴˢ_jj(x) = (1 − 1/D) / x_j²` governs single-carrier
+sensitivity; the off-diagonal `κᴴˢ_ij(x) = −1 / (D · x_i · x_j)` governs
+inter-carrier metric coupling. The scalar `s_j(x) = 1/x_j` is the **diagonal
+steering sensitivity** — one diagnostic readout from κᴴˢ, **not** the full
+tensor. CNT channel κ (curvature) reports the trajectory's response to this
+metric; this glossary entry names the metric itself. → `HCI/HCI_FOUNDATION.md`
+Definition 3.
+
+**DCDI (Dominant Carrier Displacement Index).** Formal operator name for
+the carrier with the largest absolute CLR displacement between consecutive
+compositions: `σᴴˢ(t, t+1) = argmax_j |h_j(t+1) − h_j(t)|`. The instrument
+alias is the **Helmsman Index** — the carrier "steering" the local
+displacement at each step. CNT channel σ reports DCDI per timestep.
+→ `HCI/HCI_FOUNDATION.md` Definition 4.
+
+**Multiplexed Carrier Section Plate.** The Stage 1 plate convention in
+which all carriers' sections are rendered under shared geometry on one
+multi-panel page (XY plan view + XZ bearings + YZ CLR bars + info + legend).
+One section plate is produced per time index; the time-indexed sequence
+forms the Section Atlas. → `HCI/HCI_FOUNDATION.md` Stage 1, `HCI/README.md`
+Stage 1 — Section Plate Generator.
+
+**System Course Plot.** The summary terminal page of a Stage 1 plate
+cine-deck — the trajectory's whole-run course rendered in one frame after
+the per-timestep section plates. Provides at-a-glance trajectory shape;
+the per-timestep plates provide the per-step authority. → `HCI/README.md`
+Stage 1, `HCI/codawork2026/stage1_plates/`.
+
+**HCI Barycentric Navigation Volume.** The 3D enclosing manifold inside
+which a CNT trajectory navigates relative to the simplex barycentre — the
+spatial scope a Spatial Morphographic Analyzer (HCI-VR) renders. Relates
+to the CBS cube (Volume II §D, Volume IV §A) as the volume whose three
+orthogonal faces the cube parameterises. Status: defined in HCI vocabulary;
+no rendering instrument yet implemented in the canonical engine.
+
+**HCI Spatial Morphographic Analyzer (HCI-VR, exploratory).** Proposed VR
+or 3D-renderer instrument for walking through the Barycentric Navigation
+Volume — manipulable section plates in 3D, CBS cube faces seen from inside.
+Status: design exploration only. Lives in the experimental folder
+(`Quaternion Decomposition/Hs-VR/` at workspace root, not in the canonical
+repo) until a working pilot exists. Listed here so the vocabulary is
+canonical when the instrument arrives.
 
 ---
 

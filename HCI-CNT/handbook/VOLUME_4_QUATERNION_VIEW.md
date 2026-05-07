@@ -111,7 +111,7 @@ The central claim is supported by three independent confirmations on completely 
 
 Three datasets, spanning ~30 orders of magnitude in physical scale (subatomic neutrinos to drive-failure events to cosmic photons), all confirm the same compositional invariance at hardware-precision floor. The bit-identical residual 4.441 × 10⁻¹⁶ across Round 2 and Round 2.5 — completely different data, completely different physics — shows the residual is **floating-point representation error, not algorithmic noise**. There is no further noise to reduce; we are at the hardware limit.
 
-The QD project's full Round-2 and Round-2.5 reports are archived at the workspace root (`Quaternion Decomposition/QD_ROUND_2_REPORT.md`, `Quaternion Decomposition/Hs-CMB/QD_ROUND_2_5_REPORT.md`, `Quaternion Decomposition/Hs-Neutrino/QD_round_2_6_results.json`).
+The full Round-2, Round-2.5, and Round-2.6 reports are now canonical in [`../../HCI-CNQ/experiments/`](../../HCI-CNQ/experiments/) (promoted from the QD experimental folder on 2026-05-07, push #23). Each experiment folder contains the script, input data, CNT JSON output, results JSON, and report. Anyone can re-run.
 
 ---
 
@@ -133,7 +133,7 @@ This reformulation is the cleaner truth and is what the central claim now encode
 
 **For the practitioner.** A new vocabulary is available for talking about results. Where Volume II said "the trajectory hits LIMIT_CYCLE_P2 with amplitude A=0.34 in IR class MODERATELY_DAMPED," the practitioner can equivalently say "the trajectory's quaternion path has a non-trivial spinor lift (handedness-preserving) with damped period-2 attractor structure on S³." The first phrasing is correct in CNT vocabulary; the second is correct in quaternion vocabulary; both describe the same numerical result.
 
-**For the reviewer.** A second independent verification path exists. Where a CNT audit currently checks one hash chain (`content_sha256` against the corpus), a quaternion-view audit could check a second hash chain (`cnq_content_sha256` against a parallel registry, computed from the same JSON via independent algebra). Two hashes from independent paths confirming each other is stronger than one. The Hs-CNQ engineering proposal (`Quaternion Decomposition/Hs-CNQ/CNQ_ENGINE_PROPOSAL.md`) sketches the implementation.
+**For the reviewer.** A second independent verification path exists. Where a CNT audit currently checks one hash chain (`content_sha256` against the corpus), a quaternion-view audit could check a second hash chain (`cnq_content_sha256` against a parallel registry, computed from the same JSON via independent algebra). Two hashes from independent paths confirming each other is stronger than one. The Hs-CNQ engineering proposal — now canonical at [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md) — sketches the implementation. The CNQ tier itself is live; the compiled `cnq.py` engine is the next implementation milestone (~14 days).
 
 **For the cross-domain audience.** Compositional analysis becomes recognisable to robotics (quaternions are SLAM trajectories), computer graphics (quaternions are animation rotation), physics (SU(2) is qubit algebra), and quantum information (the spinor / vector branch is fermion / boson statistics). The framework speaks a 200-year-old algebra (Hamilton 1843) that those communities use natively.
 
@@ -149,9 +149,9 @@ The Round 2.6 neutrino-oscillation test demonstrated this concretely: the Standa
 
 ---
 
-## §H — Hs-CNQ — the engineering form of Volume IV
+## §H — HCI-CNQ — the engineering form of Volume IV (live tier)
 
-Volume IV names the algebra. Hs-CNQ implements it. The `cnq.py` engine proposal — sized at ~14 days of focused work per the QD benefits document — produces a parallel JSON output (`cnq_content_sha256`) computed from the canonical CNT JSON via:
+Volume IV names the algebra. HCI-CNQ implements it as a live canonical tier. The `cnq.py` engine — sized at ~14 days of focused work — will produce a parallel JSON output (`cnq_content_sha256`) computed from the canonical CNT JSON via:
 
 - Hamilton products replacing per-channel Stage 4 arithmetic
 - SLERP geodesic interpolation on S³ replacing linear interpolation in CLR space
@@ -160,7 +160,7 @@ Volume IV names the algebra. Hs-CNQ implements it. The `cnq.py` engine proposal 
 - Spinor-parity diagnostic per trajectory (top-level scalar)
 - Per-pair relative quaternion R(t) = Q₁ · Q₂⁻¹ for cross-dataset bundles
 
-Engineering details: `Quaternion Decomposition/Hs-CNQ/CNQ_ENGINE_PROPOSAL.md`. ROI / use cases: `Quaternion Decomposition/Hs-CNQ/CNQ_ROI_AND_USE_CASES.md`. Three-tier comparison (CoDa → CNT → CNQ): `Quaternion Decomposition/Hs-CNQ/CNQ_VS_CODA_VS_CNT_COMPARE.md`. None of these documents have been promoted to the canonical repo until the engine implementation is approved; they live in the QD experimental folder.
+Engineering details: [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md). ROI / use cases: [`../../HCI-CNQ/tier_system/CNQ_ROI_AND_USE_CASES.md`](../../HCI-CNQ/tier_system/CNQ_ROI_AND_USE_CASES.md). Three-tier comparison (CoDa → CNT → CNQ): [`../../HCI-CNQ/tier_system/CNQ_VS_CODA_VS_CNT_COMPARE.md`](../../HCI-CNQ/tier_system/CNQ_VS_CODA_VS_CNT_COMPARE.md). All of these are now canonical in `Hs/HCI-CNQ/`. The compiled `cnq.py` engine is the next implementation milestone; until it lands, the three demonstrations under [`../../HCI-CNQ/experiments/`](../../HCI-CNQ/experiments/) are the working proofs and the CNT engine continues to produce the underlying compositional data.
 
 ---
 
@@ -175,7 +175,7 @@ Engineering details: `Quaternion Decomposition/Hs-CNQ/CNQ_ENGINE_PROPOSAL.md`. R
 | §C (operation map) | Volume I §F-H — engine pseudocode; Volume II §E — Stage 4 |
 | §F (operational implications) | Volume II §A — practitioner workflow; CCTT runbook |
 | §G (verification instrument) | Volume III §B — CoDa-community verification proposal |
-| §H (Hs-CNQ) | Quaternion Decomposition/Hs-CNQ/ (experimental, not yet canonical) |
+| §H (HCI-CNQ tier) | Hs/HCI-CNQ/ — canonical since push #23 (2026-05-07); compiled `cnq.py` engine pending |
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "dataset": "Planck CMB best-fit theory spectrum (TT/EE/BB/PP)",
+  "source": "http://pla.esac.esa.int/pla/aio/product-action?COSMOLOGY.FILE_ID=COM_PowerSpect_CMB-base-plikHM-TTTEEE-lowl-lowE-lensing-minimum-theory_R3.01.txt",
+  "T": 2499,
+  "D": 4,
+  "cnt_termination": "LIMIT_CYCLE_P2",
+  "cnt_ir_class": "OVERDAMPED_EXTREME",
+  "cnt_content_sha256": "3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4",
+  "concept_1_max_diff": 4.440892098500626e-16,
+  "concept_1_mean_diff": 1.1440008268155136e-16
+}

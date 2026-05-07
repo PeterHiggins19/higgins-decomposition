@@ -52,7 +52,9 @@ full quaternion-invariance structure at hardware-precision floor.
 
 Three independent IEEE-floor confirmations underpin this — drive failures (T=731), Planck CMB
 photons (T=2499), Standard Model neutrino oscillation (T=1000) — across roughly 30 orders of
-magnitude in physical scale.  See [`../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md).
+magnitude in physical scale.  See [`../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md) for the canonical reference and [`../HCI-CNQ/`](../HCI-CNQ/) for the live engineering tier with all three reproducible demonstrations.
+
+**Optional second-verification path.** Once the compiled `cnq.py` engine lands (~14 days per [`../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md)), CCTT phase 6 will also be able to check a parallel `cnq_content_sha256` computed via Hamilton products — two hash chains from independent algebra confirming each other. Until then, the CNT engine produces the underlying compositional data and the three demonstrations under `HCI-CNQ/experiments/` show the quaternion identification at IEEE floor on real datasets. The optional second-verification path is documented now so it integrates cleanly when the engine ships.
 
 ---
 

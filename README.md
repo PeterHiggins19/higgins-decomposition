@@ -10,6 +10,7 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 [![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
 [![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
+[![HCI-CNQ tier live](https://img.shields.io/badge/HCI--CNQ%20tier-live%20%28cnq.py%20pending%29-7b3294.svg)](HCI-CNQ/)
 [![25 reference experiments](https://img.shields.io/badge/reference%20experiments-25-2ca02c.svg)](HCI-CNT/experiments/INDEX.json)
 [![CodaWork 2026](https://img.shields.io/badge/CodaWork-2026-f0c020.svg)](HCI-CNT/conference_demo/)
 
@@ -54,7 +55,9 @@ both human researchers and AI assistants:
 
 The protocol is identical in both modes. Pilot acceptance test: an AI given only the spec and a raw CSV reproduced the canonical `content_sha256` byte-for-byte. → [`ai-refresh/CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md)
 
-**🆕 Volume IV — The Quaternion View (May 7, 2026).**  Names the algebra CNT has been computing in.  Three IEEE-floor confirmations on drive failures, Planck CMB photons, and Standard Model neutrino oscillation establish that compositional dynamics on the simplex carries three structural invariances simultaneously — simplex rotation, mass-flow handedness, time-reversal symmetry — which is exactly the definition of a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.**  Engine unchanged; 25-experiment determinism gate unchanged; what changes is what we can say about what the engine is doing.  → [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
+**🆕 Volume IV — The Quaternion View (May 7, 2026, push #22).**  Names the algebra CNT has been computing in.  Three IEEE-floor confirmations on drive failures, Planck CMB photons, and Standard Model neutrino oscillation establish that compositional dynamics on the simplex carries three structural invariances simultaneously — simplex rotation, mass-flow handedness, time-reversal symmetry — which is exactly the definition of a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.**  Engine unchanged; 25-experiment determinism gate unchanged; what changes is what we can say about what the engine is doing.  → [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
+
+**🆕 HCI-CNQ — Compositional Navigation Quaternion (May 7, 2026, push #23).** The CNQ tier is live and canonical — promoted from experimental status after the third IEEE-floor confirmation. The Hs system now ships a three-tier compositional analytics stack (CoDa → CNT → CNQ) plus the HCI instrument family. Doctrine, three reproducible IEEE-floor demonstrations, three-tier comparison, ROI and use-case guidance, and the engineering proposal for a compiled `cnq.py` engine all sit in [`HCI-CNQ/`](HCI-CNQ/) — sibling of HCI-CNT. The compiled engine is the next milestone (~14 days). The repo cannot talk about a phantom method; we build and test in public, on the same terms as everything else: open code, hash-chained outputs, doctrine published, **build-to-spec help available, free**. → [`HCI-CNQ/README.md`](HCI-CNQ/README.md)
 
 **🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
 
@@ -109,6 +112,47 @@ is self-contained.
 The previous standalone `HUF-CNT-System` package outside the Hˢ repo
 is preserved as archived history. Active CNT development from this
 point forward happens inside `HCI-CNT/`.
+
+---
+
+## HCI-CNQ — Compositional Navigation Quaternion (live tier, push #23)
+
+The `HCI-CNQ/` subsystem is the quaternion-native sibling tier above
+CNT in the three-tier Hs stack (CoDa → CNT → CNQ). Promoted to canonical
+on 2026-05-07 after three independent IEEE-floor confirmations of the
+quaternion identification on real datasets. Doctrine, demonstrations,
+comparisons with CoDa and CNT, and the engineering proposal for a
+compiled `cnq.py` engine all live in this folder, in public.
+
+The CNQ tier is what comes above CNT for problems CNT was not designed
+for: D ≥ 8, large T, multi-trajectory bundles, cross-dataset structure
+as the primary observable. Climate modeling, multi-decade economic
+flows, large industrial composition, microbiome cohorts.
+
+| Folder | Contents |
+|---|---|
+| [`HCI-CNQ/doctrine/`](HCI-CNQ/doctrine/) | Central claim, deeper connections, concepts-for-test, corpus comparison plan, post-CoDa benefits |
+| [`HCI-CNQ/tier_system/`](HCI-CNQ/tier_system/) | CoDa → CNT → CNQ tier explanation, ROI/use cases, engine proposal, three-way comparison |
+| [`HCI-CNQ/experiments/`](HCI-CNQ/experiments/) | Three IEEE-floor demonstrations: backblaze drive failures, Planck CMB photons, SM neutrino oscillation |
+
+Three reproducible demonstrations are in the experiments folder. Each
+is self-contained — script, input data, CNT JSON output, results,
+report. Anyone can re-run.
+
+The compiled `cnq.py` engine itself is the next milestone (~14 days
+per [`HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md)).
+Until it lands, the experiments are the working proofs and the
+canonical CNT engine continues to produce the underlying compositional
+data. Quickstart: see [`HCI-CNQ/README.md`](HCI-CNQ/README.md).
+
+**How we work — demonstration first.** Every tool in the Hs family —
+CoDa methods (community-standard), CNT (`HCI-CNT/`), CNQ (`HCI-CNQ/`),
+the HCI instrument family (`HCI/`) — is built and tested in public on
+the same terms: open code, hash-chained outputs, doctrine published.
+We show what each tool is, what it does (by demonstration on real
+datasets), when to use it, how to use it, and **we offer to help you
+build it to specification on your own data, free**. Open an issue,
+find Peter at a conference, or follow the contact in this README.
 
 ---
 
