@@ -17,6 +17,20 @@ stored here is hash-traceable end-to-end:
 Total: **25 experiments**, all passing the determinism gate at engine
 2.0.4 / schema 2.1.0.
 
+## 🆕 Adding a new experiment to this corpus
+
+Use [`OPERATIONS_PROTOCOL.md`](../../OPERATIONS_PROTOCOL.md) Section 3 — a
+6-item binary checklist that walks adapter disclosure, JOURNAL writing,
+INDEX update, Mission Command per-id ordering registration, and the
+determinism-gate re-run that confirms the new entry hashes correctly.
+
+For a *new* compositional analysis (not necessarily destined for the
+corpus), use the **CCTT v1.0** protocol — same 7-phase loop works for any
+dataset, with hash-chained provenance: → [`../../ai-refresh/CCTT_QUICKSTART.md`](../../ai-refresh/CCTT_QUICKSTART.md).
+The CCTT pilot was run against `geochem_tappe_kim1` from this very corpus
+and reproduced its `content_sha256` byte-for-byte from the raw CSV alone —
+proof that the protocol gates work as designed.
+
 ## INDEX.json
 
 [`INDEX.json`](INDEX.json) is the canonical registry. Every experiment

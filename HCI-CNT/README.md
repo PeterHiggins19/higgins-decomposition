@@ -18,6 +18,31 @@ languages, one report.
 
 ---
 
+## 🆕 The two access protocols (May 2026)
+
+Two protocols make CNT dramatically more usable for both human researchers
+and AI assistants:
+
+**CCTT v1.0 — CNT Compositional Tensor Train.** A 7-phase protocol that takes
+any compositional dataset and produces a CNT-grade analysis end-to-end with
+hash-chained provenance. Same protocol works in **User-mode** (you walk the
+[runbook](../ai-refresh/CCTT_RUNBOOK.md) by hand) and **User + AI-mode** (an
+AI assistant — Claude, ChatGPT, Gemini, in-house — executes the same 7
+phases; you confirm at every gate). Pilot acceptance test: an AI given only
+the spec + a raw CSV reproduced the canonical `content_sha256` byte-for-byte.
+→ [`../ai-refresh/CCTT_QUICKSTART.md`](../ai-refresh/CCTT_QUICKSTART.md)
+
+**OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist.** Front-door map of
+every operational transition in the repo, each with a binary pass/fail
+checklist pointing at the canonical document holding the deeper detail.
+Section 1 of that protocol is "starting a new compositional analysis", which
+points right back here at CCTT. → [`../OPERATIONS_PROTOCOL.md`](../OPERATIONS_PROTOCOL.md)
+
+If you are coming to HCI-CNT as a new researcher or new AI session: read the
+two quickstarts first, then the handbook reading order below for depth.
+
+---
+
 ## Reading order
 
 | Volume | What it covers |

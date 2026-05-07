@@ -29,6 +29,19 @@ classical methods (Aitchison's CLR, Egozcue's Helmert ILR, the variation
 matrix, the biplot, the balance dendrogram) are explicitly presented as
 canonical foundations.
 
+## 🆕 The access layer for these papers (May 2026)
+
+A reader who finds these papers compelling and wants to *use* CNT on their
+own data does not need to install code or master the schema first. The
+**CCTT v1.0** protocol gives them a 7-phase guided on-ramp — by hand or
+with an AI assistant — that produces a CNT-grade analysis with hash-chained
+provenance. → [`../../ai-refresh/CCTT_QUICKSTART.md`](../../ai-refresh/CCTT_QUICKSTART.md)
+
+The **OPERATIONS_PROTOCOL v1.0** is the front-door map of the whole repo
+for any reviewer who lands here from one of these papers and wants to
+audit a specific result. → [`../../OPERATIONS_PROTOCOL.md`](../../OPERATIONS_PROTOCOL.md)
+Section 12 is the 30-second reproducibility recipe for an external auditor.
+
 ---
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*

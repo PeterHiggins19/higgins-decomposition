@@ -42,15 +42,37 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 
 ---
 
+## What's New — May 2026
+
+Two protocols shipped that make this repo dramatically more usable for
+both human researchers and AI assistants:
+
+**🆕 CCTT v1.0 — CNT Compositional Tensor Train.** A 7-phase protocol that takes any compositional dataset (CSV/XLSX) and produces a CNT-grade analysis with full hash-chained provenance — even if you have never heard of Aitchison geometry. Works in two interchangeable modes:
+
+- **User-mode** — researcher walks the [runbook](ai-refresh/CCTT_RUNBOOK.md) by hand
+- **User + AI-mode** — AI assistant (Claude, ChatGPT, Gemini, in-house) executes the same 7 phases; user confirms at every gate
+
+The protocol is identical in both modes. Pilot acceptance test: an AI given only the spec and a raw CSV reproduced the canonical `content_sha256` byte-for-byte. → [`ai-refresh/CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md)
+
+**🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
+
+Both protocols are model-agnostic, registered in [`ai-refresh/HS_ADMIN.json`](ai-refresh/HS_ADMIN.json) for future cold-start discovery, and proven end-to-end on the live repo (see [`OPERATIONS_PROTOCOL_PILOT_REPORT.md`](OPERATIONS_PROTOCOL_PILOT_REPORT.md) and [`ai-refresh/CCTT_PILOT_REPORT.md`](ai-refresh/CCTT_PILOT_REPORT.md)).
+
+---
+
 ## Start Here
+
+**If you have a compositional dataset and want a CNT-grade analysis right now (NEW):** [`CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md) → walk the [`CCTT_RUNBOOK.md`](ai-refresh/CCTT_RUNBOOK.md) yourself, or paste the AI-mode prompt into Claude/ChatGPT/Gemini.
+
+**If you are working on or with this repo (NEW):** [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md) — the front-door map of every operational transition (analysis, push, cowork start/end, AI cold-start, recovery paths). One row per transition, each pointing at its canonical checklist.
 
 **If you are a person:** [Learning Path](docs/Hs_Learning_Path.md) → [Architecture Overview](docs/Hs_Architecture_Overview.md) → [Applications Guide](docs/Hs_Applications_Guide.md) → [High Index Platform](docs/Hs_High_Index_Platform_Guide.md)
 
-**If you are a machine:** [`ai-refresh/HS_MACHINE_MANIFEST.json`](ai-refresh/HS_MACHINE_MANIFEST.json) — identity, navigation, protocol, governance, and authority resolution in a single file. Follow the onboarding sequence defined there.
+**If you are a machine:** [`ai-refresh/HS_MACHINE_MANIFEST.json`](ai-refresh/HS_MACHINE_MANIFEST.json) — identity, navigation, protocol, governance, and authority resolution in a single file. Follow the onboarding sequence defined there. Then read [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md) and [`ai-refresh/CCTT_RUNBOOK.md`](ai-refresh/CCTT_RUNBOOK.md).
 
 **If you want to run Hs right now:** [Standards Edition Notebook](tools/Hs_Standards_Edition.ipynb) — self-contained Jupyter notebook, auto-installs dependencies, auto-fetches pipeline from GitHub, includes 3 built-in reference standards, runs all advanced analyses. The conference handout tool.
 
-**If you are reviewing for CoDaWork 2026:** [Abstract (PDF)](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) → [Executive Summary](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [Standards Edition Notebook](papers/codawork2026/Hs_Standards_Edition.ipynb) → [Collaboration Path](papers/codawork2026/CoDaWork2026_Collaboration_Path.md)
+**If you are reviewing for CoDaWork 2026:** [Abstract (PDF)](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) → [Executive Summary](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) → [`CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md) → [Standards Edition Notebook](papers/codawork2026/Hs_Standards_Edition.ipynb) → [Collaboration Path](papers/codawork2026/CoDaWork2026_Collaboration_Path.md)
 
 ---
 

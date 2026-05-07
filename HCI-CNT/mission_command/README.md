@@ -6,6 +6,24 @@ updates) the published `content_sha256`. Optionally dispatches the
 post-CNT module pipeline (Stage 1, Stage 2, Stage 3, Stage 4, spectrum,
 projector) per project.
 
+## 🆕 Mission Command and CCTT — how they relate
+
+Mission Command is the orchestrator for the **canonical 25-experiment
+corpus**: it knows about every registered experiment by ID and runs them
+through the engine + module pipeline with locked per-experiment ordering.
+
+**CCTT v1.0** is the orchestrator for *any* compositional dataset —
+including ones that aren't yet in the corpus. CCTT phase 5 (render
+pipeline) calls into the same modules registered in
+[`modules.py`](modules.py); the difference is that CCTT generates a
+temporary project block on the fly (or invokes single modules directly)
+rather than reading from `INDEX.json`. Both use the same engine, the same
+modules, and the same hash-chain provenance.
+
+If you are running a corpus experiment, use Mission Command directly. If
+you are running a new analysis from raw data, use [`CCTT_RUNBOOK.md`](../../ai-refresh/CCTT_RUNBOOK.md);
+it will call Mission Command for you when the dataset is ready to render.
+
 | File | Purpose |
 |---|---|
 | [`mission_command.py`](mission_command.py) | Orchestrator; `--verify` (default) and `--update` modes; per-experiment + per-project dispatch |

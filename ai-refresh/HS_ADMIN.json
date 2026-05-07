@@ -1,9 +1,43 @@
 {
   "_meta": {
     "schema": "hs_admin/3.0",
-    "generated": "2026-05-06T21:00:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added + Higgins_Coordinate_System docs refreshed + 102 folder-level READMEs + talk_deck cleanup. Pushes #15-#19 verified green.",
+    "generated": "2026-05-06T22:55:00Z",
+    "session": "v1.1.x consolidation + HCI-CNT migration into Hs repo (engine 2.0.4 / schema 2.1.0 / 25 experiments / 3 handbook volumes) + Hs-CNT_2026-05 corpus snapshot added + Higgins_Coordinate_System docs refreshed + 102 folder-level READMEs + talk_deck cleanup + CCTT v1.0 (CNT Compositional Tensor Train AI-build helper) shipped + OPERATIONS_PROTOCOL v1.0 (Gawande meta-checklist for the whole repo) shipped. Pushes #15-#20 verified green.",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol."
+  },
+  "operations_protocol": {
+    "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
+    "version": "1.0.0",
+    "documented_at": "2026-05-06",
+    "front_door_file": "OPERATIONS_PROTOCOL.md (at repo root)",
+    "pilot_report": "OPERATIONS_PROTOCOL_PILOT_REPORT.md (at repo root)",
+    "transitions_covered": 12,
+    "transitions_exercised_in_pilot": [
+      "Section 1 (starting a new compositional analysis — via CCTT pilot)",
+      "Section 5 (pushing to origin/main — via push #20)"
+    ],
+    "applies_to": [
+      "User-mode (researcher executes by hand)",
+      "User + AI-mode (AI executes, user confirms gates)"
+    ],
+    "principle": "Complexity creates failure modes at transition points; structured pause-and-verify checklists at each transition catch them. Binary pass/fail items, plain language, executed by whoever is on point. The protocol holds the line so the work can move forward.",
+    "trigger": "Peter's question after CCTT v1.0 shipped: 'can the Atul Gawande protocol be applied to the repo as a whole?'"
+  },
+  "ai_helpers": {
+    "_description": "User-facing helper systems for AI-assisted CNT work. Each entry is a self-contained protocol any AI assistant can follow to help a researcher accomplish a CNT task.",
+    "cctt": {
+      "name": "CNT Compositional Tensor Train",
+      "version": "1.0.0",
+      "purpose": "Lets any AI assistant build a deterministic CNT analysis pipeline for any compositional dataset, end-to-end from raw CSV to hash-verified output suite. Designed so non-experts in compositional analysis (researchers in ecology, urban planning, forensic accounting, etc.) can get CNT-grade results without needing to know Aitchison geometry.",
+      "spec_json": "ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json",
+      "runbook_md": "ai-refresh/CCTT_RUNBOOK.md",
+      "pilot_report": "ai-refresh/CCTT_PILOT_REPORT.md",
+      "quickstart": "ai-refresh/CCTT_QUICKSTART.md",
+      "model_agnostic": true,
+      "documented_at": "2026-05-06",
+      "trigger": "CodaWork 2026 reviewer asked whether an AI could build a CNT-grade pipeline from raw data. Reviewer's response to the design: 'wonderful, can this be done? amazing.'",
+      "status": "v1.0 shipped — pilot acceptance test on geochem_tappe_kim1 expected to reproduce content_sha256=707034ec... bit-for-bit."
+    }
   },
   "engine": {
     "type": "CNT_V2_EXPERIMENT_INDEX",

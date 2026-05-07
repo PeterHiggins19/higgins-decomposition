@@ -1,0 +1,405 @@
+{
+  "_meta": {
+    "schema": "cctt_build_instruction/1.0",
+    "name": "CNT Compositional Tensor Train — AI Build Instruction",
+    "version": "1.0.0",
+    "documented_at": "2026-05-06",
+    "purpose": "Self-contained instruction set for any AI assistant (Claude, ChatGPT, Gemini, an open-source model, an in-house agent) to construct a deterministic CNT analysis pipeline for any compositional dataset. Following this instruction, an AI takes a raw CSV/XLSX, builds the pre-parser, runs the engine, picks the right output suite, renders it, self-verifies against the determinism gate, and returns a journalled, hash-chained result.",
+    "registered_with": "ai-refresh/HS_ADMIN.json -> ai_helpers.cctt",
+    "companion_runbook": "ai-refresh/CCTT_RUNBOOK.md",
+    "first_pilot": "ai-refresh/CCTT_PILOT_REPORT.md",
+    "principle": "The instrument reads. The expert decides. The hashes carry the receipts. CCTT lets an AI play the role of a careful first-time practitioner, with the hashes verifying the result."
+  },
+
+  "system_anchors": {
+    "engine_canon": {
+      "python": "HCI-CNT/engine/cnt.py",
+      "r": "HCI-CNT/engine/cnt.R",
+      "version": "2.0.4",
+      "schema": "2.1.0",
+      "license": "Apache-2.0"
+    },
+    "doctrine": {
+      "name": "Output Doctrine",
+      "version": "1.0.1",
+      "rule": "Integer orders only. Trajectory aggregates round UP to next order.",
+      "stage_naming": ["Stage 1 (Order 1)", "Stage 2 (Order 2)", "Stage 3 (Order 3)", "Stage 4 (Order 4+)"]
+    },
+    "determinism_gate": {
+      "verifier": "HCI-CNT/tools/verify_package.py",
+      "corpus": "HCI-CNT/experiments/INDEX.json (25 reference experiments, all hash-pinned)",
+      "criterion": "diagnostics.content_sha256 in regenerated JSON must equal INDEX.experiments[<id>].content_sha256"
+    },
+    "handbook": {
+      "volume_1_theory": "HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
+      "volume_2_practitioner": "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md",
+      "volume_3_verification": "HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md"
+    },
+    "adapter_registry": {
+      "code_dir": "HCI-CNT/adapters/",
+      "disclosure": "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md (Part C)",
+      "n_built_in": 13,
+      "examples_to_read_first": [
+        "HCI-CNT/adapters/bin_tappe_and_qin.py",
+        "HCI-CNT/adapters/fao_irrigation_adapter.py",
+        "HCI-CNT/adapters/markham_budget.py"
+      ]
+    },
+    "orchestrator": {
+      "mission_command": "HCI-CNT/mission_command/mission_command.py",
+      "module_registry": "HCI-CNT/mission_command/modules.py",
+      "master_control": "HCI-CNT/mission_command/master_control.json"
+    },
+    "atlas_modules": {
+      "stage1": "HCI-CNT/atlas/stage1_v4.py",
+      "stage2": "HCI-CNT/atlas/stage2_locked.py",
+      "stage3": "HCI-CNT/atlas/stage3_locked.py",
+      "stage4": "HCI-CNT/atlas/stage4_locked.py",
+      "spectrum_paper": "HCI-CNT/atlas/spectrum_paper.py",
+      "projector_html": "HCI-CNT/atlas/plate_time_projector.html"
+    }
+  },
+
+  "engine_io_contract": {
+    "_description": "Exact CLI + JSON shape the AI must produce/consume. Verified live on 2026-05-06 against engine 2.0.4.",
+    "input_csv_shape": {
+      "row_0": "header — first column is the label, remaining D columns are carrier names",
+      "row_1_to_T": "T rows of (label, x_1, x_2, ..., x_D) where x_j > 0 and sum(x_j) > 0",
+      "constraints": [
+        "All carrier values strictly positive — apply imputation BEFORE the adapter writes the CSV",
+        "Sum-to-constant is enforced by the engine (re-closes if needed); adapter SHOULD pre-close to 1.0",
+        "T >= 2 minimum; T >= 3 for Stage 2; T >= 5 recommended for Stage 3"
+      ]
+    },
+    "engine_cli": {
+      "minimal": "python3 HCI-CNT/engine/cnt.py <input.csv> -o <output.json>",
+      "with_ordering": "python3 HCI-CNT/engine/cnt.py <input.csv> -o <output.json> --ordering-method <by-time|by-label|by-d_A>",
+      "temporal_flag": "Add --temporal when the labels carry a time meaning (years, dates, sequence index).",
+      "caveat": "Add --ordering-caveat 'free-form note' to record any non-default rationale in the JSON metadata."
+    },
+    "output_json_shape": {
+      "top_level_keys": ["metadata", "input", "tensor", "stages", "bridges", "depth", "diagnostics"],
+      "key_fields_to_extract": {
+        "metadata.engine_version": "must read 2.0.4 (or current canon)",
+        "metadata.schema_version": "must read 2.1.0",
+        "metadata.engine_config": "the active overrides; record into JOURNAL",
+        "metadata.units": "the resolved INPUT_UNITS block (schema 2.1.0 additive)",
+        "input.source_file_sha256": "byte-hash of the input CSV — must match the user-provided file",
+        "input.closed_data_sha256": "post-closure hash of the (T,D) numerical matrix",
+        "input.n_records": "T",
+        "input.n_carriers": "D",
+        "diagnostics.content_sha256": "THE GATE — this is what the determinism corpus pins against"
+      }
+    }
+  },
+
+  "decision_data_shape_diagnostics": {
+    "_description": "Phase 1 — what the AI computes from the raw input before touching anything else.",
+    "compute": [
+      "T (record count after dropping junk rows)",
+      "D (carrier count after dropping non-numeric / metadata columns)",
+      "is_strictly_positive (every value > 0)",
+      "sum_to_constant_test (max |sum(row_t) - sum(row_0)| / sum(row_0))",
+      "label_column_kind (one of: time-index, named-categories, ordered-numeric, free-text)",
+      "missing_value_pattern (zeros / NaN / negative)",
+      "candidate_carriers (column names that look like carriers: not unit, source, year, country, etc.)"
+    ],
+    "decision_table": [
+      {
+        "condition": "label_column_kind == 'time-index' AND values monotonic",
+        "set": {"is_temporal": true, "ordering_method": "by-time"}
+      },
+      {
+        "condition": "label_column_kind == 'named-categories'",
+        "set": {"is_temporal": false, "ordering_method": "by-label"}
+      },
+      {
+        "condition": "user explicitly requests amplitude-sorted view",
+        "set": {"is_temporal": false, "ordering_method": "by-d_A"}
+      },
+      {
+        "condition": "missing_value_pattern has zeros OR NaN",
+        "action": "REQUIRE adapter to apply zero-replacement (multiplicative imputation, see Volume I §4.2) BEFORE writing the engine CSV. Do not run the engine on raw zeros."
+      },
+      {
+        "condition": "is_strictly_positive == false after imputation",
+        "action": "STOP. Surface the offending rows to the user. Do not guess."
+      }
+    ]
+  },
+
+  "build_phases": {
+    "phase_1_diagnose_data": {
+      "goal": "Understand what the user gave you. No engine calls yet.",
+      "inputs": ["raw user-provided file (CSV/XLSX/TSV/JSON)"],
+      "actions": [
+        "Read first 20 rows + last 5 rows; note column count, dtype mix.",
+        "Run decision_data_shape_diagnostics.compute against the file.",
+        "Identify label column (usually the first non-numeric column).",
+        "Identify candidate carrier columns (numeric, no metadata suffix).",
+        "Compute proposed (T, D, is_temporal, ordering_method) and a one-paragraph plain-English description of what the dataset is."
+      ],
+      "outputs": ["dataset_diagnosis.json — the AI's working memory for phases 2-7"],
+      "stop_conditions": [
+        "Cannot identify a label column — ASK USER.",
+        "Mixed dtypes inside a 'carrier' column — ASK USER for column intent.",
+        "Fewer than 2 viable rows after junk-row removal — STOP."
+      ]
+    },
+
+    "phase_2_select_or_generate_adapter": {
+      "goal": "Convert the raw file into the canonical engine-input CSV (label + D carriers, all positive, all closed).",
+      "branch_a_match_existing": {
+        "criteria": "If the dataset signature (column names, row count band, domain) matches a built-in adapter in HCI-CNT/adapters/, use it directly.",
+        "match_signatures": {
+          "ember_*": "CSV columns include: Year + (Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Solar, Wind)",
+          "geochem_*": "CSV columns are oxide names (SiO2, Al2O3, FeO, MgO, ...) with regional/age labels",
+          "fao_irrigation_methods": "CSV columns are irrigation method names with country labels",
+          "backblaze_fleet": "CSV from BackBlaze drive-stats schema",
+          "financial_sector": "CSV with GICS sector names",
+          "markham_budget": "CSV with department names + budget columns",
+          "iiasa_ngfs": "CSV with NGFS sector emissions schema",
+          "esa_planck_cosmic": "CSV with cosmic energy budget components + redshift",
+          "chemixhub_oxide": "CSV with HOIP-7 oxide composition schema"
+        }
+      },
+      "branch_b_generate_new": {
+        "criteria": "If no built-in matches, generate a new adapter following the disclosure template.",
+        "template": {
+          "filename": "HCI-CNT/adapters/<short_id>_adapter.py",
+          "must_contain_sections": [
+            "# Source disclosure — provenance, URL/citation, retrieval date, original SHA",
+            "# Carrier mapping — which raw column → which carrier (with units)",
+            "# Transformation log — closure, imputation, aggregation, dropped rows",
+            "# Output: writes <name>_input.csv with shape (T, label + D)",
+            "# Output: writes <name>_disclosure.json with the same data in machine form"
+          ],
+          "ten_minute_skeleton": [
+            "1. Load raw file (handle CSV/XLSX with explicit sheet name).",
+            "2. Drop / filter rows per source-specific rules; log counts.",
+            "3. Map columns: keep only the D carrier columns + 1 label column.",
+            "4. Impute zeros using multiplicative replacement (Aitchison) — disclose multiplier.",
+            "5. Close each row to sum=1 (or leave to engine and disclose).",
+            "6. Write <name>_input.csv (label + D carriers, T rows).",
+            "7. Write <name>_disclosure.json with all of the above as fields.",
+            "8. Print SHA-256 of <name>_input.csv on stdout for the AI to record."
+          ]
+        }
+      },
+      "user_confirmation_gate": "BEFORE running the engine, the AI MUST echo back to the user: (a) the proposed carrier list, (b) the label-column interpretation, (c) the (T, D, is_temporal, ordering_method) tuple. Wait for user confirmation. Do not silently proceed past this gate.",
+      "outputs": ["<name>_input.csv (engine-ready)", "<name>_adapter.py (if generated)", "<name>_disclosure.json"]
+    },
+
+    "phase_3_run_engine": {
+      "goal": "Get the canonical CNT JSON.",
+      "actions": [
+        "Construct CLI: python3 HCI-CNT/engine/cnt.py <name>_input.csv -o <name>_cnt.json --ordering-method <method>",
+        "Add --temporal if is_temporal is true.",
+        "Run; capture stdout (engine prints content_sha256 + signature on the last lines).",
+        "Verify the JSON parses and has all 7 top-level keys: metadata, input, tensor, stages, bridges, depth, diagnostics.",
+        "Extract: metadata.engine_version, metadata.schema_version, input.source_file_sha256, input.closed_data_sha256, diagnostics.content_sha256, diagnostics.higgins_extensions.IR_class, diagnostics.higgins_extensions.amplitude_A."
+      ],
+      "stop_conditions": [
+        "Engine exits non-zero — capture stderr verbatim, surface to user; do not proceed.",
+        "JSON missing any of the 7 top-level keys — schema mismatch; check engine version.",
+        "metadata.engine_version != system_anchors.engine_canon.version — STOP. Schema mismatch risk."
+      ]
+    },
+
+    "phase_4_choose_output_suite": {
+      "goal": "Pick which atlas / spectrum / projector pages make sense for this data.",
+      "decision_rules": [
+        {
+          "condition": "always",
+          "render": ["stage1"]
+        },
+        {
+          "condition": "input.n_records (T) >= 3",
+          "render": ["stage2"]
+        },
+        {
+          "condition": "input.n_records (T) >= 5 AND diagnostics.higgins_extensions.IR_class != 'D2_DEGENERATE'",
+          "render": ["stage3"]
+        },
+        {
+          "condition": "user has multiple datasets to compare AND they share carriers",
+          "render": ["stage4", "spectrum_paper", "projector_html"]
+        },
+        {
+          "condition": "is_temporal == true AND input.n_carriers (D) >= 4",
+          "render_recommended": ["projector_html"]
+        }
+      ],
+      "skip_rules": [
+        "Skip ternary-triplet plates (in stage2) when D < 3.",
+        "Skip biplot when D < 4.",
+        "Skip Stage 4 cross-dataset comparisons unless user provides 2+ datasets."
+      ]
+    },
+
+    "phase_5_render_pipeline": {
+      "goal": "Generate the chosen output suite using the canonical orchestrator.",
+      "actions": [
+        "If running a single experiment: invoke each module from HCI-CNT/mission_command/modules.py with the engine JSON as input.",
+        "If running a project of multiple experiments: write a temporary master_control.json project block and call: python3 HCI-CNT/mission_command/mission_command.py --project <project_name>",
+        "Capture file paths of all generated artefacts (PDFs, JSON, HTML) into the output manifest."
+      ],
+      "outputs": ["<name>_stage1.pdf", "<name>_stage2.pdf (and stage3/4 when chosen)", "<name>_pipeline_manifest.json"]
+    },
+
+    "phase_6_self_verify": {
+      "goal": "Prove the result is reproducible and schema-clean. This is the determinism gate at the AI-orchestration layer.",
+      "checks": [
+        {
+          "name": "schema_validation",
+          "command": "python3 HCI-CNT/tools/validate_cnt_schema.py <name>_cnt.json",
+          "pass_if": "exit code 0 and 'schema 2.1.0 OK' on stdout"
+        },
+        {
+          "name": "engine_re_run_determinism",
+          "command": "Re-run the engine with the same CLI; compare diagnostics.content_sha256.",
+          "pass_if": "first_run.content_sha256 == second_run.content_sha256"
+        },
+        {
+          "name": "source_hash_consistency",
+          "check": "input.source_file_sha256 in <name>_cnt.json must equal sha256(<name>_input.csv).",
+          "pass_if": "byte-equal"
+        },
+        {
+          "name": "corpus_match_when_applicable",
+          "check": "If this experiment id exists in HCI-CNT/experiments/INDEX.json, diagnostics.content_sha256 must match INDEX[id].content_sha256.",
+          "pass_if": "byte-equal hex string match",
+          "if_mismatch": "STOP. Either the engine version drifted or the input changed. Surface both SHAs to the user with line-by-line diff of input CSVs."
+        }
+      ],
+      "stop_conditions": [
+        "Any check fails — DO NOT SHIP. Write the failure into the JOURNAL with full reproduction steps and surface to the user."
+      ]
+    },
+
+    "phase_7_present_and_journal": {
+      "goal": "Hand back to the user with a complete audit trail.",
+      "outputs": [
+        "<name>_JOURNAL.md — auto-written audit-trail per the standard JOURNAL template; see HCI-CNT/experiments/<id>/JOURNAL.md for examples",
+        "<name>_cnt.json — the canonical engine output (hashed)",
+        "<name>_input.csv — the engine-input CSV (hashed)",
+        "<name>_<adapter>.py + <name>_disclosure.json — IF a new adapter was generated",
+        "Stage 1 + (Stage 2 + …) PDFs — the chosen output suite",
+        "<name>_pipeline_manifest.json — file list, hashes, engine signature, AI-build provenance"
+      ],
+      "journal_template_fields": [
+        "Engine version + schema version",
+        "Generated timestamp",
+        "Wall-clock ms",
+        "Input source CSV name + SHA-256",
+        "T, D, carriers, ordering",
+        "Headline results table (curvature/energy depth, IR class, amplitude, period, M² residual)",
+        "Auto-generated Conclusion paragraph (reuse the template in mission_command.modules._auto_conclusion)",
+        "AI build provenance block — which CCTT version, which AI model, which prompt elicited the run, what gates passed"
+      ]
+    }
+  },
+
+  "ai_responsibilities_and_boundaries": {
+    "must_do": [
+      "Read the three handbook volumes before generating a new adapter.",
+      "Echo the proposed (T, D, ordering, carriers) to the user and wait for confirmation before phase 3.",
+      "Hash-check at every gate and report mismatches verbatim.",
+      "Write the JOURNAL.md with every run.",
+      "Disclose all transformations in the adapter source (provenance, dropped rows, imputation parameters)."
+    ],
+    "must_not_do": [
+      "Modify the canonical engine (cnt.py / cnt.R) — schema and signature are locked.",
+      "Modify the determinism gate corpus (HCI-CNT/experiments/INDEX.json) without explicit user authorisation.",
+      "Push to git or modify the canonical local repo — Cowork mirror only; see HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method.",
+      "Skip the user-confirmation gate at the end of phase 2.",
+      "Ship a result whose phase-6 checks did not all pass.",
+      "Invent carrier names or column meanings — when ambiguous, ASK."
+    ],
+    "model_agnostic": "This instruction is portable across AI assistants. Nothing in it is specific to Claude. ChatGPT, Gemini, Llama, Mistral, an in-house agent — any AI that can read files, run shell commands, and write JSON can follow CCTT."
+  },
+
+  "user_facing_contract": {
+    "what_the_user_provides": "A compositional dataset (CSV/XLSX/TSV/JSON) plus, ideally, a one-sentence description of what it is.",
+    "what_the_user_gets_back": [
+      "A canonical CNT JSON, hash-verifiable",
+      "A Stage 1 page (always) and the additional Stage 2/3/4 + spectrum + projector pages that fit the data shape",
+      "A disclosed pre-parser adapter (if a new one was needed)",
+      "A JOURNAL.md audit trail with full provenance",
+      "A pipeline manifest listing every output file with SHA-256"
+    ],
+    "what_the_user_does_NOT_need_to_know": [
+      "Aitchison geometry",
+      "ILR-Helmert basis construction",
+      "The atan2 simplification",
+      "The 8-class IR taxonomy",
+      "Schema 2.1.0 internals",
+      "How the determinism gate works internally"
+    ],
+    "what_the_user_DOES_need_to_confirm": [
+      "Which columns are carriers vs labels",
+      "Whether the labels are temporal or categorical",
+      "The units of the carrier values (and whether different carriers share units)",
+      "Whether zeros are 'true zero' or 'below detection limit' (changes the imputation choice)"
+    ]
+  },
+
+  "pilot_protocol_for_v0_1": {
+    "_description": "Acceptance test for v1.0.0 of this instruction. Run by Peter or any reviewer.",
+    "dataset": "geochem_tappe_kim1",
+    "raw_input_csv": "experiments/Hs-05_Geochemistry/region_binning/tappe_kim1_by_country_barycenters.csv",
+    "expected_source_sha256": "e4578e4c0e4b139eab0f0ab838db664cf5b18b9d0af09dd3890abaf2ecfb6e19",
+    "expected_content_sha256": "707034ecc512c29df57e73fcb68466e10611bc63cc3c4d88a4b2152ff39e4063",
+    "expected_results": {
+      "T": 8,
+      "D": 10,
+      "carriers": ["SiO2", "TiO2", "Al2O3", "FeO", "CaO", "MgO", "MnO", "K2O", "Na2O", "P2O5"],
+      "is_temporal": false,
+      "ordering_method": "by-label",
+      "ir_class": "CRITICALLY_DAMPED",
+      "amplitude_A_approx": 0.0663,
+      "curvature_depth": 16,
+      "energy_depth": 4,
+      "M2_residual_max": 1e-15
+    },
+    "acceptance_criterion": "AI following CCTT v1.0 reproduces diagnostics.content_sha256 == 707034ecc512c29df57e73fcb68466e10611bc63cc3c4d88a4b2152ff39e4063 from the raw CSV alone, with no human steering past phase 2's confirmation gate.",
+    "report_path": "ai-refresh/CCTT_PILOT_REPORT.md"
+  },
+
+  "knowledge_pointers_for_cold_start_ai": {
+    "_description": "Files an AI should read on first use of CCTT, in order. Total reading load: ~30 minutes of context for a fresh model.",
+    "tier_1_essential": [
+      "ai-refresh/CCTT_RUNBOOK.md (the human-readable companion to this JSON)",
+      "ai-refresh/HS_MACHINE_MANIFEST.json (the system pointer block)",
+      "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md (Part C: adapters; Part E: walkthrough)"
+    ],
+    "tier_2_when_generating_a_new_adapter": [
+      "HCI-CNT/adapters/README.md",
+      "HCI-CNT/adapters/bin_tappe_and_qin.py (gold-standard generated adapter — read first)",
+      "HCI-CNT/adapters/markham_budget.py (gold-standard synthetic-baseline adapter)",
+      "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md Part C"
+    ],
+    "tier_3_when_a_check_fails": [
+      "HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md (full determinism-gate semantics + recovery)"
+    ]
+  },
+
+  "extension_hooks": {
+    "_description": "Reserved fields for future CCTT versions. v1.0 leaves these empty; v1.1+ may populate.",
+    "v1_1_planned": {
+      "interactive_clarification_dialog": "structured Q&A dialog the AI runs at phase 2 instead of free-form 'ask the user'",
+      "adapter_test_harness": "auto-generate a small unit test for a freshly-built adapter against a known-good slice of the input",
+      "multi_dataset_orchestration": "first-class support for phase 4 cross-dataset bundles (currently has decision rules but no orchestrator scaffold)",
+      "non_csv_inputs": "first-class XLSX/TSV/JSON ingestion at phase 1 (currently delegated to adapter)"
+    }
+  },
+
+  "history": {
+    "v1_0_0": {
+      "date": "2026-05-06",
+      "author": "P. Higgins + Claude Cowork session",
+      "commit": "(this file lives in the Cowork mirror until Peter syncs and pushes from the canonical repo)",
+      "trigger": "CodaWork 2026 reviewer asked whether an AI could build a CNT-grade compositional analysis pipeline end-to-end from raw data."
+    }
+  }
+}

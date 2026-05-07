@@ -4,6 +4,25 @@ This directory packages the HUF-CNT system for the CodaWork 2026 conference
 demo. It is **self-contained**: every artefact you need to present, run, or
 audit lives here.
 
+## 🆕 The headline new feature for CodaWork 2026 (May 2026)
+
+**CCTT v1.0 — CNT Compositional Tensor Train.** A 7-phase protocol that lets
+any researcher (or any AI assistant) take a raw compositional dataset and
+produce a CNT-grade analysis end-to-end with hash-chained provenance. Same
+protocol works in **User-mode** (you walk it by hand) and **User + AI-mode**
+(an AI executes; you confirm the gates). Pilot acceptance test on
+`geochem_tappe_kim1` reproduced the canonical `content_sha256` byte-for-byte
+from the raw CSV alone.
+
+The protocol came directly from a CodaWork 2026 reviewer asking *"can an AI
+build a CNT-grade pipeline end-to-end from raw data?"* The answer — with
+proof — is yes. → [`../../ai-refresh/CCTT_QUICKSTART.md`](../../ai-refresh/CCTT_QUICKSTART.md).
+
+If you are reviewing this demo and want to audit any specific result, the
+**OPERATIONS_PROTOCOL v1.0** at the repo root has the 30-second
+reproducibility recipe in Section 12. → [`../../OPERATIONS_PROTOCOL.md`](../../OPERATIONS_PROTOCOL.md).
+
+
 ```
 codawork2026_conference/
 ├── README.md                  ← this file

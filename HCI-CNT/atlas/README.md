@@ -3,6 +3,21 @@
 The HCI-Atlas is the report family produced from any conformant CNT JSON.
 Four stages, each tagged by derivational order (see Volume I §G doctrine).
 
+## 🆕 Atlas pages selected for you by CCTT phase 4
+
+You don't have to choose which stages to render manually. The **CCTT v1.0**
+protocol's phase 4 picks the right output suite based on dataset shape:
+Stage 1 always; Stage 2 when T≥3; Stage 3 when T≥5 and IR class isn't
+D2_DEGENERATE; Stage 4 + spectrum + projector only for multi-dataset jobs.
+Conservative defaults; render-more-on-request.
+
+→ [`../../ai-refresh/CCTT_RUNBOOK.md`](../../ai-refresh/CCTT_RUNBOOK.md) phase 4 has the full decision rules.
+
+If you want to call the modules directly (e.g., re-rendering a single
+Stage 2 page after editing `stage2_locked.py`), use the registry in
+[`../mission_command/modules.py`](../mission_command/modules.py) — same
+modules, same outputs, same hash discipline.
+
 | Module | Order | Output |
 |---|---|---|
 | [`stage1_v4.py`](stage1_v4.py) | Order 1 | Per-timestep ILR-Helmert orthogonal triplet plate (T plates per dataset) |

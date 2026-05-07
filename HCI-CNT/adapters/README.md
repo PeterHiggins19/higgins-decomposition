@@ -5,6 +5,19 @@ Each adapter converts raw third-party data into the canonical CNT input CSV
 data source, the transformations applied, what is preserved, what is
 dropped, and the SHA-256 of the output CSV are all in the source.
 
+## 🆕 Don't write an adapter from scratch — use CCTT
+
+The **CCTT v1.0** protocol does adapter selection automatically as its
+phase 2. If your dataset matches one of the 13 built-in adapters below by
+column signature, CCTT picks it. If it doesn't match, CCTT generates a new
+adapter from the disclosure template, with full provenance. In either case
+you confirm the column-to-carrier mapping before the engine runs.
+
+Start here: [`../../ai-refresh/CCTT_QUICKSTART.md`](../../ai-refresh/CCTT_QUICKSTART.md)
+→ [`CCTT_RUNBOOK.md`](../../ai-refresh/CCTT_RUNBOOK.md) phase 2.
+
+If you want to add an adapter manually (rare), use [`OPERATIONS_PROTOCOL.md`](../../OPERATIONS_PROTOCOL.md) Section 2 — a 7-item disclosure checklist that ensures the adapter is reproducible and reviewable. The gold-standard template is [`bin_tappe_and_qin.py`](bin_tappe_and_qin.py); read that first.
+
 ## Built-in adapters (13)
 
 ### Original 8 (codawork2026 + domain)
