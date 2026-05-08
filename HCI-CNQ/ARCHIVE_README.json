@@ -1,10 +1,22 @@
 {
+  "_HEADER_FOR_COLD_START_READERS": {
+    "_purpose": "This file is a HISTORICAL ARCHIVE of the original Quaternion Decomposition (QD) project README from when the work lived at workspace root, outside the canonical repo. It is preserved verbatim below as part of the audit trail, but its 'EXPERIMENTAL — NOT FOR REPO USE' status is no longer the current state of HCI-CNQ.",
+    "_current_status_pointer": "See HCI-CNQ/HCI-CNQ_ADMIN.json -> status (four-field model) for the live state.",
+    "_four_field_status_summary": {
+      "current_repo_status": "canonical_public_tier",
+      "engine_status": "cnq.py shipped in push #26",
+      "validation_status": "three IEEE-floor confirmations + Round 3 pending",
+      "archive_status": "this file IS the historical candidate-state record"
+    },
+    "_promotion_record": "QD promoted to canonical sibling tier in push #23 (2026-05-07). Folder moved from workspace root to Current-Repo/Hs/HCI-CNQ/. cnq.py engine added in push #26 (2026-05-08).",
+    "_do_not_use_legacy_status": "The 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' language preserved verbatim below describes the pre-promotion state. Do not treat it as the current state."
+  },
   "_meta": {
     "schema": "qd_experimental_readme/1.0",
-    "name": "Quaternion Decomposition (QD)",
-    "version": "0.0.1-experimental",
+    "name": "Quaternion Decomposition (QD) — historical archive",
+    "version": "0.0.1-experimental (HISTORICAL ARCHIVE; superseded by HCI-CNQ_ADMIN.json post-push-#23)",
     "documented_at": "2026-05-07",
-    "status": "EXPERIMENTAL — NOT FOR REPO USE",
+    "status": "HISTORICAL ARCHIVE — see _HEADER_FOR_COLD_START_READERS for current state",
     "status_long": "This folder is an experimental research project exploring whether the CNT (Compositional Navigation Tensor) operators can be expressed natively in quaternion algebra (with time as the scalar part). It is intentionally located OUTSIDE the Hs canonical repo at the Cowork-workspace root so it cannot accidentally be pushed. Status will change to 'CANDIDATE' if a corpus comparison validates one or more of the testable predictions, then 'PROPOSED INCLUSION' if the system benefits warrant integration into the HCI-CNT subsystem.",
     "do_not_push_until": "Status is changed by Peter explicitly. Until then, no file from this folder lands on origin/main.",
     "central_claim": {
@@ -24,7 +36,8 @@
         "Round 2.5 Concept 1 Planck CMB": "4.441e-16 max diff (bit-identical to Round 2)",
         "Round 2.5 Concept 3 M^2=I Planck": "7.63e-17 residual (IEEE floor)"
       }
-    }
+    },
+    "_legacy_status_string": "EXPERIMENTAL — NOT FOR REPO USE"
   },
   "scope": {
     "investigates": "Whether CNT's four channels (theta, omega, kappa, sigma) plus time fit naturally into a quaternion structure (1 scalar + 3 vector), and whether that structure exposes operations CNT currently emulates by hand.",

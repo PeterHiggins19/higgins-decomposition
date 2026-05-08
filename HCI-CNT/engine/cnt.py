@@ -31,7 +31,9 @@ Mathematical interpretation (Volume IV, integrated 2026-05-07):
 
     1. Simplex rotation invariance under SO(D-1).  For D=4, SO(3), whose
        universal cover is SU(2) ≃ S³ ≃ unit quaternions.  The bearing
-       (atan2) step below is the rank-1 quaternion log map.
+       (atan2) step below is the 1D / single-axis case of the quaternion
+       log map (per HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md §1,
+       "rank" is reserved for matrix / decomposition contexts).
 
     2. Mass-flow handedness preserved by the SU(2) lift.  The helmsman
        (signed cumulative ω) tracks which sheet of SU(2) → SO(3) the

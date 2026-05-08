@@ -2,20 +2,20 @@
   "_meta": {
     "schema": "hs_admin/3.0",
     "generated": "2026-05-08T23:30:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY \u00a7I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) \u2014 formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
     "volume_iv_integrated_at": "2026-05-07T09:30:00Z"
   },
   "operations_protocol": {
-    "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment \u2014 new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
+    "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
     "version": "1.0.0",
     "documented_at": "2026-05-06",
     "front_door_file": "OPERATIONS_PROTOCOL.md (at repo root)",
     "pilot_report": "OPERATIONS_PROTOCOL_PILOT_REPORT.md (at repo root)",
     "transitions_covered": 12,
     "transitions_exercised_in_pilot": [
-      "Section 1 (starting a new compositional analysis \u2014 via CCTT pilot)",
-      "Section 5 (pushing to origin/main \u2014 via push #20)"
+      "Section 1 (starting a new compositional analysis — via CCTT pilot)",
+      "Section 5 (pushing to origin/main — via push #20)"
     ],
     "applies_to": [
       "User-mode (researcher executes by hand)",
@@ -37,7 +37,7 @@
       "model_agnostic": true,
       "documented_at": "2026-05-06",
       "trigger": "CodaWork 2026 reviewer asked whether an AI could build a CNT-grade pipeline from raw data. Reviewer's response to the design: 'wonderful, can this be done? amazing.'",
-      "status": "v1.0 shipped \u2014 pilot acceptance test on geochem_tappe_kim1 expected to reproduce content_sha256=707034ec... bit-for-bit."
+      "status": "v1.0 shipped — pilot acceptance test on geochem_tappe_kim1 expected to reproduce content_sha256=707034ec... bit-for-bit."
     }
   },
   "quaternion_view": {
@@ -70,8 +70,8 @@
     "engine": "cnt 2.0.3",
     "last_updated": "2026-05-06T01:23:58.594544+00:00",
     "n_experiments": 25,
-    "push_status": "Push #19 verified green (Validate Repository #19, commit 7d2b25e, 2026-05-06 \u2014 lock+temp-file cleanup). Cumulative pushes through push #19: #15 HCI-CNT migration, #16 INDEX engine version + per-country snapshots refresh, #17 community-presence assets, #18 Hs-CNT_2026-05 corpus + Higgins_Coordinate_System docs refresh + 102 folder READMEs, #19 talk_deck cleanup (lu4422tlij.tmp + soffice lock removed, .gitignore extended).",
-    "fault_tolerance": "Peter operates a dual-folder fault-tolerant method. The Claude Cowork mirror at D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs is NOT the canonical git working tree \u2014 it is a mirror that Peter syncs to a separate local repo before each push. In the event of a Cowork-folder issue, the canonical repo can be used to recover as long as the corresponding push has not yet been verified green. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the full protocol."
+    "push_status": "Push #19 verified green (Validate Repository #19, commit 7d2b25e, 2026-05-06 — lock+temp-file cleanup). Cumulative pushes through push #19: #15 HCI-CNT migration, #16 INDEX engine version + per-country snapshots refresh, #17 community-presence assets, #18 Hs-CNT_2026-05 corpus + Higgins_Coordinate_System docs refresh + 102 folder READMEs, #19 talk_deck cleanup (lu4422tlij.tmp + soffice lock removed, .gitignore extended).",
+    "fault_tolerance": "Peter operates a dual-folder fault-tolerant method. The Claude Cowork mirror at D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs is NOT the canonical git working tree — it is a mirror that Peter syncs to a separate local repo before each push. In the event of a Cowork-folder issue, the canonical repo can be used to recover as long as the corresponding push has not yet been verified green. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the full protocol."
   },
   "experiments_summary": {
     "n_total": 25,
@@ -395,47 +395,47 @@
       "metadata.engine_config.active_overrides for full audit trail"
     ],
     "atlas_modules_shipped": [
-      "atlas/stage1_v4.py             \u2014 Order-1 ILR-Helmert ortho plate (locked)",
-      "atlas/atlas_stage1_complete.py \u2014 Stage 1 driver: T plates + 1 summary",
-      "atlas/stage2_locked.py         \u2014 Order-2 19-plate atlas (locked)",
-      "atlas/spectrum_paper.py        \u2014 paper cross-dataset spectrum (Order 2)",
-      "atlas/plate_time_projector.html \u2014 interactive HTML projector (Order 1+2)",
-      "atlas/det_pdf.py               \u2014 deterministic PDF metadata helper"
+      "atlas/stage1_v4.py             — Order-1 ILR-Helmert ortho plate (locked)",
+      "atlas/atlas_stage1_complete.py — Stage 1 driver: T plates + 1 summary",
+      "atlas/stage2_locked.py         — Order-2 19-plate atlas (locked)",
+      "atlas/spectrum_paper.py        — paper cross-dataset spectrum (Order 2)",
+      "atlas/plate_time_projector.html — interactive HTML projector (Order 1+2)",
+      "atlas/det_pdf.py               — deterministic PDF metadata helper"
     ],
     "orchestration": [
-      "mission_command/mission_command.py  \u2014 25-experiment driver",
-      "mission_command/modules.py          \u2014 post-CNT module registry",
-      "mission_command/master_control.json \u2014 projects[] + experiments[] config",
-      "tools/run_pipeline.py               \u2014 module-only driver",
-      "tools/verify_package.py             \u2014 package-readiness verifier"
+      "mission_command/mission_command.py  — 25-experiment driver",
+      "mission_command/modules.py          — post-CNT module registry",
+      "mission_command/master_control.json — projects[] + experiments[] config",
+      "tools/run_pipeline.py               — module-only driver",
+      "tools/verify_package.py             — package-readiness verifier"
     ],
     "documentation": [
-      "atlas/OUTPUT_DOCTRINE.md            \u2014 order classification (hash-stamped)",
-      "atlas/STAGE2_PSEUDOCODE.md          \u2014 language-neutral Stage 2 reference",
-      "atlas/V1.1_FEATURE_MENU.md          \u2014 A\u2013G feature list with status",
-      "PUBLIC_TRIAL_READINESS.md           \u2014 claim-by-claim evidence map",
-      "codawork2026_conference/README.md   \u2014 conference demo package",
-      "codawork2026_conference/DEMO_GUIDE.md \u2014 30-minute walkthrough script"
+      "atlas/OUTPUT_DOCTRINE.md            — order classification (hash-stamped)",
+      "atlas/STAGE2_PSEUDOCODE.md          — language-neutral Stage 2 reference",
+      "atlas/V1.1_FEATURE_MENU.md          — A–G feature list with status",
+      "PUBLIC_TRIAL_READINESS.md           — claim-by-claim evidence map",
+      "codawork2026_conference/README.md   — conference demo package",
+      "codawork2026_conference/DEMO_GUIDE.md — 30-minute walkthrough script"
     ],
     "extended_adapters_built": [
-      "adapters/markham_budget.py        \u2014 8-dept municipal budget (15y)",
-      "adapters/iiasa_ngfs.py            \u2014 7-sector NZ-2050 (31y)",
-      "adapters/esa_planck_cosmic.py     \u2014 5-component Planck \u00d7 redshift",
-      "adapters/financial_sector.py      \u2014 10-sector daily portfolio (252d)",
-      "adapters/chemixhub_oxide.py       \u2014 7-oxide HOIP-7 trajectory"
+      "adapters/markham_budget.py        — 8-dept municipal budget (15y)",
+      "adapters/iiasa_ngfs.py            — 7-sector NZ-2050 (31y)",
+      "adapters/esa_planck_cosmic.py     — 5-component Planck × redshift",
+      "adapters/financial_sector.py      — 10-sector daily portfolio (252d)",
+      "adapters/chemixhub_oxide.py       — 7-oxide HOIP-7 trajectory"
     ]
   },
   "audit_chain": {
     "raw_data_to_csv": "adapters/<*>.py + adapters/ADAPTERS_DISCLOSURE.md",
-    "csv_to_json": "cnt/cnt.py \u2014 content_sha256 deterministic",
-    "json_to_pdf": "atlas/* \u2014 det_pdf.py for byte-stable metadata",
+    "csv_to_json": "cnt/cnt.py — content_sha256 deterministic",
+    "json_to_pdf": "atlas/* — det_pdf.py for byte-stable metadata",
     "pdf_to_catalog": "atlas/catalog.py + catalog_html.py",
-    "module_pipeline": "mission_command/modules.py \u2014 _pipeline_manifest.json per project"
+    "module_pipeline": "mission_command/modules.py — _pipeline_manifest.json per project"
   },
   "open_items": {
-    "stage3_plate": "OPEN \u2014 Order-3 view (depth tower / IR / attractor)",
-    "stage4_plate": "OPEN \u2014 Order-4+ view (EITT, cross-dataset, inference)",
-    "raw_data_swap_in": "OPEN \u2014 replace synthetic baselines in 5 extended adapters with raw source data when accessible"
+    "stage3_plate": "OPEN — Order-3 view (depth tower / IR / attractor)",
+    "stage4_plate": "OPEN — Order-4+ view (EITT, cross-dataset, inference)",
+    "raw_data_swap_in": "OPEN — replace synthetic baselines in 5 extended adapters with raw source data when accessible"
   },
   "hci_cnt_subsystem": {
     "_description": "CNT subsystem now part of the Hs canonical line, located at HCI-CNT/.",
@@ -467,12 +467,12 @@
       "CNT_VERIFICATION_VALUE_FOR_CODA.md"
     ],
     "reliability_contribution_to_hs": [
-      "Hash-chained provenance from raw CSV \u2192 engine signature \u2192 canonical JSON \u2192 PDF \u2014 extends Hs Data Integrity Law into a fully audit-traceable workflow.",
+      "Hash-chained provenance from raw CSV → engine signature → canonical JSON → PDF — extends Hs Data Integrity Law into a fully audit-traceable workflow.",
       "Deterministic engine: byte-identical content_sha256 across Python and R, across runs, by design.",
       "25-experiment determinism gate: corpus is reproducible end-to-end in ~21 seconds.",
       "Calibration fixtures with mathematically-known answers verify the engine residuals at IEEE floor.",
       "Cross-dataset Stage 4 reports give Hs a structural-comparison apparatus over multiple datasets in one document.",
-      "CoDa-community preprints position the work as additive infrastructure \u2014 supportive of the established CoDa toolkit, not competitive."
+      "CoDa-community preprints position the work as additive infrastructure — supportive of the established CoDa toolkit, not competitive."
     ],
     "push_status": "Ready for push #15 (per PREPARE_FOR_REPO.json checklist; READY_TO_PUSH=true)."
   },
@@ -507,13 +507,13 @@
     "archive_file": "ai-refresh/AI_REFRESH_2026-05-07_chatgpt_crosscheck.md",
     "push_narrative": "ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md",
     "canonical_additions": [
-      "HCI-CNT/handbook/GLOSSARY.md \u00a7H (seven HCI vocabulary terms)",
+      "HCI-CNT/handbook/GLOSSARY.md §H (seven HCI vocabulary terms)",
       "HCI-CNT/conference_demo/CODAWORK2026_TALKING_POINTS.md (tone overlay)",
-      "HCI-CNQ/ \u2014 full tier promoted from experimental to canonical (25 files: doctrine, tier_system, three IEEE-floor experiments)"
+      "HCI-CNQ/ — full tier promoted from experimental to canonical (25 files: doctrine, tier_system, three IEEE-floor experiments)"
     ],
     "deferred_to_experimental": [
-      "HCI-MOL (protein sliding-window pilot) \u2014 Quaternion Decomposition/Hs-MOL/ at workspace root",
-      "HCI-VR (Spatial Morphographic Analyzer) \u2014 Quaternion Decomposition/Hs-VR/ at workspace root"
+      "HCI-MOL (protein sliding-window pilot) — Quaternion Decomposition/Hs-MOL/ at workspace root",
+      "HCI-VR (Spatial Morphographic Analyzer) — Quaternion Decomposition/Hs-VR/ at workspace root"
     ],
     "verification_pattern": "Claude builds -> ChatGPT cross-checks vocabulary and framing -> Grok tests system end-to-end -> Peter pushes",
     "engine_unchanged": true,
@@ -521,7 +521,7 @@
     "preflight_evidence": "backblaze_fleet content_sha256=3e5f8db9e2b8a4a4c64aef59d1898da88f6d99d840768dd8627e5cc3beb6b06d reproduces bit-identically against current engine"
   },
   "hci_cnq": {
-    "_description": "HCI-CNQ \u2014 Compositional Navigation Quaternion. Tier promoted to canonical 2026-05-07 (push #23). Sibling of HCI-CNT in the Hs three-tier stack (CoDa -> CNT -> CNQ).",
+    "_description": "HCI-CNQ — Compositional Navigation Quaternion. Tier promoted to canonical 2026-05-07 (push #23). Sibling of HCI-CNT in the Hs three-tier stack (CoDa -> CNT -> CNQ).",
     "tier_status": "live (canonical)",
     "engine_status": "compiled cnq.py pending (~14 days per tier_system/CNQ_ENGINE_PROPOSAL.md)",
     "promotion_date": "2026-05-07",
@@ -577,7 +577,7 @@
     },
     "canonical_additions": [
       "HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md (new historical doctrine)",
-      "HCI-CNT/handbook/GLOSSARY.md \u00a7I (Helmsman family extensions, marked PROPOSED)",
+      "HCI-CNT/handbook/GLOSSARY.md §I (Helmsman family extensions, marked PROPOSED)",
       "Hs/HCI-AUDIO/ (new canonical sibling tier, doctrine-only)",
       "Hs/HCI-ULTRASOUND/ (new canonical sibling tier, doctrine-only)",
       "Hs/README.md updates (badges, What's New, applied-tier sections, Lineage paragraph)"
@@ -659,23 +659,66 @@
     "framing": "EITT 5%-threshold discipline: every contribution above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
     "current_summary": {
       "CANONICAL": 9,
-      "DEFERRED": 9,
+      "DEFERRED": 12,
       "FALSIFIED": 1,
-      "OPEN": 5,
-      "total": 24
+      "OPEN": 7,
+      "total": 29
     },
     "current_summary_by_source": {
-      "CLAUDE": 4,
-      "CHATGPT": 3,
-      "GROK": 9,
-      "USER": 5,
+      "CLAUDE": 7,
+      "CHATGPT": 6,
+      "GROK": 10,
+      "USER": 6,
       "PILOT": 0
     },
     "promotion_discipline": "Demonstration-first. Investigations promoted to CANONICAL only when stated gate criteria are met. Mathematical coherence alone is insufficient for promotion.",
     "next_likely_promotions": [
-      "INV-021 (cnq.py engine) \u2014 when implementation lands (~14 days)",
-      "INV-024 (HCI-AUDIO first pilot) \u2014 when Peter measures his 4-way system",
-      "INV-025 (HCI-ULTRASOUND first pilot) \u2014 when industrial composite-inspection pilot runs"
+      "INV-021 (cnq.py engine) — INITIAL PRODUCTION ENGINE SHIPPED IN PUSH #26; full corpus validation gate still open via INV-022",
+      "INV-022 (Round 3 full-corpus quaternion validation) — ~1.5 days; gates several CANDIDATE → CONFIRMED promotions",
+      "INV-024 (HCI-AUDIO first pilot) — when Peter measures his 4-way system",
+      "INV-025 (HCI-ULTRASOUND first pilot) — when industrial composite-inspection pilot runs",
+      "INV-028 (Dyadic Coupling Ladder) — DEFERRED; pilot showing C_ijkl detects structure order-2 misses",
+      "INV-029 (Twin-Quaternion Factoring D=8) — DEFERRED; EMBER country-trajectory pilot"
     ]
+  },
+  "cnq_engine": {
+    "_description": "Production CNQ engine shipped in push #26. Compiled sibling to cnt.py. Reads CNT JSON or runs CNT via portable adapter; computes the quaternion-native view via Helmert + sandwich-product reconstruction; emits hash-chained CNQ JSON with parent_cnt_content_sha256 + cnq_content_sha256.",
+    "version": "1.0.0",
+    "schema": "cnq/1.0.0",
+    "canonical_location": "HCI-CNQ/engine/cnq.py",
+    "support_modules": [
+      "HCI-CNQ/engine/geometry.py",
+      "HCI-CNQ/engine/cnt_adapter.py",
+      "HCI-CNQ/engine/hashing.py"
+    ],
+    "schema_doc": "HCI-CNQ/engine/CNQ_SCHEMA.md",
+    "shipped_in_push": "#26",
+    "dependencies": "Python 3.9+, numpy. No other runtime deps.",
+    "portability": "No hardcoded paths. Auto-detects repo root via .git / HCI-CNQ / HCI-CNT / ai-refresh markers. --repo-root and --cnt-engine overrides supported.",
+    "determinism": "Canonical JSON serialization (sorted keys, no whitespace, ASCII-safe, clock fields stripped). Two runs on same CNT JSON produce identical cnq_content_sha256.",
+    "dimension_policy": {
+      "D_eq_4": "native_quaternion (load-bearing, confirmed)",
+      "D_eq_3": "boundary_or_degenerate_support (consistency channel)",
+      "D_eq_2": "degenerate_below_quaternion (bearing only)",
+      "D_eq_8": "bi_quaternion_factoring_candidate (DEFERRED INV-029, scaffold only; formally 'twin-quaternion' per push #27)",
+      "D_geq_5_not_8": "reduced_or_projected (first 3 ILR axes; lossy)"
+    },
+    "cross_platform_reproduction_challenge": "Other AI platforms and third parties are invited to run cnq.py against the same CNT JSON and produce their own cnq_content_sha256. Bit-identical hashes across platforms = fourth independent confirmation channel.",
+    "claim_strength_reference": "HCI-CNQ/CLAIM_STRENGTH_TABLE.md",
+    "scope_doc": "HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md",
+    "status_doc": "HCI-CNQ/STATUS_AND_MATURITY.md"
+  },
+  "notation_terminology": {
+    "_description": "Canonical vocabulary reference shipped in push #27. Master locked-vocabulary doc covering tensor order vs rank, kappa^HS tensor vs s_j sensitivity vector, frame/dimension/coordinate, Helmsman family taxonomy, Tier/Stage/Order/Level/Regime/Degree, channel/factor/component/field, quaternion subterms, twin-quaternion vs bi-quaternion correction, CoDa community alignment.",
+    "canonical_location": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "companion_glossary": "HCI-CNT/handbook/GLOSSARY.md (readable narrative; cross-links to canonical reference)",
+    "shipped_in_push": "#27 (bundled with #26)",
+    "rationale": "Catch-up after the Feb-May 2026 discovery sprint. Project shifted from 1st-order linear into multi-carrier, multi-dimensional, then quaternion algebra and proposed tensor-order ladder in weeks; vocabulary did not keep pace until ChatGPT round-2 audit + Peter's terminology directive prompted unification.",
+    "key_corrections": {
+      "tensor_order_vs_rank": "Use 'order' for index count; reserve 'rank' for matrix rank or tensor-decomposition rank.",
+      "kappa_tensor_vs_sj_vector": "kappa^HS_ij is the order-2 Aitchison pullback metric; s_j = 1/x_j is the order-1 carrier sensitivity vector. Distinct objects.",
+      "twin_quaternion_factoring": "INV-029's SU(2) x SU(2) factoring is formally 'twin-quaternion factoring', not 'bi-quaternion' (H tensor C). Legacy filename and dimension-policy label retained for repo-history continuity."
+    },
+    "citation_policy": "Every doc using a defined term should cite NOTATION_AND_TERMINOLOGY.md. New terms enter via Investigation Catalog + entry in this canonical doc."
   }
 }

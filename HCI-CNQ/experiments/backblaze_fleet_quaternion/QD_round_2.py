@@ -1,22 +1,59 @@
 #!/usr/bin/env python3
-"""QD Round 2 — actual computational tests.
+"""QD Round 2 — actual computational tests (legacy reference script).
 
 Concept 1: D=4 Aitchison ↔ unit quaternions (foundational claim).
 Concept 10: directness=1/0 calibration ↔ pure scalar/vector quaternion velocity.
 
-Run from inside the Quaternion Decomposition/ folder.
-NO modifications to the canonical engine, schema, or corpus.
-Read-only against the Hs canonical repo.
+This is the legacy reference implementation that produced the Round 2
+backblaze_fleet IEEE-floor result (max diff 4.441e-16). Kept for byte-
+equivalence checks against the production engine.
+
+For new work, use HCI-CNQ/engine/cnq.py (push #26).
+
+Portable: auto-detects repo root by walking up from this script's
+location; honours --repo-root override and REPO_ROOT env var.
 """
+import argparse
 import csv
 import json
 import math
+import os
+import sys
 from pathlib import Path
 
 import numpy as np
 
-# HS_ROOT computed relative to this script: HCI-CNQ/experiments/backblaze_fleet_quaternion/ -> Hs/
-HS_ROOT = Path(__file__).resolve().parents[3]
+
+def _resolve_hs_root():
+    """Locate the Hs/ root from this script's location, with overrides."""
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--repo-root", type=Path, default=None,
+                        help="Path to higgins-decomposition (or its Hs/ subdir).")
+    args, _ = parser.parse_known_args()
+    if args.repo_root is not None:
+        p = Path(args.repo_root).resolve()
+        if (p / "HCI-CNT").exists():
+            return p
+        if (p / "Hs" / "HCI-CNT").exists():
+            return p / "Hs"
+        raise FileNotFoundError(f"--repo-root {p} does not contain HCI-CNT/")
+    env = os.environ.get("REPO_ROOT")
+    if env:
+        p = Path(env).resolve()
+        if (p / "HCI-CNT").exists():
+            return p
+        if (p / "Hs" / "HCI-CNT").exists():
+            return p / "Hs"
+    here = Path(__file__).resolve().parent
+    for ancestor in [here, *here.parents]:
+        if (ancestor / "HCI-CNT").exists() and (ancestor / "HCI-CNQ").exists():
+            return ancestor
+    raise FileNotFoundError(
+        "Could not auto-detect Hs/ root. Pass --repo-root /path/to/higgins-decomposition/Hs"
+    )
+
+
+HS_ROOT = _resolve_hs_root()
 RESULTS = {}
 
 

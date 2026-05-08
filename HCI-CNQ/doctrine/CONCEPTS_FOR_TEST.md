@@ -35,9 +35,9 @@ Each concept gets:
 
 ---
 
-## Concept 2 — atan2 bearing ↔ quaternion log map (rank-1 case)
+## Concept 2 — atan2 bearing ↔ quaternion log map (1D / single-axis case)
 
-**What.** CNT's per-timestep bearing computation `θ = atan2(y, x)` is the rank-1 instance of the quaternion logarithm `log(q) = (atan2(|v|, a) / |v|) · v`.
+**What.** CNT's per-timestep bearing computation `θ = atan2(y, x)` is the 1D / single-axis instance of the quaternion logarithm `log(q) = (atan2(|v|, a) / |v|) · v`. (Vocabulary note: per [`NOTATION_AND_TERMINOLOGY.md`](../../HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md) §1, "rank" is reserved for matrix rank / tensor-decomposition rank; here we use "1D" to describe a single-axis case.)
 
 **Claim strength.** EQUIVALENCE.
 

@@ -1,19 +1,37 @@
 #!/usr/bin/env python3
-"""QD Round 2.6 - neutrino oscillation invariance test.
+"""QD Round 2.6 - neutrino oscillation invariance test (legacy reference).
 
 Computes the Standard Model 3-flavor numu oscillation probabilities
 P(numu -> nue, numu -> numu, numu -> nutau) from published PMNS matrix
 parameters as a function of distance L (km), at fixed energy E (MeV).
 Hands the result to the canonical CNT engine. Asks whether the SM
 prediction carries the universal compositional invariance signature.
+
+This is the legacy reference implementation. For new work, use:
+    HCI-CNQ/engine/cnq.py --cnt-json sm_numu_oscillation_cnt.json --out cnq_run.json
+
+Note: D=3 is a boundary/consistency case in the CNQ dimension policy,
+not a native D=4 quaternion proof. The result is consistency support.
+
+Portable: auto-detects repo root and cnt.py; accepts --repo-root and
+--cnt-engine overrides.
 """
+import argparse
 import csv
 import json
 import math
+import os
 import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
+
+# Make the engine adapter importable.
+_HERE_FILE = Path(__file__).resolve()
+_ADAPTER_CANDIDATE = _HERE_FILE.parents[2] / "engine"
+if _ADAPTER_CANDIDATE.exists() and str(_ADAPTER_CANDIDATE) not in sys.path:
+    sys.path.insert(0, str(_ADAPTER_CANDIDATE))
 
 HERE = Path(__file__).parent
 NU_DIR = HERE
@@ -22,8 +40,29 @@ INPUT_CSV = NU_DIR / "sm_numu_oscillation_input.csv"
 ENGINE_OUT = NU_DIR / "sm_numu_oscillation_cnt.json"
 RESULTS = NU_DIR / "QD_round_2_6_results.json"
 
-HS_ENGINE = Path("/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/"
-                 "Current-Repo/Hs/HCI-CNT/engine/cnt.py")
+
+def _resolve_engine():
+    """Locate cnt.py via cnt_adapter or argparse override."""
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--repo-root", type=Path, default=None)
+    parser.add_argument("--cnt-engine", type=Path, default=None)
+    args, _ = parser.parse_known_args()
+    try:
+        from cnt_adapter import find_cnt_engine, find_repo_root
+        repo_root = find_repo_root(start=_HERE_FILE, explicit=args.repo_root)
+        return find_cnt_engine(repo_root, explicit=args.cnt_engine)
+    except ImportError:
+        if args.cnt_engine is not None:
+            return Path(args.cnt_engine).resolve()
+        for ancestor in [_HERE_FILE.parent, *_HERE_FILE.parents]:
+            for cand in (ancestor / "HCI-CNT" / "engine" / "cnt.py",
+                         ancestor / "Hs" / "HCI-CNT" / "engine" / "cnt.py"):
+                if cand.exists():
+                    return cand
+        raise FileNotFoundError("cnt.py not found; pass --cnt-engine.")
+
+
+HS_ENGINE = _resolve_engine()
 
 # PMNS parameters (PDG 2024 / NuFit 5.2 normal ordering)
 THETA_12 = math.asin(math.sqrt(0.307))
@@ -111,7 +150,7 @@ def step_1_compute():
 
 def step_2_run_engine():
     # overwrite if exists
-    cmd = ["python3", str(HS_ENGINE), str(INPUT_CSV),
+    cmd = [sys.executable, str(HS_ENGINE), str(INPUT_CSV),
            "-o", str(ENGINE_OUT), "--ordering-method", "by-time"]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     if r.returncode != 0:

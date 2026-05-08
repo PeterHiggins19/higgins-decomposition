@@ -43,7 +43,7 @@ log(q) = (theta / |v|) * v        where v = (b, c, d), theta = atan2(|v|, a)
 
 It uses **atan2 of the (vector-norm, scalar) pair**, not arccos of the scalar. This is exactly the operation CNT performs at every timestep when computing bearing from a CLR-projected coordinate pair — except CNT is doing it in 2D (one bearing per pair), and the quaternion log is the 3D generalization.
 
-So CNT's atan2 step is the rank-1 case of the quaternion log map. The numerical-stability improvement is the same improvement you get on Lie groups whenever you replace arccos-of-trace with atan2-of-axis-norm-and-scalar.
+So CNT's atan2 step is the 1D / single-axis case of the quaternion log map. The numerical-stability improvement is the same improvement you get on Lie groups whenever you replace arccos-of-trace with atan2-of-axis-norm-and-scalar. (Per [`NOTATION_AND_TERMINOLOGY.md`](../../HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md) §1, the framework reserves "rank" for matrix / tensor-decomposition usage and uses "order" or descriptive labels like "1D / single-axis" elsewhere.)
 
 **Corpus test:** for any corpus experiment with D=4, the per-timestep bearing extracted by CNT's atan2 must equal the angle component of the quaternion log of the corresponding unit quaternion. Compute both, diff to numerical precision, confirm.
 

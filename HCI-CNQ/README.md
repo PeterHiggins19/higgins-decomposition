@@ -1,8 +1,17 @@
 # HCI-CNQ — Compositional Navigation Quaternion
 
-**Status:** live tier in the Hs system. Promoted from experimental to canonical on 2026-05-07.
+**Status (four-field model, push #26):**
+
+| Field | Value |
+|---|---|
+| `current_repo_status` | **canonical_public_tier** |
+| `engine_status` | **cnq.py shipped (push #26)** — full Hamilton-product engine; cross-platform reproduction challenge open |
+| `validation_status` | **three IEEE-floor confirmations** (Backblaze D=4, Planck CMB D=4, SM neutrino D=3 boundary support); Round 3 full-corpus validation pending (INV-022) |
+| `archive_status` | historical candidate state preserved for audit in [`ARCHIVE_README.json`](ARCHIVE_README.json) and [`HCI-CNQ_ADMIN.json -> status._legacy_single_field_status_for_audit`](HCI-CNQ_ADMIN.json) |
+
 **Sibling of:** [`HCI-CNT/`](../HCI-CNT/) (the established trajectory-navigation tier) and the [`HCI/`](../HCI/) instrument family.
 **Foundation:** three IEEE-floor confirmations across drive failures, Planck CMB photons, and Standard-Model neutrino oscillation. See [`experiments/`](experiments/).
+**Maturity:** see [`STATUS_AND_MATURITY.md`](STATUS_AND_MATURITY.md), [`CLAIM_STRENGTH_TABLE.md`](CLAIM_STRENGTH_TABLE.md), [`CNQ_SCOPE_AND_LIMITS.md`](CNQ_SCOPE_AND_LIMITS.md), [`ROUND3_VALIDATION_PLAN.md`](ROUND3_VALIDATION_PLAN.md).
 
 ---
 

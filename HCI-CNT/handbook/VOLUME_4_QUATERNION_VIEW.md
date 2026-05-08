@@ -84,7 +84,7 @@ For each significant engine operation, the quaternion-native restatement:
 
 | CNT operation (Volume I/II citation) | Quaternion-native equivalent | Algebra |
 |---|---|---|
-| `bearing = atan2(y, x)` per timestep (Vol I §F) | `quaternion_log(q).angle` | rank-1 case of `log(q) = (atan2(\|v\|, a)/\|v\|) · v` |
+| `bearing = atan2(y, x)` per timestep (Vol I §F) | `quaternion_log(q).angle` | 1D / single-axis case of `log(q) = (atan2(\|v\|, a)/\|v\|) · v` (per [NOTATION_AND_TERMINOLOGY.md](NOTATION_AND_TERMINOLOGY.md) §1) |
 | Rotation between two Helmert-projected CLR vectors | `quat_from_axis_angle(u₁ × u₂, atan2(\|cross\|, dot))` | SU(2) cover of SO(3) |
 | Stage 4 cross-dataset comparison (Vol II §E) | `R(t) = Q₁(t) · Q₂(t)⁻¹` (Hamilton product) | quaternion multiplication |
 | Linear interpolation between CLR timesteps | `slerp(Q_t, Q_{t+1}, α)` | geodesic on S³ |

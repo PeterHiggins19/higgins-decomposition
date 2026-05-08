@@ -14,15 +14,27 @@ Source: http://pla.esac.esa.int/pla/aio/product-action?COSMOLOGY.FILE_ID=
         COM_PowerSpect_CMB-base-plikHM-TTTEEE-lowl-lowE-lensing-minimum-theory_R3.01.txt
 
 NO modification to the canonical CNT engine, schema, or corpus.
+
+Portable: auto-detects repo root and cnt.py via cnt_adapter; accepts
+--repo-root and --cnt-engine overrides. For new work, use cnq.py.
 """
+import argparse
 import csv
 import json
 import math
+import os
 import subprocess
+import sys
 import urllib.request
 from pathlib import Path
 
 import numpy as np
+
+# Make the engine adapter importable.
+_HERE_FILE = Path(__file__).resolve()
+_ADAPTER_CANDIDATE = _HERE_FILE.parents[2] / "engine"
+if _ADAPTER_CANDIDATE.exists() and str(_ADAPTER_CANDIDATE) not in sys.path:
+    sys.path.insert(0, str(_ADAPTER_CANDIDATE))
 
 PLANCK_URL = ("http://pla.esac.esa.int/pla/aio/product-action?"
               "COSMOLOGY.FILE_ID=COM_PowerSpect_CMB-base-plikHM-TTTEEE-"
@@ -32,8 +44,29 @@ RAW_TXT = HERE / 'planck_theory_raw.txt'
 ADAPTER_CSV = HERE / 'planck_cmb_boson_input.csv'
 ENGINE_OUT = HERE / 'planck_cmb_boson_cnt.json'
 
-HS_ENGINE = Path('/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/'
-                 'Current-Repo/Hs/HCI-CNT/engine/cnt.py')
+
+def _resolve_engine():
+    """Locate cnt.py via cnt_adapter (preferred) or argparse override."""
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--repo-root", type=Path, default=None)
+    parser.add_argument("--cnt-engine", type=Path, default=None)
+    args, _ = parser.parse_known_args()
+    try:
+        from cnt_adapter import find_cnt_engine, find_repo_root
+        repo_root = find_repo_root(start=_HERE_FILE, explicit=args.repo_root)
+        return find_cnt_engine(repo_root, explicit=args.cnt_engine)
+    except ImportError:
+        if args.cnt_engine is not None:
+            return Path(args.cnt_engine).resolve()
+        for ancestor in [_HERE_FILE.parent, *_HERE_FILE.parents]:
+            for cand in (ancestor / "HCI-CNT" / "engine" / "cnt.py",
+                         ancestor / "Hs" / "HCI-CNT" / "engine" / "cnt.py"):
+                if cand.exists():
+                    return cand
+        raise FileNotFoundError("cnt.py not found; pass --cnt-engine.")
+
+
+HS_ENGINE = _resolve_engine()
 
 
 def step_1_download():
@@ -95,7 +128,7 @@ def step_3_run_engine():
     """Run canonical CNT engine on the boson-only CSV."""
     if ENGINE_OUT.exists():
         ENGINE_OUT.unlink()
-    cmd = ['python3', str(HS_ENGINE), str(ADAPTER_CSV),
+    cmd = [sys.executable, str(HS_ENGINE), str(ADAPTER_CSV),
            '-o', str(ENGINE_OUT),
            '--ordering-method', 'by-time']  # multipole ell is monotonic, treat as time-like
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)

@@ -4,7 +4,7 @@
 Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada
 peterhiggins@roguewaveaudio.com
 
-Draft 2 - 2026-05-08
+Draft 3 - 2026-05-08 (push #26 — claim-control pass per ChatGPT round-2 audit)
 Catalog reference: INV-026 (OPEN)
 Companion software: Hs / CNT engine 2.0.4, schema 2.1.0
 Repository: https://github.com/PeterHiggins19/higgins-decomposition
@@ -25,6 +25,29 @@ We report a structural property of compositional time-series on the simplex that
 The metric-involution residual ||M(M(x)) - x||_inf sits at 7.40e-17 to 7.63e-17 (approximately machine epsilon) across all three. The quaternion sandwich-product reconstruction of consecutive Aitchison rotations matches at maximum component-wise difference 4.441e-16 on the macroscopic and the cosmological datasets - bit-identical to the last digit, and exactly 2 times IEEE 754 machine epsilon. Bit-identical residual across physically unrelated systems implies the residual is hardware floating-point representation error, not algorithmic noise: the underlying mathematical relationship is exact on the compositional simplex. We interpret this as evidence for a universal structural property of any flow-directional compositional dynamics carrying three concurrent invariances (simplex rotation under SO(D-1), mass-flow handedness via the SU(2) lift, and time-reversal symmetry expressed as quaternion conjugation). The result is reproducible in two minutes from the public repository via a published one-command protocol; verification is hash-anchored and language-independent.
 
 **Keywords:** compositional data analysis, Aitchison geometry, simplex, period-doubling attractor, IEEE 754 precision, quaternion algebra, reproducibility, cross-domain universality.
+
+---
+
+
+## Claim-strength block
+
+This paper carefully separates what is **confirmed** (load-bearing) from what is **candidate** (consistent with the data, but not the strongest independent test) and what is **future** (gated on Round 3 full-corpus validation).
+
+**Confirmed (load-bearing):**
+
+- For D=4 compositional trajectories (Backblaze fleet, Planck CMB), the Helmert-projected Aitchison direction changes are reproduced exactly by unit-quaternion sandwich rotations, with maximum residual 4.441e-16. Two unrelated datasets, bit-identical to the last digit. This is the strongest independent confirmation in the paper.
+- The metric-involution residual ||M(M(x)) - x||_inf sits at machine-epsilon levels (7.40e-17 to 7.63e-17) across all three datasets. This verifies the implementation of the involution and the trajectory's compatibility with it. M^2 = I is **one of three structural-invariance pillars** (alongside SO(D-1) simplex rotation and SU(2) handedness); on its own, M^2 = I is a weaker independent test than the quaternion sandwich because the involution is partly an algebraic identity. The two channels together — quaternion reconstruction at 4.441e-16 AND M^2 = I residual at 7.6e-17 on the same trajectory — are what the paper rests on, with the quaternion result carrying the heaviest load.
+- Reproducibility is hash-anchored: any reviewer cloning the repository and running the published one-command protocol produces byte-identical content_sha256 on all three datasets.
+
+**Candidate (consistent with data, gated on Round 3):**
+
+- LIMIT_CYCLE_P2 as a *universal* compositional invariance signature for substantive flow-directional dynamics. The signature is universal *for the class of systems that meet the structural preconditions*, which is what this paper's title and abstract claim. Round 3 validation against the full 25-experiment corpus (INV-022) will either tighten or weaken this claim.
+- The D=3 Standard-Model neutrino result is consistency support, not native D=4 quaternion proof. D=3 is a boundary case in the dimension policy of the companion CNQ engine; the trajectory is embedded in R^3 with z=0, and the M^2 = I and LIMIT_CYCLE_P2 channels are confirmed, but the load-bearing quaternion sandwich result lives at D=4.
+
+**Future (out of scope for this paper):**
+
+- Twin-quaternion factoring at D=8 (INV-029; SU(2) × SU(2)) and Clifford Cl(D-1) extension at D ≥ 9 are documented in the companion repository but are not claimed here.
+- The HCI Dyadic Coupling Ladder (INV-028) is a candidate higher-degree tensor diagnostic; it does not enter Paper 1's argument.
 
 ---
 
@@ -530,35 +553,43 @@ Computational and editorial support was provided by Claude (Anthropic), ChatGPT 
 
 ## Appendix A - Bit-identical reproduction recipe
 
-Reproduction of the section 3.1 result (Backblaze, 4.441e-16) from the public repository:
+The repository ships the production CNQ engine (`HCI-CNQ/engine/cnq.py`, push #26) which reproduces all three section 3 results in one command from a clean clone. Bit-identical content_sha256 across platforms is the determinism contract.
+
+**One-command reproduction of all three section 3 results:**
 
 ```
 # 1. Clone repository at the frozen release tag for this paper.
 git clone https://github.com/PeterHiggins19/higgins-decomposition
 cd higgins-decomposition
-git checkout PAPER_1_RELEASE_TAG     # e.g., v3.0.0-paper1
+git checkout v3.0.0-paper1            # frozen release tag
 
 # 2. Verify environment.
-python --version          # expect >= 3.10
-python -c "import numpy, pandas; print(numpy.__version__, pandas.__version__)"
+python --version                       # expect >= 3.9
+python -c "import numpy; print(numpy.__version__)"
 
-# 3. Run the reference reproduction script.
-python HCI-CNQ/experiments/backblaze_fleet_quaternion/QD_round_2.py
+# 3. Run all three confirmations in one command.
+python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .
 
-# 4. Inspect the result against the published value.
-#    Expected output:
-#      Concept 1 - D=4 Aitchison and unit-quaternion sandwich product
-#      Tested 730 consecutive pairs
-#      Max diff:  4.441e-16
-#      Mean diff: 1.090e-16
-#      GATE (<= 1e-12): PASS
-#
-#    Verify: max diff = 4.441e-16 to the last digit shown.
+# 4. Verify against the locked expected values.
+python HCI-CNQ/scripts/verify_publication_results.py --repo-root .
+
+#    Expected output (verifier exits 0):
+#      [backblaze_fleet_quaternion] PASS
+#      [planck_cmb_quaternion]      PASS
+#      [sm_neutrino_quaternion]     PASS
+#      ALL EXPERIMENTS VERIFIED - publication-ready
 ```
 
-Reproduction of the section 3.2 result (Planck CMB) requires the same engine plus the bundled planck_cmb_boson_input.csv (pre-generated from public Planck 2018 best-fit theory data and shipped in the repository). Reproduction of section 3.3 (SM neutrino) is similarly bundled with the PMNS-prediction generator script.
+The verifier compares observed values against the locked `HCI-CNQ/results/expected_results.json`, which captures:
+- Backblaze: max residual 4.441e-16 (730 pairs)
+- Planck CMB: max residual 4.441e-16 (2498 pairs), parent CNT content_sha256 `3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4`
+- SM neutrino (D=3 boundary support): parent CNT content_sha256 `60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952`, LIMIT_CYCLE_P2 termination, LIGHTLY_DAMPED IR class
 
-Total reproduction time for all three section 3 results: approximately five minutes on a 2024-class laptop.
+The legacy reference scripts (`QD_round_2.py`, `QD_round_2_5_planck.py`, `QD_round_2_6_neutrino.py`) are preserved in their respective `experiments/` folders for byte-equivalence checks.
+
+**Cross-platform reproduction channel.** The CNQ engine produces a deterministic `cnq_content_sha256` per run. Independent reviewers running `cnq.py` on Linux, macOS, or Windows (Python 3.9-3.13, numpy >= 1.20) against the same shipped CNT JSONs should produce bit-identical `cnq_content_sha256` values. Hash drift, if any, is a finding to be filed as a repository issue. This constitutes a fourth independent verification channel beyond the three load-bearing datasets.
+
+Total reproduction time for all three section 3 results: approximately two minutes on a 2024-class laptop.
 
 ---
 
@@ -575,11 +606,13 @@ Total reproduction time for all three section 3 results: approximately five minu
 | INV-022  | OPEN                              | Round 3 full-corpus                        | Section 8.1       |
 | INV-023  | OPEN                              | T2K / NOvA SM verification                 | Section 8.3       |
 | INV-026  | OPEN -> CANONICAL on publication  | This paper                                 | -                 |
+| INV-028  | DEFERRED                          | HCI Dyadic Coupling Ladder (order-2/4/8)   | Section 8 (future)|
+| INV-029  | DEFERRED                          | CNQ Twin-Quaternion Factoring (D=8 SU(2)×SU(2))  | Section 8 (future)|
 
-The full catalog (24+ entries) is at ai-refresh/INVESTIGATION_CATALOG.json and updated continuously per the maintenance protocol in OPERATIONS_PROTOCOL.md section 14.
+The full catalog (28 entries as of push #26) is at ai-refresh/INVESTIGATION_CATALOG.json and updated continuously per the maintenance protocol in OPERATIONS_PROTOCOL.md section 14.
 
 ---
 
-*Submission status: draft 2 (plain ASCII rewrite), internal review pending. Catalog reference: INV-026 (OPEN).*
-*Frozen release tag for reproduction: assigned at submission time and noted on the arXiv abstract page.*
+*Submission status: draft 3 (push #26 — claim-control pass per ChatGPT round-2 audit), internal review pending. Catalog reference: INV-026 (OPEN).*
+*Frozen release tag for reproduction: `v3.0.0-paper1` (to be applied after push #26 validates green and Round 3 lands).*
 *Document content_sha256 (over the canonical JSON of this draft, not the rendered Markdown): assigned at build time.*

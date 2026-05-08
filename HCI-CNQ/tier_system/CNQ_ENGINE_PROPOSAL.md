@@ -117,7 +117,7 @@ For each significant CNT operation, the CNQ-native equivalent:
 
 | CNT operation | CNQ-native equivalent | Equivalence proof |
 |---|---|---|
-| `bearing = atan2(y, x)` per timestep | `quaternion_log(q).angle` | Concept 2 (atan2 is the rank-1 quaternion log) |
+| `bearing = atan2(y, x)` per timestep | `quaternion_log(q).angle` | Concept 2 (atan2 is the 1D / single-axis case of the quaternion log) |
 | `rotation between two CLR vectors` | `quaternion_from_axis_angle(cross(u1, u2), atan2(\|cross\|, dot))` | Concept 1 (verified IEEE-floor on backblaze_fleet) |
 | `Stage 4 cross-dataset comparison` | `R(t) = Q1(t) * conj(Q2(t))` (single Hamilton product) | Concept 7 (planned Round 3 verification) |
 | `linear interpolation between timesteps in CLR space` | `slerp(Q_t, Q_{t+1}, alpha)` | SLERP is the geodesic; linear in CLR is the chord. SLERP is exact, linear is the approximation. |

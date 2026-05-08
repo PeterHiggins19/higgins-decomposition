@@ -43,7 +43,7 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 | INV-011 | HCI-ULTRASOUND canonical sibling tier | USER | #24 | `HCI-ULTRASOUND/` |
 | INV-012 | RWA-001 lab identity card | USER | #24 | `RWA/RWA-001.json` |
 
-### DEFERRED (9 investigations)
+### DEFERRED (12 investigations)
 
 | ID | Title | Source | Gate for promotion |
 |---|---|---|---|
@@ -57,8 +57,10 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 | INV-018 | Hausdorff dimension via transfer operator on compositional attractors | GROK | Numerical extraction of d_H from real depth-tower trajectory |
 | INV-019 | Quantum acoustic phonon simplex applications | GROK | Working pilot on real or simulated cQAD data |
 | INV-020 | WaveMechanics-CNQ Database (full system spec) | GROK | Working prototype with at least one acoustic dataset analyzed end-to-end |
+| INV-028 | **HCI Dyadic Coupling Ladder** — order-2/4/8 tensor diagnostic | CHATGPT | Working pilot showing C_ijkl detects structure order-2 κᴴˢ_ij misses |
+| INV-029 | **CNQ Twin-Quaternion Factoring** — D=8 SU(2)×SU(2) decomposition (legacy name: bi-quaternion) | CHATGPT | Working pilot on EMBER D=8 country trajectory showing ρ_AB domain signal |
 
-### FALSIFIED (1 investigation)
+### FALSIFIED (1 investigations)
 
 | ID | Title | Source | Falsification record | Reformulation |
 |---|---|---|---|---|
@@ -82,12 +84,12 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 
 | Source | Count | Investigations |
 |---|---:|---|
-| CLAUDE | 6 | INV-001, INV-002, INV-021, INV-022, INV-023, INV-026, INV-027 |
-| CHATGPT | 3 | INV-003, INV-004, INV-006, INV-007 |
-| GROK | 9 | INV-008, INV-009, INV-013 through INV-020 |
-| USER | 5 | INV-005, INV-010, INV-011, INV-012, INV-024, INV-025 |
+| CLAUDE | 7 | INV-001, INV-002, INV-021, INV-022, INV-023, INV-026, INV-027 |
+| CHATGPT | 6 | INV-003, INV-004, INV-006, INV-007, INV-028, INV-029 |
+| GROK | 10 | INV-008, INV-009, INV-013, INV-014, INV-015, INV-016, INV-017, INV-018, INV-019, INV-020 |
+| USER | 6 | INV-005, INV-010, INV-011, INV-012, INV-024, INV-025 |
 | PILOT | 0 | (reserved for future) |
-| **Total** | **26** | |
+| **Total** | **29** | |
 
 Cross-platform pattern visible in the data: Claude builds and verifies, ChatGPT cross-checks vocabulary and framing, Grok extends speculatively. User-led investigations (Peter) carry the applied-work surfacing and the corporate/lab identity work. Each source has a different signature in the catalog.
 
@@ -143,13 +145,4 @@ When in doubt, err toward inclusion. The catalog is meant to grow.
 ## Cross-references
 
 - Push #22 narrative (Volume IV): [`AI_REFRESH_2026-05-07_quaternion_integration.md`](AI_REFRESH_2026-05-07_quaternion_integration.md)
-- Push #23 narrative (ChatGPT crosscheck + HCI-CNQ): [`AI_REFRESH_2026-05-07_push23_chatgpt_integration.md`](AI_REFRESH_2026-05-07_push23_chatgpt_integration.md)
-- ChatGPT crosscheck archive: [`AI_REFRESH_2026-05-07_chatgpt_crosscheck.md`](AI_REFRESH_2026-05-07_chatgpt_crosscheck.md)
-- Push #24 narrative (Grok crosscheck + DADC + applied tiers): [`AI_REFRESH_2026-05-08_push24_grok_crosscheck.md`](AI_REFRESH_2026-05-08_push24_grok_crosscheck.md)
-- Grok crosscheck archive: [`AI_REFRESH_2026-05-08_grok_crosscheck.md`](AI_REFRESH_2026-05-08_grok_crosscheck.md)
-- Origin lineage doctrine: [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md)
-- OPERATIONS_PROTOCOL section on the catalog: [`../OPERATIONS_PROTOCOL.md`](../OPERATIONS_PROTOCOL.md) (added in push #24)
-
----
-
-*Every contribution above threshold is a carrier. Every disposition is data. The catalog is the audit trail.*
+- Push #23 narrative (ChatGPT crosscheck + HCI-CNQ): [`AI_REFRESH_2026-05-07_push23_chatgpt_in

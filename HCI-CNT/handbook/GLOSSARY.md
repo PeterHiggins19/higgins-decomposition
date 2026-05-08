@@ -1,8 +1,12 @@
 # Glossary — Minimal-Now Refresh (Volume IV-touched + HCI vocabulary + Helmsman family extensions)
 
+**Canonical reference for locked vocabulary:** [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) (push #27, 2026-05-08). For any term that appears in both files, NOTATION_AND_TERMINOLOGY.md is authoritative; this glossary is the readable narrative companion.
+
 **Scope:** terms touched by the Volume IV (Quaternion View) integration of 2026-05-07, plus the HCI instrument-family vocabulary promoted from `HCI/HCI_FOUNDATION.md` and `HCI/README.md` during the 2026-05-07 ChatGPT cross-check pass (push #23), plus six **proposed Helmsman-family extensions** surfaced during the 2026-05-08 Grok cross-check pass (push #24, §I). Approximately 53 entries.
-**Companions:** [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md), and [HCI/HCI_FOUNDATION.md](../../HCI/HCI_FOUNDATION.md).
+**Companions:** [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md), [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md), and [HCI/HCI_FOUNDATION.md](../../HCI/HCI_FOUNDATION.md).
 **Full refresh planned for a separate cycle.** This document covers (i) terms used in the central-claim chain so the four volumes are internally cross-referenceable today, and (ii) the most-used HCI instrument-family vocabulary so the handbook and HCI specs share one authoritative naming layer. The broader CNT vocabulary (atlas modules, schema fields, audit-chain terms) will be added in a dedicated glossary push after CodaWork.
+
+**Terminology unification (push #27).** Tensor index count is named **order** (not rank). κᴴˢ_ij is an **order-2** tensor; the diagonal sensitivity 1/x_j is the **order-1 carrier steering sensitivity vector** s_j (a distinct object). The "bi-quaternion factoring" of INV-029 is now formally called **twin-quaternion factoring** (SU(2) × SU(2)) to avoid confusion with the strict mathematical bi-quaternion (ℍ ⊗ ℂ). See [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) §1, §2, §7.
 
 ---
 
@@ -36,7 +40,7 @@
 
 **Amplitude A.** A scalar diagnostic of the period-2 attractor's strength (magnitude of curvature attractor). Reported per CNT JSON in `depth.higgins_extensions.impulse_response.amplitude_A`. → Volume I §H.
 
-**atan2 simplification.** CNT's per-timestep bearing computation, `θ = atan2(y, x)`, replacing the alternative `arccos(x · y)`. 3× fewer operations, 10⁷ better numerical stability, AND structurally equivalent to the rank-1 case of the quaternion log map (Volume IV §C). → Volume I §F, Volume IV §C.
+**atan2 simplification.** CNT's per-timestep bearing computation, `θ = atan2(y, x)`, replacing the alternative `arccos(x · y)`. 3× fewer operations, 10⁷ better numerical stability, AND structurally equivalent to the 1D / single-axis case of the quaternion log map (Volume IV §C). → Volume I §F, Volume IV §C.
 
 **Bearing (θ).** Channel 1. The angular orientation of a CLR-projected pair, computed via atan2. The first of CNT's four channels. In Volume IV terms, this is the angle component of the quaternion log. → Volume I §F, Volume IV §C.
 
@@ -84,7 +88,7 @@
 
 **Quaternion (unit).** Element of the 3-sphere S³, written q = a + b·i + c·j + d·k with a² + b² + c² + d² = 1. The four-component algebra discovered by Hamilton (1843). For D=4 compositions, the algebra in which all three CNT invariances are unified. → Volume IV §A.
 
-**Quaternion log map.** Maps a unit quaternion to its axis-angle representation: log(q) = (atan2(|v|, a)/|v|) · v, where v = (b, c, d). The rank-1 case is exactly CNT's atan2 bearing step. → Volume IV §C.
+**Quaternion log map.** Maps a unit quaternion to its axis-angle representation: log(q) = (atan2(|v|, a)/|v|) · v, where v = (b, c, d). The 1D / single-axis case is exactly CNT's atan2 bearing step. → Volume IV §C. (Vocabulary note: previously called the "rank-1 case"; "rank" is now reserved for matrix / decomposition contexts per [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) §1.)
 
 **Sandwich product.** The operation q · v · q* applied to a 3-vector v, where q is a unit quaternion. Rotates v by the rotation that q represents in SO(3). For D=4 compositions, this is the same operation as Aitchison rotation between consecutive Helmert-projected unit vectors (verified at IEEE floor in QD Round 2). → Volume IV §B.1, §C.
 
