@@ -1,14 +1,14 @@
 # Investigation Catalog
 
 **Status:** canonical research-methodology document, push #24 (2026-05-08).
-**Machine-readable companion:** [`INVESTIGATION_CATALOG.json`](INVESTIGATION_CATALOG.json).
+**Machine-readable companion (JSON):** [`INVESTIGATION_CATALOG.json`](INVESTIGATION_CATALOG.json). This Markdown file is the plain-text companion.
 **Registered in:** [`HS_ADMIN.json`](HS_ADMIN.json) → `investigation_catalog` (top-level block).
 
 ---
 
 ## Why this exists
 
-The framework treats compositional data as a living record where every contribution above the EITT 5% threshold counts as a carrier; below 5% it doesn't make the cut. The same discipline applies to research investigations. Every speculative branch raised by any AI session, human contributor, or experimental pilot is data — and the disposition record is the audit trail.
+The framework treats compositional data as a living record where every contribution above the EITT 5% threshold counts as a carrier; below 5% it doesn't make the cut. The same discipline applies to research investigations. Every speculative branch raised by any AI session, user contributor / researcher, or experimental pilot is data — and the disposition record is the audit trail.
 
 This catalog is the project's research-methodology equivalent of the determinism contract: **the path of every idea is traceable**. Falsified hypotheses are kept on record (Round 2.5 Concept 4 was a falsification turned into a stronger reformulation). Deferred speculations are gated by clear pilot criteria. Open work has explicit gate criteria so future sessions know what would resolve it.
 
@@ -36,12 +36,12 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 | INV-001 | Volume IV — Quaternion View | CLAUDE | #22 | `HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md` |
 | INV-003 | ChatGPT vocabulary integration (HCI family terms) | CHATGPT | #23 | `HCI-CNT/handbook/GLOSSARY.md` §H |
 | INV-004 | CodaWork 2026 talking-points overlay | CHATGPT | #23 | `HCI-CNT/conference_demo/CODAWORK2026_TALKING_POINTS.md` |
-| INV-005 | HCI-CNQ tier promotion | HUMAN | #23 | `HCI-CNQ/` |
+| INV-005 | HCI-CNQ tier promotion | USER | #23 | `HCI-CNQ/` |
 | INV-008 | DADC origin lineage | GROK | #24 | `HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md` |
 | INV-009 | Helmsman family vocabulary (PROPOSED status) | GROK | #24 | `HCI-CNT/handbook/GLOSSARY.md` §I |
-| INV-010 | HCI-AUDIO canonical sibling tier | HUMAN | #24 | `HCI-AUDIO/` |
-| INV-011 | HCI-ULTRASOUND canonical sibling tier | HUMAN | #24 | `HCI-ULTRASOUND/` |
-| INV-012 | RWA-001 lab identity card | HUMAN | #24 | `RWA/RWA-001.json` |
+| INV-010 | HCI-AUDIO canonical sibling tier | USER | #24 | `HCI-AUDIO/` |
+| INV-011 | HCI-ULTRASOUND canonical sibling tier | USER | #24 | `HCI-ULTRASOUND/` |
+| INV-012 | RWA-001 lab identity card | USER | #24 | `RWA/RWA-001.json` |
 
 ### DEFERRED (9 investigations)
 
@@ -71,8 +71,8 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 | INV-021 | `cnq.py` compiled engine | CLAUDE | Reproduces every CNT corpus content_sha256 byte-for-byte via quaternion path (~14 days) | open |
 | INV-022 | Round 3 — full-corpus quaternion-view validation | CLAUDE | All 25 D=4 cases at IEEE floor; D≠4 documented (~1 day) | open |
 | INV-023 | T2K/NOvA real-data neutrino verification | CLAUDE | Pilot run; result published regardless of outcome | open |
-| INV-024 | First HCI-AUDIO pilot — Peter's 4-way system | HUMAN | Single experiment record with helmsman + alignment metrics | Peter |
-| INV-025 | First HCI-ULTRASOUND pilot — industrial composite inspection | HUMAN | Single experiment record with documented S_σ time series | open |
+| INV-024 | First HCI-AUDIO pilot — Peter's 4-way system | USER | Single experiment record with helmsman + alignment metrics | Peter |
+| INV-025 | First HCI-ULTRASOUND pilot — industrial composite inspection | USER | Single experiment record with documented S_σ time series | open |
 | INV-026 | **Paper 1 — Universality result (arXiv wedge)** | CLAUDE | Full draft + arXiv submission ID + paper PDF in `Hs/papers/published/` | Peter (authorship); Claude (drafting) |
 | INV-027 | **Paper 2 — DADC origin & CoDa independent discovery (CodaWork 2026)** | CLAUDE | Full draft + conference acceptance + paper PDF in `Hs/papers/published/` | Peter (authorship); Claude (drafting) |
 
@@ -85,11 +85,11 @@ The catalog is updated every time a new investigation is raised, promoted, defer
 | CLAUDE | 6 | INV-001, INV-002, INV-021, INV-022, INV-023, INV-026, INV-027 |
 | CHATGPT | 3 | INV-003, INV-004, INV-006, INV-007 |
 | GROK | 9 | INV-008, INV-009, INV-013 through INV-020 |
-| HUMAN | 5 | INV-005, INV-010, INV-011, INV-012, INV-024, INV-025 |
+| USER | 5 | INV-005, INV-010, INV-011, INV-012, INV-024, INV-025 |
 | PILOT | 0 | (reserved for future) |
 | **Total** | **26** | |
 
-Cross-platform pattern visible in the data: Claude builds and verifies, ChatGPT cross-checks vocabulary and framing, Grok extends speculatively. Human-led investigations (Peter) carry the applied-work surfacing and the corporate/lab identity work. Each source has a different signature in the catalog.
+Cross-platform pattern visible in the data: Claude builds and verifies, ChatGPT cross-checks vocabulary and framing, Grok extends speculatively. User-led investigations (Peter) carry the applied-work surfacing and the corporate/lab identity work. Each source has a different signature in the catalog.
 
 ---
 

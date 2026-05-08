@@ -5,8 +5,8 @@
 **Engine target:** CNT 2.0.4 / Schema 2.1.0 / Output Doctrine v1.0.1
 
 > The instrument reads. The expert decides. The hashes carry the receipts.
-> CCTT is the same disciplined practitioner protocol whether a human or an AI
-> executes the keystrokes — and the hashes verify the result either way.
+> CCTT is the same disciplined practitioner protocol whether a user or an AI
+> assistant executes the keystrokes — and the hashes verify the result either way.
 
 ## User-mode vs User + AI-mode
 
@@ -17,7 +17,7 @@ assistant to execute the same seven phases and confirms the result at every
 gate. The AI is never autonomous — at the phase 2 confirmation gate and at
 the phase 6 four-check gate, the user always governs. The protocol does not
 distinguish between modes because the gates do not. A SHA-256 produced by a
-human keystroke and a SHA-256 produced by an AI tool call have the same
+user keystroke and a SHA-256 produced by an AI tool call have the same
 audit weight. Pick the mode that fits the moment; switch mid-project if you
 want.
 

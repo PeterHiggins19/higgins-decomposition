@@ -45,7 +45,7 @@ From the determinism axiom, via geometric-mean decimation structure on the Aitch
 | **C** | Classification | proximity → diagnostic class | Higgins (2026) |
 | **E** | Entropy test (EITT) | Sᴰ → invariance certificate | Shannon (1948) + Higgins (2026) |
 | **M** | Mode synthesis | all diagnostics → structural mode | Higgins (2026) |
-| **R** | Report | structural mode → human-readable output | Higgins (2026) |
+| **R** | Report | structural mode → plain-text output | Higgins (2026) |
 
 Four operators (S, V, partial T, E) are standard CoDa operations built on Aitchison geometry. Three operators (C, M, R) are Higgins contributions. Two operators (T, E) contain open questions for the CoDa community.
 

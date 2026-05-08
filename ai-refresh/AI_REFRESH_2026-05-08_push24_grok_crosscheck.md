@@ -32,7 +32,7 @@ Push #24 is the third AI cross-check round and the largest doctrine-layer expans
 | `RWA/RWA-001.json` + 2 RWA-mirror corrections | new + edits | Lab identity card locks BTL = Binaural Test Lab (single canonical identity); two dual-gloss errors corrected in the local RWA mirror |
 | `Hs/README.md` | edit | + 3 new badges, + 3 What's New entries (HCI-CNQ unchanged + HCI-AUDIO + HCI-ULTRASOUND + DADC origin), + 2 new section blocks, + Lineage paragraph (with RWA-001 + mirror cross-reference) |
 | `ai-refresh/INVESTIGATION_CATALOG.json` | new (~13 KB) | **Research-methodology layer.** Canonical record of 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions with explicit gate criteria. EITT 5%-threshold framing — every speculative branch above threshold counts as a carrier; every disposition is data. |
-| `ai-refresh/INVESTIGATION_CATALOG.md` | new (~7 KB) | Human-readable catalog companion |
+| `ai-refresh/INVESTIGATION_CATALOG.md` | new (~7 KB) | Plain-text catalog companion |
 | `OPERATIONS_PROTOCOL.md` | + Section 14 | New section formalising how to maintain the catalog (when to add, how to update dispositions, promotion-gate discipline) |
 | `ai-refresh/HS_ADMIN.json` | edit | bumped `_meta.session`, added top-level `grok_crosscheck` + `hci_audio` + `hci_ultrasound` + `origin_lineage` + `investigation_catalog` blocks |
 | `ai-refresh/HS_MACHINE_MANIFEST.json` | edit | added `hci_audio`, `hci_ultrasound`, `origin_lineage` pointer blocks |
@@ -188,7 +188,7 @@ Push #22 was Volume IV (Claude). Push #23 was the ChatGPT crosscheck integration
 
 ## Investigation Catalog — the meta-research layer (new in push #24)
 
-After Peter graded Grok's contribution at ~20% canonical-grade — 4× the EITT 5%-threshold for a carrier — we formalised the framework's research methodology as a canonical artifact. The Investigation Catalog (`ai-refresh/INVESTIGATION_CATALOG.json` + `.md` companion + `OPERATIONS_PROTOCOL.md` Section 14) records every speculative branch across all three AI cross-checks plus all human-led work, classified into four dispositions:
+After Peter graded Grok's contribution at ~20% canonical-grade — 4× the EITT 5%-threshold for a carrier — we formalised the framework's research methodology as a canonical artifact. The Investigation Catalog (`ai-refresh/INVESTIGATION_CATALOG.json` + `.md` companion + `OPERATIONS_PROTOCOL.md` Section 14) records every speculative branch across all three AI cross-checks plus all user-led work, classified into four dispositions:
 
 | Disposition | Count | Examples |
 |---|---:|---|
@@ -197,7 +197,7 @@ After Peter graded Grok's contribution at ~20% canonical-grade — 4× the EITT 
 | FALSIFIED | 1 | QD R2.5 Concept 4 (P2=fermion / P1=boson); reformulated to universality |
 | OPEN | 5 | cnq.py engine, Round 3 full-corpus quaternion validation, T2K/NOvA real-data verification, HCI-AUDIO first pilot, HCI-ULTRASOUND first pilot |
 
-**By source:** Claude 4, ChatGPT 3, Grok 9, Human 5, Pilot 0.
+**By source:** Claude 4, ChatGPT 3, Grok 9, User 5, Pilot 0.
 
 The catalog is the audit trail for the demonstration-first discipline. Investigations only graduate from DEFERRED or OPEN to CANONICAL when stated gate criteria are met — typically a working pilot or external verification. Falsifications stay on record (Round 2.5 Concept 4) because the audit trail is what gives reformulations their credibility.
 

@@ -32,7 +32,7 @@
     "deliverable_form": "Documents only at this stage. No code execution against the canonical engine. No modifications to the determinism gate or the corpus."
   },
   "files": {
-    "README.json": "this file — status flag for any AI session or human collaborator landing here",
+    "README.json": "this file — status flag for any AI session or user / researcher collaborator landing here",
     "QD_PROJECT_ADMIN.json": "project admin — current state, milestones, gate criteria, sequencing",
     "QD_CONCEPTS_FOR_TEST.md": "the catalogue of quaternion correspondences to investigate, each labelled by claim strength (ISOMORPHISM / EQUIVALENCE / ANALOGY / CONJECTURE)",
     "QD_BENEFITS_POST_CODA.md": "what QD enables for system analysis after CodaWork 2026 — the case for considering integration",

@@ -1,8 +1,8 @@
 # ai-refresh — Admin files, AI helpers, and the operations protocol
 
-This folder is the home of every file an AI assistant or human collaborator
-needs to come up to speed on the Hs / HCI-CNT system, plus the canonical
-admin JSONs that record what state the project is in.
+This folder is the home of every file an AI assistant or user / researcher
+collaborator needs to come up to speed on the Hs / HCI-CNT system, plus the
+canonical admin JSONs that record what state the project is in.
 
 If you are landing here for the first time, start with the **two protocols**
 shipped in May 2026 — they make the rest of this folder navigable.
@@ -99,9 +99,9 @@ Then read the most recent `AI_REFRESH_*.md` for what changed since last cycle.
 That's about 30 minutes of context, after which the session is operationally
 current.
 
-For a human collaborator landing fresh, the same reading list works in the
-same order — `OPERATIONS_PROTOCOL.md` and the `CCTT_RUNBOOK.md` are written to
-be readable by either audience.
+For a user / researcher collaborator landing fresh, the same reading list works
+in the same order — `OPERATIONS_PROTOCOL.md` and the `CCTT_RUNBOOK.md` are written
+to be readable by either audience.
 
 ---
 

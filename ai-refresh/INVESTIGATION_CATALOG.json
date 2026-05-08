@@ -4,9 +4,9 @@
     "version": "1.0",
     "created": "2026-05-08",
     "created_in_push": "#24",
-    "purpose": "Single canonical record of every speculative branch / hypothesis raised by any AI session, human research, or experimental pilot in the Hs / CNT / CNQ project. Each investigation is classified by disposition (CANONICAL / DEFERRED / FALSIFIED / OPEN) and carries gate criteria stating what would (or did) cause it to graduate, fail, or move forward.",
+    "purpose": "Single canonical record of every speculative branch / hypothesis raised by any AI session, user research, or experimental pilot in the Hs / CNT / CNQ project. Each investigation is classified by disposition (CANONICAL / DEFERRED / FALSIFIED / OPEN) and carries gate criteria stating what would (or did) cause it to graduate, fail, or move forward.",
     "rationale": "The framework treats compositional data as a living record where every contribution above the EITT 5% threshold counts as a carrier; below 5% it doesn't make the cut. The same discipline applies to research investigations: every speculative branch is data, and the disposition record is the audit trail. This catalog is the project's research-methodology equivalent of the determinism contract: the path of every idea is traceable.",
-    "companion_md": "INVESTIGATION_CATALOG.md (human-readable)",
+    "companion_md": "INVESTIGATION_CATALOG.md (plain-text companion)",
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)"
   },
   "dispositions": {
@@ -20,7 +20,7 @@
     "CHATGPT": "ChatGPT (OpenAI) \u2014 vocabulary and tone cross-check, push #23",
     "GROK": "Grok (xAI) \u2014 lineage discovery and speculative extension, push #24",
     "GEMINI": "Reserved for future use",
-    "HUMAN": "Peter Higgins or other human contributor",
+    "USER": "Peter Higgins or other user contributor / researcher",
     "PILOT": "Computational pilot or experimental measurement"
   },
   "investigations": [
@@ -81,7 +81,7 @@
     {
       "id": "INV-005",
       "title": "HCI-CNQ tier promotion (canonical sibling of HCI-CNT)",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-07",
       "raised_in_push": "#23",
       "disposition": "CANONICAL",
@@ -148,7 +148,7 @@
     {
       "id": "INV-010",
       "title": "HCI-AUDIO canonical sibling tier (4-way psychoacoustic loudspeaker doctrine)",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-08",
       "raised_in_push": "#24",
       "disposition": "CANONICAL",
@@ -162,7 +162,7 @@
     {
       "id": "INV-011",
       "title": "HCI-ULTRASOUND canonical sibling tier (geometry lock probe doctrine)",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-08",
       "raised_in_push": "#24",
       "disposition": "CANONICAL",
@@ -176,7 +176,7 @@
     {
       "id": "INV-012",
       "title": "RWA-001 lab identity card (Binaural Test Lab)",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-08",
       "raised_in_push": "#24",
       "disposition": "CANONICAL",
@@ -325,7 +325,7 @@
     {
       "id": "INV-024",
       "title": "First HCI-AUDIO pilot \u2014 Peter's 4-way system measured at the listening position",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-08",
       "raised_in_push": "#24",
       "disposition": "OPEN",
@@ -336,7 +336,7 @@
     {
       "id": "INV-025",
       "title": "First HCI-ULTRASOUND pilot \u2014 public industrial composite-inspection dataset",
-      "raised_by": "HUMAN",
+      "raised_by": "USER",
       "raised_date": "2026-05-08",
       "raised_in_push": "#24",
       "disposition": "OPEN",
@@ -394,7 +394,7 @@
     "CLAUDE": 6,
     "CHATGPT": 3,
     "GROK": 9,
-    "HUMAN": 5,
+    "USER": 5,
     "PILOT": 0
   },
   "promotion_rules": {

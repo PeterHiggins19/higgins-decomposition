@@ -20,7 +20,7 @@ languages, one report.
 
 ## 🆕 The two access protocols (May 2026)
 
-Two protocols make CNT dramatically more usable for both human researchers
+Two protocols make CNT dramatically more usable for both researchers
 and AI assistants:
 
 **CCTT v1.0 — CNT Compositional Tensor Train.** A 7-phase protocol that takes

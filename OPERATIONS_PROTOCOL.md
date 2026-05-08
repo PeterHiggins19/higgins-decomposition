@@ -318,9 +318,9 @@ any D=4 CNT JSON, reproducing the IEEE-floor result documented in Volume IV §B.
 ## Section 14 — Maintaining the Investigation Catalog (push #24, 2026-05-08)
 
 The Investigation Catalog at [`ai-refresh/INVESTIGATION_CATALOG.json`](ai-refresh/INVESTIGATION_CATALOG.json)
-(human-readable companion: [`ai-refresh/INVESTIGATION_CATALOG.md`](ai-refresh/INVESTIGATION_CATALOG.md))
+(plain-text companion: [`ai-refresh/INVESTIGATION_CATALOG.md`](ai-refresh/INVESTIGATION_CATALOG.md))
 is the canonical record of every speculative branch / hypothesis raised by any AI session,
-human contributor, or experimental pilot. Each investigation carries one of four
+user contributor / researcher, or experimental pilot. Each investigation carries one of four
 dispositions: **CANONICAL**, **DEFERRED**, **FALSIFIED**, or **OPEN**. The catalog formalises
 the framework's research methodology — a single place to see what has been tried, what
 landed, what's still open, and what was killed and why.

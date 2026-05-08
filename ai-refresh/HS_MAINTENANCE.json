@@ -2,7 +2,7 @@
   "_type": "HS_MAINTENANCE_PROCEDURE",
   "_version": "1.0",
   "_generated": "2026-04-28",
-  "_purpose": "Self-updating maintenance procedure for the Higgins Decomposition repository. Any AI assistant or human contributor reads this to understand what needs checking and when.",
+  "_purpose": "Self-updating maintenance procedure for the Higgins Decomposition repository. Any AI assistant or user / researcher contributor reads this to understand what needs checking and when.",
   "site_boundary": {
     "this_repository": "Mathematical fixture \u2014 the proven, validated, stable instrument",
     "stays_here": [

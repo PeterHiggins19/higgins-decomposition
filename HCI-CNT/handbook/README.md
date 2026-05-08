@@ -16,7 +16,7 @@ citable, that together cover the system end-to-end.
 ## 🆕 Two access protocols sit in front of these volumes (May 2026)
 
 You do not have to read the volumes to *use* CNT. Two new protocols give
-both human researchers and AI assistants a guided on-ramp:
+both researchers and AI assistants a guided on-ramp:
 
 - **CCTT v1.0** — [`../../ai-refresh/CCTT_QUICKSTART.md`](../../ai-refresh/CCTT_QUICKSTART.md) → [`CCTT_RUNBOOK.md`](../../ai-refresh/CCTT_RUNBOOK.md). A 7-phase protocol for producing a CNT-grade analysis end-to-end from any compositional dataset, in either User-mode or User + AI-mode. Internally references the volumes only when depth is needed.
 - **OPERATIONS_PROTOCOL v1.0** — [`../../OPERATIONS_PROTOCOL.md`](../../OPERATIONS_PROTOCOL.md). Front-door map of every operational transition in the repo (analysis, push, cowork session start/end, AI cold-start, recovery paths).

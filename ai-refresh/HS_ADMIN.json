@@ -651,9 +651,9 @@
     "verification_method": "Direct fetch of Rogue-Wave-Audio README; verbatim quotes captured in lineage doc."
   },
   "investigation_catalog": {
-    "_description": "Canonical research-methodology document. Single record of every speculative branch / hypothesis raised by any AI session, human contributor, or experimental pilot. Each investigation classified by disposition (CANONICAL / DEFERRED / FALSIFIED / OPEN) with explicit gate criteria for promotion or falsification.",
+    "_description": "Canonical research-methodology document. Single record of every speculative branch / hypothesis raised by any AI session, user contributor / researcher, or experimental pilot. Each investigation classified by disposition (CANONICAL / DEFERRED / FALSIFIED / OPEN) with explicit gate criteria for promotion or falsification.",
     "canonical_location": "ai-refresh/INVESTIGATION_CATALOG.json",
-    "human_readable_companion": "ai-refresh/INVESTIGATION_CATALOG.md",
+    "plain_text_companion": "ai-refresh/INVESTIGATION_CATALOG.md",
     "operations_protocol_reference": "OPERATIONS_PROTOCOL.md Section 14",
     "created_in_push": "#24",
     "framing": "EITT 5%-threshold discipline: every contribution above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
@@ -668,7 +668,7 @@
       "CLAUDE": 4,
       "CHATGPT": 3,
       "GROK": 9,
-      "HUMAN": 5,
+      "USER": 5,
       "PILOT": 0
     },
     "promotion_discipline": "Demonstration-first. Investigations promoted to CANONICAL only when stated gate criteria are met. Mathematical coherence alone is insufficient for promotion.",

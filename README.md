@@ -48,7 +48,7 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 ## What's New — May 2026
 
 Two protocols shipped that make this repo dramatically more usable for
-both human researchers and AI assistants:
+both researchers and AI assistants:
 
 **🆕 CCTT v1.0 — CNT Compositional Tensor Train.** A 7-phase protocol that takes any compositional dataset (CSV/XLSX) and produces a CNT-grade analysis with full hash-chained provenance — even if you have never heard of Aitchison geometry. Works in two interchangeable modes:
 
