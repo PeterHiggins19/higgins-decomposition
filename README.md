@@ -9,10 +9,10 @@ A deterministic compositional inference instrument operating within Aitchison ge
 Validated across 18 physical domains, 25 experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
 [![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
-[![License: CC BY 4.0](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](LICENSE-DOCS)
 [![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
 [![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
-[![HCI-CNQ tier live](https://img.shields.io/badge/HCI--CNQ%20tier-live%20%28cnq.py%20pending%29-7b3294.svg)](HCI-CNQ/)
+[![HCI-CNQ engine shipped](https://img.shields.io/badge/HCI--CNQ%20engine-shipped%20py%2BR%2Bpseudocode-7b3294.svg)](HCI-CNQ/engine/)
 [![HCI-AUDIO doctrine](https://img.shields.io/badge/HCI--AUDIO-doctrine--only-c84a8e.svg)](HCI-AUDIO/)
 [![HCI-ULTRASOUND doctrine](https://img.shields.io/badge/HCI--ULTRASOUND-doctrine--only-d97706.svg)](HCI-ULTRASOUND/)
 [![25 reference experiments](https://img.shields.io/badge/reference%20experiments-25-2ca02c.svg)](HCI-CNT/experiments/INDEX.json)
@@ -43,7 +43,7 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 | Framework version | 3.0 |
 | Deterministic | Yes (Gauge R&R bit-identical, SHA-256 verified) |
 | Instrument metrology | QUALIFIED (6/6 metrics pass) |
-| License | CC BY 4.0 |
+| License | Code: Apache-2.0 (LICENSE) · Docs: CC BY 4.0 (LICENSE-DOCS) |
 
 ---
 
@@ -61,7 +61,7 @@ The protocol is identical in both modes. Pilot acceptance test: an AI given only
 
 **🆕 Volume IV — The Quaternion View (May 7, 2026, push #22).**  Names the algebra CNT has been computing in.  Three IEEE-floor confirmations on drive failures, Planck CMB photons, and Standard Model neutrino oscillation establish that compositional dynamics on the simplex carries three structural invariances simultaneously — simplex rotation, mass-flow handedness, time-reversal symmetry — which is exactly the definition of a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.**  Engine unchanged; 25-experiment determinism gate unchanged; what changes is what we can say about what the engine is doing.  → [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
 
-**🆕 HCI-CNQ — Compositional Navigation Quaternion (May 7, 2026, push #23).** The CNQ tier is live and canonical — promoted from experimental status after the third IEEE-floor confirmation. The Hs system now ships a three-tier compositional analytics stack (CoDa → CNT → CNQ) plus the HCI instrument family. Doctrine, three reproducible IEEE-floor demonstrations, three-tier comparison, ROI and use-case guidance, and the engineering proposal for a compiled `cnq.py` engine all sit in [`HCI-CNQ/`](HCI-CNQ/) — sibling of HCI-CNT. The compiled engine is the next milestone (~14 days). The repo cannot talk about a phantom method; we build and test in public, on the same terms as everything else: open code, hash-chained outputs, doctrine published, **build-to-spec help available, free**. → [`HCI-CNQ/README.md`](HCI-CNQ/README.md)
+**🆕 HCI-CNQ — Compositional Navigation Quaternion (May 7-8, 2026, pushes #23–#27).** The CNQ tier is live, canonical, and the engine is shipped. Promoted from experimental status after the third IEEE-floor confirmation (push #23); the production `cnq.py` engine landed in push #26; the R port `cnq.R`, language-agnostic pseudocode, and 43-test suite landed in push #27. The Hs system now ships a three-tier compositional analytics stack (CoDa → CNT → CNQ) plus the HCI instrument family. Both engines (cnt.py + cnq.py + cnt.R + cnq.R) are deterministic and hash-chained, producing identical content_sha256 across consecutive runs. Three reproducible IEEE-floor demonstrations on Backblaze, Planck CMB, and SM neutrino. Cross-platform reproduction challenge open. **Open code, hash-chained outputs, doctrine published, build-to-spec help available, free.** → [`HCI-CNQ/README.md`](HCI-CNQ/README.md)
 
 **🆕 HCI-AUDIO + HCI-ULTRASOUND — applied sibling tiers (May 8, 2026, push #24).** Two new canonical tiers landed alongside the third AI cross-check pass (Grok). [`HCI-AUDIO/`](HCI-AUDIO/) is the canonical home for psychoacoustic 4-way active loudspeaker alignment with ERB-band carriers, quaternion phase mapping, and listening-position diffraction — the modern descendant of the original DADC compositional work. [`HCI-ULTRASOUND/`](HCI-ULTRASOUND/) is the canonical home for non-contact medical and industrial ultrasound, with a **geometry lock probe** as the headline use case. Both are doctrine-only scaffolds; first pilots are the next milestones. → [`HCI-AUDIO/README.md`](HCI-AUDIO/README.md), [`HCI-ULTRASOUND/README.md`](HCI-ULTRASOUND/README.md)
 

@@ -1,6 +1,76 @@
+# Python bytecode and caches
 __pycache__/
 *.pyc
 *.pyo
-.DS_Store
+*.pyd
+.Python
+
+# Test / type-check caches
+.pytest_cache/
+pytest-cache-files-*/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+
+# Build / distribution artefacts
+build/
+dist/
+*.egg-info/
+*.egg
+wheels/
+*.whl
+pip-wheel-metadata/
+
+# Virtual environments
+venv/
+.venv/
+env/
+.env/
+ENV/
+.python-version
+
+# IDE / editor / OS
+.vscode/
+.idea/
 *.swp
+*.swo
 *~
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Lock + temp + scratch
+*.lock
+*.tmp
+*.bak
+*.orig
+
+# R artefacts
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# LibreOffice / Office lockfiles
+.~lock.*
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Local-only experimental outputs
+**/cnq_run_2.json
+**/cnq_run_*.json.tmp
+
+# Local secrets — never commit
+.env
+.envrc
+secrets/
+*.secret
+*.pem
+*.key

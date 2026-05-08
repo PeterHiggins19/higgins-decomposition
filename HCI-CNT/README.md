@@ -2,7 +2,7 @@
 
 > **🎉 Fully Public — Publication-Grade (push #27, 2026-05-08).** Both engines (CNT and CNQ) are shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md). All "EXPERIMENTAL — NOT FOR REPO USE" guards retired. Free to use, help available.
 
-**Engine 2.0.4 · Schema 2.1.0 · 25 reference experiments · Apache-2.0**
+**Engine 2.0.4 · Schema 2.1.0 · 25 reference experiments · Code: Apache-2.0 · Docs: CC BY 4.0**
 
 The HCI-CNT subsystem is the Compositional Navigation Tensor implementation
 inside the Hˢ research repository. It is a deterministic, fully-disclosed

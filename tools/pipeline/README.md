@@ -1,4 +1,14 @@
-# Hs Pipeline -- Core Decomposition Engine
+# Hs Pipeline — Legacy 12-step Decomposition Reference
+
+> **📌 Cross-reference (push #28a, 2026-05-08):** This `tools/pipeline/` directory is the **legacy 12-step Hs reference pipeline**. For the current canonical engines that ship with the project, use:
+>
+> - **CNT** (compositional measurement engine): [`HCI-CNT/engine/cnt.py`](../../HCI-CNT/engine/cnt.py) (Python) or [`HCI-CNT/engine/cnt.R`](../../HCI-CNT/engine/cnt.R) (R)
+> - **CNQ** (quaternion-native verification layer): [`HCI-CNQ/engine/cnq.py`](../../HCI-CNQ/engine/cnq.py) (Python), [`HCI-CNQ/engine/cnq.R`](../../HCI-CNQ/engine/cnq.R) (R), and [`HCI-CNQ/engine/CNQ_PSEUDOCODE.md`](../../HCI-CNQ/engine/CNQ_PSEUDOCODE.md) (language-agnostic algorithm)
+> - **One-command reproduction**: `python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .`
+>
+> The 12-step pipeline below is the original reference implementation that established the seven-operator decomposition `Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S`. It is preserved for historical continuity and for users who want the full 12-step diagnostic suite (transcendental pretest, amalgamation engine, multilingual reporter, HEPData adapter, etc.). New work — Paper 1 reproduction, the three IEEE-floor confirmations, the cross-platform reproduction challenge — uses the HCI-CNT and HCI-CNQ engines.
+
+# Hs Pipeline — Core Decomposition Engine (legacy 12-step reference)
 
 The Hs (Higgins Decomposition) pipeline performs the canonical decomposition
 **Hs = R . M . E . C . T . V . S** on compositional data -- data that lives

@@ -392,6 +392,38 @@
       "risk_note": "Algebraically grounded (SO(8) factoring is standard) but framework-specific value depends on whether rho_AB carries information CNT alone does not expose. Demonstration-first discipline applies. Scaffolded in cnq.py v1.0.0 via the dimension label 'bi_quaternion_factoring_candidate' (no factoring code yet)."
     },
     {
+      "id": "INV-030",
+      "title": "External software-product-maturity audit (ChatGPT deep-research crawl, push #27 retrospective)",
+      "raised_by": "CHATGPT",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#28a (audit response push)",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-08",
+      "canonical_location": "ai-refresh/AI_REFRESH_2026-05-08_push28a_external_audit_response.md",
+      "summary": "Third productive ChatGPT seam (after vocabulary cleanup in push #23 and engine + claim-control audit in push #26). A web-crawl-based deep-research review of the live repo at HEAD aef4992 (push #26) identified seven actionable software-product-maturity items: (1) stale 'cnq.py is the next milestone (~14 days)' paragraph in README contradicting the push #27 overlay; (2) numeric inconsistency between GitHub repo description (17 domains, 28 systems) and README At-a-Glance table (18, 36); (3) Creative-Commons-only LICENSE for code, against CC's own recommendation; (4) no pyproject.toml / requirements.txt / Dockerfile at root; (5) pytest-cache directory committed to version control; (6) tools/pipeline presented as primary engine surface, obscuring the canonical HCI-CNT and HCI-CNQ engines; (7) no release tags published yet.",
+      "audit_findings_actioned_in_push_28a": [
+        "Stale CNQ-status paragraph in README rewritten (push #28a)",
+        "License split: Apache-2.0 for code + CC BY 4.0 for docs (LICENSE + LICENSE-DOCS + NOTICE)",
+        "pyproject.toml + requirements.txt added at repo root",
+        ".gitignore expanded to cover .pytest_cache, build/, dist/, *.egg-info/, virtualenvs, IDE artefacts",
+        "tools/pipeline/README cross-linked to HCI-CNT/engine + HCI-CNQ/engine as canonical present-day engines",
+        "QUICKSTART.md added at repo root for first-time visitors (30-second + 2-minute + 5-minute paths)",
+        "License badges in Hs/README.md and HCI-CNT/README.md updated to reflect dual-licence",
+        "HCI-CNQ tier badge updated from 'cnq.py pending' to 'cnq.py + cnq.R + pseudocode shipped'"
+      ],
+      "audit_findings_deferred": [
+        "GitHub repo description (17/28 vs 18/36) — Peter to update via GitHub UI",
+        "Release tag v0.27.0 — applied after #28a validates green via Validate Repository workflow"
+      ],
+      "audit_findings_deliberately_kept": [
+        "Monorepo structure (research code + experiments + slides + docx)",
+        "Documentation-heavy character (HTML 75.5% vs Python 20%)",
+        "Bus factor of one at the commit level (mitigated by 4-platform AI cross-check coverage)"
+      ],
+      "gate_outcome": "MET — audit findings categorised, actionable items implemented in push #28a, deferred items have explicit owners, deliberate-keep items justified.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push28a_external_audit_response.md"
+    },
+    {
       "id": "INV-027",
       "title": "Paper 2 — DADC Origin and Independent Discovery of Compositional Data Analysis",
       "raised_by": "CLAUDE",
@@ -411,15 +443,15 @@
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 9,
+    "CANONICAL": 10,
     "DEFERRED": 12,
     "FALSIFIED": 1,
     "OPEN": 7,
-    "total": 29
+    "total": 30
   },
   "summary_by_source": {
     "CLAUDE": 7,
-    "CHATGPT": 6,
+    "CHATGPT": 7,
     "GROK": 10,
     "USER": 6,
     "PILOT": 0

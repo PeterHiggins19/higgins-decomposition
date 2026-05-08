@@ -2,10 +2,11 @@
   "_meta": {
     "schema": "hs_admin/3.0",
     "generated": "2026-05-08T23:30:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline. | PUSH #27 (2026-05-08): Full publication-grade landing. cnq.R port shipped; CNQ_PSEUDOCODE.md language-agnostic algorithm; 43-test CNQ test suite all green; HS_FAST_REFRESH.json + .md AI loader; PUBLICATION_READY.md human entry point; legacy EXPERIMENTAL guards retired across the repo. Ready for arXiv release tag v3.0.0-paper1 after Round 3 (push #28).",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline. | PUSH #27 (2026-05-08): Full publication-grade landing. cnq.R port shipped; CNQ_PSEUDOCODE.md language-agnostic algorithm; 43-test CNQ test suite all green; HS_FAST_REFRESH.json + .md AI loader; PUBLICATION_READY.md human entry point; legacy EXPERIMENTAL guards retired across the repo. Ready for arXiv release tag v3.0.0-paper1 after Round 3 (push #28). | PUSH #28a (2026-05-08): Audit response. ChatGPT deep-research crawl audit actioned in 8 follow-up items: pyproject.toml, requirements.txt, license split (Apache-2.0 code + CC BY 4.0 docs), NOTICE, QUICKSTART.md, expanded .gitignore, tools/pipeline cross-link to canonical engines, README badge updates. INV-030 added to Investigation Catalog. Repo is now publication-grade with modern packaging metadata.",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
     "volume_iv_integrated_at": "2026-05-07T09:30:00Z",
-    "push_27_completed": "2026-05-08"
+    "push_27_completed": "2026-05-08",
+    "push_28a_completed": "2026-05-08"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -772,5 +773,47 @@
       "sm_neutrino_d3": "max_residual = 3.3306690738754696e-16 (boundary support)"
     },
     "cross_platform_reproduction_challenge_status": "OPEN — reference observations in HCI-CNQ/results/expected_results.json"
+  },
+  "packaging": {
+    "_description": "Modern Python packaging via pyproject.toml + requirements.txt at repo root. Added in push #28a in response to ChatGPT external audit (INV-030).",
+    "pyproject_toml": "pyproject.toml (PEP 621 + setuptools backend)",
+    "requirements_txt": "requirements.txt (minimal: numpy>=1.20)",
+    "version": "0.27.0",
+    "python_min": "3.9",
+    "install_command": "pip install -e .",
+    "console_scripts": [
+      "hs-cnt",
+      "hs-cnq"
+    ],
+    "shipped_in_push": "#28a"
+  },
+  "license_split": {
+    "_description": "Repository is dual-licensed. Code under Apache-2.0 (for patent grant + compatibility with mainstream OSS ecosystem). Docs/prose under CC BY 4.0 (standard for prose). Creative Commons themselves recommend against using CC licences for software.",
+    "code_license": "Apache-2.0 (LICENSE)",
+    "docs_license": "CC BY 4.0 (LICENSE-DOCS)",
+    "notice_file": "NOTICE (explains the split + asset class coverage)",
+    "rationale_url": "https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software",
+    "shipped_in_push": "#28a",
+    "audit_finding": "INV-030 #3 (Creative Commons recommends against CC for software)"
+  },
+  "audit_response": {
+    "_description": "Push #28a is the response to a ChatGPT deep-research external audit performed against the live repo at commit aef4992 (push #26).",
+    "investigation_catalog_entry": "INV-030",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push28a_external_audit_response.md",
+    "audit_findings_count": 7,
+    "actioned_in_push_28a": 8,
+    "deferred_with_owner": 2,
+    "deliberately_kept_with_justification": 3,
+    "key_artefacts_added": [
+      "pyproject.toml",
+      "requirements.txt",
+      "LICENSE (Apache-2.0)",
+      "LICENSE-DOCS (CC BY 4.0)",
+      "NOTICE",
+      "QUICKSTART.md",
+      "expanded .gitignore",
+      "tools/pipeline cross-link to canonical engines",
+      "README license badges + tier-status badges updated"
+    ]
   }
 }
