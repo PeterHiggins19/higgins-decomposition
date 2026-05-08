@@ -2,9 +2,10 @@
   "_meta": {
     "schema": "hs_admin/3.0",
     "generated": "2026-05-08T23:30:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline. | PUSH #27 (2026-05-08): Full publication-grade landing. cnq.R port shipped; CNQ_PSEUDOCODE.md language-agnostic algorithm; 43-test CNQ test suite all green; HS_FAST_REFRESH.json + .md AI loader; PUBLICATION_READY.md human entry point; legacy EXPERIMENTAL guards retired across the repo. Ready for arXiv release tag v3.0.0-paper1 after Round 3 (push #28).",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
-    "volume_iv_integrated_at": "2026-05-07T09:30:00Z"
+    "volume_iv_integrated_at": "2026-05-07T09:30:00Z",
+    "push_27_completed": "2026-05-08"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -720,5 +721,56 @@
       "twin_quaternion_factoring": "INV-029's SU(2) x SU(2) factoring is formally 'twin-quaternion factoring', not 'bi-quaternion' (H tensor C). Legacy filename and dimension-policy label retained for repo-history continuity."
     },
     "citation_policy": "Every doc using a defined term should cite NOTATION_AND_TERMINOLOGY.md. New terms enter via Investigation Catalog + entry in this canonical doc."
+  },
+  "public_use_declaration": {
+    "status": "fully_public",
+    "as_of_push": "#27 (2026-05-08)",
+    "scope": "Every component of the Hs system is fully public and usable. This includes HCI-CNT (canonical engine + handbook), HCI-CNQ (quaternion engine + tier docs), HCI-AUDIO and HCI-ULTRASOUND (applied sibling tiers), HCI (foundation vocabulary), the experiments corpus, the atlas plates, the calibration suite, and the RWA mirror. All engines (cnt.py, cnq.py) ship deterministic outputs under the repository LICENSE.",
+    "license": "Per LICENSE file at the repository root.",
+    "reproduction_protocol": "CCTT v1.0 — see ai-refresh/CCTT_RUNBOOK.md.",
+    "what_was_retired": "The legacy 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' / 'do_not_modify_canonical_repo' / 'isolation_protocol' guards from the pre-promotion QD era. Those guards were retired in push #27. Audit trail preserved in HCI-CNQ/ARCHIVE_README.json and HCI-CNQ/HCI-CNQ_ADMIN.json with explicit RETIRED markers.",
+    "engines_ready_for_external_use": [
+      "HCI-CNT/engine/cnt.py — canonical compositional engine",
+      "HCI-CNQ/engine/cnq.py — quaternion-native engine, hash-chained to CNT"
+    ],
+    "reproduction_entry_point": "python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .",
+    "cross_platform_reproduction_challenge": "Open invitation: any AI platform or third-party reviewer can clone the repo, run cnq.py against the shipped CNT JSONs, and produce their own cnq_content_sha256. Bit-identical hashes across platforms = fourth independent confirmation channel."
+  },
+  "publication_grade": {
+    "status": "fully_public_publication_grade",
+    "as_of_push": "#27 (2026-05-08)",
+    "summary": "Both CNT and CNQ engines fully public in Python and R. CNQ has language-agnostic pseudocode and a 43-test suite, all green. Single-file AI loader at HS_FAST_REFRESH.json (companion .md). Human entry point at PUBLICATION_READY.md. All 'EXPERIMENTAL - NOT FOR REPO USE' guards retired.",
+    "engines": {
+      "cnt_python": "HCI-CNT/engine/cnt.py (canonical, v2.0.4)",
+      "cnt_r": "HCI-CNT/engine/cnt.R (parity-tested)",
+      "cnq_python": "HCI-CNQ/engine/cnq.py (canonical, v1.0.0; shipped push #26)",
+      "cnq_r": "HCI-CNQ/engine/cnq.R (NEW push #27; parity contract with cnq.py)",
+      "cnq_pseudocode": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md (NEW push #27)",
+      "cnq_tests": "HCI-CNQ/engine/tests/ (NEW push #27; 43 tests)"
+    },
+    "ai_loader": {
+      "json": "HS_FAST_REFRESH.json (NEW push #27)",
+      "md": "HS_FAST_REFRESH.md (NEW push #27)",
+      "purpose": "Single-file context loader for any AI session. Mirrors the HUF_FAST_REFRESH pattern. One fetch, full system loaded."
+    },
+    "human_entry_point": {
+      "path": "PUBLICATION_READY.md (NEW push #27)",
+      "purpose": "Human-facing entry point: what the system is, two-command reproduction, engine usage in Python/R/AI, citation format, lineage, contact."
+    },
+    "test_status": {
+      "cnq_engine_tests": "43 / 43 passing in ~1.4s on Linux x86_64 / Python 3.10",
+      "test_modules": [
+        "test_first_principles.py (15 tests)",
+        "test_dimension_policy.py (19 tests)",
+        "test_determinism.py (9 tests)"
+      ]
+    },
+    "reproduction_command": "python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .",
+    "verifier_command": "python HCI-CNQ/scripts/verify_publication_results.py --repo-root .",
+    "headline_residuals": {
+      "planck_cmb_d4": "max_residual = 4.440892098500626e-16 (matches published)",
+      "sm_neutrino_d3": "max_residual = 3.3306690738754696e-16 (boundary support)"
+    },
+    "cross_platform_reproduction_challenge_status": "OPEN — reference observations in HCI-CNQ/results/expected_results.json"
   }
 }

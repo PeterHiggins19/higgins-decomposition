@@ -1,0 +1,379 @@
+{
+  "_meta": {
+    "type": "HS_FAST_REFRESH",
+    "version": "1.0",
+    "created": "2026-05-08",
+    "author": "Peter Higgins / Claude (Cowork session)",
+    "purpose": "Single-file AI context loader for the Hs (Higgins Decomposition) repository. Load this FIRST in any new session. Contains all canonical names, numbers, formulas, dimension policy, engine pointers, raw URLs, claim-strength rules, and structure. Every value here is the source of truth — if a document disagrees with this file, this file wins.",
+    "companion_md": "HS_FAST_REFRESH.md (one-page narrative for AI assistants who prefer Markdown)",
+    "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",
+    "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
+    "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo"
+  },
+  "identity": {
+    "framework_name": "Higgins Decomposition",
+    "acronym": "Hs",
+    "author": "Peter Higgins",
+    "affiliation": "Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada",
+    "contact": "PeterHiggins@RogueWaveAudio.com",
+    "repo": "github.com/PeterHiggins19/higgins-decomposition",
+    "raw_base": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/",
+    "license": "Per LICENSE file at repository root.",
+    "doctrine": "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.",
+    "principle": "CNT measures invariance. CNQ names the algebra it lives in.",
+    "public_use_status": "fully_public (as of push #26+#27, 2026-05-08). All subcomponents (HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND, RWA mirror) are publicly usable. Engines (cnt.py, cnq.py) are deterministic and freely runnable under the repo licence."
+  },
+  "canonical_names": {
+    "_warning": "These are EXACT. Do not paraphrase, abbreviate differently, or expand differently.",
+    "Hs": {
+      "full": "Higgins Decomposition",
+      "NOT": ["Higgins Decomp", "Hs Engine", "HD"]
+    },
+    "HCI": {
+      "full": "Higgins Compositional Instrument family",
+      "tier_siblings": ["HCI-CNT", "HCI-CNQ", "HCI-AUDIO", "HCI-ULTRASOUND"]
+    },
+    "CNT": {
+      "full": "Compositional Navigation Tensor",
+      "engine": "cnt.py / cnt.R",
+      "schema": "2.1.0",
+      "engine_version": "2.0.4",
+      "role": "Canonical measurement engine on the simplex"
+    },
+    "CNQ": {
+      "full": "Compositional Navigation Quaternion",
+      "engine": "cnq.py / cnq.R",
+      "schema": "cnq/1.0.0",
+      "engine_version": "1.0.0",
+      "role": "Quaternion-native view of CNT trajectories; algebraic naming layer",
+      "shipped_in_push": "#26 (2026-05-08)",
+      "NOT": ["CNQ replaces CNT", "CNQ is a finished general theory at all D"]
+    },
+    "CCTT": {
+      "full": "CNT Compositional Tensor Train",
+      "version": "1.0",
+      "role": "7-phase reproduction protocol for CNT-grade analysis"
+    },
+    "EITT": {
+      "full": "Entropy-Invariant Time Transformer",
+      "NOT": ["Ternary Transform", "Temporal Transform", "Time Transfer"],
+      "role": "One step inside the Hs pipeline; entropy-invariance under geometric-mean decimation"
+    },
+    "DADC": {
+      "full": "Dimension-Apportioned Diffraction Correction",
+      "origin": "Loudspeaker work at Binaural Test Lab (BTL); see HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md"
+    },
+    "BTL": {
+      "full": "Binaural Test Lab",
+      "NOT_dual_gloss": "Single canonical identity; not 'Below Threshold Loudspeaker'",
+      "framing": "Sound-controlled professional laboratory; research deployment in Markham + four-laboratory institutional deployment (2 Ottawa, 2 Monaco) operated by a private Canadian industrial sponsor",
+      "identity_card": "RWA/RWA-001.json"
+    },
+    "LIMIT_CYCLE_P2": {
+      "role": "Period-2 attractor termination of the CNT depth-tower return map",
+      "interpretation": "Universal compositional invariance signature for flow-directional compositional dynamics carrying the structural preconditions",
+      "publication_target": "Paper 1 (INV-026)"
+    }
+  },
+  "canonical_engines": {
+    "_warning": "Both engines are public, deterministic, and shipped under the repo licence. cnt.py + cnt.R produce identical CNT JSON to FP precision. cnq.py + cnq.R produce identical CNQ JSON.",
+    "cnt_python": {
+      "path": "HCI-CNT/engine/cnt.py",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py",
+      "version": "2.0.4",
+      "schema": "2.1.0",
+      "lang": "Python 3.9+",
+      "deps": "stdlib + numpy"
+    },
+    "cnt_r": {
+      "path": "HCI-CNT/engine/cnt.R",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R",
+      "version": "2.0.4",
+      "schema": "2.1.0",
+      "lang": "R 4.0+",
+      "deps": "jsonlite, digest"
+    },
+    "cnt_pseudocode": {
+      "path": "HCI-CNT/cnt_v2/CNT_PSEUDOCODE.md (legacy reference)"
+    },
+    "cnt_schema": {
+      "path": "HCI-CNT/cnt_v2/CNT_JSON_SCHEMA.md"
+    },
+    "cnq_python": {
+      "path": "HCI-CNQ/engine/cnq.py",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py",
+      "version": "1.0.0",
+      "schema": "cnq/1.0.0",
+      "lang": "Python 3.9+",
+      "deps": "stdlib + numpy",
+      "support_modules": [
+        "HCI-CNQ/engine/geometry.py",
+        "HCI-CNQ/engine/cnt_adapter.py",
+        "HCI-CNQ/engine/hashing.py"
+      ]
+    },
+    "cnq_r": {
+      "path": "HCI-CNQ/engine/cnq.R",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R",
+      "version": "1.0.0",
+      "schema": "cnq/1.0.0",
+      "lang": "R 4.0+",
+      "deps": "jsonlite, digest",
+      "parity_contract": "Numerical max_residual agrees with cnq.py to <= 1 ULP; cnq_content_sha256 matches to byte-level given identical float-formatting policy"
+    },
+    "cnq_pseudocode": {
+      "path": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+      "role": "Language-agnostic algorithm reference; both cnq.py and cnq.R are faithful translations"
+    },
+    "cnq_schema": {
+      "path": "HCI-CNQ/engine/CNQ_SCHEMA.md"
+    },
+    "cnq_tests": {
+      "path": "HCI-CNQ/engine/tests/",
+      "files": [
+        "test_first_principles.py (15 tests — geometry, quaternion algebra, atan2 rotation)",
+        "test_dimension_policy.py (19 tests — D=2,3,4,5,7,8,9,10 labels and behaviour)",
+        "test_determinism.py (9 tests — canonical-JSON, hashing, end-to-end Planck)"
+      ],
+      "total_tests": 43,
+      "all_passing": true
+    }
+  },
+  "canonical_numbers": {
+    "_warning": "These are EXACT empirical results. Do not round or restate.",
+    "three_ieee_floor_confirmations": {
+      "_principle": "Three physically unrelated datasets reproduce LIMIT_CYCLE_P2 + IEEE-floor residuals. Bit-identical residual across systems => the residual is hardware float64 representation, not algorithmic noise.",
+      "backblaze_fleet": {
+        "domain": "Hard-drive failure compositions (engineering)",
+        "D": 4,
+        "T": 731,
+        "n_pairs": 730,
+        "max_residual": 4.440892098500626e-16,
+        "gate_threshold": 1e-12,
+        "gate_pass": true
+      },
+      "planck_cmb_boson": {
+        "domain": "Planck 2018 best-fit CMB power spectrum (cosmology)",
+        "D": 4,
+        "T": 2499,
+        "n_pairs": 2498,
+        "max_residual": 4.440892098500626e-16,
+        "parent_cnt_content_sha256": "3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4",
+        "cnt_termination": "LIMIT_CYCLE_P2",
+        "ir_class": "OVERDAMPED_EXTREME",
+        "gate_pass": true,
+        "publication_role": "Falsifies prior boson/fermion overreach; supports universality framing"
+      },
+      "sm_neutrino_oscillation": {
+        "domain": "Standard-Model 3-flavour numu oscillation (particle physics)",
+        "D": 3,
+        "T": 1000,
+        "max_residual": 3.3306690738754696e-16,
+        "parent_cnt_content_sha256": "60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952",
+        "cnt_termination": "LIMIT_CYCLE_P2",
+        "ir_class": "LIGHTLY_DAMPED",
+        "amplitude_A": 0.1114077556471954,
+        "damping_zeta": 0.056712808948377595,
+        "publication_role": "Boundary/consistency support — D=3 is consistency channel, NOT native D=4 quaternion proof"
+      }
+    },
+    "metric_involution_residuals": {
+      "planck_M2_eq_I": 7.63e-17,
+      "neutrino_M2_eq_I": 7.40e-17,
+      "framing": "M^2=I is one of three structural-invariance pillars (alongside SO(D-1) simplex rotation and SU(2) handedness). The D=4 quaternion sandwich is the stronger independent test."
+    },
+    "reference_cnq_observations_local_platform": {
+      "_note": "Linux x86_64 / Python 3.10 / numpy. Not enforced expectations — these are reference observations for the cross-platform reproduction challenge.",
+      "planck_cmb_quaternion_cnq_content_sha256": "927af6a381f425945475a914d72c0c63812ee571701079b66a642bd114075b64",
+      "sm_neutrino_quaternion_cnq_content_sha256": "f64741cb76eef302699c17adebf5fbd1fb4dc1e73b4cf9562997a7afc5154183"
+    }
+  },
+  "canonical_formulas": {
+    "_notation_reference": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "closure": "C(x) = x / sum_i(x_i)",
+    "clr": "clr(x)_i = log(x_i) - (1/D) * sum_j(log(x_j))",
+    "ilr_via_helmert": "ilr(x) = clr(x) @ H.T  where H is the (D-1) x D Helmert orthonormal contrast matrix",
+    "helmert_basis_row_k": "row k (zero-indexed): n=k+1, norm=1/sqrt(n*(n+1)); first n entries = +norm, entry n = -n*norm, rest = 0",
+    "kappa_HS_tensor": "kappa^HS_ij(x) = (delta_ij - 1/D) / (x_i * x_j)  (order-2 Aitchison pullback metric)",
+    "s_j_sensitivity_vector": "s_j(x) = 1/x_j  (order-1 carrier steering sensitivity; DISTINCT from kappa^HS)",
+    "metric_involution": "M(x) = C(1/x)  ;  M(M(x)) = x  (algebraic identity; data must respect it at IEEE floor)",
+    "rotation_quaternion_atan2_stable": "given unit u1, u2 in R^3:  cross = u1 x u2,  dot = clip(u1.u2, -1, 1),  angle = atan2(||cross||, dot),  q = quat_from_axis_angle(cross/||cross||, angle)",
+    "sandwich_product": "rotate(q, v) = (q . [0;v] . q*).xyz  where q* = quat_conj(q)",
+    "hamilton_product_noncommutative": "i*j = k, j*i = -k (right-hand convention; matches cnq.py and cnq.R)",
+    "cnq_content_sha256": "SHA-256 of canonical-JSON encoding of payload (sort_keys=True, separators=',:', ensure_ascii=True, allow_nan=False) AFTER stripping clock-dependent fields {generated, timestamp, wall_clock, _run_clock}"
+  },
+  "dimension_policy": {
+    "_authoritative_doc": "HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md",
+    "D_4": {
+      "label": "native_quaternion",
+      "claim_strength": "confirmed (load-bearing case)",
+      "processing": "Helmert -> R^3 -> unit-quaternion sandwich"
+    },
+    "D_3": {
+      "label": "boundary_or_degenerate_support",
+      "claim_strength": "consistency support, not native D=4 quaternion proof",
+      "processing": "Helmert -> R^2 -> embed in R^3 with z=0 -> sandwich"
+    },
+    "D_2": {
+      "label": "degenerate_below_quaternion",
+      "claim_strength": "boundary diagnostic; quaternion view does not apply",
+      "processing": "bearing computation only"
+    },
+    "D_8": {
+      "label": "bi_quaternion_factoring_candidate",
+      "claim_strength": "experimental (INV-029); legacy name retained as dimension-policy label",
+      "formal_name": "twin-quaternion factoring (per NOTATION_AND_TERMINOLOGY.md sect 7)",
+      "processing": "Helmert -> R^7; reduced view = first 3 axes; twin-quaternion factoring scaffolded but DEFERRED"
+    },
+    "D_geq_5_not_8": {
+      "label": "reduced_or_projected",
+      "claim_strength": "projection diagnostic only; Cl(D-1) Clifford extension is DEFERRED",
+      "processing": "Helmert -> R^(D-1) -> first 3 axes -> sandwich (lossy)"
+    }
+  },
+  "claim_strength_table": {
+    "_authoritative_doc": "HCI-CNQ/CLAIM_STRENGTH_TABLE.md",
+    "confirmed": [
+      "D=4 Aitchison direction changes are reproduced by unit-quaternion sandwich rotations to IEEE floor in tested datasets (Backblaze + Planck)",
+      "M^2=I residual sits at 7.4e-17 to 7.6e-17 across all three confirmation datasets",
+      "CNT remains canonical and unchanged",
+      "CNQ engine determinism: two runs on same CNT JSON produce identical cnq_content_sha256",
+      "All 43 CNQ engine tests pass"
+    ],
+    "candidate": [
+      "Central tagline: 'CNT measures invariance. CNQ names the algebra it lives in.'",
+      "LIMIT_CYCLE_P2 as universal compositional invariance signature (gated on Round 3 INV-022)",
+      "Hamilton-product cross-dataset comparison",
+      "Spinor / vector branch diagnostic"
+    ],
+    "experimental_deferred": [
+      "INV-028 HCI Dyadic Coupling Ladder (order-2 / 4 / 8 tensor diagnostic)",
+      "INV-029 CNQ Twin-Quaternion Factoring (D=8 SU(2) x SU(2))",
+      "D >= 9 Cl(D-1) Clifford extension"
+    ],
+    "future_out_of_scope_for_paper_1": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "cnq.R parity to corpus-wide level (Python and R already pass first-principles + dimension-policy + Planck end-to-end)",
+      "CNQ-HCI-VR course-attitude integration",
+      "Paper 3 — CNQ parallel verification methodology"
+    ],
+    "avoid_phrases": {
+      "universally_across_all_compositional_data": "use 'across the tested demonstrations so far, with full-corpus validation pending'",
+      "M2_proves_time_reversal": "use 'M^2=I is one of three structural-invariance pillars; the D=4 quaternion sandwich is the stronger independent test'",
+      "D3_native_quaternion_proof": "use 'D=3 is consistency support, not native D=4 quaternion proof'",
+      "rank_for_index_count": "use 'order' (matrix rank and CP-decomposition rank are reserved technical terms)"
+    }
+  },
+  "investigation_catalog_pointer": {
+    "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
+    "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
+    "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
+    "current_total": 29,
+    "by_disposition": {"CANONICAL": 9, "DEFERRED": 12, "FALSIFIED": 1, "OPEN": 7},
+    "by_source": {"CLAUDE": 7, "CHATGPT": 6, "GROK": 10, "USER": 6, "PILOT": 0}
+  },
+  "notation_and_terminology_pointer": {
+    "_description": "Canonical vocabulary reference; every doc using a defined term should cite this.",
+    "path": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "key_locks": [
+      "Tensor 'order' (index count) vs 'rank' (matrix rank or CP-decomposition rank) — distinct",
+      "kappa^HS_ij is order-2 metric tensor; s_j = 1/x_j is order-1 sensitivity vector — distinct",
+      "twin-quaternion factoring (formal) vs bi-quaternion factoring (legacy filename only)",
+      "Frame / dimension / coordinate / axis — distinct",
+      "Tier / Stage / Order / Level / Regime / Degree — distinct"
+    ]
+  },
+  "experiments": {
+    "_description": "The three IEEE-floor confirmation experiments. All inputs + expected outputs + cnq_run reference outputs are shipped in the repo.",
+    "backblaze_fleet_quaternion": {
+      "folder": "HCI-CNQ/experiments/backblaze_fleet_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI/experiments_v2/codawork2026/backblaze_fleet/backblaze_fleet_input.csv",
+      "legacy_script": "QD_round_2.py",
+      "legacy_results": "QD_round_2_results.json"
+    },
+    "planck_cmb_quaternion": {
+      "folder": "HCI-CNQ/experiments/planck_cmb_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/planck_cmb_boson_input.csv",
+      "cnt_json_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/planck_cmb_boson_cnt.json",
+      "cnq_run_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/cnq_run.json",
+      "legacy_script": "QD_round_2_5_planck.py",
+      "legacy_results": "QD_round_2_5_results.json"
+    },
+    "sm_neutrino_quaternion": {
+      "folder": "HCI-CNQ/experiments/sm_neutrino_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/sm_numu_oscillation_input.csv",
+      "cnt_json_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/sm_numu_oscillation_cnt.json",
+      "cnq_run_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/cnq_run.json",
+      "legacy_script": "QD_round_2_6_neutrino.py",
+      "legacy_results": "QD_round_2_6_results.json"
+    },
+    "one_command_reproduction": {
+      "command": "python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .",
+      "verifier": "python HCI-CNQ/scripts/verify_publication_results.py --repo-root .",
+      "expected_results_lock_file": "HCI-CNQ/results/expected_results.json"
+    }
+  },
+  "cross_platform_reproduction_challenge": {
+    "purpose": "Open invitation to ChatGPT, Grok, Gemini, and any third-party reviewer: clone the repo, run cnq.py (or cnq.R) against the shipped CNT JSONs, produce your own cnq_content_sha256. Bit-identical hashes across platforms = fourth independent confirmation channel beyond the three load-bearing datasets.",
+    "expected_behaviour": "On Linux / macOS / Windows, Python 3.9-3.13, numpy >= 1.20, the cnq_content_sha256 should be identical for each experiment.",
+    "if_hashes_differ": "File a GitHub issue with platform details + observed hash. Hash drift is a finding, not a failure — likely a float-formatting difference, not a math difference. The max_residual must still equal the published value."
+  },
+  "paper_pipeline": {
+    "paper_1": {
+      "investigation_id": "INV-026",
+      "title": "A Universal Compositional Invariance Signature: Period-2 Termination at IEEE-Floor Precision Across Drive Failures, CMB Photon Power, and Standard-Model Neutrino Oscillation",
+      "draft": "papers/in_progress/PAPER_1_UNIVERSAL_INVARIANCE_DRAFT.md",
+      "status": "draft 3 (push #26+#27); claim-strength block, M^2=I framing tightened, Appendix A one-command reproduction path",
+      "target_venue": "arXiv physics.data-an (primary), cross-list stat.AP",
+      "release_tag_planned": "v3.0.0-paper1 (after Round 3 lands)"
+    },
+    "paper_2": {
+      "investigation_id": "INV-027",
+      "title": "DADC Origin and Independent Discovery of Compositional Data Analysis",
+      "status": "outline drafted",
+      "target_venue": "CoDaWork 2026 + Math. Geosci. journal version"
+    }
+  },
+  "file_map": {
+    "_note": "Authoritative source files. If content disagrees, these win.",
+    "fast_refresh": "HS_FAST_REFRESH.json (THIS FILE)",
+    "fast_refresh_md": "HS_FAST_REFRESH.md",
+    "publication_ready": "PUBLICATION_READY.md",
+    "ops_protocol": "OPERATIONS_PROTOCOL.md",
+    "cctt_runbook": "ai-refresh/CCTT_RUNBOOK.md",
+    "investigation_catalog": "ai-refresh/INVESTIGATION_CATALOG.json + .md",
+    "notation_terminology": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "glossary": "HCI-CNT/handbook/GLOSSARY.md",
+    "handbook_volumes": [
+      "HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
+      "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md",
+      "HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md",
+      "HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md"
+    ],
+    "origin_lineage": "HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md",
+    "cnq_engine_python": "HCI-CNQ/engine/cnq.py",
+    "cnq_engine_r": "HCI-CNQ/engine/cnq.R",
+    "cnq_pseudocode": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+    "cnq_schema": "HCI-CNQ/engine/CNQ_SCHEMA.md",
+    "cnq_tests": "HCI-CNQ/engine/tests/",
+    "cnq_status": "HCI-CNQ/STATUS_AND_MATURITY.md",
+    "cnq_claim_strength": "HCI-CNQ/CLAIM_STRENGTH_TABLE.md",
+    "cnq_scope": "HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md",
+    "cnq_round3_plan": "HCI-CNQ/ROUND3_VALIDATION_PLAN.md",
+    "cnq_dyadic": "HCI-CNQ/HCI_DYADIC_COUPLING_LADDER.md",
+    "cnq_twin_quaternion": "HCI-CNQ/CNQ_BIQUATERNION_FACTORING.md",
+    "cnt_engine_python": "HCI-CNT/engine/cnt.py",
+    "cnt_engine_r": "HCI-CNT/engine/cnt.R"
+  },
+  "common_drift_errors": {
+    "_note": "Errors that have actually occurred in cross-AI sessions. Check for these during refresh.",
+    "rank_vs_order": "tensor 'rank-N' used for index count instead of 'order-N'. Reserve 'rank' for matrix rank or CP-decomposition rank. Caught 2026-05-08, push #27.",
+    "kappa_HS_conflated_with_sj": "kappa^HS_ij (order-2 metric tensor) conflated with s_j = 1/x_j (order-1 sensitivity vector). Two distinct objects. Caught 2026-05-07, push #23.",
+    "bi_quaternion_strict_misuse": "'Bi-quaternion factoring' used informally for the SU(2) x SU(2) factoring, which is formally 'twin-quaternion'. Strict mathematical bi-quaternion = H tensor C. Caught 2026-05-08, push #27.",
+    "btl_dual_gloss": "BTL framed as both 'Binaural Test Lab' and 'Below Threshold Loudspeaker'. Single canonical identity: Binaural Test Lab. Caught 2026-05-08, push #24.",
+    "btl_basement_framing": "BTL described as 'basement lab', which is unprofessional. Correct framing: sound-controlled professional laboratory; Markham research deployment + 4-lab institutional network. Caught 2026-05-08, push #24.",
+    "experimental_not_for_repo_use_legacy": "Legacy 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' guards from pre-promotion QD era used as live state. RETIRED in push #27. System is fully public.",
+    "h1_paper_misciting": "H_1 (Higgins Operator) paper miscited as 'published' when it's a self-hosted working paper. Caught 2026-05-08, push #24.",
+    "d3_neutrino_native_quaternion": "D=3 neutrino result claimed as native D=4 quaternion proof. Correct: D=3 is consistency support / boundary case. Caught 2026-05-08, push #26."
+  }
+}

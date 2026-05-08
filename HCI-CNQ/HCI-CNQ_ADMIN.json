@@ -17,12 +17,11 @@
     "validation_status": "three IEEE-floor confirmations (Backblaze D=4, Planck CMB D=4, SM neutrino D=3 boundary support); Round 3 full-corpus validation pending (INV-022)",
     "archive_status": "historical candidate state preserved for audit (see legacy block below)",
     "_legacy_single_field_status_for_audit": {
-      "current": "0.1.0-candidate",
-      "promotion_blocked_until": "Peter explicitly approves promotion based on corpus-comparison evidence",
-      "do_not_push": true,
-      "do_not_modify_canonical_repo": true,
-      "isolation_enforced_by": "folder location at workspace root, outside Current-Repo/",
-      "_note": "Superseded by four-field model on 2026-05-08 push #26. Preserved here as audit trail. The folder is now at Current-Repo/Hs/HCI-CNQ/ (since push #23) and is publicly canonical."
+      "_status": "RETIRED in push #27 (2026-05-08)",
+      "_what_used_to_be_here": "Pre-promotion QD-era status flags: current=0.1.0-candidate, do_not_push=true, do_not_modify_canonical_repo=true, isolation_enforced_by='workspace root'. These were the original experimental guards before QD was promoted to canonical sibling tier in push #23 and before cnq.py engine was shipped in push #26.",
+      "_why_retired": "All guards are obsolete. The Hs system and every subcomponent are fully public. CNQ engine is live, deterministic, and hash-chained to the canonical CNT engine. There is no 'do_not_push' state — this folder IS in the public canonical repo and has been since push #23.",
+      "_audit_record_preserved_at": "ARCHIVE_README.json — the historical QD project README preserved verbatim with retirement overlay. Use that file for full historical context.",
+      "_current_state_pointer": "See current_repo_status / engine_status / validation_status / archive_status above (the four-field model)."
     },
     "promotion_history": [
       {
@@ -43,7 +42,9 @@
         "to": "0.1.0-candidate (with central claim)",
         "note": "Central claim 'CNT measures invariance, CNQ names the algebra it lives in' identified by Peter and written into project documents. Status unchanged; the central claim is documentation of what the data has already shown, not a new assertion."
       }
-    ]
+    ],
+    "public_use": "fully_public",
+    "public_use_note": "All subcomponents (HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND, RWA mirror) are fully public and usable. License: per repository LICENSE file. Engines are deterministic and freely runnable."
   },
   "what_is_being_investigated": {
     "central_question": "Does CNT, viewed as compositional analysis with time, fit naturally into quaternion algebra such that the four CNT channels (theta, omega, kappa, sigma) become components of a single quaternion-valued trajectory rather than four independent scalar streams?",

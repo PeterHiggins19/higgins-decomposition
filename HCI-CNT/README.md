@@ -1,5 +1,7 @@
 # HCI-CNT — Compositional Navigation Tensor
 
+> **🎉 Fully Public — Publication-Grade (push #27, 2026-05-08).** Both engines (CNT and CNQ) are shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md). All "EXPERIMENTAL — NOT FOR REPO USE" guards retired. Free to use, help available.
+
 **Engine 2.0.4 · Schema 2.1.0 · 25 reference experiments · Apache-2.0**
 
 The HCI-CNT subsystem is the Compositional Navigation Tensor implementation
@@ -167,13 +169,4 @@ python tools/verify_package.py
 ## History
 
 This subsystem began life as the standalone `HUF-CNT-System` package under the
-broader Higgins Unity Framework workspace. As the v1.1.x feature set matured,
-it became clear that CNT is a natural component of the Hˢ research line —
-both share the same Aitchison-geometry foundations, the same simplex
-operators, and the same determinism principle (`same input, same output,
-always`). The standalone package is preserved at the original location as
-archived history; this `HCI-CNT/` folder is the live development home.
-
----
-
-*The instrument reads. The expert decides. The hashes carry the receipts.*
+broader Higgins Unity Fra

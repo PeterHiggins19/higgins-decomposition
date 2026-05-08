@@ -1,5 +1,7 @@
 # HCI-CNQ — Compositional Navigation Quaternion
 
+> **🎉 CNQ engine fully public — Python + R + pseudocode + 43-test suite (push #27, 2026-05-08).** [`engine/cnq.py`](engine/cnq.py) Python reference. [`engine/cnq.R`](engine/cnq.R) R port (parity contract). [`engine/CNQ_PSEUDOCODE.md`](engine/CNQ_PSEUDOCODE.md) language-agnostic algorithm. [`engine/tests/`](engine/tests/) 43 tests covering geometry, dimension policy, determinism. All deterministic, all hash-chained to parent CNT. Cross-platform reproduction challenge open.
+
 **Status (four-field model, push #26):**
 
 | Field | Value |
@@ -148,13 +150,4 @@ The promotion is documented in:
 
 - [`../ai-refresh/AI_REFRESH_2026-05-07_quaternion_integration.md`](../ai-refresh/AI_REFRESH_2026-05-07_quaternion_integration.md) — push #22 narrative (Volume IV integration into the handbook).
 - [`../ai-refresh/AI_REFRESH_2026-05-07_chatgpt_crosscheck.md`](../ai-refresh/AI_REFRESH_2026-05-07_chatgpt_crosscheck.md) — the cross-check turn that confirmed the framing.
-- [`../ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md`](../ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md) — push #23 narrative (this folder's promotion + ChatGPT vocabulary integration).
-- [`ARCHIVE_README.json`](ARCHIVE_README.json) — the original Quaternion Decomposition project-state record, preserved as audit trail.
-
-The original `Quaternion Decomposition/` folder at the Cowork workspace root is retained in place as a working area for any future experiments before they are ready for canonical promotion. Nothing in this canonical folder depends on it.
-
----
-
-*The instrument reads. The expert decides. The hashes carry the receipts.*
-*CNT measures invariance. CNQ names the algebra it lives in.*
-*Built in public. Free to use. Help available.*
+- [`
