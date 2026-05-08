@@ -1,6 +1,6 @@
-# Glossary — Minimal-Now Refresh (Volume IV-touched terms + HCI vocabulary cross-check)
+# Glossary — Minimal-Now Refresh (Volume IV-touched + HCI vocabulary + Helmsman family extensions)
 
-**Scope:** terms touched by the Volume IV (Quaternion View) integration of 2026-05-07, plus the HCI instrument-family vocabulary promoted from `HCI/HCI_FOUNDATION.md` and `HCI/README.md` during the 2026-05-07 ChatGPT cross-check pass (push #23). Approximately 47 entries.
+**Scope:** terms touched by the Volume IV (Quaternion View) integration of 2026-05-07, plus the HCI instrument-family vocabulary promoted from `HCI/HCI_FOUNDATION.md` and `HCI/README.md` during the 2026-05-07 ChatGPT cross-check pass (push #23), plus six **proposed Helmsman-family extensions** surfaced during the 2026-05-08 Grok cross-check pass (push #24, §I). Approximately 53 entries.
 **Companions:** [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md), and [HCI/HCI_FOUNDATION.md](../../HCI/HCI_FOUNDATION.md).
 **Full refresh planned for a separate cycle.** This document covers (i) terms used in the central-claim chain so the four volumes are internally cross-referenceable today, and (ii) the most-used HCI instrument-family vocabulary so the handbook and HCI specs share one authoritative naming layer. The broader CNT vocabulary (atlas modules, schema fields, audit-chain terms) will be added in a dedicated glossary push after CodaWork.
 
@@ -217,6 +217,24 @@ Status: design exploration only. Lives in the experimental folder
 (`Quaternion Decomposition/Hs-VR/` at workspace root, not in the canonical
 repo) until a working pilot exists. Listed here so the vocabulary is
 canonical when the instrument arrives.
+
+---
+
+## §I — Helmsman family extensions (proposed, Grok crosscheck)
+
+Status: **proposed extensions**, not yet implemented in `cnt.py` 2.0.4. Surfaced during the 2026-05-08 Grok cross-check pass (push #24). These extend the existing CNT helmsman σ channel (defined in §B) with a coherent diagnostic vocabulary for trajectory steering. They will graduate from "proposed" to canonical only when the engine implements them and produces them in the JSON schema.
+
+**Sign of the Helmsman (σ̂).** The dominant carrier exerting the largest weighted directional influence on the compositional state at a given step, with sign attached: σ̂(t) = sign(Δx_{i*}) where i* = argmax_i (|Δx_i(t)| · w_i(t)). The weight w_i is typically the local intensity x_i(t), but in the quark-sector extension proposed by Grok it incorporates mass-hierarchy dependence on energy scale Q². The sign component carries handedness (CP-like in the quark sector, polarisation handedness in EM, room-mode parity in acoustics). → Volume IV §B.2 for the CNT-side relationship to spinor parity. **Proposed, not implemented.**
+
+**Helmsman Stability (S_σ).** Scalar diagnostic in [0, 1] measuring how persistently the same helmsman dominates over a window. Defined as S_σ = 1 − (number_of_flips) / (N − 1) for a trajectory of length N. Practical interpretation: S_σ near 1 means the trajectory is dominated by one carrier throughout (high modal lock); S_σ near 0 means the helmsman changes at almost every step (rapid trading of dominance, often a sign of chaos or strong oscillation). **Proposed, not implemented.**
+
+**Helmsman Flips.** Count of indices t where σ̂(t) ≠ σ̂(t−1). Equivalently, the number of times the dominant-carrier identity changes along the trajectory. Sustained periodic flipping between two carriers is the universal signature of a sustained `LIMIT_CYCLE_P2` regime (the period-2 attractor); flip statistics that show the period-doubling cascade (P2 → P4 → P8 → … → chaos) are the dynamical-systems route to Helmsman Chaos described below. **Proposed, not implemented.**
+
+**Helmsman Chaos.** The regime in which the Helmsman sequence becomes aperiodic and sensitive to initial conditions. Reached via the period-doubling cascade governed (universally, for one-dimensional unimodal maps) by Feigenbaum's δ ≈ 4.6692 and α ≈ −2.5029. Diagnostic signatures: positive Lyapunov exponent of the σ̂(t) sequence, fractal structure with Hausdorff dimension ≈ 0.538, and breakdown of the standard IR taxonomy (the trajectory no longer fits cleanly into a damping class). Predicted to appear in driven nonlinear acoustic, EM, or quark-sector trajectories at sufficiently strong control parameter. **Proposed, not implemented.**
+
+**Helmsman Torque.** Rate of change of the helmsman's effective steering direction. Lightly developed — Grok proposed it as a diagnostic correlated with rapid CKM running or new physics in the quark sector, and as a potential observable in EM polarisation rotation rates. No formal definition committed. **Proposed, weakly developed.**
+
+**Joint Helmsman.** When two or more subsystems (channels, drivers, polarisation states, phonon modes, droplets, …) share a common physical field (joint quaternion field q_joint), the helmsman extracted from log(q_joint) is the **joint helmsman** — non-separable across subsystems. The joint statistics of helmsman signs across multiple measurement settings can produce CHSH-like correlations bounded by the Tsirelson value 2√2; values around S ≈ 2.49 are typical in high-memory hydrodynamic analogs and are predicted in strongly coupled multi-channel acoustic or EM systems. → [`../../HCI-CNQ/doctrine/`](../../HCI-CNQ/doctrine/) for the CNQ-side many-body machinery. **Proposed, not implemented in cnt.py; some hand computation is possible from existing JSON outputs.**
 
 ---
 

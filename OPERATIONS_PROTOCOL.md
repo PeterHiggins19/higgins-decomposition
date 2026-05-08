@@ -315,6 +315,51 @@ any D=4 CNT JSON, reproducing the IEEE-floor result documented in Volume IV §B.
 
 ---
 
+## Section 14 — Maintaining the Investigation Catalog (push #24, 2026-05-08)
+
+The Investigation Catalog at [`ai-refresh/INVESTIGATION_CATALOG.json`](ai-refresh/INVESTIGATION_CATALOG.json)
+(human-readable companion: [`ai-refresh/INVESTIGATION_CATALOG.md`](ai-refresh/INVESTIGATION_CATALOG.md))
+is the canonical record of every speculative branch / hypothesis raised by any AI session,
+human contributor, or experimental pilot. Each investigation carries one of four
+dispositions: **CANONICAL**, **DEFERRED**, **FALSIFIED**, or **OPEN**. The catalog formalises
+the framework's research methodology — a single place to see what has been tried, what
+landed, what's still open, and what was killed and why.
+
+**When to add a new entry:**
+
+- A new speculative branch is raised in any AI cross-check pass and is worth more than
+  a throwaway remark (analogous to EITT's 5% carrier-contribution threshold — when in
+  doubt, err toward inclusion).
+- A new pilot is proposed (with explicit gate criteria for what would promote it).
+- A canonical artifact is added or moved.
+- An idea is tested experimentally or analytically and refuted (FALSIFIED).
+
+**Local checklist when raising / updating an investigation:**
+
+- [ ] Append entry to `ai-refresh/INVESTIGATION_CATALOG.json` with next sequential id.
+- [ ] Required fields populated (id, title, raised_by, raised_date, raised_in_push, disposition, summary).
+- [ ] Disposition-specific fields populated (gate_criteria for OPEN/DEFERRED, falsification_record for FALSIFIED, canonical_location for CANONICAL).
+- [ ] Update `summary_by_disposition` and `summary_by_source` counts.
+- [ ] Mirror new/changed entry into the disposition table in `INVESTIGATION_CATALOG.md`.
+- [ ] If the investigation is being **promoted** (OPEN → CANONICAL), cross-reference the supporting commit, pilot report, or experiment JSON.
+- [ ] If the investigation is being **falsified** (any → FALSIFIED), capture what was tested, what was expected, what was observed, and any reformulation that survives.
+
+**Promotion-gate discipline:**
+
+Investigations are promoted to CANONICAL only when their stated gate criteria are met.
+The DADC origin (INV-008) was promoted because the gate was external verification against
+the Rogue-Wave-Audio repo and that verification ran cleanly. CNQ-Q (INV-013) sits at
+DEFERRED because its gate is a working computational pilot on public CKM data that has
+not yet been run. The discipline is demonstration-first; mathematical coherence alone
+is not sufficient for promotion.
+
+**Falsification is data:** Round 2.5's Concept 4 (P2 = fermion / P1 = boson) was tested
+against Planck CMB and refuted. The refutation produced the cleaner reformulation
+(LIMIT_CYCLE_P2 is universal). The falsified conjecture stays on record because the
+audit trail is what gives the reformulation its credibility.
+
+---
+
 ## When in doubt
 
 Three rules:

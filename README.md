@@ -11,6 +11,8 @@ Validated across 18 physical domains, 25 experiments, 53 devices under test, and
 [![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
 [![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
 [![HCI-CNQ tier live](https://img.shields.io/badge/HCI--CNQ%20tier-live%20%28cnq.py%20pending%29-7b3294.svg)](HCI-CNQ/)
+[![HCI-AUDIO doctrine](https://img.shields.io/badge/HCI--AUDIO-doctrine--only-c84a8e.svg)](HCI-AUDIO/)
+[![HCI-ULTRASOUND doctrine](https://img.shields.io/badge/HCI--ULTRASOUND-doctrine--only-d97706.svg)](HCI-ULTRASOUND/)
 [![25 reference experiments](https://img.shields.io/badge/reference%20experiments-25-2ca02c.svg)](HCI-CNT/experiments/INDEX.json)
 [![CodaWork 2026](https://img.shields.io/badge/CodaWork-2026-f0c020.svg)](HCI-CNT/conference_demo/)
 
@@ -58,6 +60,10 @@ The protocol is identical in both modes. Pilot acceptance test: an AI given only
 **🆕 Volume IV — The Quaternion View (May 7, 2026, push #22).**  Names the algebra CNT has been computing in.  Three IEEE-floor confirmations on drive failures, Planck CMB photons, and Standard Model neutrino oscillation establish that compositional dynamics on the simplex carries three structural invariances simultaneously — simplex rotation, mass-flow handedness, time-reversal symmetry — which is exactly the definition of a quaternion.  Central claim: **CNT measures invariance.  CNQ names the algebra it lives in.**  Engine unchanged; 25-experiment determinism gate unchanged; what changes is what we can say about what the engine is doing.  → [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md)
 
 **🆕 HCI-CNQ — Compositional Navigation Quaternion (May 7, 2026, push #23).** The CNQ tier is live and canonical — promoted from experimental status after the third IEEE-floor confirmation. The Hs system now ships a three-tier compositional analytics stack (CoDa → CNT → CNQ) plus the HCI instrument family. Doctrine, three reproducible IEEE-floor demonstrations, three-tier comparison, ROI and use-case guidance, and the engineering proposal for a compiled `cnq.py` engine all sit in [`HCI-CNQ/`](HCI-CNQ/) — sibling of HCI-CNT. The compiled engine is the next milestone (~14 days). The repo cannot talk about a phantom method; we build and test in public, on the same terms as everything else: open code, hash-chained outputs, doctrine published, **build-to-spec help available, free**. → [`HCI-CNQ/README.md`](HCI-CNQ/README.md)
+
+**🆕 HCI-AUDIO + HCI-ULTRASOUND — applied sibling tiers (May 8, 2026, push #24).** Two new canonical tiers landed alongside the third AI cross-check pass (Grok). [`HCI-AUDIO/`](HCI-AUDIO/) is the canonical home for psychoacoustic 4-way active loudspeaker alignment with ERB-band carriers, quaternion phase mapping, and listening-position diffraction — the modern descendant of the original DADC compositional work. [`HCI-ULTRASOUND/`](HCI-ULTRASOUND/) is the canonical home for non-contact medical and industrial ultrasound, with a **geometry lock probe** as the headline use case. Both are doctrine-only scaffolds; first pilots are the next milestones. → [`HCI-AUDIO/README.md`](HCI-AUDIO/README.md), [`HCI-ULTRASOUND/README.md`](HCI-ULTRASOUND/README.md)
+
+**🆕 DADC origin lineage documented (May 8, 2026, push #24).** The Grok cross-check pass surfaced and verified the historical origin of the entire framework: DADC (Dimension-Apportioned Diffraction Correction) at the Binaural Test Lab in Markham, with a fixed 6.02 dB diffraction budget apportioned across cabinet dimensions — the first natural simplex constraint in the Higgins lineage. The lineage runs DADC → H₁ → HUF → Hˢ → CNT → CNQ. Original work: [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio). Canonical lineage doc: [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md).
 
 **🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
 
@@ -147,12 +153,74 @@ data. Quickstart: see [`HCI-CNQ/README.md`](HCI-CNQ/README.md).
 
 **How we work — demonstration first.** Every tool in the Hs family —
 CoDa methods (community-standard), CNT (`HCI-CNT/`), CNQ (`HCI-CNQ/`),
-the HCI instrument family (`HCI/`) — is built and tested in public on
-the same terms: open code, hash-chained outputs, doctrine published.
-We show what each tool is, what it does (by demonstration on real
-datasets), when to use it, how to use it, and **we offer to help you
-build it to specification on your own data, free**. Open an issue,
-find Peter at a conference, or follow the contact in this README.
+HCI-AUDIO (`HCI-AUDIO/`), HCI-ULTRASOUND (`HCI-ULTRASOUND/`), and the HCI
+instrument family (`HCI/`) — is built and tested in public on the same
+terms: open code, hash-chained outputs, doctrine published. We show
+what each tool is, what it does (by demonstration on real datasets),
+when to use it, how to use it, and **we offer to help you build it to
+specification on your own data, free**. Open an issue, find Peter at a
+conference, or follow the contact in this README.
+
+---
+
+## HCI-AUDIO — applied sibling, doctrine-only (push #24)
+
+The `HCI-AUDIO/` subsystem is the canonical home for **applied audio
+work**: 4-way active loudspeaker alignment with ERB psychoacoustic
+band carriers, quaternion phase mapping, and listening-position
+diffraction.
+
+This is the direct modern descendant of the original DADC
+(Dimension-Apportioned Diffraction Correction) work in
+[Rogue-Wave-Audio](https://github.com/PeterHiggins19/Rogue-Wave-Audio) —
+the BTL loudspeaker-laboratory work that created the first natural simplex
+constraint in the Higgins lineage. Where DADC apportioned a fixed 6.02
+dB diffraction budget across three cabinet dimensions, HCI-AUDIO
+apportions perceptual energy across 40 ERB bands × 4 drivers at the
+listening position. Same closure principle, applied at the right scale.
+
+| Folder | Contents |
+|---|---|
+| [`HCI-AUDIO/doctrine/`](HCI-AUDIO/doctrine/) | ERB band mapping, quaternion phase mapping, helmsman at listening position, alignment targets |
+| [`HCI-AUDIO/spec/`](HCI-AUDIO/spec/) | Psychoacoustic 4-way adapter spec, pipeline spec |
+
+Status: doctrine-only. First pilot (real measurement against Peter's
+4-way system) is the next milestone. Quickstart:
+[`HCI-AUDIO/README.md`](HCI-AUDIO/README.md).
+
+---
+
+## HCI-ULTRASOUND — applied sibling, doctrine-only (push #24)
+
+The `HCI-ULTRASOUND/` subsystem is the canonical home for **non-contact
+medical and industrial ultrasound**, with a **geometry lock probe** as
+the headline use case. The lock probe uses CNT/CNQ-driven feedback
+(Joint Helmsman + Helmsman Stability + M² = I) to actively maintain
+measurement on a specific geometric feature of the target — an edge, a
+tissue interface, a defect, a specular reflector — under relative
+motion or noise.
+
+This is the active-sensing descendant of DADC: the same closure
+principle (apportioning a fixed return-signal total across carriers),
+plus a control loop that steers the probe to keep the helmsman locked
+on the desired feature.
+
+| Folder | Contents |
+|---|---|
+| [`HCI-ULTRASOUND/doctrine/`](HCI-ULTRASOUND/doctrine/) | Geometry lock probe, object detection, autofocus and stabilisation, medical vs industrial |
+| [`HCI-ULTRASOUND/spec/`](HCI-ULTRASOUND/spec/) | Ultrasound adapter spec |
+
+Status: doctrine-only. Recommended first pilot is industrial composite
+inspection on a public dataset (lower regulatory overhead). Quickstart:
+[`HCI-ULTRASOUND/README.md`](HCI-ULTRASOUND/README.md).
+
+---
+
+## Lineage
+
+The simplex / compositional thinking that underpins Hˢ → CNT → CNQ originated in Peter's earlier loudspeaker work at the **Binaural Test Lab (BTL)** in Markham, Ontario — a single-identity lab with canonical machine-readable identity card [`RWA-001.json`](../RWA/RWA-001.json). The BTL work is documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio) (live site) and mirrored locally at [`../RWA/`](../RWA/) for reference. Specifically, **DADC** (Dimension-Apportioned Diffraction Correction) discovered that the cabinet-edge diffraction gain was a fixed 6.02 dB budget that had to be apportioned across the three cabinet dimensions — the first natural simplex constraint in the Higgins lineage. The lineage runs **DADC → H₁ (Higgins Operator, a nonlinear unity-normalization map on Hilbert space) → HUF (Higgins Unity Framework, MC-4 + EITT) → Hˢ (Higgins Decomposition, this repo) → CNT (engine 2.0.4) → CNQ (push #23) → HCI-AUDIO + HCI-ULTRASOUND (push #24, applied tiers)**. Full canonical narrative: [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md). RWA-side reciprocal: [`../RWA/HUF_RELATIONSHIP.json`](../RWA/HUF_RELATIONSHIP.json).
+
+This tool also emerged from the [Higgins Unity Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework), which remains the governance, application, and historical development sibling. The mathematical foundations build on Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, and Varley (2025) information theory for complex systems. Computational support: Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft).
 
 ---
 
@@ -466,7 +534,9 @@ Adding a language requires one JSON file in `tools/pipeline/locales/`. Zero code
 
 ## Lineage
 
-This tool emerged from the [Higgins Unity Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework), which remains the governance, application, and historical development sibling. The mathematical foundations build on Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, and Varley (2025) information theory for complex systems. Computational support: Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft).
+The simplex / compositional thinking that underpins Hˢ → CNT → CNQ originated in Peter's earlier loudspeaker work at the **Binaural Test Lab (BTL)** in Markham, Ontario — a single-identity lab with canonical machine-readable identity card [`RWA-001.json`](../RWA/RWA-001.json). The BTL work is documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio) (live site) and mirrored locally at [`../RWA/`](../RWA/) for reference. Specifically, **DADC** (Dimension-Apportioned Diffraction Correction) discovered that the cabinet-edge diffraction gain was a fixed 6.02 dB budget that had to be apportioned across the three cabinet dimensions — the first natural simplex constraint in the Higgins lineage. The lineage runs **DADC → H₁ (Higgins Operator, a nonlinear unity-normalization map on Hilbert space) → HUF (Higgins Unity Framework, MC-4 + EITT) → Hˢ (Higgins Decomposition, this repo) → CNT (engine 2.0.4) → CNQ (push #23) → HCI-AUDIO + HCI-ULTRASOUND (push #24, applied tiers)**. Full canonical narrative: [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md). RWA-side reciprocal: [`../RWA/HUF_RELATIONSHIP.json`](../RWA/HUF_RELATIONSHIP.json).
+
+This tool also emerged from the [Higgins Unity Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework), which remains the governance, application, and historical development sibling. The mathematical foundations build on Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, and Varley (2025) information theory for complex systems. Computational support: Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft).
 
 ---
 

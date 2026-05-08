@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "schema": "hci_audio_admin/1.0",
+    "generated": "2026-05-08T20:00:00Z",
+    "session": "Push #24 — HCI-AUDIO canonical sibling created (doctrine-only scaffold). Direct modern descendant of the DADC work in Rogue-Wave-Audio. Doctrine for 4-way psychoacoustic active loudspeaker alignment with ERB-band carriers, quaternion phase mapping, and listening-position diffraction.",
+    "purpose": "Canonical home for applied audio work in the Hs system. Sibling of HCI-CNT and HCI-CNQ."
+  },
+  "tier": {
+    "name": "HCI-AUDIO",
+    "status": "doctrine-only",
+    "promotion_date": "2026-05-08",
+    "promotion_push": "#24",
+    "compiled_engine": "none (uses HCI-CNT cnt.py as back-end for compositional data)",
+    "next_milestones": [
+      "Compiled Psychoacoustic4WayAdapter",
+      "First pilot measurement against Peter's 4-way system",
+      "Per-experiment journals",
+      "Validation against listening-position metrics"
+    ]
+  },
+  "carriers": {
+    "primary": "ERB psychoacoustic bands (Glasberg & Moore 1990)",
+    "recommended_count": 40,
+    "frequency_range_hz": [20, 20000],
+    "spacing": "linear in ERB-rate (perceptually uniform)",
+    "secondary_structure": "per-driver contribution (4 drivers per cabinet)",
+    "effective_dimensionality": "40 bands x 4 drivers = 160 carriers (with sparsity from crossover partitions)"
+  },
+  "lineage": {
+    "origin": "DADC (Dimension-Apportioned Diffraction Correction) at Binaural Test Lab, Markham (Rogue-Wave-Audio repository)",
+    "fixed_total_old": "6.02 dB diffraction budget on cabinet dimensions (near-field)",
+    "fixed_total_new": "perceptual energy arriving at the listening position (real-room conditions)",
+    "closure_principle": "preserved (ADAC-style adaptive closure on the simplex)",
+    "lineage_doc": "../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md"
+  },
+  "doctrine_documents": {
+    "doctrine/ERB_BAND_MAPPING.md": "ERB carriers, 40-band recommended config, perceptual weighting",
+    "doctrine/QUATERNION_PHASE_MAPPING.md": "phase + time delay as quaternion / joint quaternion field",
+    "doctrine/HELMSMAN_AT_LISTENING_POS.md": "per-driver, per-band, and joint helmsman extraction",
+    "doctrine/ALIGNMENT_TARGETS.md": "metric definitions for a well-aligned 4-way system"
+  },
+  "specifications": {
+    "spec/PSYCHOACOUSTIC_4WAY_ADAPTER_SPEC.md": "adapter that takes WAV/measurement -> canonical compositional",
+    "spec/PIPELINE_SPEC.md": "how HCI-AUDIO output flows through CNT then CNQ"
+  },
+  "out_of_scope_for_this_push": [
+    "compiled adapter implementation",
+    "reference measurement datasets",
+    "per-experiment journals",
+    "live integration with measurement tools (Smaart, REW)"
+  ]
+}

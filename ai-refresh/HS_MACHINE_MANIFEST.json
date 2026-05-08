@@ -1,10 +1,10 @@
 {
   "_meta": {
     "schema": "hs_machine_manifest/3.0",
-    "generated": "2026-05-07T23:30:00Z",
+    "generated": "2026-05-08T22:00:00Z",
     "last_writer": "Claude Cowork session - Volume IV (Quaternion View) integration",
     "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context.",
-    "session_pointer": "push #23 \u2014 HCI-CNQ tier promoted to canonical (sibling of HCI-CNT). CoDa -> CNT -> CNQ three-tier stack now public."
+    "session_pointer": "push #24 -- Grok crosscheck integration + HCI-AUDIO + HCI-ULTRASOUND sibling tiers + DADC origin lineage."
   },
   "system": {
     "name": "HUF-CNT (HCI-CNT) inside the H\u02e2 repository",
@@ -198,5 +198,27 @@
     "tier_overview": "Hs/HCI-CNQ/tier_system/",
     "engineering_proposal": "Hs/HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md",
     "narrative": "ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md"
+  },
+  "hci_audio": {
+    "_description": "HCI-AUDIO applied sibling tier (push #24, 2026-05-08).",
+    "canonical_location": "Hs/HCI-AUDIO/",
+    "tier_status": "doctrine-only",
+    "headline_use_case": "4-way active loudspeaker alignment at listening position",
+    "doctrine_root": "Hs/HCI-AUDIO/doctrine/",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "hci_ultrasound": {
+    "_description": "HCI-ULTRASOUND applied sibling tier (push #24, 2026-05-08).",
+    "canonical_location": "Hs/HCI-ULTRASOUND/",
+    "tier_status": "doctrine-only",
+    "headline_use_case": "Geometry Lock Probe (medical and industrial non-contact ultrasound)",
+    "doctrine_root": "Hs/HCI-ULTRASOUND/doctrine/",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "origin_lineage": {
+    "_description": "Historical origin verified during push #24.",
+    "origin": "DADC at Binaural Test Lab, Markham (Rogue-Wave-Audio)",
+    "lineage": "DADC -> H1 -> HUF -> Hs -> CNT -> CNQ",
+    "canonical_doc": "Hs/HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md"
   }
 }

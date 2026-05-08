@@ -1,8 +1,8 @@
 {
   "_meta": {
     "schema": "hs_admin/3.0",
-    "generated": "2026-05-07T23:30:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations of the quaternion identification on backblaze, Planck CMB, and SM neutrino. Push #22 verified green at commit 33264a5. Push #23 EXPANDED \u2014 ChatGPT cross-check integration (GLOSSARY \u00a7H + CodaWork talking points) PLUS HCI-CNQ tier promoted from experimental QD folder to canonical sibling of HCI-CNT. CoDa->CNT->CNQ three-tier stack now public. Engine and schema unchanged; determinism gate verified bit-identical via backblaze_fleet (3e5f8db9...). The repo cannot talk about a phantom method \u2014 built and tested in public, on the same terms as everything else: open code, hash-chained outputs, doctrine published, build-to-spec help free.",
+    "generated": "2026-05-08T23:30:00Z",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY \u00a7I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) \u2014 formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
     "volume_iv_integrated_at": "2026-05-07T09:30:00Z"
   },
@@ -562,5 +562,120 @@
     },
     "narrative": "ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md (expanded scope)",
     "build_to_spec_offer": "Public, free. Open repo issue, find Peter at conference, or use contact in HCI-CNQ/README.md."
+  },
+  "grok_crosscheck": {
+    "_description": "Grok (xAI) cross-check pass on 2026-05-08. Read the Hs and Rogue-Wave-Audio repos, verified the framework's claims, surfaced the DADC origin lineage, proposed the Helmsman family vocabulary as extensions to the existing helmsman channel, and engaged with Peter's two stated applied goals (4-way psychoacoustic loudspeaker, ultrasound geometry lock probe). Three-platform verification pattern (Claude/ChatGPT/Grok) is now established as the project's cross-check discipline.",
+    "session_date": "2026-05-08",
+    "archive_file": "ai-refresh/AI_REFRESH_2026-05-08_grok_crosscheck.md",
+    "push_narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md",
+    "verified_findings": {
+      "dadc_origin": "VERIFIED against Rogue-Wave-Audio README. 6.02 dB diffraction budget on cabinet dimensions confirmed. Lineage DADC -> H1 -> HUF stated explicitly on RWA README; Hs/CNT/CNQ extension asserted by this repo.",
+      "h1_paper": "VERIFIED PRESENT IN REPO. The Higgins Operator H1 working paper at docs/papers/The_Higgins_Operator_H1_101.pdf in Rogue-Wave-Audio (Feb 2026). Self-hosted, NOT peer-reviewed; priority established by repository commit timestamp under CC BY 4.0. Peer-reviewed publication is a separate downstream step.",
+      "btl_lab": "VERIFIED. Single identity: Binaural Test Lab, lab identity card RWA-001. BTL is a sound-controlled professional laboratory class. Research deployment: currently sited in Markham, Ontario (Peter Higgins). Pre-COVID origin: manufacturing facility of a private Canadian industrial sponsor that funded the project. Institutional deployment: a four-laboratory test network maintained by the sponsor (two facilities in Ottawa, Canada; two in Monaco). Earlier transcripts of the public RWA README showed an apparent 'Below Threshold Loudspeaker' gloss — misleading and NOT canonical. Earlier informal 'basement lab' descriptions of the Markham facility captured an incidental siting property but materially understate the lab's professional character and the broader BTL network; corrected across all canonical documents.",
+      "tensor_acoustic_forge": "VERIFIED. Real concept with its own folder in RWA.",
+      "minor_correction_adac": "ADAC (Adaptive Closure) is the third member of the DADC family. Grok did not flag it; canonical lineage doc includes it."
+    },
+    "canonical_additions": [
+      "HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md (new historical doctrine)",
+      "HCI-CNT/handbook/GLOSSARY.md \u00a7I (Helmsman family extensions, marked PROPOSED)",
+      "Hs/HCI-AUDIO/ (new canonical sibling tier, doctrine-only)",
+      "Hs/HCI-ULTRASOUND/ (new canonical sibling tier, doctrine-only)",
+      "Hs/README.md updates (badges, What's New, applied-tier sections, Lineage paragraph)"
+    ],
+    "deferred_to_archive_only": [
+      "CNQ-Q quark sector extension (CKM mapping, Sign of the Helmsman in flavour physics)",
+      "Pilot-wave guidance equation derivation in CNQ language",
+      "Many-droplet entanglement analogs and CHSH/Tsirelson computation",
+      "Quantum acoustic phonon simplex applications",
+      "WaveMechanics-CNQ Database design (full system spec with FastAPI Pydantic models)",
+      "Period-doubling cascade and Feigenbaum constants applied to compositional dynamics",
+      "Hausdorff dimension and transfer-operator method on compositional attractors"
+    ],
+    "verification_pattern": "Claude builds -> ChatGPT cross-checks vocabulary and framing -> Grok tests, extends, and surfaces lineage -> Peter pushes",
+    "engine_unchanged": true,
+    "determinism_gate_preserved": true
+  },
+  "hci_audio": {
+    "_description": "HCI-AUDIO -- applied sibling tier for psychoacoustic 4-way active loudspeaker alignment. Doctrine-only since push #24 (2026-05-08). Direct modern descendant of the DADC compositional work in Rogue-Wave-Audio.",
+    "tier_status": "doctrine-only",
+    "engine_status": "no compiled engine yet; uses HCI-CNT cnt.py as back-end for compositional data",
+    "promotion_date": "2026-05-08",
+    "promotion_push": "#24",
+    "canonical_location": "Hs/HCI-AUDIO/",
+    "headline_use_case": "4-way active loudspeaker alignment with ERB-band carriers, quaternion phase mapping, and listening-position diffraction",
+    "doctrine_documents": [
+      "doctrine/ERB_BAND_MAPPING.md",
+      "doctrine/QUATERNION_PHASE_MAPPING.md",
+      "doctrine/HELMSMAN_AT_LISTENING_POS.md",
+      "doctrine/ALIGNMENT_TARGETS.md"
+    ],
+    "specifications": [
+      "spec/PSYCHOACOUSTIC_4WAY_ADAPTER_SPEC.md",
+      "spec/PIPELINE_SPEC.md"
+    ],
+    "next_milestone": "First pilot measurement against Peter's 4-way system",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "hci_ultrasound": {
+    "_description": "HCI-ULTRASOUND -- applied sibling tier for non-contact medical and industrial ultrasound. Headline use case: geometry lock probe. Doctrine-only since push #24 (2026-05-08). Active-sensing descendant of DADC.",
+    "tier_status": "doctrine-only",
+    "engine_status": "no compiled engine yet",
+    "promotion_date": "2026-05-08",
+    "promotion_push": "#24",
+    "canonical_location": "Hs/HCI-ULTRASOUND/",
+    "headline_use_case": "Geometry Lock Probe -- active sensing that maintains measurement on a specific geometric feature using CNT/CNQ-driven feedback (Joint Helmsman + Helmsman Stability)",
+    "doctrine_documents": [
+      "doctrine/GEOMETRY_LOCK_PROBE.md",
+      "doctrine/OBJECT_DETECTION.md",
+      "doctrine/AUTOFOCUS_AND_STABILIZATION.md",
+      "doctrine/MEDICAL_VS_INDUSTRIAL.md"
+    ],
+    "specifications": [
+      "spec/ULTRASOUND_ADAPTER_SPEC.md"
+    ],
+    "domains": [
+      "medical",
+      "industrial"
+    ],
+    "recommended_first_pilot": "industrial composite inspection on a public dataset (lower regulatory overhead than medical)",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "origin_lineage": {
+    "_description": "Historical origin of the Hs / CNT / CNQ framework, surfaced and verified during push #24.",
+    "origin": "DADC (Dimension-Apportioned Diffraction Correction), Binaural Test Lab, Markham, Ontario",
+    "origin_repo": "https://github.com/PeterHiggins19/Rogue-Wave-Audio",
+    "lineage": "DADC -> H1 (Higgins Operator) -> HUF (Higgins Unity Framework: MC-4 + EITT) -> Hs (Higgins Decomposition) -> CNT (Compositional Navigation Tensor) -> CNQ (Compositional Navigation Quaternion)",
+    "first_simplex_constraint": "fixed 6.02 dB cabinet-edge diffraction gain apportioned across width, height, depth",
+    "canonical_doc": "HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md",
+    "verified_2026_05_08": true,
+    "verification_method": "Direct fetch of Rogue-Wave-Audio README; verbatim quotes captured in lineage doc."
+  },
+  "investigation_catalog": {
+    "_description": "Canonical research-methodology document. Single record of every speculative branch / hypothesis raised by any AI session, human contributor, or experimental pilot. Each investigation classified by disposition (CANONICAL / DEFERRED / FALSIFIED / OPEN) with explicit gate criteria for promotion or falsification.",
+    "canonical_location": "ai-refresh/INVESTIGATION_CATALOG.json",
+    "human_readable_companion": "ai-refresh/INVESTIGATION_CATALOG.md",
+    "operations_protocol_reference": "OPERATIONS_PROTOCOL.md Section 14",
+    "created_in_push": "#24",
+    "framing": "EITT 5%-threshold discipline: every contribution above threshold counts as a carrier; every disposition is data; the audit trail is the discipline.",
+    "current_summary": {
+      "CANONICAL": 9,
+      "DEFERRED": 9,
+      "FALSIFIED": 1,
+      "OPEN": 5,
+      "total": 24
+    },
+    "current_summary_by_source": {
+      "CLAUDE": 4,
+      "CHATGPT": 3,
+      "GROK": 9,
+      "HUMAN": 5,
+      "PILOT": 0
+    },
+    "promotion_discipline": "Demonstration-first. Investigations promoted to CANONICAL only when stated gate criteria are met. Mathematical coherence alone is insufficient for promotion.",
+    "next_likely_promotions": [
+      "INV-021 (cnq.py engine) \u2014 when implementation lands (~14 days)",
+      "INV-024 (HCI-AUDIO first pilot) \u2014 when Peter measures his 4-way system",
+      "INV-025 (HCI-ULTRASOUND first pilot) \u2014 when industrial composite-inspection pilot runs"
+    ]
   }
 }
