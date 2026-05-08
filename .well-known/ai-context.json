@@ -1,0 +1,128 @@
+{
+  "_format": "ai-context/1.0",
+  "_purpose": "Machine-discoverable AI context manifest at the conventional .well-known/ path. Tells AI assistants where to fetch the canonical context loader for this repository in one step.",
+  "_convention": "https://en.wikipedia.org/wiki/Well-known_URI — the .well-known/ directory is reserved by RFC 8615 for machine-readable resources.",
+  "name": "Higgins Decomposition (Hs)",
+  "type": "scientific-research-repository",
+  "domain": "compositional-data-analysis",
+  "license": {
+    "code": "Apache-2.0",
+    "docs": "CC BY 4.0",
+    "split_rationale": "https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software"
+  },
+  "primary_loader": {
+    "format": "json",
+    "path": "/HS_FAST_REFRESH.json",
+    "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HS_FAST_REFRESH.json",
+    "purpose": "Single-file canonical context loader. Contains all canonical names, numbers, formulas, dimension policy, engine pointers, raw URLs, claim-strength rules, file map, and common drift errors."
+  },
+  "human_loader": {
+    "format": "markdown",
+    "path": "/HS_FAST_REFRESH.md",
+    "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HS_FAST_REFRESH.md"
+  },
+  "agent_instructions": {
+    "format": "markdown",
+    "path": "/AI_AGENTS.md",
+    "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/AI_AGENTS.md",
+    "purpose": "Full operating instructions for AI assistants engaging with this repo. Includes grounding-test, fetch order, common drift errors, known platform failure modes."
+  },
+  "convention_pointer": {
+    "format": "text",
+    "path": "/llms.txt",
+    "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/llms.txt",
+    "convention": "https://llmstxt.org/"
+  },
+  "grounding_test": {
+    "_purpose": "Three quick questions any user can ask an AI to verify whether its summary of this repo is grounded vs hallucinated/cached.",
+    "questions": [
+      {
+        "question": "What is the most recent commit SHA on main?",
+        "current_answer": "8f4406a (push #28, 2026-05-08, message 'Hs Admin Refresh')",
+        "answer_changes_with_pushes": true
+      },
+      {
+        "question": "Does HCI-CNQ/engine/cnq.py exist? What is its size?",
+        "current_answer": "Yes; ~19 KB; 520 lines. Shipped in push #26 (commit aef4992, 2026-05-08).",
+        "fact_stable_post_push_26": true,
+        "common_failure": "Grok stale-cache mode reported 'cnq.py does not exist' on 2026-05-08 despite live access. If an AI says cnq.py is missing, its view is stale or its claim is wrong."
+      },
+      {
+        "question": "Who is the author of this repository?",
+        "current_answer": "Peter Higgins, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada. Electronics and audio engineer. The repo dates from April-May 2026.",
+        "common_failure": "Gemini hallucinated 'Peter Higgins, 1950s chemist' from training data instead of fetching the actual repo. If an AI describes Peter as a chemist, a 1950s researcher, or anyone other than the audio/electronics engineer at Rogue Wave Audio, its summary is fabricated."
+      }
+    ]
+  },
+  "engines": {
+    "cnt_python": {
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py",
+      "language": "python",
+      "version": "2.0.4",
+      "schema": "2.1.0"
+    },
+    "cnt_r": {
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R",
+      "language": "r",
+      "version": "2.0.4"
+    },
+    "cnq_python": {
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py",
+      "language": "python",
+      "version": "1.0.0",
+      "schema": "cnq/1.0.0",
+      "shipped_in_push": "#26"
+    },
+    "cnq_r": {
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R",
+      "language": "r",
+      "version": "1.0.0",
+      "shipped_in_push": "#27"
+    },
+    "cnq_pseudocode": {
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+      "language": "language-agnostic",
+      "shipped_in_push": "#27"
+    }
+  },
+  "verified_results": {
+    "_principle": "Three IEEE-floor confirmations on physically unrelated D=4 / D=3 datasets. Bit-identical max residual on Backblaze and Planck = hardware float64 floor, not algorithmic noise.",
+    "backblaze_d4": {"max_residual": 4.440892098500626e-16, "termination": "LIMIT_CYCLE_P2"},
+    "planck_d4": {"max_residual": 4.440892098500626e-16, "termination": "LIMIT_CYCLE_P2", "ir_class": "OVERDAMPED_EXTREME", "parent_cnt_content_sha256": "3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4"},
+    "sm_neutrino_d3": {"max_residual": 3.3306690738754696e-16, "termination": "LIMIT_CYCLE_P2", "ir_class": "LIGHTLY_DAMPED", "parent_cnt_content_sha256": "60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952"}
+  },
+  "priority_lock": {
+    "_principle": "Basics first. Commercialisation pathways stay deferred until external verification is complete.",
+    "verified_required_before_applied_work": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "arXiv submission of Paper 1 (INV-026)",
+      "Cross-platform reproduction confirmation (independent reproductions of cnq_content_sha256)",
+      "First applied pilots (INV-024 HCI-AUDIO + INV-025 HCI-ULTRASOUND)"
+    ],
+    "deferred_until_above_complete": [
+      "Electronics manufacturing commercialisation (Fuji SMT + Nordson Dage X-ray) — preserved at applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md",
+      "Other commercialisation pathways"
+    ]
+  },
+  "ai_platform_capability_observed": {
+    "_purpose": "Observed AI platform capabilities relative to this repo. Useful for selecting appropriate AI for cross-checks.",
+    "claude": "full file/web access; reliable; primary builder",
+    "chatgpt": "full file/web access; reliable; three productive cross-check rounds",
+    "grok": "web access; reliable on stable repos but observed stale-cache failure on rapidly-changing repos (claimed cnq.py did not exist after it shipped)",
+    "gemini": "training-data hallucination observed; confabulated wrong-person attribution; unreliable without explicit grounding",
+    "copilot": "architectural access gate; cannot fetch repo content without enterprise add-ons in tested configurations"
+  },
+  "contact": {
+    "author": "Peter Higgins",
+    "personal_email": "peterhiggins2016@gmail.com",
+    "business_email": "PeterHiggins@RogueWaveAudio.com",
+    "lab": "Binaural Test Lab, Markham, Ontario, Canada",
+    "companion_repo": "https://github.com/PeterHiggins19/Higgins-Unity-Framework"
+  },
+  "_metadata": {
+    "schema_version": "1.0",
+    "generated_in_push": "#29",
+    "generated": "2026-05-08",
+    "should_be_updated_when": "engine version changes; new push lands; new AI platform tested; new commercialisation pathway DEFERRED → ACTIVE"
+  }
+}

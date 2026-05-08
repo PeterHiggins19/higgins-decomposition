@@ -2,6 +2,8 @@
 
 > **🎉 Fully Public — Publication-Grade (push #27, 2026-05-08).** Both engines (CNT and CNQ) are shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md). All "EXPERIMENTAL — NOT FOR REPO USE" guards retired. Free to use, help available.
 
+> **🤖 AI assistants — fetch this first.** Single-file machine-readable context loader: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Full operating manual: [`AI_AGENTS.md`](AI_AGENTS.md). Discovery conventions: [`llms.txt`](llms.txt) and [`.well-known/ai-context.json`](.well-known/ai-context.json). **Grounding test before trusting any AI summary:** ask the assistant *(1) "What is the most recent commit SHA on main?"* (current: `8f4406a`); *(2) "Does HCI-CNQ/engine/cnq.py exist?"* (yes, ~19KB, since push #26); *(3) "Who is the author?"* (Peter Higgins, audio/electronics engineer, Rogue Wave Audio, Markham, Ontario — **not** a 1950s chemist of the same name). If any answer is wrong, the AI's view is stale or hallucinated.
+
 **Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.*

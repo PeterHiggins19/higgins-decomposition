@@ -1,0 +1,59 @@
+# Higgins Decomposition (Hs)
+
+> Deterministic compositional inference instrument with quaternion-native verification layer. CNT measures invariance; CNQ names the algebra it lives in. Three IEEE-floor confirmations across drive failures, Planck CMB photons, and SM neutrino oscillation.
+
+This file follows the [llms.txt convention](https://llmstxt.org/) — a proposed standard letting AI assistants find the canonical machine-readable context for a repository in one fetch.
+
+## Start here (AI assistants — fetch this first)
+
+- [HS_FAST_REFRESH.json](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HS_FAST_REFRESH.json): Single-file canonical context loader. Contains all canonical names, numbers, formulas, dimension policy, engine pointers, raw URLs, claim-strength rules, file map, and common drift errors. **Load this first.**
+- [HS_FAST_REFRESH.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HS_FAST_REFRESH.md): Companion narrative for AI assistants who prefer Markdown.
+- [AI_AGENTS.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/AI_AGENTS.md): Full operating instructions for AI assistants engaging with this repo, including the grounding-test, fetch order, common drift errors, and known platform failure modes.
+
+## Grounding test (run this before trusting any AI summary)
+
+Before trusting an AI summary of this repo, ask the assistant:
+
+1. *"What is the most recent commit SHA on main?"* — current answer: `8f4406a` (push #28)
+2. *"Does HCI-CNQ/engine/cnq.py exist? What is its size?"* — yes, ~19 KB, 520 lines (since push #26, 2026-05-08)
+3. *"Who is the author of this repo?"* — Peter Higgins, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada (born 20th-21st century, electronics/audio engineer; **not** a 1950s chemist of the same name).
+
+If an AI gives a different commit SHA, claims cnq.py doesn't exist, says "the cnq.py engine is the next milestone," or describes Peter as anything other than the author of this repo at Rogue Wave Audio — **its summary is not grounded; discount accordingly**.
+
+## Engines
+
+- [HCI-CNT/engine/cnt.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py): CNT canonical engine, Python (v2.0.4, schema 2.1.0)
+- [HCI-CNT/engine/cnt.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R): CNT R port, parity-tested
+- [HCI-CNQ/engine/cnq.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py): CNQ canonical engine, Python (v1.0.0, schema cnq/1.0.0)
+- [HCI-CNQ/engine/cnq.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R): CNQ R port with parity contract
+- [HCI-CNQ/engine/CNQ_PSEUDOCODE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/CNQ_PSEUDOCODE.md): Language-agnostic algorithm reference
+
+## Reproduction
+
+- [HCI-CNQ/scripts/run_all_confirmations.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/scripts/run_all_confirmations.py): One-command reproduction
+- [HCI-CNQ/scripts/verify_publication_results.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/scripts/verify_publication_results.py): Strict observed-vs-expected gate
+- [HCI-CNQ/results/expected_results.json](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/results/expected_results.json): Locked expected residuals + parent CNT hashes
+
+## Doctrine
+
+- [HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md): Locked vocabulary
+- [HCI-CNQ/CLAIM_STRENGTH_TABLE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/CLAIM_STRENGTH_TABLE.md): Confirmed/candidate/experimental/future + avoid-list
+- [HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md): What CNQ is and is not
+- [ai-refresh/INVESTIGATION_CATALOG.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/ai-refresh/INVESTIGATION_CATALOG.md): 30+ investigations classified CANONICAL/DEFERRED/FALSIFIED/OPEN
+
+## Reproduction protocol
+
+- [ai-refresh/CCTT_RUNBOOK.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/ai-refresh/CCTT_RUNBOOK.md): 7-phase reproduction protocol designed for AI execution with user-confirmation gates
+- [OPERATIONS_PROTOCOL.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/OPERATIONS_PROTOCOL.md): 12-transition Gawande meta-checklist
+
+## Human entry points
+
+- [README.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/README.md): Repository landing
+- [PUBLICATION_READY.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/PUBLICATION_READY.md): Publication-grade overview with citation format
+- [QUICKSTART.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/QUICKSTART.md): 30-second / 2-minute / 5-minute on-ramps
+
+## Optional
+
+- [HCI-CNT/handbook/](https://github.com/PeterHiggins19/higgins-decomposition/tree/main/HCI-CNT/handbook): Four-volume CNT handbook
+- [papers/in_progress/PAPER_1_UNIVERSAL_INVARIANCE_DRAFT.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/papers/in_progress/PAPER_1_UNIVERSAL_INVARIANCE_DRAFT.md): Paper 1 draft 3 (Universal Compositional Invariance Signature)
+- [HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md): DADC → H₁ → HUF → Hs origin lineage

@@ -2,11 +2,13 @@
   "_meta": {
     "schema": "hs_admin/3.0",
     "generated": "2026-05-08T23:30:00Z",
-    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline. | PUSH #27 (2026-05-08): Full publication-grade landing. cnq.R port shipped; CNQ_PSEUDOCODE.md language-agnostic algorithm; 43-test CNQ test suite all green; HS_FAST_REFRESH.json + .md AI loader; PUBLICATION_READY.md human entry point; legacy EXPERIMENTAL guards retired across the repo. Ready for arXiv release tag v3.0.0-paper1 after Round 3 (push #28). | PUSH #28a (2026-05-08): Audit response. ChatGPT deep-research crawl audit actioned in 8 follow-up items: pyproject.toml, requirements.txt, license split (Apache-2.0 code + CC BY 4.0 docs), NOTICE, QUICKSTART.md, expanded .gitignore, tools/pipeline cross-link to canonical engines, README badge updates. INV-030 added to Investigation Catalog. Repo is now publication-grade with modern packaging metadata.",
+    "session": "v1.1.x consolidation + HCI-CNT migration + Hs-CNT_2026-05 corpus + 102 folder READMEs + talk_deck cleanup + CCTT v1.0 + OPERATIONS_PROTOCOL v1.0 + Volume IV (Quaternion View) integrated. Three IEEE-floor confirmations on backblaze, Planck CMB, SM neutrino. Push #22 verified at commit 33264a5 (Volume IV). Push #23 verified at commit 68ce5fa (ChatGPT crosscheck + HCI-CNQ tier promotion). Push #24 pending: Grok crosscheck integration. New canonical: ORIGIN_DADC_LINEAGE.md (historical narrative DADC->H1->HUF->Hs->CNT->CNQ verified against Rogue-Wave-Audio repo); GLOSSARY §I (Helmsman family extensions: Sign of the Helmsman, Stability, Flips, Chaos, Torque, Joint -- all marked PROPOSED, not yet in cnt.py); HCI-AUDIO sibling tier (4-way psychoacoustic active loudspeaker doctrine: ERB bands + quaternion phase mapping + listening-position alignment); HCI-ULTRASOUND sibling tier (geometry lock probe doctrine for medical and industrial non-contact ultrasound). Both new tiers doctrine-only. Engine and schema unchanged. PLUS: Investigation Catalog (INVESTIGATION_CATALOG.json + companion .md + OPERATIONS_PROTOCOL Section 14) — formal research methodology layer with 24 classified investigations across CANONICAL / DEFERRED / FALSIFIED / OPEN dispositions. Catalog uses the EITT 5%-threshold framing: every speculative branch above threshold counts as a carrier; every disposition is data; the audit trail is the discipline. | PUSH #27 (2026-05-08): Full publication-grade landing. cnq.R port shipped; CNQ_PSEUDOCODE.md language-agnostic algorithm; 43-test CNQ test suite all green; HS_FAST_REFRESH.json + .md AI loader; PUBLICATION_READY.md human entry point; legacy EXPERIMENTAL guards retired across the repo. Ready for arXiv release tag v3.0.0-paper1 after Round 3 (push #28). | PUSH #28a (2026-05-08): Audit response. ChatGPT deep-research crawl audit actioned in 8 follow-up items: pyproject.toml, requirements.txt, license split (Apache-2.0 code + CC BY 4.0 docs), NOTICE, QUICKSTART.md, expanded .gitignore, tools/pipeline cross-link to canonical engines, README badge updates. INV-030 added to Investigation Catalog. Repo is now publication-grade with modern packaging metadata. | PUSH #29 (2026-05-08): AI visibility infrastructure + Grok round 2 response. llms.txt + .well-known/ai-context.json + AI_AGENTS.md added at repo root. Grounding-test prompt embedded in 3 discovery channels + top-of-README banner. Grok's mixed-quality round 2 archived verbatim at ai-refresh/cross_check_archive/. 3 valid engineering findings actioned (T=500 cap doc, R version-skew note, pseudocode placeholders flagged). Fuji/Dage commercialisation pathway preserved at applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md per priority-lock. INV-031 (AI fitness matrix) + INV-032 (Grok round 2 findings split) added. | PUSH #30 (2026-05-08): Grok round 3 catalog absorption. Push #29 visibility infrastructure (banner + grounding-test) caused Grok to correct its R2 false-positive ('cnq.py does not exist') on the next session. Three new DEFERRED catalog entries from Grok R3: INV-033 (Helmsman Dynamics Module), INV-034 (P2 Attractor Parameter Fitting), INV-035 (CHSH Correlation Diagnostic). All gated on Round 3 corpus / multi-channel datasets per priority lock. Grok's prototype code NOT integrated (would regress shipped engine residuals + break locked expected_results.json + parity contract). Session archived at ai-refresh/cross_check_archive/grok_round_3_session_2026-05-08.md.",
     "fault_tolerance_note": "Cowork mirror folder is NOT canonical. See HS_MACHINE_MANIFEST.json -> fault_tolerance_dual_folder_method for the dual-folder protocol.",
     "volume_iv_integrated_at": "2026-05-07T09:30:00Z",
     "push_27_completed": "2026-05-08",
-    "push_28a_completed": "2026-05-08"
+    "push_28a_completed": "2026-05-08",
+    "push_29_completed": "2026-05-08",
+    "push_30_completed": "2026-05-08"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -815,5 +817,60 @@
       "tools/pipeline cross-link to canonical engines",
       "README license badges + tier-status badges updated"
     ]
+  },
+  "priority_lock": {
+    "_principle": "Basics-first discipline. Commercialisation pathways stay deferred until external verification is complete. Per Peter's directive 2026-05-08: 'machine automation is too risky until all the basics are verified.'",
+    "_locked_in_push": "#29",
+    "verified_required_before_applied_work": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "arXiv submission of Paper 1 (INV-026) with frozen release tag v3.0.0-paper1",
+      "Cross-platform reproduction confirmation (independent reproductions of cnq_content_sha256)",
+      "First applied pilots: INV-024 (HCI-AUDIO) and INV-025 (HCI-ULTRASOUND)"
+    ],
+    "deferred_until_above_complete": {
+      "electronics_manufacturing": {
+        "domain": "Fuji SMT + Through-Hole + Nordson Dage X-ray",
+        "preserved_at": "applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md",
+        "originated_from": "Grok cross-check round 2 (INV-032)",
+        "reactivation_requires": "Peter's explicit approval after all four basics-gates met"
+      },
+      "_extensible": "Other commercialisation pathways added here as they emerge"
+    },
+    "rationale": "Skipping the gates would put unverified work into production-line control loops on equipment with high downtime cost. The credibility of the framework rests on getting basics done before commercialisation. The discipline is what makes the work defensible."
+  },
+  "ai_visibility": {
+    "_description": "Discoverability infrastructure for AI assistants engaging with the repo. Three discovery channels + a grounding-test prompt + an operating manual.",
+    "_shipped_in_push": "#29",
+    "discovery_channels": {
+      "llms_txt": "llms.txt at repo root (https://llmstxt.org/ convention)",
+      "well_known": ".well-known/ai-context.json (RFC 8615 well-known URI directory)",
+      "fast_refresh": "HS_FAST_REFRESH.json + .md (single-file context loader, mirrors HUF pattern)",
+      "ai_agents_md": "AI_AGENTS.md at repo root (full operating manual)",
+      "readme_banner": "Top-of-Hs/README.md banner with grounding-test prompt"
+    },
+    "grounding_test": {
+      "purpose": "Three quick questions that catch stale-cache and hallucination failure modes",
+      "questions": [
+        "What is the most recent commit SHA on main? (current: 8f4406a)",
+        "Does HCI-CNQ/engine/cnq.py exist? What is its size? (yes; ~19 KB; 520 lines; since push #26)",
+        "Who is the author? (Peter Higgins, audio/electronics engineer, Rogue Wave Audio, Markham — NOT a 1950s chemist of the same name)"
+      ],
+      "catches": [
+        "Grok stale-cache mode (round 2 false-positive on cnq.py existence)",
+        "Gemini hallucination mode (1950s chemist confabulation)",
+        "Generic 'AI summarised an old version' drift"
+      ]
+    },
+    "ai_platform_observations_INV_031": "Productive: Claude (continuous), ChatGPT (3 rounds), Grok (1 round + 1 stale-cache). Non-productive: Gemini (hallucination), Copilot (access gate).",
+    "grounding_test_outcomes": {
+      "push_29_landed": "2026-05-08",
+      "first_test_session": {
+        "platform": "Grok",
+        "round": "R3 (post-#29)",
+        "outcome": "PASSED — Grok corrected its R2 false-positive 'cnq.py does not exist' on first re-fetch after #29",
+        "remaining_failure_mode": "Grok still describes function internals it has not actually read; round 4 grounding-test should include code-content questions (e.g. 'quote line 50 of geometry.py')"
+      },
+      "iteration_observation": "The grounding-test prompt corrects file-existence and engine-status confabulations. It does not yet prevent imagined-internal-content claims. A v1.1 grounding test should include code-content verification."
+    }
   }
 }

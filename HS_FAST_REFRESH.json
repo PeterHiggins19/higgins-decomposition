@@ -27,11 +27,20 @@
     "_warning": "These are EXACT. Do not paraphrase, abbreviate differently, or expand differently.",
     "Hs": {
       "full": "Higgins Decomposition",
-      "NOT": ["Higgins Decomp", "Hs Engine", "HD"]
+      "NOT": [
+        "Higgins Decomp",
+        "Hs Engine",
+        "HD"
+      ]
     },
     "HCI": {
       "full": "Higgins Compositional Instrument family",
-      "tier_siblings": ["HCI-CNT", "HCI-CNQ", "HCI-AUDIO", "HCI-ULTRASOUND"]
+      "tier_siblings": [
+        "HCI-CNT",
+        "HCI-CNQ",
+        "HCI-AUDIO",
+        "HCI-ULTRASOUND"
+      ]
     },
     "CNT": {
       "full": "Compositional Navigation Tensor",
@@ -47,7 +56,10 @@
       "engine_version": "1.0.0",
       "role": "Quaternion-native view of CNT trajectories; algebraic naming layer",
       "shipped_in_push": "#26 (2026-05-08)",
-      "NOT": ["CNQ replaces CNT", "CNQ is a finished general theory at all D"]
+      "NOT": [
+        "CNQ replaces CNT",
+        "CNQ is a finished general theory at all D"
+      ]
     },
     "CCTT": {
       "full": "CNT Compositional Tensor Train",
@@ -56,7 +68,11 @@
     },
     "EITT": {
       "full": "Entropy-Invariant Time Transformer",
-      "NOT": ["Ternary Transform", "Temporal Transform", "Time Transfer"],
+      "NOT": [
+        "Ternary Transform",
+        "Temporal Transform",
+        "Time Transfer"
+      ],
       "role": "One step inside the Hs pipeline; entropy-invariance under geometric-mean decimation"
     },
     "DADC": {
@@ -179,7 +195,7 @@
     },
     "metric_involution_residuals": {
       "planck_M2_eq_I": 7.63e-17,
-      "neutrino_M2_eq_I": 7.40e-17,
+      "neutrino_M2_eq_I": 7.4e-17,
       "framing": "M^2=I is one of three structural-invariance pillars (alongside SO(D-1) simplex rotation and SU(2) handedness). The D=4 quaternion sandwich is the stronger independent test."
     },
     "reference_cnq_observations_local_platform": {
@@ -269,8 +285,19 @@
     "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
     "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
     "current_total": 29,
-    "by_disposition": {"CANONICAL": 9, "DEFERRED": 12, "FALSIFIED": 1, "OPEN": 7},
-    "by_source": {"CLAUDE": 7, "CHATGPT": 6, "GROK": 10, "USER": 6, "PILOT": 0}
+    "by_disposition": {
+      "CANONICAL": 9,
+      "DEFERRED": 12,
+      "FALSIFIED": 1,
+      "OPEN": 7
+    },
+    "by_source": {
+      "CLAUDE": 7,
+      "CHATGPT": 6,
+      "GROK": 10,
+      "USER": 6,
+      "PILOT": 0
+    }
   },
   "notation_and_terminology_pointer": {
     "_description": "Canonical vocabulary reference; every doc using a defined term should cite this.",
@@ -375,5 +402,47 @@
     "experimental_not_for_repo_use_legacy": "Legacy 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' guards from pre-promotion QD era used as live state. RETIRED in push #27. System is fully public.",
     "h1_paper_misciting": "H_1 (Higgins Operator) paper miscited as 'published' when it's a self-hosted working paper. Caught 2026-05-08, push #24.",
     "d3_neutrino_native_quaternion": "D=3 neutrino result claimed as native D=4 quaternion proof. Correct: D=3 is consistency support / boundary case. Caught 2026-05-08, push #26."
+  },
+  "ai_discovery_channels": {
+    "llms_txt": "/llms.txt (https://llmstxt.org/ convention)",
+    "well_known": "/.well-known/ai-context.json (RFC 8615)",
+    "ai_agents_md": "/AI_AGENTS.md (full operating manual)",
+    "fast_refresh_json": "/HS_FAST_REFRESH.json (this file)",
+    "fast_refresh_md": "/HS_FAST_REFRESH.md (companion narrative)",
+    "shipped_in_push": "#29"
+  },
+  "grounding_test": {
+    "_purpose": "Three quick questions to verify whether an AI's view of the repo is grounded vs stale/hallucinated",
+    "_recommended_use": "Run before trusting any AI-generated summary of the repo",
+    "questions": [
+      {
+        "question": "What is the most recent commit SHA on main?",
+        "current_answer": "8f4406a (push #28, 2026-05-08, 'Hs Admin Refresh')",
+        "answer_changes_with_pushes": true
+      },
+      {
+        "question": "Does HCI-CNQ/engine/cnq.py exist? What is its size?",
+        "current_answer": "Yes; ~19 KB; 520 lines. Shipped in push #26 (commit aef4992, 2026-05-08).",
+        "common_failure": "Grok round 2 (2026-05-08) claimed 'cnq.py does not exist' from stale cache. Re-fetch the engine folder."
+      },
+      {
+        "question": "Who is the author of this repository?",
+        "current_answer": "Peter Higgins, audio/electronics engineer, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada.",
+        "common_failure": "Gemini hallucinated 'Peter Higgins, 1950s chemist' from training data. If an AI describes Peter as anything other than the audio/electronics engineer at Rogue Wave Audio, its summary is fabricated."
+      }
+    ]
+  },
+  "priority_lock": {
+    "_principle": "Basics-first. Commercialisation pathways stay deferred until external verification.",
+    "verified_required_before_applied_work": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "arXiv submission of Paper 1 (INV-026)",
+      "Cross-platform reproduction confirmation",
+      "First applied pilots (INV-024 + INV-025)"
+    ],
+    "deferred_until_above_complete": [
+      "Electronics manufacturing (Fuji SMT + Nordson Dage X-ray) — see applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md"
+    ],
+    "rationale": "Machine automation is too risky until basics verified. Discipline preserves credibility."
   }
 }

@@ -40,3 +40,11 @@ Part A.
 ---
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*
+
+## Known design choices (documented per Grok cross-check round 2, 2026-05-08)
+
+**Triadic enumeration cap.** The `cnt.py` engine caps triadic-relationship enumeration at T = 500 timesteps. This is a deliberate design choice because the cost of triple-enumeration grows combinatorially with T (specifically O(T³) in the worst case for a naive triplet pass). For T > 500, the engine emits the standard CNT JSON without the triadic block, with a `_triadic_skipped: true` flag in the diagnostics block. The decision to enable triadic analysis on longer series should be made deliberately — typically by sub-sampling or windowing the trajectory before invoking the engine, rather than by removing the cap. See `HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md` §E for the rationale.
+
+**R port version skew.** The R port `cnt.R` was last refreshed 2026-05-06; the Python `cnt.py` had a docstring update on 2026-05-08 (push #28 — terminology refinement around "rank-1" → "1D / single-axis" in the quaternion-log description). The algorithmic content is identical; the docstring updates are documentation revisions. The cross-language parity contract is on numerical output and `content_sha256`, not on docstring text. A future push will sync the R port docstrings; this is a low-priority item.
+
+**Pseudocode placeholders.** Some `...` placeholders appear in handbook Volume 1 §F-Stage3 sections describing depth-tower iteration patterns. These are intentional — the placeholders point at the canonical source (`HCI-CNT/atlas/stage3_locked.py`) rather than duplicating implementation details. Future handbook refresh will either inline the source or expand the pseudocode to be fully self-contained.

@@ -424,6 +424,96 @@
       "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push28a_external_audit_response.md"
     },
     {
+      "id": "INV-031",
+      "title": "AI platform cross-check fitness — observed reliability matrix and grounding-test discipline",
+      "raised_by": "USER",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#29",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-08",
+      "canonical_location": "AI_AGENTS.md §5; HS_FAST_REFRESH.json -> ai_platform_capability_observed; .well-known/ai-context.json",
+      "summary": "Direct user-experience finding: only Claude, ChatGPT, and Grok (with caveats) can engage productively with the Hs repository. Gemini hallucinates wrong-person attribution from training data without grounding. Copilot has architectural access gates without enterprise add-ons. Grok exhibits stale-cache failure mode on rapidly-changing repos (claimed cnq.py did not exist after it shipped). The grounding-test prompt (commit SHA + cnq.py existence + author identity) is added to AI_AGENTS.md, llms.txt, .well-known/ai-context.json, and the top-of-README banner to catch all three failure modes.",
+      "platform_capability_matrix": {
+        "claude": "high reliability; primary builder; continuous engagement",
+        "chatgpt": "high reliability; three productive cross-check rounds (#23, #26, #28)",
+        "grok": "mixed — accurate on push #24 lineage; stale-cache failure on push #28 stress test",
+        "gemini": "low — confabulated wrong-person 1950s-chemist attribution from training data",
+        "copilot": "architectural access gate; cannot fetch repo content without enterprise add-ons in tested configs"
+      },
+      "gate_outcome": "MET — observed failure modes catalogued, grounding-test prompt embedded in three discovery layers (AI_AGENTS.md, llms.txt, .well-known/ai-context.json), top-of-README banner added in push #29.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push29_ai_visibility_grok_response.md"
+    },
+    {
+      "id": "INV-032",
+      "title": "Grok cross-check round 2 (stress test) — findings split actioned/false-positive/deferred",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#29",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-08",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_2_session_2026-05-08.md",
+      "summary": "Grok's second cross-check round produced mixed output. Three valid engineering observations actioned (triadic T=500 cap documented; cnt.R version-skew note; pseudocode `...` placeholders flagged). One factually wrong central claim — 'cnq.py does not exist' — is a stale-cache false-positive contradicted by the live repo at HEAD (cnq.py shipped push #26 commit aef4992). Substantive Fuji SMT + Nordson Dage commercialisation analysis preserved at applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md with explicit DEFERRED stamp. Grok's prototype cnq.py NOT integrated (would regress shipped engine).",
+      "actioned": [
+        "Documented T=500 triadic cap + graceful-degradation policy in HCI-CNT/engine/README.md",
+        "Documented cnt.R version-skew vs cnt.py in same place (parity contract is on numerical content, not docstring text)",
+        "Flagged Stage 3 pseudocode `...` placeholders (point at canonical source HCI-CNT/atlas/stage3_locked.py)"
+      ],
+      "deferred": [
+        "Fuji SMT + Nordson Dage commercialisation pathway (applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md). Reactivation gates: Round 3 + arXiv + cross-platform reproduction + first pilots. Per Peter's directive: 'machine automation is too risky until all the basics are verified.'",
+        "Grok's CHSH-computation idea — could land as separate HCI-CNQ/engine/chsh.py module after Round 3 if a corpus experiment shows non-trivial CHSH violation"
+      ],
+      "false_positive_caught": [
+        "Grok claimed 'cnq.py does not exist; only a proposal' — contradicted by HCI-CNQ/engine/cnq.py (~19 KB, 520 lines, shipped push #26). This is the canonical example of stale-cache failure mode now catalogued in INV-031."
+      ],
+      "not_integrated": [
+        "Grok's from-scratch ~100-line cnq.py prototype (multiple versions v0.9, v1.1, v2.0, v2.1) — would regress the shipped 520-line engine which has determinism contract, parent-CNT hash chaining, four-field dimension policy, 43-test suite, and cross-language parity contract"
+      ],
+      "gate_outcome": "MET — findings categorised, valid items actioned, false-positive catalogued as INV-031 example, commercialisation pathway preserved with explicit DEFERRED stamp + reactivation gates.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push29_ai_visibility_grok_response.md"
+    },
+    {
+      "id": "INV-033",
+      "title": "Helmsman Dynamics Module — top-level extract_helmsman_dynamics() API for trajectory-level analysis",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#30 (Grok round 3 contribution)",
+      "disposition": "DEFERRED",
+      "deferred_to_location": "ai-refresh/cross_check_archive/grok_round_3_session_2026-05-08.md",
+      "summary": "Top-level API exposing what cnq.py currently computes inline within run_cnq_view(): per-step dominant axis time series, helmsman_sign per step, rotation_angle per step, global Helmsman Stability, sliding-window Helmsman Stability, flip locations and counts, optional curvature-weighted variant using CNT depth-tower curvature as weighting, and an Aitchison-distance secondary residual diagnostic alongside the existing L-infinity-on-unit-vectors metric. Lands as new module HCI-CNQ/engine/helmsman.py per the established split (geometry.py + cnt_adapter.py + hashing.py + cnq.py).",
+      "gate_for_promotion": "Working pilot on a real corpus experiment showing the dynamics expose a structure that per-step CNQ residuals don't capture — e.g. detection of a process-drift signature in a long-T trajectory that doesn't violate the IEEE-floor sandwich gate but produces a characteristic helmsman-flip pattern.",
+      "promotion_owner": "open",
+      "risk_note": "Math is sound; the issue is integration discipline. Must use the shipped engine's Helmert basis projection + atan2-stable rotation, NOT Grok's prototype lifting (which would regress numerical residuals and break the locked expected_results.json). Implementation extracts existing inline logic into a top-level callable without touching residual values.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push30_grok_round3_catalog.md"
+    },
+    {
+      "id": "INV-034",
+      "title": "P2 Attractor Parameter Fitting — period, period_stability, dominant_pair, contraction rate λ",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#30 (Grok round 3 contribution)",
+      "disposition": "DEFERRED",
+      "deferred_to_location": "ai-refresh/cross_check_archive/grok_round_3_session_2026-05-08.md",
+      "summary": "Beyond the CNT-reported damping_zeta and amplitude_A (already carried forward in CNQ output as cnt_diagnostics_carried_forward), fit additional P2 attractor parameters from the depth-tower trajectory: period (mean flip interval in steps), period_stability (1 - std/mean of intervals), dominant_pair (the two most-frequent dominant axes), oscillation_ratio, mean_amplitude (peak-to-peak rotation_angle over sliding windows), and contraction rate λ (Lyapunov-style estimate). Lands as new module HCI-CNQ/engine/attractors.py.",
+      "gate_for_promotion": "Working pilot on at least one corpus experiment where P2 parameter fitting reveals structure not visible from CNT termination labels alone — e.g. distinguishing two experiments that both terminate at LIMIT_CYCLE_P2 but with different period stability or different dominant-axis pairs.",
+      "promotion_owner": "open",
+      "risk_note": "Parameter fitting on noisy data must avoid over-fitting. Suggested guard: report both fitted values AND a confidence score; require oscillation_ratio > 0.8 and period_stability > 0.6 before declaring a P2 signature 'characterised'.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push30_grok_round3_catalog.md"
+    },
+    {
+      "id": "INV-035",
+      "title": "CHSH Correlation Diagnostic — Tsirelson-direction joint quaternion-log sign correlations",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-08",
+      "raised_in_push": "#30 (Grok round 3 contribution)",
+      "disposition": "DEFERRED",
+      "deferred_to_location": "ai-refresh/cross_check_archive/grok_round_3_session_2026-05-08.md",
+      "summary": "Compute CHSH-S parameter from joint quaternion-log signs along Tsirelson-optimal directions: n_a=(1,0,0), n_a'=(0,1,0), n_b=(1,1,0)/sqrt(2), n_b'=(1,-1,0)/sqrt(2). Four correlators AB, AB', A'B, A'B'; S = |AB + AB' + A'B - A'B'|; classical bound 2.0; Tsirelson bound 2*sqrt(2) ≈ 2.828. Lands as new module HCI-CNQ/engine/correlations.py. The math is standard quantum-information CHSH; the novelty is computing it on compositional-trajectory quaternion logs.",
+      "gate_for_promotion": "HARD PREREQUISITE: a multi-channel dataset (not a single trajectory). Round 3 corpus must reveal at least one experiment with measurable joint-channel correlations that warrant the analysis. Without multi-channel data, CHSH on a single trajectory is just a self-correlation and doesn't measure anything novel. The Joint Quaternion Field construction (combining multiple subsystems with weights from the simplex) is the logical prerequisite — see related Helmsman dynamics in INV-033.",
+      "promotion_owner": "open",
+      "risk_note": "Tempting to compute on single-trajectory data and report S values. Don't — that's self-correlation, not joint correlation. CHSH's interpretive power requires genuine multi-system / multi-channel structure. The framework's first multi-channel candidates are EMBER country trajectories (D=8 with natural fossil/non-fossil partition) and HCI-AUDIO 4-driver psychoacoustic data.",
+      "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push30_grok_round3_catalog.md"
+    },
+    {
       "id": "INV-027",
       "title": "Paper 2 — DADC Origin and Independent Discovery of Compositional Data Analysis",
       "raised_by": "CLAUDE",
@@ -443,17 +533,17 @@
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 10,
-    "DEFERRED": 12,
+    "CANONICAL": 12,
+    "DEFERRED": 15,
     "FALSIFIED": 1,
     "OPEN": 7,
-    "total": 30
+    "total": 35
   },
   "summary_by_source": {
     "CLAUDE": 7,
     "CHATGPT": 7,
-    "GROK": 10,
-    "USER": 6,
+    "GROK": 14,
+    "USER": 7,
     "PILOT": 0
   },
   "promotion_rules": {
