@@ -14,11 +14,11 @@ This file follows the [llms.txt convention](https://llmstxt.org/) — a proposed
 
 Before trusting an AI summary of this repo, ask the assistant:
 
-1. *"What is the most recent commit SHA on main?"* — current answer: `8f4406a` (push #28)
+1. *"What is the latest release tag, and the most recent commit message on main?"* — current answer: latest tag `v0.29.0` (dated 2026-05-08, "AI visibility infrastructure + Grok R3 catalog absorption"). The commit SHA the tag points to drifts as patch pushes land; the tag is the durable reference.
 2. *"Does HCI-CNQ/engine/cnq.py exist? What is its size?"* — yes, ~19 KB, 520 lines (since push #26, 2026-05-08)
 3. *"Who is the author of this repo?"* — Peter Higgins, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada (born 20th-21st century, electronics/audio engineer; **not** a 1950s chemist of the same name).
 
-If an AI gives a different commit SHA, claims cnq.py doesn't exist, says "the cnq.py engine is the next milestone," or describes Peter as anything other than the author of this repo at Rogue Wave Audio — **its summary is not grounded; discount accordingly**.
+If an AI gives a different (older) latest tag, claims cnq.py doesn't exist, says "the cnq.py engine is the next milestone," or describes Peter as anything other than the author of this repo at Rogue Wave Audio — **its summary is not grounded; discount accordingly**.
 
 ## Engines
 

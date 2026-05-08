@@ -870,7 +870,59 @@
         "outcome": "PASSED — Grok corrected its R2 false-positive 'cnq.py does not exist' on first re-fetch after #29",
         "remaining_failure_mode": "Grok still describes function internals it has not actually read; round 4 grounding-test should include code-content questions (e.g. 'quote line 50 of geometry.py')"
       },
-      "iteration_observation": "The grounding-test prompt corrects file-existence and engine-status confabulations. It does not yet prevent imagined-internal-content claims. A v1.1 grounding test should include code-content verification."
+      "iteration_observation": "The grounding-test prompt corrects file-existence and engine-status confabulations. It does not yet prevent imagined-internal-content claims. A v1.1 grounding test should include code-content verification.",
+      "push_31_change": {
+        "date": "2026-05-08",
+        "change": "Grounding-test question 1 changed from specific commit SHA to latest release tag",
+        "rationale": "SHA pin went stale on every push, requiring 5 file edits per push to keep it current; tag pin only needs updating when a new release tag is cut",
+        "current_tag": "v0.29.0"
+      }
     }
-  }
+  },
+  "session_log": [
+    {
+      "push": 31,
+      "date": "2026-05-08",
+      "title": "Licence clarity + grounding-test durability + cosmetic cleanup",
+      "type": "doc-only",
+      "summary": "Moved CC BY 4.0 text to docs/LICENSE-DOCS.md so GitHub licensee detects LICENSE as Apache-2.0 cleanly; root LICENSE-DOCS rewritten as stub redirect. Added LICENSING.md plain-English explainer at repo root. Grounding-test answer #1 changed from pinning a specific commit SHA (which goes stale on every push) to pinning the latest release tag (durable across patch pushes); updated in 5 places (README banner, llms.txt, AI_AGENTS.md, HS_FAST_REFRESH.json, .well-known/ai-context.json). Documented Peter-side step to git rm --cached the stray pytest-cache directory (gitignore pattern already present from push #28). No engine, test, schema, or public API changes. No catalog entries opened or closed.",
+      "files_added": [
+        "docs/LICENSE-DOCS.md",
+        "LICENSING.md",
+        "ai-refresh/AI_REFRESH_2026-05-08_push31_license_clarity.md"
+      ],
+      "files_modified": [
+        "LICENSE-DOCS (now stub redirect)",
+        "NOTICE",
+        "Hs/README.md",
+        "llms.txt",
+        "AI_AGENTS.md",
+        "HS_FAST_REFRESH.json",
+        ".well-known/ai-context.json",
+        "ai-refresh/HS_ADMIN.json"
+      ],
+      "files_deleted_pending_peter": [
+        "pytest-cache-files-ljser_3e/ (Peter to run: git rm -r --cached pytest-cache-files-*)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "expected_results_unchanged": true,
+      "catalog_unchanged": true,
+      "tag_unchanged": "v0.29.0 still valid; this is a patch on top, not a new tagged release"
+    }
+  ],
+  "licensing": {
+    "code_license": "Apache-2.0",
+    "code_license_file": "LICENSE",
+    "docs_license": "CC BY 4.0",
+    "docs_license_file": "docs/LICENSE-DOCS.md",
+    "summary_doc": "LICENSING.md",
+    "notice_file": "NOTICE",
+    "structure_adopted_in_push": 28,
+    "file_layout_corrected_in_push": 31,
+    "rationale": "Creative Commons FAQ recommends against using CC licences for software; Apache-2.0 is the standard licence for permissive open-source software with patent protection (used by NumPy, TensorFlow, Apache Arrow, Kubernetes); CC BY 4.0 is purpose-built for prose, slides, and reference material. Splitting them keeps each licence on its appropriate asset class.",
+    "github_sidebar_detection_target": "Apache-2.0 (LICENSE at root, no other LICENSE* file at root in licensee's pattern)",
+    "root_license_dash_docs_status": "stub redirect pointer; not detected as a CC licence by licensee due to defanged content"
+  },
+  "push_31_completed": "2026-05-08T00:00:00Z"
 }

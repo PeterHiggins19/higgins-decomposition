@@ -11,7 +11,10 @@ LICENCE STRUCTURE
 This repository is dual-licensed:
 
   1. CODE  →  Apache License, Version 2.0  (see LICENSE)
-  2. DOCS  →  CC BY 4.0                    (see LICENSE-DOCS)
+  2. DOCS  →  CC BY 4.0                    (see docs/LICENSE-DOCS.md)
+
+A plain-English summary of the split lives at LICENSING.md at the
+repository root.
 
 The split is deliberate. Apache-2.0 is the appropriate licence for
 reusable software (it includes a patent grant and is compatible with
@@ -21,8 +24,11 @@ themselves recommend against using CC licences for software:
 
     https://creativecommons.org/faq/#can-i-apply-a-creative-commons-license-to-software
 
-This dual structure was adopted in push #28a (2026-05-08) in response
-to an external software-product-maturity audit (INV-030).
+This dual structure was adopted in push #28 (2026-05-08) in response
+to an external software-product-maturity audit (INV-030). Push #31
+(2026-05-08) moved the docs licence file under docs/ and added the
+plain-English LICENSING.md so GitHub's licensee detector cleanly
+identifies LICENSE as Apache-2.0 on the repository sidebar.
 
 ═════════════════════════════════════════════════════════════════════════
 ASSET CLASS COVERAGE
@@ -39,7 +45,7 @@ CODE  (Apache-2.0, see LICENSE)
   • All files under HCI-CNT/engine/, HCI-CNQ/engine/, HCI-CNQ/scripts/,
     tools/, and any other directory containing executable code
 
-DOCS  (CC BY 4.0, see LICENSE-DOCS)
+DOCS  (CC BY 4.0, see docs/LICENSE-DOCS.md)
 ─────────────────────────────────────────────────────────────────────────
   • All Markdown files (.md): READMEs, handbook volumes, AI-refresh
     narratives, claim-strength tables, scope-and-limits docs, notation
@@ -68,7 +74,7 @@ When using or citing this work, please cite as:
     Higgins, P. (2026). Higgins Decomposition (Hs): a deterministic
     compositional inference instrument with quaternion-native
     verification layer. github.com/PeterHiggins19/higgins-decomposition,
-    release v0.27.0.
+    release v0.29.0.
 
 After Paper 1 (INV-026) is on arXiv, please cite the paper as the
 primary reference and the repository as the reproduction artefact.

@@ -1,8 +1,8 @@
 # Hˢ — Higgins Decomposition on the Simplex
 
-> **🎉 Fully Public — Publication-Grade (push #27, 2026-05-08).** Both engines (CNT and CNQ) are shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md). All "EXPERIMENTAL — NOT FOR REPO USE" guards retired. Free to use, help available.
+> **🎉 Fully Public — Publication-Grade (release `v0.29.0`, 2026-05-08).** Both engines (CNT and CNQ) shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing at [`LICENSING.md`](LICENSING.md). Free to use, help available.
 
-> **🤖 AI assistants — fetch this first.** Single-file machine-readable context loader: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Full operating manual: [`AI_AGENTS.md`](AI_AGENTS.md). Discovery conventions: [`llms.txt`](llms.txt) and [`.well-known/ai-context.json`](.well-known/ai-context.json). **Grounding test before trusting any AI summary:** ask the assistant *(1) "What is the most recent commit SHA on main?"* (current: `8f4406a`); *(2) "Does HCI-CNQ/engine/cnq.py exist?"* (yes, ~19KB, since push #26); *(3) "Who is the author?"* (Peter Higgins, audio/electronics engineer, Rogue Wave Audio, Markham, Ontario — **not** a 1950s chemist of the same name). If any answer is wrong, the AI's view is stale or hallucinated.
+> **🤖 AI assistants — fetch this first.** Single-file machine-readable context loader: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Full operating manual: [`AI_AGENTS.md`](AI_AGENTS.md). Discovery conventions: [`llms.txt`](llms.txt) and [`.well-known/ai-context.json`](.well-known/ai-context.json). **Grounding test before trusting any AI summary:** ask the assistant *(1) "What is the latest release tag, and the most recent commit message on main?"* (latest tag: `v0.29.0`, dated 2026-05-08, "AI visibility infrastructure + Grok R3 catalog absorption"); *(2) "Does HCI-CNQ/engine/cnq.py exist?"* (yes, ~19KB, since push #26); *(3) "Who is the author?"* (Peter Higgins, audio/electronics engineer, Rogue Wave Audio, Markham, Ontario — **not** a 1950s chemist of the same name). If any answer is wrong, the AI's view is stale or hallucinated.
 
 **Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**
 
@@ -11,7 +11,7 @@ A deterministic compositional inference instrument operating within Aitchison ge
 Validated across 18 physical domains, 25 experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
 [![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
-[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](LICENSE-DOCS)
+[![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](docs/LICENSE-DOCS.md) [![Licensing](https://img.shields.io/badge/licensing-overview-555.svg)](LICENSING.md)
 [![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
 [![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
 [![HCI-CNQ engine shipped](https://img.shields.io/badge/HCI--CNQ%20engine-shipped%20py%2BR%2Bpseudocode-7b3294.svg)](HCI-CNQ/engine/)

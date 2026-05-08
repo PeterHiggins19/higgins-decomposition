@@ -416,8 +416,8 @@
     "_recommended_use": "Run before trusting any AI-generated summary of the repo",
     "questions": [
       {
-        "question": "What is the most recent commit SHA on main?",
-        "current_answer": "8f4406a (push #28, 2026-05-08, 'Hs Admin Refresh')",
+        "question": "What is the latest release tag, and the most recent commit message on main?",
+        "current_answer": "Latest tag v0.29.0 (dated 2026-05-08, 'AI visibility infrastructure + Grok R3 catalog absorption'). Patch pushes after the tag may move the SHA forward without bumping the tag; the tag is the durable anchor.",
         "answer_changes_with_pushes": true
       },
       {
