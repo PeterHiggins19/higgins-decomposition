@@ -71,6 +71,14 @@ The protocol is identical in both modes. Pilot acceptance test: an AI given only
 
 **🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
 
+**🆕 Project doctrines — policy index (push #32–#33).** Three model-agnostic doctrines bind every engine, wrapper, and published artifact:
+
+- [`docs/SUSPICION_OF_EVERY_ASSUMPTION.md`](docs/SUSPICION_OF_EVERY_ASSUMPTION.md) — **SEA-1.0**: every public function and claim enumerates its failure modes with mitigation evidence; the engine is guilty until proven innocent (push #32).
+- [`docs/SELF_TEST_PROTOCOL.md`](docs/SELF_TEST_PROTOCOL.md) — **STP-1.0**: every engine carries a frozen reference corpus and a runner that produces dated, hash-chained receipts of pass/fail status (push #32).
+- [`docs/COHERENT_RANGE_DOCTRINE.md`](docs/COHERENT_RANGE_DOCTRINE.md) — **CRD-1.0**: every multi-carrier comparison is computed on the intersection of all members' time ranges; the shortest-coverage member sets the binding window; every output declares its coherent-range manifest in its header (push #33, INV-047).
+
+Together with the engine-independence policy (push #32), these are the four binding doctrines of the framework.
+
 Both protocols are model-agnostic, registered in [`ai-refresh/HS_ADMIN.json`](ai-refresh/HS_ADMIN.json) for future cold-start discovery, and proven end-to-end on the live repo (see [`OPERATIONS_PROTOCOL_PILOT_REPORT.md`](OPERATIONS_PROTOCOL_PILOT_REPORT.md) and [`ai-refresh/CCTT_PILOT_REPORT.md`](ai-refresh/CCTT_PILOT_REPORT.md)).
 
 ---

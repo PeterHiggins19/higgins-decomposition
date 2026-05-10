@@ -8,9 +8,9 @@
     "rationale": "The framework treats compositional data as a living record where every contribution above the EITT 5% threshold counts as a carrier; below 5% it doesn't make the cut. The same discipline applies to research investigations: every speculative branch is data, and the disposition record is the audit trail. This catalog is the project's research-methodology equivalent of the determinism contract: the path of every idea is traceable.",
     "companion_md": "INVESTIGATION_CATALOG.md (plain-text companion)",
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
-    "last_updated": "2026-05-09",
-    "last_push": "#32",
-    "total_investigations": 46
+    "last_updated": "2026-05-10",
+    "last_push": "#33",
+    "total_investigations": 47
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -705,10 +705,24 @@
       "gate_criteria": "doctrine doc + receipt JSON Schema + at least one engine corpus + working runner producing chained receipts",
       "gate_outcome": "PASSED — docs/SELF_TEST_PROTOCOL.md, docs/self_test_receipt_schema.json, HCI-CNQ/engine/self_test/standard_test_matrices.json (13 tests), run_self_test.py runner, two consecutive ALL_PASS receipts archived with chain link verified",
       "narrative": "Peter coined \"diagnostic engine self-test on startup with dated traceability receipt.\" The receipts make engine health auditable in retrospect."
+    },
+    {
+      "id": "INV-047",
+      "title": "Coherent Range Doctrine — multi-carrier temporal alignment as headline-binding policy",
+      "raised_by": "USER",
+      "raised_date": "2026-05-10",
+      "raised_in_push": "#33",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-10",
+      "canonical_location": "docs/COHERENT_RANGE_DOCTRINE.md (CRD-1.0 doctrine)",
+      "summary": "For any analysis comparing two or more carriers, the valid analytical window is the intersection of all members' time ranges. The shortest-coverage member sets the binding window for the entire set. Single-carrier reports use native ranges. Drop-and-recover preserves the longer window for specific research questions: drop the limiting carrier, re-run on the enlarged coherent range, manifest the drop. Every multi-carrier output declares its range in a manifest header (range, T_set, members, start-limiting and end-limiting binders, drops, policy). Mismatched-T multi-carrier comparisons reported as headline are SEA failure modes (INTP/DOC categories).",
+      "gate_criteria": "doctrine doc + runner range-policy flag + first conference output restructured under the doctrine + anti-spec FM entries + INV catalog entry",
+      "gate_outcome": "PASSED — docs/COHERENT_RANGE_DOCTRINE.md (CRD-1.0, 12 sections); papers/codawork2026/conference_2026_06/run_ember_corpus.py extended with --range-policy {coherent|native|explicit}, default coherent; COMPARISON_v2_0_4_vs_v3_0_0.md headline restructured around 2001-2025 coherent window with manifest at top; all_countries_headlines.json carries coherent_range_manifest as first key; runner output verified end-to-end with USA correctly identified as start-limiting member.",
+      "narrative": "Raised by Peter on 2026-05-10 in response to the USA missing-year-2000 asymmetry surfaced during the EMBER 8-country corpus run. Peter's exact phrasing: 'make the set only coherent, matches of all members with the same range can be computed, and range limits exist to the smallest set.' The doctrine codifies what should have been an explicit principle from the start. CRD-1.0 makes the matched-window the headline so the question 'why does USA's count look anomalously low?' never arises. Same standing as SEA-1.0 and STP-1.0 in the policy index."
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 24,
+    "CANONICAL": 25,
     "FALSIFIED": 1,
     "DEFERRED": 12,
     "CLOSED": 1,
@@ -717,7 +731,7 @@
   "summary_by_source": {
     "CLAUDE": 7,
     "CHATGPT": 8,
-    "USER": 17,
+    "USER": 18,
     "GROK": 14
   },
   "promotion_rules": {
@@ -750,11 +764,8 @@
     "distribution_principles": [
       "arXiv on day of submission (priority date stamped)",
       "GitHub release tag matching paper version (frozen artifact for reviewers)",
-      "CCTT runbook cited as reproduction protocol (one-command path)",
-      "Direct outreach to reproducibility-focused reviewers and CoDa community elders",
-      "Free to use, help available — same posture as the rest of the repo"
-    ],
-    "next_concrete_step": "Complete INV-022 (Round 3 full-corpus quaternion-view validation, ~1 day per existing estimate) BEFORE Paper 1 drafting begins. This strengthens the claim from 3 datasets to 25.",
-    "expected_total_timeline_days": 60
+      "Reproduction command in every paper's Appendix A or equivalent",
+      "Cross-citation graph between papers maintained explicitly"
+    ]
   }
 }

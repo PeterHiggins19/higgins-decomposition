@@ -434,6 +434,7 @@ This document is the SEA failure-mode enumeration for CNT v3.0.0. The default pr
 | ALG_005 | ALG | Triadic area is 2-D projection only | Use the `sides` array (3-D Euclidean distances) for metric-preserving comparisons |
 | INT_002 | INT | NumPy minor-version drift changes hash | `numpy_version` is recorded in metadata; reproducibility is per-version-pinned |
 | SCH_004 | SCH | JSON balloons on large T × D inputs | Chunk the trajectory or use `triadic_top_k` / `LADDER_K_LIMIT` config dials |
+| INTP_004 | INTP | Mismatched-T multi-carrier comparison reported as headline (CRD-1.0 violation) | Engine itself takes whatever input the runner hands it; CRD-1.0 enforcement lives at the runner/orchestrator layer (`run_ember_corpus.py --range-policy coherent` is default). Every multi-carrier output must carry the coherent-range manifest header per CRD-1.0 Rule 4. Evidence: STRC — engine independence prevents the engine from ever knowing about other carriers; DESN — runner default of `coherent` makes mismatched-T outputs require explicit `--range-policy=native` opt-in. See `docs/COHERENT_RANGE_DOCTRINE.md`. |
 
 ---
 

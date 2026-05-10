@@ -430,6 +430,15 @@ Quick-reference table of the v1 issues and their v2 mitigations:
 
 ---
 
+## CRD-1.0 (Coherent Range Doctrine) — multi-carrier failure mode
+
+| Code | Category | Failure mode | Mitigation |
+|---|---|---|---|
+| INTP_005 | INTP | Mismatched-T multi-carrier comparison reported as headline (CRD-1.0 violation) | Engine itself takes whatever input the runner hands it; CRD-1.0 enforcement lives at the runner/orchestrator layer. Conference runner default is `--range-policy coherent`; native and explicit modes require explicit opt-in. Every multi-carrier output carries the coherent-range manifest header per CRD-1.0 Rule 4. Evidence: STRC — engine independence by design (push #32 policy); DESN — runner default policy. See `docs/COHERENT_RANGE_DOCTRINE.md`. |
+| WRP_007 | WRP | Wrapper-generated multi-carrier report drops the manifest header in translation | Wrapper schema requires manifest fields to be present in every locale's text block; locale fallback (en) ships manifest verbatim. Evidence: TEST — wrapper renderer test suite asserts presence of `coherent_range_manifest` block in each rendered locale (planned Phase C4). |
+
+---
+
 ## Audit log
 
 | Date | Auditor | Event |
@@ -437,6 +446,7 @@ Quick-reference table of the v1 issues and their v2 mitigations:
 | 2026-05-09 | Claude | Initial enumeration during Phase C2 of push #32 |
 | 2026-05-09 | (pending) Peter Higgins | Review |
 | 2026-05-09 | (pending) ChatGPT, Grok | External review post-push-#32 commit |
+| 2026-05-10 | Peter Higgins | CRD-1.0 doctrine added; INTP_005 + WRP_007 entries registered (push #33) |
 
 ---
 

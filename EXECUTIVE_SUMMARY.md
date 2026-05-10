@@ -1919,3 +1919,124 @@ standalone `HUF-CNT-System` location is archived and read-only;
 ongoing CNT work happens inside this repository under `HCI-CNT/`.
 
 The instrument reads. The expert decides. The hashes carry the receipts.
+
+
+---
+
+## Update — 2026-05-09: Push #32 monster update — engine v3/v2 ground-up rebuild + four discipline frameworks + UN-6 wrappers + CodaWork 2026 conference corpus
+
+This is a long entry because a great deal happened between the last update (push #22 HCI-CNT migration on 2026-05-06) and now. Pushes #23 through #32 — eleven productive pushes in three working days, then a major push #32 that ate a full additional day. The framework on `main` today is structurally distinct from where it was three days ago. This entry lays out the arc.
+
+### What happened, push by push (2026-05-07 through 2026-05-09)
+
+**Push #23 — ChatGPT round-1 vocabulary cleanup + HCI-CNQ promotion.**
+ChatGPT cross-check produced 13 vocabulary recommendations (κᴴˢ tensor terminology, Aitchison-distance documentation, claim-strength language). All actioned. The Quaternion Decomposition project moved into `HCI-CNQ/` as a canonical tier alongside HCI-CNT. CodaWork 2026 talking points refreshed.
+
+**Push #24 — Grok round-1 lineage discovery + Investigation Catalog.**
+Grok identified the DADC → H₁ → HUF → Hˢ → CNT → CNQ lineage that I had not articulated in source documents. `ORIGIN_DADC_LINEAGE.md` written and locked. Helmsman family vocabulary extensions (sigma sign / stability / flips / chaos / torque / joint helmsman) added to GLOSSARY §I as proposed entries. New tier scaffolds: HCI-AUDIO, HCI-ULTRASOUND. The Investigation Catalog formalised — an explicit registry of every proposed extension with its disposition (CANONICAL / DEFERRED / OPEN / FALSIFIED / CLOSED), gate criteria, and source provenance. Paper 1 first complete draft. BTL gloss locked to single identity (Binaural Test Lab; "basement" framing eliminated repo-wide).
+
+**Push #25 — Sensitivity refinements (HUMAN→USER cleanup).** Doctrinal vocabulary fix; HUMAN replaced with USER/researcher across the repo for technical accuracy.
+
+**Push #26 — ChatGPT round-2 audit + cnq.py engine + claim control.** Full cnq.py implementation with Hamilton-product core; cnt_adapter.py, geometry.py, hashing.py support modules. INV-028 (Dyadic Coupling Ladder) and INV-029 (Bi-Quaternion Factoring) added to catalog. Paper 1 revisions: claim-strength block, M²=I framing, Appendix A reproduction command.
+
+**Push #27 — Full publication: cnq.R + pseudocode + 43 tests + HS_FAST_REFRESH.json + PUBLICATION_READY.md.** CNQ engine R port. Language-agnostic CNQ_PSEUDOCODE.md. 43-test pytest suite (15 first-principles + 9 determinism + 19 dimension policy). NOTATION_AND_TERMINOLOGY.md as canonical reference (κᴴˢ vs s_j separation locked; tensor "order" not "rank"; bi-quaternion vs twin-quaternion lineage clarified). HS_FAST_REFRESH.json single-file AI-loader at repo root. PUBLICATION_READY.md as the world's-entry-point.
+
+**Push #28 — External audit response: packaging + license split + QUICKSTART.** ChatGPT deep-research-report read the live repo and audited it as a software product. Three actions:
+- Packaging gap closed: `pyproject.toml` + `requirements.txt` + console scripts (`hs-cnt`, `hs-cnq`).
+- License split: Apache-2.0 for code (LICENSE), CC BY 4.0 for docs (LICENSE-DOCS).
+- QUICKSTART.md at repo root for ease-of-access.
+INV-030 catalogued with the audit response.
+
+**Push #29 — AI visibility infrastructure + Grok round-2 response + priority lock.** Three new AI-discovery channels at the repo root (`llms.txt`, `.well-known/ai-context.json`, `AI_AGENTS.md`); top-of-README banner with grounding-test prompt embedded in four places. Grok R2's three valid engineering observations actioned (CNT triadic-cap policy, R port version-skew note, handbook pseudocode placeholders flagged). Grok R2's stale-cache false-positive ("cnq.py does not exist") catalogued as INV-031 (AI platform fitness matrix). Fuji SMT + Nordson Dage commercialisation analysis preserved at `applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md` per priority lock ("machine automation is too risky until all the basics are verified").
+
+**Push #30 — Grok round-3 catalog absorption.** Three new DEFERRED catalog entries from Grok R3: INV-033 (Helmsman Dynamics Module), INV-034 (P2 Attractor Parameter Fitting), INV-035 (CHSH Correlation Diagnostic). All sourced GROK with explicit `risk_note` warnings against integrating Grok's prototype lifting (which would have regressed the shipped engine's IEEE-floor residuals and broken the locked `expected_results.json`).
+
+**Push #31 — Licence clarity + grounding-test durability.** Cosmetic patch on top of v0.29.0 release: GitHub licensee detector kept showing "Unknown, Unknown licenses found" because two LICENSE files at repo root confused it. CC BY 4.0 text moved to `docs/LICENSE-DOCS.md`; root `LICENSE-DOCS` defanged to a stub redirect; new `LICENSING.md` provides plain-English summary. Grounding-test answer #1 changed from a specific commit SHA (which went stale every push) to the latest release tag (which only changes when a new tag is cut). Updated in 5 files (README, llms.txt, AI_AGENTS.md, HS_FAST_REFRESH.json, .well-known/ai-context.json) to keep AI assistants reading the project from a durable anchor.
+
+**Push #32 — CNT v3 + CNQ v2 ground-up rebuild + four discipline frameworks + UN-6 wrappers + CodaWork conference corpus.**
+
+Two ChatGPT deep-research reviews of CNQ v1.0.0 surfaced ~30 catalogued failure modes. The R port had broken parity (canonical_dumps without recursive key sort; an R-only `metadata.reference_implementation` field that guaranteed different hashes by construction). The Python port had NaN-in-hash for T<2 inputs, a D=2 schema mismatch, a corrupted file tail at lines 519–525, and an `extract_cnt_diagnostics` schema mismatch that meant the parent_cnt_content_sha256 chain was already broken in implementation regardless of design intent. The mathematical critique was sharper still: CNQ v1 normalised ILR vectors to unit-vectors and discarded radial information, then claimed exactness of a "directional 3D representation" — not exactness of the full Aitchison-space trajectory.
+
+Peter's directive: "*build cnq next version and ignore the hash marking as no experiments have been released of concern to support, break the hash and start over on both the cnt and cnq engines together make them both upgraded… build us ground up better is the point.*"
+
+Then — critically — the originating audio use case made explicit: 4-way stereo speaker systems (D=8) require simultaneous coherence of time delay, intensity, phase, group phase, and total EQ across multiple drivers; quadraphonic (D=16) is the future-supported case. The strictest test case the framework has — the one that justifies the algebraic completeness — is audio multi-channel coherence, not the simpler D=4 cross-domain validation cases. D=8 became the load-bearing target.
+
+Then the wrapper architecture clarification: "*i kept the origins and final purpose out of the exploratory as i wanted a general purpose compositional analysis engine of extreme abilities… make a general, user to system schema that is a facade only.*" The engine speaks pure CoDa-community vocabulary; domain interpretation lives in JSON wrapper data files, multilingual from the start.
+
+Then two methodological doctrines emerged from conversation: **Suspicion of Every Assumption** (assume failure, prove non-failure, exhaust failure modes mathematically) and **Built-In Self-Test** (frozen reference corpus + dated hash-signed receipt extending an audit chain).
+
+Then for international metrology compliance: **UN-6 locale convention** (en, fr, es, ru, zh, ar) covering BIPM and Measurement Canada bilingual requirements plus international standards-body reach.
+
+What push #32 actually shipped:
+
+- **`hci_shared/` package** — single source of truth for the math (validation, hashing with recursive key sort + allow_nan=False + recursive volatile-strip, geometry with closure/CLR/Helmert/ILR/quaternion algebra, helmsman family of six channels, attractor fit with relative-variance threshold + 1-D limit cycle handling, factoring with twin-quaternion at D=8 + quad-quaternion D=16 schema-locked + CHSH joint coherence diagnostic).
+
+- **CNT v3.0.0** (cnt.py 897 lines + cnt.R 738 lines). Schema 3.0.0. New `depth_tower` top-level block. New `helmsman_family` block from shared module. `kappa_HS_full` and `s_j_sensitivity` emitted as separate fields (the locked NOTATION distinction). `input.rows_closed` exposed. `errors='strict'` ingest. R port carries the missing `energy_cycle` binding from start (catalogued v2.0.4 R-port NameError fixed at source). Bridges block written in full; EITT honours user config.
+
+- **CNQ v2.0.0** (cnq.py 737 lines + cnq.R 791 lines). Schema cnq/2.0.0. Native dataset producer (CSV-direct with optional CNT-JSON reference as informational metadata only — NOT a hash chain). Dimension-policy classifier with mathematically neutral labels: D=8 `twin_quaternion_native` (load-bearing), D=16 `quad_quaternion_native_future` (schema-locked for v2.1), D=4 `single_quaternion_native`, plus boundary and reduced cases. Bearing trajectory + radial trajectory both first-class (radial restored after v1's discarding it). Twin-quaternion factoring at D=8 with ρ_AB coupling + CHSH joint coherence diagnostic.
+
+- **Engine independence policy** (INV-038). Each engine its own (engine_name, version, schema_version) triple in the canonical-hash payload. CNT and CNQ produce different hashes by design. Within-language byte-identical determinism preserved; cross-language parity is per-field at 1e-13 tolerance via `scripts/verify_cross_language_parity.py`.
+
+- **Suspicion of Every Assumption (SEA)** doctrine (INV-045). `docs/SUSPICION_OF_EVERY_ASSUMPTION.md` with 10 failure-mode categories (NUM/ALG/SCH/INV/INT/INTP/REP/WRP/DOC/ADV), 6 evidence types, 4 residual-risk classifications. First instances: `HCI-CNT/engine/ANTI_SPECIFICATION.md` (31 entries) and `HCI-CNQ/engine/ANTI_SPECIFICATION.md` (33 entries, including a v1→v2 mitigation index that maps every catalogued v1 failure to its v2 fix entry). Both `release_gate_pass: true`.
+
+- **Built-In Self-Test (BIST)** doctrine (INV-046). `docs/SELF_TEST_PROTOCOL.md` (STP-1.0). Frozen reference corpus + runner that produces hash-signed receipt extending an audit chain. First instance: `HCI-CNQ/engine/self_test/standard_test_matrices.json` (13-test corpus), `run_self_test.py`, `RECEIPTS/` archive with two consecutive ALL_PASS receipts where the second's `previous_receipt_sha256` correctly chains back to the first.
+
+- **Domain wrapper architecture** (INV-042). `HCI-CNQ/wrappers/WRAPPER_SCHEMA.md` (13 sections) + `wrapper_schema.json` JSON Schema. Each wrapper is a JSON data file (not engine code) declaring carrier_aliases, field_aliases, calibration_profiles, supported_locales, locale_quality. Engine never loads wrappers; renderer/report-builder consumes engine output + wrapper + locale to produce localised report. **UN-6 standard locale set: en (canonical), fr (canonical, BIPM-aligned for Measurement Canada), es/ru/zh/ar (drafts pending expert metrology review).** First instances: `wrapper_audio.json` (multi-driver speaker analysis) + `wrapper_government_budget.json` (Canadian municipal budget composition; the Markham mayor's office bilingual request was the proximate trigger). Plus `wrapper_blank_template.json` and `wrapper_generic.json` (identity passthrough).
+
+- **CNT + CNQ structural visualisations**. `docs/ENGINE_STRUCTURE_VISUALIZATION.html` with side-by-side pillars showing data flow + math at each layer, color-coded by origin (blue CoDa standard, orange Higgins extension, purple shared module, green determinism hash). Standalone SVG drops into a CodaWork slide.
+
+- **CodaWork 2026 conference corpus**. `papers/codawork2026/conference_2026_06/run_ember_corpus.py` processes all 8 EMBER countries through both engines, generates per-country `STAGE_1_REPORT.md` (pure CoDa) + `ADVANCED_ANALYSIS.md` (Hˢ extensions + CNQ), comparison vs v2.0.4 baseline, combined headline-results JSON. **Stage 1 = pure CoDa; full CNQ = the more advanced option** — the positioning is unambiguous in every report. Total corpus runtime ~700 ms for 8 countries × 2 engines.
+
+### Catalog growth
+
+The Investigation Catalog grew from 35 (post-#30) to **46 entries** (post-#32). 11 new entries (INV-036 through INV-046). 5 graduations: INV-009 (helmsman) PROPOSED→CANONICAL; INV-021 (CNQ engine) CLOSED; INV-024 (HCI-AUDIO) scope sharpened to "first wrapper instance"; INV-029 (twin-quaternion) DEFERRED→CANONICAL; INV-034 (attractor fit) DEFERRED→CANONICAL; INV-035 (CHSH coherence) DEFERRED→CANONICAL.
+
+Distribution: **24 CANONICAL · 12 DEFERRED · 8 OPEN · 1 FALSIFIED · 1 CLOSED.**
+By source: CLAUDE 7 · CHATGPT 8 · GROK 14 · USER 17.
+
+### Numerical anchors preserved
+
+- M² = I metric involution residual at the IEEE-754 floor on every test (synthetic + real). USA EMBER: 1.07e-16. Worst residual across all 8 EMBER countries: well under 10⁻¹⁵.
+- Quaternion sandwich residual on synthetic D=4 trajectories: 4.996e-16.
+- Twin-quaternion factor (D=8) residuals on each of factor_A and factor_B: 5.551e-16.
+- Helmert orthonormality `H @ Hᵀ = I`: 4.44e-16.
+
+### What v0.29.0 freezes; what is on `main`
+
+**v0.29.0** (release tag): CNT v2.0.4 + CNQ v1.0.0. Anyone reproducing the published Backblaze D=4 / Planck D=4 / SM neutrino D=3 results does so against this tag. Paper 1 (INV-026) cites v0.29.0 specifically.
+
+**main** (post push #32, commit `65c4a8c`): CNT v3.0.0 + CNQ v2.0.0 + four discipline frameworks + UN-6 wrappers + CodaWork conference corpus. This is what gets handed to ChatGPT and Grok next for the next round of breaking-and-rebuilding under the new SEA discipline. Each engine carries its own anti-specification document; each future ship will extend the receipt chain.
+
+### What is still pending
+
+- **D1** documentation refresh — bump version pointers in Hs/README, HCI-CNT/README, HCI-CNQ/README, NOTATION_AND_TERMINOLOGY.md, HS_FAST_REFRESH.json, PUBLICATION_READY.md from v2.0.4/v1.0.0 to v3.0.0/v2.0.0.
+- **C4** comprehensive pytest property-based test suites + cross-language parity CI integration once Rscript is on the validate-repository CI environment.
+- **First real cross-language parity run** to confirm Python ↔ R per-field agreement at IEEE floor on a meaningful dataset (the EMBER 8-country corpus is the obvious first target).
+- **Round 3** full-corpus quaternion validation (INV-022 — long-standing priority).
+- **arXiv** submission of Paper 1 (INV-026; Paper 1 cites v0.29.0 specifically; v3/v2 work does not block this).
+- **D=16 quad-quaternion implementation** (INV-043; gates on first D=16 dataset).
+- **HCI-AUDIO applied pilot** full ship (INV-024; scoped as first wrapper instance with audio test fixtures starter set already in place; full audio analytics is months away per priority lock).
+
+### The arc
+
+| Push | Date | Theme | Catalog effect |
+|---|---|---|---|
+| #22 | 2026-05-06 | HCI-CNT migration | (see prior entry) |
+| #23 | 2026-05-07 | ChatGPT R1 vocabulary + HCI-CNQ promotion | minor |
+| #24 | 2026-05-08 | Grok R1 lineage + Investigation Catalog | catalog formalised |
+| #25 | 2026-05-08 | Sensitivity refinements | minor |
+| #26 | 2026-05-08 | ChatGPT R2 audit + cnq.py engine | INV-028, 029 added |
+| #27 | 2026-05-08 | Full publication: cnq.R + 43 tests + PUBLICATION_READY | NOTATION locked |
+| #28 | 2026-05-08 | External audit response: packaging + licence split | INV-030 added |
+| #29 | 2026-05-08 | AI visibility + Grok R2 response + priority lock | INV-031, 032 added |
+| #30 | 2026-05-08 | Grok R3 catalog absorption | INV-033, 034, 035 added (all DEFERRED) |
+| #31 | 2026-05-08 | Licence clarity + grounding-test durability | none |
+| **#32** | **2026-05-09** | **Engine v3/v2 ground-up + 4 doctrines + UN-6 wrappers + CodaWork corpus** | **+11 new, 5 graduations, 1 closed** |
+
+Twelve productive pushes since 2026-05-07, all green. The cross-AI verification pattern that began in push #23 has now produced two full audit cycles (ChatGPT R1+R2 + Grok R1+R2+R3), with each cycle's findings absorbed into the catalog and the next engine version. The discipline frameworks introduced in push #32 mean the next external audit cycle has a structured target — anti-specifications to attack rather than source code to find bugs in. That changes the dynamics of the cross-check pattern from "find new bugs" to "find what's missing from the anti-spec."
+
+### CodaWork 2026 readiness
+
+The June conference corpus is processable end-to-end on the new engines: all 8 EMBER countries × 2 engines (CNT v3 + CNQ v2) × 2 reports per country (Stage 1 pure CoDa + Advanced Hˢ-extensions/CNQ) generated in under a second. Combined headline comparison and per-country JSON outputs are in `papers/codawork2026/conference_2026_06/`. The positioning per Peter's directive is unambiguous in every artifact: **Stage 1 is pure CoDa; full CNQ is the more advanced option**. Anyone in the CoDa community reads Stage 1 in their own vocabulary and verifies the math on their own; readers who want the differentiator move to Advanced.
+
+Engine-version triples are embedded in every output. Hashes are independent. Receipts will chain. The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line. **The engines stand on their own feet now, independent, anti-specified, self-testing, multilingual, conference-ready.**
