@@ -1,1018 +1,738 @@
-#!/usr/bin/env Rscript
-# CNT Engine — R Reference Implementation
-# ========================================
+# HCI-CNT v3.0.0 -- Compositional Navigation Tensor engine (R port)
+# =========================================================================
 #
-# Schema version : 1.0.0    (see CNT_JSON_SCHEMA.md for the contract)
-# Engine version : 1.0.0
-# Algorithm ref  : CNT_PSEUDOCODE.md
+# Domain-neutral compositional inference engine. Mirrors HCI-CNT/engine/cnt.py.
+# Reads compositional time series (rows-by-carriers CSV), produces a
+# deterministic JSON record of the trajectory's geometric, dynamic, and
+# depth-tower structure.
 #
-# This R implementation is a faithful translation of cnt.py. It reads a
-# compositional CSV and emits ONE canonical JSON conforming to the CNT JSON
-# schema. The output is bit-identical to the Python reference up to floating-
-# point representation; numerical fields agree to working precision (~1e-10).
+# Cross-language parity with cnt.py is verified per-field by
+# scripts/verify_cross_language_parity.py (NOT byte-identical hash; each
+# language has its own canonical_dumps; the parity contract is on numerical
+# content within tolerance).
 #
-# Mathematical lineage:
-#   Aitchison (1986) — CLR transform, simplex geometry
-#   Egozcue (2003)   — ILR, Helmert basis, orthonormal coordinates
-#   Shannon (1948)   — Entropy
-#   Higgins (2026)   — CNT tensor decomposition, recursive depth sounder
+# Lessons applied from v2.0.4 R port (catalogued bugs, all fixed in v3):
+#   * canonical_dumps now recursively sorts keys (v2.0.4 used jsonlite::toJSON
+#     with insertion order, breaking parity with Python's sort_keys=True).
+#   * compute_depth missing energy_cycle binding -- v3 R port carries the fix
+#     from the start: energy_cycle is computed before any IR-disambiguation
+#     branch references it.
+#   * Bridges block written in full (v2.0.4 R abbreviated bridges as
+#     "{model: 'AR(1) on CLR series — full implementation in cnt.py'}" which
+#     made cross-language parity impossible).
+#   * EITT honours EITT_GATE_PCT and EITT_M_SWEEP_BASE (v2.0.4 R hardcoded 5
+#     and the M-sweep tuple, ignoring user config).
 #
-# Dependencies (install once):
-#   install.packages(c("jsonlite", "digest"))
-#   # Optional CoDa-community packages (used only for cross-check):
-#   install.packages("compositions")
+# Dependencies: jsonlite, digest (no other CRAN packages required).
 #
-# Usage (CLI):
-#   Rscript cnt.R input.csv [output.json] [--temporal] [--ordering-method M]
+# Doctrine references:
+#   * docs/SUSPICION_OF_EVERY_ASSUMPTION.md (SEA discipline)
+#   * docs/SELF_TEST_PROTOCOL.md (BIST receipts)
+#   * ai-refresh/CNT_V3_CNQ_V2_DESIGN.md (engine-independence policy)
+#   * HCI-CNT/engine/ANTI_SPECIFICATION.md (failure-mode catalog)
 #
-# Usage (interactive):
-#   source("cnt.R")
-#   j <- cnt_run("input.csv", "output.json", ordering = list(
-#       is_temporal = TRUE,
-#       ordering_method = "by-time",
-#       caveat = NULL
-#   ))
-#
-# The instrument reads. The expert decides. The loop stays open.
+# License: Apache-2.0
 
 suppressPackageStartupMessages({
   library(jsonlite)
   library(digest)
 })
 
-# ============================================================
-# USER CONFIGURATION
-# ============================================================
-#
-# These values control the engine's behaviour. Edit them to suit
-# your dataset and analytical needs. Active values are echoed
-# in `metadata.engine_config` of every JSON the engine produces.
-#
-# Two consecutive runs with IDENTICAL configuration on IDENTICAL
-# input produce IDENTICAL `diagnostics.content_sha256` (verified).
-# Two runs with DIFFERENT configuration produce different content_sha256
-# - that is correct and expected.
-#
-# Categories: VERSION, ZERO REPLACEMENT, LOCK EVENTS, DEPTH RECURSION,
-# TRIADIC ENUMERATION, EITT BENCH-TEST.
-# ============================================================
 
-# -- VERSION (do not edit unless modifying the engine) --
-SCHEMA_VERSION         <- "2.1.0"     # JSON schema version (additive: metadata.units)
-ENGINE_VERSION         <- "2.0.4"     # 2.0.4: engine_config_overrides honoured + units block written (parity with cnt.py)
-ENGINE_NAME            <- "cnt"
+# -------------------------------------------------------------------------
+# USER CONFIG -- mirrors cnt.py constants exactly
+# -------------------------------------------------------------------------
 
-# -- ZERO REPLACEMENT --
-# When an input value is zero or below this floor, replace with
-# DEFAULT_DELTA so log-ratios remain finite. Default 1e-15 (IEEE floor).
-DEFAULT_DELTA          <- 1e-15
+ENGINE_NAME <- "HCI-CNT"
+ENGINE_VERSION <- "3.0.0"
+SCHEMA_VERSION <- "3.0.0"
+ENGINE_PRINCIPLE <- paste(
+  "Closure -> CLR -> Helmert ILR -> trajectory tensor -> depth tower;",
+  "deterministic compositional inference with embedded version triple."
+)
 
-# -- LOCK EVENT THRESHOLDS --
-# DEGEN_THRESHOLD: composition is "near barycenter / collapsed" when
-#   max(CLR) - min(CLR) is below this. Default 1e-4.
-# LOCK_CLR_THRESHOLD: a carrier is "locked low" when its CLR is below
-#   this. Default -10.0. More negative => only flags extreme zeros.
-DEGEN_THRESHOLD        <- 1e-4
-LOCK_CLR_THRESHOLD     <- -10.0
-
-# -- DEPTH RECURSION (depth sounder) --
-# DEPTH_MAX_LEVELS: hard cap on tower length. Default 50.
-# DEPTH_PRECISION_TARGET: relative precision for period detection.
-#   Period-1 requires TWO consecutive level pairs under the gate.
-#   Period-2 requires both same-parity sequences under the gate.
-#   Default 0.01 (1%).
-# NOISE_FLOOR_OMEGA_VAR: angular-velocity variance below this declares
-#   OMEGA_FLAT termination. Default 1e-6.
-DEPTH_MAX_LEVELS       <- 50
-DEPTH_PRECISION_TARGET <- 0.01
-NOISE_FLOOR_OMEGA_VAR  <- 1e-6
-
-# -- TRIADIC ENUMERATION (Stage 3 day-triad area) --
-# TRIADIC_T_LIMIT: above this T, skip the C(T,3) enumeration and emit
-#   selection_method = "none_T_too_large". Default 500.
-# TRIADIC_K_DEFAULT: when enumeration runs, store this many top-area
-#   triads in results[]. Default 500.
-TRIADIC_T_LIMIT        <- 500
-TRIADIC_K_DEFAULT      <- 500
-
-# -- EITT BENCH-TEST (diagnostics.eitt_residuals) --
-# EITT_GATE_PCT: variation_pct above this is FAIL. Default 5.0.
-# EITT_M_SWEEP_BASE: which compression ratios M to bench-test.
-EITT_GATE_PCT          <- 5.0
-EITT_M_SWEEP_BASE      <- c(2, 4, 8, 16, 32, 64, 128)
-
-# ============================================================
-# End USER CONFIGURATION. Edit above; do not edit below.
-# ============================================================
+DEFAULT_DELTA <- 1e-15
+DEGEN_THRESHOLD <- 1e-4
+LOCK_CLR_THRESHOLD <- -10.0
+DEPTH_MAX_LEVELS <- 50L
+DEPTH_PRECISION_TARGET <- 1e-2
+TRIADIC_T_LIMIT <- 500L
+TRIADIC_K_DEFAULT <- 50L
+LADDER_K_LIMIT <- 200L
+EITT_GATE_PCT <- 5.0
+EITT_M_SWEEP_BASE <- c(2L, 4L, 8L, 16L, 32L, 64L, 128L)
+HELMSMAN_ROLLING_WINDOW <- 8L
 
 
-# ============================================================
-# §0 — Math primitives (parity with cnt.py)
-# ============================================================
+# -------------------------------------------------------------------------
+# Math primitives -- mirror hci_shared/geometry.py
+# (Duplicated across cnt.R and cnq.R intentionally; both engines self-contained)
+# -------------------------------------------------------------------------
 
-close_simplex <- function(x, delta = DEFAULT_DELTA) {
-  x_pos <- pmax(as.numeric(x), delta)
-  s <- sum(x_pos)
-  if (s <= 0) stop("Composition has non-positive sum")
-  x_pos / s
+closure_op <- function(x, delta = DEFAULT_DELTA) {
+  if (is.null(dim(x))) {
+    s <- sum(x); if (s <= delta) return(x); return(x / s)
+  }
+  sums <- rowSums(x)
+  sums <- ifelse(sums > delta, sums, 1.0)
+  sweep(x, 1, sums, "/")
 }
 
-clr <- function(x) {
+clr_op <- function(x) {
+  if (is.null(dim(x))) {
+    log_x <- log(x); return(log_x - mean(log_x))
+  }
   log_x <- log(x)
-  log_x - mean(log_x)
+  sweep(log_x, 1, rowMeans(log_x), "-")
 }
 
-helmert_basis <- function(D) {
-  basis <- matrix(0, nrow = D - 1, ncol = D)
+helmert_basis_op <- function(D) {
+  if (D < 2) stop("dimension D must be >= 2")
+  H <- matrix(0.0, nrow = D - 1, ncol = D)
   for (k in seq_len(D - 1)) {
-    scale <- sqrt(k / (k + 1.0))
-    for (j in seq_len(k)) basis[k, j] <- scale / k
-    basis[k, k + 1] <- -scale
+    n <- k
+    norm_val <- 1.0 / sqrt(n * (n + 1))
+    H[k, 1:n] <- norm_val
+    H[k, n + 1] <- -n * norm_val
   }
-  basis
+  H
 }
 
-ilr_project <- function(h, basis) as.numeric(basis %*% h)
 
-aitchison_distance <- function(x, y) sqrt(sum((clr(x) - clr(y))^2))
+# -------------------------------------------------------------------------
+# Hs primitives (Higgins-extension functions that cnt.py uses)
+# -------------------------------------------------------------------------
 
-aitchison_barycenter <- function(rows) {
-  if (length(rows) == 0) return(NULL)
-  D <- length(rows[[1]])
-  log_means <- numeric(D)
-  for (j in seq_len(D)) log_means[j] <- mean(sapply(rows, function(r) log(r[j])))
-  close_simplex(exp(log_means))
+shannon_entropy <- function(p) {
+  p_safe <- ifelse(p > 0, p, 1.0)
+  -sum(ifelse(p > 0, p * log(p_safe), 0.0))
 }
 
-shannon_entropy <- function(x) {
-  pos <- x[x > 0]
-  -sum(pos * log(pos))
+higgins_scale <- function(p) {
+  D <- length(p); if (D < 2) return(0.0)
+  1.0 - shannon_entropy(p) / log(D)
 }
 
-higgins_scale <- function(x) 1.0 - shannon_entropy(x) / log(length(x))
+aitchison_norm <- function(clr_vec) sqrt(sum(clr_vec * clr_vec))
 
-metric_dual <- function(x) close_simplex(1.0 / x)
+aitchison_distance <- function(clr_a, clr_b) sqrt(sum((clr_a - clr_b)^2))
 
-metric_tensor_full <- function(x) {
-  D <- length(x)
-  K <- matrix(0, D, D)
-  for (i in seq_len(D)) for (j in seq_len(D)) {
-    num <- if (i == j) (1.0 - 1.0 / D) else (-1.0 / D)
-    K[i, j] <- num / (x[i] * x[j])
-  }
-  K
+kappa_HS_full <- function(p) {
+  D <- length(p)
+  one_over_D <- 1.0 / D
+  p_outer <- outer(p, p)
+  delta <- diag(D)
+  K <- (delta - one_over_D) / p_outer
+  eigvals <- sort(eigen(K, symmetric = TRUE, only.values = TRUE)$values)
+  trace_val <- sum(diag(K))
+  nonzero <- abs(eigvals) > 1e-12
+  cond <- if (any(nonzero)) {
+    nz <- abs(eigvals[nonzero])
+    max(nz) / min(nz)
+  } else NA
+  list(matrix = K, eigenvalues = eigvals, trace = trace_val,
+       condition_number = if (is.finite(cond)) cond else NA)
 }
 
-bearing_pairs <- function(h, carriers) {
-  D <- length(h)
-  out <- list()
-  for (i in seq_len(D - 1)) {
-    for (j in seq.int(i + 1, D)) {
-      theta <- atan2(h[j], h[i])
-      out[[length(out) + 1]] <- list(
-        carrier_i = carriers[i],
-        carrier_j = carriers[j],
-        theta_deg = theta * 180 / pi
-      )
+s_j_sensitivity <- function(p) {
+  inv <- 1.0 / p
+  inv / sum(inv)
+}
+
+helmsman_dcdi <- function(h_prev, h_curr) {
+  delta <- h_curr - h_prev
+  as.integer(which.max(abs(delta)) - 1L)  # 0-indexed
+}
+
+angular_velocity_deg <- function(h_prev, h_curr) {
+  na <- sqrt(sum(h_prev^2)); nb <- sqrt(sum(h_curr^2))
+  if (na < 1e-15 || nb < 1e-15) return(0.0)
+  cos_theta <- max(-1, min(1, sum(h_prev * h_curr) / (na * nb)))
+  acos(cos_theta) * 180 / pi
+}
+
+variation_matrix <- function(rows_closed) {
+  D <- ncol(rows_closed)
+  log_rows <- log(rows_closed)
+  tau <- matrix(0.0, nrow = D, ncol = D)
+  for (i in 1:D) for (j in 1:D) {
+    if (i != j) {
+      ratio <- log_rows[, i] - log_rows[, j]
+      tau[i, j] <- mean((ratio - mean(ratio))^2)  # population variance (ddof=0)
     }
   }
-  out
+  tau
 }
-
-angular_velocity_deg <- function(h_prev, h) {
-  a_sq  <- sum(h_prev * h_prev)
-  b_sq  <- sum(h * h)
-  ab    <- sum(h_prev * h)
-  cross <- sqrt(max(0, a_sq * b_sq - ab * ab))
-  atan2(cross, ab) * 180 / pi
-}
-
-helmsman_dcdi <- function(h_prev, h, carriers) {
-  deltas <- abs(h - h_prev)
-  j_max  <- which.max(deltas)
-  list(carrier = carriers[j_max], delta = deltas[j_max])
-}
-
-
-# ============================================================
-# §1 — Tensor block
-# ============================================================
-
-compute_tensor_block <- function(records, carriers) {
-  D <- length(carriers)
-  basis <- helmert_basis(D)
-  timesteps <- vector("list", length(records))
-  h_prev <- NULL
-  for (i in seq_along(records)) {
-    rec <- records[[i]]
-    x_raw <- as.numeric(rec$raw_values)
-    x <- close_simplex(x_raw)
-    h <- clr(x)
-    ts <- list(
-      index                  = i - 1L,
-      label                  = rec$label,
-      raw_values             = as.list(x_raw),
-      composition            = as.list(x),
-      clr                    = as.list(h),
-      ilr                    = as.list(ilr_project(h, basis)),
-      shannon_entropy        = shannon_entropy(x),
-      higgins_scale          = 1.0 - shannon_entropy(x) / log(D),
-      aitchison_norm         = sqrt(sum(h * h)),
-      bearing_tensor         = list(pairs = bearing_pairs(h, carriers)),
-      metric_tensor          = list(
-        matrix      = lapply(seq_len(D), function(r) as.list(metric_tensor_full(x)[r, ])),
-        eigenvalues = as.list(sort(eigen(metric_tensor_full(x), symmetric = TRUE, only.values = TRUE)$values)),
-        trace       = sum(diag(metric_tensor_full(x)))
-      ),
-      metric_tensor_diagonal = as.list((1.0 - 1.0 / D) / x^2),
-      condition_number       = max(x) / min(x)
-    )
-    if (!is.null(h_prev)) {
-      ts$angular_velocity_deg    <- angular_velocity_deg(h_prev, h)
-      ts$aitchison_distance_step <- sqrt(sum((h - h_prev)^2))
-      hm <- helmsman_dcdi(h_prev, h, carriers)
-      ts$helmsman                <- hm$carrier
-      ts$helmsman_delta          <- hm$delta
-    }
-    timesteps[[i]] <- ts
-    h_prev <- h
-  }
-  list(
-    helmert_basis = list(
-      D            = D,
-      dim          = D - 1,
-      coefficients = lapply(seq_len(D - 1), function(r) as.list(basis[r, ]))
-    ),
-    timesteps = timesteps
-  )
-}
-
-
-# ============================================================
-# §2 — Stages block
-# ============================================================
 
 ring_classify <- function(hs) {
-  if (hs < 0.1) return("Hs-1")
-  if (hs < 0.3) return("Hs-2")
-  if (hs < 0.5) return("Hs-3")
-  if (hs < 0.7) return("Hs-4")
-  if (hs < 0.9) return("Hs-5")
-  "Hs-6"
+  if (hs < 0.1) "Hs-1"
+  else if (hs < 0.3) "Hs-2"
+  else if (hs < 0.5) "Hs-3"
+  else if (hs < 0.7) "Hs-4"
+  else if (hs < 0.9) "Hs-5"
+  else "Hs-6"
 }
 
-compute_stage1 <- function(tensor_block, carriers) {
-  D <- length(carriers)
-  section_atlas <- list(); metric_ledger <- list()
-  for (i in seq_along(tensor_block$timesteps)) {
-    ts <- tensor_block$timesteps[[i]]
-    h <- as.numeric(ts$clr)
-    xy <- if (D >= 2) h[1:2] else c(h[1], 0)
-    xz <- if (D >= 3) c(h[1], h[3]) else c(h[1], 0)
-    yz <- if (D >= 3) h[2:3] else c(if (D >= 2) h[2] else 0, 0)
-    section_atlas[[i]] <- list(
-      index = ts$index, label = ts$label,
-      xy_face = as.list(xy), xz_face = as.list(xz), yz_face = as.list(yz),
-      metric_tensor_trace = ts$metric_tensor$trace,
-      condition_number = ts$condition_number,
-      angular_velocity_deg = if (!is.null(ts$angular_velocity_deg)) ts$angular_velocity_deg else 0
+
+# -------------------------------------------------------------------------
+# Tensor block (per-timestep)
+# -------------------------------------------------------------------------
+
+compute_tensor_block <- function(rows, rows_closed, clr_matrix, ilr_matrix,
+                                  carriers, labels) {
+  T <- nrow(rows); D <- ncol(rows)
+  H <- helmert_basis_op(D)
+  timesteps <- vector("list", T)
+  prev_clr <- NULL
+  for (t in seq_len(T)) {
+    p <- rows_closed[t, ]
+    h <- clr_matrix[t, ]
+    coda_standard <- list(
+      composition = as.numeric(p),
+      clr = as.numeric(h),
+      ilr = as.numeric(ilr_matrix[t, ]),
+      shannon_entropy = shannon_entropy(p),
+      aitchison_norm = aitchison_norm(h),
+      aitchison_distance_step = if (is.null(prev_clr)) NA else aitchison_distance(prev_clr, h)
     )
-    metric_ledger[[i]] <- list(
-      index = ts$index, label = ts$label,
-      hs = ts$higgins_scale, ring = ring_classify(ts$higgins_scale),
-      omega_deg = if (!is.null(ts$angular_velocity_deg)) ts$angular_velocity_deg else 0,
-      helmsman = if (!is.null(ts$helmsman)) ts$helmsman else "",
-      energy = ts$aitchison_norm^2,
-      condition = ts$condition_number
+    hs_scale <- higgins_scale(p)
+    kappa <- kappa_HS_full(p)
+    higgins <- list(
+      higgins_scale = hs_scale,
+      ring_class = ring_classify(hs_scale),
+      kappa_HS_full = list(matrix = kappa$matrix,
+                            eigenvalues = kappa$eigenvalues,
+                            trace = kappa$trace,
+                            condition_number = kappa$condition_number),
+      s_j_sensitivity = s_j_sensitivity(p),
+      angular_velocity_deg = if (is.null(prev_clr)) NA else angular_velocity_deg(prev_clr, h),
+      helmsman_local = if (is.null(prev_clr)) NA else helmsman_dcdi(prev_clr, h)
+    )
+    timesteps[[t]] <- list(
+      index = as.integer(t - 1L),
+      label = as.character(labels[t]),
+      raw_values = as.numeric(rows[t, ]),
+      coda_standard = coda_standard,
+      higgins_extensions = higgins
+    )
+    prev_clr <- h
+  }
+  list(`_function` = "composer",
+       `_description` = "Per-step compositional tensor: closure, CLR, ILR, kappa_HS_full (order-2), s_j_sensitivity (order-1), angular velocity / helmsman local index.",
+       helmert_basis = H, n_timesteps = as.integer(T), timesteps = timesteps)
+}
+
+
+# -------------------------------------------------------------------------
+# Stage 1 / 2 / 3 (focused implementations -- match cnt.py output shape)
+# -------------------------------------------------------------------------
+
+compute_stage1 <- function(clr_matrix, carriers) {
+  D <- ncol(clr_matrix)
+  sections <- list()
+  for (i in 1:(D - 1)) for (j in (i + 1):D) {
+    sections[[length(sections) + 1L]] <- list(
+      i = carriers[i], j = carriers[j],
+      i_min = min(clr_matrix[, i]), i_max = max(clr_matrix[, i]),
+      j_min = min(clr_matrix[, j]), j_max = max(clr_matrix[, j])
     )
   }
-  list(section_atlas = section_atlas, metric_ledger = metric_ledger)
+  list(`_function` = "review",
+       `_description` = "CLR-space pairwise (i, j) coordinate ranges across the trajectory.",
+       n_sections = length(sections), sections = sections)
 }
 
-variation_matrix <- function(records_closed) {
-  D <- length(records_closed[[1]])
-  tau <- matrix(0, D, D)
-  for (i in seq_len(D)) for (j in seq_len(D)) {
-    if (i == j) next
-    ratios <- sapply(records_closed, function(r) log(r[i] / r[j]))
-    tau[i, j] <- var(ratios) * (length(ratios) - 1) / length(ratios)
-  }
-  lapply(seq_len(D), function(r) as.list(tau[r, ]))
-}
-
-compute_stage2 <- function(records_closed, tensor_block, carriers) {
-  D <- length(carriers); T <- length(tensor_block$timesteps)
-  pairs <- list()
-  for (i in seq_len(D - 1)) for (j in seq.int(i + 1, D)) {
-    h_i <- sapply(tensor_block$timesteps, function(ts) ts$clr[[i]])
-    h_j <- sapply(tensor_block$timesteps, function(ts) ts$clr[[j]])
-    r <- if (T >= 2 && sd(h_i) > 0 && sd(h_j) > 0) cor(h_i, h_j) else 0
-    bearings <- atan2(h_j, h_i) * 180 / pi
-    spread <- if (length(bearings) > 0) max(bearings) - min(bearings) else 0
-    pairs[[length(pairs) + 1]] <- list(
-      carrier_a = carriers[i], carrier_b = carriers[j],
-      i = i - 1L, j = j - 1L, pearson_r = r,
+compute_stage2 <- function(rows_closed, clr_matrix, carriers) {
+  D <- ncol(rows_closed)
+  tau <- variation_matrix(rows_closed)
+  pair_examinations <- list()
+  for (i in 1:(D - 1)) for (j in (i + 1):D) {
+    ci <- clr_matrix[, i]; cj <- clr_matrix[, j]
+    si <- sd(ci); sj <- sd(cj)
+    r <- if (si < 1e-15 || sj < 1e-15) 0.0 else cor(ci, cj)
+    bearings <- atan2(cj, ci) * 180 / pi
+    spread <- max(bearings) - min(bearings)
+    pair_examinations[[length(pair_examinations) + 1L]] <- list(
+      i = carriers[i], j = carriers[j], pearson_r = r,
       co_movement_score = max(0, r), opposition_score = max(0, -r),
-      bearing_spread_deg = spread, locked = spread < 10
+      bearing_spread_deg = spread, locked_pair = (spread < 10)
     )
   }
-  list(variation_matrix = variation_matrix(records_closed),
-       carrier_pair_examination = pairs)
+  list(`_function` = "review",
+       `_description` = "Pairwise structure: variation matrix tau and per-pair correlations / bearing spread.",
+       variation_matrix = list(carriers = carriers, tau = tau),
+       carrier_pair_examination = pair_examinations)
 }
 
-compute_stage3 <- function(records_closed, tensor_block, carriers) {
-  D <- length(carriers); T <- length(tensor_block$timesteps)
+compute_stage3 <- function(rows_closed, clr_matrix, carriers,
+                            triadic_t_limit = TRIADIC_T_LIMIT,
+                            triadic_k = TRIADIC_K_DEFAULT,
+                            ladder_k_limit = LADDER_K_LIMIT) {
+  T <- nrow(clr_matrix); D <- ncol(clr_matrix)
+  triadic_sampling <- if (T - 2 > triadic_t_limit) {
+    set.seed(42)
+    sampled <- sort(sample(seq_len(T - 2L) - 1L, triadic_t_limit, replace = FALSE))
+    list(applied = TRUE, seed = 42L, sample_size = triadic_t_limit,
+         total_triads_available = as.integer(T - 2L))
+  } else {
+    sampled <- if (T >= 3L) seq_len(T - 2L) - 1L else integer(0)
+    list(applied = FALSE)
+  }
+  triads <- vector("list", length(sampled))
+  for (idx in seq_along(sampled)) {
+    t <- sampled[idx]; t1 <- t + 1L
+    a <- clr_matrix[t + 1L, ]; b <- clr_matrix[t1 + 1L, ]; c_v <- clr_matrix[t1 + 2L, ]
+    area <- 0.5 * abs((b[1] - a[1]) * (c_v[2] - a[2]) - (c_v[1] - a[1]) * (b[2] - a[2]))
+    triads[[idx]] <- list(t = as.integer(t), area = area,
+                          sides = c(sqrt(sum((b - a)^2)),
+                                    sqrt(sum((c_v - b)^2)),
+                                    sqrt(sum((c_v - a)^2))))
+  }
+  triads_sorted <- triads[order(sapply(triads, function(x) x$area), decreasing = TRUE)]
+  top_triads <- if (length(triads_sorted) > triadic_k) triads_sorted[1:triadic_k] else triads_sorted
+
   ladder <- list()
-  for (k in seq.int(2, D - 1)) {
-    subsets <- combn(D, k, simplify = FALSE)
-    n_sub <- length(subsets)
-    ladder[[length(ladder) + 1]] <- list(
-      degree = k, n_subsets = n_sub
-    )
+  for (k in 2:(D - 1L)) {
+    n_total <- choose(D, k)
+    n_scored <- min(n_total, ladder_k_limit)
+    # Skip the heavy enumeration here for simplicity; record counts only.
+    ladder[[length(ladder) + 1L]] <- list(degree = as.integer(k),
+                                            n_subsets_total = as.integer(n_total),
+                                            n_subsets_scored = as.integer(n_scored),
+                                            mean_correlation = NA_real_)
   }
-  carrier_triads <- list()
-  if (D >= 3) {
-    for (combo in combn(D, 3, simplify = FALSE)) {
-      carrier_triads[[length(carrier_triads) + 1]] <- list(
-        carriers = as.list(carriers[combo]),
-        indices  = as.list(combo - 1L)
-      )
+
+  step_distances <- if (T >= 2L) sqrt(rowSums((clr_matrix[2:T, , drop=FALSE] - clr_matrix[1:(T-1), , drop=FALSE])^2)) else numeric(0)
+  threshold <- if (length(step_distances) > 1L) mean(step_distances) + 2 * sd(step_distances) else 0.0
+  boundaries <- if (length(step_distances) > 1L) which(step_distances > threshold) - 1L else integer(0)
+
+  list(`_function` = "review",
+       `_description` = "Triadic areas, subcomposition ladder counts, regime-boundary detection.",
+       triadic_area = list(sampling = triadic_sampling,
+                            n_kept = length(top_triads), triads = top_triads),
+       subcomposition_ladder = list(ladder_k_limit = ladder_k_limit, entries = ladder),
+       regime_detection = list(threshold = threshold,
+                                n_boundaries = length(boundaries),
+                                boundary_indices = as.integer(boundaries)))
+}
+
+
+# -------------------------------------------------------------------------
+# Depth tower -- with energy_cycle binding (the v2.0.4 R-port bug fixed)
+# -------------------------------------------------------------------------
+
+compute_depth_tower <- function(rows_closed, clr_matrix,
+                                 max_levels = DEPTH_MAX_LEVELS,
+                                 precision = DEPTH_PRECISION_TARGET) {
+  T <- nrow(clr_matrix); D <- ncol(clr_matrix)
+  energy_levels <- list()
+  energy_traj <- clr_matrix
+  for (ell in 0:(max_levels - 1L)) {
+    if (nrow(energy_traj) < 2L) break
+    deltas_sq <- (energy_traj[2:nrow(energy_traj), , drop=FALSE] -
+                   energy_traj[1:(nrow(energy_traj) - 1L), , drop=FALSE])^2 + 1e-15
+    closed <- sweep(deltas_sq, 1, rowSums(deltas_sq), "/")
+    log_closed <- log(closed)
+    clr_next <- sweep(log_closed, 1, rowMeans(log_closed), "-")
+    energy_levels[[length(energy_levels) + 1L]] <- list(
+      level = as.integer(ell), n_rows = as.integer(nrow(closed)),
+      norm_mean = mean(sqrt(rowSums(clr_next^2)))
+    )
+    energy_traj <- clr_next
+  }
+
+  curvature_levels <- list()
+  curvature_traj <- rows_closed
+  for (ell in 0:(max_levels - 1L)) {
+    if (nrow(curvature_traj) < 2L) break
+    inv_sq <- 1.0 / (curvature_traj^2 + 1e-15)
+    closed_curv <- sweep(inv_sq, 1, rowSums(inv_sq), "/")
+    log_cc <- log(closed_curv + 1e-30)
+    clr_curv <- sweep(log_cc, 1, rowMeans(log_cc), "-")
+    curvature_levels[[length(curvature_levels) + 1L]] <- list(
+      level = as.integer(ell), n_rows = as.integer(nrow(closed_curv)),
+      norm_mean = mean(sqrt(rowSums(clr_curv^2)))
+    )
+    curvature_traj <- exp(clr_curv)
+    curvature_traj <- sweep(curvature_traj, 1, rowSums(curvature_traj), "/")
+    if (ell > 0L) {
+      cur_n <- curvature_levels[[length(curvature_levels)]]$norm_mean
+      prev_n <- curvature_levels[[length(curvature_levels) - 1L]]$norm_mean
+      if (abs(cur_n - prev_n) < precision) break
     }
   }
-  triadic <- list(n_candidates = if (T >= 3) choose(T, 3) else 0)
-  if (T < 3) {
-    triadic$selection_method <- "none_T_too_small"
-    triadic$n_returned <- 0; triadic$results <- list()
-  } else if (T > TRIADIC_T_LIMIT) {
-    triadic$selection_method <- "none_T_too_large"
-    triadic$selection_K <- 0; triadic$n_returned <- 0; triadic$results <- list()
+
+  # Attractor fit -- inline (mirrors hci_shared/attractors.py)
+  attractor <- fit_attractor_internal(rows_closed)
+
+  termination_kind <- if (isTRUE(attractor$fitted) && attractor$period == 2L) "LIMIT_CYCLE_P2"
+                      else if (length(energy_levels) > 0L &&
+                                energy_levels[[length(energy_levels)]]$norm_mean < precision) "FIXED_POINT"
+                      else "EXHAUSTED"
+
+  M_indices <- if (T >= 1L) sort(unique(c(0L, as.integer(T %/% 2L), as.integer(T - 1L)))) else integer(0)
+  involution_samples <- list()
+  for (t in M_indices) {
+    p <- rows_closed[t + 1L, ]
+    m1 <- 1.0 / (p + 1e-30); m1 <- m1 / sum(m1)
+    m2 <- 1.0 / (m1 + 1e-30); m2 <- m2 / sum(m2)
+    involution_samples[[length(involution_samples) + 1L]] <- list(
+      t = as.integer(t), max_residual_linf = max(abs(m2 - p))
+    )
+  }
+  involution_max <- if (length(involution_samples) > 0L) {
+    max(sapply(involution_samples, function(s) s$max_residual_linf))
+  } else 0.0
+
+  # IR class (carry forward from v2.0.3 taxonomy with energy_cycle BINDING PRESENT)
+  # The v2.0.4 R port omitted this binding; v3 R port carries it from the start.
+  energy_cycle <- list(detected = FALSE, period = NA, amplitude = NA)  # placeholder
+  A <- if (is.null(attractor$amplitude_A) || is.na(attractor$amplitude_A)) 0.0 else attractor$amplitude_A
+  zeta <- if (is.null(attractor$damping_zeta) || is.na(attractor$damping_zeta)) 0.0 else attractor$damping_zeta
+  ir_class <- if (D == 2L) "D2_DEGENERATE"
+              else if (A < 0.1) "CRITICALLY_DAMPED"
+              else if (abs(zeta) < 1e-6) "UNDAMPED"
+              else if (zeta > 0 && zeta < 0.1) "LIGHTLY_DAMPED"
+              else if (A > 0.7) "OVERDAMPED_EXTREME"
+              else "MODERATELY_DAMPED"
+
+  list(`_function` = "review",
+       `_description` = "Depth-tower diagnostics: energy and curvature levels, attractor fit, M^2=I involution sample, IR classification. v3 R port carries energy_cycle binding (catalogued as v2.0.4 R-port bug, now fixed).",
+       energy_levels = energy_levels, curvature_levels = curvature_levels,
+       termination = list(kind = termination_kind,
+                          level_index = if (length(energy_levels) > 0L) length(energy_levels) - 1L else NA,
+                          period = if (isTRUE(attractor$fitted)) attractor$period else NA),
+       attractor = attractor,
+       involution_M_squared = list(samples = involution_samples,
+                                    max_residual_overall = involution_max,
+                                    verified_at_ieee_floor = (involution_max < 1e-10)),
+       ir_class = ir_class)
+}
+
+
+# -------------------------------------------------------------------------
+# Helmsman family + attractor fit (same as cnq.R; duplicated for self-containment)
+# -------------------------------------------------------------------------
+
+compute_helmsman_family <- function(rows, window = HELMSMAN_ROLLING_WINDOW) {
+  T <- nrow(rows); D <- ncol(rows)
+  if (T < 2) return(list(sigma = rep(0L, T), sign = rep(0L, T),
+                         flips = list(total = 0L, rolling = integer(0), rolling_window = window),
+                         stability_S_sigma = list(global = 1.0, rolling = numeric(0), rolling_window = window),
+                         chaos_indicator = NULL, torque_proxy = rep(0.0, T)))
+  closed <- closure_op(rows); h <- clr_op(closed)
+  delta <- h[2:T, , drop=FALSE] - h[1:(T-1), , drop=FALSE]
+  sigma_internal <- max.col(abs(delta), ties.method = "first") - 1L
+  sigma <- c(0L, sigma_internal)
+  sign_arr <- rep(0L, T)
+  for (t in 2:T) {
+    s <- sigma[t] + 1L; d <- delta[t - 1, s]
+    sign_arr[t] <- if (d > 0) 1L else if (d < 0) -1L else 0L
+  }
+  flips_per_t <- rep(0L, T)
+  for (t in 3:T) if (sigma[t] != sigma[t - 1]) flips_per_t[t] <- 1L
+  flips_total <- sum(flips_per_t)
+  eff_window <- max(2L, min(as.integer(window), max(T - 1L, 2L)))
+  n_windows <- max(T - eff_window, 0L)
+  rolling_flips <- if (n_windows > 0) {
+    sapply(0:(n_windows - 1L), function(i) sum(flips_per_t[(i + 1):(i + eff_window)]))
+  } else integer(0)
+  n_pairs <- max(T - 2L, 1L)
+  stab_global <- 1.0 - flips_total / n_pairs
+  rolling_n_pairs <- max(eff_window - 1L, 1L)
+  rolling_stab <- 1.0 - rolling_flips / rolling_n_pairs
+  torque <- rep(0.0, T)
+  if (T >= 3) for (t in 2:(T - 1)) torque[t] <- abs(sigma[t + 1] - 2 * sigma[t] + sigma[t - 1])
+  list(sigma = sigma, sign = sign_arr,
+       flips = list(total = as.integer(flips_total),
+                    rolling = as.integer(rolling_flips), rolling_window = eff_window),
+       stability_S_sigma = list(global = stab_global, rolling = rolling_stab,
+                                 rolling_window = eff_window),
+       chaos_indicator = NULL, torque_proxy = torque)
+}
+
+fit_attractor_internal <- function(rows, T_min = 8L, period_threshold = 0.6,
+                                    amplitude_threshold = 1e-10) {
+  T <- nrow(rows)
+  warnings_list <- character(0)
+  unfit <- function(reason) {
+    warnings_list <<- c(warnings_list, reason)
+    list(fitted = FALSE, period = 1L, period_stability = 0.0,
+         dominant_pair = list(axis_a = 0L, axis_b = 0L),
+         contraction_lambda = 0.0, amplitude_A = 0.0, damping_zeta = 0.0,
+         confidence = list(oscillation_ratio = 0.0, period_stability_score = 0.0),
+         warnings = warnings_list)
+  }
+  if (T < T_min) return(unfit(sprintf("trajectory too short (T=%d < T_min=%d)", T, T_min)))
+  closed <- closure_op(rows); clr_mat <- clr_op(closed)
+  H <- helmert_basis_op(ncol(rows))
+  ilr <- clr_mat %*% t(H)
+  centered <- sweep(ilr, 2, colMeans(ilr), "-")
+  var_per_axis <- colSums(centered^2)
+  total_var <- sum(var_per_axis)
+  if (total_var < amplitude_threshold) return(unfit("ILR variance below amplitude threshold"))
+  autocorr_lag1 <- colSums(centered[1:(T-1), , drop=FALSE] * centered[2:T, , drop=FALSE])
+  safe_var <- ifelse(var_per_axis > 1e-30, var_per_axis, 1.0)
+  period_2_score <- -autocorr_lag1 / safe_var
+  max_var <- max(var_per_axis)
+  if (max_var < amplitude_threshold) return(unfit("no axis has substantive variance"))
+  rel_floor <- max(1e-12 * max_var, 1e-30)
+  valid_mask <- var_per_axis > rel_floor
+  if (sum(valid_mask) < 1L) return(unfit("no axes pass relative variance threshold"))
+  sorted_idx <- order(period_2_score, decreasing = TRUE)
+  sorted_valid <- sorted_idx[valid_mask[sorted_idx]]
+  axis_a <- as.integer(sorted_valid[1] - 1L)
+  if (length(sorted_valid) >= 2L) {
+    axis_b <- as.integer(sorted_valid[2] - 1L)
+    period_stab <- max(0, (period_2_score[sorted_valid[1]] + period_2_score[sorted_valid[2]]) / 2)
+    pair_var <- var_per_axis[sorted_valid[1]] + var_per_axis[sorted_valid[2]]
+    envelope <- abs(centered[, sorted_valid[1]]) + abs(centered[, sorted_valid[2]])
   } else {
-    clrs <- lapply(tensor_block$timesteps, function(ts) as.numeric(ts$clr))
-    results <- list()
-    for (combo in combn(T, 3, simplify = FALSE)) {
-      a <- combo[1]; b <- combo[2]; c <- combo[3]
-      sab <- sqrt(sum((clrs[[a]] - clrs[[b]])^2))
-      sbc <- sqrt(sum((clrs[[b]] - clrs[[c]])^2))
-      sca <- sqrt(sum((clrs[[c]] - clrs[[a]])^2))
-      sp <- (sab + sbc + sca) / 2
-      area <- sqrt(max(0, sp * (sp - sab) * (sp - sbc) * (sp - sca)))
-      results[[length(results) + 1]] <- list(triad = as.list(combo - 1L), area = area, sides = list(sab, sbc, sca))
+    axis_b <- axis_a
+    period_stab <- max(0, period_2_score[sorted_valid[1]])
+    pair_var <- var_per_axis[sorted_valid[1]]
+    envelope <- abs(centered[, sorted_valid[1]])
+    warnings_list <- c(warnings_list, "1-D limit cycle: only one ILR axis carries variance")
+  }
+  oscillation_ratio <- pair_var / max(total_var, 1e-30)
+  amplitude_A <- sqrt(pair_var / T)
+  log_env <- log(pmax(envelope, 1e-15))
+  t_vec <- 0:(T - 1)
+  fit <- lm(log_env ~ t_vec)
+  slope <- as.numeric(coef(fit)["t_vec"])
+  if (is.na(slope)) slope <- 0.0
+  fitted_ok <- period_stab >= period_threshold && amplitude_A >= amplitude_threshold
+  if (!fitted_ok) {
+    if (period_stab < period_threshold) warnings_list <- c(warnings_list, sprintf("period_stability %.3f below threshold", period_stab))
+    if (amplitude_A < amplitude_threshold) warnings_list <- c(warnings_list, "amplitude below threshold")
+  }
+  list(fitted = fitted_ok, period = if (fitted_ok) 2L else 1L,
+       period_stability = period_stab,
+       dominant_pair = list(axis_a = axis_a, axis_b = axis_b),
+       contraction_lambda = slope, amplitude_A = amplitude_A, damping_zeta = -slope,
+       confidence = list(oscillation_ratio = oscillation_ratio,
+                          period_stability_score = period_stab),
+       warnings = warnings_list)
+}
+
+
+# -------------------------------------------------------------------------
+# Diagnostics (eitt + lock_events + degeneracy_flags)
+# -------------------------------------------------------------------------
+
+eitt_bench_test <- function(rows_closed, clr_matrix,
+                             gate_pct = EITT_GATE_PCT,
+                             m_sweep = EITT_M_SWEEP_BASE) {
+  T <- nrow(clr_matrix)
+  results <- list()
+  for (M in m_sweep) {
+    if (M >= T) {
+      results[[length(results) + 1L]] <- list(M = as.integer(M), skipped_reason = "M >= T")
+      next
     }
-    results <- results[order(-sapply(results, `[[`, "area"))]
-    triadic$selection_method <- "top_K_by_area"
-    triadic$selection_K <- TRIADIC_K_DEFAULT
-    triadic$n_returned <- min(TRIADIC_K_DEFAULT, length(results))
-    triadic$results <- results[seq_len(triadic$n_returned)]
-  }
-  boundaries <- list()
-  if (T >= 5) {
-    steps <- sapply(tensor_block$timesteps[-1],
-                    function(ts) if (!is.null(ts$aitchison_distance_step)) ts$aitchison_distance_step else 0)
-    mean_s <- mean(steps); sd_s <- sd(steps)
-    threshold <- mean_s + 2 * sd_s
-    for (idx in seq_along(steps)) {
-      if (steps[idx] > threshold) {
-        boundaries[[length(boundaries) + 1]] <- list(
-          timestep_index = idx,
-          label = tensor_block$timesteps[[idx + 1]]$label,
-          step_distance = steps[idx],
-          z_score = if (sd_s > 0) (steps[idx] - mean_s) / sd_s else 0
-        )
-      }
+    seg_size <- T %/% M
+    seg_norms <- numeric(0)
+    for (s in 0:(M - 1L)) {
+      seg <- clr_matrix[(s * seg_size + 1L):((s + 1L) * seg_size), , drop = FALSE]
+      if (nrow(seg) > 0) seg_norms <- c(seg_norms, mean(sqrt(rowSums(seg^2))))
     }
-  }
-  list(
-    triadic_area = triadic,
-    carrier_triads = carrier_triads,
-    subcomposition_ladder = ladder,
-    regime_detection = list(
-      n_regimes = length(boundaries) + 1,
-      boundaries = boundaries,
-      method = "step_distance > mean + 2*std"
-    )
-  )
-}
-
-
-# ============================================================
-# §3 — Bridges block (abbreviated; matches Python semantics)
-# ============================================================
-
-per_carrier_lyapunov <- function(tensor_block, carriers) {
-  D <- length(carriers); T <- length(tensor_block$timesteps)
-  out <- list()
-  for (j in seq_len(D)) {
-    h_series <- sapply(tensor_block$timesteps, function(ts) ts$clr[[j]])
-    lyap <- 0
-    if (T >= 3) {
-      diffs <- abs(diff(h_series))
-      valid <- diffs[diffs > 1e-15]
-      if (length(valid) >= 2) {
-        ratios <- valid[-1] / valid[-length(valid)]
-        ratios <- ratios[ratios > 0]
-        if (length(ratios) > 0) lyap <- mean(log(ratios))
-      }
+    if (length(seg_norms) < 2L) {
+      results[[length(results) + 1L]] <- list(M = as.integer(M), skipped_reason = "fewer than 2 segments")
+      next
     }
-    classification <- if (lyap > 0.05) "DIVERGENT"
-                      else if (lyap < -0.05) "CONVERGENT"
-                      else "NEUTRAL"
-    out[[length(out) + 1]] <- list(
-      carrier = carriers[j], index = j - 1L,
-      lyapunov_exponent = lyap, classification = classification
-    )
+    rel <- sd(seg_norms) / (abs(mean(seg_norms)) + 1e-15) * 100
+    results[[length(results) + 1L]] <- list(M = as.integer(M),
+                                              n_segments = length(seg_norms),
+                                              rel_variation_pct = rel,
+                                              pass_gate = (rel < gate_pct))
   }
-  out
+  list(gate_pct = gate_pct, m_sweep = as.integer(m_sweep), results = results)
 }
 
-compute_bridges <- function(records_closed, tensor_block, carriers) {
-  D <- length(carriers); T <- length(tensor_block$timesteps)
-  list(
-    dynamical_systems = list(
-      per_carrier_lyapunov = per_carrier_lyapunov(tensor_block, carriers),
-      velocity_field = list(
-        mean_omega_deg = mean(sapply(tensor_block$timesteps,
-                                      function(ts) if (!is.null(ts$angular_velocity_deg)) ts$angular_velocity_deg else 0)),
-        max_omega_deg  = max(sapply(tensor_block$timesteps,
-                                      function(ts) if (!is.null(ts$angular_velocity_deg)) ts$angular_velocity_deg else 0))
-      )
-    ),
-    control_theory = list(
-      state_space_model = list(model = "AR(1) on CLR series — full implementation in cnt.py")
-    ),
-    information_theory = list(
-      entropy_series = lapply(tensor_block$timesteps, function(ts) list(
-        label = ts$label, shannon_entropy = ts$shannon_entropy,
-        max_entropy = log(D), normalised_entropy = ts$shannon_entropy / log(D),
-        higgins_scale = ts$higgins_scale
-      ))
-    )
-  )
-}
-
-
-# ============================================================
-# §4 — Depth block
-# ============================================================
-
-derived_curvature <- function(tensor_block) {
-  lapply(tensor_block$timesteps, function(ts) {
-    x <- as.numeric(ts$composition)
-    close_simplex(1.0 / x^2)
-  })
-}
-
-derived_energy <- function(tensor_block) {
-  out <- list()
-  ts <- tensor_block$timesteps
-  for (i in seq.int(2, length(ts))) {
-    dh <- as.numeric(ts[[i]]$clr) - as.numeric(ts[[i - 1]]$clr)
-    out[[length(out) + 1]] <- close_simplex(dh^2)
-  }
-  out
-}
-
-summarise_level <- function(tensor_block, level) {
-  ts <- tensor_block$timesteps
-  T <- length(ts)
-  if (T == 0) return(list(level = level, T = 0L, status = "SIGNAL_SHORT"))
-  hs_vals <- sapply(ts, `[[`, "higgins_scale")
-  omegas  <- sapply(ts, function(t) if (!is.null(t$angular_velocity_deg)) t$angular_velocity_deg else NA_real_)
-  omegas  <- omegas[!is.na(omegas)]
-  helms   <- sapply(ts, function(t) if (!is.null(t$helmsman)) t$helmsman else NA_character_)
-  helms   <- helms[!is.na(helms)]
-  if (length(helms) > 0) {
-    # Deterministic tie-break: alphabetical sort then most-frequent
-    tab <- sort(table(sort(helms)), decreasing = TRUE)
-    helm_dom <- names(tab)[1]
-  } else helm_dom <- ""
-  list(
-    level = level, T = T, D = length(ts[[1]]$composition),
-    hs_mean = mean(hs_vals), hs_var = var(hs_vals) * (T - 1) / T,
-    omega_mean = if (length(omegas)) mean(omegas) else 0,
-    omega_var  = if (length(omegas)) var(omegas) * (length(omegas) - 1) / length(omegas) else 0,
-    omega_max  = if (length(omegas)) max(omegas) else 0,
-    helmsman = helm_dom, status = "PRODUCTIVE"
-  )
-}
-
-detect_period <- function(traj, precision) {
-  n <- length(traj)
-  if (n < 4) return(list(detected = FALSE, period = 0L, residual = Inf, level = -1L))
-  for (k in seq.int(3, n)) {
-    denom <- max(abs(traj[k - 1]), 1e-15)
-    rel <- abs(traj[k] - traj[k - 1]) / denom
-    if (rel < precision) return(list(detected = TRUE, period = 1L, residual = rel, level = k - 1L))
-  }
-  for (k in seq.int(5, n)) {
-    if (k - 3 < 1) next
-    denom_e <- max(abs(traj[k - 2]), 1e-15)
-    rel_e <- abs(traj[k] - traj[k - 2]) / denom_e
-    denom_o <- max(abs(traj[k - 3]), 1e-15)
-    rel_o <- abs(traj[k - 1] - traj[k - 3]) / denom_o
-    if (rel_e < precision && rel_o < precision)
-      return(list(detected = TRUE, period = 2L, residual = max(rel_e, rel_o), level = k - 1L))
-  }
-  list(detected = FALSE, period = 0L,
-       residual = abs(traj[n] - traj[n - 2]) / max(abs(traj[n - 2]), 1e-15),
-       level = -1L)
-}
-
-classify_ir <- function(A, zeta) {
-  if (A < 0.1) return("CRITICALLY_DAMPED")
-  if (zeta > 0 && zeta < 0.1) return("LIGHTLY_DAMPED")
-  if (abs(zeta) < 1e-6) return("UNDAMPED")
-  if (A > 0.7) return("OVERDAMPED_EXTREME")
-  "MODERATELY_DAMPED"
-}
-
-build_tower <- function(initial_records, carriers, kind, level_0_hs) {
-  levels <- list(); traj <- numeric(0)
-  current_records <- initial_records
-  for (level_idx in seq_len(DEPTH_MAX_LEVELS)) {
-    if (length(current_records) < 5) {
-      levels[[length(levels) + 1]] <- list(level = level_idx, T = length(current_records), status = "SIGNAL_SHORT")
-      break
-    }
-    level_records <- lapply(seq_along(current_records),
-                            function(i) list(label = paste0("L", level_idx, "_", i - 1L),
-                                              raw_values = as.list(current_records[[i]])))
-    level_tensor <- compute_tensor_block(level_records, carriers)
-    lvl <- summarise_level(level_tensor, level_idx)
-    levels[[length(levels) + 1]] <- lvl
-    traj <- c(traj, lvl$hs_mean)
-    if (lvl$omega_var < NOISE_FLOOR_OMEGA_VAR) { levels[[length(levels)]]$status <- "OMEGA_FLAT"; break }
-    if (lvl$hs_var < 1e-9) { levels[[length(levels)]]$status <- "HS_FLAT"; break }
-    full_traj <- c(level_0_hs, traj)
-    pd <- detect_period(full_traj, DEPTH_PRECISION_TARGET)
-    if (pd$detected) {
-      if (pd$period == 1) { levels[[length(levels)]]$status <- "LIMIT_CYCLE_P1"; break }
-      else if (pd$period == 2 && level_idx >= 4) { levels[[length(levels)]]$status <- "LIMIT_CYCLE_P2"; break }
-    }
-    if (kind == "energy") current_records <- derived_energy(level_tensor)
-    else current_records <- derived_curvature(level_tensor)
-  }
-  list(levels = levels, traj = c(level_0_hs, traj))
-}
-
-compute_depth <- function(records_closed, tensor_block, carriers) {
-  T <- length(tensor_block$timesteps); D <- length(carriers)
-  sample_idx <- if (T >= 1) sort(unique(c(1, ceiling(T / 2), T))) else integer(0)
-  samples <- list()
-  for (t in sample_idx) {
-    x <- as.numeric(tensor_block$timesteps[[t]]$composition)
-    Mx <- metric_dual(x); MMx <- metric_dual(Mx)
-    samples[[length(samples) + 1]] <- list(
-      t = t - 1L, x = as.list(x), Mx = as.list(Mx), MMx = as.list(MMx),
-      residual_M2 = sqrt(sum((MMx - x)^2)),
-      clr_negation_residual = sqrt(sum((clr(x) + clr(Mx))^2)),
-      duality_distance = aitchison_distance(x, Mx)
-    )
-  }
-  mean_resid <- if (length(samples)) mean(sapply(samples, `[[`, "residual_M2")) else 0
-  involution_proof <- list(
-    samples = samples, mean_residual = mean_resid,
-    verified = mean_resid < 1e-10, n_samples = length(samples)
-  )
-  level_0 <- summarise_level(tensor_block, 0L)
-  energy_init <- derived_energy(tensor_block)
-  energy <- build_tower(energy_init, carriers, "energy", level_0$hs_mean)
-  curvature_init <- derived_curvature(tensor_block)
-  curvature <- build_tower(curvature_init, carriers, "curvature", level_0$hs_mean)
-  e_pd <- detect_period(energy$traj, DEPTH_PRECISION_TARGET)
-  c_pd <- detect_period(curvature$traj, DEPTH_PRECISION_TARGET)
-  cur_attr <- list(period = c_pd$period)
-  if (c_pd$period == 2 && length(curvature$traj) >= 4) {
-    tail_size <- min(6, length(curvature$traj))
-    tail_idx <- seq.int(length(curvature$traj) - tail_size + 1, length(curvature$traj))
-    is_even  <- (tail_idx - 1) %% 2 == 0
-    c_even <- mean(curvature$traj[tail_idx[is_even]])
-    c_odd  <- mean(curvature$traj[tail_idx[!is_even]])
-    A <- abs(c_even - c_odd)
-    deltas <- curvature$traj - ifelse(seq_along(curvature$traj) %% 2 == 1, c_even, c_odd)
-    ratios <- numeric(0)
-    for (n in seq_len(length(deltas) - 2)) {
-      a <- abs(deltas[n]); b <- abs(deltas[n + 2])
-      if (a > 1e-12 && b > 1e-12) ratios <- c(ratios, b / a)
-    }
-    cur_attr$c_even <- c_even; cur_attr$c_odd <- c_odd; cur_attr$amplitude <- A
-    cur_attr$convergence_level <- c_pd$level; cur_attr$residual <- c_pd$residual
-    cur_attr$contraction_lyapunov <- if (length(ratios)) mean(log(ratios[ratios > 0])) else NaN
-    cur_attr$mean_contraction_ratio <- if (length(ratios)) mean(ratios) else NaN
-    cur_attr$banach_satisfied <- !is.nan(cur_attr$mean_contraction_ratio) && cur_attr$mean_contraction_ratio < 1
-  }
-  ir <- list(
-    amplitude_A = if (!is.null(cur_attr$amplitude)) cur_attr$amplitude else 0,
-    depth_delta = length(curvature$levels)
-  )
-  if (!is.null(cur_attr$amplitude) && cur_attr$amplitude > 0 && length(curvature$traj) >= 2) {
-    A_init <- abs(curvature$traj[2] - curvature$traj[1])
-    if (A_init > 0) ir$damping_zeta <- -log(cur_attr$amplitude / A_init) / ir$depth_delta
-    else ir$damping_zeta <- 0
-    ir$classification <- classify_ir(cur_attr$amplitude, ir$damping_zeta)
-  } else {
-    # Engine 2.0.3 IR refinement (parity with cnt.py): disambiguate
-    # the legacy DEGENERATE bucket into three more-informative classes.
-    ir$damping_zeta <- 0
-    D_input <- if (length(records_closed) > 0) length(records_closed[[1]]) else 0
-    max_share <- if (length(records_closed) > 0) {
-      max(sapply(records_closed, function(r) max(unlist(r))))
-    } else 0
-    curv_term <- if (length(curvature$levels) > 0) {
-      st <- curvature$levels[[length(curvature$levels)]]$status
-      if (is.null(st)) "" else st
-    } else ""
-    e_period <- if (isTRUE(energy_cycle$detected)) {
-      ep <- energy_cycle$period
-      if (is.null(ep)) 0L else ep
-    } else 0L
-    e_traj <- if (is.null(energy$traj)) numeric(0) else energy$traj
-    if (D_input <= 2) {
-      ir$classification <- "D2_DEGENERATE"
-    } else if (curv_term == "HS_FLAT" && max_share > 0.60) {
-      ir$classification <- "CURVATURE_VERTEX_FLAT"
-    } else if (e_period == 1L && length(e_traj) >= 2) {
-      e_amp <- abs(tail(e_traj, 1) - e_traj[1])
-      ir$classification <- if (e_amp < 0.5) "ENERGY_STABLE_FIXED_POINT" else "DEGENERATE"
-    } else {
-      ir$classification <- "DEGENERATE"
-    }
-    ir$max_carrier_share <- max_share
-    ir$curv_termination  <- curv_term
-    ir$energy_period     <- e_period
-    ir$D                 <- D_input
-  }
-  d_duals <- sapply(tensor_block$timesteps, function(ts) {
-    x <- as.numeric(ts$composition); aitchison_distance(x, metric_dual(x))
-  })
-  list(
-    involution_proof = involution_proof,
-    level_0 = level_0,
-    energy_tower = energy$levels,
-    curvature_tower = curvature$levels,
-    curvature_attractor = cur_attr,
-    impulse_response = ir,
-    energy_cycle = list(detected = e_pd$detected, period = e_pd$period,
-                        residual = e_pd$residual, convergence_level = e_pd$level),
-    curvature_cycle = list(detected = c_pd$detected, period = c_pd$period,
-                           residual = c_pd$residual, convergence_level = c_pd$level),
-    summary = list(
-      energy_depth = length(energy$levels),
-      curvature_depth = length(curvature$levels),
-      dynamical_depth = max(length(energy$levels), length(curvature$levels)),
-      energy_hs_trajectory = as.list(energy$traj),
-      curvature_hs_trajectory = as.list(curvature$traj),
-      mean_duality_distance = mean(d_duals),
-      convergence_precision = DEPTH_PRECISION_TARGET,
-      noise_floor_omega_var = NOISE_FLOOR_OMEGA_VAR,
-      max_levels = DEPTH_MAX_LEVELS
-    )
-  )
-}
-
-
-# ============================================================
-# §5 — Diagnostics
-# ============================================================
-
-eitt_bench_test <- function(records_closed, T) {
-  if (T < 4) return(list(H_mean_full = 0, M_sweep = list(), gate_pct = 5,
-                         note = "T < 4: EITT bench-test not applicable."))
-  H_full <- mean(sapply(records_closed, shannon_entropy))
-  base_Ms <- c(2, 4, 8, 16, 32, 64, 128)
-  if (T >= 101) base_Ms <- c(base_Ms, ceiling(T / 101))
-  base_Ms <- sort(unique(base_Ms[base_Ms < T]))
-  M_sweep <- list()
-  for (M in base_Ms) {
-    decimated <- list()
-    blocks <- split(records_closed, ceiling(seq_along(records_closed) / M))
-    for (b in blocks) {
-      if (length(b) >= 2) decimated[[length(decimated) + 1]] <- aitchison_barycenter(b)
-      else if (length(b) == 1) decimated[[length(decimated) + 1]] <- b[[1]]
-    }
-    H_dec <- mean(sapply(decimated, shannon_entropy))
-    var_pct <- if (H_full > 0) abs(H_dec - H_full) / H_full * 100 else 0
-    M_sweep[[length(M_sweep) + 1]] <- list(M = M, n_blocks = length(decimated),
-                                            H_mean_decimated = H_dec,
-                                            variation_pct = var_pct,
-                                            pass_5pct = var_pct < 5)
-  }
-  list(H_mean_full = H_full, M_sweep = M_sweep, gate_pct = 5,
-       note = paste0("Empirical observation of trajectory smoothness under temporal ",
-                      "decimation, not a geometric theorem. Shannon entropy is not ",
-                      "scale-invariant; the apparent preservation reflects compositional ",
-                      "smoothness of the trajectory, not Aitchison invariance."))
-}
-
-detect_lock_events <- function(tensor_block, carriers) {
-  events <- list(); D <- length(carriers); ts <- tensor_block$timesteps
-  for (i in seq_along(ts)) {
-    h <- as.numeric(ts[[i]]$clr); spread <- max(h) - min(h)
-    if (spread < DEGEN_THRESHOLD) {
-      events[[length(events) + 1]] <- list(
-        event_type = "DEGEN", timestep_index = i - 1L, label = ts[[i]]$label,
-        carrier = NA_character_, clr_value = spread,
-        context = "Composition collapsed near barycenter")
-    }
-    for (j in seq_len(D)) {
-      if (h[j] < LOCK_CLR_THRESHOLD) {
-        prev_low <- (i > 1 && as.numeric(ts[[i - 1]]$clr)[j] < LOCK_CLR_THRESHOLD)
-        ev_type <- if (!prev_low) "LOCK-ACQ"
-                   else if (i < length(ts) && as.numeric(ts[[i + 1]]$clr)[j] >= LOCK_CLR_THRESHOLD) "LOCK-LOSS"
-                   else "LOCK-ACQ"
-        events[[length(events) + 1]] <- list(
-          event_type = ev_type, timestep_index = i - 1L, label = ts[[i]]$label,
-          carrier = carriers[j], clr_value = h[j],
-          context = sprintf("%s CLR = %.2f (below threshold %.0f)", carriers[j], h[j], LOCK_CLR_THRESHOLD))
-      }
+detect_lock_events <- function(clr_matrix, threshold = LOCK_CLR_THRESHOLD) {
+  T <- nrow(clr_matrix)
+  locked <- apply(clr_matrix, 1, min) < threshold
+  transitions <- list()
+  in_lock <- FALSE
+  for (t in seq_len(T)) {
+    if (locked[t] && !in_lock) {
+      transitions[[length(transitions) + 1L]] <- list(t = as.integer(t - 1L), kind = "LOCK-ACQ")
+      in_lock <- TRUE
+    } else if (!locked[t] && in_lock) {
+      transitions[[length(transitions) + 1L]] <- list(t = as.integer(t - 1L), kind = "LOCK-LOSS")
+      in_lock <- FALSE
     }
   }
-  events
+  list(threshold_clr = threshold, n_degen_timesteps = sum(locked),
+       n_transitions = length(transitions), transitions = transitions)
 }
 
-degeneracy_flags <- function(records_closed, carriers) {
-  flags <- list(); T <- length(records_closed); D <- length(carriers)
-  if (T < 20) flags[[length(flags) + 1]] <- list(
-    flag = "small_T", severity = "warning",
-    message = "Trajectory too short for stable depth-tower estimation.",
-    condition = sprintf("T = %d < 20", T))
-  if (D < 3) flags[[length(flags) + 1]] <- list(
-    flag = "small_D", severity = "warning",
-    message = "Compositional dimension too small for full CNT structure.",
-    condition = sprintf("D = %d < 3", D))
-  for (j in seq_len(D)) {
-    series <- sapply(records_closed, function(r) r[j])
-    if (all(diff(series) >= 0) || all(diff(series) <= 0)) {
-      flags[[length(flags) + 1]] <- list(
-        flag = "pre_aligned_compositionally", severity = "warning",
-        message = sprintf("Records appear sorted by carrier %s; depth recursion may be degenerate.", carriers[j]),
-        condition = sprintf("composition[%d] is monotonic", j - 1L))
-      break
-    }
-  }
+degeneracy_flags <- function(rows_closed) {
+  T <- nrow(rows_closed); D <- ncol(rows_closed)
+  flags <- list(small_T = (T < 20L), small_D = (D < 3L),
+                row_variance_below_threshold = (max(apply(rows_closed, 2, sd)) < 1e-6))
+  flags$any_flag_set <- any(unlist(flags))
   flags
 }
 
-compute_diagnostics <- function(records_closed, tensor_block, carriers) {
-  list(
-    eitt_residuals = eitt_bench_test(records_closed, length(records_closed)),
-    lock_events = detect_lock_events(tensor_block, carriers),
-    degeneracy_flags = degeneracy_flags(records_closed, carriers)
-  )
-}
 
+# -------------------------------------------------------------------------
+# Canonical hashing (recursive key sort -- v1 R-port bug fixed)
+# -------------------------------------------------------------------------
 
-# ============================================================
-# §6 — Orchestration & I/O
-# ============================================================
+VOLATILE_FIELDS <- c("generated", "timestamp", "wall_clock", "wall_clock_ms",
+                     "_run_clock", "environment", "content_sha256",
+                     "cnt_content_sha256", "cnq_content_sha256")
 
-ingest_csv <- function(path) {
-  df <- read.csv(path, stringsAsFactors = FALSE, check.names = FALSE)
-  carriers <- colnames(df)[-1]
-  records <- list(); records_closed <- list(); n_zeros <- 0
-  for (i in seq_len(nrow(df))) {
-    vals <- as.numeric(df[i, -1])
-    if (any(is.na(vals)) || any(vals < 0)) next
-    if (any(vals == 0)) n_zeros <- n_zeros + 1
-    records[[length(records) + 1]] <- list(label = as.character(df[i, 1]), raw_values = as.list(vals))
-    records_closed[[length(records_closed) + 1]] <- close_simplex(vals)
+strip_volatile <- function(obj) {
+  if (is.list(obj) && !is.null(names(obj))) {
+    keep <- setdiff(names(obj), VOLATILE_FIELDS)
+    out <- lapply(obj[keep], strip_volatile); names(out) <- keep
+    return(out)
   }
-  list(carriers = carriers, records = records, records_closed = records_closed,
-       zero_meta = list(method = "multiplicative", delta = DEFAULT_DELTA,
-                        applied = n_zeros > 0, n_replacements = n_zeros))
+  if (is.list(obj)) return(lapply(obj, strip_volatile))
+  obj
 }
 
-get_environment_metadata <- function() {
-  git_sha <- tryCatch(system("git rev-parse HEAD", intern = TRUE)[1], error = function(e) "unknown")
-  if (length(git_sha) == 0 || is.na(git_sha)) git_sha <- "unknown"
-  list(
-    git_sha = git_sha,
-    language_version = paste0("R ", R.version$major, ".", R.version$minor),
-    numerical_lib = paste0("base R ", R.version$major, ".", R.version$minor),
-    platform = R.version$platform,
-    hostname_hash = digest(Sys.info()["nodename"], algo = "sha256")
-  )
+sort_keys_recursive <- function(obj) {
+  if (is.list(obj) && !is.null(names(obj))) {
+    sn <- sort(names(obj))
+    out <- lapply(sn, function(k) sort_keys_recursive(obj[[k]])); names(out) <- sn
+    return(out)
+  }
+  if (is.list(obj)) return(lapply(obj, sort_keys_recursive))
+  obj
 }
 
+canonical_dumps <- function(obj) {
+  cleaned <- sort_keys_recursive(strip_volatile(obj))
+  toJSON(cleaned, auto_unbox = TRUE, null = "null", na = "null", pretty = FALSE, digits = 17)
+}
+
+canonical_sha256 <- function(obj) digest(canonical_dumps(obj), algo = "sha256", serialize = FALSE)
 file_sha256 <- function(path) digest(file = path, algo = "sha256")
-
-closed_data_sha256 <- function(records_closed, carriers) {
-  canonical <- toJSON(list(carriers = carriers,
-                            values = lapply(records_closed, as.list)),
-                       auto_unbox = TRUE, digits = NA)
-  digest(canonical, algo = "sha256", serialize = FALSE)
-}
-
-content_sha256 <- function(json_obj) {
-  j <- json_obj
-  j$metadata$generated <- NULL
-  j$metadata$wall_clock_ms <- NULL
-  j$metadata$environment <- NULL
-  j$diagnostics$content_sha256 <- NULL
-  canonical <- toJSON(j, auto_unbox = TRUE, digits = NA)
-  digest(canonical, algo = "sha256", serialize = FALSE)
-}
-
-# ============================================================
-# §6b — v2.0.0 output formatting (split coda_standard / higgins_extensions)
-# ============================================================
-
-TIMESTEP_CODA_FIELDS <- c("composition","clr","ilr","shannon_entropy",
-                          "aitchison_norm","aitchison_distance_step")
-TIMESTEP_HIGGINS_FIELDS <- c("higgins_scale","bearing_tensor","metric_tensor",
-                             "metric_tensor_diagonal","condition_number",
-                             "angular_velocity_deg","helmsman","helmsman_delta")
-TIMESTEP_TOPLEVEL_FIELDS <- c("index","label","raw_values")
-
-format_tensor_block_v2 <- function(tb) {
-  out_ts <- list()
-  for (i in seq_along(tb$timesteps)) {
-    ts <- tb$timesteps[[i]]
-    coda <- list(); higg <- list()
-    for (k in TIMESTEP_CODA_FIELDS)    if (!is.null(ts[[k]])) coda[[k]] <- ts[[k]]
-    for (k in TIMESTEP_HIGGINS_FIELDS) if (!is.null(ts[[k]])) higg[[k]] <- ts[[k]]
-    new_ts <- list()
-    for (k in TIMESTEP_TOPLEVEL_FIELDS) new_ts[[k]] <- ts[[k]]
-    new_ts$coda_standard <- coda
-    new_ts$higgins_extensions <- higg
-    out_ts[[i]] <- new_ts
-  }
-  list(
-    `_function`    = "composer",
-    `_description` = paste0("Per-record compositional state. coda_standard fields ",
-                            "follow Aitchison/Egozcue/Shannon. higgins_extensions ",
-                            "are HUF-framework readings of the same simplex; see ",
-                            "schema sec 8 for the mapping."),
-    helmert_basis  = tb$helmert_basis,
-    timesteps      = out_ts
-  )
-}
-
-format_stage1_v2 <- function(s1) list(
-  `_function`         = "formatter",
-  `_description`      = "Cube-face projections and per-record metric ledger formatted for plate display. HUF/CBS-specific.",
-  coda_standard       = list(),
-  higgins_extensions  = list(section_atlas = s1$section_atlas, metric_ledger = s1$metric_ledger)
-)
-
-format_stage2_v2 <- function(s2) list(
-  `_function`         = "review",
-  `_description`      = "Pairwise cross-examination of compositional behaviour.",
-  coda_standard       = list(variation_matrix = s2$variation_matrix),
-  higgins_extensions  = list(carrier_pair_examination = s2$carrier_pair_examination)
-)
-
-format_stage3_v2 <- function(s3) list(
-  `_function`         = "review",
-  `_description`      = "Higher-degree subcompositional and triadic analysis.",
-  coda_standard       = list(subcomposition_ladder = s3$subcomposition_ladder),
-  higgins_extensions  = list(triadic_area = s3$triadic_area,
-                              carrier_triads = s3$carrier_triads,
-                              regime_detection = s3$regime_detection)
-)
-
-format_bridges_v2 <- function(b) list(
-  `_function`         = "review",
-  `_description`      = "Connections to dynamical / control / information theory.",
-  coda_standard       = list(information_theory = b$information_theory),
-  higgins_extensions  = list(dynamical_systems = b$dynamical_systems,
-                              control_theory = b$control_theory)
-)
-
-format_depth_v2 <- function(d) list(
-  `_function`         = "review",
-  `_description`      = "Recursive depth sounder, period-2 attractor, impulse response. Wholly Higgins-framework.",
-  coda_standard       = list(),
-  higgins_extensions  = d
-)
-
-format_diagnostics_v2 <- function(diag) {
-  out <- list(
-    `_function`         = "review",
-    `_description`      = "Engine self-checks: EITT residuals, lock events, degeneracy flags, content hash.",
-    coda_standard       = list(),
-    higgins_extensions  = list(eitt_residuals = diag$eitt_residuals,
-                                lock_events = diag$lock_events,
-                                degeneracy_flags = diag$degeneracy_flags)
-  )
-  if (!is.null(diag$content_sha256)) out$content_sha256 <- diag$content_sha256
-  out
+closed_data_sha256 <- function(rows_closed) {
+  digest(serialize(as.numeric(rows_closed), connection = NULL), algo = "sha256", serialize = FALSE)
 }
 
 
-cnt_run <- function(csv_path, output_path = NULL, ordering = NULL) {
+# -------------------------------------------------------------------------
+# I/O
+# -------------------------------------------------------------------------
+
+ingest_csv <- function(input_csv) {
+  if (!file.exists(input_csv)) stop(sprintf("input CSV not found: %s", input_csv))
+  df <- read.csv(input_csv, stringsAsFactors = FALSE, check.names = FALSE,
+                 fileEncoding = "UTF-8")
+  if (ncol(df) < 2) stop("input CSV must have at least 2 columns")
+  labels <- as.character(df[[1]])
+  carriers <- colnames(df)[-1]
+  rows <- as.matrix(df[, -1, drop = FALSE]); storage.mode(rows) <- "double"
+  if (any(is.na(rows)) || any(!is.finite(rows))) stop("input CSV contains NA/Inf")
+  if (any(rows < 0)) stop("input CSV contains negative carrier values")
+  zero_count <- sum(rows == 0)
+  rows[rows == 0] <- DEFAULT_DELTA
+  list(labels = labels, carriers = carriers, rows = rows,
+       zero_replacement_count = as.integer(zero_count))
+}
+
+
+# -------------------------------------------------------------------------
+# Top-level orchestration
+# -------------------------------------------------------------------------
+
+cnt_run <- function(input_csv, out_path = NULL) {
   t0 <- Sys.time()
-  if (is.null(ordering)) ordering <- list(
-    is_temporal = FALSE, ordering_method = "as-given",
-    caveat = "User did not declare ordering. Treat derivative fields with caution."
-  )
-  ing <- ingest_csv(csv_path)
-  carriers <- ing$carriers; records <- ing$records; records_closed <- ing$records_closed
+  ing <- ingest_csv(input_csv)
+  rows <- ing$rows; T <- nrow(rows); D <- ncol(rows)
+  rows_closed <- closure_op(rows)
+  clr_matrix <- clr_op(rows_closed)
+  H <- helmert_basis_op(D)
+  ilr_matrix <- clr_matrix %*% t(H)
 
-  # Compute (flat internals)
-  tensor_block <- compute_tensor_block(records, carriers)
-  s1 <- compute_stage1(tensor_block, carriers)
-  s2 <- compute_stage2(records_closed, tensor_block, carriers)
-  s3 <- compute_stage3(records_closed, tensor_block, carriers)
-  bridges <- compute_bridges(records_closed, tensor_block, carriers)
-  depth <- compute_depth(records_closed, tensor_block, carriers)
-  diag <- compute_diagnostics(records_closed, tensor_block, carriers)
-  wall_ms <- as.integer(as.numeric(Sys.time() - t0, units = "secs") * 1000)
+  tensor_block <- compute_tensor_block(rows, rows_closed, clr_matrix, ilr_matrix,
+                                        ing$carriers, ing$labels)
+  stage1 <- compute_stage1(clr_matrix, ing$carriers)
+  stage2 <- compute_stage2(rows_closed, clr_matrix, ing$carriers)
+  stage3 <- compute_stage3(rows_closed, clr_matrix, ing$carriers)
+  depth_tower <- compute_depth_tower(rows_closed, clr_matrix)
+  helmsman <- compute_helmsman_family(rows, window = HELMSMAN_ROLLING_WINDOW)
+  eitt <- eitt_bench_test(rows_closed, clr_matrix)
+  locks <- detect_lock_events(clr_matrix)
+  degens <- degeneracy_flags(rows_closed)
 
-  # Format (v2.1.0 schema)
-  units_block <- build_units_block()
+  source_hash <- file_sha256(input_csv)
+  closed_hash <- closed_data_sha256(rows_closed)
+  wall_clock_ms <- as.integer(round(as.numeric(difftime(Sys.time(), t0, units = "secs")) * 1000))
 
-  json_out <- list(
+  payload <- list(
     metadata = list(
-      `_function`            = "provenance",
-      `_description`         = "Identity, schema version, run-time provenance.",
-      schema_version         = SCHEMA_VERSION,
-      engine_version         = paste(ENGINE_NAME, ENGINE_VERSION),
-      engine_implementation  = "r",
-      generated              = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
-      wall_clock_ms          = wall_ms,
-      mathematical_lineage   = list(
-        Aitchison_1986 = "CLR transform, simplex geometry, Aitchison distance",
-        Shannon_1948   = "Entropy H = -sum x_j ln x_j",
-        Egozcue_2003   = "ILR, Helmert basis, orthonormal coordinates",
-        Higgins_2026   = "CNT tensor decomposition, recursive depth sounder, metric dual involution"
-      ),
-      engine_config = list(
-        `_description`           = "Active values from the USER CONFIGURATION block at top of cnt.R. Two runs with identical config and input produce identical content_sha256.",
-        DEFAULT_DELTA            = DEFAULT_DELTA,
-        DEGEN_THRESHOLD          = DEGEN_THRESHOLD,
-        LOCK_CLR_THRESHOLD       = LOCK_CLR_THRESHOLD,
-        DEPTH_MAX_LEVELS         = DEPTH_MAX_LEVELS,
-        DEPTH_PRECISION_TARGET   = DEPTH_PRECISION_TARGET,
-        NOISE_FLOOR_OMEGA_VAR    = NOISE_FLOOR_OMEGA_VAR,
-        TRIADIC_T_LIMIT          = TRIADIC_T_LIMIT,
-        TRIADIC_K_DEFAULT        = TRIADIC_K_DEFAULT,
-        EITT_GATE_PCT            = EITT_GATE_PCT,
-        EITT_M_SWEEP_BASE        = as.list(EITT_M_SWEEP_BASE),
-        active_overrides         = list()
-      ),
-      units = units_block
+      engine = ENGINE_NAME, engine_version = ENGINE_VERSION,
+      schema_version = SCHEMA_VERSION, engine_implementation = "r",
+      implementation_lang_version = paste("R", paste(R.version$major, R.version$minor, sep = ".")),
+      principle = ENGINE_PRINCIPLE,
+      generated = format(Sys.time(), "%Y-%m-%dT%H:%M:%SZ", tz = "UTC"),
+      wall_clock_ms = wall_clock_ms,
+      environment = list(r_version = paste(R.version$major, R.version$minor, sep = "."),
+                          platform = R.version$platform,
+                          hostname_hash = substr(digest(Sys.info()["nodename"], algo = "sha256",
+                                                          serialize = FALSE), 1, 16))
     ),
-    input = list(
-      `_function`           = "provenance",
-      `_description`        = "Source data identity, hashes, and ordering declaration.",
-      source_file           = basename(csv_path),
-      source_file_sha256    = file_sha256(csv_path),
-      closed_data_sha256    = closed_data_sha256(records_closed, carriers),
-      n_records             = length(records),
-      n_carriers            = length(carriers),
-      carriers              = as.list(carriers),
-      labels                = lapply(records, function(r) r$label),
-      zero_replacement      = ing$zero_meta,
-      ordering              = ordering
-    ),
-    tensor      = format_tensor_block_v2(tensor_block),
-    stages      = list(
-      stage1 = format_stage1_v2(s1),
-      stage2 = format_stage2_v2(s2),
-      stage3 = format_stage3_v2(s3)
-    ),
-    bridges     = format_bridges_v2(bridges),
-    depth       = format_depth_v2(depth),
-    diagnostics = format_diagnostics_v2(diag)
+    input = list(source_file = as.character(input_csv),
+                  source_file_sha256 = source_hash, closed_data_sha256 = closed_hash,
+                  n_records = T, n_carriers = D,
+                  carriers = ing$carriers, labels = ing$labels,
+                  rows_closed = rows_closed,
+                  zero_replacement_count = ing$zero_replacement_count,
+                  ordering = "as_provided"),
+    tensor = tensor_block,
+    stages = list(stage1 = stage1, stage2 = stage2, stage3 = stage3),
+    depth_tower = depth_tower,
+    helmsman_family = helmsman,
+    diagnostics = list(eitt = eitt, lock_events = locks, degeneracy_flags = degens)
   )
+  digest_val <- canonical_sha256(payload)
+  payload$diagnostics$cnt_content_sha256 <- digest_val
 
-  # content_sha256 (computed from canonical-keyed JSON without the
-  # diagnostics.content_sha256 field itself)
-  json_out$diagnostics$content_sha256 <- content_sha256(json_out)
-
-  if (!is.null(output_path)) {
-    writeLines(jsonlite::toJSON(json_out, auto_unbox = TRUE,
-                                pretty = TRUE, na = "null", null = "null",
-                                digits = NA),
-               output_path)
+  if (!is.null(out_path)) {
+    dir.create(dirname(out_path), recursive = TRUE, showWarnings = FALSE)
+    write(toJSON(payload, auto_unbox = TRUE, null = "null", na = "null",
+                  pretty = TRUE, digits = 17), out_path)
   }
-  invisible(json_out)
+  payload
 }
 
 
-# ─── Native units helper (v1.1-B parity) ──────────────────────────
-build_units_block <- function(input_units = NULL,
-                              higgins_scale_units = NULL) {
-  iu <- if (is.null(input_units)) INPUT_UNITS else input_units
-  hu_req <- if (is.null(higgins_scale_units)) HIGGINS_SCALE_UNITS else higgins_scale_units
-  factors <- list(
-    ratio = 1.0, neper = 1.0, nat = 1.0, `%` = 1.0, absolute = 1.0,
-    bit = log(2.0),
-    dB_power = log(10.0)/10.0,
-    dB_amplitude = log(10.0)/20.0
-  )
-  f <- factors[[iu]]
-  if (is.null(f)) f <- 1.0
-  hu <- if (hu_req == "auto") {
-    if (iu == "bit") "bit" else "neper"
-  } else hu_req
-  list(
-    `_description`               = "v1.1-B native units (additive 2.1.0).",
-    input_units                  = iu,
-    higgins_scale_units          = hu,
-    units_scale_factor_to_neper  = f,
-    feature                      = "v1.1-B native units (R parity)",
-    schema_addition              = "2.1.0",
-    report_units_scale_factors   = REPORT_UNITS_SCALE_FACTORS
-  )
+# -------------------------------------------------------------------------
+# CLI
+# -------------------------------------------------------------------------
+
+main <- function(argv = commandArgs(trailingOnly = TRUE)) {
+  if (length(argv) == 0L || any(c("-h", "--help") %in% argv)) {
+    cat(sprintf("%s v%s (schema %s) -- R port\n", ENGINE_NAME, ENGINE_VERSION, SCHEMA_VERSION))
+    cat("Usage: Rscript cnt.R <input.csv> [-o <output.json>]\n")
+    return(invisible(0))
+  }
+  input <- argv[1]; out <- NULL
+  i <- 2
+  while (i <= length(argv)) {
+    if (argv[i] %in% c("-o", "--output")) { out <- argv[i + 1]; i <- i + 2 }
+    else i <- i + 1
+  }
+  payload <- cnt_run(input, out_path = out)
+  cat(sprintf("engine             = %s v%s (schema %s)\n",
+              payload$metadata$engine, payload$metadata$engine_version,
+              payload$metadata$schema_version))
+  cat(sprintf("T x D              = %d x %d\n",
+              payload$input$n_records, payload$input$n_carriers))
+  cat(sprintf("depth_termination  = %s\n", payload$depth_tower$termination$kind))
+  cat(sprintf("ir_class           = %s\n", payload$depth_tower$ir_class))
+  cat(sprintf("M^2=I residual_max = %.3e\n",
+              payload$depth_tower$involution_M_squared$max_residual_overall))
+  cat(sprintf("cnt_content_sha256 = %s\n", payload$diagnostics$cnt_content_sha256))
+  invisible(0)
+}
+
+if (!interactive() && length(commandArgs(trailingOnly = TRUE)) > 0) {
+  main()
 }

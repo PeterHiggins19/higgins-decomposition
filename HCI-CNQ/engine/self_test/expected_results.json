@@ -1,0 +1,7 @@
+{
+  "_comment": "CNQ self-test expected-results lock. Bumped only when the corpus version bumps. Until CNQ v2 ships in Phase C2, this file routes via CNT v3 stub and recordings here are placeholder presence-only checks. After CNQ v2 land, replace each entry with the locked actual values from a reference run.",
+  "expected_results_id": "cnq_expected/0.1-pre",
+  "engine_target": "cnq/2.0.0",
+  "doctrine_reference": "STP-1.0",
+  "tests": {}
+}

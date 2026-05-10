@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/PeterHiggins19/higgins-decomposition/blob/main/docs/verity_schema.json",
+  "title": "Hs Verity File — anti-specification machine-readable form",
+  "description": "Machine-readable companion to ANTI_SPECIFICATION.md per engine/wrapper/paper. Records the SEA (Suspicion of Every Assumption) failure-mode enumeration with mitigation evidence and residual-risk classification. See docs/SUSPICION_OF_EVERY_ASSUMPTION.md for the doctrine.",
+  "type": "object",
+  "required": [
+    "verity_id",
+    "subject",
+    "subject_version",
+    "doctrine_version",
+    "last_audited",
+    "next_audit_due",
+    "failure_modes"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "verity_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*-verity/[0-9]+\\.[0-9]+$",
+      "description": "Identifier of this verity record, e.g., 'cnq-engine-verity/2.0' or 'wrapper-audio-verity/1.0'."
+    },
+    "subject": {
+      "type": "string",
+      "description": "What this verity record covers, e.g., 'HCI-CNQ engine v2.0.0', 'Audio wrapper', 'Paper 1 universality result'."
+    },
+    "subject_version": {
+      "type": "string",
+      "description": "Version of the subject under audit (e.g., '2.0.0', 'audio-wrapper/1.0')."
+    },
+    "subject_path": {
+      "type": "string",
+      "description": "Repository-relative path to the subject artifact."
+    },
+    "doctrine_version": {
+      "type": "string",
+      "const": "SEA-1.0",
+      "description": "Version of the SEA doctrine this record conforms to."
+    },
+    "auditor": {
+      "type": "string",
+      "description": "Person or process responsible for this audit pass."
+    },
+    "last_audited": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO-8601 date of the most recent audit pass."
+    },
+    "next_audit_due": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO-8601 date by which the next audit pass should occur."
+    },
+    "failure_modes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/failure_mode_entry" }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_modes": { "type": "integer", "minimum": 0 },
+        "by_category": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "by_residual_risk": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "unverified_count": { "type": "integer", "minimum": 0 },
+        "release_gate_pass": {
+          "type": "boolean",
+          "description": "True iff unverified_count == 0 and no acknowledged_limitation entries are unintentional."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "failure_mode_entry": {
+      "type": "object",
+      "required": [
+        "id",
+        "category",
+        "failure_mode",
+        "conditions",
+        "mitigation",
+        "evidence",
+        "residual_risk"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z]{3,4}_[0-9]{3}$",
+          "description": "Failure mode ID, e.g., 'NUM_001', 'ALG_017', 'INTP_002'. Three-or-four-letter category code, underscore, three-digit sequence."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["NUM", "ALG", "SCH", "INV", "INT", "INTP", "REP", "WRP", "DOC", "ADV"],
+          "description": "Failure-mode category. See SUSPICION_OF_EVERY_ASSUMPTION.md §4 for definitions."
+        },
+        "failure_mode": {
+          "type": "string",
+          "description": "Brief description of what would go wrong if this failure occurred."
+        },
+        "conditions": {
+          "type": "string",
+          "description": "Input or runtime conditions that would trigger this failure."
+        },
+        "mitigation": {
+          "type": "string",
+          "description": "How the engine prevents or bounds this failure."
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/evidence_entry" }
+        },
+        "residual_risk": {
+          "type": "string",
+          "enum": ["none", "bounded", "unverified", "acknowledged_limitation"],
+          "description": "What remains uncovered after mitigation. See doctrine §6."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional free-form notes."
+        }
+      }
+    },
+    "evidence_entry": {
+      "type": "object",
+      "required": ["type", "reference"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["TEST", "PROP", "PROOF", "EMPR", "STRC", "DESN"],
+          "description": "Evidence type. See doctrine §5."
+        },
+        "reference": {
+          "type": "string",
+          "description": "Pointer to the evidence: file path + identifier, equation reference, dataset path, etc."
+        },
+        "verified_at": {
+          "type": "string",
+          "format": "date",
+          "description": "When this evidence was last confirmed to hold."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

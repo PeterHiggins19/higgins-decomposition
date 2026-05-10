@@ -909,6 +909,47 @@
       "expected_results_unchanged": true,
       "catalog_unchanged": true,
       "tag_unchanged": "v0.29.0 still valid; this is a patch on top, not a new tagged release"
+    },
+    {
+      "push": 32,
+      "date": "2026-05-09",
+      "title": "CNT v3 + CNQ v2 ground-up rebuild + 4 doctrines + UN-6 wrappers + structural visualisation",
+      "type": "major architectural rebuild",
+      "summary": "Push #32 ground-up rebuild of both engines (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0) with engine independence (no cross-engine hash chain). New shared package hci_shared/ with validation, hashing (recursive sort + allow_nan=False), geometry (closure, CLR, Helmert, ILR, quaternion algebra), helmsman (six channels), attractors (period-2 fit), factoring (twin-quaternion D=8 + CHSH). R ports for both engines (cnt.R 738 lines, cnq.R 791 lines) with v1 catalogued bugs all fixed at source. Cross-language parity verifier (per-field 1e-13 tolerance, NOT byte-identical hash). Four new doctrines: engine independence (INV-038), SEA anti-specification (INV-045), BIST self-test with hash-chained receipts (INV-046), domain wrapper architecture (INV-042). UN-6 locale wrappers (en/fr/es/ru/zh/ar) for Canadian metrology + international standards-body compliance. CNT v3 anti-spec 31 entries, CNQ v2 anti-spec 33 entries, both release_gate_pass: true. Engine structure visualisation HTML + SVG for CodaWork 2026.",
+      "engines_rebuilt": [
+        "CNT v2.0.4 -> v3.0.0",
+        "CNQ v1.0.0 -> v2.0.0"
+      ],
+      "doctrines_added": [
+        "engine independence",
+        "SEA anti-specification",
+        "BIST self-test",
+        "domain wrapper architecture"
+      ],
+      "catalog_growth": "35 -> 46 investigations; 24 CANONICAL, 12 DEFERRED, 8 OPEN, 1 FALSIFIED, 1 CLOSED",
+      "graduations": [
+        "INV-009 (helmsman)",
+        "INV-021 (CNQ engine, closed)",
+        "INV-024 (audio wrapper sharpened)",
+        "INV-029 (twin-quaternion)",
+        "INV-034 (attractor fit)",
+        "INV-035 (CHSH coherence)"
+      ],
+      "new_inv_entries": [
+        "INV-036 CNT v3 build",
+        "INV-037 CNQ v2 build",
+        "INV-038 engine independence",
+        "INV-039 radial-vs-bearing scope",
+        "INV-040 helmsman impl",
+        "INV-041 attractor impl",
+        "INV-042 wrapper convention",
+        "INV-043 quad-quaternion D=16 (open)",
+        "INV-044 Cl(D-1) for D>=17 (open)",
+        "INV-045 SEA methodology",
+        "INV-046 BIST protocol"
+      ],
+      "file_truncation_repairs": 4,
+      "engines_unchanged_in_v0_29_0": "v2.0.4 / v1.0.0 frozen at v0.29.0 tag for legacy reproducibility"
     }
   ],
   "licensing": {
@@ -924,5 +965,22 @@
     "github_sidebar_detection_target": "Apache-2.0 (LICENSE at root, no other LICENSE* file at root in licensee's pattern)",
     "root_license_dash_docs_status": "stub redirect pointer; not detected as a CC licence by licensee due to defanged content"
   },
-  "push_31_completed": "2026-05-08T00:00:00Z"
+  "push_31_completed": "2026-05-08T00:00:00Z",
+  "engine_v3_v2_release": {
+    "cnt_engine_version": "3.0.0",
+    "cnt_schema_version": "3.0.0",
+    "cnq_engine_version": "2.0.0",
+    "cnq_schema_version": "cnq/2.0.0",
+    "release_date": "2026-05-09",
+    "release_push": "#32",
+    "engine_independence_policy": "each engine has its own (engine_name, engine_version, schema_version) triple in canonical hash; no cross-engine hash chain",
+    "within_language_determinism": "byte-identical hash for same input",
+    "cross_language_parity": "per-field at 1e-13 absolute / 1e-12 relative tolerance, NOT byte-identical hash",
+    "release_gate_pass_cnt": true,
+    "release_gate_pass_cnq": true,
+    "anti_specification_entries_cnt": 31,
+    "anti_specification_entries_cnq": 33,
+    "frozen_predecessor_at_v0_29_0": true
+  },
+  "push_32_completed": "2026-05-09T17:00:00Z"
 }

@@ -1,147 +1,224 @@
-#!/usr/bin/env python3
-"""HCI-CNQ — Compositional Navigation Quaternion engine.
-
-The compiled sibling to cnt.py. Reads CNT JSON output (or runs CNT
-itself via the adapter), then computes the quaternion-native view of
-the same compositional trajectory and emits a hash-chained CNQ JSON.
-
-Design contract
----------------
-1. CNQ inherits from CNT. CNQ does not modify the canonical CNT engine
-   and does not produce its own CNT-style termination codes; those are
-   carried forward verbatim from the parent CNT JSON.
-
-2. The CNQ output carries TWO content hashes:
-       parent_cnt_content_sha256  - copied from CNT JSON (provenance chain)
-       cnq_content_sha256         - computed over the canonical CNQ payload
-   Two independent runs on the same CNT JSON must produce identical
-   cnq_content_sha256. This is the cross-platform reproduction channel.
-
-3. Dimension policy is explicit and visible in the output:
-       D == 4  -> native_quaternion           (load-bearing case)
-       D == 3  -> boundary_or_degenerate_support  (consistency channel)
-       D == 8  -> bi_quaternion_factoring_candidate  (DEFERRED, scaffolded)
-       D == 2  -> degenerate_below_quaternion (bearing-only)
-       D >= 5  (not 8): reduced_or_projected  (project to first 3 ILR axes)
-
-4. Determinism: canonical JSON, sorted keys, stripped clock fields.
-
-5. Portability: no hardcoded paths. Auto-detect repo root, accept
-   --repo-root and --cnt-engine flags. See cnt_adapter for details.
-
-Usage
------
-    # From a CNT JSON (no CSV required):
-    python cnq.py --cnt-json path/to/cnt.json --out path/to/cnq.json
-
-    # From a raw CSV (runs CNT first, then CNQ):
-    python cnq.py --input-csv path/to/input.csv --out path/to/cnq.json
-
-    # Explicit overrides:
-    python cnq.py --input-csv data.csv --out cnq.json \\
-        --repo-root /path/to/higgins-decomposition \\
-        --cnt-engine /path/to/cnt.py
-
-Cross-platform reproduction challenge
--------------------------------------
-This engine is shipped to invite ChatGPT, Grok, and any other AI
-platform to run it against the same CNT JSON and produce their own
-cnq_content_sha256. If hashes match across platforms, that is a fourth
-independent confirmation channel beyond Backblaze, Planck, and the SM
-neutrino result.
 """
+HCI-CNQ v2.0.0 — Compositional Navigation Quaternion engine
+
+Native dataset producer. Reads compositional time series (rows-by-carriers
+CSV), produces a deterministic JSON record covering the trajectory's
+quaternion-algebraic structure: bearing trajectory, radial trajectory,
+helmsman family channels, attractor fit, twin-quaternion factoring (D=8
+native), and CHSH joint-coherence diagnostic.
+
+CNQ v2 stands on its own. It does not require CNT input. If a CNT JSON
+is provided, its hash is recorded in `cnt_reference` as informational
+metadata only -- the CNQ canonical hash is independent (push #32
+engine-independence policy).
+
+Pipeline (push #32 architecture):
+
+    rows  ->  closure   ->  CLR    ->  Helmert ILR
+                                      |
+                                      +->  bearing_trajectory (per D-policy:
+                                      |    D=4 native, D=8 twin-quaternion,
+                                      |    D=16 quad-quaternion future,
+                                      |    others reduced or boundary)
+                                      |
+                                      +->  radial_trajectory (per-step ILR
+                                      |    norm, preserved as first-class)
+                                      |
+                                      +->  helmsman_family channels
+                                      |
+                                      +->  attractor_fit (period, stability,
+                                      |    contraction, amplitude, damping)
+                                      |
+                                      +->  twin_quaternion_factoring  (D=8)
+                                      |
+                                      +->  chsh_diagnostic (when bundle or D=8)
+                                      |
+                                      +->  diagnostics (warnings, content_sha256)
+
+Output is CoDa-community vocabulary throughout. Domain interpretation lives
+in wrappers (HCI-CNQ/wrappers/), not in this engine.
+
+License:   Apache-2.0
+Lineage:   v0.29.0 freezes v1.0.0 for legacy reproducibility; v2.0.0 generalises
+Catalog:   INV-037 (CNQ v2 build), INV-038 (engine-independence policy),
+           INV-029 (twin-quaternion factoring graduates),
+           INV-035 (CHSH coherence graduates),
+           INV-039 (radial-vs-bearing scope clarified),
+           INV-045 (Suspicion of Every Assumption methodology applied)
+
+See:       ai-refresh/CNT_V3_CNQ_V2_DESIGN.md  for architectural rationale
+           HCI-CNQ/engine/CNQ_V2_PSEUDOCODE.md for language-agnostic algorithm
+           HCI-CNQ/engine/CNQ_V2_SCHEMA.md     for output schema
+           HCI-CNQ/engine/ANTI_SPECIFICATION.md for failure-mode enumeration
+           HCI-CNQ/wrappers/wrapper_audio.json  for first domain wrapper
+"""
+
 from __future__ import annotations
 
 import argparse
 import csv
-import datetime as dt
+import hashlib
 import json
-import math
+import platform
+import socket
+import subprocess
 import sys
+import time
 from pathlib import Path
-from typing import Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
-# Make sibling modules importable when run as a script.
-_HERE = Path(__file__).resolve().parent
-if str(_HERE) not in sys.path:
-    sys.path.insert(0, str(_HERE))
+_THIS_FILE = Path(__file__).resolve()
+for _candidate in (_THIS_FILE.parent.parent.parent, _THIS_FILE.parent.parent.parent.parent):
+    if (_candidate / "hci_shared" / "__init__.py").exists():
+        sys.path.insert(0, str(_candidate))
+        break
 
-from cnt_adapter import (  # noqa: E402
-    add_repo_root_arg,
-    extract_cnt_diagnostics,
-    find_cnt_engine,
-    find_repo_root,
-    load_cnt_json,
-    run_cnt,
-)
-from geometry import (  # noqa: E402
-    closure,
-    clr,
-    compositions_to_helmert_unit_vectors,
+from hci_shared import (  # noqa: E402
+    canonical_sha256,
+    file_sha256,
     helmert_basis,
-    quat_conj,
-    quat_mul,
-    quat_rotate,
+    InvalidInputError,
     quaternion_sandwich_residuals,
-    rotation_quaternion_between,
+    validate_rows,
 )
-from hashing import canonical_sha256, file_sha256  # noqa: E402
+from hci_shared.geometry import (  # noqa: E402
+    closure as _shared_closure,
+    clr as _shared_clr,
+    compositions_to_helmert_unit_vectors,
+    compositions_to_ilr,
+)
+from hci_shared.attractors import fit_attractor  # noqa: E402
+from hci_shared.helmsman import compute_helmsman_family  # noqa: E402
+from hci_shared.factoring import (  # noqa: E402
+    chsh_S_value,
+    CLASSICAL_BOUND,
+    TSIRELSON_BOUND,
+    twin_quaternion_factor,
+)
 
-CNQ_ENGINE_VERSION = "1.0.0"
-CNQ_SCHEMA_VERSION = "cnq/1.0.0"
-GATE_THRESHOLD = 1e-12  # IEEE-floor gate for D=4 quaternion sandwich
+
+# ---------------------------------------------------------------------------
+# USER CONFIG
+# ---------------------------------------------------------------------------
+
+ENGINE_NAME: str = "HCI-CNQ"
+ENGINE_VERSION: str = "2.0.0"
+SCHEMA_VERSION: str = "cnq/2.0.0"
+ENGINE_PRINCIPLE: str = "CNT measures invariance. CNQ names the algebra it lives in."
+
+DEFAULT_DELTA: float = 1e-15
+GATE_THRESHOLD: float = 1e-12
+HELMSMAN_ROLLING_WINDOW: int = 8
 
 
-# ── Dimension policy ──────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Dimension policy classifier
+# ---------------------------------------------------------------------------
 
-def classify_dimension(D: int) -> dict:
-    """Return the dimension scope label and processing policy."""
+
+def classify_dimension(D: int) -> Dict[str, Any]:
+    """Return the (label, algebra, processing, claim_strength) tuple for D.
+
+    See ai-refresh/CNT_V3_CNQ_V2_DESIGN.md §5.3 for the locked policy table.
+    Labels are mathematically neutral; domain interpretation lives in wrappers.
+    """
+    if D == 8:
+        return {
+            "D": 8,
+            "label": "twin_quaternion_native",
+            "algebra": (
+                "D=8 admits twin-quaternion factoring: two coupled SU(2) "
+                "elements (q_A, q_B) acting on disjoint 3-dim ILR subspaces; "
+                "coupling angle rho_AB(t) is the load-bearing joint diagnostic"
+            ),
+            "processing": (
+                "Helmert -> R^7 -> twin-quaternion sandwich on (axes [0,1,2], "
+                "axes [3,4,5]) plus residual axis 6 -> rho_AB coupling -> "
+                "CHSH S-value"
+            ),
+            "claim_strength": (
+                "load-bearing -- smallest case where full algebraic structure "
+                "(factoring + joint coherence) becomes simultaneously "
+                "non-trivial and necessary"
+            ),
+        }
+    if D == 16:
+        return {
+            "D": 16,
+            "label": "quad_quaternion_native_future",
+            "algebra": (
+                "D=16 admits quad-quaternion factoring: four coupled SU(2) "
+                "elements (q_A, q_B, q_C, q_D); 6 pairwise coupling angles + "
+                "4-way joint correlation"
+            ),
+            "processing": (
+                "Helmert -> R^15 -> four 3-dim subspaces -> per-channel "
+                "sandwich + 6 coupling angles + CHSH-4"
+            ),
+            "claim_strength": (
+                "schema locked; full implementation in v2.1 when first "
+                "dataset of this dimension lands"
+            ),
+        }
     if D == 4:
         return {
             "D": 4,
-            "label": "native_quaternion",
-            "algebra": "SU(2) double cover of SO(3); Aitchison rotation in R^3",
+            "label": "single_quaternion_native",
+            "algebra": (
+                "SU(2) double cover of SO(3); single-quaternion sandwich on "
+                "R^3 ILR space; no factoring required"
+            ),
             "processing": "Helmert -> R^3 -> unit-quaternion sandwich",
-            "claim_strength": "confirmed (load-bearing case for the framework)",
+            "claim_strength": (
+                "simplest closed-form case; widely useful for cross-domain "
+                "validation (Backblaze drives, Planck CMB photons, SM "
+                "neutrinos all sit here)"
+            ),
         }
     if D == 3:
         return {
             "D": 3,
-            "label": "boundary_or_degenerate_support",
-            "algebra": "SO(2)-equivalent in R^2; promoted to R^3 by zero-padding",
-            "processing": "Helmert -> R^2 -> embed in R^3 with z=0 -> sandwich",
-            "claim_strength": "consistency support, not native D=4 quaternion proof",
+            "label": "boundary_3part_planar_embed",
+            "algebra": "SO(2) in R^2; embedded in SO(3) by zero-padding the third axis",
+            "processing": "Helmert -> R^2 -> embed (z=0) -> sandwich",
+            "claim_strength": "degenerate boundary; planar consistency support",
         }
     if D == 2:
         return {
             "D": 2,
-            "label": "degenerate_below_quaternion",
+            "label": "degenerate_2part_bearing_only",
             "algebra": "scalar log-ratio only; no rotation degree of freedom",
-            "processing": "bearing computation only",
-            "claim_strength": "boundary diagnostic; quaternion view does not apply",
+            "processing": "bearing_only path; quaternion_path null",
+            "claim_strength": "degenerate boundary; bearing diagnostic only",
         }
-    if D == 8:
+    if 5 <= D <= 15:
         return {
-            "D": 8,
-            "label": "bi_quaternion_factoring_candidate",
-            "algebra": "SO(8) ⊃ SU(2) × SU(2); two coupled quaternion paths",
-            "processing": "Helmert -> R^7; reduced view = first 3 axes; "
-                          "bi-quaternion factoring scaffolded but DEFERRED (INV-029)",
-            "claim_strength": "experimental; full algebra extension pending pilot",
-        }
-    if D >= 5:
-        return {
-            "D": D,
+            "D": int(D),
             "label": "reduced_or_projected",
-            "algebra": f"SO({D-1}); projection to first 3 ILR axes for the CNQ view",
-            "processing": f"Helmert -> R^{D-1} -> first 3 axes -> sandwich (lossy)",
-            "claim_strength": "projection diagnostic only; full extension via Clifford "
-                              "Cl(D-1) is DEFERRED",
+            "algebra": "SO(D-1); CNQ view projects onto first 3 ILR axes (lossy)",
+            "processing": (
+                "Helmert -> R^(D-1) -> first 3 axes -> sandwich; "
+                "captured_step_fraction reported global+mean"
+            ),
+            "claim_strength": (
+                "projection diagnostic -- useful when neither twin nor quad "
+                "factoring applies natively"
+            ),
+        }
+    if D >= 17:
+        return {
+            "D": int(D),
+            "label": "reduced_or_projected_high_D",
+            "algebra": "SO(D-1); first 3 ILR axes (lossy); future Cl(D-1) extension",
+            "processing": "same as D=5..15 path",
+            "claim_strength": (
+                "projection diagnostic; native algebra extension is INV-044 (open)"
+            ),
         }
     return {
-        "D": D,
+        "D": int(D),
         "label": "unsupported",
         "algebra": "n/a",
         "processing": "n/a",
@@ -149,377 +226,512 @@ def classify_dimension(D: int) -> dict:
     }
 
 
-# ── Input handling ────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# Bearing + radial trajectory builders (per dimension policy)
+# ---------------------------------------------------------------------------
 
-def read_csv_compositions(input_csv: Path):
-    """Read a CCTT-style CSV: first column is a label/index, remaining
-    columns are the carriers. Returns (label_col, carrier_names, rows).
+
+def _build_per_step_ledger(
+    residuals: np.ndarray,
+    quats: np.ndarray,
+    angles: np.ndarray,
+    labels: List[Any],
+) -> List[Dict[str, Any]]:
+    """Assemble per-step ledger entries with labels preserved (ChatGPT recommendation)."""
+    out: List[Dict[str, Any]] = []
+    for t in range(residuals.shape[0]):
+        out.append(
+            {
+                "t": int(t),
+                "label_start": str(labels[t]) if t < len(labels) else None,
+                "label_end": str(labels[t + 1]) if t + 1 < len(labels) else None,
+                "q_w": float(quats[t, 0]),
+                "q_x": float(quats[t, 1]),
+                "q_y": float(quats[t, 2]),
+                "q_z": float(quats[t, 3]),
+                "angle_rad": float(angles[t]),
+                "residual_linf": float(residuals[t]),
+            }
+        )
+    return out
+
+
+def build_bearing_trajectory_d4(
+    rows: np.ndarray, labels: List[Any]
+) -> Dict[str, Any]:
+    """D=4 native: full ILR -> unit vectors in R^3 -> sandwich residuals."""
+    units, _radii = compositions_to_helmert_unit_vectors(rows, D=4)
+    residuals, quats, angles = quaternion_sandwich_residuals(units)
+    return _bearing_trajectory_block(residuals, quats, angles, labels)
+
+
+def build_bearing_trajectory_d3(
+    rows: np.ndarray, labels: List[Any]
+) -> Dict[str, Any]:
+    """D=3: ILR in R^2, zero-padded into R^3, then sandwich."""
+    ilr, radii = compositions_to_ilr(rows, D=3)
+    T = ilr.shape[0]
+    pad = np.zeros((T, 3), dtype=np.float64)
+    pad[:, :2] = ilr
+    norms = np.linalg.norm(pad, axis=1)
+    safe = norms > 1e-15
+    units = np.zeros_like(pad)
+    units[safe] = pad[safe] / norms[safe, None]
+    residuals, quats, angles = quaternion_sandwich_residuals(units)
+    block = _bearing_trajectory_block(residuals, quats, angles, labels)
+    block["projection_method"] = "zero_pad_z"
+    return block
+
+
+def build_bearing_trajectory_reduced(
+    rows: np.ndarray, D: int, labels: List[Any]
+) -> Dict[str, Any]:
+    """D>=5 (excluding 8 and 16 native cases): first 3 ILR axes + sandwich residuals.
+
+    Reports both per-step-mean and global captured-step-fraction (ChatGPT
+    recommendation: per-step-then-mean overweights small-motion steps; global
+    sum-of-squares ratio is more stable as a corpus-level diagnostic).
     """
-    p = Path(input_csv).resolve()
-    with p.open() as f:
+    ilr, _radii = compositions_to_ilr(rows, D=D)
+    full_step = ilr[1:] - ilr[:-1]
+    red_step = full_step[:, :3]
+    full_norm2 = (full_step ** 2).sum(axis=1)
+    red_norm2 = (red_step ** 2).sum(axis=1)
+    safe = full_norm2 > 1e-30
+    if safe.sum() > 0:
+        per_step_ratio = np.where(safe, red_norm2 / np.where(safe, full_norm2, 1.0), 1.0)
+        captured_mean = float(per_step_ratio.mean())
+        captured_global = float(red_norm2.sum() / max(full_norm2.sum(), 1e-30))
+    else:
+        captured_mean = 1.0
+        captured_global = 1.0
+    sub = ilr[:, :3]
+    norms = np.linalg.norm(sub, axis=1)
+    safe = norms > 1e-15
+    units = np.zeros_like(sub)
+    units[safe] = sub[safe] / norms[safe, None]
+    residuals, quats, angles = quaternion_sandwich_residuals(units)
+    block = _bearing_trajectory_block(residuals, quats, angles, labels)
+    block["projection_method"] = "first_three_helmert_axes"
+    block["captured_step_fraction_mean"] = captured_mean
+    block["captured_step_fraction_global"] = captured_global
+    return block
+
+
+def _bearing_trajectory_block(
+    residuals: np.ndarray,
+    quats: np.ndarray,
+    angles: np.ndarray,
+    labels: List[Any],
+) -> Dict[str, Any]:
+    n_pairs = int(residuals.shape[0])
+    if n_pairs > 0:
+        max_r = float(residuals.max())
+        mean_r = float(residuals.mean())
+    else:
+        max_r = None
+        mean_r = None
+    return {
+        "n_pairs_tested": n_pairs,
+        "max_residual": max_r,
+        "mean_residual": mean_r,
+        "gate_threshold": GATE_THRESHOLD,
+        "gate_pass": (max_r is not None and max_r < GATE_THRESHOLD),
+        "per_step": _build_per_step_ledger(residuals, quats, angles, labels),
+    }
+
+
+def build_bearing_trajectory_d2(rows: np.ndarray, labels: List[Any]) -> Dict[str, Any]:
+    """D=2: scalar log-ratio only; bearing-only path, quaternion_path is null."""
+    ilr, _radii = compositions_to_ilr(rows, D=2)
+    return {
+        "n_pairs_tested": 0,
+        "max_residual": None,
+        "mean_residual": None,
+        "gate_threshold": GATE_THRESHOLD,
+        "gate_pass": False,
+        "per_step": [],
+        "_note": "D=2: bearing-only path; quaternion sandwich does not apply.",
+    }
+
+
+def build_radial_trajectory(rows: np.ndarray, D: int) -> Dict[str, Any]:
+    """Per-step ILR norm series (radial trajectory) plus distribution summary.
+
+    First-class output in v2 (was thrown away in v1 by unit-vector normalisation).
+    """
+    ilr, radii = compositions_to_ilr(rows, D=D)
+    if radii.size == 0:
+        return {
+            "ilr_norms": [],
+            "min": None, "max": None, "mean": None, "median": None, "std": None,
+        }
+    return {
+        "ilr_norms": [float(x) for x in radii],
+        "min": float(radii.min()),
+        "max": float(radii.max()),
+        "mean": float(radii.mean()),
+        "median": float(np.median(radii)),
+        "std": float(radii.std(ddof=0)),
+    }
+
+
+# ---------------------------------------------------------------------------
+# I/O
+# ---------------------------------------------------------------------------
+
+
+def ingest_csv(input_csv: Path) -> Tuple[List[Any], List[str], np.ndarray, int]:
+    """Read a compositional CSV: first column = label, remaining = carriers.
+
+    Strict ingest (errors='strict'); zero-replacement counted; rejects bad shape.
+    """
+    p = Path(input_csv)
+    if not p.exists():
+        raise FileNotFoundError(f"input CSV not found: {p}")
+    with p.open("r", encoding="utf-8", errors="strict", newline="") as f:
         reader = csv.reader(f)
         header = next(reader)
-        carrier_names = header[1:]
-        rows = []
-        labels = []
-        for row in reader:
-            if not row:
+        if len(header) < 2:
+            raise InvalidInputError(
+                f"input CSV header must have at least 2 columns; got {len(header)}"
+            )
+        carrier_names = [str(c).strip() for c in header[1:]]
+        labels: List[Any] = []
+        rows_list: List[List[float]] = []
+        zero_count = 0
+        for line_no, row in enumerate(reader, start=2):
+            if not row or all(not c.strip() for c in row):
                 continue
+            if len(row) != len(header):
+                raise InvalidInputError(
+                    f"input CSV line {line_no}: expected {len(header)} columns, got {len(row)}"
+                )
             labels.append(row[0])
-            rows.append([float(v) for v in row[1:]])
-    return header[0], carrier_names, labels, rows
+            try:
+                vals = [float(x) for x in row[1:]]
+            except ValueError as e:
+                raise InvalidInputError(
+                    f"input CSV line {line_no}: non-numeric carrier value: {e}"
+                )
+            for k, v in enumerate(vals):
+                if v == 0.0:
+                    vals[k] = DEFAULT_DELTA
+                    zero_count += 1
+            rows_list.append(vals)
+    rows = np.asarray(rows_list, dtype=np.float64)
+    if rows.size == 0:
+        raise InvalidInputError(f"input CSV {p} contained no data rows")
+    return labels, carrier_names, rows, zero_count
 
 
-def reconstruct_compositions_from_cnt(cnt_json: dict):
-    """If a CNT JSON includes the input rows (newer schema does), pull
-    them back. Otherwise return None and the caller must supply a CSV.
+def load_cnt_reference(cnt_json_path: Optional[Path]) -> Optional[Dict[str, Any]]:
+    """Optionally read a CNT JSON for informational reference (NOT hash-chained).
 
-    CNT 2.1.x stores input rows under input.rows or input.compositions
-    depending on schema version. We probe the common locations.
+    Per push #32 engine-independence policy: cnt_reference is metadata only.
+    The CNQ canonical hash does not depend on CNT output existence or contents.
     """
-    inp = cnt_json.get("input", {}) or {}
-    rows = inp.get("rows") or inp.get("compositions")
-    carriers = inp.get("carrier_names") or inp.get("carriers")
-    if rows and carriers:
-        return list(carriers), rows
-    return None, None
+    if cnt_json_path is None:
+        return None
+    p = Path(cnt_json_path)
+    if not p.exists():
+        return {
+            "cnt_engine_version": None,
+            "cnt_schema_version": None,
+            "cnt_content_sha256": None,
+            "cnt_json_path": str(p),
+            "_note": "CNT JSON path provided but file not found; reference field set to nulls.",
+        }
+    try:
+        cnt = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        return {
+            "cnt_engine_version": None,
+            "cnt_schema_version": None,
+            "cnt_content_sha256": None,
+            "cnt_json_path": str(p),
+            "_note": f"CNT JSON could not be parsed: {e}",
+        }
+    md = cnt.get("metadata", {})
+    diag = cnt.get("diagnostics", {})
+    return {
+        "cnt_engine_version": md.get("engine_version"),
+        "cnt_schema_version": md.get("schema_version"),
+        "cnt_content_sha256": diag.get("cnt_content_sha256") or diag.get("content_sha256"),
+        "cnt_json_path": str(p),
+    }
 
 
-# ── Core CNQ computation ──────────────────────────────────────────────
+def get_environment_metadata(repo_root: Optional[Path] = None) -> Dict[str, Any]:
+    git_sha = None
+    if repo_root is not None:
+        try:
+            res = subprocess.run(
+                ["git", "rev-parse", "HEAD"],
+                cwd=str(repo_root),
+                capture_output=True,
+                text=True,
+                timeout=5,
+            )
+            if res.returncode == 0:
+                git_sha = res.stdout.strip()
+        except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+            git_sha = None
+    hostname_hash = hashlib.sha256(socket.gethostname().encode("utf-8")).hexdigest()[:16]
+    return {
+        "git_sha": git_sha,
+        "python_version": sys.version.split()[0],
+        "numpy_version": np.__version__,
+        "platform": platform.platform(),
+        "hostname_hash": hostname_hash,
+    }
 
-def run_cnq_view(rows, carrier_names, dimension_policy: dict) -> dict:
-    """The quaternion-native view: closure -> CLR -> Helmert -> unit
-    vectors -> per-step sandwich quaternions and residuals.
 
-    Returns a structured dict with all per-step quantities and the
-    residual summary. The schema is documented in CNQ_SCHEMA.md.
+# ---------------------------------------------------------------------------
+# Top-level orchestration
+# ---------------------------------------------------------------------------
+
+
+def cnq_run(
+    *,
+    input_csv: Optional[Path] = None,
+    cnt_json_path: Optional[Path] = None,
+    out_path: Optional[Path] = None,
+    repo_root: Optional[Path] = None,
+    engine_config_overrides: Optional[Dict[str, Any]] = None,
+) -> Dict[str, Any]:
+    """End-to-end CNQ v2.0.0 run.
+
+    Reads a CSV (preferred) and optionally a CNT JSON (informational reference,
+    not hash-chained), validates, builds the analytic pipeline, assembles the
+    output payload, computes the canonical content hash, and (optionally)
+    writes JSON to disk.
     """
-    rows = np.asarray(rows, dtype=float)
-    T, D = rows.shape
-    if D != dimension_policy["D"]:
-        raise ValueError(
-            f"Row dimension {D} != declared policy D={dimension_policy['D']}"
+    t0 = time.monotonic()
+    overrides = dict(engine_config_overrides or {})
+
+    if input_csv is None:
+        raise InvalidInputError(
+            "cnq_run: input_csv is required (CNQ v2 is a native dataset producer; "
+            "CNT JSON ingestion is optional reference only)"
         )
 
-    # 1. Closure + CLR + Helmert
-    closed = np.array([closure(r) for r in rows])
-    clr_vecs = np.array([clr(c) for c in closed])
-    H = helmert_basis(D)
-    ilr = clr_vecs @ H.T  # (T, D-1)
-    radii_full = np.linalg.norm(ilr, axis=1)
+    labels, carrier_names, rows, zero_count = ingest_csv(Path(input_csv))
+    rows = validate_rows(rows, min_carriers=2)
+    T, D = rows.shape
 
-    # 2. Project to R^3 according to dimension policy.
+    dim_policy = classify_dimension(D)
+
+    # Helmert basis is shared between CNT and CNQ via hci_shared.geometry.
+    H = helmert_basis(D)
+
+    # --- Bearing trajectory dispatch by dimension policy ---
+    bearing_only_block: Optional[Dict[str, Any]] = None
+    twin_factor_block: Optional[Dict[str, Any]] = None
+    quad_factor_block: Optional[Dict[str, Any]] = None
+    chsh_block: Optional[Dict[str, Any]] = None
+
     if D == 4:
-        ilr3 = ilr  # already in R^3
-        capture_note = "exact (D=4 native; no projection loss)"
+        bearing_block = build_bearing_trajectory_d4(rows, labels)
+        bearing_block["projection_method"] = "exact"
     elif D == 3:
-        # ilr is (T, 2); embed in R^3 with z = 0
-        ilr3 = np.column_stack([ilr, np.zeros(T)])
-        capture_note = "D=3 boundary; embedded in R^3 with z=0"
+        bearing_block = build_bearing_trajectory_d3(rows, labels)
     elif D == 2:
-        # ilr is (T, 1); cannot form a R^3 unit vector — bearing only.
-        return {
-            "dimension_policy": dimension_policy,
-            "quaternion_path": None,
-            "bearing_only": {
-                "ilr": ilr.flatten().tolist(),
-                "note": "D=2 has no rotation degree of freedom; bearing only.",
-            },
+        bearing_block = build_bearing_trajectory_d2(rows, labels)
+        ilr, _ = compositions_to_ilr(rows, D=2)
+        bearing_only_block = {
+            "ilr": [float(x) for x in ilr.flatten()],
+            "note": "D=2 has no rotation degree of freedom; bearing-only path.",
+        }
+    elif D == 8:
+        bearing_block = build_bearing_trajectory_reduced(rows, D, labels)
+        bearing_block["projection_method"] = "reduced_for_overall_view"
+        twin_factor_block = twin_quaternion_factor(rows)
+        # CHSH on the twin factor's per-step quaternions.
+        per_a = twin_factor_block["factor_A"]["per_step"]
+        per_b = twin_factor_block["factor_B"]["per_step"]
+        if per_a and per_b and len(per_a) == len(per_b):
+            qA = np.array([[s["q_w"], s["q_x"], s["q_y"], s["q_z"]] for s in per_a])
+            qB = np.array([[s["q_w"], s["q_x"], s["q_y"], s["q_z"]] for s in per_b])
+            chsh_block = chsh_S_value(qA, qB)
+    elif D == 16:
+        bearing_block = build_bearing_trajectory_reduced(rows, D, labels)
+        bearing_block["projection_method"] = "reduced_for_overall_view"
+        quad_factor_block = {
+            "enabled": False,
+            "_note": (
+                "D=16 quad-quaternion factoring is schema-locked but not yet "
+                "implemented (INV-043; v2.1 ships the implementation when the "
+                "first D=16 dataset lands)."
+            ),
         }
     else:
-        # D >= 5 (or D = 8): reduced view = first 3 ILR axes
-        ilr3 = ilr[:, :3]
-        capture_note = (
-            f"D={D}; first 3 ILR axes used as reduced view. "
-            f"Full ILR has {D-1} axes."
-        )
+        bearing_block = build_bearing_trajectory_reduced(rows, D, labels)
 
-    # 3. Captured energy fraction (per ChatGPT round-2 audit)
-    captured_step_fraction = None
-    if D == 4 or D == 3 or D == 2:
-        captured_step_fraction = 1.0
-    else:
-        # ratio of squared first-3-axis displacements to full displacements
-        full_steps = np.diff(ilr, axis=0)
-        red_steps = np.diff(ilr3, axis=0)
-        full_norm2 = np.sum(full_steps ** 2, axis=1)
-        red_norm2 = np.sum(red_steps ** 2, axis=1)
-        # Avoid divide-by-zero on stationary steps.
-        with np.errstate(divide="ignore", invalid="ignore"):
-            ratio = np.where(full_norm2 > 1e-30, red_norm2 / full_norm2, 1.0)
-        captured_step_fraction = float(np.mean(ratio))
+    # --- Radial trajectory (always emitted) ---
+    radial_block = build_radial_trajectory(rows, D)
 
-    # 4. Normalize to S^2 and run the sandwich-product reconstruction.
-    radii3 = np.linalg.norm(ilr3, axis=1)
-    safe_radii = np.where(radii3 > 1e-15, radii3, 1.0)
-    units = ilr3 / safe_radii[:, None]
-    units[radii3 <= 1e-15] = 0.0
+    # --- Helmsman + attractor (always) ---
+    helmsman = compute_helmsman_family(rows, window=HELMSMAN_ROLLING_WINDOW)
+    attractor = fit_attractor(rows)
 
-    residuals, quats, angles = quaternion_sandwich_residuals(units)
+    # --- Source hash + environment ---
+    source_hash = file_sha256(Path(input_csv))
+    env = get_environment_metadata(repo_root=repo_root)
 
-    # 5. Summary
-    n_pairs = len(residuals)
-    if n_pairs > 0:
-        max_residual = float(residuals.max())
-        mean_residual = float(residuals.mean())
-        gate_pass = bool(max_residual <= GATE_THRESHOLD)
-    else:
-        max_residual = float("nan")
-        mean_residual = float("nan")
-        gate_pass = False
+    cnt_ref = load_cnt_reference(cnt_json_path)
 
-    # 6. Per-step ledger (rounded to a float64-stable representation)
-    # We keep raw floats; canonical_dumps will format them consistently.
-    per_step = []
-    for t in range(n_pairs):
-        per_step.append({
-            "t": t,
-            "u_start": units[t].tolist(),
-            "u_end": units[t + 1].tolist(),
-            "q_w": float(quats[t][0]),
-            "q_x": float(quats[t][1]),
-            "q_y": float(quats[t][2]),
-            "q_z": float(quats[t][3]),
-            "angle_rad": float(angles[t]),
-            "residual_linf": float(residuals[t]),
-        })
+    wall_clock_ms = int((time.monotonic() - t0) * 1000.0)
 
-    return {
-        "dimension_policy": dimension_policy,
-        "n_records_T": T,
-        "n_carriers_D": D,
-        "carrier_names": list(carrier_names),
-        "frame_type": "Helmert orthonormal contrast (legacy QD convention)",
-        "frame_signature": "row k: 1/sqrt(k(k+1)) [k blocks of +1, then -k]",
-        "projection_to_R3": {
-            "method": (
-                "exact" if D == 4
-                else ("zero-padded R^2 -> R^3" if D == 3
-                else ("first 3 ILR axes" if D >= 5 else "n/a"))
-            ),
-            "note": capture_note,
-        },
-        "captured_step_fraction": captured_step_fraction,
-        "quaternion_path": {
-            "n_pairs_tested": n_pairs,
-            "max_residual": max_residual,
-            "mean_residual": mean_residual,
-            "gate_threshold": GATE_THRESHOLD,
-            "gate_pass": gate_pass,
-            "per_step": per_step,
-        },
-        "radii": {
-            "min": float(radii3.min()) if T > 0 else 0.0,
-            "max": float(radii3.max()) if T > 0 else 0.0,
-            "mean": float(radii3.mean()) if T > 0 else 0.0,
-        },
-    }
-
-
-# ── Output assembly ───────────────────────────────────────────────────
-
-def assemble_cnq_output(
-    cnt_json: dict,
-    cnt_diag: dict,
-    cnq_view: dict,
-    *,
-    cnt_json_path: Optional[Path] = None,
-    input_csv_path: Optional[Path] = None,
-) -> dict:
-    """Build the final CNQ JSON payload with the determinism contract.
-
-    The 'metadata.generated' timestamp is recorded but stripped from
-    the canonical hash. Two runs produce identical cnq_content_sha256.
-    """
-    # Provenance chain
-    parent_hash = cnt_diag.get("content_sha256")
-    source_hash = cnt_diag.get("source_file_sha256")
-    if input_csv_path and not source_hash:
-        source_hash = file_sha256(input_csv_path)
-
-    # Build the full payload first (without cnq_content_sha256), then
-    # compute the hash and patch it back in.
-    payload = {
+    payload: Dict[str, Any] = {
         "metadata": {
-            "schema": CNQ_SCHEMA_VERSION,
-            "engine": "HCI-CNQ",
-            "engine_version": CNQ_ENGINE_VERSION,
-            "generated": dt.datetime.utcnow().isoformat() + "Z",
-            "principle": "CNT measures invariance. CNQ names the algebra it lives in.",
+            "engine": ENGINE_NAME,
+            "engine_version": ENGINE_VERSION,
+            "schema_version": SCHEMA_VERSION,
+            "engine_implementation": "python",
+            "implementation_lang_version": f"Python {sys.version.split()[0]}",
+            "principle": ENGINE_PRINCIPLE,
+            "engine_config": {
+                "active_overrides": overrides,
+                "defaults_in_use": {
+                    "DEFAULT_DELTA": DEFAULT_DELTA,
+                    "GATE_THRESHOLD": GATE_THRESHOLD,
+                    "HELMSMAN_ROLLING_WINDOW": HELMSMAN_ROLLING_WINDOW,
+                    "CLASSICAL_BOUND": CLASSICAL_BOUND,
+                    "TSIRELSON_BOUND": TSIRELSON_BOUND,
+                },
+            },
+            "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+            "wall_clock_ms": wall_clock_ms,
+            "environment": env,
         },
-        "provenance": {
-            "parent_engine": "HCI-CNT",
-            "parent_engine_version": cnt_diag.get("cnt_engine_version"),
-            "parent_schema": cnt_diag.get("cnt_schema_version"),
-            "parent_cnt_content_sha256": parent_hash,
+        "input": {
+            "source_file": str(input_csv),
             "source_file_sha256": source_hash,
-            "cnt_json_path": str(cnt_json_path) if cnt_json_path else None,
-            "input_csv_path": str(input_csv_path) if input_csv_path else None,
+            "n_records": int(T),
+            "n_carriers": int(D),
+            "carriers": list(carrier_names),
+            "labels": [str(label) for label in labels],
+            "zero_replacement_count": int(zero_count),
         },
-        "cnt_diagnostics_carried_forward": {
-            "cnt_termination": cnt_diag.get("cnt_termination"),
-            "ir_class": cnt_diag.get("ir_class"),
-            "amplitude_A": cnt_diag.get("amplitude_A"),
-            "damping_zeta": cnt_diag.get("damping_zeta"),
-            "helmsman_sigma": cnt_diag.get("helmsman_sigma"),
+        "cnt_reference": cnt_ref,
+        "cnq_view": {
+            "dimension_policy": dim_policy,
+            "frame": {
+                "type": "Helmert orthonormal contrast",
+                "signature": "row k has (k+1) entries +1/sqrt(n*(n+1)) followed by -n/sqrt(n*(n+1))",
+                "basis_matrix": H.tolist(),
+            },
+            "bearing_trajectory": bearing_block,
+            "radial_trajectory": radial_block,
+            "bearing_only": bearing_only_block,
         },
-        "cnq_view": cnq_view,
+        "helmsman_family": helmsman,
+        "attractor_fit": attractor,
+        "twin_quaternion_factoring": twin_factor_block,
+        "quad_quaternion_factoring": quad_factor_block,
+        "chsh_diagnostic": chsh_block,
+        "bundle_view": None,
+        "diagnostics": {
+            "warnings": [],
+        },
     }
 
-    # Compute the cnq content hash over the canonical payload.
-    cnq_hash = canonical_sha256(payload)
-    payload["cnq_content_sha256"] = cnq_hash
-    return payload
+    # Compute content hash last (not hash-chained to CNT).
+    digest = canonical_sha256(payload)
+    payload["diagnostics"]["cnq_content_sha256"] = digest
 
-
-# ── Top-level entry point ─────────────────────────────────────────────
-
-def run_cnq(
-    *,
-    cnt_json_path: Optional[Path] = None,
-    input_csv_path: Optional[Path] = None,
-    out_path: Path,
-    repo_root: Optional[Path] = None,
-    cnt_engine: Optional[Path] = None,
-    cnt_extra_args: Optional[list] = None,
-) -> dict:
-    """Full CNQ run.
-
-    Either cnt_json_path or input_csv_path must be provided.
-    If both are None, raises ValueError. If only input_csv is given,
-    CNT is invoked first (via cnt_adapter) and the resulting JSON is
-    written next to out_path.
-    """
-    if cnt_json_path is None and input_csv_path is None:
-        raise ValueError("Provide either --cnt-json or --input-csv.")
-
-    repo_root_resolved = find_repo_root(explicit=repo_root) if (
-        cnt_json_path is None or input_csv_path is not None
-    ) else None
-
-    # Step A: get a CNT JSON in hand.
-    if cnt_json_path is None:
-        # Run CNT first.
-        engine_path = find_cnt_engine(repo_root_resolved, explicit=cnt_engine)
-        cnt_json_path = out_path.with_suffix(".cnt.json")
-        run_cnt(
-            input_csv_path,
-            cnt_json_path,
-            engine_path,
-            extra_args=cnt_extra_args,
-        )
-
-    cnt_json = load_cnt_json(cnt_json_path)
-    cnt_diag = extract_cnt_diagnostics(cnt_json)
-
-    # Step B: get the row-level data.
-    # Prefer the CNT JSON's recorded input. Fall back to the CSV.
-    carriers, rows = reconstruct_compositions_from_cnt(cnt_json)
-    if rows is None:
-        if input_csv_path is None:
-            raise RuntimeError(
-                "CNT JSON does not contain input rows and no --input-csv was "
-                "provided. Pass --input-csv to enable CNQ on this CNT JSON."
-            )
-        _, carriers, _labels, rows = read_csv_compositions(input_csv_path)
-
-    rows = np.asarray(rows, dtype=float)
-    D = rows.shape[1]
-    policy = classify_dimension(D)
-
-    # Step C: compute the CNQ view.
-    cnq_view = run_cnq_view(rows, carriers, policy)
-
-    # Step D: assemble + write.
-    payload = assemble_cnq_output(
-        cnt_json,
-        cnt_diag,
-        cnq_view,
-        cnt_json_path=cnt_json_path,
-        input_csv_path=input_csv_path,
-    )
-
-    out_path = Path(out_path).resolve()
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    with out_path.open("w", encoding="utf-8") as f:
-        json.dump(payload, f, indent=2, sort_keys=True, ensure_ascii=True)
+    if out_path is not None:
+        Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+        with Path(out_path).open("w", encoding="utf-8") as f:
+            json.dump(payload, f, indent=2, ensure_ascii=False)
 
     return payload
 
 
-# ── CLI ───────────────────────────────────────────────────────────────
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
+
 
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        prog="cnq",
-        description=(
-            "HCI-CNQ engine — produce a quaternion-native view of a "
-            "compositional trajectory, hash-chained to its parent CNT JSON."
-        ),
+        prog="hs-cnq",
+        description=f"{ENGINE_NAME} v{ENGINE_VERSION} compositional navigation quaternion engine",
     )
-    p.add_argument(
-        "--cnt-json",
-        type=Path,
-        default=None,
-        help="Path to an existing CNT JSON (preferred — skips CNT invocation).",
-    )
-    p.add_argument(
-        "--input-csv",
-        type=Path,
-        default=None,
-        help="Path to a CCTT-style CSV. Required if --cnt-json is omitted "
-             "(CNT will be invoked first), or as a fallback for input rows "
-             "if the CNT JSON does not record them.",
-    )
-    p.add_argument(
-        "--out",
-        type=Path,
-        required=True,
-        help="Output CNQ JSON path.",
-    )
-    p.add_argument(
-        "--cnt-extra-arg",
-        action="append",
-        default=[],
-        help="Extra args to forward to cnt.py (repeatable).",
-    )
-    add_repo_root_arg(p)
+    p.add_argument("--input-csv", type=str, required=False, default=None,
+                   help="Path to compositional input CSV (label column + D carriers)")
+    p.add_argument("--cnt-json", type=str, default=None,
+                   help="Optional CNT JSON path for informational cross-reference (NOT hash-chained)")
+    p.add_argument("-o", "--output", type=str, default=None, help="Output JSON path")
+    p.add_argument("--repo-root", type=str, default=None)
+    p.add_argument("--self-test", action="store_true",
+                   help="Run BIST self-test instead of normal engine invocation")
+    p.add_argument("--version", action="version",
+                   version=f"{ENGINE_NAME} v{ENGINE_VERSION} (schema {SCHEMA_VERSION})")
     return p
 
 
-def main(argv=None) -> int:
-    parser = _build_parser()
-    args = parser.parse_args(argv)
-    try:
-        payload = run_cnq(
-            cnt_json_path=args.cnt_json,
-            input_csv_path=args.input_csv,
-            out_path=args.out,
-            repo_root=args.repo_root,
-            cnt_engine=args.cnt_engine,
-            cnt_extra_args=args.cnt_extra_arg,
-        )
-    except (FileNotFoundError, ValueError, RuntimeError) as e:
-        print(f"cnq: ERROR: {e}", file=sys.stderr)
+def self_test() -> int:
+    """Run the standard self-test corpus and emit a dated, hash-signed receipt."""
+    self_test_dir = _THIS_FILE.parent / "self_test"
+    runner = self_test_dir / "run_self_test.py"
+    if not runner.exists():
+        print(f"FATAL: self-test runner not found at {runner}", file=sys.stderr)
         return 2
+    if str(self_test_dir) not in sys.path:
+        sys.path.insert(0, str(self_test_dir))
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cnq_self_test_runner", runner)
+    mod = importlib.util.module_from_spec(spec)
+    assert spec.loader is not None
+    spec.loader.exec_module(mod)
+    return int(mod.run())
 
-    # Print headline summary on stdout for one-line CI reading.
+
+def main(argv: Optional[List[str]] = None) -> int:
+    args = _build_parser().parse_args(argv)
+    if args.self_test:
+        return self_test()
+    if args.input_csv is None:
+        print("error: --input-csv is required (or use --self-test for BIST)", file=sys.stderr)
+        return 2
+    repo_root = Path(args.repo_root) if args.repo_root else None
+    out_path = Path(args.output) if args.output else None
+    cnt_json = Path(args.cnt_json) if args.cnt_json else None
+    payload = cnq_run(
+        input_csv=Path(args.input_csv),
+        cnt_json_path=cnt_json,
+        out_path=out_path,
+        repo_root=repo_root,
+    )
+    md = payload["metadata"]
+    inp = payload["input"]
     cv = payload["cnq_view"]
-    qp = cv.get("quaternion_path") or {}
-    print(f"CNQ: D={cv['n_carriers_D']} T={cv['n_records_T']} "
-          f"label={cv['dimension_policy']['label']} "
-          f"max_residual={qp.get('max_residual', 'n/a')} "
-          f"gate_pass={qp.get('gate_pass', 'n/a')} "
-          f"cnq_content_sha256={payload['cnq_content_sha256']}")
+    diag = payload["diagnostics"]
+    print(f"engine             = {md['engine']} v{md['engine_version']} (schema {md['schema_version']})")
+    print(f"input              = {inp['source_file']}")
+    print(f"T x D              = {inp['n_records']} x {inp['n_carriers']}")
+    print(f"dimension_policy   = {cv['dimension_policy']['label']}")
+    bt = cv['bearing_trajectory']
+    if bt.get("max_residual") is not None:
+        print(f"bearing.max_residual = {bt['max_residual']:.3e} (gate: {'PASS' if bt['gate_pass'] else 'FAIL'})")
+    print(f"radial.mean        = {cv['radial_trajectory'].get('mean')}")
+    af = payload['attractor_fit']
+    print(f"attractor.fitted   = {af.get('fitted')}, period={af.get('period')}, stability={af.get('period_stability', 0):.4f}")
+    if payload['twin_quaternion_factoring'] is not None and payload['twin_quaternion_factoring'].get('enabled'):
+        twin = payload['twin_quaternion_factoring']
+        print(f"twin.rho_AB.mean   = {twin['coupling']['rho_AB_summary']['mean']:.4f}, class={twin['coupling']['coherence_class']}")
+    if payload['chsh_diagnostic'] is not None and payload['chsh_diagnostic'].get('enabled'):
+        ch = payload['chsh_diagnostic']
+        print(f"CHSH.S_value       = {ch['S_value']:.4f}, verdict={ch['coherence_verdict']}")
+    print(f"helmsman.flips     = {payload['helmsman_family']['flips']['total']}")
+    print(f"cnq_content_sha256 = {diag['cnq_content_sha256']}")
+    if out_path:
+        print(f"written            = {out_path}")
     return 0
 
 
 if __name__ == "__main__":
     sys.exit(main())
-/a')} "
-          f"cnq_content_sha256={payload['cnq_content_sha256']}")
-    return 0
 
-
-if __name__ == "__main__":
-    sys.exit(main())
