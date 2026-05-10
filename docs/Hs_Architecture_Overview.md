@@ -49,7 +49,7 @@
 | File | Purpose | Key Output |
 |------|---------|------------|
 | `hs_codes.py` | 78 diagnostic codes + 10 structural modes | Code list with parameters |
-| `hs_reporter.py` | Multilingual report generation | Human-readable reports (5 languages) |
+| `hs_reporter.py` | Multilingual report generation | User-readable reports (5 reporter languages: en, zh, hi, pt, it; the UN-6 wrapper system adds en, fr, es, ru, zh, ar — total 9 distinct languages across both systems) |
 
 ### Sensitivity Analysis
 
@@ -106,7 +106,8 @@ hs_ingest.py ──────────────────► numpy arr
     │                     │              │            │
     │                     ▼              ▼            ▼
     │               hs_codes.py   hs_fingerprint.py  hs_reporter.py
-    │               (78 codes)    (SHA-256 hash)     (5 languages)
+    │               (78 codes)    (SHA-256 hash)     (5 reporter +
+    │                                                 UN-6 wrapper)
     │                     │              │            │
     │                     └──────┬───────┘            │
     │                            │                    │

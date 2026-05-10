@@ -26,7 +26,7 @@ cd tools/pipeline
 python hs_ingest.py mydata.csv --all-languages
 ```
 
-This produces: a results JSON (full numeric output), diagnostic reports in 5 languages, and a console summary showing classification (NATURAL, INVESTIGATE, or FLAG), the nearest transcendental constant, and all diagnostic codes.
+This produces: a results JSON (full numeric output), diagnostic reports in the 5 reporter languages (en, zh, hi, pt, it), and a console summary showing classification (NATURAL, INVESTIGATE, or FLAG), the nearest transcendental constant, and all diagnostic codes. Wrapper-driven outputs (CNQ tier) add the UN-6 locales (en, fr, es, ru, zh, ar) — 9 languages in total across both systems.
 
 **Step 3: Read your report.** Open the English report file. It tells you: what shape the variance trajectory takes (bowl or hill), how close the system is to a transcendental constant, whether entropy is preserved under decimation, and what structural modes were detected.
 

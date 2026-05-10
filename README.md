@@ -35,7 +35,9 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 | Transcendental constants | 35 |
 | Conjugate pairs validated | 13 |
 | Reference standards | 15 |
-| Languages | 5 (en, zh, hi, pt, it) |
+| Diagnostic-report languages | 5 (en, zh, hi, pt, it) — `tools/pipeline/locales/` |
+| UN-6 wrapper locales | 6 (en, fr, es, ru, zh, ar) — `HCI-CNQ/wrappers/` (push #32) |
+| Languages supported (union) | **9** (en, fr, es, ru, zh, ar, hi, pt, it) |
 | Scale range | 10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude) |
 | Framework version | 3.0 |
 | Deterministic | Yes (Gauge R&R bit-identical, SHA-256 verified) |
@@ -287,7 +289,7 @@ All code lives in `tools/pipeline/`. No external dependencies beyond numpy.
 
 | File | Role |
 |---|---|
-| `hs_reporter.py` | Multilingual diagnostic reporter (5 languages) |
+| `hs_reporter.py` | Multilingual diagnostic reporter (5 reporter languages — see also UN-6 wrapper system in `HCI-CNQ/wrappers/`) |
 | `hs_testgen.py` | Secondary test tools — adversarial, boundary, and regression tests |
 | `hs_audit.py` | Audit trail + 16 configurable breakpoints |
 | `hs_controller.py` | Industrial state machine controller with Hˢ-GOV supervisor |
