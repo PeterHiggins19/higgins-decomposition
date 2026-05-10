@@ -1,0 +1,730 @@
+{
+  "_meta": {
+    "type": "FULL_CORPUS_VALIDATION_MANIFEST",
+    "version": "1.0",
+    "created": "2026-05-10",
+    "engines": {
+      "cnt": "v3.0.0",
+      "cnq": "v2.0.0"
+    },
+    "doctrines": [
+      "SEA-1.0",
+      "STP-1.0",
+      "CRD-1.0",
+      "engine-independence (push #32)"
+    ],
+    "purpose": "Citation-grade reference experiment suite running the latest CNT v3 + CNQ v2 engines across every domain in the DATA folder. These are the definitive worked examples for compositional analysis using the Hs framework. No simulated data; every input is a real-world dataset with a documented source.",
+    "last_updated": "2026-05-10",
+    "phase": "Phase 2 expansion (push #34)",
+    "dataset_count": 101
+  },
+  "datasets": [
+    {
+      "id": "energy_ember_usa",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for the United States, annual TWh, 2001-2025. 9 carriers (Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Other Renewables, Solar, Wind).",
+      "citation": "EMBER Climate, Pipeline-ready dataset (https://ember-climate.org/data-tools/data-explorer/)",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_usa/ember_USA_United_States_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_chn",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for China, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_chn/ember_CHN_China_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_deu",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for Germany, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_deu/ember_DEU_Germany_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_fra",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for France, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_fra/ember_FRA_France_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_gbr",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for the United Kingdom, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_gbr/ember_GBR_United_Kingdom_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_ind",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for India, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_ind/ember_IND_India_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_jpn",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source for Japan, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_jpn/ember_JPN_Japan_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_wld",
+      "domain": "energy",
+      "description": "EMBER electricity-generation-by-source aggregated for the World, annual TWh, 2000-2025. 9 carriers.",
+      "citation": "EMBER Climate",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_wld/ember_WLD_World_generation_TWh.csv"
+    },
+    {
+      "id": "energy_ember_combined_panel",
+      "domain": "energy",
+      "description": "EMBER 8-country combined panel — country and year columns flattened into a single trajectory; D = 9 generation carriers.",
+      "citation": "EMBER Climate (panel construction by HCI-CNT codawork2026 pipeline)",
+      "input_csv": "HCI-CNT/experiments/codawork2026/ember_combined_panel/ember_combined_panel_input.csv"
+    },
+    {
+      "id": "backblaze_fleet",
+      "domain": "backblaze",
+      "description": "Backblaze drive failure telemetry, daily 2024-01-01 through 2025-12-31. D = 4 derived stress carriers (Mechanical, Thermal, Age, Errors) computed from the SMART-attribute aggregation.",
+      "citation": "Backblaze Drive Stats (https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data); pipeline-ready aggregation in HCI-CNT/adapters/backblaze_adapter.py",
+      "input_csv": "HCI-CNT/experiments/codawork2026/backblaze_fleet/backblaze_fleet_input.csv"
+    },
+    {
+      "id": "geochem_stracke_morb",
+      "domain": "geochemistry",
+      "description": "Stracke MORB (mid-ocean ridge basalt) major-oxide composition, by ocean basin. T = 5 locations, D = 10 oxide carriers (SiO2, TiO2, Al2O3, FeO, CaO, MgO, MnO, K2O, Na2O, P2O5).",
+      "citation": "Stracke A. (2022) — Geochem Earthchem 2022_09-0SVW6S",
+      "input_csv": "HCI-CNT/experiments/domain/geochem_stracke_morb/geochem_stracke_morb_input.csv"
+    },
+    {
+      "id": "chemistry_chemixhub_oxide",
+      "domain": "chemistry",
+      "description": "Chemixhub oxide compositional samples — synthetic-style mineral oxide compositions across 25 catalogued samples; D = 7 oxide carriers.",
+      "citation": "ChemixHub project, github.com/chemixhub (oxide composition subset)",
+      "input_csv": "HCI-CNT/experiments/extended/chemixhub_oxide/chemixhub_oxide_input.csv"
+    },
+    {
+      "id": "esa_planck_cosmic",
+      "domain": "esa-planck",
+      "description": "ESA Planck cosmological energy-density composition vs redshift. T = 18 redshift bins (z = 0.0 to z = 1100), D = 5 species carriers (Dark Energy, Cold Dark Matter, Baryons, Photons, Neutrinos).",
+      "citation": "Planck 2018 cosmological parameters (Planck Collaboration); composition computed at each redshift bin per standard LCDM evolution equations",
+      "input_csv": "HCI-CNT/experiments/extended/esa_planck_cosmic/esa_planck_cosmic_input.csv"
+    },
+    {
+      "id": "financial_sp500_sectors",
+      "domain": "financial",
+      "description": "S&P 500 sector-weight composition, daily for one trading year. T = 252 trading days, D = 10 GICS sectors (Information Tech, Health Care, Financials, Cons Discretionary, Comm Services, Industrials, Cons Staples, Energy, Utilities, Materials).",
+      "citation": "S&P Global GICS sector classifications applied to SP500.csv close-prices; sector weighting per S&P methodology",
+      "input_csv": "HCI-CNT/experiments/extended/financial_sector/financial_sector_input.csv"
+    },
+    {
+      "id": "iiasa_ngfs",
+      "domain": "iiasa",
+      "description": "IIASA NGFS Phase-4 scenario emissions allocation by sector. T = 31 years (2020-2050), D = 7 emission-sector carriers (Energy, Transport, Industry, Buildings, Agriculture, LULUCF, Other).",
+      "citation": "IIASA NGFS Phase-4 dataset (Network for Greening the Financial System scenarios)",
+      "input_csv": "HCI-CNT/experiments/extended/iiasa_ngfs/iiasa_ngfs_input.csv"
+    },
+    {
+      "id": "urban_markham_budget",
+      "domain": "urban",
+      "description": "City of Markham (Ontario) operating budget composition, fiscal years 2011-2025. T = 15 fiscal years, D = 8 budget category carriers (Operations & Asset Mgmt, Public Safety, Planning & Building, Recreation & Culture, Library & Heritage, Engineering & Capital, Corporate Services, Council & Administration).",
+      "citation": "City of Markham annual budget reports (compiled from public budget documents)",
+      "input_csv": "HCI-CNT/experiments/extended/markham_budget/markham_budget_input.csv"
+    },
+    {
+      "id": "commodities_gold_silver",
+      "domain": "commodities",
+      "description": "Annual gold-silver mass-fraction composition normalized over both metals, 1688-2025 (T = 1338 years). D = 2 carriers — minimum compositional dimension; the engine handles D = 2 via the degenerate-pair branch.",
+      "citation": "Compiled from BoE+Bullion historical price/production records; normalized to a 2-element composition by total-mass weighting",
+      "input_csv": "HCI-CNT/experiments/reference/commodities_gold_silver/commodities_gold_silver_input.csv"
+    },
+    {
+      "id": "nuclear_semf",
+      "domain": "nuclear",
+      "description": "Semi-empirical mass formula (SEMF) component decomposition across the valley of stability. T = 76 nuclides (light to heavy), D = 5 SEMF term carriers (Volume, Surface, Coulomb, Asymmetry, Pairing). The 'time' axis is nuclide ordering by Z+A; each row is one (Z, A) pair.",
+      "citation": "AME2020 nuclear masses (Wang et al. 2021); SEMF terms per Weizsäcker formula",
+      "input_csv": "HCI-CNT/experiments/reference/nuclear_semf/nuclear_semf_input.csv"
+    },
+    {
+      "id": "energy_owid_are",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ARE (ARE), annual TWh. T = 16 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ARE",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ARE.csv"
+    },
+    {
+      "id": "energy_owid_arg",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ARG (ARG), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ARG",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ARG.csv"
+    },
+    {
+      "id": "energy_owid_aus",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for AUS (AUS), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: AUS",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_AUS.csv"
+    },
+    {
+      "id": "energy_owid_aut",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for AUT (AUT), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: AUT",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_AUT.csv"
+    },
+    {
+      "id": "energy_owid_aze",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for AZE (AZE), annual TWh. T = 37 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: AZE",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_AZE.csv"
+    },
+    {
+      "id": "energy_owid_bel",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for BEL (BEL), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: BEL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_BEL.csv"
+    },
+    {
+      "id": "energy_owid_bgd",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for BGD (BGD), annual TWh. T = 54 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: BGD",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_BGD.csv"
+    },
+    {
+      "id": "energy_owid_bgr",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for BGR (BGR), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: BGR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_BGR.csv"
+    },
+    {
+      "id": "energy_owid_blr",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for BLR (BLR), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: BLR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_BLR.csv"
+    },
+    {
+      "id": "energy_owid_bra",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for BRA (BRA), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: BRA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_BRA.csv"
+    },
+    {
+      "id": "energy_owid_can",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CAN (CAN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CAN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CAN.csv"
+    },
+    {
+      "id": "energy_owid_che",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CHE (CHE), annual TWh. T = 56 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CHE",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CHE.csv"
+    },
+    {
+      "id": "energy_owid_chl",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CHL (CHL), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CHL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CHL.csv"
+    },
+    {
+      "id": "energy_owid_chn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CHN (CHN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CHN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CHN.csv"
+    },
+    {
+      "id": "energy_owid_col",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for COL (COL), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: COL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_COL.csv"
+    },
+    {
+      "id": "energy_owid_cyp",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CYP (CYP), annual TWh. T = 21 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CYP",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CYP.csv"
+    },
+    {
+      "id": "energy_owid_cze",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for CZE (CZE), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: CZE",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_CZE.csv"
+    },
+    {
+      "id": "energy_owid_deu",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for DEU (DEU), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: DEU",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_DEU.csv"
+    },
+    {
+      "id": "energy_owid_dnk",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for DNK (DNK), annual TWh. T = 47 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: DNK",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_DNK.csv"
+    },
+    {
+      "id": "energy_owid_dza",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for DZA (DZA), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: DZA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_DZA.csv"
+    },
+    {
+      "id": "energy_owid_ecu",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ECU (ECU), annual TWh. T = 35 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ECU",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ECU.csv"
+    },
+    {
+      "id": "energy_owid_egy",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for EGY (EGY), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: EGY",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_EGY.csv"
+    },
+    {
+      "id": "energy_owid_esp",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ESP (ESP), annual TWh. T = 57 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ESP",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ESP.csv"
+    },
+    {
+      "id": "energy_owid_est",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for EST (EST), annual TWh. T = 26 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: EST",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_EST.csv"
+    },
+    {
+      "id": "energy_owid_fin",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for FIN (FIN), annual TWh. T = 51 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: FIN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_FIN.csv"
+    },
+    {
+      "id": "energy_owid_fra",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for FRA (FRA), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: FRA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_FRA.csv"
+    },
+    {
+      "id": "energy_owid_gbr",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for GBR (GBR), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: GBR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_GBR.csv"
+    },
+    {
+      "id": "energy_owid_grc",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for GRC (GRC), annual TWh. T = 43 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: GRC",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_GRC.csv"
+    },
+    {
+      "id": "energy_owid_hkg",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for HKG (HKG), annual TWh. T = 19 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: HKG",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_HKG.csv"
+    },
+    {
+      "id": "energy_owid_hrv",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for HRV (HRV), annual TWh. T = 35 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: HRV",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_HRV.csv"
+    },
+    {
+      "id": "energy_owid_hun",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for HUN (HUN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: HUN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_HUN.csv"
+    },
+    {
+      "id": "energy_owid_idn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for IDN (IDN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: IDN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_IDN.csv"
+    },
+    {
+      "id": "energy_owid_ind",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for IND (IND), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: IND",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_IND.csv"
+    },
+    {
+      "id": "energy_owid_irl",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for IRL (IRL), annual TWh. T = 46 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: IRL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_IRL.csv"
+    },
+    {
+      "id": "energy_owid_irn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for IRN (IRN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: IRN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_IRN.csv"
+    },
+    {
+      "id": "energy_owid_isr",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ISR (ISR), annual TWh. T = 44 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ISR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ISR.csv"
+    },
+    {
+      "id": "energy_owid_ita",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ITA (ITA), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ITA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ITA.csv"
+    },
+    {
+      "id": "energy_owid_jpn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for JPN (JPN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: JPN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_JPN.csv"
+    },
+    {
+      "id": "energy_owid_kaz",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for KAZ (KAZ), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: KAZ",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_KAZ.csv"
+    },
+    {
+      "id": "energy_owid_kor",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for KOR (KOR), annual TWh. T = 48 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: KOR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_KOR.csv"
+    },
+    {
+      "id": "energy_owid_lka",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for LKA (LKA), annual TWh. T = 25 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: LKA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_LKA.csv"
+    },
+    {
+      "id": "energy_owid_ltu",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for LTU (LTU), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: LTU",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_LTU.csv"
+    },
+    {
+      "id": "energy_owid_lux",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for LUX (LUX), annual TWh. T = 56 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: LUX",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_LUX.csv"
+    },
+    {
+      "id": "energy_owid_lva",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for LVA (LVA), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: LVA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_LVA.csv"
+    },
+    {
+      "id": "energy_owid_mar",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for MAR (MAR), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: MAR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_MAR.csv"
+    },
+    {
+      "id": "energy_owid_mex",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for MEX (MEX), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: MEX",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_MEX.csv"
+    },
+    {
+      "id": "energy_owid_mkd",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for MKD (MKD), annual TWh. T = 27 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: MKD",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_MKD.csv"
+    },
+    {
+      "id": "energy_owid_mys",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for MYS (MYS), annual TWh. T = 55 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: MYS",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_MYS.csv"
+    },
+    {
+      "id": "energy_owid_nld",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for NLD (NLD), annual TWh. T = 57 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: NLD",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_NLD.csv"
+    },
+    {
+      "id": "energy_owid_nor",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for NOR (NOR), annual TWh. T = 48 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: NOR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_NOR.csv"
+    },
+    {
+      "id": "energy_owid_nzl",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for NZL (NZL), annual TWh. T = 55 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: NZL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_NZL.csv"
+    },
+    {
+      "id": "energy_owid_pak",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for PAK (PAK), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: PAK",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_PAK.csv"
+    },
+    {
+      "id": "energy_owid_per",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for PER (PER), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: PER",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_PER.csv"
+    },
+    {
+      "id": "energy_owid_phl",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for PHL (PHL), annual TWh. T = 31 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: PHL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_PHL.csv"
+    },
+    {
+      "id": "energy_owid_pol",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for POL (POL), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: POL",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_POL.csv"
+    },
+    {
+      "id": "energy_owid_prt",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for PRT (PRT), annual TWh. T = 36 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: PRT",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_PRT.csv"
+    },
+    {
+      "id": "energy_owid_rou",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ROU (ROU), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ROU",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ROU.csv"
+    },
+    {
+      "id": "energy_owid_rus",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for RUS (RUS), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: RUS",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_RUS.csv"
+    },
+    {
+      "id": "energy_owid_sau",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for SAU (SAU), annual TWh. T = 17 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: SAU",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_SAU.csv"
+    },
+    {
+      "id": "energy_owid_sgp",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for SGP (SGP), annual TWh. T = 17 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: SGP",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_SGP.csv"
+    },
+    {
+      "id": "energy_owid_svk",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for SVK (SVK), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: SVK",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_SVK.csv"
+    },
+    {
+      "id": "energy_owid_svn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for SVN (SVN), annual TWh. T = 35 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: SVN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_SVN.csv"
+    },
+    {
+      "id": "energy_owid_swe",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for SWE (SWE), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: SWE",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_SWE.csv"
+    },
+    {
+      "id": "energy_owid_tha",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for THA (THA), annual TWh. T = 44 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: THA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_THA.csv"
+    },
+    {
+      "id": "energy_owid_tkm",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for TKM (TKM), annual TWh. T = 26 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: TKM",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_TKM.csv"
+    },
+    {
+      "id": "energy_owid_tur",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for TUR (TUR), annual TWh. T = 43 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: TUR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_TUR.csv"
+    },
+    {
+      "id": "energy_owid_twn",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for TWN (TWN), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: TWN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_TWN.csv"
+    },
+    {
+      "id": "energy_owid_ukr",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for UKR (UKR), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: UKR",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_UKR.csv"
+    },
+    {
+      "id": "energy_owid_usa",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for USA (USA), annual TWh. T = 60 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: USA",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_USA.csv"
+    },
+    {
+      "id": "energy_owid_uzb",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for UZB (UZB), annual TWh. T = 40 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: UZB",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_UZB.csv"
+    },
+    {
+      "id": "energy_owid_ven",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for VEN (VEN), annual TWh. T = 58 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: VEN",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_VEN.csv"
+    },
+    {
+      "id": "energy_owid_vnm",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for VNM (VNM), annual TWh. T = 44 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: VNM",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_VNM.csv"
+    },
+    {
+      "id": "energy_owid_zaf",
+      "domain": "energy",
+      "description": "OWID primary-energy consumption composition for ZAF (ZAF), annual TWh. T = 54 years, D = 8 carriers (Coal, Gas, Oil, Nuclear, Hydro, Solar, Wind, Biofuel). Distinct from the EMBER electricity-generation dataset: this is total primary-energy consumption across all end uses.",
+      "citation": "Our World in Data — owid-energy-data.csv (compiled from BP Statistical Review, IEA, EIA); country: ZAF",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/owid_energy_ZAF.csv"
+    },
+    {
+      "id": "geochem_ball_age",
+      "domain": "geochemistry",
+      "description": "Ball (2022) intraplate-volcanic database — major-oxide composition binned by IUGS chronostratigraphic age epoch (Holocene through Eocene_or_older). T = 10 epochs, D = 10 oxides (SiO2, TiO2, Al2O3, FeO, CaO, MgO, MnO, K2O, Na2O, P2O5).",
+      "citation": "Ball M.E. et al. (2022) — Geochem Earthchem 2022-3-RY3BRK; chronostratigraphic binning per IUGS chart",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/ball_oxides_by_age_barycenters.csv"
+    },
+    {
+      "id": "geochem_ball_region",
+      "domain": "geochemistry",
+      "description": "Ball (2022) intraplate-volcanic database — major-oxide composition binned by geographic Region (95 regions retained at min n=10 per region). T = 95, D = 10 oxides.",
+      "citation": "Ball M.E. et al. (2022) — Geochem Earthchem 2022-3-RY3BRK; region binning per source metadata",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/ball_oxides_by_region_barycenters.csv"
+    },
+    {
+      "id": "geochem_ball_tas",
+      "domain": "geochemistry",
+      "description": "Ball (2022) intraplate-volcanic database — major-oxide composition binned by Total-Alkali-Silica (TAS, Le Bas 1986) rock-type classification. T = 15 rock types, D = 10 oxides.",
+      "citation": "Ball M.E. et al. (2022) — Geochem Earthchem 2022-3-RY3BRK; TAS classification per Le Bas 1986",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/ball_oxides_by_tas_barycenters.csv"
+    },
+    {
+      "id": "geochem_qin_cpx",
+      "domain": "geochemistry",
+      "description": "Qin et al. (2024) clinopyroxene mineral spot analyses from intra-cratonic mantle xenoliths and ultramafic rocks. T = 30 top locations (>=10 spots each), D = 9 oxides (SiO2, TiO2, Al2O3, Cr2O3, FeO, CaO, MgO, MnO, Na2O — note Cr2O3 replaces K2O for clinopyroxene). Crucial test for whether the K2O-prefix in the helmsman lineage is specifically potassium or 'dominant alkali in general'.",
+      "citation": "Qin Y. et al. (2024) — Geochem Earthchem 2024-007_AVAW2Y_Qin_data",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/qin_cpx_by_location_barycenters.csv"
+    },
+    {
+      "id": "geochem_stracke_oib",
+      "domain": "geochemistry",
+      "description": "Stracke (2022) ocean island basalt (OIB) major-oxide composition, binned by location (top 15 locations by sample count, including Galapagos, Iceland, Hawaii, Tristan da Cunha, etc.). T = 15, D = 10 oxides.",
+      "citation": "Stracke A. (2022) — Geochem Earthchem 2022_09-0SVW6S_Stracke_data (OIB subset)",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/stracke_oib_by_location_barycenters.csv"
+    },
+    {
+      "id": "geochem_tappe_kim1",
+      "domain": "geochemistry",
+      "description": "Tappe et al. (2024) Kimberlite Group-1 bulk rock major-oxide composition, binned by country/region. T = 8 countries, D = 10 oxides. Kimberlites are intra-cratonic mantle-derived ultrapotassic rocks; K2O is typically very high (>3% on mass basis).",
+      "citation": "Tappe S. et al. (2024) — Geochem Earthchem 2022-2-FLV19S_Tappe_data_v2024",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/tappe_kim1_by_country_barycenters.csv"
+    },
+    {
+      "id": "fao_credit_to_agriculture",
+      "domain": "world_bank_fao",
+      "description": "FAO indicator FAO_IC_23068 — Credit to Agriculture, Forestry and Fishing (USD millions). Pivoted compositional view: top-10 countries by total reporting volume, normalised so each year's row is the country-share of total recorded credit. Reveals year-by-year concentration shifts in agricultural lending.",
+      "citation": "FAO Aquastat / Credit to Agriculture indicator FAO_IC_23068; top-10 country selection by cumulative reporting volume",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/fao_credit_to_agriculture.csv"
+    },
+    {
+      "id": "fao_value_added_aff",
+      "domain": "world_bank_fao",
+      "description": "FAO indicator FAO_MK_22016 — Value Added in Agriculture, Forestry and Fishing. Top-10 country compositional pivot, 1970-2024 (T = 55 years).",
+      "citation": "FAO Macro-Economic Indicators FAO_MK_22016; top-10 country selection",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/fao_value_added_aff.csv"
+    },
+    {
+      "id": "fao_value_added_agriculture",
+      "domain": "world_bank_fao",
+      "description": "FAO indicator FAO_MK_22010 — Value Added (Agriculture), USD millions. Top-10 country compositional pivot. T years × D = 10 countries; each year's row sums to 1.0 (country-share of agricultural value added among the top-10 reporting nations).",
+      "citation": "FAO Macro-Economic Indicators FAO_MK_22010; top-10 country selection by cumulative value added",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/fao_value_added_agriculture.csv"
+    },
+    {
+      "id": "fao_value_added_food_mfg",
+      "domain": "world_bank_fao",
+      "description": "FAO indicator FAO_MK_22077 — Value Added (Manufacture of food and beverages), USD millions. Top-10 country compositional pivot.",
+      "citation": "FAO Macro-Economic Indicators FAO_MK_22077; top-10 country selection",
+      "input_csv": "experiments/2026-05-10_full-corpus-validation/raw_inputs/fao_value_added_food_mfg.csv"
+    }
+  ]
+}

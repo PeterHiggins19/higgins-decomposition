@@ -4,14 +4,16 @@
     "generated": "2026-05-08T22:00:00Z",
     "last_writer": "Claude Cowork session - Volume IV (Quaternion View) integration",
     "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context.",
-    "session_pointer": "push #24 -- Grok crosscheck integration + HCI-AUDIO + HCI-ULTRASOUND sibling tiers + DADC origin lineage."
+    "session_pointer": "push #24 -- Grok crosscheck integration + HCI-AUDIO + HCI-ULTRASOUND sibling tiers + DADC origin lineage.",
+    "last_updated": "2026-05-10",
+    "last_push": "#35"
   },
   "system": {
-    "name": "HUF-CNT (HCI-CNT) inside the H\u02e2 repository",
+    "name": "HUF-CNT (HCI-CNT) inside the Hˢ repository",
     "engine_version": "2.0.4",
     "schema_version": "2.1.0",
     "release": "v1.0.0 + v1.1.x  (CodaWork 2026 demo build)",
-    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (H\u02e2 research)",
+    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (Hˢ research)",
     "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT",
     "n_experiments": 25
   },
@@ -85,6 +87,16 @@
         "financial_sector",
         "chemixhub_oxide"
       ]
+    },
+    "full_corpus_validation_2026_05_10": {
+      "summary": "Citation-grade reference suite. 101 datasets across 11 domains; 100 ran end-to-end through CNT v3 + CNQ v2",
+      "folder": "experiments/2026-05-10_full-corpus-validation/",
+      "introduced_at_push": "#34",
+      "catalog_entry": "INV-048"
+    },
+    "codawork2026_conference": {
+      "summary": "EMBER 8-country corpus on CNT v3 + CNQ v2 with CRD-1.0 coherent-range manifest",
+      "folder": "papers/codawork2026/conference_2026_06/"
     }
   },
   "conference_demo": {
@@ -97,9 +109,32 @@
   },
   "doctrine_locks": {
     "output_doctrine": "v1.0.1 (integer orders only; trajectory aggregates round UP to next order)",
-    "stage1_standard": "atlas/stage1_v4.py \u2014 ILR-Helmert orthogonal triplet",
-    "stage2_standard": "atlas/stage2_locked.py \u2014 19-plate Order-2 atlas",
-    "schema": "2.1.0 \u2014 additive units block"
+    "stage1_standard": "atlas/stage1_v4.py — ILR-Helmert orthogonal triplet",
+    "stage2_standard": "atlas/stage2_locked.py — 19-plate Order-2 atlas",
+    "schema": "2.1.0 — additive units block",
+    "SEA_1_0": {
+      "doc": "docs/SUSPICION_OF_EVERY_ASSUMPTION.md",
+      "introduced_at_push": "#32",
+      "summary": "Suspicion of Every Assumption — every public function/claim enumerates failure modes with mitigation evidence; engine guilty until proven innocent",
+      "catalog_entry": "INV-045"
+    },
+    "STP_1_0": {
+      "doc": "docs/SELF_TEST_PROTOCOL.md",
+      "introduced_at_push": "#32",
+      "summary": "Self-Test Protocol (BIST) — every engine carries frozen reference corpus + runner producing dated, hash-chained pass/fail receipts",
+      "catalog_entry": "INV-046"
+    },
+    "CRD_1_0": {
+      "doc": "docs/COHERENT_RANGE_DOCTRINE.md",
+      "introduced_at_push": "#33",
+      "summary": "Coherent Range Doctrine — multi-carrier comparisons computed on intersection of all members' ranges; manifest header on every output; shortest-coverage member sets binding window",
+      "catalog_entry": "INV-047"
+    },
+    "engine_independence": {
+      "doc": "ai-refresh/CNT_V3_CNQ_V2_DESIGN.md (design doc) + push narratives",
+      "introduced_at_push": "#32",
+      "summary": "No cross-engine hash chain; each engine deterministic on its own; cnt_content_sha256 and cnq_content_sha256 unrelated by design"
+    }
   },
   "v1_1_status": {
     "A_deterministic_pdf": "shipped (atlas/det_pdf.py)",
@@ -120,7 +155,7 @@
     "public_trial_readiness": "shipped (PUBLIC_TRIAL_READINESS.md)"
   },
   "open_items": [
-    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II \u00a7H); raw-data swap-in for the 5 extended adapters (checklist in Volume II \u00a7C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
+    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II §H); raw-data swap-in for the 5 extended adapters (checklist in Volume II §C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
   ],
   "handbook": {
     "volume_1_theory": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
@@ -138,20 +173,26 @@
     "current_location": "Current-Repo/Hs/HCI-CNT/",
     "migration_date": "2026-05-06",
     "active_repo_branch": "main",
-    "last_validated_commit": "7d2b25e (push #19); push #21 c9dec16 + #22 (Volume IV integration) pending"
+    "last_validated_commit": "7d2b25e (push #19); push #21 c9dec16 + #22 (Volume IV integration) pending",
+    "experiments_journal": {
+      "doc": "EXPERIMENTS_JOURNAL.md",
+      "purpose": "Single citation-grade markdown documenting every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0; engine-version transitions; cross-version diffs",
+      "introduced_at_push": "#35",
+      "linked_from_repo_landing": true
+    }
   },
   "fault_tolerance_dual_folder_method": {
     "_principle": "Peter operates a deliberate two-folder fault-tolerant method. The Claude Cowork mirror and the canonical local working repo are kept in lockstep but live independently, so a corruption or unintended edit in either folder can be recovered from the other as long as the push has not been verified as landed on origin/main.",
     "claude_cowork_mirror": {
       "path_windows": "D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs",
       "path_sandbox": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs",
-      "role": "MIRROR \u2014 the folder Claude Cowork has read/write access to. All Claude-driven edits land here first.",
+      "role": "MIRROR — the folder Claude Cowork has read/write access to. All Claude-driven edits land here first.",
       "writers": "Claude Cowork sessions",
       "readers": "Claude Cowork sessions; user can read for review"
     },
     "canonical_local_repo": {
-      "path_windows": "<Peter's primary local repo folder \u2014 separate from the Cowork mirror>",
-      "role": "CANONICAL \u2014 the actual git-managed working tree where pushes originate. Mirrored from the Cowork folder before each push, then `git add / commit / push` is run from here.",
+      "path_windows": "<Peter's primary local repo folder — separate from the Cowork mirror>",
+      "role": "CANONICAL — the actual git-managed working tree where pushes originate. Mirrored from the Cowork folder before each push, then `git add / commit / push` is run from here.",
       "writers": "Peter (manual) and `git pull` from origin",
       "readers": "Peter; git tooling"
     },
@@ -168,11 +209,11 @@
       "claude_responsibility": "Claude Cowork sessions edit only the Cowork mirror. They MUST NOT attempt to write to the canonical repo or to push directly. All `git push` operations are run by Peter from the canonical repo."
     },
     "verification_signals": [
-      "GitHub Actions: https://github.com/PeterHiggins19/higgins-decomposition/actions \u2014 each push triggers a 'Validate Repository #N' workflow.",
+      "GitHub Actions: https://github.com/PeterHiggins19/higgins-decomposition/actions — each push triggers a 'Validate Repository #N' workflow.",
       "Conclusion `success` on the workflow run + live-repo browse via api.github.com/repos/PeterHiggins19/higgins-decomposition/contents/* = push verified.",
       "Until both signals are green, Peter retains the canonical local repo as the recovery source."
     ],
-    "documented_at": "2026-05-06 (push #19 \u2014 lock+temp-file cleanup)"
+    "documented_at": "2026-05-06 (push #19 — lock+temp-file cleanup)"
   },
   "quaternion_view": {
     "_description": "Volume IV of the canonical handbook (integrated 2026-05-07). Names the algebra CNT computes in.",
@@ -188,7 +229,7 @@
     "schema_unchanged": "2.1.0"
   },
   "hci_cnq": {
-    "_description": "HCI-CNQ \u2014 Compositional Navigation Quaternion (tier live since push #23, 2026-05-07).",
+    "_description": "HCI-CNQ — Compositional Navigation Quaternion (tier live since push #23, 2026-05-07).",
     "canonical_location": "Hs/HCI-CNQ/",
     "tier_status": "live",
     "engine_status": "cnq.py pending (~14 days)",

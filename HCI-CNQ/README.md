@@ -37,9 +37,9 @@ The tools in this repo are built and tested in public. For every tool in the fam
 - **We show what it does, by demonstration.** Real datasets, real outputs, hash-traceable from raw input to plate. The three experiments in this folder are the CNQ-tier demonstrations; the 25-experiment corpus in `HCI-CNT/experiments/` is the CNT-tier demonstration.
 - **We document when to use it.** [`tier_system/CNQ_ROI_AND_USE_CASES.md`](tier_system/CNQ_ROI_AND_USE_CASES.md) covers when CNQ is the right tier vs CNT vs straight CoDa.
 - **We document how to use it.** Each experiment folder has its script, its inputs, its outputs, and its report. Anyone can re-run.
-- **We offer to help build it to specification, free.** If you have a compositional dataset and want to know whether CNQ (or CNT, or HCI) is the right tier for it — open an issue on the repo, find Peter at a conference, or follow the build-to-spec contact in the project README. We will help you size the problem, pick the tier, and build the analysis.
+- **We offer to help build it to specification, free.** If you have a compositional dataset and want to know whether CNQ (or CNT, or HCI) is the right tier for it — open an issue on the repo or follow the build-to-spec contact in the project README. We will help you size the problem, pick the tier, and build the analysis.
 
-The repo cannot talk about a phantom method. This folder exists because Peter chose to make the CNQ tier public on the same terms as the rest of the Hs system: in the open, with the code, with the receipts, with the help available.
+The repo cannot talk about a phantom method. This folder exists because the CNQ tier is published on the same terms as the rest of the Hs system: in the open, with the code, with the receipts, with the help available.
 
 ---
 
@@ -144,7 +144,7 @@ The four tiers are siblings, not replacements. Picking the right tier for a prob
 
 ## Provenance — how this folder got here
 
-The CNQ tier was developed in an experimental folder at the Cowork workspace root (`Quaternion Decomposition/`) between 2026-05-06 and 2026-05-07. It was kept outside the canonical repo while the foundational claim was being tested. After the third IEEE-floor confirmation landed, and after independent cross-check from a second AI platform (ChatGPT) confirmed the architectural framing, Peter promoted the entire body of work to canonical status on 2026-05-07.
+The CNQ tier was developed in an experimental folder at the Cowork workspace root (`Quaternion Decomposition/`) between 2026-05-06 and 2026-05-07. It was kept outside the canonical repo while the foundational claim was being tested. After the third IEEE-floor confirmation landed, and after independent cross-check from a second AI platform (ChatGPT) confirmed the architectural framing, the entire body of work was promoted to canonical status on 2026-05-07.
 
 The promotion is documented in:
 

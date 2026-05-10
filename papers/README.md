@@ -88,4 +88,4 @@ Formal validation journals and proofs that establish the mathematical and empiri
 
 ---
 
-Peter Higgins / Rogue Wave Audio / CC BY 4.0
+Hs Project / Rogue Wave Audio / CC BY 4.0 (formal copyright in LICENSE-DOCS)

@@ -1,0 +1,363 @@
+{
+  "metadata": {
+    "engine": "HCI-CNQ",
+    "engine_version": "2.0.0",
+    "schema_version": "cnq/2.0.0",
+    "engine_implementation": "python",
+    "implementation_lang_version": "Python 3.10.12",
+    "principle": "CNT measures invariance. CNQ names the algebra it lives in.",
+    "engine_config": {
+      "active_overrides": {},
+      "defaults_in_use": {
+        "DEFAULT_DELTA": 1e-15,
+        "GATE_THRESHOLD": 1e-12,
+        "HELMSMAN_ROLLING_WINDOW": 8,
+        "CLASSICAL_BOUND": 2.0,
+        "TSIRELSON_BOUND": 2.8284271247461903
+      }
+    },
+    "generated": "2026-05-10T13:58:13Z",
+    "wall_clock_ms": 2,
+    "environment": {
+      "git_sha": null,
+      "python_version": "3.10.12",
+      "numpy_version": "2.2.6",
+      "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+      "hostname_hash": "c857d09db23e6822"
+    }
+  },
+  "input": {
+    "source_file": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/experiments/2026-05-10_full-corpus-validation/raw_inputs/tappe_kim1_by_country_barycenters.csv",
+    "source_file_sha256": "e4578e4c0e4b139eab0f0ab838db664cf5b18b9d0af09dd3890abaf2ecfb6e19",
+    "n_records": 8,
+    "n_carriers": 10,
+    "carriers": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "FeO",
+      "CaO",
+      "MgO",
+      "MnO",
+      "K2O",
+      "Na2O",
+      "P2O5"
+    ],
+    "labels": [
+      "Central_Slave_Province_Lac_de_",
+      "Maniitsoq_&_Sarfartoq",
+      "N_Slave_Province",
+      "Sarfartoq_Complex",
+      "Somerset_Island",
+      "Wemindji_Sill_Complex",
+      "West_Africa",
+      "southern_Africa"
+    ],
+    "zero_replacement_count": 0
+  },
+  "cnt_reference": null,
+  "cnq_view": {
+    "dimension_policy": {
+      "D": 10,
+      "label": "reduced_or_projected",
+      "algebra": "SO(D-1); CNQ view projects onto first 3 ILR axes (lossy)",
+      "processing": "Helmert -> R^(D-1) -> first 3 axes -> sandwich; captured_step_fraction reported global+mean",
+      "claim_strength": "projection diagnostic -- useful when neither twin nor quad factoring applies natively"
+    },
+    "frame": {
+      "type": "Helmert orthonormal contrast",
+      "signature": "row k has (k+1) entries +1/sqrt(n*(n+1)) followed by -n/sqrt(n*(n+1))",
+      "basis_matrix": [
+        [
+          0.7071067811865475,
+          -0.7071067811865475,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.4082482904638631,
+          0.4082482904638631,
+          -0.8164965809277261,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.2886751345948129,
+          0.2886751345948129,
+          0.2886751345948129,
+          -0.8660254037844388,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.22360679774997896,
+          0.22360679774997896,
+          0.22360679774997896,
+          0.22360679774997896,
+          -0.8944271909999159,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          -0.9128709291752768,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          -0.9258200997725514,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          -0.9354143466934854,
+          0.0,
+          0.0
+        ],
+        [
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          -0.9428090415820635,
+          0.0
+        ],
+        [
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          -0.9486832980505138
+        ]
+      ]
+    },
+    "bearing_trajectory": {
+      "n_pairs_tested": 7,
+      "max_residual": 3.3306690738754696e-16,
+      "mean_residual": 1.764461592707838e-16,
+      "gate_threshold": 1e-12,
+      "gate_pass": true,
+      "per_step": [
+        {
+          "t": 0,
+          "label_start": "Central_Slave_Province_Lac_de_",
+          "label_end": "Maniitsoq_&_Sarfartoq",
+          "q_w": 0.964507627029389,
+          "q_x": 0.012205720230905666,
+          "q_y": 0.04111470756816329,
+          "q_z": 0.2605487259945177,
+          "angle_rad": 0.5344480103164684,
+          "residual_linf": 2.220446049250313e-16
+        },
+        {
+          "t": 1,
+          "label_start": "Maniitsoq_&_Sarfartoq",
+          "label_end": "N_Slave_Province",
+          "q_w": 0.9805006834147416,
+          "q_x": -0.013930279059925528,
+          "q_y": -0.025515309457212424,
+          "q_z": -0.19435361105942947,
+          "angle_rad": 0.3956060539294177,
+          "residual_linf": 1.3877787807814457e-17
+        },
+        {
+          "t": 2,
+          "label_start": "N_Slave_Province",
+          "label_end": "Sarfartoq_Complex",
+          "q_w": 0.982588403073871,
+          "q_x": -0.027784508326306,
+          "q_y": 0.1201522745871434,
+          "q_z": 0.13896575892406463,
+          "angle_rad": 0.3737631349903763,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "label_start": "Sarfartoq_Complex",
+          "label_end": "Somerset_Island",
+          "q_w": 0.9762968207556911,
+          "q_x": 0.08774010706152924,
+          "q_y": -0.1729353850708853,
+          "q_z": -0.09612254670755409,
+          "angle_rad": 0.4363247945721603,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 4,
+          "label_start": "Somerset_Island",
+          "label_end": "Wemindji_Sill_Complex",
+          "q_w": 0.970452648931274,
+          "q_x": -0.05005873052453837,
+          "q_y": 0.08391899999126202,
+          "q_z": 0.22062044583630855,
+          "angle_rad": 0.4873931983923083,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 5,
+          "label_start": "Wemindji_Sill_Complex",
+          "label_end": "West_Africa",
+          "q_w": 0.9716022162743824,
+          "q_x": 0.08357980621603595,
+          "q_y": -0.1053882061112445,
+          "q_z": -0.1946711980141182,
+          "angle_rad": 0.4777716326224994,
+          "residual_linf": 3.3306690738754696e-16
+        },
+        {
+          "t": 6,
+          "label_start": "West_Africa",
+          "label_end": "southern_Africa",
+          "q_w": 0.9993456151808778,
+          "q_x": -0.005439726044062915,
+          "q_y": 0.01733563326560503,
+          "q_z": -0.031276614564222434,
+          "angle_rad": 0.072357788882432,
+          "residual_linf": 3.3306690738754696e-16
+        }
+      ],
+      "projection_method": "first_three_helmert_axes",
+      "captured_step_fraction_mean": 0.3784661615751054,
+      "captured_step_fraction_global": 0.2950647160983637
+    },
+    "radial_trajectory": {
+      "ilr_norms": [
+        6.790915485328332,
+        5.986817752109143,
+        6.206216338684102,
+        6.271607541628286,
+        6.4650166115648835,
+        6.6678251557080745,
+        6.291265018948742,
+        5.835985431304456
+      ],
+      "min": 5.835985431304456,
+      "max": 6.790915485328332,
+      "mean": 6.314456166909503,
+      "median": 6.2814362802885135,
+      "std": 0.3010237619311194
+    },
+    "bearing_only": null
+  },
+  "helmsman_family": {
+    "sigma": [
+      0,
+      1,
+      1,
+      7,
+      7,
+      1,
+      7,
+      8
+    ],
+    "sign": [
+      0,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      1,
+      1
+    ],
+    "flips": {
+      "total": 4,
+      "rolling": [
+        3
+      ],
+      "rolling_window": 7
+    },
+    "stability_S_sigma": {
+      "global": 0.33333333333333337,
+      "rolling": [
+        0.5
+      ],
+      "rolling_window": 7
+    },
+    "chaos_indicator": null,
+    "torque_proxy": [
+      0.0,
+      1.0,
+      6.0,
+      6.0,
+      6.0,
+      12.0,
+      5.0,
+      0.0
+    ]
+  },
+  "attractor_fit": {
+    "fitted": false,
+    "period": 1,
+    "period_stability": 0.46967180464896674,
+    "dominant_pair": {
+      "axis_a": 1,
+      "axis_b": 0
+    },
+    "contraction_lambda": -0.23401695090077923,
+    "amplitude_A": 0.5491884333865417,
+    "damping_zeta": 0.23401695090077923,
+    "confidence": {
+      "oscillation_ratio": 0.21490347813421504,
+      "period_stability_score": 0.46967180464896674
+    },
+    "warnings": [
+      "period_stability 0.470 below threshold 0.6; no clean period-2 structure"
+    ]
+  },
+  "twin_quaternion_factoring": null,
+  "quad_quaternion_factoring": null,
+  "chsh_diagnostic": null,
+  "bundle_view": null,
+  "diagnostics": {
+    "warnings": [],
+    "cnq_content_sha256": "d27a993f25cf48a2e8e01cccd75e2633d050e4661e8ada69ce1686c8e9f266a6"
+  }
+}

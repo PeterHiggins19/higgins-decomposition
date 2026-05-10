@@ -26,7 +26,7 @@ The core engine. Requires only `numpy`. Every file begins with `hs_` except the 
 |---|---|---|
 | [higgins_decomposition_12step.py](pipeline/higgins_decomposition_12step.py) | ~2,400 | **The instrument.** 12-step decomposition: closure → CLR → variance trajectory → HVLD shape → squeeze → entropy → chaos → ternary → complex → polar. Outputs a complete result dict. |
 | [hs_codes.py](pipeline/hs_codes.py) | ~800 | **Diagnostic codes.** 78 codes across 10 structural modes (LOCK, DRIFT, SQUEEZE, EXPAND, CHAOS, BIFURCATION, ENTROPY, SYMMETRY, COMPLEX, POLAR). Reads a result dict and emits investigation prompts. |
-| [hs_reporter.py](pipeline/hs_reporter.py) | ~600 | **Multilingual reporter.** Generates human-readable diagnostic reports in 5 languages (en, pt, it, zh, hi). Each code becomes a sentence with context. |
+| [hs_reporter.py](pipeline/hs_reporter.py) | ~600 | **Multilingual reporter.** Generates user-readable diagnostic reports in 5 languages (en, pt, it, zh, hi). Each code becomes a sentence with context. |
 | [hs_controller.py](pipeline/hs_controller.py) | ~1,200 | **State machine controller.** Hˢ-GOV supervisory layer with breakpoints, tolerance gates, and audit trail. Runs multiple experiments under governance. |
 | [hs_sensitivity.py](pipeline/hs_sensitivity.py) | ~700 | **Component Power Mapper.** Identifies which carrier drives the most variance through leverage, criticality, transfer entropy, and synergy scores. |
 | [hs_amalgamation.py](pipeline/hs_amalgamation.py) | ~750 | **Subcompositional Recursion.** Tests whether the classification survives when carriers are merged — the T2 stability test. Black hole / white hole duality mapping. |
@@ -179,6 +179,6 @@ What goes elsewhere: domain-specific adapters, API wrappers, GUI applications, c
 
 ---
 
-*Peter Higgins — Rogue Wave Audio*
+*Hs Project — Rogue Wave Audio*
 *github.com/PeterHiggins19/higgins-decomposition*
 *License: CC BY 4.0*

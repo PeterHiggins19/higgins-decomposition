@@ -8,7 +8,10 @@
     "companion_md": "HS_FAST_REFRESH.md (one-page narrative for AI assistants who prefer Markdown)",
     "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
-    "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo"
+    "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
+    "last_updated": "2026-05-10",
+    "last_push": "#35",
+    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
@@ -92,22 +95,24 @@
     }
   },
   "canonical_engines": {
-    "_warning": "Both engines are public, deterministic, and shipped under the repo licence. cnt.py + cnt.R produce identical CNT JSON to FP precision. cnq.py + cnq.R produce identical CNQ JSON.",
+    "_warning": "Both engines are public, deterministic, and shipped under the repo licence. Engine independence (push #32): cnt and cnq engines have separate hash chains by design. Per-language parity: cnt.py and cnt.R agree per-field at IEEE floor; same for cnq.py vs cnq.R.",
     "cnt_python": {
       "path": "HCI-CNT/engine/cnt.py",
       "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py",
-      "version": "2.0.4",
-      "schema": "2.1.0",
+      "version": "3.0.0",
+      "schema": "3.0.0",
       "lang": "Python 3.9+",
-      "deps": "stdlib + numpy"
+      "deps": "stdlib + numpy",
+      "release_push": "#32"
     },
     "cnt_r": {
       "path": "HCI-CNT/engine/cnt.R",
       "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R",
-      "version": "2.0.4",
-      "schema": "2.1.0",
+      "version": "3.0.0",
+      "schema": "3.0.0",
       "lang": "R 4.0+",
-      "deps": "jsonlite, digest"
+      "deps": "jsonlite, digest",
+      "release_push": "#32"
     },
     "cnt_pseudocode": {
       "path": "HCI-CNT/cnt_v2/CNT_PSEUDOCODE.md (legacy reference)"
@@ -118,24 +123,25 @@
     "cnq_python": {
       "path": "HCI-CNQ/engine/cnq.py",
       "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py",
-      "version": "1.0.0",
-      "schema": "cnq/1.0.0",
+      "version": "2.0.0",
+      "schema": "cnq/2.0.0",
       "lang": "Python 3.9+",
       "deps": "stdlib + numpy",
       "support_modules": [
-        "HCI-CNQ/engine/geometry.py",
-        "HCI-CNQ/engine/cnt_adapter.py",
-        "HCI-CNQ/engine/hashing.py"
-      ]
+        "hci_shared/ (validation, hashing, geometry, helmsman, attractors, factoring)",
+        "HCI-CNQ/engine/cnt_adapter.py"
+      ],
+      "release_push": "#32"
     },
     "cnq_r": {
       "path": "HCI-CNQ/engine/cnq.R",
       "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R",
-      "version": "1.0.0",
-      "schema": "cnq/1.0.0",
+      "version": "2.0.0",
+      "schema": "cnq/2.0.0",
       "lang": "R 4.0+",
       "deps": "jsonlite, digest",
-      "parity_contract": "Numerical max_residual agrees with cnq.py to <= 1 ULP; cnq_content_sha256 matches to byte-level given identical float-formatting policy"
+      "parity_contract": "Numerical max_residual agrees with cnq.py to <= 1 ULP; cnq_content_sha256 matches to byte-level given identical float-formatting policy",
+      "release_push": "#32"
     },
     "cnq_pseudocode": {
       "path": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
@@ -338,6 +344,23 @@
       "command": "python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .",
       "verifier": "python HCI-CNQ/scripts/verify_publication_results.py --repo-root .",
       "expected_results_lock_file": "HCI-CNQ/results/expected_results.json"
+    },
+    "full_corpus_validation_2026_05_10": {
+      "_summary": "Citation-grade reference suite. Phase 1: 18 datasets across 10 domains. Phase 2: 101 datasets across 11 domains; 100 ran end-to-end through CNT v3 + CNQ v2.",
+      "folder": "experiments/2026-05-10_full-corpus-validation/",
+      "readme": "experiments/2026-05-10_full-corpus-validation/README.md",
+      "master_findings": "experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md",
+      "manifest": "experiments/2026-05-10_full-corpus-validation/MANIFEST.json",
+      "deferred": "experiments/2026-05-10_full-corpus-validation/DEFERRED_ADAPTERS.md",
+      "introduced": "push #34",
+      "catalog_entry": "INV-048"
+    },
+    "codawork2026_conference": {
+      "_summary": "EMBER 8-country corpus on CNT v3 + CNQ v2 with CRD-1.0 coherent-range manifest. Production-ready for June 2026.",
+      "folder": "papers/codawork2026/conference_2026_06/",
+      "comparison": "papers/codawork2026/conference_2026_06/COMPARISON_v2_0_4_vs_v3_0_0.md",
+      "introduced": "push #32",
+      "crd_codified_at": "push #33"
     }
   },
   "cross_platform_reproduction_challenge": {
@@ -390,7 +413,12 @@
     "cnq_dyadic": "HCI-CNQ/HCI_DYADIC_COUPLING_LADDER.md",
     "cnq_twin_quaternion": "HCI-CNQ/CNQ_BIQUATERNION_FACTORING.md",
     "cnt_engine_python": "HCI-CNT/engine/cnt.py",
-    "cnt_engine_r": "HCI-CNT/engine/cnt.R"
+    "cnt_engine_r": "HCI-CNT/engine/cnt.R",
+    "EXPERIMENTS_JOURNAL": "EXPERIMENTS_JOURNAL.md",
+    "COHERENT_RANGE_DOCTRINE": "docs/COHERENT_RANGE_DOCTRINE.md",
+    "FULL_CORPUS_VALIDATION_README": "experiments/2026-05-10_full-corpus-validation/README.md",
+    "FULL_CORPUS_MASTER_FINDINGS": "experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md",
+    "FULL_CORPUS_MANIFEST": "experiments/2026-05-10_full-corpus-validation/MANIFEST.json"
   },
   "common_drift_errors": {
     "_note": "Errors that have actually occurred in cross-AI sessions. Check for these during refresh.",
@@ -401,7 +429,10 @@
     "btl_basement_framing": "BTL described as 'basement lab', which is unprofessional. Correct framing: sound-controlled professional laboratory; Markham research deployment + 4-lab institutional network. Caught 2026-05-08, push #24.",
     "experimental_not_for_repo_use_legacy": "Legacy 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' guards from pre-promotion QD era used as live state. RETIRED in push #27. System is fully public.",
     "h1_paper_misciting": "H_1 (Higgins Operator) paper miscited as 'published' when it's a self-hosted working paper. Caught 2026-05-08, push #24.",
-    "d3_neutrino_native_quaternion": "D=3 neutrino result claimed as native D=4 quaternion proof. Correct: D=3 is consistency support / boundary case. Caught 2026-05-08, push #26."
+    "d3_neutrino_native_quaternion": "D=3 neutrino result claimed as native D=4 quaternion proof. Correct: D=3 is consistency support / boundary case. Caught 2026-05-08, push #26.",
+    "human_vs_user_or_researcher": "Word 'human' as a person noun (e.g., 'human entry point', 'human reader', 'for human consumption') has been replaced project-wide with 'user' or 'researcher' since push #25. The technical adjective 'human-readable' is also replaced with 'user-readable'. Re-introducing 'human' is a regression. Caught and re-locked at push #36 (2026-05-10).",
+    "author_name_in_user_facing_readmes": "Author personal name (Peter Higgins, Peter) is REMOVED from README.md files across the repo. Formal copyright attribution remains in LICENSE, NOTICE, and LICENSING.md. The grounding-test answer in llms.txt, AI_AGENTS.md, and .well-known/ai-context.json deliberately includes the author name as the verification target for AI hallucination — that is intentional and should NOT be removed. Locked at push #36.",
+    "ai_presence_balance": "AI-discovery surfaces (llms.txt, AI_AGENTS.md, .well-known/ai-context.json) are intentionally robot-prominent. The user-facing README.md is intentionally robot-light: a small HTML comment at the bottom points to the discovery files. Re-injecting 'AI assistants — fetch this first' banners into README.md is a regression. Locked at push #36."
   },
   "ai_discovery_channels": {
     "llms_txt": "/llms.txt (https://llmstxt.org/ convention)",
@@ -444,5 +475,38 @@
       "Electronics manufacturing (Fuji SMT + Nordson Dage X-ray) — see applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md"
     ],
     "rationale": "Machine automation is too risky until basics verified. Discipline preserves credibility."
+  },
+  "doctrine_pointers": {
+    "_warning": "Four binding doctrines as of push #33. All are model-agnostic and apply to every engine, wrapper, paper, and applied tier.",
+    "SEA_1_0": {
+      "name": "Suspicion of Every Assumption",
+      "doc": "docs/SUSPICION_OF_EVERY_ASSUMPTION.md",
+      "introduced": "push #32",
+      "catalog_entry": "INV-045"
+    },
+    "STP_1_0": {
+      "name": "Self-Test Protocol (BIST)",
+      "doc": "docs/SELF_TEST_PROTOCOL.md",
+      "introduced": "push #32",
+      "catalog_entry": "INV-046"
+    },
+    "CRD_1_0": {
+      "name": "Coherent Range Doctrine",
+      "doc": "docs/COHERENT_RANGE_DOCTRINE.md",
+      "introduced": "push #33",
+      "catalog_entry": "INV-047"
+    },
+    "engine_independence": {
+      "name": "Engine independence policy",
+      "doc": "ai-refresh/CNT_V3_CNQ_V2_DESIGN.md",
+      "introduced": "push #32",
+      "summary": "No cross-engine hash chain; each engine deterministic on its own; cnt_content_sha256 and cnq_content_sha256 are unrelated by design"
+    }
+  },
+  "experiments_journal_pointer": {
+    "doc": "EXPERIMENTS_JOURNAL.md",
+    "purpose": "Single citation-grade markdown documenting every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0",
+    "introduced": "push #35",
+    "linked_from_landing": true
   }
 }

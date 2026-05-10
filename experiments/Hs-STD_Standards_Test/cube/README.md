@@ -2,7 +2,7 @@
 
 **Experiment:** Hs-STD (Standards Test)  
 **Test object:** Cube Standard  
-**Author:** Peter Higgins  
+**Project:** Hs (Higgins Decomposition)  
 **Date:** 2026-05-01  
 **Result:** PASS
 

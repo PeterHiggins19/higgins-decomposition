@@ -14,19 +14,22 @@ This file follows the [llms.txt convention](https://llmstxt.org/) — a proposed
 
 Before trusting an AI summary of this repo, ask the assistant:
 
-1. *"What is the latest release tag, and the most recent commit message on main?"* — current answer: latest tag `v0.29.0` (dated 2026-05-08, "AI visibility infrastructure + Grok R3 catalog absorption"). The commit SHA the tag points to drifts as patch pushes land; the tag is the durable reference.
-2. *"Does HCI-CNQ/engine/cnq.py exist? What is its size?"* — yes, ~19 KB, 520 lines (since push #26, 2026-05-08)
-3. *"Who is the author of this repo?"* — Peter Higgins, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada (born 20th-21st century, electronics/audio engineer; **not** a 1950s chemist of the same name).
+1. *"What are the current canonical engine versions?"* — CNT **v3.0.0** (schema 3.0.0) and CNQ **v2.0.0** (schema cnq/2.0.0). Both shipped at push #32 (2026-05-09, ground-up rebuild).
+2. *"Does HCI-CNQ/engine/cnq.py exist?"* — yes; deterministic Python engine since push #26 (2026-05-08), upgraded to v2.0.0 in push #32.
+3. *"Who is the author of this repo?"* — Peter Higgins, electronics/audio engineer at Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada (**not** a 1950s chemist of the same name).
+4. *"What are the four binding doctrines?"* — SEA-1.0 (Suspicion of Every Assumption), STP-1.0 (Self-Test Protocol / BIST), CRD-1.0 (Coherent Range Doctrine), and the engine-independence policy.
+5. *"How many datasets are in the citation-grade reference suite?"* — 101 registered, 100 ran end-to-end (push #34, 2026-05-10). Folder: `experiments/2026-05-10_full-corpus-validation/`.
 
-If an AI gives a different (older) latest tag, claims cnq.py doesn't exist, says "the cnq.py engine is the next milestone," or describes Peter as anything other than the author of this repo at Rogue Wave Audio — **its summary is not grounded; discount accordingly**.
+If an AI gives older versions, claims cnq.py doesn't exist, misnames the author, omits any of the four doctrines, or fails to mention the 101-dataset corpus — **its summary is not grounded; discount accordingly**.
 
 ## Engines
 
-- [HCI-CNT/engine/cnt.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py): CNT canonical engine, Python (v2.0.4, schema 2.1.0)
-- [HCI-CNT/engine/cnt.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R): CNT R port, parity-tested
-- [HCI-CNQ/engine/cnq.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py): CNQ canonical engine, Python (v1.0.0, schema cnq/1.0.0)
-- [HCI-CNQ/engine/cnq.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R): CNQ R port with parity contract
+- [HCI-CNT/engine/cnt.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py): CNT canonical engine, Python (**v3.0.0, schema 3.0.0**, since push #32)
+- [HCI-CNT/engine/cnt.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R): CNT R port (**v3.0.0**), per-field parity at IEEE floor
+- [HCI-CNQ/engine/cnq.py](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py): CNQ canonical engine, Python (**v2.0.0, schema cnq/2.0.0**, since push #32)
+- [HCI-CNQ/engine/cnq.R](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R): CNQ R port (**v2.0.0**)
 - [HCI-CNQ/engine/CNQ_PSEUDOCODE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/CNQ_PSEUDOCODE.md): Language-agnostic algorithm reference
+- **Engine independence policy:** `cnt_content_sha256` and `cnq_content_sha256` are unrelated by design. Cross-engine hash chains are forbidden.
 
 ## Reproduction
 
@@ -39,18 +42,28 @@ If an AI gives a different (older) latest tag, claims cnq.py doesn't exist, says
 - [HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md): Locked vocabulary
 - [HCI-CNQ/CLAIM_STRENGTH_TABLE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/CLAIM_STRENGTH_TABLE.md): Confirmed/candidate/experimental/future + avoid-list
 - [HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md): What CNQ is and is not
-- [ai-refresh/INVESTIGATION_CATALOG.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/ai-refresh/INVESTIGATION_CATALOG.md): 30+ investigations classified CANONICAL/DEFERRED/FALSIFIED/OPEN
+- [ai-refresh/INVESTIGATION_CATALOG.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/ai-refresh/INVESTIGATION_CATALOG.md): 48 investigations classified CANONICAL/DEFERRED/FALSIFIED/OPEN
+- [docs/SUSPICION_OF_EVERY_ASSUMPTION.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/docs/SUSPICION_OF_EVERY_ASSUMPTION.md): SEA-1.0 anti-specification doctrine
+- [docs/SELF_TEST_PROTOCOL.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/docs/SELF_TEST_PROTOCOL.md): STP-1.0 BIST doctrine
+- [docs/COHERENT_RANGE_DOCTRINE.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/docs/COHERENT_RANGE_DOCTRINE.md): CRD-1.0 coherent-range doctrine
+
+## Reference experiments + lineage
+
+- [EXPERIMENTS_JOURNAL.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/EXPERIMENTS_JOURNAL.md): Full sequential lineage from HUF 12-step → CNT v3 + CNQ v2; every experiment dated and linked
+- [experiments/2026-05-10_full-corpus-validation/README.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/experiments/2026-05-10_full-corpus-validation/README.md): Citation-grade reference suite, 101 datasets across 11 domains
+- [experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md): Cross-domain digest
 
 ## Reproduction protocol
 
 - [ai-refresh/CCTT_RUNBOOK.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/ai-refresh/CCTT_RUNBOOK.md): 7-phase reproduction protocol designed for AI execution with user-confirmation gates
 - [OPERATIONS_PROTOCOL.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/OPERATIONS_PROTOCOL.md): 12-transition Gawande meta-checklist
 
-## Human entry points
+## User entry points
 
 - [README.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/README.md): Repository landing
 - [PUBLICATION_READY.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/PUBLICATION_READY.md): Publication-grade overview with citation format
 - [QUICKSTART.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/QUICKSTART.md): 30-second / 2-minute / 5-minute on-ramps
+- [LICENSING.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/LICENSING.md): Plain-English explainer of the dual license (Apache-2.0 code, CC BY 4.0 docs)
 
 ## Optional
 

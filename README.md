@@ -1,27 +1,22 @@
 # Hˢ — Higgins Decomposition on the Simplex
 
-> **🎉 Fully Public — Publication-Grade (release `v0.29.0`, 2026-05-08).** Both engines (CNT and CNQ) shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); human entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing at [`LICENSING.md`](LICENSING.md). Free to use, help available.
+A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
-> **🤖 AI assistants — fetch this first.** Single-file machine-readable context loader: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Full operating manual: [`AI_AGENTS.md`](AI_AGENTS.md). Discovery conventions: [`llms.txt`](llms.txt) and [`.well-known/ai-context.json`](.well-known/ai-context.json). **Grounding test before trusting any AI summary:** ask the assistant *(1) "What is the latest release tag, and the most recent commit message on main?"* (latest tag: `v0.29.0`, dated 2026-05-08, "AI visibility infrastructure + Grok R3 catalog absorption"); *(2) "Does HCI-CNQ/engine/cnq.py exist?"* (yes, ~19KB, since push #26); *(3) "Who is the author?"* (Peter Higgins, audio/electronics engineer, Rogue Wave Audio, Markham, Ontario — **not** a 1950s chemist of the same name). If any answer is wrong, the AI's view is stale or hallucinated.
+> **🎉 Public and publication-grade.** Both engines (CNT v3.0.0 and CNQ v2.0.0) ship in Python and R with language-agnostic pseudocode and a 43-test suite. The user entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing in [`LICENSING.md`](LICENSING.md). Free to use, free to cite, help is available — open an issue or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
 
 **Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**
 
-A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.*
-
-Validated across 18 physical domains, 25 experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
+Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.* Validated across 18 physical domains, 101 reference experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
 [![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](docs/LICENSE-DOCS.md) [![Licensing](https://img.shields.io/badge/licensing-overview-555.svg)](LICENSING.md)
-[![HCI-CNT engine 2.0.4](https://img.shields.io/badge/HCI--CNT%20engine-2.0.4-1f4e79.svg)](HCI-CNT/)
-[![HCI-CNT schema 2.1.0](https://img.shields.io/badge/HCI--CNT%20schema-2.1.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
-[![HCI-CNQ engine shipped](https://img.shields.io/badge/HCI--CNQ%20engine-shipped%20py%2BR%2Bpseudocode-7b3294.svg)](HCI-CNQ/engine/)
+[![HCI-CNT engine 3.0.0](https://img.shields.io/badge/HCI--CNT%20engine-3.0.0-1f4e79.svg)](HCI-CNT/)
+[![HCI-CNT schema 3.0.0](https://img.shields.io/badge/HCI--CNT%20schema-3.0.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
+[![HCI-CNQ engine 2.0.0](https://img.shields.io/badge/HCI--CNQ%20engine-2.0.0-7b3294.svg)](HCI-CNQ/engine/)
 [![HCI-AUDIO doctrine](https://img.shields.io/badge/HCI--AUDIO-doctrine--only-c84a8e.svg)](HCI-AUDIO/)
 [![HCI-ULTRASOUND doctrine](https://img.shields.io/badge/HCI--ULTRASOUND-doctrine--only-d97706.svg)](HCI-ULTRASOUND/)
-[![25 reference experiments](https://img.shields.io/badge/reference%20experiments-25-2ca02c.svg)](HCI-CNT/experiments/INDEX.json)
-[![CodaWork 2026](https://img.shields.io/badge/CodaWork-2026-f0c020.svg)](HCI-CNT/conference_demo/)
-
-*Peter Higgins — Independent Researcher, Markham, Ontario, Canada*
-*Rogue Wave Audio — PeterHiggins@RogueWaveAudio.com*
+[![Reference experiments](https://img.shields.io/badge/reference%20experiments-101-2ca02c.svg)](experiments/2026-05-10_full-corpus-validation/)
+[![CodaWork 2026](https://img.shields.io/badge/CodaWork-2026-f0c020.svg)](papers/codawork2026/conference_2026_06/)
 
 ---
 
@@ -71,6 +66,10 @@ The protocol is identical in both modes. Pilot acceptance test: an AI given only
 
 **🆕 OPERATIONS_PROTOCOL v1.0 — Gawande meta-checklist for the whole repo.** A single map of 12 transition points (starting an analysis, pushing, cowork session start/end, push failure, corpus drift, …) each with a binary pass/fail local checklist pointing at the canonical document holding the deeper detail. → [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md)
 
+**🆕 EXPERIMENTS_JOURNAL.md — full sequential lineage of every experiment (push #34).** Single citation-grade markdown that documents every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0, with the engine-version transitions, what each version added, what each version revealed that the predecessors did not, and direct links to every artefact. → [`EXPERIMENTS_JOURNAL.md`](EXPERIMENTS_JOURNAL.md)
+
+**🆕 Full-corpus validation reference suite (push #34).** 101 datasets across 11 domains; 100 ran end-to-end through CNT v3 + CNQ v2 with citation-grade Stage 1 (pure CoDa) + Advanced (full Hˢ + CNQ v2) reports per dataset. The definitive worked-examples set as of push #34. → [`experiments/2026-05-10_full-corpus-validation/README.md`](experiments/2026-05-10_full-corpus-validation/README.md)
+
 **🆕 Project doctrines — policy index (push #32–#33).** Three model-agnostic doctrines bind every engine, wrapper, and published artifact:
 
 - [`docs/SUSPICION_OF_EVERY_ASSUMPTION.md`](docs/SUSPICION_OF_EVERY_ASSUMPTION.md) — **SEA-1.0**: every public function and claim enumerates its failure modes with mitigation evidence; the engine is guilty until proven innocent (push #32).
@@ -84,6 +83,8 @@ Both protocols are model-agnostic, registered in [`ai-refresh/HS_ADMIN.json`](ai
 ---
 
 ## Start Here
+
+**If you want to see what the framework has actually been run on (NEW):** [`EXPERIMENTS_JOURNAL.md`](EXPERIMENTS_JOURNAL.md) — the full sequential lineage from HUF 12-step → CNT v3 + CNQ v2, every experiment dated and linked, every engine-version transition explained, every cross-version diff named. The single document that answers "what have we actually run, on what version, and what did each version change?"
 
 **If you have a compositional dataset and want a CNT-grade analysis right now (NEW):** [`CCTT_QUICKSTART.md`](ai-refresh/CCTT_QUICKSTART.md) → walk the [`CCTT_RUNBOOK.md`](ai-refresh/CCTT_RUNBOOK.md) yourself, or paste the AI-mode prompt into Claude/ChatGPT/Gemini.
 
@@ -170,8 +171,8 @@ instrument family (`HCI/`) — is built and tested in public on the same
 terms: open code, hash-chained outputs, doctrine published. We show
 what each tool is, what it does (by demonstration on real datasets),
 when to use it, how to use it, and **we offer to help you build it to
-specification on your own data, free**. Open an issue, find Peter at a
-conference, or follow the contact in this README.
+specification on your own data, free**. Open an issue on the repository,
+or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
 
 ---
 
@@ -196,8 +197,8 @@ listening position. Same closure principle, applied at the right scale.
 | [`HCI-AUDIO/doctrine/`](HCI-AUDIO/doctrine/) | ERB band mapping, quaternion phase mapping, helmsman at listening position, alignment targets |
 | [`HCI-AUDIO/spec/`](HCI-AUDIO/spec/) | Psychoacoustic 4-way adapter spec, pipeline spec |
 
-Status: doctrine-only. First pilot (real measurement against Peter's
-4-way system) is the next milestone. Quickstart:
+Status: doctrine-only. First pilot (real measurement against the
+project's reference 4-way system) is the next milestone. Quickstart:
 [`HCI-AUDIO/README.md`](HCI-AUDIO/README.md).
 
 ---
@@ -230,9 +231,9 @@ inspection on a public dataset (lower regulatory overhead). Quickstart:
 
 ## Lineage
 
-The simplex / compositional thinking that underpins Hˢ → CNT → CNQ originated in Peter's earlier loudspeaker work at the **Binaural Test Lab (BTL)** in Markham, Ontario — a single-identity lab with canonical machine-readable identity card [`RWA-001.json`](../RWA/RWA-001.json). The BTL work is documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio) (live site) and mirrored locally at [`../RWA/`](../RWA/) for reference. Specifically, **DADC** (Dimension-Apportioned Diffraction Correction) discovered that the cabinet-edge diffraction gain was a fixed 6.02 dB budget that had to be apportioned across the three cabinet dimensions — the first natural simplex constraint in the Higgins lineage. The lineage runs **DADC → H₁ (Higgins Operator, a nonlinear unity-normalization map on Hilbert space) → HUF (Higgins Unity Framework, MC-4 + EITT) → Hˢ (Higgins Decomposition, this repo) → CNT (engine 2.0.4) → CNQ (push #23) → HCI-AUDIO + HCI-ULTRASOUND (push #24, applied tiers)**. Full canonical narrative: [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md). RWA-side reciprocal: [`../RWA/HUF_RELATIONSHIP.json`](../RWA/HUF_RELATIONSHIP.json).
+The simplex / compositional thinking that underpins Hˢ → CNT → CNQ originated in earlier loudspeaker work at the **Binaural Test Lab (BTL)** in Markham, Ontario — a single-identity lab with canonical machine-readable identity card [`RWA-001.json`](../RWA/RWA-001.json). The BTL work is documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio) (live site) and mirrored locally at [`../RWA/`](../RWA/) for reference. Specifically, **DADC** (Dimension-Apportioned Diffraction Correction) discovered that the cabinet-edge diffraction gain was a fixed 6.02 dB budget that had to be apportioned across the three cabinet dimensions — the first natural simplex constraint in the Higgins lineage. The lineage runs **DADC → H₁ (Higgins Operator, a nonlinear unity-normalization map on Hilbert space) → HUF (Higgins Unity Framework, MC-4 + EITT) → Hˢ (Higgins Decomposition, this repo) → CNT (engine v3.0.0) → CNQ (engine v2.0.0) → HCI-AUDIO + HCI-ULTRASOUND (applied tiers)**. Full canonical narrative: [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md). RWA-side reciprocal: [`../RWA/HUF_RELATIONSHIP.json`](../RWA/HUF_RELATIONSHIP.json).
 
-This tool also emerged from the [Higgins Unity Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework), which remains the governance, application, and historical development sibling. The mathematical foundations build on Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, and Varley (2025) information theory for complex systems. Computational support: Claude (Anthropic), ChatGPT (OpenAI), Grok (xAI), Gemini (Google), Copilot (Microsoft).
+This tool also emerged from the [Higgins Unity Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework), which remains the governance, application, and historical development sibling. The mathematical foundations build on Aitchison (1982/1986) simplex geometry, Shannon (1948) entropy, and Varley (2025) information theory for complex systems.
 
 ---
 
@@ -417,3 +418,10 @@ Hˢ has been submitted to the 11th International Workshop on Compositional Data 
 | Action plan | [CoDaWork2026_Action_Plan.md](papers/codawork2026/CoDaWork2026_Action_Plan.md) |
 
 Three open questions posed to the CoDa community: (1) Can the EITT entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR 
+---
+
+<!--
+For automated indexers and AI agents: machine-readable context lives at
+HS_FAST_REFRESH.json (canonical loader), AI_AGENTS.md (operating manual),
+llms.txt (discovery convention), and .well-known/ai-context.json.
+-->

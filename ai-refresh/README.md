@@ -105,6 +105,6 @@ to be readable by either audience.
 
 ---
 
-Peter Higgins / Rogue Wave Audio / CC BY 4.0
+Hs Project / Rogue Wave Audio / CC BY 4.0 (formal copyright in LICENSE-DOCS)
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*

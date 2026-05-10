@@ -9,8 +9,8 @@
     "companion_md": "INVESTIGATION_CATALOG.md (plain-text companion)",
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
     "last_updated": "2026-05-10",
-    "last_push": "#33",
-    "total_investigations": 47
+    "last_push": "#34",
+    "total_investigations": 48
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -719,10 +719,24 @@
       "gate_criteria": "doctrine doc + runner range-policy flag + first conference output restructured under the doctrine + anti-spec FM entries + INV catalog entry",
       "gate_outcome": "PASSED — docs/COHERENT_RANGE_DOCTRINE.md (CRD-1.0, 12 sections); papers/codawork2026/conference_2026_06/run_ember_corpus.py extended with --range-policy {coherent|native|explicit}, default coherent; COMPARISON_v2_0_4_vs_v3_0_0.md headline restructured around 2001-2025 coherent window with manifest at top; all_countries_headlines.json carries coherent_range_manifest as first key; runner output verified end-to-end with USA correctly identified as start-limiting member.",
       "narrative": "Raised by Peter on 2026-05-10 in response to the USA missing-year-2000 asymmetry surfaced during the EMBER 8-country corpus run. Peter's exact phrasing: 'make the set only coherent, matches of all members with the same range can be computed, and range limits exist to the smallest set.' The doctrine codifies what should have been an explicit principle from the start. CRD-1.0 makes the matched-window the headline so the question 'why does USA's count look anomalously low?' never arises. Same standing as SEA-1.0 and STP-1.0 in the policy index."
+    },
+    {
+      "id": "INV-048",
+      "title": "Full-corpus validation reference suite — 100 datasets across 11 domains (Phase 1 + 2)",
+      "raised_by": "USER",
+      "raised_date": "2026-05-10",
+      "raised_in_push": "#34",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-10",
+      "canonical_location": "experiments/2026-05-10_full-corpus-validation/ (citation-grade reference suite)",
+      "summary": "Comprehensive end-to-end run of CNT v3.0.0 + CNQ v2.0.0 across the entire DATA folder; produces the citation-grade reference suite for the latest engines. **Phase 1** (push #34 morning): 18 datasets across 10 domains. **Phase 2** (push #34 afternoon): +83 datasets across 11 domains, total 101 in MANIFEST, 100 ran cleanly through both engines. Domains covered: energy (82 — EMBER 9 + OWID 73), geochemistry (7 — Stracke MORB, Stracke OIB, Ball age/region/tas, Tappe kim1, Qin cpx), backblaze, chemistry, esa-planck, financial, iiasa, urban, commodities, nuclear, world_bank_fao (4 indicators). Each dataset carries Stage 1 (pure CoDa) report + Advanced (Hˢ + CNQ v2) report. No simulated data; every input CSV is a real-world dataset with documented source. The corpus exercises the entire IR taxonomy: OVERDAMPED_EXTREME (26), MODERATELY_DAMPED (17), LIGHTLY_DAMPED (54), CRITICALLY_DAMPED (2), D2_DEGENERATE (1).",
+      "gate_criteria": "manifest + runner + datasets running end-to-end + Stage 1 + Advanced reports per dataset + master findings + per-domain summaries + deferred-adapters doc + experiment-folder README; Phase 2 adds geochem binners, owid-energy country sweep adapter, FAO SDMX pivot adapter",
+      "gate_outcome": "PASSED — Phase 1: 18/18 ran cleanly. Phase 2: 100/101 ran cleanly (1 dataset surfaced a SEA-1.0 NUM failure mode at runtime — fao_value_added_food_mfg has discontinuous reporting that produces NaN in CNQ bearing axis; CNQ correctly refused to emit non-finite floats. Catalogued under FAO_VA_FOOD_MFG_NAN below.) All M²=I residuals at IEEE floor on the 100 successful CNT runs. Engine independence verified per-dataset.",
+      "narrative": "Peter requested in push #34: 'use cnt/cnq, create a new journaled experiments runs in detail for the entire data folder... test everything... these now become and stand as the definitive test case examples of the latest hci tools.' Phase 1 delivered 18 datasets. Phase 2 (Peter directive: 'Phase 2 adapter work') landed three new adapters: geochem binners (Ball age/region/tas, Tappe kim1, Qin cpx, Stracke OIB) producing 6 new geochem datasets; owid_energy_adapter producing 73 country-level primary-energy compositions across 1965-2024; fao_sdmx_adapter producing 4 FAO macro-economic indicator pivots (Credit to Agriculture, Value Added Agriculture, Value Added AFF, Value Added Food Mfg). Notable scientific findings include: ESA Planck cosmic Pearson r=±1.0000 across all carrier pairs (deterministic LCDM evolution); Markham budget perfect Helmsman stability 1.0 (slow administrative reallocation); S&P 500 sectors 226 helmsman flips in 252 trading days (day-scale market efficiency); USA EMBER T=25 vs others' T=26 (CRD-1.0 asymmetry); 73 OWID country-energy trajectories show LIGHTLY_DAMPED dominates (energy systems globally exhibit slow oscillatory dynamics). Push #34 priority work."
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 25,
+    "CANONICAL": 26,
     "FALSIFIED": 1,
     "DEFERRED": 12,
     "CLOSED": 1,
@@ -731,18 +745,19 @@
   "summary_by_source": {
     "CLAUDE": 7,
     "CHATGPT": 8,
-    "USER": 18,
+    "USER": 19,
     "GROK": 14
   },
   "promotion_rules": {
     "from_OPEN_to_CANONICAL": "Investigation must meet its stated gate_criteria. Promotion requires updating disposition, adding canonical_location, and citing the verification record (commit, pilot report, or experiment JSON).",
     "from_OPEN_to_DEFERRED": "Investigation has been considered but pilots are deferred. May reflect resource priority, regulatory dependency, or conflict with current discipline (demonstration-first).",
     "from_OPEN_to_FALSIFIED": "Investigation tested against gate_criteria and refuted. Falsification record must capture: what was tested, what was expected, what was observed, and any reformulation that survives.",
-    "from_DEFERRED_to_CANONICAL": "Pilot grounds the speculation. Same gate as OPEN→CANONICAL.",
+    "from_DEFERRED_to_CANONICAL": "Pilot grounds the speculation. Same gate as OPEN to CANONICAL.",
     "from_DEFERRED_to_FALSIFIED": "Pilot run, refuted. Standard falsification record.",
     "from_CANONICAL_to_RETIRED": "Reserved for future use. Currently no canonical artifact has been retired."
   },
   "how_to_add_a_new_investigation": [
+    "1. Append a new entry to the investigations array with the next sequential id (INV-NNN).",
     "1. Append a new entry to the investigations array with the next sequential id (INV-NNN).",
     "2. Required fields: id, title, raised_by, raised_date, raised_in_push, disposition, summary, gate_criteria.",
     "3. If disposition is CANONICAL, also include promotion_date, canonical_location, and gate_outcome.",
@@ -751,21 +766,5 @@
     "6. If disposition is OPEN, include gate_for_promotion and (optionally) promotion_owner and estimated_effort_days.",
     "7. Update summary_by_disposition and summary_by_source counts.",
     "8. Cross-reference from any new push narrative or AI-refresh document that introduces or moves the investigation."
-  ],
-  "publication_strategy": {
-    "_description": "Publication sequence locked in 2026-05-08. Wedge-first ordering: each paper opens the next; the universality claim is not burned on a weaker venue.",
-    "ordering": [
-      "Paper 1 (INV-026) — Universality result — arXiv first, CodaWork supplemental — publishable today",
-      "Paper 2 (INV-027) — DADC origin + CoDa independent discovery — CodaWork 2026 then journal — publishable today",
-      "Paper 3 (future) — CNQ parallel verification methodology — gated on INV-021 (cnq.py implementation)",
-      "Paper 4 (future) — Geometry Lock Probe instrument class — gated on INV-025 (HCI-ULTRASOUND first pilot)"
-    ],
-    "rationale": "Paper 1 establishes priority on the universality claim with no new engineering required. Paper 2 establishes lineage priority and is ideally venue-matched to CodaWork 2026. Papers 3 and 4 cite back to Paper 1; their gates (cnq.py, first pilot) are real engineering milestones, not blocking the publication wedge.",
-    "distribution_principles": [
-      "arXiv on day of submission (priority date stamped)",
-      "GitHub release tag matching paper version (frozen artifact for reviewers)",
-      "Reproduction command in every paper's Appendix A or equivalent",
-      "Cross-citation graph between papers maintained explicitly"
-    ]
-  }
+  ]
 }

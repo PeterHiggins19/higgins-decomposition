@@ -76,5 +76,5 @@ The following subdirectories are reserved for future content:
 
 ---
 
-*Peter Higgins / Rogue Wave Audio*
+*Hs Project / Rogue Wave Audio*
 *Licensed under CC BY 4.0*

@@ -10,7 +10,24 @@ Source: DATA/Geochemistry/2022_09-0SVW6S_Stracke_data.xlsx, sheet Data_MORB.
 import openpyxl, csv, json, math, collections
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[5]
+ROOT_FILE = Path(__file__).resolve()
+def _find_data_dir(start):
+    """Walk up looking for an ancestor that has a DATA/Geochemistry/ folder
+    containing .xlsx files (not just .csv). On case-insensitive mounts,
+    Hs/data/Geochemistry/ matches but lacks the xlsx files; we want the
+    real DATA folder higher up."""
+    cur = start
+    for _ in range(10):
+        cand = cur / "DATA" / "Geochemistry"
+        if cand.is_dir():
+            xlsxes = list(cand.glob("*.xlsx"))
+            if xlsxes:
+                return cur
+        if cur.parent == cur:
+            break
+        cur = cur.parent
+    raise FileNotFoundError("Could not locate DATA folder containing Geochemistry .xlsx files, ancestor of " + str(start))
+ROOT = _find_data_dir(ROOT_FILE)
 SRC = ROOT / "DATA" / "Geochemistry" / "2022_09-0SVW6S_Stracke_data.xlsx"
 OUT = Path(__file__).resolve().parent.parent / "domain" / "geochem_stracke_morb" / "geochem_stracke_morb_input.csv"
 

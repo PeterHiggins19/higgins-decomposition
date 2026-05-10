@@ -2,7 +2,7 @@
 
 **Status:** canonical sibling tier, doctrine-only (push #24, 2026-05-08).
 **Sibling of:** [`HCI-CNT/`](../HCI-CNT/), [`HCI-CNQ/`](../HCI-CNQ/), [`HCI-AUDIO/`](../HCI-AUDIO/), and the [`HCI/`](../HCI/) instrument family.
-**Origin:** identified by Peter as *"one of the major application goals derivative from the original work"* (the original DADC work in Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md).
+**Origin:** identified as *"one of the major application goals derivative from the original work"* (the original DADC work in Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md).
 **Engine status:** no compiled engine yet. Doctrine and design specifications only.
 
 ---
@@ -92,7 +92,7 @@ HCI-CNQ is general (any quaternion-lifted compositional system). HCI-ULTRASOUND 
 - Active sensing (closing a control loop on Helmsman Stability) is a different operational mode than passive analysis.
 - Medical and industrial domains have specific safety, regulatory, and hardware concerns that deserve a dedicated doctrine layer.
 - Future ultrasound-specific tooling (probe drivers, beamforming integrations, real-time visualisation, lock-quality dashboards) belongs here.
-- It is one of Peter's stated major application goals, and giving it a canonical home signals seriousness about the application path.
+- It is one of the project's stated major application goals, and giving it a canonical home signals seriousness about the application path.
 
 ---
 

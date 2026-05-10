@@ -2,13 +2,13 @@
 
 This folder holds the **wrapper specification** and **example wrapper data files** for CNQ v2.
 
-A wrapper is a JSON file that translates the engine's mathematically neutral output into a domain-specific, locale-specific human-readable view. The engine itself does not consume wrappers; an optional renderer / report-builder does. If no wrapper is used, engine output is read directly in CoDa-community standard vocabulary.
+A wrapper is a JSON file that translates the engine's mathematically neutral output into a domain-specific, locale-specific user-readable view. The engine itself does not consume wrappers; an optional renderer / report-builder does. If no wrapper is used, engine output is read directly in CoDa-community standard vocabulary.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `WRAPPER_SCHEMA.md` | Human-readable specification of the wrapper format (read this first if authoring a new wrapper) |
+| `WRAPPER_SCHEMA.md` | User-readable specification of the wrapper format (read this first if authoring a new wrapper) |
 | `wrapper_schema.json` | JSON Schema for machine-validation of wrapper files |
 | `wrapper_blank_template.json` | Empty starter for authoring a new domain wrapper |
 | `wrapper_generic.json` | Identity / passthrough wrapper — uses CoDa standard vocabulary directly (no aliases, no calibration) |
@@ -32,4 +32,4 @@ Add the new locale code to `supported_locales`, then add the locale key to every
 
 ## Engine independence
 
-The engine does not load wrappers. Wrappers exist downstream of the engine — at report-building time, dashboard time, or human-reading time. Engine output is reproducible and verifiable independent of any wrapper.
+The engine does not load wrappers. Wrappers exist downstream of the engine — at report-building time, dashboard time, or report-reading time. Engine output is reproducible and verifiable independent of any wrapper.

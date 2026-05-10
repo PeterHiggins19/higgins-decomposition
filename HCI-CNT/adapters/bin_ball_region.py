@@ -55,7 +55,18 @@ The instrument reads. The expert decides. The loop stays open.
 import csv, json, math, collections, statistics
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[5]   # ...\Claude CoWorker\
+ROOT_FILE = Path(__file__).resolve()
+def _find_data_dir(start):
+    cur = start
+    for _ in range(10):
+        cand = cur / "DATA"
+        if cand.is_dir():
+            return cur
+        if cur.parent == cur:
+            break
+        cur = cur.parent
+    raise FileNotFoundError("Could not locate DATA folder ancestor of " + str(start))
+ROOT = _find_data_dir(ROOT_FILE)   # ...\Claude CoWorker\
 SRC  = ROOT / "DATA" / "Geochemistry" / "2022-3-RY3BRK_Ball_data.csv"
 OUT  = Path(__file__).resolve().parent
 

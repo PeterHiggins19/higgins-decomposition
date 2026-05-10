@@ -63,7 +63,7 @@ python hs_ingest.py mydata.csv --name "My System" --domain "GEOLOGY" --lang pt
 |------|---------|
 | [higgins_decomposition_12step.py](higgins_decomposition_12step.py) | Main instrument -- 12-step pipeline runner (define, identify, load, close, CLR, Aitchison variance, HVLD, super squeeze, EITT entropy, ternary, complex plane, helix/polar) |
 | [hs_codes.py](hs_codes.py) | 78 diagnostic codes across 10 structural modes. Code format: `SS-CCC-LLL` (stage-condition-level) |
-| [hs_reporter.py](hs_reporter.py) | Multilingual report generator -- reads diagnostic codes and produces human-readable output in 5 languages |
+| [hs_reporter.py](hs_reporter.py) | Multilingual report generator -- reads diagnostic codes and produces user-readable output in 5 languages |
 | [hs_controller.py](hs_controller.py) | Hs-GOV state machine controller (IDLE / RUNNING / HELD / COMPLETED / ABORTED / ERROR) for industrial embedding |
 | [hs_sensitivity.py](hs_sensitivity.py) | Component Power Mapper -- measures carrier influence on system character, not just mass fraction (CLI, PBM, CPS analyses) |
 | [hs_amalgamation.py](hs_amalgamation.py) | Subcompositional Recursion Engine (T2 test) -- regroups carriers into every subcomposition, maps attractor/repeller persistence |
@@ -165,4 +165,4 @@ Audit Trail  (chain of custody -- every operation traced)
 
 ---
 
-Peter Higgins / Rogue Wave Audio -- CC BY 4.0
+Hs Project / Rogue Wave Audio -- CC BY 4.0 (formal copyright in LICENSE-DOCS)

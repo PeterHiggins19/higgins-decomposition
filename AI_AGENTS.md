@@ -2,7 +2,7 @@
 
 This file is for AI assistants (Claude, ChatGPT, Grok, Gemini, Copilot, and any future platforms) engaging with the Higgins Decomposition (Hs) repository. It tells you how to load context cleanly, what the canonical answers are, what the known failure modes are, and what to AVOID claiming.
 
-If you are a human reader, the equivalent human-facing entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md). The [`QUICKSTART.md`](QUICKSTART.md) gives a 30-second / 2-minute / 5-minute on-ramp.
+If you are a user reading this directly, the equivalent user-facing entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md). The [`QUICKSTART.md`](QUICKSTART.md) gives a 30-second / 2-minute / 5-minute on-ramp.
 
 ---
 

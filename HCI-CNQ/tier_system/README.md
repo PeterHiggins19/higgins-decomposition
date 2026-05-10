@@ -71,7 +71,7 @@ Roadmap:
 
 Round 2 confirmed the foundational quaternion identification at IEEE floor on real corpus data. That moves CNQ out of "interesting speculation" into "engineering specification waiting to be implemented." Every operation in CNT has a quaternion-native counterpart that will compute the same numerical result; what changes is which operations become easier to express and which adjacent communities can immediately recognize what we're doing.
 
-For Peter, after CodaWork 2026, this is the next horizon: not a fix to CNT (CNT works), but a successor tier for problems CNT was never sized to solve. Climate models. Multi-decade economic flows. Industrial process composition with hundreds of components. Cross-system inference at scale. The quaternion view scales naturally where channel-by-channel arithmetic doesn't.
+After CodaWork 2026, this is the project's next horizon: not a fix to CNT (CNT works), but a successor tier for problems CNT was never sized to solve. Climate models. Multi-decade economic flows. Industrial process composition with hundreds of components. Cross-system inference at scale. The quaternion view scales naturally where channel-by-channel arithmetic doesn't.
 
 For the broader research community, CNQ is the bridge: compositional analysis becomes recognisable to physicists (SU(2) is qubit algebra), roboticists (quaternions are SLAM trajectories), and computer graphics engineers (quaternions are everywhere in animation). The CodaWork audience hears about CNT; the post-CodaWork audience hears about CNQ, and they don't need a translator.
 

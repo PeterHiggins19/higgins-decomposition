@@ -152,7 +152,7 @@ The Manifold Projector renders per-carrier CLR values normalized to 0-1 as radar
 
 ---
 
-*Peter Higgins / Rogue Wave Audio*
+*Hs Project / Rogue Wave Audio*
 *Licensed under CC BY 4.0*
 
 ---

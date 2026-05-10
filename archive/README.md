@@ -21,4 +21,4 @@ This folder holds files that have been superseded by current standards, contain 
 ---
 
 *Hˢ Archive — April 2026*
-*Peter Higgins — Rogue Wave Audio*
+*Hs Project — Rogue Wave Audio*

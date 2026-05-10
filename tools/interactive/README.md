@@ -44,4 +44,4 @@ Or double-click the file in your file manager.
 
 ---
 
-Peter Higgins / Rogue Wave Audio -- CC BY 4.0
+Hs Project / Rogue Wave Audio -- CC BY 4.0 (formal copyright in LICENSE-DOCS)

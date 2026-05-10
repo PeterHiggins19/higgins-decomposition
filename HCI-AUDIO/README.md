@@ -11,7 +11,7 @@
 
 This is the canonical home for **applied audio work** in the Hˢ system: 4-way active loudspeaker alignment, room correction at the listening position, and any acoustic-system optimisation that uses the CNT/CNQ machinery on real audio data.
 
-The headline use case is the one Peter actively works on:
+The headline use case is the active flagship application:
 
 - 4 physical drivers per cabinet (woofer / mid-woofer / midrange / tweeter)
 - Classical filters: low-pass EQ + 4th-order Butterworth crossovers
