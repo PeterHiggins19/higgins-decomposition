@@ -10,7 +10,7 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-11",
-    "last_push": "#41",
+    "last_push": "#42",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
   },
   "identity": {
@@ -291,9 +291,9 @@
     "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
     "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
     "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
-    "current_total": 54,
+    "current_total": 55,
     "by_disposition": {
-      "CANONICAL": 31,
+      "CANONICAL": 32,
       "DEFERRED": 12,
       "FALSIFIED": 1,
       "OPEN": 8,
@@ -304,7 +304,7 @@
       "CLAUDE": 7,
       "CHATGPT": 10,
       "GROK": 15,
-      "USER": 22,
+      "USER": 23,
       "PILOT": 0
     },
     "named_findings_for_codawork_2026": [
@@ -312,7 +312,8 @@
       "INV-050 — metric-invariance of the qualitative compositional verdict",
       "INV-051 — deceptive-drift signature reproduced across 5 of 9 EMBER countries",
       "INV-053 - Prior-art Area 4 partially executed (Morais et al. 2017/2018 + Arata & Onozaki 2017); MC-4 survives narrowed",
-      "INV-054 STAGED - Hˢ Ascent Path doctrine (post-conference promotion 2026-06-06+)"
+      "INV-054 STAGED - Hˢ Ascent Path doctrine (post-conference promotion 2026-06-06+)",
+      "INV-055 - Talk delivery infrastructure (papers/codawork2026/talk/ phone-readable repo-as-presentation)"
     ]
   },
   "notation_and_terminology_pointer": {
@@ -430,7 +431,9 @@
     "FULL_CORPUS_MASTER_FINDINGS": "experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md",
     "FULL_CORPUS_MANIFEST": "experiments/2026-05-10_full-corpus-validation/MANIFEST.json",
     "reproducibility_checklist": "REPRODUCIBILITY_CHECKLIST.md",
-    "ascent_path_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json"
+    "ascent_path_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json",
+    "talk_folder_readme": "papers/codawork2026/talk/README.md",
+    "talk_folder_cheat_sheet": "papers/codawork2026/talk/CHEAT_SHEET.md"
   },
   "common_drift_errors": {
     "_note": "Errors that have actually occurred in cross-AI sessions. Check for these during refresh.",
@@ -537,6 +540,7 @@
     "review_window_open": "2026-05-10 through 2026-06-01",
     "push_41_addendum": "ai-refresh/PUSH41_READY_FOR_COMMIT.md",
     "ascent_path_doctrine_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json (STAGED for post-conference 2026-06-06+)",
-    "prior_art_search_status": "Area 4 partially executed (INV-053); 3 areas pending"
+    "prior_art_search_status": "Area 4 partially executed (INV-053); 3 areas pending",
+    "talk_folder": "papers/codawork2026/talk/ (oratory + slides + Q&A + study + backup)"
   }
 }

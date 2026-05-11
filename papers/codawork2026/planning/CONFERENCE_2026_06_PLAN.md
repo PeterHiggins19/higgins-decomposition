@@ -11,6 +11,19 @@
 
 ## 0. What changed at this update — read first if you have read the plan before
 
+**Push #42 (2026-05-11, talk delivery infrastructure).** New `papers/codawork2026/talk/` folder added — the talk in phone-readable form:
+
+- `talk/README.md` — the spoken script with each beat linked to its slide
+- `talk/STUDY_PAGE.md` — law-student moot method, five rounds of practice
+- `talk/CHEAT_SHEET.md` — one-page backstage scanner, spine phrases only
+- `talk/BACKUP_PRESENTATION.md` — if AV fails, you deliver from your phone
+- `talk/slides/` — one Markdown file per slide (10 files)
+- `talk/qa_bench/` — Q&A response cards for INV-050, INV-051, prior-art defeat, category defeat, three open questions
+
+The repo IS the presentation now. Study anywhere, deliver anywhere, fall back to the repo if equipment dies.
+
+**Push #41 (2026-05-10, Grok + ChatGPT external review).** Three concrete conference-talk improvements actioned: cut list bumped to Cuts 1+2 DEFAULT; Q&A bench reordered Q3-first; Beat 9 prior-art slide sharpened to operational form. INV-053 (prior-art Area 4 partial) + INV-054 STAGED (Ascent Path doctrine, post-conference) added.
+
 **Push #39 (2026-05-10, claim-sharpening pass).** Three changes the talk inherits:
 
 1. The **MC-4 claim is now stated in its three-conjunct form** (Beat 2 below). The earlier wording reached one rung wider than the evidence; the sharpened version restricts to "natively in Aitchison geometry + formal change detection + carrier-level attribution combined into one observable stack." A defeater must overturn the conjunction, not just one disjunct.

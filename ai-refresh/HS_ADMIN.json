@@ -12,14 +12,16 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-11T03:00:00Z",
+    "last_updated": "2026-05-11T05:00:00Z",
     "push_36_completed": "2026-05-10",
     "push_37_completed": "2026-05-10",
     "push_38_completed": "2026-05-10",
     "push_39_completed": "2026-05-10",
     "push_40_completed": "2026-05-10",
     "push_41_prepared": "2026-05-10",
-    "push_41_completed": "2026-05-11"
+    "push_41_completed": "2026-05-11",
+    "push_42_prepared": "2026-05-11",
+    "push_42_completed": "2026-05-11"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1157,6 +1159,48 @@
       "tests_unchanged": true,
       "schema_unchanged": true,
       "review_origin": "Grok round 4 (2026-05-10) + ChatGPT session 2 (2026-05-10). Both used the narrowed re-prompt template from push #40 INDEX. Template validated across two independent models. Peter directive: 'use only the most useful and store the rest' + HOLD-TO-PUSH until Peter authorizes."
+    },
+    {
+      "push": 42,
+      "date": "2026-05-11",
+      "title": "Talk delivery infrastructure - papers/codawork2026/talk/ phone-readable repo-as-presentation",
+      "type": "doc-only + branch-layer (talk delivery + study + backup infrastructure)",
+      "push_status": "READY FOR COMMIT 2026-05-11. HOLD-TO-PUSH cleared by Peter directive \"update and release all to repo as suggested and scheduled once fully updated prepare for repo for push once all is ready\". All admin JSONs parse; talk/ folder 19 files; INV-055 CANONICAL; Ascent Path NO-CREATE list intact.",
+      "catalog_entries": [
+        "INV-055 CANONICAL (talk delivery infrastructure)"
+      ],
+      "summary": "Peter's directive: implement law-student moot study + cheat sheet + AV-failure backup + phone-readable repo-as-presentation in papers/codawork2026/talk/. Implemented as 18 files: README.md (the spoken oratory with each beat linked to its slide), STUDY_PAGE.md (five-round moot method - anchors only -> anchor + sentence -> anchor + content -> timed -> stand-and-deliver), CHEAT_SHEET.md (one-page backstage scannable with 10 spine phrases + 6 word-for-word lines + Q&A first answers + 30-second pre-stage routine), BACKUP_PRESENTATION.md (AV-failure protocol: open README on phone, describe what would have been on slide, deliver from text), 10 slide files in slides/ (slide_01_simplex_view through slide_10_closing, each with visual-described + spoken-text + transition-phrase + cheat-sheet-reminder), 5 Q&A bench cards in qa_bench/ (INV-050, INV-051, prior-art defeat, category defeat, three open questions Q1/Q2/Q3). The repo IS the presentation: study anywhere on phone, deliver anywhere from phone, fall back to the repo if AV fails. Phone-readable design: short paragraphs, no wide tables, scannable, self-contained, offline-capable. INV-055 CANONICAL added (branch-layer per Ascent Path tree taxonomy - applications / venue-specific). No trunk/root changes. The Ascent Path NO-CREATE list (HS_ASCENT_PATH.md, CLAIMS_REGISTER.md etc.) remains intact - those are post-conference work. Catalog: 54 -> 55 total / 31 -> 32 CANONICAL / USER source 22 -> 23.",
+      "files_added": [
+        "papers/codawork2026/talk/README.md",
+        "papers/codawork2026/talk/STUDY_PAGE.md",
+        "papers/codawork2026/talk/CHEAT_SHEET.md",
+        "papers/codawork2026/talk/BACKUP_PRESENTATION.md",
+        "papers/codawork2026/talk/slides/slide_01_simplex_view.md",
+        "papers/codawork2026/talk/slides/slide_02_data_and_mc4.md",
+        "papers/codawork2026/talk/slides/slide_03_protocol.md",
+        "papers/codawork2026/talk/slides/slide_04_japan_fukushima.md",
+        "papers/codawork2026/talk/slides/slide_05_germany_continuous.md",
+        "papers/codawork2026/talk/slides/slide_06_uk_coal_exit.md",
+        "papers/codawork2026/talk/slides/slide_07_beyond_three.md",
+        "papers/codawork2026/talk/slides/slide_08_three_open_questions.md",
+        "papers/codawork2026/talk/slides/slide_09_four_defeat_paths.md",
+        "papers/codawork2026/talk/slides/slide_10_closing.md",
+        "papers/codawork2026/talk/qa_bench/INV050_metric_invariance.md",
+        "papers/codawork2026/talk/qa_bench/INV051_deceptive_drift_5of9.md",
+        "papers/codawork2026/talk/qa_bench/prior_art_defeat.md",
+        "papers/codawork2026/talk/qa_bench/category_defeat.md",
+        "papers/codawork2026/talk/qa_bench/three_open_questions_bench_cards.md"
+      ],
+      "files_modified": [
+        "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (section 0 push #42 note added pointing at talk/ folder)",
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-055 added)",
+        "ai-refresh/HS_ADMIN.json (this session_log entry)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "ascent_path_layer": "branch (applications / venue-specific delivery work; does not touch trunk or root canon; NO-CREATE list still empty)",
+      "review_origin": "Peter directive 2026-05-11: 'law students go through a moot... add to presentation folder... use the repo itself as the presentation if need be and for instant study anywhere even on my phone.'"
     }
   ],
   "licensing": {

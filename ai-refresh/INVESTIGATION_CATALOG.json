@@ -10,7 +10,7 @@
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
     "last_updated": "2026-05-10",
     "last_push": "#37",
-    "total_investigations": 54
+    "total_investigations": 55
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -845,10 +845,32 @@
         "INV-052 ChatGPT review pattern observation",
         "INV-053 prior-art Area 4 partial"
       ]
+    },
+    {
+      "id": "INV-055",
+      "title": "Talk delivery infrastructure - papers/codawork2026/talk/ as phone-readable repo-is-the-presentation backup",
+      "raised_by": "USER",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#42",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-11",
+      "canonical_location": "papers/codawork2026/talk/ - README.md (oratory), STUDY_PAGE.md (moot method), CHEAT_SHEET.md (backstage), BACKUP_PRESENTATION.md (AV failure), slides/ (10 files), qa_bench/ (5 cards)",
+      "summary": "Peter's directive 2026-05-11: 'law students go through a moot, they learn slides by linking phrases. explore how to moot the slide show in a simple study page, expand to a second page cheat sheet with reminder points on topics. add to presentation folder and specify this folder with an easy structure just in case all goes bad and i have to use the repo to run the presentation as backup, also make study easy anywhere as i can study from the repo. actually if the readme in the presentation folder is the talking points and the various slides can be linked to the oratory as the readme i could use the repo itself as the presentation if need be and for instant study anywhere even on my phone.' Implemented as papers/codawork2026/talk/ folder: README.md is the spoken oratory with each beat linked to its slide file; STUDY_PAGE.md is the law-student moot method (five rounds, anchor-phrase chaining); CHEAT_SHEET.md is one-page backstage scannable; BACKUP_PRESENTATION.md is the AV-failure contingency; slides/ contains 10 Markdown files (one per beat) with visual-described + spoken-text + transition-phrase + cheat-sheet-reminder; qa_bench/ contains 5 response cards (INV-050, INV-051, prior-art defeat, category defeat, three open questions Q1/Q2/Q3). The repo IS the presentation now: study anywhere on phone; deliver anywhere from phone; if equipment dies, fall back to the repo on the phone with no internet required.",
+      "gate_criteria": "Talk folder created at papers/codawork2026/talk/; README is the spoken script with slide links; STUDY_PAGE explains moot method with five rounds; CHEAT_SHEET fits one phone screen with spine phrases; BACKUP_PRESENTATION explains AV-failure protocol; 10 slide files (slide_01 through slide_10) each with visual + spoken + transition + cheat-sheet-reminder; 5 Q&A bench cards (INV-050, INV-051, prior-art, category, three open questions); all files phone-readable (short paragraphs, no wide tables, scannable); cross-references intact from CONFERENCE_2026_06_PLAN.md.",
+      "gate_outcome": "PASSED - all 18 files created in papers/codawork2026/talk/. README is the oratory with 10 anchor-phrase-linked beats. STUDY_PAGE describes five rounds of moot practice (anchors only -> anchor + sentence -> anchor + content -> timed -> stand-and-deliver). CHEAT_SHEET fits one screen with the 10 spine phrases + 6 word-for-word lines + Q&A first answers + 30-second pre-stage routine. BACKUP_PRESENTATION explains the AV-failure protocol (open README on phone, describe what would have been on the slide, deliver from text). Each slide file is short, phone-readable, with visual-described + spoken-text + transition-phrase + cheat-sheet-reminder + word-for-word lines where load-bearing. Q&A bench has 5 cards mapped to the most likely reviewer questions. Cross-reference added to master plan section 0.",
+      "narrative": "This is delivery infrastructure - it sits at the BRANCH layer in the Ascent Path tree (applications / venue-specific work). It does not touch trunk or root canon. It does not create any of the post-conference STAGED files (HS_ASCENT_PATH.md, CLAIMS_REGISTER.md, etc.) - those remain forbidden before 2026-06-06 per the doctrine's Phase 5 staging rule. What it does is give Peter the ability to (1) study the talk anywhere on his phone using the law-student moot method, (2) deliver the talk from the phone if AV fails, (3) hand any AI session a single phone-readable doc that captures the spoken talk verbatim. The metaphor Peter named: 'the readme in the presentation folder is the talking points and the various slides can be linked to the oratory as the readme i could use the repo itself as the presentation if need be and for instant study anywhere even on my phone.' Implemented exactly.",
+      "talk_audience": "Direct: the talk's delivery medium. The folder IS the talk's backup, study guide, and post-conference reference. The audience experiences the polished slide deck on screen; Peter experiences the folder as his memory + lifeline.",
+      "related_inv_entries": [
+        "INV-049 navigation_concentration_family engine-native",
+        "INV-050 metric-invariance",
+        "INV-051 deceptive drift 5-of-9",
+        "INV-053 prior-art Area 4 partial",
+        "INV-054 Ascent Path STAGED"
+      ]
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 31,
+    "CANONICAL": 32,
     "FALSIFIED": 1,
     "DEFERRED": 12,
     "CLOSED": 1,
@@ -858,7 +880,7 @@
   "summary_by_source": {
     "CLAUDE": 7,
     "CHATGPT": 10,
-    "USER": 22,
+    "USER": 23,
     "GROK": 15
   },
   "promotion_rules": {
