@@ -16,9 +16,15 @@ Two specific empirical findings emerged during the schema v3.1.0 engine promotio
 
 **Catalog reference:** [INV-050](../../../ai-refresh/INVESTIGATION_CATALOG.json) (CANONICAL, push #37, raised by USER)
 
-### Statement
+### Statement (sharpened in push #39)
+
+> *TV distance (half-L1) and Aitchison distance (log-ratio Euclidean) **agree on every shock hit/miss verdict across the 9-country EMBER 2001–2025 corpus**, while differing in raw magnitude. The qualitative verdict is robust to substitution within this pair. Whether the invariance extends to the broader family of valid simplex distances (weighted log-ratio, Mahalanobis on CLR covariance, Egozcue–Pawlowsky-Glahn evidence information distance) is open — named explicitly as Q2 in `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md`.*
+
+### Earlier (broader) framing — superseded but preserved for traceability
 
 > *The qualitative compositional verdict — "does this step register as a shock or not" — is metric-invariant within the family of valid simplex distances, even though the metrics themselves are not numerically equivalent.*
+
+The earlier wording reaches one rung wider than the evidence (the tested family was two metrics, not the full simplex-distance family). The sharpened version stays inside what the data show and explicitly invites the broadening as a community question.
 
 ### Concrete observation
 
@@ -34,9 +40,9 @@ TV distance (½ Σ|ρᵢ(t) − ρᵢ(t−1)|, half-L1, bounded [0,1]) and Aitch
 
 | Slide context | Talk language |
 |---|---|
-| Methods / metric stack | "We compute both TV distance and Aitchison distance per timestep. They differ in magnitude. They agree on every shock verdict across the corpus. The qualitative compositional verdict is metric-invariant within this family." |
-| Q&A response to Metric defeat | "If the metric is wrong, the verdict moves. We checked. Across nine countries it doesn't. The verdict is robust within the simplex-distance family." |
-| Robustness sub-claim on the headline slide | One footnote line: *"Verdict reproduces under TV substitution for Aitchison distance; magnitudes differ, classifications do not."* |
+| Methods / metric stack | "We compute both TV distance and Aitchison distance per timestep. They differ in magnitude. They agree on every shock verdict across the 9-country corpus. The qualitative verdict is robust to substitution within this pair; whether the invariance extends to weighted log-ratio or evidence information distances is the second of our three open questions for the room." |
+| Q&A response to Metric defeat | "If the metric is wrong, the verdict moves. We checked TV against Aitchison across nine countries — it doesn't move. We haven't tested the broader family of valid simplex distances; that's Q2 in our open-questions slide." |
+| Robustness sub-claim on the headline slide | One footnote line: *"Verdict reproduces under TV substitution for Aitchison distance across the 9-country corpus; magnitudes differ, classifications do not. Broader-family invariance is open (Q2)."* |
 
 ### How to defeat it (honest)
 
@@ -86,6 +92,7 @@ The CNT v3.1.0 engine's `concentration_regime` tag fires `deceptive` when both o
 |---|---|
 | Results — beyond the three | "Beyond DEU/JPN/GBR the engine's concentration_regime tag fires `deceptive` in 5 of 9 EMBER countries at annual grain: AUS, CHN, GBR, IND, JPN. The packet's single-country headline is the conservative case." |
 | Methods — why some countries don't fire | "Germany at annual grain shows K_eff tightening but TV above median — the energy mix was visibly moving toward renewables, not silently concentrating. That's *loud* drift, not *deceptive* drift. The protocol distinguishes them; the regime tag is `tightening` for Germany pre-2022, not `deceptive`." |
+| Null-model caveat — on the deceptive-drift slide, NOT in speaker notes (push #39) | "The packet's p = 0.0016 for Germany is computed against the series' own empirical-frequency baseline. This is a weaker null than a Dirichlet, permutation, or bootstrap null. The right null for compositional change-point detection on the simplex is Q3 in our three open questions for the room. We treat p = 0.0016 as an opening empirical claim, not a closed methodological one." |
 | Q&A response to Case defeat | "Why this set of 5 and not the other 4? Each per-country trajectory is in the corpus folder. The differences are interpretable — different starting concentrations, different growth dynamics, different shock proximity. The protocol classified each correctly." |
 
 ### How to defeat it (honest)

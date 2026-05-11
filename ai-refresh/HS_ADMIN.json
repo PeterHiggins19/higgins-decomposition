@@ -12,10 +12,11 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-10T23:30:00Z",
+    "last_updated": "2026-05-10T23:59:00Z",
     "push_36_completed": "2026-05-10",
     "push_37_completed": "2026-05-10",
-    "push_38_completed": "2026-05-10"
+    "push_38_completed": "2026-05-10",
+    "push_39_completed": "2026-05-10"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1061,6 +1062,31 @@
       "tests_unchanged": true,
       "schema_unchanged": true,
       "review_window": "open from 2026-05-10 through 2026-06-01 (conference start). After 2026-06-05 the external-review-invite retires and feedback rolls into the post-conference journal track."
+    },
+    {
+      "push": 39,
+      "date": "2026-05-10",
+      "title": "Claim-sharpening pass — MC-4 three-conjunct + INV-050 pair-invariance + three open questions + cut list + null-model caveat + prior-art search targets",
+      "type": "doc-only + admin (claim-strength tightening for the conference talk)",
+      "catalog_entries": ["(no new INV — sharpening of INV-050 entry)"],
+      "summary": "Acted on a six-point review pass against the EXTERNAL_REVIEW_INVITE.md brief. (1) MC-4 claim sharpened to the three-conjunct form: 'no monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level — the three conjuncts combined into one observable stack'. A defeater must overturn the conjunction, not just one disjunct. (2) INV-050 framing tightened from 'metric-invariant within the family of valid simplex distances' to 'pair-invariance demonstrated for TV + Aitchison across the 9-country EMBER 2001-2025 corpus; broader-family invariance is open (Q2)'. Earlier wording preserved for traceability. (3) Three open questions for the community explicitly named in new doc papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md: Q1 (concentration-vs-Aitchison-norm from the abstract), Q2 (right family of valid simplex distances, raised by INV-050), Q3 (right null model for compositional change-point detection, raised by INV-051). (4) Cut list for the 10-beat plan added at master plan §5.1.1: drop order (i) Beat 5 year-by-year animation, (ii) Beat 10 live demo, (iii) Beat 7 OWID 73-country slide; ~2 min buffer. (5) Null-model caveat moved from speaker notes onto the Beat 5 slide explicitly. (6) Prior-art search targets enumerated in new doc papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md: four specific areas (CoDa time series; industrial ecology / MFA; diet-composition surveillance; sectoral allocation in macroeconomics) with specific authors, journals, and search queries. No engine, test, or schema changes. Catalog math unchanged: 51 total / 29 CANONICAL.",
+      "files_added": [
+        "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md",
+        "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md",
+        "ai-refresh/PUSH39_PRE_PUSH_SUMMARY.md"
+      ],
+      "files_modified": [
+        "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (Beat 2 MC-4 three-conjunct; Beat 5 null-model caveat on slide; Beat 8 three open questions; §0 push #39 changes note; §5.1.1 cut list)",
+        "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md (item 4 three open questions; MC-4 sharpened wording; PRIOR_ART_SEARCH_TARGETS.md cross-reference)",
+        "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md (INV-050 statement sharpened; earlier framing preserved for traceability; slide-language rows updated; null-model caveat row added)",
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-050 summary and narrative sharpened)",
+        "ai-refresh/HS_ADMIN.json (this session_log entry + last_updated + active_priority extensions for push #39 docs)",
+        "HS_FAST_REFRESH.json (last_push pointer -> #39)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "review_origin": "Claude self-review against EXTERNAL_REVIEW_INVITE.md fetch order; sharpening applied per Peter's directive 'make all improvements as suggested.'"
     }
   ],
   "licensing": {
@@ -1114,16 +1140,19 @@
     "ai_refresh_push38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
     "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
     "named_findings_doc": "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+    "three_open_questions_doc": "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md",
+    "prior_art_search_targets_doc": "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md",
+    "mc4_claim_sharpened_push39": "no monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level - the three conjuncts combined into one observable stack. A defeater must overturn the conjunction, not just one disjunct.",
+    "inv050_framing_sharpened_push39": "pair-invariance demonstrated for TV + Aitchison across 9-country EMBER 2001-2025 corpus; broader-family invariance is open (Q2 in THREE_OPEN_QUESTIONS.md).",
     "fetch_order_for_resuming_session": [
-      "1. papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (master plan)",
-      "2. papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md (the two empirical findings — INV-050, INV-051)",
-      "3. papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md (community review invite)",
-      "4. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md (push #36 redirect — still valid)",
-      "5. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md (push #38 addendum)",
-      "6. External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)",
-      "7. papers/codawork2026/CoDaWork2026_Reply_to_Egozcue_Final.txt",
-      "8. papers/codawork2026/CoDaWork2026_Energy_Briefing.md",
-      "9. papers/codawork2026/conference_2026_06/COMPARISON_v2_0_4_vs_v3_0_0.md"
+      "1. papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (master plan with push #39 sharpening notes in section 0)",
+      "2. papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md (Q1, Q2, Q3 named explicitly)",
+      "3. papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md (INV-050 sharpened, INV-051)",
+      "4. papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md (the four areas to chase)",
+      "5. papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md (community review invite, updated with push #39 wording)",
+      "6. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md (push #36 redirect - still valid)",
+      "7. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md (push #38 addendum)",
+      "8. External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)"
     ],
     "do_not_pivot_to": [
       "The broader instrument paper (superseded for this conference)",
@@ -1134,12 +1163,12 @@
     ],
     "do_focus_on": [
       "Energy-mix drift as the explicit topic",
-      "DEU, JPN, GBR as named countries (plus AUS, CHN, FRA, IND, USA, WLD as the full nine-country corpus)",
+      "DEU, JPN, GBR as headline countries (plus AUS, CHN, FRA, IND, USA, WLD as full nine-country corpus)",
       "2001-2025 EMBER electricity data (coherent range across the nine countries)",
       "Three named transitions: Japan post-Fukushima 2011-2012; Germany continuous trajectory; UK coal exit regime change",
-      "Two named findings: INV-050 (metric-invariance) and INV-051 (deceptive-drift across 5 of 9 countries)",
-      "Three open questions for the community",
-      "Four falsifiability conditions (Metric, Case preempted by INV-050+INV-051; Prior-art and Category remain open)"
+      "Two named findings: INV-050 (pair-invariance, sharpened push #39) and INV-051 (deceptive-drift across 5 of 9 countries)",
+      "Three open questions for the community: Q1 (Aitchison-norm vs concentration measure), Q2 (right family of valid simplex distances), Q3 (right null model for compositional change-point detection)",
+      "Four falsifiability conditions: Metric and Case preempted by INV-050 + INV-051; Prior-art and Category remain open. Prior-art search targets listed in PRIOR_ART_SEARCH_TARGETS.md."
     ],
     "review_window_open": "2026-05-10 through 2026-06-01",
     "active_until": "2026-06-05 end of conference",

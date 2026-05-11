@@ -10,7 +10,7 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-10",
-    "last_push": "#38",
+    "last_push": "#39",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
   },
   "identity": {
@@ -523,6 +523,9 @@
     "push_38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
     "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
     "named_findings_doc": "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+    "three_open_questions_doc": "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md",
+    "prior_art_search_targets_doc": "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md",
+    "mc4_claim_sharpened_push39": "no monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level - three conjuncts combined into one observable stack",
     "master_plan": "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md",
     "binding_abstract": "External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)",
     "do_not_pivot_to_broader_instrument_paper": true,

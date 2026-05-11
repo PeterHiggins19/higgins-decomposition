@@ -11,7 +11,13 @@
 
 ## 0. What changed at this update — read first if you have read the plan before
 
-The original submission was a **two-piece package**: the published abstract (CoDa-canonical vocabulary, on book-of-abstracts page 25) plus the **11-page HUF MC-4 packet** (operational vocabulary attached to the submission letter). Both must be honored.
+**Push #39 (2026-05-10, claim-sharpening pass).** Three changes the talk inherits:
+
+1. The **MC-4 claim is now stated in its three-conjunct form** (Beat 2 below). The earlier wording reached one rung wider than the evidence; the sharpened version restricts to "natively in Aitchison geometry + formal change detection + carrier-level attribution combined into one observable stack." A defeater must overturn the conjunction, not just one disjunct.
+2. The **three open questions for the community** are now explicitly named in `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md` (Q1 from the abstract, Q2 from INV-050, Q3 from INV-051). Beat 8 lists all three.
+3. The **cut list for the 10-beat plan** is now written into §5.1.1 — drop order is (i) Beat 5 year-by-year animation, (ii) Beat 10 live demo, (iii) Beat 7 OWID 73-country slide.
+
+**Push #36–#38 (earlier in 2026-05-10).** The original submission was a **two-piece package**: the published abstract (CoDa-canonical vocabulary, on book-of-abstracts page 25) plus the **11-page HUF MC-4 packet** (operational vocabulary attached to the submission letter). Both must be honored.
 
 The packet adds:
 
@@ -163,15 +169,29 @@ Stick to the published abstract beat for beat. The talk is structured around the
 | Beat | Time | Content | Backed by |
 |---|---|---|---|
 | **1. The simplex view** | 1 min | Energy generation is a composition. Standard CoDa: closure, perturbation, Aitchison distance. K_eff = exp(H) for effective diversity. | One slide — composition definition + minimal formal setup from the packet |
-| **2. The data + MC-4 claim** | 1 min | EMBER 2000–2025; 9 carriers; D=9 simplex. Three named countries plus the wider scope. **MC-4: no prior monitoring framework tracks compositional market share at the carrier level with formal change detection.** Falsifiable. | EMBER citation; MC-4 stated explicitly |
+| **2. The data + MC-4 claim** | 1 min | EMBER 2000–2025; 9 carriers; D=9 simplex. Three named countries plus the wider scope. **MC-4 (sharpened, push #39): no monitoring framework in the energy / market-share literature operates *natively in Aitchison geometry* with *formal change detection* at the *carrier level* — the three conjuncts combined into one observable stack.** A defeater must overturn the conjunction, not just one disjunct. Falsifiable. | EMBER citation; MC-4 stated explicitly with the three load-bearing conjuncts |
 | **3. The protocol** | 2 min | Period-to-period perturbation ρ(t)⊖ρ(t−1); magnitude = Aitchison distance (CoDa-canonical); TV distance = ½ Σ|ρᵢ(t)−ρᵢ(t−1)| (the packet's operational metric, bounded [0,1]); both agree on shock verdicts (Appendix A robustness). K_eff alongside. | CNT v3 Stage 1 + runner-level TV/K_eff additions (deliverable 5.3.L) |
 | **4. Japan: Fukushima 2011–2012 perturbation spike** | 2 min | The large step-Δ Aitchison distance spike; carrier-attribution shows nuclear → fossil substitution. | `conference_2026_06/per_country/ember_jpn/STAGE_1_REPORT.md` step-Δ column + helmsman flips |
-| **5. Germany: continuous trajectory + deceptive-drift result** | 3 min | The trajectory toward the renewable vertex; **deceptive drift detected pre-2022 gas crisis with p = 0.0016 (with the null-model caveat displayed)**. Year-by-year composition triangle on the simplex. | `conference_2026_06/per_country/ember_deu/` + deceptive-drift detection result (deliverable 5.3.M) |
+| **5. Germany: continuous trajectory + deceptive-drift result** | 3 min | The trajectory toward the renewable vertex; **deceptive drift detected pre-2022 gas crisis with p = 0.0016**. **Null-model caveat ON the slide (not in speaker notes):** *"p-value is computed against the series' own empirical-frequency baseline. This is a weaker null than a Dirichlet, permutation, or bootstrap null; the right null for compositional change-point detection is Q3 in our three open questions. We treat p = 0.0016 as an opening empirical claim, not a closed methodological one."* Year-by-year composition triangle on the simplex (cut first if running long — see §5.1.1 Cut 1). | `conference_2026_06/per_country/ember_deu/` + deceptive-drift detection result (deliverable 5.3.M) |
 | **6. UK: regime change in the distance matrix** | 1 min | The abrupt shift; coal exit as a step-change in step-Δ Aitchison distance. | `conference_2026_06/per_country/ember_gbr/` |
 | **7. Beyond the three: scaling evidence** | 1 min | One slide showing the wider corpus — France, Australia, and the broader EMBER + OWID expansion. IR-class distribution across all countries; the protocol is not cherry-picked. | Deliverables 5.3.K + 5.3.R |
-| **8. The open question** | 1 min | Concentration measure (K_eff = exp(H)) vs Aitchison norm — what is the relationship? Cite Egozcue and Pawlowsky-Glahn (2018) on evidence information. Invitation to the community. | Open question slide |
+| **8. Three open questions** | 1 min | (Q1) Concentration measure (K_eff = exp(H)) vs Aitchison norm — the abstract's named question. (Q2) The right family of "valid simplex distances" against which to test verdict-invariance — INV-050 follow-up. (Q3) The right null model for formal change-point detection on the simplex — INV-051 follow-up. **None has a preconceived answer; the talk invites the room.** | `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md` |
 | **9. The four defeat paths (MC-4 falsifiability)** | 2 min | Prior-art defeat / Metric defeat / Case defeat / Category defeat. The author welcomes any of these outcomes. *"This is the right room to kill it."* | Slide enumerating the four paths (deliverable 5.3.N) |
 | **10. Self-discipline + repos + live close** | 1 min | The L2 → TV metric correction (Appendix A) — the framework caught its own error during ChatGPT corpus review March 22, 2026. Both repository links: HUF (submission origin) and Hs (production engine). If AV permits: 60-second live demo of the protocol on the EMBER 2025 release. | Deliverables 5.3.P + 5.3.Q + `Hs_Standards_Edition.ipynb` |
+
+#### 5.1.1 Cut list (drop in this order if running long)
+
+The 10-beat plan sums to exactly 15 minutes. In practice every beat runs 10–20% long; this is a 17–18 minute talk wearing a 15-minute jacket. The cut list below is the **drop-in-this-order** sequence so the speaker can shed time without losing the spine of the talk.
+
+| Cut # | What to drop | Time saved | Why it's first to go |
+|---|---|---|---|
+| **Cut 1** | Year-by-year composition triangle animation in Beat 5 (Germany continuous trajectory) | ~30–45 s | The continuous trajectory can be conveyed with a static start/end + one mid-trajectory snapshot. The animation is rhetorical polish; the deceptive-drift p = 0.0016 result is the actual contribution. |
+| **Cut 2** | Live 60-second demo at the close of Beat 10 | ~60–90 s | A deterministic engine is more trustworthy than a working laptop on stage. Replace with "see me afterward for a live demo." The self-discipline note (L2 → TV correction) and the repos line are the load-bearing content of Beat 10. |
+| **Cut 3** | The OWID 73-country IR-class distribution slide in Beat 7 | ~30–45 s | The 8-country EMBER + 5-country packet view is already broader than the abstract's three. The OWID expansion is scaling evidence; if asked in Q&A we walk to it. It is not load-bearing on stage. |
+
+Three cuts give ~2 minutes of buffer. The talk's load-bearing content (Beats 2, 4, 5, 6, 9) remains untouched. **A fourth cut would compromise the talk** — if needed, the right move is to skip Beat 8 (open questions) and run them into the Q&A directly, but this is dispreferred because Beat 8 is the rhetorical hand-off to the community.
+
+**Rehearsal protocol:** time the talk three times before the conference. If any run exceeds 14:30 by the end of Beat 6, apply Cut 1. If still over 14:30 by Beat 8, apply Cut 2. Cut 3 is reserved for an over-running Q&A start.
 
 ### 5.2 Q&A depth bench
 

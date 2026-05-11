@@ -16,7 +16,7 @@ Specifically we want comments, criticism, and assistance on:
 1. **The two named findings we are bringing into the discussion** — both empirical, both reproducible from the public engine output, both directly addressing the packet's four-paths falsifiability table.
 2. **The methodological framing** — is the talk's claim-strength right, or are we over-reaching or under-stating?
 3. **The slide structure** — does the ten-beat talk plan land cleanly in fifteen minutes for a CoDa audience?
-4. **The three remaining open questions for the community** — are they the right questions to ask the room, or should they be sharpened or replaced?
+4. **The three open questions for the community** — now explicitly named in `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md`: **(Q1)** the Aitchison-norm-vs-concentration-measure relationship from the abstract; **(Q2)** the right family of "valid simplex distances" against which to test verdict-invariance, raised by INV-050; **(Q3)** the right null model for formal change-point detection on the simplex, raised by INV-051. Are these the right questions to ask the room, or should they be sharpened or replaced?
 5. **The defeat paths we have NOT yet preempted** — Prior-art defeat and Category defeat remain genuinely open; we want any pointers the community has to existing CoDa work that might already cover what we are claiming as novel.
 
 ---
@@ -56,7 +56,7 @@ The HUF MC-4 packet identifies four falsifiability conditions. INV-050 and INV-0
 
 ### Prior-art defeat — open invitation
 
-The MC-4 claim is *"no prior monitoring framework tracks compositional market share at the carrier level with formal change detection."* If the community can name prior work that already makes this move explicitly, the MC-4 claim should be narrowed or restated. We have not found such work; we welcome pointers.
+The MC-4 claim, sharpened in push #39 to the three-conjunct form: *"no monitoring framework in the energy / market-share literature operates **natively in Aitchison geometry** with **formal change detection** at the **carrier level** — the three conjuncts combined into one observable stack."* A defeater must overturn the conjunction, not just one disjunct. The pre-sharpening wording was *"no prior monitoring framework tracks compositional market share at the carrier level with formal change detection"* — the sharpened version retains the spirit but tightens the load-bearing language. If the community can name prior work that already combines all three conjuncts explicitly, the MC-4 claim should be narrowed or restated. We have not found such work; we welcome pointers.
 
 Candidates we know about (and consider distinct, but happy to be corrected):
 
@@ -64,6 +64,8 @@ Candidates we know about (and consider distinct, but happy to be corrected):
 - Egozcue & Pawlowsky-Glahn 2018 — evidence information, important for scale-invariance discussion, but not framed as monitoring
 - Standard market-share monitoring in econometrics — magnitude-based, not compositional
 - Diversity indices (Shannon, Herfindahl-Hirschman) — yes for concentration measurement, but typically applied to single-point composition, not compositional drift on the simplex
+
+A broader set of areas worth chasing (CoDa time series; industrial ecology / material flow analysis; diet-composition surveillance; sectoral allocation in macroeconomics) is enumerated in `papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md`. Pointers to any of those areas — or to areas not on that list — are welcome.
 
 We are open to any of these being more relevant than we think, or to other works we have missed.
 
