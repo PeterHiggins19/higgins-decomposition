@@ -6,7 +6,7 @@ A deterministic compositional inference instrument operating within Aitchison ge
 
 **Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**
 
-Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.* Validated across 18 physical domains, 101 reference experiments, 53 devices under test, and 44 orders of magnitude. The instrument reads structure without creating or destroying it.
+Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze, Classification, Entropy test, Mode synthesis, and Report — compose into a single decomposition function derived from a single axiom: *same input, same output, always.* Validated across **11 domains and 101 reference datasets** (push #34 full-corpus suite), spanning 44 orders of magnitude. The instrument reads structure without creating or destroying it.
 
 [![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](docs/LICENSE-DOCS.md) [![Licensing](https://img.shields.io/badge/licensing-overview-555.svg)](LICENSING.md)

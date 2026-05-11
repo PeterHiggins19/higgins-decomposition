@@ -52,7 +52,7 @@ All three questions are explicitly invited as **community business**. None has a
 - Hellinger distance (not strictly Aitchison-coherent but commonly cited)
 - Jensen–Shannon divergence (symmetrised KL — well-known but not invariant under perturbation)
 
-**What we are inviting.** Suggestions for the right family definition; pointers to existing work where this question has been addressed; or collaborators willing to extend the testing.
+**What we are inviting.** Suggestions for the right family definition; pointers to existing work where this question has been addressed; or collaborators willing to extend the testing. **Framing tweak adopted from ChatGPT external review 2026-05-10:** ask the room operationally — *"What distance family would you consider a fair stress test for verdict-invariance?"* — rather than asking for yes/no validation of the current pair. The operational framing invites the room to contribute the family definition; the yes/no framing invites only confirmation or denial.
 
 ---
 
@@ -80,7 +80,9 @@ All three questions are explicitly invited as **community business**. None has a
 
 ## How these three questions land on Beat 8 of the talk
 
-Beat 8 (1 minute, master plan §5.1) names all three. Suggested slide content:
+Beat 8 (1 minute, master plan §5.1) names all three. **Slide order matches abstract-faithfulness (Q1 first); Q&A bench order prioritises methodological consequence (Q3 first, per ChatGPT external review 2026-05-10).**
+
+### Suggested slide content (slide order — abstract-faithful)
 
 > **Three open questions for the CoDa community**
 >
@@ -89,6 +91,16 @@ Beat 8 (1 minute, master plan §5.1) names all three. Suggested slide content:
 > 3. The right null model for formal change-point detection on the simplex (INV-051 follow-up)
 >
 > *None of these has a preconceived answer. The talk invites the room.*
+
+### Q&A bench priority — REORDERED PER ChatGPT EXTERNAL REVIEW
+
+ChatGPT's recommendation (2026-05-10): *"Q3 should probably come first in Q&A emphasis. The null model for compositional change-point detection is the most methodologically consequential weakness, because it conditions how seriously the deceptive-drift p-value should be read."*
+
+Adopted. When the audience presses on open questions in Q&A:
+
+1. **Q3 (right null model) — lead.** Most methodologically consequential. Conditions how the p = 0.0016 result reads. The bench card under "If asked Q3:" is the load-bearing answer.
+2. **Q2 (right family of simplex distances) — second.** ChatGPT's framing tweak adopted: *"Q2 should be framed as a request for the CoDa community's metric family, not as a yes/no validation of the current pair. The useful room question is: 'What distance family would you consider a fair stress test for verdict-invariance?'"*
+3. **Q1 (concentration vs Aitchison norm) — third in Q&A.** More conceptual than urgent. Faithful to the abstract; lower methodological consequence; should not crowd out the null-model question.
 
 The talk's first three minutes set up MC-4. The middle six minutes show the three named transitions. The last six minutes (Beats 8 + 9 + 10) hand the work back to the community: three open questions, four defeat paths, two repositories. The structural symmetry — *three named transitions, three open questions, four defeat paths* — is also rhetorically clean.
 

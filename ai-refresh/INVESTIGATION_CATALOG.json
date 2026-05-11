@@ -10,7 +10,7 @@
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
     "last_updated": "2026-05-10",
     "last_push": "#37",
-    "total_investigations": 51
+    "total_investigations": 54
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -777,20 +777,89 @@
       "gate_outcome": "PASSED — 5 of 9 EMBER countries show non-zero deceptive counts at annual grain. AUS / CHN / GBR / IND / JPN deceptive transition years are individually inspectable in their per-country cnt_v3.json. The DECEPTIVE_DRIFT_REPORT.md carries the cross-corpus summary table. The packet's monthly p = 0.0016 number for Germany specifically remains in queue (monthly_deceptive_drift.py follow-on); the broader annual-grain signature reproduction is sufficient evidence for the talk.",
       "narrative": "Peter's observation 2026-05-10: 'deceptive-drift detection signature reproduced across five countries.' This finding came out of the schema v3.1.0 engine promotion when the concentration_regime tag was added as a first-class engine output. The packet's monthly Germany result (p = 0.0016) is one country at one grain; the annual-grain reproduction across 5 different countries — including major emerging economies (CHN, IND), Pacific economy (AUS), island nation (GBR), and the post-Fukushima energy reorganisation (JPN) — is significantly broader empirical support for the MC-4 claim. The talk's slide can now say: 'the deceptive-drift signature is empirically present in 5 of 9 G20 / OECD economies at annual grain; the packet's single-country headline is the conservative case.'",
       "talk_audience": "Sharpens MC-4 from a single-country observation to a cross-country empirical pattern. Directly invites Case defeat: 'why this set of 5 and not the other 4?' — and the answer is in the per-country trajectories, which we can show."
+    },
+    {
+      "id": "INV-052",
+      "title": "ChatGPT defaults to repo-audit when given a GitHub URL — bypasses the brief inside the repo",
+      "raised_by": "CHATGPT",
+      "raised_date": "2026-05-10",
+      "raised_in_push": "#40",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-10",
+      "canonical_location": "ai-refresh/cross_check_archive/chatgpt_deep_research_2026-05-10_INDEX.md (plus three verbatim reports in the same folder)",
+      "summary": "Three ChatGPT deep-research passes (reports 4, 5, 6) were generated against the public Hs repository between push #38 and push #40. Although EXTERNAL_REVIEW_INVITE.md had been live in the repo with explicit fetch order + five enumerated review questions, all three reports defaulted to repository-wide deep audit and engaged exactly zero of the five questions. Three for three. The signal: open-ended prompts that name only the repo URL trigger ChatGPT's repo-audit instinct, not the brief inside the repo. The remedy: re-prompt with explicit negation of the deep-audit default ('do not audit the repository; do not look at HCI-CNQ; only read these three files') plus enumeration of the actual files to read.",
+      "gate_criteria": "Three independent review passes archived verbatim with disposition; signal extracted into actionable repo fixes; noise (hallucinations, fabricated function names, fabricated diffs, stale metadata) documented explicitly so future sessions know what to ignore; methodological lesson written into the cross_check_archive INDEX",
+      "gate_outcome": "PASSED - three reports archived at ai-refresh/cross_check_archive/ as chatgpt_deep_research_report{4,5,6}_2026-05-10.md; signal-vs-noise breakdown documented at chatgpt_deep_research_2026-05-10_INDEX.md; three repo fixes shipped in push #40 (HCI-CNQ README refresh, README + CITATION.cff stale-metadata reconciliation, new REPRODUCIBILITY_CHECKLIST.md at repo root). The hallucinations in report 6 (QuaternionCalc function name, cnqEngine R function, fake JSON diffs against fabricated code) are explicitly named in the INDEX so they cannot be quietly applied by a downstream automation.",
+      "narrative": "Pattern observed across three independent ChatGPT sessions in the same day. Each report has valid engineering findings (mostly duplicates: HCI-CNQ README stale language, CITATION.cff license mismatch, pyproject.toml packaging incomplete), but none of these were what the invite was asking about. The invite asks about claim-strength on MC-4, the two named findings (INV-050, INV-051), the slide structure for a 15-min talk, the three open questions, and the unpreempted defeat paths. Across three reports the model engaged zero of those. Adjacent observation: report 6 fabricated function names and JSON diffs against code it admitted it could not retrieve. The signal: ChatGPT is a strong general repo auditor and a weak specific-brief-follower; a successful conference-review re-prompt needs explicit deep-audit suppression. The noise: every report's fabrications must be checked against the on-disk code before any patch is applied. REFINED IN PUSH #41 (Grok round 4 cross-check): the narrowed re-prompt template designed in push #40 INDEX defeats the repo-audit default - Grok's first answer engaged the brief cleanly across all five questions. But the model drifts off-mission across follow-up questions, and collapses into hallucination when given impossible tasks like 'execute this code' (Grok confabulated ALL_PASS receipts with fabricated SHA values when asked to run cnq.py via web search). The pattern: specific and informative repos help on the first answer; they do not help once the model is already drifting. The signal extraction discipline (cross_check_archive + INDEX pattern with explicit FABRICATED annotations) is the load-bearing protective layer. See ai-refresh/cross_check_archive/grok_round_4_session_2026-05-10.md for the worked example.",
+      "related_inv_entries": [
+        "INV-031 AI platform fitness matrix",
+        "INV-032 Grok round 2 findings split",
+        "INV-050 metric-invariance",
+        "INV-051 deceptive-drift 5-country reproduction",
+        "INV-053 prior-art search Area 4 partial execution"
+      ]
+    },
+    {
+      "id": "INV-053",
+      "title": "Prior-art search Area 4 partially executed - Morais et al. 2017/2018 + Arata & Onozaki 2017 are closest adjacent CoDa work on market-share dynamics; MC-4 survives narrowed",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-10",
+      "raised_in_push": "#41",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-10",
+      "canonical_location": "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md (Area 4 status: PARTIALLY EXECUTED); ai-refresh/cross_check_archive/grok_round_4_session_2026-05-10.md (Section 2 transcript)",
+      "summary": "Grok round-4 cross-check executed PRIOR_ART_SEARCH_TARGETS.md Area 4 (sectoral allocation / market share in macroeconomics) and returned two real, citable papers as the closest adjacent CoDa work: (1) Morais, Thomas-Agnan & Simioni (2017/2018), 'Using compositional and Dirichlet models for market share regression' - explicitly thanks Egozcue and Pawlowsky-Glahn for CoDa techniques; compares CoDa approaches including ILR against traditional market-share models. (2) Arata & Onozaki (2017), 'A Compositional Data Analysis of Market Share Dynamics' - uses ILR transformation (Egozcue et al. 2003) to analyse market shares over time. Grok's assessment after a 35-source search: neither paper combines all three MC-4 conjuncts (Aitchison geometry + formal change-point detection + carrier-level attribution into one observable monitoring stack). The three-conjunct MC-4 claim therefore SURVIVES the Area 4 search with a narrowing recommendation: the talk should cite Morais et al. and Arata & Onozaki generously as the closest adjacent work; the conjunction MC-4 names is what they do NOT do.",
+      "gate_criteria": "Real, citable prior-art candidates identified in at least one of the four PRIOR_ART_SEARCH_TARGETS.md areas; candidate(s) verified to be real papers (not hallucinated); conjunction-test applied to each candidate; narrowing recommendation for MC-4 claim if any candidate matches partial conjuncts; full Grok session preserved verbatim in cross_check_archive for traceability.",
+      "gate_outcome": "PASSED - two real citations found via Area 4 search; both are partial matches (compositional, with carrier-level interpretation) but neither combines formal change-point detection with the other two conjuncts; MC-4 survives narrowed; Beat 9 (defeat paths) of the conference talk now has a concrete answer to Prior-art defeat - 'we searched Area 4 (sectoral allocation in macroeconomics); the closest adjacent work is Morais et al. and Arata & Onozaki; neither combines all three conjuncts; the claim survives with narrowing.' Three remaining areas (CoDa time series; industrial ecology / MFA; diet-composition surveillance) are still pending search.",
+      "narrative": "Push #40's PRIOR_ART_SEARCH_TARGETS.md enumerated four specific areas to chase for the Prior-art defeat path. Area 4 (sectoral allocation / market share in macroeconomics) was Grok's first executed search in round 4 (2026-05-10). The two citations are GENUINE - they appear in real venues, can be located by DOI, and the authorship is verifiable. Morais et al. is in Economic Modelling; Arata & Onozaki is in Evolutionary and Institutional Economics Review. Neither is a hallucination. Grok's conjunction-test is well-formed: it identified that compositional treatment of market shares is established prior art (first conjunct); ILR-based analysis of dynamics is established prior art (first conjunct extended); but neither combines formal change-point detection (second conjunct) WITH carrier-level attribution (third conjunct) as the core deliverable in a unified monitoring stack. This is exactly the kind of evidence the Prior-art defeat path was asking the community to produce. The community-side question now narrows to: are there papers in the remaining three search areas (CoDa time series; industrial ecology / MFA; diet-composition surveillance) that DO combine all three conjuncts? Those searches remain queued.",
+      "talk_audience": "Beat 9 (four defeat paths, 2 min) - the Prior-art defeat slide can now name Morais et al. + Arata & Onozaki as the closest adjacent work the framework has been pressure-tested against. This is a real, citable answer to 'have you checked for prior art?' - 'yes, Area 4 (market-share macroeconomics) is searched, two adjacent papers found, neither combines all three conjuncts, the search continues in three other areas.'",
+      "related_inv_entries": [
+        "INV-052 ChatGPT/Grok review pattern observation",
+        "INV-050 metric-invariance",
+        "INV-051 5-country deceptive drift",
+        "INV-031 AI platform fitness matrix"
+      ]
+    },
+    {
+      "id": "INV-054",
+      "title": "Hˢ Ascent Path doctrine + controlled-growth model (leaf/branch/trunk/root + promotion packets + claims register)",
+      "raised_by": "CHATGPT",
+      "raised_date": "2026-05-10",
+      "raised_in_push": "#41",
+      "disposition": "STAGED",
+      "disposition_note": "STAGED is a new sub-status. The doctrine is CANONICAL in content but its ripple through canonical files is deferred to post-conference per its own Phase 5 + Phase 6 staging rule ('Use the ascent architecture to keep the conference front door clean'). Treat as canonical doctrine for planning; do not create new canonical files (HS_ASCENT_PATH.md, CLAIMS_REGISTER.md, PROMOTION_LOG.md) before 2026-06-06.",
+      "promotion_window": "2026-06-06 onward (post-conference adoption per the doctrine's Phase 6)",
+      "canonical_location": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json (Claude-ready full doctrine packet); ai-refresh/cross_check_archive/chatgpt_review_2026-05-10_session2_three_parts.md (Section 3 source transcript with assessment)",
+      "summary": "ChatGPT session 2 (2026-05-10) developed and proposed a substantial new architectural doctrine for the Hˢ repository following Peter's lead. Core thesis: 'Hˢ should be staged for ascent.' The doctrine encompasses (1) a metaphor pivot from 'descend only as needed' to 'ascend as needed' - upward staged growth rather than downward complexity; (2) a 10-level Ascent Path (Ground + Ascents 1-9) where user ability + engine capability + documentation depth advance together at each stage; (3) a controlled-growth model with leaf/branch/trunk/root tree layers and promotion-packet discipline ('Discovery may be simultaneous. Revision must be staged. No ripple without a packet.'); (4) a claims register / glossary canon / promotion log architecture to control claim wording, scope, and drift; (5) three documentation faces (public / expert / machine) for different audiences; (6) a six-phase repo trajectory with Phase 5 explicitly mandating that the CoDaWork conference front door stay clean. The full Claude-ready JSON handoff is saved verbatim at ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json per Peter's literal request. Status STAGED because the doctrine itself prescribes its own staging - new canonical files (HS_ASCENT_PATH.md, CLAIMS_REGISTER.md, PROMOTION_LOG.md, GLOSSARY_CANON.md, PROMOTION_PACKET_TEMPLATE.md, STAGED_ASCENT_MAP.md) should NOT be created before 2026-06-06 per the doctrine's own Phase 5 ('Use the ascent architecture to keep the conference front door clean. Avoid overloading the talk with full governance or AI-refresh internals.').",
+      "gate_criteria": "Doctrine filed verbatim with attribution; INV catalog entry captures the doctrine without rippling it through canonical files; conference window (2026-05-10 -> 2026-06-05) is protected from any structural changes that would distract from the talk; promotion to CANONICAL with file-creation rippling deferred to 2026-06-06 onward.",
+      "gate_outcome": "FILED AS STAGED IN PUSH #41 - Claude-ready JSON handoff saved at ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json (verbatim per Peter's request); full ChatGPT session 3-part transcript archived at ai-refresh/cross_check_archive/chatgpt_review_2026-05-10_session2_three_parts.md with signal/noise verdict; no new canonical files created before conference; the existing Hs_Learning_Path.md from April 2026 remains in place and will be marked 'Legacy April 2026 - preserved as historical foundation' during post-conference adoption.",
+      "narrative": "This is the most substantial architectural proposal received from external review. ChatGPT engaged the brief on first answer (5-questions response) cleanly, then in subsequent turns developed the AI-refresh-chain meta-review and the Ascent Path proposal with Peter. The proposal mirrors the prior Hs_Learning_Path.md (April 2026) but evolves it: where the old learning path was practitioner / researcher / integrator tracks, the new Ascent Path aligns user ability, engine capability, and documentation depth as a single coordinated ladder. The engine already behaves in stages (CCTT phases; Stage 1 always; Stage 2 when T>=3; Stage 3 when T>=5 + structure; Stage 4 / spectrum / projector for multi-dataset). The Ascent Path makes user learning and documentation depth ascend with the engine, instead of being three separate ladders. Peter's reflection: 'the engine itself is somewhat build to work in progressive stages now the user learning and learning documentation must follow and all be staged from ground up literally.' The doctrine's own staging rule ('Discovery may be simultaneous. Revision must be staged. No ripple without a packet.') is exactly what governs its own promotion. STAGED disposition records the discovery in canon while protecting the conference window from the ripple cost. Promotion is staged for 2026-06-06 onward.",
+      "talk_audience": "OUT OF SCOPE for the conference talk per the doctrine's own Phase 5. Should not appear in Beat 2 / Beat 9 / Q&A bench. May appear post-conference in journal-track + ongoing repo evolution.",
+      "related_inv_entries": [
+        "INV-031 AI platform fitness matrix",
+        "INV-038 engine-independence policy",
+        "INV-042 wrapper convention",
+        "INV-045 SEA-1.0 doctrine",
+        "INV-046 STP-1.0 doctrine",
+        "INV-047 CRD-1.0 doctrine",
+        "INV-052 ChatGPT review pattern observation",
+        "INV-053 prior-art Area 4 partial"
+      ]
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 29,
+    "CANONICAL": 31,
     "FALSIFIED": 1,
     "DEFERRED": 12,
     "CLOSED": 1,
-    "OPEN": 8
+    "OPEN": 8,
+    "STAGED": 1
   },
   "summary_by_source": {
     "CLAUDE": 7,
-    "CHATGPT": 8,
+    "CHATGPT": 10,
     "USER": 22,
-    "GROK": 14
+    "GROK": 15
   },
   "promotion_rules": {
     "from_OPEN_to_CANONICAL": "Investigation must meet its stated gate_criteria. Promotion requires updating disposition, adding canonical_location, and citing the verification record (commit, pilot report, or experiment JSON).",
@@ -802,7 +871,6 @@
   },
   "how_to_add_a_new_investigation": [
     "1. Append a new entry to the investigations array with the next sequential id (INV-NNN).",
-    "1. Append a new entry to the investigations array with the next sequential id (INV-NNN).",
     "2. Required fields: id, title, raised_by, raised_date, raised_in_push, disposition, summary, gate_criteria.",
     "3. If disposition is CANONICAL, also include promotion_date, canonical_location, and gate_outcome.",
     "4. If disposition is DEFERRED, include deferred_to_location and gate_for_promotion.",
@@ -810,5 +878,8 @@
     "6. If disposition is OPEN, include gate_for_promotion and (optionally) promotion_owner and estimated_effort_days.",
     "7. Update summary_by_disposition and summary_by_source counts.",
     "8. Cross-reference from any new push narrative or AI-refresh document that introduces or moves the investigation."
-  ]
+  ],
+  "disposition_definitions": {
+    "STAGED": "Discovery is filed in canon (the doctrine or finding is CANONICAL in content), but file-level ripple through the repo is deferred to a stated promotion window. Used when the doctrine itself prescribes its own staging rule. Distinct from DEFERRED (which means pilots/work are deferred). Distinct from CANONICAL (which means full ripple has occurred). Promotion to CANONICAL happens when the promotion window opens and the ripple is executed."
+  }
 }

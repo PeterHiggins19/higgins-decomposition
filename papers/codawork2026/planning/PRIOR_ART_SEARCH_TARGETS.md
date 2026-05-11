@@ -73,7 +73,20 @@ Compositional surveillance of dietary patterns over time is a well-developed are
 
 **Search strategy:** Google Scholar query `("dietary composition" OR "diet composition") AND (Aitchison OR "log-ratio") AND ("temporal" OR "change" OR "trend")`. Cross-reference against the Journal of Nutrition, American Journal of Clinical Nutrition.
 
-### Area 4 — Sectoral allocation in macroeconomics
+### Area 4 — Sectoral allocation in macroeconomics — **PARTIALLY EXECUTED (push #41)**
+
+**Status update 2026-05-10:** Grok round-4 cross-check executed this search and returned **two real, citable papers** as the closest adjacent CoDa work on market-share dynamics. Catalogued as **INV-053** (CANONICAL, push #41). Full Grok session transcript at `ai-refresh/cross_check_archive/grok_round_4_session_2026-05-10.md`.
+
+**The two hits:**
+
+1. **Morais, Thomas-Agnan & Simioni (2017/2018)** — *"Using compositional and Dirichlet models for market share regression."* Economic Modelling. Explicitly thanks Egozcue and Pawlowsky-Glahn for CoDa techniques. Compares CoDa approaches (including ILR) against traditional market-share regression models.
+2. **Arata & Onozaki (2017)** — *"A Compositional Data Analysis of Market Share Dynamics."* Evolutionary and Institutional Economics Review. Uses the ILR transformation (Egozcue et al. 2003) to analyse how market shares evolve over time.
+
+**Conjunction test:** Neither paper combines all three MC-4 conjuncts (Aitchison geometry + formal change-point detection + carrier-level attribution into one observable monitoring stack). Both are partial matches — first conjunct fully present, third conjunct partially present (regression/dynamics framing rather than monitoring); second conjunct (formal change detection) **absent in both**.
+
+**Outcome:** **MC-4 survives Area 4 search with narrowing recommendation.** The talk's Beat 9 (defeat paths) should now name Morais et al. and Arata & Onozaki as the closest adjacent work the framework has been pressure-tested against. Generous citation in the talk is appropriate; the framework's distinct contribution is the *conjunction* of all three conjuncts in one observable stack, which these adjacent works do not provide.
+
+**Original (pre-execution) area description preserved for the record:**
 
 Share of GDP by sector tracked compositionally is a classical macroeconomics topic. Kuznets-era and modern work on sectoral transitions (agriculture → manufacturing → services) is voluminous.
 
@@ -112,13 +125,14 @@ In that case, the most honest framing is: *"We have searched these specific area
 
 ## Timeline
 
-| Date | Step |
-|---|---|
-| 2026-05-11 → 2026-05-25 | Active search across the four areas |
-| 2026-05-26 | Decision point: any hits to narrate? |
-| 2026-05-30 | Beat 2 and Beat 9 slide content frozen |
-| 2026-06-01 → 2026-06-05 | Conference; community pointers integrated into Q&A |
-| 2026-06-06 onward | Catalogue community pointers; update post-conference manuscript |
+| Date | Step | Status |
+|---|---|---|
+| 2026-05-10 | Area 4 partially executed via Grok round 4; INV-053 catalogued; two real citations found | **DONE** |
+| 2026-05-11 → 2026-05-25 | Active search across the remaining three areas (CoDa time series; industrial ecology / MFA; diet-composition surveillance) | pending |
+| 2026-05-26 | Decision point: any further hits to narrate? | pending |
+| 2026-05-30 | Beat 2 and Beat 9 slide content frozen | pending |
+| 2026-06-01 → 2026-06-05 | Conference; community pointers integrated into Q&A | pending |
+| 2026-06-06 onward | Catalogue community pointers; update post-conference manuscript | pending |
 
 ---
 

@@ -25,7 +25,7 @@ Two things to be clear about:
 
 1. **The tier is live.** CoDa → CNT → CNQ is now the documented three-level stack. The doctrine, the comparisons with CoDa and CNT, the use-case decision rules, and the engineering proposal for a quaternion-native engine all live in this folder, in public, where they can be inspected, copied, and built on.
 
-2. **The compiled `cnq.py` engine is still proposed.** A quaternion-native sibling to `cnt.py` is sketched in [`tier_system/CNQ_ENGINE_PROPOSAL.md`](tier_system/CNQ_ENGINE_PROPOSAL.md) — about 14 days of focused work. Until that lands, the three experiments in this folder are the working demonstrations. The CNT engine produces the underlying compositional data; the quaternion identification is computed in the experiment scripts.
+2. **The compiled `cnq.py` engine is canonical at v2.0.0.** Shipped in push #32 (2026-05-09) as a ground-up rebuild; lives at [`engine/cnq.py`](engine/cnq.py) with R parity at [`engine/cnq.R`](engine/cnq.R) and the 43-test suite at [`engine/tests/`](engine/tests/). The original proposal in [`tier_system/CNQ_ENGINE_PROPOSAL.md`](tier_system/CNQ_ENGINE_PROPOSAL.md) is preserved for historical reference. Under push #32's engine-independence doctrine, CNQ has its own deterministic hash chain (`cnq_content_sha256`) — not chained to the parent CNT JSON. The three experiments in this folder remain the canonical IEEE-floor demonstrations.
 
 ---
 
@@ -63,7 +63,7 @@ HCI-CNQ/
 │   ├── CNQ_TIERED_SYSTEM.md        three-tier explanation
 │   ├── CNQ_VS_CODA_VS_CNT_COMPARE.md   updated comparison table
 │   ├── CNQ_ROI_AND_USE_CASES.md    when CNQ makes sense, decision rules
-│   └── CNQ_ENGINE_PROPOSAL.md      proposed cnq.py engineering plan (~14 days)
+│   └── CNQ_ENGINE_PROPOSAL.md      historical engineering plan (executed in push #32, 2026-05-09; v2.0.0 shipped)
 │
 └── experiments/                    the three working demonstrations
     ├── backblaze_fleet_quaternion/   Round 2 — drive failures (D=4, T=731)
@@ -114,8 +114,8 @@ python QD_round_2.py     # produces QD_round_2_results.json
 | Tier | Engine | Doctrine | Demonstrations | Status |
 |---|---|---|---|---|
 | **CoDa** | community-standard tools (Aitchison closure, CLR, ILR, balance, ternary, biplot) | classical CoDa references | the literature | foundational layer the rest sits on |
-| **CNT** | [`HCI-CNT/engine/cnt.py`](../HCI-CNT/engine/cnt.py) (2.0.4) | [`HCI-CNT/handbook/`](../HCI-CNT/handbook/) (Volumes I–IV) | 25-experiment corpus, all green, byte-identical | live; deterministic; field-use across small-to-medium D |
-| **CNQ** | (proposed) `HCI-CNQ/engine_proposal/` cnq.py — see [`tier_system/CNQ_ENGINE_PROPOSAL.md`](tier_system/CNQ_ENGINE_PROPOSAL.md) | this folder, plus [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md) | three IEEE-floor confirmations (this folder) | tier live; compiled engine pending |
+| **CNT** | [`HCI-CNT/engine/cnt.py`](../HCI-CNT/engine/cnt.py) (3.1.0, schema 3.1.0; push #37) | [`HCI-CNT/handbook/`](../HCI-CNT/handbook/) (Volumes I–IV) | 101-dataset reference suite (push #34) + 9-country EMBER corpus | live; deterministic; field-use across small-to-medium D |
+| **CNQ** | [`HCI-CNQ/engine/cnq.py`](engine/cnq.py) (2.0.0, schema cnq/2.0.0; push #32) + [`engine/cnq.R`](engine/cnq.R) parity port | this folder, plus [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](../HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md) | three IEEE-floor confirmations (this folder) + 43-test suite | live; deterministic; engine independent of CNT (separate hash chain by design) |
 | **HCI** family | [`HCI/`](../HCI/) (CBS, Stage 1 plate generator, more) | [`HCI/HCI_FOUNDATION.md`](../HCI/HCI_FOUNDATION.md) | calibration suite + EMBER plates | live; deterministic; specialised instruments |
 
 The four tiers are siblings, not replacements. Picking the right tier for a problem is part of what we offer to help with — see [`tier_system/CNQ_ROI_AND_USE_CASES.md`](tier_system/CNQ_ROI_AND_USE_CASES.md).

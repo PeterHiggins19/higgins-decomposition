@@ -10,12 +10,13 @@ authors:
 repository-code: https://github.com/PeterHiggins19/higgins-decomposition
 url: https://peterhiggins19.github.io/higgins-decomposition/
 abstract: >-
-  Higgins Decomposition (Hˢ) is a deterministic 12-step compositional
-  inference pipeline operating on the Aitchison simplex. It reads the
-  geometric fingerprint of any compositional system — from nuclear
-  binding energy to cosmic energy budgets — without creating or
-  destroying structure. Validated across 18 physical domains spanning
-  44 orders of magnitude. 25 experiments, 53 DUTs.
+  Higgins Decomposition (Hˢ) is a deterministic compositional inference
+  instrument on the Aitchison simplex. The canonical engine pair is
+  CNT (Compositional Navigation Tensor) v3.1.0 and CNQ (Compositional
+  Navigation Quaternion) v2.0.0, both with Python and R implementations
+  and engine-independent deterministic hash chains. Validated across 11
+  domains and 101 reference datasets, plus a 9-country EMBER 2001-2025
+  energy-mix corpus for CoDaWork 2026 (Coimbra, June 2026).
 keywords:
   - compositional data analysis
   - simplex
@@ -24,6 +25,7 @@ keywords:
   - decomposition
   - information theory
   - log-ratio
-license: CC-BY-4.0
-version: 1.0.0
-date-released: "2026-04-25"
+  - quaternion
+license: Apache-2.0
+version: 3.1.0
+date-released: "2026-05-10"

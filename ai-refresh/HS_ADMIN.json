@@ -12,11 +12,14 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-10T23:59:00Z",
+    "last_updated": "2026-05-11T03:00:00Z",
     "push_36_completed": "2026-05-10",
     "push_37_completed": "2026-05-10",
     "push_38_completed": "2026-05-10",
-    "push_39_completed": "2026-05-10"
+    "push_39_completed": "2026-05-10",
+    "push_40_completed": "2026-05-10",
+    "push_41_prepared": "2026-05-10",
+    "push_41_completed": "2026-05-11"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1045,7 +1048,10 @@
       "date": "2026-05-10",
       "title": "Two named findings (INV-050, INV-051) + external review invite + AI refresh narrative",
       "type": "doc-only + admin + planning (preparing for community review pre-conference)",
-      "catalog_entries": ["INV-050 CANONICAL", "INV-051 CANONICAL"],
+      "catalog_entries": [
+        "INV-050 CANONICAL",
+        "INV-051 CANONICAL"
+      ],
       "summary": "Codified the two empirical findings most relevant to the CoDa community discussion. INV-050: metric-invariance of the qualitative compositional verdict — TV distance (half-L1) and Aitchison distance (log-ratio Euclidean) agree on every shock hit/miss verdict across the 9-country EMBER 2001-2025 corpus, while differing in raw magnitude. INV-051: deceptive-drift signature reproduced across 5 of 9 EMBER countries at annual grain — AUS (1), CHN (1), GBR (2), IND (2), JPN (2) deceptive transitions; DEU at annual grain shows K_eff tightening pre-2022 but TV above median (drift was loud, not deceptive); monthly-grain reproduction queued as monthly_deceptive_drift.py. Published external review invitation at papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md asking AI assistants (Claude, ChatGPT, Grok, Gemini, Copilot) and human reviewers to engage methodologically before the conference. Specific review asks: claim-strength critique on the two findings, methodological criticism on the metric/threshold/null model, vocabulary critique against existing CoDa literature, slide-structure critique on the 10-beat plan, open-question critique on the three open questions to the community, and prior-art pointers for the two defeat paths (prior-art, category) that remain open. Created AI-side companion ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md as the fetch-order pointer for any AI session resuming the work between now and 2026-06-05. Catalog math: 51 total / 29 CANONICAL / 12 DEFERRED / 8 OPEN / 1 FALSIFIED / 1 CLOSED. NAMED_FINDINGS_FOR_CODA_DISCUSSION.md companion in planning folder carries the per-finding evidence, slide language, and how-to-defeat sections. The push contains no engine, test, or schema changes.",
       "files_added": [
         "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
@@ -1068,7 +1074,9 @@
       "date": "2026-05-10",
       "title": "Claim-sharpening pass — MC-4 three-conjunct + INV-050 pair-invariance + three open questions + cut list + null-model caveat + prior-art search targets",
       "type": "doc-only + admin (claim-strength tightening for the conference talk)",
-      "catalog_entries": ["(no new INV — sharpening of INV-050 entry)"],
+      "catalog_entries": [
+        "(no new INV — sharpening of INV-050 entry)"
+      ],
       "summary": "Acted on a six-point review pass against the EXTERNAL_REVIEW_INVITE.md brief. (1) MC-4 claim sharpened to the three-conjunct form: 'no monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level — the three conjuncts combined into one observable stack'. A defeater must overturn the conjunction, not just one disjunct. (2) INV-050 framing tightened from 'metric-invariant within the family of valid simplex distances' to 'pair-invariance demonstrated for TV + Aitchison across the 9-country EMBER 2001-2025 corpus; broader-family invariance is open (Q2)'. Earlier wording preserved for traceability. (3) Three open questions for the community explicitly named in new doc papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md: Q1 (concentration-vs-Aitchison-norm from the abstract), Q2 (right family of valid simplex distances, raised by INV-050), Q3 (right null model for compositional change-point detection, raised by INV-051). (4) Cut list for the 10-beat plan added at master plan §5.1.1: drop order (i) Beat 5 year-by-year animation, (ii) Beat 10 live demo, (iii) Beat 7 OWID 73-country slide; ~2 min buffer. (5) Null-model caveat moved from speaker notes onto the Beat 5 slide explicitly. (6) Prior-art search targets enumerated in new doc papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md: four specific areas (CoDa time series; industrial ecology / MFA; diet-composition surveillance; sectoral allocation in macroeconomics) with specific authors, journals, and search queries. No engine, test, or schema changes. Catalog math unchanged: 51 total / 29 CANONICAL.",
       "files_added": [
         "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md",
@@ -1087,6 +1095,68 @@
       "tests_unchanged": true,
       "schema_unchanged": true,
       "review_origin": "Claude self-review against EXTERNAL_REVIEW_INVITE.md fetch order; sharpening applied per Peter's directive 'make all improvements as suggested.'"
+    },
+    {
+      "push": 40,
+      "date": "2026-05-10",
+      "title": "Three ChatGPT deep-research reports archived + most-useful findings actioned + REPRODUCIBILITY_CHECKLIST.md",
+      "type": "doc-only + admin + cross-check archive (signal extraction from three ChatGPT review passes)",
+      "catalog_entries": [
+        "INV-052 CANONICAL (methodological observation on ChatGPT review patterns)"
+      ],
+      "summary": "Three ChatGPT deep-research review passes were generated against the public repo between push #38 and push #40 (reports 4, 5, 6, archived verbatim at ai-refresh/cross_check_archive/). All three defaulted to repository-wide deep audit and engaged zero of the five questions in EXTERNAL_REVIEW_INVITE.md. Push #40 extracts the useful engineering findings and stores the rest. ACTIONED: (1) HCI-CNQ/README.md refreshed - stripped pre-push-#32 'compiled engine still proposed' language at three locations; CNQ v2.0.0 now correctly named as canonical since 2026-05-09. (2) README.md and CITATION.cff reconciled - '18 domains' replaced with current ground truth '11 domains and 101 reference datasets' (push #34 full-corpus suite); CITATION.cff license corrected from CC-BY-4.0 to Apache-2.0; version bumped from stale 1.0.0 to current 3.1.0; abstract refreshed. (3) New REPRODUCIBILITY_CHECKLIST.md at repo root - five-step verification path for cold reviewers (engines exist; four doctrines present; BIST self-test; 43-test suite; three IEEE-floor confirmations). ARCHIVED: three ChatGPT reports verbatim + INDEX with signal-vs-noise breakdown + INV-052 catalog entry capturing the methodological lesson. DEFERRED to post-conference cleanup: pyproject.toml packages=[] packaging issue; cnq.R missing D=3 and projected D>=5 dispatch branches; cnq.py vs cnq.R radial std parity bug. Catalog math: 51 -> 52 total / 29 -> 30 CANONICAL.",
+      "files_added": [
+        "REPRODUCIBILITY_CHECKLIST.md",
+        "ai-refresh/cross_check_archive/chatgpt_deep_research_report4_2026-05-10.md",
+        "ai-refresh/cross_check_archive/chatgpt_deep_research_report5_2026-05-10.md",
+        "ai-refresh/cross_check_archive/chatgpt_deep_research_report6_2026-05-10.md",
+        "ai-refresh/cross_check_archive/chatgpt_deep_research_2026-05-10_INDEX.md",
+        "ai-refresh/PUSH40_PRE_PUSH_SUMMARY.md"
+      ],
+      "files_modified": [
+        "HCI-CNQ/README.md (stale 'compiled engine still proposed' language updated to v2.0.0 canonical)",
+        "README.md (line 9 reconciled: '11 domains and 101 reference datasets' per push #34)",
+        "CITATION.cff (license -> Apache-2.0; version -> 3.1.0; abstract refreshed)",
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-052 added)",
+        "ai-refresh/HS_ADMIN.json (push #40 session_log entry + last_updated)",
+        "HS_FAST_REFRESH.json (last_push -> #40)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "review_origin": "Peter's directive 'use only the most useful and store the rest' after three ChatGPT deep-research reports."
+    },
+    {
+      "push": 41,
+      "date": "2026-05-10",
+      "title": "Grok round-4 + ChatGPT session-2 signal extraction: INV-053 + INV-054 + 3 conference fixes + ILR balance view",
+      "type": "doc-only + admin + cross-check archive (signal extraction from Grok round 4 + HOLD-TO-PUSH)",
+      "push_status": "READY FOR COMMIT 2026-05-11. HOLD-TO-PUSH cleared by Peter directive \"do a full repo push prepare\". All admin JSONs parse; catalog math 54/54/54; Ascent Path NO-CREATE list still empty; conference-talk improvements landed; bundle ready for git commit/push.",
+      "catalog_entries": [
+        "INV-053 CANONICAL (prior-art Area 4 partial execution)",
+        "INV-052 narrative refined (Grok drift-to-hallucination observation)",
+        "INV-054 STAGED (Ascent Path doctrine; post-conference promotion)"
+      ],
+      "summary": "Grok round-4 cross-check used the narrowed re-prompt template from push #40's chatgpt_deep_research_2026-05-10_INDEX.md and validated that template - Grok's first answer engaged all five EXTERNAL_REVIEW_INVITE questions cleanly. The session then drifted across eight follow-up questions and collapsed into hallucination when asked to run cnq.py via web search. Push #41 extracts the real signal and disowns the hallucinations. ACTIONED: (1) INV-053 added (CANONICAL) - Area 4 (sectoral allocation / market share in macroeconomics) of PRIOR_ART_SEARCH_TARGETS.md is now partially executed with two real citations: Morais Thomas-Agnan & Simioni (2017/2018) on compositional/Dirichlet market-share regression and Arata & Onozaki (2017) on CoDa market-share dynamics. Neither combines all three MC-4 conjuncts. Claim survives narrowed. (2) ILR_BALANCE_VIEW_FOR_EMBER.md created in the planning folder with Grok-attributed SBP + 7x8 orthonormal contrast matrix for D=9 EMBER energy mix; Q3 appendix material for the talk; coefficient errata flagged before computational use. (3) INV-052 narrative refined with the Grok observation: re-prompt works on first answer; drifts on follow-ups; collapses into hallucination when given impossible tasks. (4) PRIOR_ART_SEARCH_TARGETS.md Area 4 status updated from pending to PARTIALLY EXECUTED. (5) Full Grok session archived verbatim at ai-refresh/cross_check_archive/grok_round_4_session_2026-05-10.md with explicit FABRICATED annotations on the hallucinated 'I ran cnq.py' sections. Catalog math: 52 -> 53 total / 30 -> 31 CANONICAL / GROK source 14 -> 15. HOLD-TO-PUSH: per Peter directive, this push is prepared locally and ready but not yet committed; awaiting ChatGPT review work to complete first. EXTENDED 2026-05-10 (ChatGPT session 2 received): cleanest external review to date - ChatGPT engaged the EXTERNAL_REVIEW_INVITE brief on first answer cleanly, validating the narrowed re-prompt template a second time. Three concrete conference-talk improvements actioned: (a) Cut list bumped from 'drop if running long' to 'Cuts 1 and 2 DEFAULT' (master plan §5.1.1) - effective time budget now ~13min content + 2min buffer; (b) Open-questions Q&A ordering reordered so Q3 (null model) leads, Q2 reframed operationally ('what distance family would you consider a fair stress test?'), Q1 third (THREE_OPEN_QUESTIONS.md); (c) Beat 9 prior-art slide sharpened to operational form ('A defeater must combine all three conjuncts: Aitchison-native geometry, formal change detection, and carrier-level attribution') with INV-053 hits named. Beat 5 Germany animation removed (Cut 1 default); Beat 10 live demo removed (Cut 2 default). ChatGPT section 2 (AI refresh chain meta-review) logged 2 post-conference maintenance items: 'too many authority surfaces' + 'PREPARE_FOR_REPO.json stale'. ChatGPT section 3 (Ascent Path doctrine) is substantial new architectural proposal - filed as INV-054 with new STAGED disposition (canonical content; ripple deferred to post-conference per the doctrine's own Phase 5 staging rule). Claude-ready JSON handoff saved verbatim at ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json per Peter's literal request. NO new canonical files created before conference (no HS_ASCENT_PATH.md, no CLAIMS_REGISTER.md, no PROMOTION_LOG.md). Catalog math: 53 -> 54 total / 31 CANONICAL / 1 STAGED new disposition / CHATGPT source 9 -> 10.",
+      "files_added": [
+        "papers/codawork2026/planning/ILR_BALANCE_VIEW_FOR_EMBER.md",
+        "ai-refresh/cross_check_archive/grok_round_4_session_2026-05-10.md",
+        "ai-refresh/PUSH41_PRE_PUSH_SUMMARY.md",
+        "ai-refresh/cross_check_archive/chatgpt_review_2026-05-10_session2_three_parts.md",
+        "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json"
+      ],
+      "files_modified": [
+        "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md (Area 4 marked PARTIALLY EXECUTED with two real citations; timeline table updated)",
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-053 added; INV-052 narrative refined; total 52 -> 53; CANONICAL 30 -> 31; GROK source 14 -> 15)",
+        "ai-refresh/HS_ADMIN.json (this session_log entry with HOLD-TO-PUSH status + last_updated)",
+        "HS_FAST_REFRESH.json (last_push pointer kept at #40 until push #41 commits; investigation_catalog_pointer counts will refresh after commit)",
+        "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (Cut list §5.1.1 Cuts 1+2 DEFAULT; Beat 5 animation removed; Beat 10 live demo removed; Beat 9 prior-art sharpened to operational form with INV-053 hits)",
+        "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md (Q&A bench reordered Q3-first; Q2 reframed operationally per ChatGPT)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "review_origin": "Grok round 4 (2026-05-10) + ChatGPT session 2 (2026-05-10). Both used the narrowed re-prompt template from push #40 INDEX. Template validated across two independent models. Peter directive: 'use only the most useful and store the rest' + HOLD-TO-PUSH until Peter authorizes."
     }
   ],
   "licensing": {
