@@ -277,6 +277,9 @@ A condensed event log for the CNT v2 → v3 transition window, in chronological 
 | **#32** | **2026-05-09** | **Engine v3.0.0 / v2.0.0 ground-up rebuild** + four doctrines + UN-6 wrappers + R ports + cross-language parity + EMBER conference corpus | [`AI_REFRESH_2026-05-09_push32_engine_v3_v2_rebuild.md`](ai-refresh/AI_REFRESH_2026-05-09_push32_engine_v3_v2_rebuild.md) |
 | **#33** | **2026-05-10 morning** | **Coherent Range Doctrine CRD-1.0** raised by Peter; codified across runner + comparison report + anti-spec + INV-047 | (catalog INV-047 + this journal §2) |
 | **#34** | **2026-05-10 afternoon** | **Full-corpus validation reference suite** — 18 → 101 datasets across 11 domains + INV-048 + this journal | (catalog INV-048 + experiments folder README) |
+| **#35** | **2026-05-10** | EXPERIMENTS_JOURNAL.md + admin JSON sweep (this document) | (administrative; no new INV) |
+| **#36** | **2026-05-10** | CoDaWork 2026 redirect priority + planning folder + master plan | (catalog INV references; planning artefacts) |
+| **#37** | **2026-05-10** | **CNT v3.1.0 — navigation_concentration_family promoted into canonical engine.** TV distance + K_eff + concentration regime tag (one of `tightening`/`loosening`/`deceptive`/`stable`) now produced natively per timestep. The HUF MC-4 packet operators are now permanent engine diagnostics. Schema bumped 3.0.0 → 3.1.0. 5 of 9 EMBER countries (AUS, CHN, GBR, IND, JPN) show non-zero `deceptive` regime counts at annual grain. | [catalog INV-049](ai-refresh/INVESTIGATION_CATALOG.json) |
 
 ---
 

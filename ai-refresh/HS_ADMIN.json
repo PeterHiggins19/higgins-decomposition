@@ -12,7 +12,10 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-10T18:00:00Z"
+    "last_updated": "2026-05-10T23:30:00Z",
+    "push_36_completed": "2026-05-10",
+    "push_37_completed": "2026-05-10",
+    "push_38_completed": "2026-05-10"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1008,6 +1011,56 @@
         "ai-refresh/HS_MACHINE_MANIFEST.json (CRD-1.0 doctrine)",
         "HS_FAST_REFRESH.json (engine version pointers v3/v2)"
       ]
+    },
+    {
+      "push": 36,
+      "date": "2026-05-10",
+      "title": "CoDaWork 2026 redirect priority + planning folder",
+      "type": "doc-only + planning",
+      "summary": "Full Cowork-workspace scrape of all CoDaWork 2026 materials. Located the published abstract on page 25 of External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf ('Compositional monitoring of energy-mix drift on the simplex'). Located the redirect note in CoDaWork2026_Reply_to_Egozcue_Final.txt: Prof. Egozcue declined the broader instrument-paper proposal and steered Peter back to the original energy-mix drift abstract. Created papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md as the master plan: 9-beat headline talk structure, 10-item deliverable bundle, 3-week sequencing to June 1. Created ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md as the AI-cold-start redirect. Added active_priority block to HS_ADMIN.json so any session resuming the work reads the redirect first. The matured framework (CNT v3, CNQ v2, CRD-1.0, full-corpus 101-dataset suite, EXPERIMENTS_JOURNAL.md) is depth/Q&A material — NOT headline content. The headline is energy-mix drift on three countries (DEU, JPN, GBR) using EMBER 2000-2025 data with perturbation + Aitchison distance.",
+      "files_changed": [
+        "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (new)",
+        "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md (new)",
+        "ai-refresh/HS_ADMIN.json (active_priority block + session_log entry)"
+      ]
+    },
+    {
+      "push": 37,
+      "date": "2026-05-10",
+      "title": "CNT v3.1.0 — navigation_concentration_family promoted into canonical engine",
+      "type": "engine schema bump (minor) + retire runner-side post-processor",
+      "catalog_entry": "INV-049 CANONICAL",
+      "summary": "Promoted the HUF MC-4 packet operators (TV distance, K_eff, K_eff_yoy_change, tv_acceleration, concentration_regime) from runner-side packet_operators.py into the canonical CNT v3 engine as a new diagnostics family alongside coda_standard and helmsman_family. Schema 3.0.0 -> 3.1.0. Added per-step navigation_concentration_family block and series-level tensor.navigation_concentration_summary with regime_counts. Concentration regime tag is one of {tightening, loosening, deceptive, stable}; 'deceptive' fires when K_eff is tightening AND TV is below series median — the packet's signature pattern. Smoke test on Germany EMBER: K_eff 3.62-6.66 (final 5.85), TV 0.013-0.118, regime_counts {tight=5, loose=18, deceptive=0, stable=1}. Full 9-country EMBER corpus re-run on v3.1.0 reveals 5 of 9 countries show one or more 'deceptive' annual transitions (AUS, CHN, GBR, IND, JPN). The runner-side packet_operators.py is retired; the engine is now self-sufficient for the packet's operational vocabulary. R port (cnt.R) parity update queued as EngPromo-2.",
+      "files_changed": [
+        "HCI-CNT/engine/cnt.py (ENGINE_VERSION + SCHEMA_VERSION = 3.1.0; added tv_distance, k_eff, _concentration_regime_tag helpers; per-timestep navigation_concentration_family block; series-level navigation_concentration_summary; reconstructed cnt_run + main after mid-edit truncation)",
+        "papers/codawork2026/conference_2026_06/run_ember_corpus.py (retired augment_with_packet_operators import + call; engine now self-sufficient)",
+        "HS_FAST_REFRESH.json (cnt_python version 3.0.0 -> 3.1.0; R parity note)",
+        "ai-refresh/HS_ADMIN.json (this session_log entry)",
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-049)"
+      ]
+    },
+    {
+      "push": 38,
+      "date": "2026-05-10",
+      "title": "Two named findings (INV-050, INV-051) + external review invite + AI refresh narrative",
+      "type": "doc-only + admin + planning (preparing for community review pre-conference)",
+      "catalog_entries": ["INV-050 CANONICAL", "INV-051 CANONICAL"],
+      "summary": "Codified the two empirical findings most relevant to the CoDa community discussion. INV-050: metric-invariance of the qualitative compositional verdict — TV distance (half-L1) and Aitchison distance (log-ratio Euclidean) agree on every shock hit/miss verdict across the 9-country EMBER 2001-2025 corpus, while differing in raw magnitude. INV-051: deceptive-drift signature reproduced across 5 of 9 EMBER countries at annual grain — AUS (1), CHN (1), GBR (2), IND (2), JPN (2) deceptive transitions; DEU at annual grain shows K_eff tightening pre-2022 but TV above median (drift was loud, not deceptive); monthly-grain reproduction queued as monthly_deceptive_drift.py. Published external review invitation at papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md asking AI assistants (Claude, ChatGPT, Grok, Gemini, Copilot) and human reviewers to engage methodologically before the conference. Specific review asks: claim-strength critique on the two findings, methodological criticism on the metric/threshold/null model, vocabulary critique against existing CoDa literature, slide-structure critique on the 10-beat plan, open-question critique on the three open questions to the community, and prior-art pointers for the two defeat paths (prior-art, category) that remain open. Created AI-side companion ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md as the fetch-order pointer for any AI session resuming the work between now and 2026-06-05. Catalog math: 51 total / 29 CANONICAL / 12 DEFERRED / 8 OPEN / 1 FALSIFIED / 1 CLOSED. NAMED_FINDINGS_FOR_CODA_DISCUSSION.md companion in planning folder carries the per-finding evidence, slide language, and how-to-defeat sections. The push contains no engine, test, or schema changes.",
+      "files_added": [
+        "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+        "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
+        "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
+        "ai-refresh/PUSH38_PRE_PUSH_SUMMARY.md"
+      ],
+      "files_modified": [
+        "ai-refresh/INVESTIGATION_CATALOG.json (INV-050 + INV-051 entries; summary_by_disposition recount; summary_by_source recount)",
+        "ai-refresh/HS_ADMIN.json (this session_log entry + last_updated)",
+        "HS_FAST_REFRESH.json (last_push pointer -> #38; investigation_catalog_pointer counts refresh)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "review_window": "open from 2026-05-10 through 2026-06-01 (conference start). After 2026-06-05 the external-review-invite retires and feedback rolls into the post-conference journal track."
     }
   ],
   "licensing": {
@@ -1040,5 +1093,56 @@
     "anti_specification_entries_cnq": 33,
     "frozen_predecessor_at_v0_29_0": true
   },
-  "push_32_completed": "2026-05-09T17:00:00Z"
+  "push_32_completed": "2026-05-09T17:00:00Z",
+  "active_priority": {
+    "_warning": "ACTIVE PRIORITY — read this first if resuming work between 2026-05-10 and 2026-06-05.",
+    "topic": "CoDaWork 2026 conference preparation (Coimbra, Portugal, 1-5 June 2026)",
+    "status": "agenda set; published abstract is the binding document",
+    "published_abstract": {
+      "title": "Compositional monitoring of energy-mix drift on the simplex",
+      "location_in_book_of_abstracts": "page 25",
+      "book_pdf": "External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf",
+      "scope": "Germany, Japan, United Kingdom; EMBER 2000-2025; D=9 carriers on 8-simplex; perturbation + Aitchison distance + concentration measure"
+    },
+    "redirect_record": {
+      "what_was_offered": "Broader instrument paper (CoDaWork2026_Letter_and_Revised_Abstract.md, 'The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex')",
+      "outcome": "Egozcue politely declined the broader scope; recommended sticking with the original energy-mix drift abstract; broader paper deferred to journal-track post-conference",
+      "correspondence_record": "papers/codawork2026/CoDaWork2026_Reply_to_Egozcue_Final.txt"
+    },
+    "master_plan": "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md",
+    "ai_refresh_redirect": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md",
+    "ai_refresh_push38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
+    "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
+    "named_findings_doc": "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+    "fetch_order_for_resuming_session": [
+      "1. papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md (master plan)",
+      "2. papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md (the two empirical findings — INV-050, INV-051)",
+      "3. papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md (community review invite)",
+      "4. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md (push #36 redirect — still valid)",
+      "5. ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md (push #38 addendum)",
+      "6. External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)",
+      "7. papers/codawork2026/CoDaWork2026_Reply_to_Egozcue_Final.txt",
+      "8. papers/codawork2026/CoDaWork2026_Energy_Briefing.md",
+      "9. papers/codawork2026/conference_2026_06/COMPARISON_v2_0_4_vs_v3_0_0.md"
+    ],
+    "do_not_pivot_to": [
+      "The broader instrument paper (superseded for this conference)",
+      "Full Hs extension stack as headline content",
+      "Full-corpus 101-dataset reference suite as headline content",
+      "Four binding doctrines (SEA-1.0, STP-1.0, CRD-1.0, engine-independence) as headline content",
+      "CNQ tier as audience-facing material (not in the abstract)"
+    ],
+    "do_focus_on": [
+      "Energy-mix drift as the explicit topic",
+      "DEU, JPN, GBR as named countries (plus AUS, CHN, FRA, IND, USA, WLD as the full nine-country corpus)",
+      "2001-2025 EMBER electricity data (coherent range across the nine countries)",
+      "Three named transitions: Japan post-Fukushima 2011-2012; Germany continuous trajectory; UK coal exit regime change",
+      "Two named findings: INV-050 (metric-invariance) and INV-051 (deceptive-drift across 5 of 9 countries)",
+      "Three open questions for the community",
+      "Four falsifiability conditions (Metric, Case preempted by INV-050+INV-051; Prior-art and Category remain open)"
+    ],
+    "review_window_open": "2026-05-10 through 2026-06-01",
+    "active_until": "2026-06-05 end of conference",
+    "after_conference": "Redirect retires; planning shifts to journal-track manuscript for the broader instrument paper"
+  }
 }

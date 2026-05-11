@@ -10,7 +10,7 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-10",
-    "last_push": "#35",
+    "last_push": "#38",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
   },
   "identity": {
@@ -99,11 +99,11 @@
     "cnt_python": {
       "path": "HCI-CNT/engine/cnt.py",
       "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py",
-      "version": "3.0.0",
-      "schema": "3.0.0",
+      "version": "3.1.0",
+      "schema": "3.1.0",
       "lang": "Python 3.9+",
       "deps": "stdlib + numpy",
-      "release_push": "#32"
+      "release_push": "#37"
     },
     "cnt_r": {
       "path": "HCI-CNT/engine/cnt.R",
@@ -112,7 +112,8 @@
       "schema": "3.0.0",
       "lang": "R 4.0+",
       "deps": "jsonlite, digest",
-      "release_push": "#32"
+      "release_push": "#32",
+      "schema_parity_note": "R port at v3.0.0 schema 3.0.0; Python at v3.1.0. v3.1.0 navigation_concentration_family additions queued in EngPromo-2."
     },
     "cnt_pseudocode": {
       "path": "HCI-CNT/cnt_v2/CNT_PSEUDOCODE.md (legacy reference)"
@@ -290,20 +291,26 @@
     "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
     "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
     "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
-    "current_total": 29,
+    "current_total": 51,
     "by_disposition": {
-      "CANONICAL": 9,
+      "CANONICAL": 29,
       "DEFERRED": 12,
       "FALSIFIED": 1,
-      "OPEN": 7
+      "OPEN": 8,
+      "CLOSED": 1
     },
     "by_source": {
       "CLAUDE": 7,
-      "CHATGPT": 6,
-      "GROK": 10,
-      "USER": 6,
+      "CHATGPT": 8,
+      "GROK": 14,
+      "USER": 22,
       "PILOT": 0
-    }
+    },
+    "named_findings_for_codawork_2026": [
+      "INV-049 — navigation_concentration_family engine-native (CNT v3.1.0)",
+      "INV-050 — metric-invariance of the qualitative compositional verdict",
+      "INV-051 — deceptive-drift signature reproduced across 5 of 9 EMBER countries"
+    ]
   },
   "notation_and_terminology_pointer": {
     "_description": "Canonical vocabulary reference; every doc using a defined term should cite this.",
@@ -508,5 +515,17 @@
     "purpose": "Single citation-grade markdown documenting every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0",
     "introduced": "push #35",
     "linked_from_landing": true
+  },
+  "active_priority_pointer": {
+    "_warning": "If resuming Hs work between 2026-05-10 and 2026-06-05, read this FIRST before any other planning artefact.",
+    "topic": "CoDaWork 2026 — conference talk preparation",
+    "redirect_doc": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md",
+    "push_38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
+    "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
+    "named_findings_doc": "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+    "master_plan": "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md",
+    "binding_abstract": "External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)",
+    "do_not_pivot_to_broader_instrument_paper": true,
+    "review_window_open": "2026-05-10 through 2026-06-01"
   }
 }

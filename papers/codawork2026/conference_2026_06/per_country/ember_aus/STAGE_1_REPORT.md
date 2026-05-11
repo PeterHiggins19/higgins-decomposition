@@ -1,18 +1,18 @@
-# Stage 1 Report (pure CoDa) — EMBER WLD (World)
+# Stage 1 Report (pure CoDa) — EMBER AUS (Australia)
 
 **Engine:** HCI-CNT v3.1.0 (schema 3.1.0)
 **Reading:** *standard CoDa community vocabulary only — closure, CLR, ILR, variation matrix, sub-compositional pair coherence.*
-**Generated:** 2026-05-10T22:29:28Z
-**cnt_content_sha256:** `b10c0b62979d160f8ede866a7e1ee6b8ea27a1b8c13ea7a150f7356e9b00813a`
+**Generated:** 2026-05-10T22:29:27Z
+**cnt_content_sha256:** `22e1aa4c284617cf17852a26f034e247af84f8406fc6a20f43626d45c564846d`
 
 ## Input
 
 - Source CSV: `input_truncated_2001_2025.csv`
-- Source SHA-256: `a8029c6d92df1b60...`
+- Source SHA-256: `eb5ca5902786360c...`
 - Records (T): **25**
 - Carriers (D): **9**
 - Carriers: Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Other Renewables, Solar, Wind
-- Closed-data SHA-256: `7c31d1273b36158d...`
+- Closed-data SHA-256: `fe9348063c2e3a4a...`
 
 ## CoDa-standard per-step view
 
@@ -20,15 +20,15 @@ Per-timestep CoDa quantities. Columns: composition (closure-normalised); CLR (ce
 
 | t | label | Shannon H | Aitchison ‖h‖ | step Δ |
 |---|---|---|---|---|
-| 0 | 2001 | 1.5632 | 7.9287 | — |
-| 1 | 2002 | 1.5623 | 7.7048 | 0.3117 |
-| 2 | 2003 | 1.5530 | 7.5392 | 0.2274 |
-| 3 | 2004 | 1.5577 | 7.3180 | 0.3178 |
-| 4 | 2005 | 1.5556 | 7.0680 | 0.3269 |
+| 0 | 2001 | 0.3693 | 13.8704 | — |
+| 1 | 2002 | 0.3470 | 13.8383 | 0.1952 |
+| 2 | 2003 | 0.3434 | 13.9335 | 2.0096 |
+| 3 | 2004 | 0.3221 | 13.8254 | 1.3954 |
+| 4 | 2005 | 0.4489 | 14.2449 | 1.1771 |
 | ... | ... | ... | ... | ... |
-| 22 | 2023 | 1.7687 | 4.0377 | 0.2140 |
-| 23 | 2024 | 1.7867 | 4.0713 | 0.2303 |
-| 24 | 2025 | 1.8081 | 4.0871 | 0.2455 |
+| 22 | 2023 | 1.2969 | 13.2796 | 1.1513 |
+| 23 | 2024 | 1.3008 | 12.9840 | 1.1796 |
+| 24 | 2025 | 1.3210 | 13.5391 | 1.8778 |
 
 ## Variation matrix τ_ij = var(log x_i / x_j)
 
@@ -38,21 +38,21 @@ CoDa subcompositional-coherence matrix. Small τ = carriers move together; large
 
 | i | j | Pearson r | bearing spread (deg) | locked? |
 |---|---|---|---|---|
-| Gas | Hydro | +0.9959 | 10.1° | no |
-| Coal | Hydro | +0.9957 | 9.2° | YES |
-| Hydro | Nuclear | +0.9956 | 20.9° | no |
-| Nuclear | Other Renewables | +0.9956 | 38.5° | no |
-| Coal | Gas | +0.9951 | 2.5° | YES |
+| Nuclear | Other Renewables | +1.0000 | 0.0° | YES |
+| Coal | Nuclear | +0.9983 | 32.5° | no |
+| Coal | Other Renewables | +0.9983 | 32.5° | no |
+| Coal | Gas | +0.9830 | 5.6° | YES |
+| Gas | Nuclear | +0.9751 | 34.7° | no |
 
 ### Top 5 most-opposed carrier pairs (lowest Pearson r)
 
 | i | j | Pearson r | bearing spread (deg) | locked? |
 |---|---|---|---|---|
-| Hydro | Wind | -0.9939 | 69.1° | no |
-| Nuclear | Solar | -0.9956 | 114.2° | no |
-| Hydro | Solar | -0.9977 | 93.7° | no |
-| Gas | Solar | -0.9981 | 84.5° | no |
-| Coal | Solar | -0.9984 | 74.7° | no |
+| Coal | Solar | -0.9666 | 66.0° | no |
+| Gas | Wind | -0.9677 | 87.3° | no |
+| Coal | Wind | -0.9847 | 63.8° | no |
+| Nuclear | Wind | -0.9860 | 295.9° | no |
+| Other Renewables | Wind | -0.9860 | 295.9° | no |
 
 ## Section atlas (CLR-space pair ranges)
 
@@ -60,16 +60,16 @@ All C(D, 2) = 36 pairwise (i, j) coordinate ranges across the trajectory.
 
 | i | j | i_min | i_max | j_min | j_max |
 |---|---|---|---|---|---|
-| Bioenergy | Coal | -0.997 | -0.792 | 1.693 | 2.872 |
-| Bioenergy | Gas | -0.997 | -0.792 | 1.279 | 2.169 |
-| Bioenergy | Hydro | -0.997 | -0.792 | 0.834 | 2.040 |
-| Bioenergy | Nuclear | -0.997 | -0.792 | 0.379 | 2.059 |
-| Bioenergy | Other Fossil | -0.997 | -0.792 | -0.828 | 1.350 |
-| Bioenergy | Other Renewables | -0.997 | -0.792 | -3.071 | -2.021 |
-| Bioenergy | Solar | -0.997 | -0.792 | -5.501 | 0.367 |
-| Bioenergy | Wind | -0.997 | -0.792 | -2.166 | 0.343 |
-| Coal | Gas | 1.693 | 2.872 | 1.279 | 2.169 |
-| Coal | Hydro | 1.693 | 2.872 | 0.834 | 2.040 |
+| Bioenergy | Coal | -3.989 | -0.313 | 4.796 | 8.450 |
+| Bioenergy | Gas | -3.989 | -0.313 | 2.867 | 5.883 |
+| Bioenergy | Hydro | -3.989 | -0.313 | 2.562 | 5.864 |
+| Bioenergy | Nuclear | -3.989 | -0.313 | -6.951 | -3.575 |
+| Bioenergy | Other Fossil | -3.989 | -0.313 | -6.344 | 0.590 |
+| Bioenergy | Other Renewables | -3.989 | -0.313 | -6.951 | -3.575 |
+| Bioenergy | Solar | -3.989 | -0.313 | -3.989 | 4.114 |
+| Bioenergy | Wind | -3.989 | -0.313 | -3.989 | 3.798 |
+| Coal | Gas | 4.796 | 8.450 | 2.867 | 5.883 |
+| Coal | Hydro | 4.796 | 8.450 | 2.562 | 5.864 |
 | ... (26 more) | | | | | |
 
 ---

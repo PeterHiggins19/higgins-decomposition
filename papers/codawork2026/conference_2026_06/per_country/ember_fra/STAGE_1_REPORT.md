@@ -1,9 +1,9 @@
 # Stage 1 Report (pure CoDa) — EMBER FRA (France)
 
-**Engine:** HCI-CNT v3.0.0 (schema 3.0.0)
+**Engine:** HCI-CNT v3.1.0 (schema 3.1.0)
 **Reading:** *standard CoDa community vocabulary only — closure, CLR, ILR, variation matrix, sub-compositional pair coherence.*
-**Generated:** 2026-05-10T04:46:53Z
-**cnt_content_sha256:** `3736a8e99274d93d386e3767da8844e1217fd227656f42e5a96ec4f8301342cc`
+**Generated:** 2026-05-10T22:29:27Z
+**cnt_content_sha256:** `2c91984954c06a9b06641880cd3053db86db27da7c00bbef7944c7bc4b6f1750`
 
 ## Input
 
@@ -12,7 +12,7 @@
 - Records (T): **25**
 - Carriers (D): **9**
 - Carriers: Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Other Renewables, Solar, Wind
-- Closed-data SHA-256: `8c110d74cf8df6ff...`
+- Closed-data SHA-256: `96ff947b4619c3c3...`
 
 ## CoDa-standard per-step view
 

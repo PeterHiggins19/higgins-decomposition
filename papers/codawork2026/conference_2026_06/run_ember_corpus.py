@@ -47,6 +47,9 @@ sys.path.insert(0, str(_REPO_ROOT / "HCI-CNQ" / "engine"))
 import cnt as cnt_v3  # type: ignore
 import cnq as cnq_v2  # type: ignore
 
+# Packet operators (TV distance + K_eff) are now produced natively by
+# CNT v3.1.0; the runner-side packet_operators.py is retired (push #37).
+
 
 COUNTRIES = [
     ("USA", "ember_USA_United_States_generation_TWh.csv", "United States"),
@@ -56,6 +59,7 @@ COUNTRIES = [
     ("GBR", "ember_GBR_United_Kingdom_generation_TWh.csv", "United Kingdom"),
     ("IND", "ember_IND_India_generation_TWh.csv", "India"),
     ("JPN", "ember_JPN_Japan_generation_TWh.csv", "Japan"),
+    ("AUS", "ember_AUS_Australia_generation_TWh.csv", "Australia"),
     ("WLD", "ember_WLD_World_generation_TWh.csv", "World"),
 ]
 
@@ -492,6 +496,13 @@ def _process_country(
     cnq_payload = cnq_v2.cnq_run(input_csv=csv_path, out_path=cnq_json_path)
     duration_ms = int((time.monotonic() - t0) * 1000)
 
+    # NOTE (schema v3.1.0, push #37): TV distance + K_eff + concentration regime
+    # are now produced natively by CNT v3.1.0 in tensor.navigation_concentration_family
+    # (per-step) and tensor.navigation_concentration_summary (series-level). The
+    # runner-side augmentation was retired when the engine was promoted. The
+    # packet_operators.py module is preserved in this folder as a reference
+    # implementation but no longer called.
+
     legacy_v204 = _load_legacy_v204(country_code)
 
     # Stage 1 report
@@ -750,6 +761,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         except Exception as exc:
             print(f"FAIL: {type(exc).__name__}: {exc}")
             raise
+
 
     comparison_md = _comparison_md(headlines, manifest=manifest, range_policy=args.range_policy)
     comparison_path = _THIS_FILE.parent / "COMPARISON_v2_0_4_vs_v3_0_0.md"

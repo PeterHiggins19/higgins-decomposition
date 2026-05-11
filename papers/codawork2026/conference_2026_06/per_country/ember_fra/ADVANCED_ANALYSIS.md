@@ -2,11 +2,11 @@
 
 ## Engines
 
-- **CNT v3.0.0** schema 3.0.0 — content_sha256 `3736a8e99274d93d386e3767da8844e1217fd227656f42e5a96ec4f8301342cc`
+- **CNT v3.0.0** schema 3.0.0 — content_sha256 `2c91984954c06a9b06641880cd3053db86db27da7c00bbef7944c7bc4b6f1750`
 - **CNQ v2.0.0** schema cnq/2.0.0 — content_sha256 `91db85d3408c505095a24ddf9feb1daaa2fdcb845d84c9b9c734c11546b0428b`
 - **Engine independence:** CNT and CNQ canonical hashes are unrelated by design (push #32 policy).
 
-**Generated:** 2026-05-10T04:46:53Z
+**Generated:** 2026-05-10T22:29:27Z
 
 ## Input
 
@@ -90,8 +90,8 @@ Where the legacy v2.0.4 output is available at `HCI-CNT/experiments/codawork2026
 
 | Quantity | v2.0.4 | v3.0.0 |
 |---|---|---|
-| engine_version | `cnt 2.0.4` | `3.0.0` |
-| schema_version | `2.1.0` | `3.0.0` |
+| engine_version | `cnt 2.0.4` | `3.1.0` |
+| schema_version | `2.1.0` | `3.1.0` |
 | termination kind | LIMIT_CYCLE_P2 | EXHAUSTED |
 | IR classification | LIGHTLY_DAMPED | MODERATELY_DAMPED |
 

@@ -8,7 +8,7 @@
 |---|---|
 | Coherent range | **2001-2025** |
 | T_set | **25** |
-| Members | USA, CHN, DEU, FRA, GBR, IND, JPN, WLD |
+| Members | USA, CHN, DEU, FRA, GBR, IND, JPN, AUS, WLD |
 | Start-limiting member(s) | USA |
 | End-limiting member(s) | (all share) |
 | Carriers dropped | (none) |
@@ -27,12 +27,13 @@
 | GBR (United Kingdom) | 25 | EXHAUSTED | OVERDAMPED_EXTREME | 1.71e-14 | — | 0.000 | 7.638 | -0.008 | 14 |
 | IND (India) | 25 | EXHAUSTED | LIGHTLY_DAMPED | 1.11e-16 | — | 0.000 | 0.555 | +0.017 | 14 |
 | JPN (Japan) | 25 | EXHAUSTED | LIGHTLY_DAMPED | 1.67e-16 | — | 0.000 | 7.131 | +0.019 | 17 |
+| AUS (Australia) | 25 | EXHAUSTED | LIGHTLY_DAMPED | 3.33e-16 | — | 0.000 | 1.408 | +0.020 | 8 |
 | WLD (World) | 25 | EXHAUSTED | LIGHTLY_DAMPED | 5.55e-17 | — | 0.000 | 0.127 | +0.002 | 3 |
 
 ## Determinism + numerical anchors
 
-- **M^2 = I metric involution verified at IEEE floor (< 1e-10) on 8 of 8 countries.**
-  - All 8 countries pass. Worst residual across the corpus: **3.300e-13**.
+- **M^2 = I metric involution verified at IEEE floor (< 1e-10) on 9 of 9 countries.**
+  - All 9 countries pass. Worst residual across the corpus: **3.300e-13**.
 - **CNQ dimension policy:** all countries are D = 9 -> `reduced_or_projected` (D=5..15 reduced-projection branch).
   - Native twin-quaternion factoring (D = 8) and quad-quaternion factoring (D = 16) are not exercised by the EMBER corpus; these are reserved for D-matched datasets when they arrive.
 
@@ -40,20 +41,21 @@
 
 | Country | cnt_content_sha256 | cnq_content_sha256 |
 |---|---|---|
-| USA | `16603a32dfac0ab9...` | `82657a8f777ce657...` |
-| CHN | `e13466c443f2b371...` | `796ef6f178617526...` |
-| DEU | `eed3491f85a2e56e...` | `3329a9b54b7e0ce8...` |
-| FRA | `3736a8e99274d93d...` | `91db85d3408c5050...` |
-| GBR | `a731d0aca7ebcb52...` | `3075b34012510e9b...` |
-| IND | `15015e6c437d0adb...` | `1d5e64c1363c46eb...` |
-| JPN | `250de56991294d74...` | `18f3e452e013314b...` |
-| WLD | `9f0efcc7e36eed94...` | `4f4aa51ade020c76...` |
+| USA | `c03cf346c68658e0...` | `82657a8f777ce657...` |
+| CHN | `89499d8014926a70...` | `796ef6f178617526...` |
+| DEU | `030e28a304f53767...` | `3329a9b54b7e0ce8...` |
+| FRA | `2c91984954c06a9b...` | `91db85d3408c5050...` |
+| GBR | `e77f67ede57a5bdc...` | `3075b34012510e9b...` |
+| IND | `a19b8d222cdb260c...` | `1d5e64c1363c46eb...` |
+| JPN | `2fb45dd99cc2e077...` | `18f3e452e013314b...` |
+| AUS | `22e1aa4c284617cf...` | `5f6ac234ae952a25...` |
+| WLD | `b10c0b62979d160f...` | `4f4aa51ade020c76...` |
 
 Each country produces two unrelated hashes — CNT and CNQ canonical hashes are independent by design (push #32 engine-independence policy).
 
 ## Comparison vs v2.0.4 (legacy)
 
-v2.0.4 baseline outputs available for **8** of 8 countries at `HCI-CNT/experiments/codawork2026/`.
+v2.0.4 baseline outputs available for **8** of 9 countries at `HCI-CNT/experiments/codawork2026/`.
 Per-country comparison detail in each `<country>/ADVANCED_ANALYSIS.md`.
 
 ---

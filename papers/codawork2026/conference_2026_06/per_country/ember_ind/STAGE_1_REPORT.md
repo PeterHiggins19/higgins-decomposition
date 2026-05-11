@@ -1,9 +1,9 @@
 # Stage 1 Report (pure CoDa) — EMBER IND (India)
 
-**Engine:** HCI-CNT v3.0.0 (schema 3.0.0)
+**Engine:** HCI-CNT v3.1.0 (schema 3.1.0)
 **Reading:** *standard CoDa community vocabulary only — closure, CLR, ILR, variation matrix, sub-compositional pair coherence.*
-**Generated:** 2026-05-10T04:46:53Z
-**cnt_content_sha256:** `15015e6c437d0adba773e811b0f20bec8d1e9dbd3b792431f7691fdbef1a9eae`
+**Generated:** 2026-05-10T22:29:27Z
+**cnt_content_sha256:** `a19b8d222cdb260c4dca936d41040c6f2513954b3c88090e4781b251e880a3d3`
 
 ## Input
 
@@ -12,7 +12,7 @@
 - Records (T): **25**
 - Carriers (D): **8**
 - Carriers: Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Solar, Wind
-- Closed-data SHA-256: `2be4a328b3464a3b...`
+- Closed-data SHA-256: `c363f72f25afa8e4...`
 
 ## CoDa-standard per-step view
 

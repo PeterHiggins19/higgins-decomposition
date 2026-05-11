@@ -1,9 +1,9 @@
 # Stage 1 Report (pure CoDa) — EMBER CHN (China)
 
-**Engine:** HCI-CNT v3.0.0 (schema 3.0.0)
+**Engine:** HCI-CNT v3.1.0 (schema 3.1.0)
 **Reading:** *standard CoDa community vocabulary only — closure, CLR, ILR, variation matrix, sub-compositional pair coherence.*
-**Generated:** 2026-05-10T04:46:52Z
-**cnt_content_sha256:** `e13466c443f2b3711b1c9126ca0ee58004d7d749269fe2779fc3e3e60781087d`
+**Generated:** 2026-05-10T22:29:27Z
+**cnt_content_sha256:** `89499d8014926a705ece5b146bf7bfa322c349713cd45f6cac151d8c53f072ae`
 
 ## Input
 
@@ -12,7 +12,7 @@
 - Records (T): **25**
 - Carriers (D): **8**
 - Carriers: Bioenergy, Coal, Gas, Hydro, Nuclear, Other Fossil, Solar, Wind
-- Closed-data SHA-256: `31be4dc0eccbbe06...`
+- Closed-data SHA-256: `c7c05ee7ca626c1b...`
 
 ## CoDa-standard per-step view
 

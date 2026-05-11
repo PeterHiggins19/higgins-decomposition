@@ -1,35 +1,34 @@
 {
   "metadata": {
     "engine": "HCI-CNT",
-    "engine_version": "3.0.0",
-    "schema_version": "3.0.0",
+    "engine_version": "3.1.0",
+    "schema_version": "3.1.0",
     "engine_implementation": "python",
     "implementation_lang_version": "Python 3.10.12",
     "principle": "Closure -> CLR -> Helmert ILR -> trajectory tensor -> depth tower; deterministic compositional inference with embedded version triple.",
     "engine_config": {
-      "active_overrides": {},
-      "defaults_in_use": {
-        "DEFAULT_DELTA": 1e-15,
-        "TRIADIC_T_LIMIT": 500,
-        "TRIADIC_K_DEFAULT": 50,
-        "LADDER_K_LIMIT": 200,
-        "DEPTH_MAX_LEVELS": 50,
-        "DEPTH_PRECISION_TARGET": 0.01,
-        "EITT_GATE_PCT": 5.0,
-        "EITT_M_SWEEP_BASE": [
-          2,
-          4,
-          8,
-          16,
-          32,
-          64,
-          128
-        ],
-        "HELMSMAN_ROLLING_WINDOW": 8
-      }
+      "default_delta": 1e-15,
+      "degen_threshold": 0.0001,
+      "lock_clr_threshold": -10.0,
+      "depth_max_levels": 50,
+      "depth_precision_target": 0.01,
+      "triadic_t_limit": 500,
+      "triadic_k_default": 50,
+      "ladder_k_limit": 200,
+      "eitt_gate_pct": 5.0,
+      "eitt_m_sweep_base": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "helmsman_rolling_window": 8
     },
-    "generated": "2026-05-10T04:46:53Z",
-    "wall_clock_ms": 21,
+    "generated": "2026-05-10T22:29:27Z",
+    "wall_clock_ms": 19,
     "environment": {
       "git_sha": null,
       "python_version": "3.10.12",
@@ -41,7 +40,7 @@
   "input": {
     "source_file": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/papers/codawork2026/conference_2026_06/per_country/ember_jpn/input_truncated_2001_2025.csv",
     "source_file_sha256": "c822e0a99920a999ce6ac780c4d382a04398297125d424acbe0d9f42fb5f7bf9",
-    "closed_data_sha256": "593e2bf543ccdc182682d72d63739cb1d267e46b8b7062f0af1318bbdd17aca4",
+    "closed_data_sha256": "0fb1875097257a3708afe48f17cb7e6517a57e0d23ebbadadb80afe2b96a0c74",
     "n_records": 25,
     "n_carriers": 8,
     "carriers": [
@@ -338,7 +337,7 @@
   },
   "tensor": {
     "_function": "composer",
-    "_description": "Per-step compositional tensor: closure, CLR, ILR, kappa_HS_full (order-2), s_j_sensitivity (order-1), bearing pairs, and step-to-step angular velocity / helmsman local index.",
+    "_description": "Per-step compositional tensor: closure, CLR, ILR, kappa_HS_full (order-2), s_j_sensitivity (order-1), bearing pairs, and step-to-step angular velocity / helmsman local index. Schema v3.1.0 adds navigation_concentration_family per timestep (K_eff, TV distance, K_eff YoY, TV acceleration, concentration regime tag).",
     "helmert_basis": [
       [
         0.7071067811865475,
@@ -412,6 +411,28 @@
       ]
     ],
     "n_timesteps": 25,
+    "navigation_concentration_summary": {
+      "_description": "Series-level summary of the navigation concentration family (K_eff + TV distance + regime tags). Promoted from runner-side packet_operators.py into the canonical engine at schema v3.1.0 (HUF MC-4 packet operators).",
+      "k_eff": {
+        "min": 3.937341134552288,
+        "max": 5.301958956243517,
+        "mean": 4.723383051757266,
+        "final": 5.301958956243517
+      },
+      "tv_distance_step": {
+        "min": 0.015154534740393895,
+        "max": 0.13635232187135465,
+        "mean": 0.04363967760801443,
+        "median": 0.037181440875921304,
+        "n_steps": 24
+      },
+      "regime_counts": {
+        "tightening": 3,
+        "loosening": 11,
+        "deceptive": 2,
+        "stable": 8
+      }
+    },
     "timesteps": [
       {
         "index": 0,
@@ -459,6 +480,13 @@
           "shannon_entropy": 1.5812879527362607,
           "aitchison_norm": 7.649887707927347,
           "aitchison_distance_step": null
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.8612127933426175,
+          "k_eff_yoy_change": null,
+          "tv_distance_step": null,
+          "tv_acceleration": null,
+          "concentration_regime": null
         },
         "higgins_extensions": {
           "higgins_scale": 0.23956123745664504,
@@ -764,6 +792,13 @@
           "aitchison_norm": 7.194119220875983,
           "aitchison_distance_step": 0.49668891644538343
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.90927766245566,
+          "k_eff_yoy_change": 0.048064869113042974,
+          "tv_distance_step": 0.020940081955381235,
+          "tv_acceleration": null,
+          "concentration_regime": "stable"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.23482974466835427,
           "ring_class": "Hs-2",
@@ -1067,6 +1102,13 @@
           "shannon_entropy": 1.6160400743981498,
           "aitchison_norm": 6.587117040125082,
           "aitchison_distance_step": 0.7576012954323174
+        },
+        "navigation_concentration_family": {
+          "k_eff": 5.033120021388609,
+          "k_eff_yoy_change": 0.12384235893294893,
+          "tv_distance_step": 0.07431359623647907,
+          "tv_acceleration": 0.053373514281097836,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.22284899959598592,
@@ -1372,6 +1414,13 @@
           "aitchison_norm": 6.1370230799136065,
           "aitchison_distance_step": 0.5824908157361852
         },
+        "navigation_concentration_family": {
+          "k_eff": 5.008049081478954,
+          "k_eff_yoy_change": -0.025070939909655365,
+          "tv_distance_step": 0.0451758893328646,
+          "tv_acceleration": -0.029137706903614467,
+          "concentration_regime": "stable"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.22525043283345836,
           "ring_class": "Hs-2",
@@ -1675,6 +1724,13 @@
           "shannon_entropy": 1.6062517571989492,
           "aitchison_norm": 5.842846847504796,
           "aitchison_distance_step": 0.3919659988999337
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.9840945758548845,
+          "k_eff_yoy_change": -0.023954505624069533,
+          "tv_distance_step": 0.0258241138384742,
+          "tv_acceleration": -0.019351775494390402,
+          "concentration_regime": "stable"
         },
         "higgins_extensions": {
           "higgins_scale": 0.22755618515663079,
@@ -1980,6 +2036,13 @@
           "aitchison_norm": 5.674579266212655,
           "aitchison_distance_step": 0.3162106958154209
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.984915123834824,
+          "k_eff_yoy_change": 0.0008205479799396898,
+          "tv_distance_step": 0.037706936991302537,
+          "tv_acceleration": 0.011882823152828337,
+          "concentration_regime": "stable"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.22747701978716384,
           "ring_class": "Hs-2",
@@ -2283,6 +2346,13 @@
           "shannon_entropy": 1.6073578880443895,
           "aitchison_norm": 5.473083822679416,
           "aitchison_distance_step": 0.37173969786153865
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.989610686809641,
+          "k_eff_yoy_change": 0.00469556297481688,
+          "tv_distance_step": 0.03804796585685404,
+          "tv_acceleration": 0.00034102886555150563,
+          "concentration_regime": "stable"
         },
         "higgins_extensions": {
           "higgins_scale": 0.2270242486615338,
@@ -2588,6 +2658,13 @@
           "aitchison_norm": 5.376469593561792,
           "aitchison_distance_step": 0.2132334221181432
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.935623098069581,
+          "k_eff_yoy_change": -0.0539875887400596,
+          "tv_distance_step": 0.036655944760540064,
+          "tv_acceleration": -0.0013920210963139779,
+          "concentration_regime": "deceptive"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.2322559235627666,
           "ring_class": "Hs-2",
@@ -2891,6 +2968,13 @@
           "shannon_entropy": 1.5656213886227173,
           "aitchison_norm": 5.122325351533312,
           "aitchison_distance_step": 0.5459607396594616
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.785647759230232,
+          "k_eff_yoy_change": -0.14997533883934988,
+          "tv_distance_step": 0.05234135537850595,
+          "tv_acceleration": 0.015685410617965884,
+          "concentration_regime": "tightening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.24709526224143763,
@@ -3196,6 +3280,13 @@
           "aitchison_norm": 4.93459484618847,
           "aitchison_distance_step": 0.28231771192032784
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.878193295867462,
+          "k_eff_yoy_change": 0.09254553663723009,
+          "tv_distance_step": 0.02131507471648284,
+          "tv_acceleration": -0.031026280662023106,
+          "concentration_regime": "loosening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.2378843582313459,
           "ring_class": "Hs-2",
@@ -3499,6 +3590,13 @@
           "shannon_entropy": 1.5992340259421773,
           "aitchison_norm": 4.639725433529539,
           "aitchison_distance_step": 0.8378426019884998
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.949239982691878,
+          "k_eff_yoy_change": 0.07104668682441595,
+          "tv_distance_step": 0.12310520971601457,
+          "tv_acceleration": 0.10179013499953174,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.23093100051744286,
@@ -3804,6 +3902,13 @@
           "aitchison_norm": 4.630614737241422,
           "aitchison_distance_step": 2.2006349874139537
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.178914471562666,
+          "k_eff_yoy_change": -0.7703255111292115,
+          "tv_distance_step": 0.13635232187135465,
+          "tv_acceleration": 0.01324711215534008,
+          "concentration_regime": "tightening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.3122905893972727,
           "ring_class": "Hs-3",
@@ -4107,6 +4212,13 @@
           "shannon_entropy": 1.4294429145299445,
           "aitchison_norm": 4.389939757201913,
           "aitchison_distance_step": 0.6398569747278481
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.176371947616874,
+          "k_eff_yoy_change": -0.002542523945791686,
+          "tv_distance_step": 0.04152360257286829,
+          "tv_acceleration": -0.09482871929848637,
+          "concentration_regime": "stable"
         },
         "higgins_extensions": {
           "higgins_scale": 0.31258326532459413,
@@ -4412,6 +4524,13 @@
           "aitchison_norm": 36.416859141335756,
           "aitchison_distance_step": 34.870572644974985
         },
+        "navigation_concentration_family": {
+          "k_eff": 3.937341134552288,
+          "k_eff_yoy_change": -0.2390308130645864,
+          "tv_distance_step": 0.05135264798169051,
+          "tv_acceleration": 0.00982904540882222,
+          "concentration_regime": "tightening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.340926095258109,
           "ring_class": "Hs-3",
@@ -4715,6 +4834,13 @@
           "shannon_entropy": 1.435488515200054,
           "aitchison_norm": 4.52193785461675,
           "aitchison_distance_step": 33.66755592026156
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.201697100407712,
+          "k_eff_yoy_change": 0.26435596585542376,
+          "tv_distance_step": 0.03271065758317616,
+          "tv_acceleration": -0.01864199039851435,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.30967594595594017,
@@ -5020,6 +5146,13 @@
           "aitchison_norm": 3.9674151787722507,
           "aitchison_distance_step": 1.320047814318257
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.260141203861071,
+          "k_eff_yoy_change": 0.058444103453359375,
+          "tv_distance_step": 0.045122676899948776,
+          "tv_acceleration": 0.012412019316772618,
+          "concentration_regime": "loosening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.30303291670925336,
           "ring_class": "Hs-3",
@@ -5323,6 +5456,13 @@
           "shannon_entropy": 1.4383843864804096,
           "aitchison_norm": 3.7467999906103175,
           "aitchison_distance_step": 0.767881969213521
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.213882309252203,
+          "k_eff_yoy_change": -0.046258894608867784,
+          "tv_distance_step": 0.039818049332951154,
+          "tv_acceleration": -0.005304627566997622,
+          "concentration_regime": "stable"
         },
         "higgins_extensions": {
           "higgins_scale": 0.30828332624419963,
@@ -5628,6 +5768,13 @@
           "aitchison_norm": 3.523132820795476,
           "aitchison_distance_step": 0.5079445208402905
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.469425836277512,
+          "k_eff_yoy_change": 0.255543527025309,
+          "tv_distance_step": 0.028622031640253325,
+          "tv_acceleration": -0.011196017692697829,
+          "concentration_regime": "loosening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.2799701640539042,
           "ring_class": "Hs-2",
@@ -5931,6 +6078,13 @@
           "shannon_entropy": 1.5208402974554336,
           "aitchison_norm": 3.4684475406347715,
           "aitchison_distance_step": 0.4679858258773955
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.576068839015223,
+          "k_eff_yoy_change": 0.10664300273771055,
+          "tv_distance_step": 0.029911604586218984,
+          "tv_acceleration": 0.0012895729459656592,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.2686304149589832,
@@ -6236,6 +6390,13 @@
           "aitchison_norm": 3.4632414444092987,
           "aitchison_distance_step": 0.5916597033693074
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.467789320542926,
+          "k_eff_yoy_change": -0.10827951847229667,
+          "tv_distance_step": 0.031031764038303954,
+          "tv_acceleration": 0.0011201594520849692,
+          "concentration_regime": "deceptive"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.28014628104482986,
           "ring_class": "Hs-2",
@@ -6539,6 +6700,13 @@
           "shannon_entropy": 1.5661646342360407,
           "aitchison_norm": 3.2659146668862964,
           "aitchison_distance_step": 0.3396256379484567
+        },
+        "navigation_concentration_family": {
+          "k_eff": 4.788248247670359,
+          "k_eff_yoy_change": 0.32045892712743296,
+          "tv_distance_step": 0.03263367519652362,
+          "tv_acceleration": 0.001601911158219664,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.2468340163239956,
@@ -6844,6 +7012,13 @@
           "aitchison_norm": 3.1917444327407876,
           "aitchison_distance_step": 0.42469194733615356
         },
+        "navigation_concentration_family": {
+          "k_eff": 4.887990568379652,
+          "k_eff_yoy_change": 0.0997423207092929,
+          "tv_distance_step": 0.023378920056717597,
+          "tv_acceleration": -0.00925475513980602,
+          "concentration_regime": "loosening"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.2369194995307803,
           "ring_class": "Hs-2",
@@ -7147,6 +7322,13 @@
           "shannon_entropy": 1.6360745845777045,
           "aitchison_norm": 3.1122388584162546,
           "aitchison_distance_step": 0.5551450108099308
+        },
+        "navigation_concentration_family": {
+          "k_eff": 5.134972996118538,
+          "k_eff_yoy_change": 0.24698242773888612,
+          "tv_distance_step": 0.04368268371087754,
+          "tv_acceleration": 0.02030376365415994,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.2132144367684249,
@@ -7452,6 +7634,13 @@
           "aitchison_norm": 3.0909465901780204,
           "aitchison_distance_step": 0.32760120573955526
         },
+        "navigation_concentration_family": {
+          "k_eff": 5.170789281406798,
+          "k_eff_yoy_change": 0.0358162852882602,
+          "tv_distance_step": 0.015154534740393895,
+          "tv_acceleration": -0.02852814897048364,
+          "concentration_regime": "stable"
+        },
         "higgins_extensions": {
           "higgins_scale": 0.2098718287650818,
           "ring_class": "Hs-2",
@@ -7755,6 +7944,13 @@
           "shannon_entropy": 1.6680763666530753,
           "aitchison_norm": 2.994590114182589,
           "aitchison_distance_step": 0.2216507081476603
+        },
+        "navigation_concentration_family": {
+          "k_eff": 5.301958956243517,
+          "k_eff_yoy_change": 0.13116967483671882,
+          "tv_distance_step": 0.020630923598168805,
+          "tv_acceleration": 0.0054763888577749106,
+          "concentration_regime": "loosening"
         },
         "higgins_extensions": {
           "higgins_scale": 0.19782483266850925,
@@ -9419,6 +9615,25 @@
       0.0
     ]
   },
+  "attractor_fit": {
+    "fitted": false,
+    "period": 1,
+    "period_stability": 0.0,
+    "dominant_pair": {
+      "axis_a": 3,
+      "axis_b": 4
+    },
+    "contraction_lambda": -0.01899140038062955,
+    "amplitude_A": 7.130547938190441,
+    "damping_zeta": 0.01899140038062955,
+    "confidence": {
+      "oscillation_ratio": 0.8819575861442882,
+      "period_stability_score": 0.0
+    },
+    "warnings": [
+      "period_stability 0.000 below threshold 0.6; no clean period-2 structure"
+    ]
+  },
   "diagnostics": {
     "eitt": {
       "gate_pct": 5.0,
@@ -9491,6 +9706,6 @@
       "row_variance_below_threshold": false,
       "any_flag_set": false
     },
-    "cnt_content_sha256": "250de56991294d741b75970a341067c5cd0320ac14faa91290b26ffff3fb2248"
+    "cnt_content_sha256": "2fb45dd99cc2e0774d8861c0845ec01faa1e511105637eb34ade2ee13cac5baa"
   }
 }

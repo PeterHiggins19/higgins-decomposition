@@ -84,8 +84,8 @@ from hci_shared.helmsman import compute_helmsman_family  # noqa: E402
 # ---------------------------------------------------------------------------
 
 ENGINE_NAME: str = "HCI-CNT"
-ENGINE_VERSION: str = "3.0.0"
-SCHEMA_VERSION: str = "3.0.0"
+ENGINE_VERSION: str = "3.1.0"
+SCHEMA_VERSION: str = "3.1.0"
 ENGINE_PRINCIPLE: str = (
     "Closure -> CLR -> Helmert ILR -> trajectory tensor -> depth tower; "
     "deterministic compositional inference with embedded version triple."
@@ -131,6 +131,80 @@ def aitchison_norm(clr_vec: np.ndarray) -> float:
 
 def aitchison_distance(clr_a: np.ndarray, clr_b: np.ndarray) -> float:
     return float(np.linalg.norm(clr_a - clr_b))
+
+
+# -----------------------------------------------------------------------------
+# Navigation concentration family (schema v3.1.0, push #37)
+# -----------------------------------------------------------------------------
+# These quantities were promoted into the canonical engine output during
+# CoDaWork 2026 preparation. The HUF MC-4 submission packet used TV distance
+# (half-L1) and K_eff (= exp(Shannon H)) as the operational metric stack
+# alongside Aitchison distance + Shannon entropy. The CoDa-canonical and
+# packet-operational stacks both have legitimate uses, and both should travel
+# with every deterministic CNT run.
+#
+# See: docs/SCHEMA_v3_1_0_navigation_concentration_family.md (TBD), and
+# papers/codawork2026/planning/ABSTRACT_TO_CNT_V3_MAP.md for the abstract-to-
+# field mapping.
+
+
+def tv_distance(p_a: np.ndarray, p_b: np.ndarray) -> float:
+    """Total variation distance between two closed compositions on the simplex.
+
+    TV(p, q) = (1/2) * sum_i |p_i - q_i|    (half-L1 norm)
+
+    Bounded [0, 1] for probability vectors. Distinct from Aitchison distance
+    (which is log-ratio Euclidean); the two metrics agree on hit/miss verdicts
+    but the magnitudes differ.
+
+    The packet's Appendix A documents the L2 -> TV metric correction caught
+    during external review March 22, 2026. Both metrics now travel with every
+    CNT v3.1+ run for explicit metric robustness.
+    """
+    a = np.asarray(p_a, dtype=np.float64)
+    b = np.asarray(p_b, dtype=np.float64)
+    return float(0.5 * np.sum(np.abs(a - b)))
+
+
+def k_eff(p: np.ndarray) -> float:
+    """Effective number of categories: K_eff = exp(Shannon entropy).
+
+    Range: [1, D]. K_eff = 1 means single-carrier dominance; K_eff = D means
+    equal distribution across all carriers. This is a deterministic
+    one-to-one view-transform of Shannon entropy on the closed composition.
+    Some communities (notably CoDa) prefer K_eff for unit interpretability;
+    others prefer raw entropy for additive composition.
+    """
+    return float(np.exp(shannon_entropy(p)))
+
+
+def _concentration_regime_tag(
+    k_eff_yoy: Optional[float],
+    tv_step: Optional[float],
+    tv_median: Optional[float],
+) -> Optional[str]:
+    """Qualitative tag for the step's concentration regime.
+
+    Returns one of:
+        "tightening"  : K_eff is declining (concentration increasing)
+        "loosening"   : K_eff is rising (concentration decreasing)
+        "deceptive"   : K_eff is declining (tightening) AND TV is below series
+                         median — the packet's "deceptive drift" signature:
+                         concentration accumulating while step-to-step composition
+                         movement stays quiet.
+        "stable"      : K_eff change is small relative to threshold
+        None          : insufficient data (first step, or no median yet)
+    """
+    if k_eff_yoy is None:
+        return None
+    THRESHOLD = 0.05  # the packet's K_eff_yoy decline threshold magnitude
+    if k_eff_yoy < -THRESHOLD:
+        if tv_step is not None and tv_median is not None and tv_step <= tv_median:
+            return "deceptive"
+        return "tightening"
+    if k_eff_yoy > THRESHOLD:
+        return "loosening"
+    return "stable"
 
 
 def kappa_HS_full(p: np.ndarray) -> Dict[str, Any]:
@@ -233,6 +307,7 @@ def compute_timestep_block(
     ilr_vec: np.ndarray,
     carriers: Sequence[str],
     prev_clr: Optional[np.ndarray],
+    _prev_comp_for_tv: Optional[np.ndarray] = None,
 ) -> Dict[str, Any]:
     coda_standard = {
         "composition": [float(x) for x in composition],
@@ -243,6 +318,19 @@ def compute_timestep_block(
         "aitchison_distance_step": (
             aitchison_distance(prev_clr, clr_vec) if prev_clr is not None else None
         ),
+    }
+    # Navigation concentration family (schema v3.1.0, push #37 promotion).
+    # Per-step values; YoY/acceleration/regime fields are filled in pass 2
+    # by compute_tensor_block.
+    navigation_concentration = {
+        "k_eff": k_eff(composition),
+        "k_eff_yoy_change": None,           # filled in pass 2
+        "tv_distance_step": (
+            tv_distance(_prev_comp_for_tv, composition)
+            if _prev_comp_for_tv is not None else None
+        ),
+        "tv_acceleration": None,            # filled in pass 2
+        "concentration_regime": None,       # filled in pass 2 (needs series median)
     }
     hs_scale = higgins_scale(composition)
     kappa = kappa_HS_full(composition)
@@ -264,6 +352,7 @@ def compute_timestep_block(
         "label": str(label) if label is not None else str(t_index),
         "raw_values": [float(x) for x in raw_values],
         "coda_standard": coda_standard,
+        "navigation_concentration_family": navigation_concentration,
         "higgins_extensions": higgins,
     }
 
@@ -280,6 +369,7 @@ def compute_tensor_block(
     H = helmert_basis(D)
     timesteps = []
     prev_clr = None
+    prev_comp_for_tv: Optional[np.ndarray] = None
     for t in range(T):
         entry = compute_timestep_block(
             t_index=t,
@@ -290,18 +380,74 @@ def compute_tensor_block(
             ilr_vec=ilr_matrix[t],
             carriers=carriers,
             prev_clr=prev_clr,
+            _prev_comp_for_tv=prev_comp_for_tv,
         )
         timesteps.append(entry)
         prev_clr = clr_matrix[t]
+        prev_comp_for_tv = rows_closed[t]
+
+    # PASS 2: navigation_concentration_family — fill in K_eff YoY change,
+    # TV acceleration, and concentration regime (needs series TV median).
+    tv_series = [ts["navigation_concentration_family"]["tv_distance_step"] for ts in timesteps]
+    valid_tv = [v for v in tv_series if v is not None]
+    tv_median = float(np.median(valid_tv)) if valid_tv else None
+
+    for i, ts in enumerate(timesteps):
+        ncf = ts["navigation_concentration_family"]
+        # K_eff YoY change: difference from previous step's K_eff
+        if i > 0:
+            ncf["k_eff_yoy_change"] = (
+                ts["navigation_concentration_family"]["k_eff"]
+                - timesteps[i - 1]["navigation_concentration_family"]["k_eff"]
+            )
+        # TV acceleration: difference from previous step's TV
+        if i > 0 and tv_series[i] is not None and tv_series[i - 1] is not None:
+            ncf["tv_acceleration"] = tv_series[i] - tv_series[i - 1]
+        # Concentration regime tag (uses K_eff YoY threshold + TV series median)
+        ncf["concentration_regime"] = _concentration_regime_tag(
+            ncf["k_eff_yoy_change"], ncf["tv_distance_step"], tv_median
+        )
+    # Series-level navigation_concentration_family summary (schema v3.1.0)
+    keff_series = [ts["navigation_concentration_family"]["k_eff"] for ts in timesteps]
+    nav_conc_summary: Dict[str, Any] = {
+        "_description": (
+            "Series-level summary of the navigation concentration family "
+            "(K_eff + TV distance + regime tags). Promoted from runner-side "
+            "packet_operators.py into the canonical engine at schema v3.1.0 "
+            "(HUF MC-4 packet operators)."
+        ),
+        "k_eff": {
+            "min": float(min(keff_series)),
+            "max": float(max(keff_series)),
+            "mean": float(sum(keff_series) / len(keff_series)),
+            "final": float(keff_series[-1]),
+        },
+        "tv_distance_step": {
+            "min": float(min(valid_tv)) if valid_tv else None,
+            "max": float(max(valid_tv)) if valid_tv else None,
+            "mean": float(sum(valid_tv) / len(valid_tv)) if valid_tv else None,
+            "median": tv_median,
+            "n_steps": len(valid_tv),
+        },
+        "regime_counts": {
+            tag: sum(
+                1 for ts in timesteps
+                if ts["navigation_concentration_family"]["concentration_regime"] == tag
+            ) for tag in ("tightening", "loosening", "deceptive", "stable")
+        },
+    }
     return {
         "_function": "composer",
         "_description": (
             "Per-step compositional tensor: closure, CLR, ILR, kappa_HS_full "
             "(order-2), s_j_sensitivity (order-1), bearing pairs, and step-to-step "
-            "angular velocity / helmsman local index."
+            "angular velocity / helmsman local index. Schema v3.1.0 adds "
+            "navigation_concentration_family per timestep (K_eff, TV distance, "
+            "K_eff YoY, TV acceleration, concentration regime tag)."
         ),
         "helmert_basis": H.tolist(),
         "n_timesteps": int(T),
+        "navigation_concentration_summary": nav_conc_summary,
         "timesteps": timesteps,
     }
 
@@ -716,6 +862,7 @@ def ingest_csv(input_csv: Path) -> Tuple[List[Any], List[str], np.ndarray, int]:
     return labels, carrier_names, rows, zero_replacement_count
 
 
+
 def get_environment_metadata(repo_root: Optional[Path] = None) -> Dict[str, Any]:
     git_sha = None
     if repo_root is not None:
@@ -725,11 +872,11 @@ def get_environment_metadata(repo_root: Optional[Path] = None) -> Dict[str, Any]
                 cwd=str(repo_root),
                 capture_output=True,
                 text=True,
-                timeout=5,
+                timeout=10,
             )
             if res.returncode == 0:
                 git_sha = res.stdout.strip()
-        except (FileNotFoundError, subprocess.TimeoutExpired, OSError):
+        except Exception:
             git_sha = None
     hostname_hash = hashlib.sha256(socket.gethostname().encode("utf-8")).hexdigest()[:16]
     return {
@@ -741,54 +888,44 @@ def get_environment_metadata(repo_root: Optional[Path] = None) -> Dict[str, Any]
     }
 
 
-def closed_data_sha256(rows_closed: np.ndarray) -> str:
-    arr = np.ascontiguousarray(rows_closed, dtype=np.float64)
-    return hashlib.sha256(arr.tobytes()).hexdigest()
-
-
 # ---------------------------------------------------------------------------
-# Top-level orchestration
+# Top-level run + CLI
 # ---------------------------------------------------------------------------
 
 
-def cnt_run(
-    input_csv: Path,
-    *,
-    out_path: Optional[Path] = None,
-    repo_root: Optional[Path] = None,
-    engine_config_overrides: Optional[Dict[str, Any]] = None,
-    ordering: str = "as_provided",
-) -> Dict[str, Any]:
+def cnt_run(input_csv, out_path: Optional[Path] = None) -> Dict[str, Any]:
+    """Run the full CNT v3 pipeline on a single CSV; return the canonical
+    payload dict and (optionally) write it to disk as JSON.
+
+    Schema v3.1.0 (push #37) adds the navigation_concentration_family per
+    timestep (K_eff, TV distance, K_eff YoY, TV acceleration, concentration
+    regime tag) plus a series-level summary at tensor.navigation_concentration_summary.
+    """
     t0 = time.monotonic()
-    overrides = dict(engine_config_overrides or {})
-
-    labels, carrier_names, rows, zero_replacement_count = ingest_csv(Path(input_csv))
-    rows = validate_rows(rows, min_carriers=2)
-    T, D = rows.shape
-
+    input_csv = Path(input_csv)
+    labels, carriers, rows, zero_replacement_count = ingest_csv(input_csv)
+    validate_rows(rows)
     rows_closed = _shared_closure(rows)
     clr_matrix = _shared_clr(rows_closed)
-    ilr_matrix, _radii = compositions_to_ilr(rows, D=D)
+    H = helmert_basis(rows.shape[1])
+    ilr_matrix = clr_matrix @ H.T
 
     tensor_block = compute_tensor_block(
-        rows=rows, rows_closed=rows_closed, clr_matrix=clr_matrix,
-        ilr_matrix=ilr_matrix, carriers=carrier_names, labels=labels,
+        rows, rows_closed, clr_matrix, ilr_matrix, carriers, labels
     )
-    stage1 = compute_stage1(clr_matrix, carrier_names)
-    stage2 = compute_stage2(rows_closed, clr_matrix, carrier_names)
-    stage3 = compute_stage3(rows_closed, clr_matrix, carrier_names)
+    stage1 = compute_stage1(clr_matrix, carriers)
+    stage2 = compute_stage2(rows_closed, clr_matrix, carriers)
+    stage3 = compute_stage3(rows_closed, clr_matrix, carriers)
     depth_tower = compute_depth_tower(rows_closed, clr_matrix)
     helmsman = compute_helmsman_family(rows, window=HELMSMAN_ROLLING_WINDOW)
-
+    attractor = fit_attractor(rows_closed)
     eitt = eitt_bench_test(rows_closed, clr_matrix)
     locks = detect_lock_events(clr_matrix)
     degens = degeneracy_flags(rows_closed)
 
-    source_file_hash = file_sha256(Path(input_csv))
-    closed_hash = closed_data_sha256(rows_closed)
-
-    wall_clock_ms = int((time.monotonic() - t0) * 1000.0)
-    env = get_environment_metadata(repo_root=repo_root)
+    source_hash = file_sha256(input_csv)
+    closed_hash = canonical_sha256({"rows_closed": rows_closed.tolist()})
+    wall_clock_ms = int(round((time.monotonic() - t0) * 1000))
 
     payload: Dict[str, Any] = {
         "metadata": {
@@ -799,101 +936,79 @@ def cnt_run(
             "implementation_lang_version": f"Python {sys.version.split()[0]}",
             "principle": ENGINE_PRINCIPLE,
             "engine_config": {
-                "active_overrides": overrides,
-                "defaults_in_use": {
-                    "DEFAULT_DELTA": DEFAULT_DELTA,
-                    "TRIADIC_T_LIMIT": TRIADIC_T_LIMIT,
-                    "TRIADIC_K_DEFAULT": TRIADIC_K_DEFAULT,
-                    "LADDER_K_LIMIT": LADDER_K_LIMIT,
-                    "DEPTH_MAX_LEVELS": DEPTH_MAX_LEVELS,
-                    "DEPTH_PRECISION_TARGET": DEPTH_PRECISION_TARGET,
-                    "EITT_GATE_PCT": EITT_GATE_PCT,
-                    "EITT_M_SWEEP_BASE": list(EITT_M_SWEEP_BASE),
-                    "HELMSMAN_ROLLING_WINDOW": HELMSMAN_ROLLING_WINDOW,
-                },
+                "default_delta": DEFAULT_DELTA,
+                "degen_threshold": DEGEN_THRESHOLD,
+                "lock_clr_threshold": LOCK_CLR_THRESHOLD,
+                "depth_max_levels": DEPTH_MAX_LEVELS,
+                "depth_precision_target": DEPTH_PRECISION_TARGET,
+                "triadic_t_limit": TRIADIC_T_LIMIT,
+                "triadic_k_default": TRIADIC_K_DEFAULT,
+                "ladder_k_limit": LADDER_K_LIMIT,
+                "eitt_gate_pct": EITT_GATE_PCT,
+                "eitt_m_sweep_base": list(EITT_M_SWEEP_BASE),
+                "helmsman_rolling_window": HELMSMAN_ROLLING_WINDOW,
             },
             "generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
             "wall_clock_ms": wall_clock_ms,
-            "environment": env,
+            "environment": get_environment_metadata(repo_root=_THIS_FILE.parent.parent.parent),
         },
         "input": {
             "source_file": str(input_csv),
-            "source_file_sha256": source_file_hash,
+            "source_file_sha256": source_hash,
             "closed_data_sha256": closed_hash,
-            "n_records": int(T),
-            "n_carriers": int(D),
-            "carriers": list(carrier_names),
-            "labels": [str(label) for label in labels],
+            "n_records": int(rows.shape[0]),
+            "n_carriers": int(rows.shape[1]),
+            "carriers": list(carriers),
+            "labels": list(labels),
             "rows_closed": rows_closed.tolist(),
             "zero_replacement_count": int(zero_replacement_count),
-            "ordering": ordering,
+            "ordering": "as_provided",
         },
         "tensor": tensor_block,
         "stages": {"stage1": stage1, "stage2": stage2, "stage3": stage3},
         "depth_tower": depth_tower,
         "helmsman_family": helmsman,
+        "attractor_fit": attractor,
         "diagnostics": {
             "eitt": eitt,
             "lock_events": locks,
             "degeneracy_flags": degens,
         },
     }
-
-    digest = canonical_sha256(payload)
-    payload["diagnostics"]["cnt_content_sha256"] = digest
+    # Content hash: canonical SHA-256 over the payload sans the hash field itself.
+    content_sha = canonical_sha256(payload)
+    payload["diagnostics"]["cnt_content_sha256"] = content_sha
 
     if out_path is not None:
-        Path(out_path).parent.mkdir(parents=True, exist_ok=True)
-        with Path(out_path).open("w", encoding="utf-8") as f:
-            json.dump(payload, f, indent=2, ensure_ascii=False)
-
+        out_path = Path(out_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(
+            json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
     return payload
 
 
-# ---------------------------------------------------------------------------
-# CLI
-# ---------------------------------------------------------------------------
-
-
-def _build_parser() -> argparse.ArgumentParser:
+def main(argv: Optional[Sequence[str]] = None) -> int:
     p = argparse.ArgumentParser(
-        prog="hs-cnt",
         description=f"{ENGINE_NAME} v{ENGINE_VERSION} compositional navigation tensor engine",
     )
-    p.add_argument("input", type=str, help="Path to input CSV")
-    p.add_argument("-o", "--output", type=str, default=None, help="Output JSON path")
-    p.add_argument("--repo-root", type=str, default=None)
-    p.add_argument("--ordering", type=str, default="as_provided")
+    p.add_argument("input_csv", type=Path, help="Path to input CSV (rows x carriers).")
+    p.add_argument("-o", "--out", type=Path, default=None, help="Optional output JSON path.")
     p.add_argument("--version", action="version", version=f"{ENGINE_NAME} v{ENGINE_VERSION} (schema {SCHEMA_VERSION})")
-    return p
-
-
-def main(argv: Optional[List[str]] = None) -> int:
-    args = _build_parser().parse_args(argv)
-    repo_root = Path(args.repo_root) if args.repo_root else None
-    out_path = Path(args.output) if args.output else None
-    payload = cnt_run(Path(args.input), out_path=out_path, repo_root=repo_root, ordering=args.ordering)
+    args = p.parse_args(argv)
+    payload = cnt_run(args.input_csv, out_path=args.out)
     md = payload["metadata"]
-    inp = payload["input"]
-    dt = payload["depth_tower"]
-    diag = payload["diagnostics"]
     print(f"engine             = {md['engine']} v{md['engine_version']} (schema {md['schema_version']})")
-    print(f"input              = {inp['source_file']}")
-    print(f"T x D              = {inp['n_records']} x {inp['n_carriers']}")
-    print(f"depth_termination  = {dt['termination']['kind']}")
-    print(f"ir_class           = {dt['ir_class']}")
-    print(f"M^2=I residual_max = {dt['involution_M_squared']['max_residual_overall']:.3e}")
-    if dt["attractor"].get("fitted"):
-        print(f"attractor.period   = {dt['attractor']['period']}")
-        print(f"attractor.stability= {dt['attractor']['period_stability']:.3f}")
+    print(f"input              = {payload['input']['source_file']}")
+    print(f"T x D              = {payload['input']['n_records']} x {payload['input']['n_carriers']}")
+    print(f"termination        = {payload['depth_tower']['termination']['kind']}")
+    print(f"ir_class           = {payload['depth_tower']['ir_class']}")
     print(f"helmsman.flips     = {payload['helmsman_family']['flips']['total']}")
-    print(f"cnt_content_sha256 = {diag['cnt_content_sha256']}")
-    if out_path:
-        print(f"written            = {out_path}")
+    print(f"cnt_content_sha256 = {payload['diagnostics']['cnt_content_sha256']}")
+    if args.out is not None:
+        print(f"output             = {args.out}")
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
-me__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

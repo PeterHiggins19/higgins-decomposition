@@ -1,9 +1,9 @@
-# Advanced Analysis (Hˢ extensions + CNQ v2) — EMBER GBR (United Kingdom)
+# Advanced Analysis (Hˢ extensions + CNQ v2) — EMBER AUS (Australia)
 
 ## Engines
 
-- **CNT v3.0.0** schema 3.0.0 — content_sha256 `e77f67ede57a5bdc24d753378c02c4668842826ae5913ed95bc84236a64506f0`
-- **CNQ v2.0.0** schema cnq/2.0.0 — content_sha256 `3075b34012510e9b015e67383499063279f509608f9d4ef76e4bfdd5a6bea4ea`
+- **CNT v3.0.0** schema 3.0.0 — content_sha256 `22e1aa4c284617cf17852a26f034e247af84f8406fc6a20f43626d45c564846d`
+- **CNQ v2.0.0** schema cnq/2.0.0 — content_sha256 `5f6ac234ae952a25efac3f822df47456f6bb817d30758f5b4cbba3123366d998`
 - **Engine independence:** CNT and CNQ canonical hashes are unrelated by design (push #32 policy).
 
 **Generated:** 2026-05-10T22:29:27Z
@@ -21,8 +21,8 @@
 | Energy levels reached | 24 |
 | Curvature levels reached | 50 |
 | Termination kind | **EXHAUSTED** |
-| IR classification | **OVERDAMPED_EXTREME** |
-| M² = I residual (max) | 1.710e-14 |
+| IR classification | **LIGHTLY_DAMPED** |
+| M² = I residual (max) | 3.331e-16 |
 | Verified at IEEE floor | **YES** |
 
 ## P2 attractor parameter fit
@@ -34,11 +34,11 @@ From `hci_shared.attractors.fit_attractor` — same fitter is used by both engin
 | Fitted | False |
 | Period | 1 |
 | Period stability | 0.0000 |
-| Dominant pair | axis_a = 5, axis_b = 7 |
-| Amplitude A | 7.6379 |
-| Damping ζ | -0.0084 |
-| Contraction λ | +8.4268e-03 |
-| Oscillation ratio | 0.2814 |
+| Dominant pair | axis_a = 4, axis_b = 2 |
+| Amplitude A | 1.4082 |
+| Damping ζ | +0.0204 |
+| Contraction λ | -2.0377e-02 |
+| Oscillation ratio | 0.0609 |
 | Warnings | period_stability 0.000 below threshold 0.6; no clean period-2 structure |
 
 ## Helmsman family channels
@@ -48,8 +48,8 @@ From `hci_shared.attractors.fit_attractor` — same fitter is used by both engin
 | Channel | Value |
 |---|---|
 | σ trajectory length | 25 |
-| Total flips | 14 |
-| Stability S_σ (global) | 0.3913 |
+| Total flips | 8 |
+| Stability S_σ (global) | 0.6522 |
 | Chaos indicator | None |
 | Rolling window (W) | 8 |
 
@@ -64,12 +64,12 @@ From `hci_shared.attractors.fit_attractor` — same fitter is used by both engin
 | Quantity | Value |
 |---|---|
 | Pairs tested | 24 |
-| Max sandwich residual | 2.220e-16 |
-| Mean sandwich residual | 9.772e-17 |
+| Max sandwich residual | 3.331e-16 |
+| Mean sandwich residual | 1.133e-16 |
 | Gate threshold | 1e-12 |
 | Gate pass | **PASS** |
-| Captured fraction (global) | 0.0026 |
-| Captured fraction (mean) | 0.3660 |
+| Captured fraction (global) | 0.1780 |
+| Captured fraction (mean) | 0.1334 |
 | Projection method | `first_three_helmert_axes` |
 
 ### Radial trajectory (compositional magnitude)
@@ -78,22 +78,11 @@ First-class output in v2 (was discarded by v1's unit-vector normalisation). Per-
 
 | Stat | Value |
 |---|---|
-| min | 7.9405 |
-| max | 47.0073 |
-| mean | 35.2129 |
-| median | 35.6062 |
-| std | 9.0292 |
-
-## Comparison vs v2.0.4 baseline (legacy)
-
-Where the legacy v2.0.4 output is available at `HCI-CNT/experiments/codawork2026/`, this section reports the v2.0.4 headline values for direct comparison. v3 produces a different hash by design (engine-version triple is part of the canonical payload), so hash equality is NOT expected; numerical content is.
-
-| Quantity | v2.0.4 | v3.0.0 |
-|---|---|---|
-| engine_version | `cnt 2.0.4` | `3.1.0` |
-| schema_version | `2.1.0` | `3.1.0` |
-| termination kind | LIMIT_CYCLE_P2 | EXHAUSTED |
-| IR classification | OVERDAMPED_EXTREME | OVERDAMPED_EXTREME |
+| min | 12.1832 |
+| max | 14.4791 |
+| mean | 13.2658 |
+| median | 13.1793 |
+| std | 0.7434 |
 
 ---
 
