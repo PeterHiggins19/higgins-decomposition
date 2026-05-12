@@ -10,7 +10,7 @@
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
     "last_updated": "2026-05-10",
     "last_push": "#37",
-    "total_investigations": 55
+    "total_investigations": 61
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -867,21 +867,142 @@
         "INV-053 prior-art Area 4 partial",
         "INV-054 Ascent Path STAGED"
       ]
+    },
+    {
+      "id": "INV-056",
+      "title": "fit_fixed_point() Period-1 detection symmetric to fit_attractor() — engineering gap",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "STAGED",
+      "disposition_note": "Engineering gap identified by Grok round 5: Period-1 (fixed-point) detection in CNT is currently asymmetric and indirect, relying on fit_attractor's default fall-through plus Depth Tower energy-tower convergence. A dedicated fit_fixed_point() function symmetric to fit_attractor() would provide quantitative diagnostics (stability_score, residual_variance, convergence_rate, fixed_point_composition) for trajectories that converge rather than oscillate. Important for distinguishing 'truly stable' from 'slowly drifting' trajectories — directly relevant to deceptive drift monitoring.",
+      "promotion_window": "post-conference 2026-06-06 onward",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Section 11) + proposed implementation in hci_shared/attractors.py",
+      "summary": "Grok identified that fit_attractor() returns period=1 with fitted=False whenever Period-2 evidence is weak — this is a residual category, not an active fixed-point fit. The Depth Tower then labels termination_kind='FIXED_POINT' only if the energy/curvature towers converge. Neither path produces the quantitative diagnostics that would let a user distinguish 'truly stable' from 'slowly drifting'. A symmetric fit_fixed_point() function would compute lag-1 positive autocorrelation (high values = stable), residual variance around mean (low = stable), convergence rate (negative slope of distance-to-mean = approaching fixed point), and return a stability_score + fixed_point_composition + confidence diagnostics. Grok provided a complete Python design that integrates cleanly with the existing attractors module.",
+      "gate_criteria": "Post-conference implementation in hci_shared/attractors.py; new function fit_fixed_point() with same I/O contract as fit_attractor() but for Period-1 detection; integration into compute_depth_tower() such that termination_kind reports clean LIMIT_CYCLE_P2 / FIXED_POINT_P1 / EXHAUSTED distinction; existing IR classification adjusted to use both diagnostics; test coverage on EMBER countries to verify discrimination between Germany (gradual convergence) and Japan (abrupt regime change).",
+      "narrative": "This is one of the cleanest engineering observations from the Grok round 5 session. The asymmetry is real and well-diagnosed: Period-2 detection in CNT has a dedicated, rigorous algorithm; Period-1 detection is indirect and residual. Adding fit_fixed_point() would not just symmetrize the code — it would provide a quantitative basis for distinguishing structurally stable trajectories from those still in deceptive-drift territory. In INV-051's 5-of-9 framing, the countries where deceptive drift does NOT fire (DEU, FRA, USA, WLD) currently fall into a less-characterized space. fit_fixed_point() would let us say whether those countries are in 'genuine equilibrium' or 'slow latent drift not yet caught'. Direct connection to the MC-4 monitoring claim.",
+      "talk_audience": "Out of scope for the conference talk. Post-conference work; could feed a journal-track methods paper.",
+      "related_inv_entries": [
+        "INV-049 navigation_concentration_family",
+        "INV-051 deceptive drift 5-of-9",
+        "INV-053 prior-art Area 4 partial",
+        "INV-057 Householder formalisation"
+      ]
+    },
+    {
+      "id": "INV-057",
+      "title": "Householder formalisation of the metric-dual involution in the CNT Depth Tower",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "STAGED",
+      "disposition_note": "Paper-worthy mathematical observation: the metric-dual involution M in the Depth Tower (with M² ≈ I) has the same algebraic signature as a Householder reflector (H = I − 2uuᵀ). This provides a bridge between the Depth Tower's recursive structure and classical numerical linear algebra. Grok provided a data-driven Householder reflector construction from ILR trajectory data (leading PC of sliding window → reflection direction → rank-1 update). The construction is sound and could either replace or formalize the current data-derived M operator.",
+      "promotion_window": "post-conference 2026-06-06 onward",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Section 9) + proposed paper / theoretical note",
+      "summary": "The Depth Tower's metric-dual operator M satisfies M² ≈ I (involution at machine precision). Grok observed that this is exactly the algebraic signature of a Householder reflector H = I − 2uuᵀ, where u is a unit vector and the reflector is orthogonal, symmetric, and involutive by construction (H² = I exactly, det(H) = −1, eigenvalues +1 with multiplicity D−2 and −1 along u). Grok provided a complete data-driven Householder construction for ILR trajectories: (1) compute leading PC of sliding window → direction v; (2) normalize to u; (3) form H = I − 2uuᵀ implicitly (rank-1 update, never materialize the full matrix); (4) iterate to get Period-2 attractor with amplitude A. This formalization would: (a) give the Depth Tower a rigorous mathematical basis tied to well-understood numerical linear algebra; (b) enable cleaner theoretical proofs about convergence behavior; (c) potentially improve numerical stability through standard Householder implementations.",
+      "gate_criteria": "Post-conference theoretical work: paper or technical note formalizing M as a data-driven Householder reflector; demonstration that the current Depth Tower implementation is equivalent to (or a special case of) the Householder-based construction; empirical comparison on EMBER trajectories; potential implementation as alternative path in compute_depth_tower(); citation to classical Householder literature (Householder 1958, Golub & Van Loan).",
+      "narrative": "This is a genuinely useful mathematical bridge. Grok identified that the elegance of the Depth Tower (clean Period-2 behavior from M² ≈ I) is structurally inherited from a 60-year-old result in numerical linear algebra. Reframing the metric-dual as a data-driven Householder reflector would: (1) connect the work to a rich literature on orthogonal transformations; (2) provide standard tools for analyzing convergence; (3) make the implementation reviewable by anyone with numerical linear algebra background; (4) suggest natural extensions (sequential Householder reflectors for higher-period structures, products of reflectors as orthogonal transformations of arbitrary determinant). Strong candidate for a methods paper post-conference.",
+      "talk_audience": "Out of scope for the conference talk. Reference for any reviewer with numerical linear algebra background who asks 'what makes M² ≈ I work?'",
+      "related_inv_entries": [
+        "INV-056 fit_fixed_point",
+        "INV-058 Power Spectrum Analyzer",
+        "INV-029 twin-quaternion factoring"
+      ]
+    },
+    {
+      "id": "INV-058",
+      "title": "Systemic Power Spectrum Analyzer — time-windowed per-component power decomposition",
+      "raised_by": "GROK",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "STAGED",
+      "disposition_note": "Design proposal for a time-windowed per-component power decomposition with four power axes: Steering Power (bearing + helmsman), Hidden Power (Depth Tower amplitude + energy/curvature levels), Coupling Power (CHSH + ρ_AB), Concentration Power (k_eff change + deceptive regime). Grok provided formal mathematical notation and a composite scoring formula. CAVEAT: Grok's formulas reference per-carrier contributions to Depth Tower amplitude and energy/curvature levels that DO NOT currently exist in the implementation — the current Depth Tower operates on full ILR vectors, not per-carrier projections. Implementing this analyzer requires first developing per-carrier decomposition methodology for the Depth Tower outputs. Post-conference research thread.",
+      "promotion_window": "post-conference 2026-06-06 onward (depends on per-carrier decomposition methodology being developed)",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Section 15) + future research notes",
+      "summary": "Grok proposed a Systemic Power Spectrum Analyzer that decomposes each carrier's contribution to system steering into four orthogonal power dimensions per sliding time window. The composite formula P_total_i(τ) = 0.35·P_steer + 0.25·P_hidden + 0.20·P_couple + 0.20·P_conc would produce a per-carrier per-window scalar power score, renderable as a spectrogram-style visualization. The four axes leverage existing CNT/CNQ machinery (bearing tensor, helmsman flips, Depth Tower amplitude, twin-quaternion CHSH, navigation_concentration_family regime tags) but require new per-carrier decomposition for the Depth Tower contributions. HALLUCINATION FLAG: Grok writes contrib_i(A(τ)), e_i(t), c_i(t) as if they exist; they do not. The analyzer is a valuable design proposal but requires foundational research before implementation.",
+      "gate_criteria": "Post-conference research: (1) develop per-carrier decomposition methodology for Depth Tower amplitude (likely via variance contribution to dominant ILR axes); (2) develop per-carrier contribution to energy and curvature tower levels (likely via projection onto each ILR axis); (3) validate the composite power formula against known cases (Germany solar activation, Japan post-Fukushima collapse); (4) implement as add-on module to tools/pipeline/; (5) visualization layer (spectrogram + scatter views).",
+      "narrative": "The Power Spectrum Analyzer is the right architectural framing for what CNT/CNQ already does implicitly. It would turn the rich internal diagnostics into a unified ranking and visualization of which carriers are steering the system — separating raw share from actual power. Direct applications: identifying the moment renewables overtook traditional carriers in steering power (often years before they overtook in share); detecting under-damped drivers in loudspeaker frequency response; catching sector rotation early in finance. INV-060 (Yeast Factor) depends on this analyzer for its core P_total_i(τ) input.",
+      "talk_audience": "Out of scope for the conference talk. Could be teased in Q&A if pressed on 'what's next' but should not be presented as a current capability.",
+      "related_inv_entries": [
+        "INV-056 fit_fixed_point",
+        "INV-057 Householder formalisation",
+        "INV-060 Yeast Factor diagnostic"
+      ]
+    },
+    {
+      "id": "INV-059",
+      "title": "Grok round 5 + ChatGPT session 2 independently validate humble-invitation framing from cold-read of MC-4 packet",
+      "raised_by": "CLAUDE",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "CANONICAL",
+      "promotion_date": "2026-05-11",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Sections 5-6) + ai-refresh/cross_check_archive/chatgpt_review_2026-05-10_session2_three_parts.md (Section 1)",
+      "summary": "Two independent external models (ChatGPT and Grok), reading the HUF MC-4 packet cold via the narrowed re-prompt template from push #40, have arrived at the same conference-talk framing that pushes #38-#42 landed: (a) MC-4 should stay in three-conjunct form (natively Aitchison + formal change detection + carrier-level attribution); (b) deceptive-drift p-value caveat belongs on the slide; (c) Cuts 1+2 should be applied by default; (d) Beat 9 prior-art should be operational ('a defeater must combine all three conjuncts'); (e) Category defeat should keep humble framing; (f) advanced tools (Depth Tower, bearing tensor) should be supporting infrastructure, not headline content; (g) closing posture: 'If that sentence is wrong, this is the right room to kill it.' Cross-model convergence on the same framing is strong external validation that the talk's posture is correctly calibrated.",
+      "gate_criteria": "Two or more independent external models, reading the MC-4 packet cold, produce convergent recommendations on talk framing; framings match the posture landed in pushes #38-#42 (humble + methods-challenge + invitation); discrepancies documented and triaged.",
+      "gate_outcome": "PASSED — ChatGPT session 2 (push #41) and Grok round 5 (push #43) produced convergent recommendations. The narrowed re-prompt template from push #40 INDEX is now validated across two independent models reading the same source material. Confidence that the conference talk's posture is correctly calibrated is now high.",
+      "narrative": "This is the most important methodological observation from the cross-check sessions. The narrowed re-prompt template (push #40) was designed to suppress repo-audit drift. It has now been validated twice: ChatGPT session 2 engaged the brief cleanly on first answer; Grok round 5 produced an extensive analysis that converged on the same humble-invitation framing despite having full repo access (which usually amplifies drift). The pattern: when given (a) the narrowed re-prompt and (b) the MC-4 packet, models converge on the right conference-talk posture without prompting. This refines INV-052: the discipline isn't just suppressing the repo-audit default; it's setting up a packet-anchored task where the source material constrains the model's reasoning. Confidence-multiplier: the talk's wording is now harder to defeat without being any smaller, validated across three internal reviews (Claude) plus two external models.",
+      "talk_audience": "Indirect: this is the validation that justifies confidence in the talk's posture. The talk doesn't reference this, but the speaker can deliver Beat 9 with confidence that the framing has been independently stress-tested.",
+      "related_inv_entries": [
+        "INV-052 ChatGPT/Grok review pattern observation",
+        "INV-053 prior-art Area 4 partial",
+        "INV-054 Ascent Path STAGED"
+      ]
+    },
+    {
+      "id": "INV-060",
+      "title": "Yeast Factor diagnostic — 4-phase classifier for latent component power transitions",
+      "raised_by": "USER",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "STAGED",
+      "disposition_note": "Peter's question identified the cross-domain pattern that Grok named 'yeast factor' as a metaphor — Peter then asked whether it could be a real tool addition. Claude designed the 4-phase classifier formalization (dormant / activating / dominant / saturated / declining) based on the power-to-share ratio and its growth rate. The diagnostic is buildable on top of INV-058 (Systemic Power Spectrum Analyzer) once per-carrier power decomposition exists. Direct applications across loudspeaker design, industrial bread-making, energy transitions, microbiome, and finance.",
+      "promotion_window": "post-conference 2026-06-06 onward (depends on INV-058)",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Section 16) + future research note",
+      "summary": "The 'yeast factor' is a real, formalizable diagnostic for detecting components in a pre-activation phase: small raw share but large or growing steering power. Per carrier i, per sliding window τ: yeast_ratio_i(τ) = P_total_i(τ) / max(share_i(τ), ε); yeast_growth_i(τ) = d(yeast_ratio_i)/dτ. The diagnostic produces a 4-phase tag: dormant (low share, low power, flat growth), activating (low share, rising power, high ratio, positive growth — THE YEAST MOMENT), dominant (high share + high power), saturated (power growth ≈ 0), declining (ratio + share falling). Applications: (1) loudspeaker driver flagged as 'activating' in a frequency region indicates under-damping / wrong region / needs filter; (2) industrial bread-making: yeast phase transition gives continuous monitoring instead of trial-and-error; (3) energy: solar in Germany pre-2015 was 'activating' before share dominance — the EARLY warning signal for INV-051 deceptive drift at the component level; (4) microbiome: pathogen taxa with rising power-to-share ratio; (5) finance: sector rotation early warning. Generalized: a continuous-monitoring tool for finding the moment a latent component acquires exponential systemic power.",
+      "gate_criteria": "Post-conference implementation: (1) INV-058 Power Spectrum Analyzer implemented first to provide per-carrier P_total_i(τ); (2) yeast_ratio + yeast_growth computed per carrier per window; (3) phase classifier with tunable thresholds (default values per domain via wrapper); (4) validation on known cases (Germany solar activation, Japan post-Fukushima, classical bread-making time series, loudspeaker driver test cases); (5) integration into HCI-AUDIO wrapper (driver-region analysis) and an HCI-INDUSTRIAL wrapper (bread-making and similar processes).",
+      "narrative": "This is the most exciting STAGED entry in the bundle. Peter's loudspeaker insight proves the metaphor is real: an 'activating' driver in a frequency region is exactly an under-damped resonance — the diagnostic catches it before audibility. The bread-making application is industrial-scale: instead of trial-and-error monitoring of dough rise, continuous yeast-phase tracking would tell bakers WHEN the dough has reached optimum. The energy application is the cleanest fit with existing work: solar in Germany pre-2015 demonstrates exactly the dormant → activating → dominant transition over a multi-year window. The MICROBIOME and FINANCE applications are natural extensions. The yeast factor is the component-level version of INV-051's country-level deceptive drift: it asks 'WHICH carriers are in pre-activation phase?' at every time slice. This becomes a powerful generic monitoring tool for finite-share systems undergoing transitions.",
+      "talk_audience": "Out of scope for the conference talk per Phase 5 staging discipline. Could be mentioned in passing if Q&A presses on 'what's next for the framework' but should not be promised as ready.",
+      "related_inv_entries": [
+        "INV-051 deceptive drift 5-of-9",
+        "INV-058 Power Spectrum Analyzer",
+        "INV-061 System Terms Catalog"
+      ]
+    },
+    {
+      "id": "INV-061",
+      "title": "System Terms Catalog — front-and-center mapping of domain terminology to engine operations",
+      "raised_by": "USER",
+      "raised_date": "2026-05-11",
+      "raised_in_push": "#43",
+      "disposition": "STAGED",
+      "disposition_note": "Peter identified that constant engine revisions for domain-specific cases can be prevented by formalizing the mapping between domain terminology and engine operations as a front-and-center user-facing layer. Builds on the existing wrapper system (wrapper_audio.json, wrapper_government_budget.json — already canonical from push #32) but adds an explicit discovery doc + per-domain wrappers + auto-detection helper + required pipeline gate. The engine stays generic; domain knowledge lives in wrappers.",
+      "promotion_window": "post-conference 2026-06-06 onward",
+      "canonical_location": "ai-refresh/cross_check_archive/grok_round_5_session_2026-05-11.md (Section 'The terms catalog observation') + planned docs/SYSTEM_TERMS_CATALOG.md",
+      "summary": "The current wrapper system (HCI-CNQ/wrappers/) is a skeleton that addresses domain-specific terminology mapping. What's missing for full adoption: (1) a front-door discovery doc that explicitly tells users 'find your domain here first'; (2) wrappers for the major common domains (loudspeaker, bread/industrial process, energy mix, microbiome, finance/sector rotation); (3) an auto-detection helper that reads data signatures and suggests the likely wrapper ('rows look like frequency bins, carriers look like driver names' → suggests wrapper_loudspeaker); (4) a required pipeline step: data → domain confirmation gate → term mapping → engine. Without this layer, every new domain risks driving an engine revision; with it, every new domain becomes a wrapper file. Each wrapper contains: domain name, data signature pattern, term mappings (domain term ↔ engine operation), typical signal interpretations, default thresholds, worked example.",
+      "gate_criteria": "Post-conference implementation: (1) write docs/SYSTEM_TERMS_CATALOG.md as the front-door discovery doc; (2) populate wrappers for 5-7 major domains (loudspeaker, bread/industrial, energy_mix, microbiome, finance, geochem, healthcare/clinical); (3) implement auto-detection helper in tools/pipeline/; (4) add domain-confirmation gate to the pipeline runner; (5) document the contract: 'engine operations are generic; domain meaning is in wrappers'; (6) deprecate any domain-specific code that should have been a wrapper.",
+      "narrative": "Peter's architectural observation goes to the heart of the engine-bloat problem. The current engine has grown complex partly because domain-specific knowledge has been creeping into engine code (e.g., the navigation_concentration_family includes interpretation hints that are arguably wrapper-layer concerns). By formalizing the wrapper system as the canonical home for all domain meaning, the engine stays small and generic, and domain extensions become declarative configuration rather than code revisions. This also makes the system far more accessible: a user with a microbiome dataset reads the microbiome wrapper, finds their domain terms, knows which engine operations apply, and proceeds without needing to read the engine code. The wrapper system was created in push #32 for similar reasons (UN-6 locale support); INV-061 extends it from internationalization to full domain abstraction.",
+      "talk_audience": "Out of scope for the conference talk. Post-conference architectural priority — directly relevant to making the framework usable by the broader CoDa community without requiring everyone to learn the engine internals.",
+      "related_inv_entries": [
+        "INV-042 wrapper convention",
+        "INV-054 Ascent Path STAGED",
+        "INV-060 Yeast Factor diagnostic"
+      ]
     }
   ],
   "summary_by_disposition": {
-    "CANONICAL": 32,
+    "CANONICAL": 33,
     "FALSIFIED": 1,
     "DEFERRED": 12,
     "CLOSED": 1,
     "OPEN": 8,
-    "STAGED": 1
+    "STAGED": 6
   },
   "summary_by_source": {
-    "CLAUDE": 7,
+    "CLAUDE": 8,
     "CHATGPT": 10,
-    "USER": 23,
-    "GROK": 15
+    "USER": 25,
+    "GROK": 18
   },
   "promotion_rules": {
     "from_OPEN_to_CANONICAL": "Investigation must meet its stated gate_criteria. Promotion requires updating disposition, adding canonical_location, and citing the verification record (commit, pilot report, or experiment JSON).",

@@ -11,7 +11,8 @@
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-11",
     "last_push": "#42",
-    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
+    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
+    "push_43_prepared_held": "Push #43 prepared locally on 2026-05-11. Six new INV entries from Grok round 5 + Peter's terms-catalog observation: INV-056 fit_fixed_point STAGED, INV-057 Householder formalisation STAGED, INV-058 Power Spectrum Analyzer STAGED, INV-059 cross-model framing validation CANONICAL, INV-060 Yeast Factor diagnostic STAGED (real tool, 4-phase classifier), INV-061 System Terms Catalog STAGED. HOLD-TO-PUSH pending Peter authorization. NO canonical-file ripple before conference per Phase 5 staging."
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
