@@ -5,6 +5,12 @@
 **Version:** 1.0 — April 2026
 **Prerequisite:** Basic familiarity with Python and data analysis. No CoDa training required to start.
 
+> **⚠️ LEGACY — APRIL 2026.** *Preserved as historical foundation.* This learning path was written before the framework's six-push conference-prep arc (pushes #38–#43, May 2026) and the discovery of the **Hˢ Ascent Path doctrine** (INV-054 STAGED, captured in `ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json`).
+>
+> **Successor work (post-conference 2026-06-06 onward):** the Ascent Path replaces the three-track (practitioner / researcher / integrator) framing with a single ten-level capability ladder where user ability, engine capability, and documentation depth advance together. Per Ascent Path Phase 5 staging discipline, the new front-door doc (`docs/HS_ASCENT_PATH.md`) and supporting infrastructure (`CLAIMS_REGISTER.md`, `GLOSSARY_CANON.md`, `PROMOTION_LOG.md`, `PROMOTION_PACKET_TEMPLATE.md`, `STAGED_ASCENT_MAP.md`) are deliberately NOT created before the CoDaWork 2026 conference (1–5 June 2026) to keep the conference front door clean.
+>
+> **For now:** this April 2026 learning path remains valid and useful for first-time users of the framework. After the conference, it will be retired or migrated as part of the Ascent Path adoption (post-conference Phase 2). See `ai-refresh/INVESTIGATION_CATALOG.json` INV-054 for the full doctrine.
+
 ---
 
 ## Who This Is For

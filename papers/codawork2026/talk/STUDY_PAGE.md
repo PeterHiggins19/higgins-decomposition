@@ -4,6 +4,8 @@ A moot is what law students do to learn an argument. You don't memorise the scri
 
 This page tells you how to learn the talk that way. It works on a phone, on a train, in the airport, before bed. No slides needed during study — only the phrases.
 
+> **Before you start the moot rounds,** read [SPEAKER_BRIEF.md](SPEAKER_BRIEF.md) once. The brief is the strategic compass — why you're at the lectern, what each beat is doing for the room, what each country signals in the narrative arc. The moot work is tactical; the brief tells you what the tactics are *for*.
+
 ---
 
 ## The ten anchor phrases (the spine)

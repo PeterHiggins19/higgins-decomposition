@@ -9,17 +9,20 @@
 
 ## How to use this folder
 
-This folder is **the talk in three forms**:
+This folder is **the talk in five layers**:
 
+- **`SPEAKER_BRIEF.md`** *(strategic compass — read first, then again the night before)* — Why you are at the lectern. Strategic objective per beat. Per-country narrative (DEU/JPN/GBR/AUS/CHN/IND/FRA/USA/WLD). The narrative arc. Speaker's posture per beat. **Read this once to set the frame; the other files are tactical.**
 - **This README** — the spoken script. Read top-to-bottom on a phone, tablet, or laptop. Each beat is a section. Each section links to the matching slide file.
 - **`slides/`** — one Markdown file per slide. Visual described + spoken text + transition phrase to the next slide.
 - **`qa_bench/`** — Q&A response cards. Tap when a reviewer asks the named question.
 
-Three other files in this folder:
+Three operational files:
 
 - **`STUDY_PAGE.md`** — how to *moot* the talk (law-student phrase-chain memorization).
 - **`CHEAT_SHEET.md`** — one-page backstage scanner. Spine phrases only.
 - **`BACKUP_PRESENTATION.md`** — if AV fails, you read directly from this README.
+
+**Reading order (recommended):** SPEAKER_BRIEF → README → STUDY_PAGE → slide files as needed → CHEAT_SHEET (pocket-print) → BACKUP_PRESENTATION (read once cold).
 
 **Phone-friendly:** every page is short paragraphs. No tables wider than 3 columns. No requirement to load images.
 

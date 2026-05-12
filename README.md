@@ -46,7 +46,22 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 
 ---
 
-## What's New — May 2026
+## What's New — May 2026 (CoDaWork 2026 Conference-Prep Arc)
+
+**🎯 CoDaWork 2026 talk material complete (pushes #38–#43, 2026-05-10 / 2026-05-11).** Six pushes in 48 hours delivered the full conference-prep bundle: published abstract honored, MC-4 claim sharpened to three-conjunct form, five named investigations (INV-049 through INV-055) catalogued CANONICAL, the talk delivery infrastructure shipped phone-readable at [`papers/codawork2026/talk/`](papers/codawork2026/talk/), and six post-conference research entries (INV-056 through INV-061) filed STAGED for promotion after 2026-06-06.
+
+The talk material is structured in five layers — strategic compass ([`SPEAKER_BRIEF.md`](papers/codawork2026/talk/SPEAKER_BRIEF.md)), spoken oratory ([`README.md`](papers/codawork2026/talk/README.md)), study guide ([`STUDY_PAGE.md`](papers/codawork2026/talk/STUDY_PAGE.md)), backstage scanner ([`CHEAT_SHEET.md`](papers/codawork2026/talk/CHEAT_SHEET.md)), and AV-failure backup ([`BACKUP_PRESENTATION.md`](papers/codawork2026/talk/BACKUP_PRESENTATION.md)). Plus 10 slide files and 5 Q&A bench cards.
+
+**Catalog state at push #43:** 61 total / 33 CANONICAL / 6 STAGED (new disposition for "canonical-content, deferred-ripple") / 12 DEFERRED / 8 OPEN / 1 FALSIFIED / 1 CLOSED. Sources: USER 25, GROK 18, CHATGPT 10, CLAUDE 8.
+
+**External-review validation:** the talk's humble-invitation methods-challenge framing has been independently validated by two external models (ChatGPT session 2, Grok round 5) reading the MC-4 packet cold via the narrowed re-prompt template in [`ai-refresh/cross_check_archive/chatgpt_deep_research_2026-05-10_INDEX.md`](ai-refresh/cross_check_archive/chatgpt_deep_research_2026-05-10_INDEX.md). Cross-model convergence on the same posture across three internal Claude reviews + two independent external models. See INV-059 (CANONICAL).
+
+→ Conference-prep arc summary: [`ai-refresh/REPO_STATE_2026-05-11_post-push43.md`](ai-refresh/REPO_STATE_2026-05-11_post-push43.md)
+→ Push-by-push traceability: [`ai-refresh/PUSHES_INDEX.md`](ai-refresh/PUSHES_INDEX.md)
+
+---
+
+## What's New — May 2026 (earlier arc)
 
 Two protocols shipped that make this repo dramatically more usable for
 both researchers and AI assistants:

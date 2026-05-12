@@ -1,0 +1,210 @@
+{
+  "_schema": "hs_repo_structure_treasure_map_v1",
+  "_purpose": "Deterministic navigation aid for limited-AI sessions (any platform: Claude, ChatGPT, Grok, future models). Lists where canonical files live, what each major folder is for, and which files to read in what order. The intent is to eliminate 'archaeology' time for any AI session that arrives with partial or no context.",
+  "_generated": "2026-05-12",
+  "_prepared_in": "push #44 (path-2-plus AI-coordination expansion)",
+  "_authority": "This file is a navigation aid, not a source of canonical claims. Canonical claims live in INVESTIGATION_CATALOG.json. If this file and INVESTIGATION_CATALOG.json disagree, the catalog wins.",
+
+  "read_first": {
+    "purpose": "If an AI session has time to read only five files before answering any question about the Hs repo, read these five in this order.",
+    "order": [
+      {
+        "rank": 1,
+        "path": "README.md",
+        "why": "Root README — current state of the Hs repo, doctrine line, what's new section. Sets the frame."
+      },
+      {
+        "rank": 2,
+        "path": "ai-refresh/INVESTIGATION_CATALOG.md",
+        "why": "Master catalog of 61 numbered investigations with disposition (CANONICAL / STAGED / DEFERRED / OPEN / FALSIFIED / CLOSED). Every claim in the system has an INV-### number that traces here."
+      },
+      {
+        "rank": 3,
+        "path": "ai-refresh/PUSHES_INDEX.md",
+        "why": "Chronological index of pushes with commit SHAs and CI run numbers. Tells you which claims landed when and what was being proven at each step."
+      },
+      {
+        "rank": 4,
+        "path": "ai-refresh/CROSS_AI_COORDINATION.md",
+        "why": "Per-platform capability matrix and division of labor. Tells an AI session what it can and cannot do safely in this repo, and where its outputs should land."
+      },
+      {
+        "rank": 5,
+        "path": "papers/codawork2026/talk/SPEAKER_BRIEF.md",
+        "why": "The strategic compass for the CoDaWork 2026 conference talk. Establishes what the work is for, who it serves, and the long-view rationale."
+      }
+    ]
+  },
+
+  "doctrine_files": {
+    "purpose": "Files that encode binding rules. Any change to these requires an explicit push with cross-check archive entry.",
+    "entries": [
+      {
+        "path": "HS_DATA_INTEGRITY_LAW.md",
+        "binds": "What counts as a valid measurement, what counts as inspected vs executed evidence."
+      },
+      {
+        "path": "OPERATIONS_PROTOCOL.md",
+        "binds": "The four binding doctrines: SEA (single engine of authority), STP (single test plane), CRD (canonical reference dataset), engine-independence."
+      },
+      {
+        "path": "AI_AGENTS.md",
+        "binds": "What AI sessions are permitted to do in this repo. Read this before any action."
+      },
+      {
+        "path": "LICENSING.md",
+        "binds": "License surface for code, docs, and data."
+      }
+    ]
+  },
+
+  "folder_map": {
+    "purpose": "Top-level folder roles. Each entry explains what the folder is for, what an AI should look for inside it, and what NOT to expect.",
+    "entries": [
+      {
+        "folder": "ai-refresh/",
+        "role": "Audit trail, admin state, and AI cross-check materials. The repo's memory.",
+        "key_files": [
+          "INVESTIGATION_CATALOG.json (master catalog)",
+          "INVESTIGATION_CATALOG.md (human-readable mirror)",
+          "HS_ADMIN.json (session_log, push state, schema)",
+          "HS_FAST_REFRESH.json (lightweight current-state snapshot)",
+          "PUSHES_INDEX.md (chronological push index)",
+          "CROSS_AI_COORDINATION.md (per-AI capability matrix)",
+          "CLAIM_TEST_PACKET.json (mirror-repo validation framework, STAGED)",
+          "HS_REPO_STRUCTURE_TREASURE_MAP.json (this file)",
+          "cross_check_archive/ (preserved AI cross-check sessions)",
+          "AI_REFRESH_YYYY-MM-DD_*.md (per-push narrative reports)"
+        ],
+        "ai_should": "Read INVESTIGATION_CATALOG and PUSHES_INDEX before claiming any specific status of the repo."
+      },
+      {
+        "folder": "HCI/",
+        "role": "Higgins Coordinate Instrument — the canonical Hs engine code (CNT v3.1.0).",
+        "key_files": [
+          "tests/ (the test suite — STP plane)",
+          "engine code (Python)"
+        ],
+        "ai_should": "NOT modify engine code without an explicit push number. Engine-independence is a binding doctrine."
+      },
+      {
+        "folder": "HCI-CNQ/",
+        "role": "CNQ v2.0.0 engine — quaternion-based companion. Independent of CNT.",
+        "key_files": ["engine code (Python)"],
+        "ai_should": "Treat as engine-independent from CNT. Do not assume shared internals."
+      },
+      {
+        "folder": "HCI-CNT/",
+        "role": "CNT-specific outputs, coda_community/ preprints, conference_demo/ materials.",
+        "key_files": [
+          "coda_community/CNT_VS_CODA_BALANCE.md (technical balance)",
+          "coda_community/CNT_ROI_AND_USE_CASES.md",
+          "coda_community/CNT_VERIFICATION_VALUE_FOR_CODA.md",
+          "conference_demo/ (30-min talk + 10-slide deck)"
+        ],
+        "ai_should": "Read these when CoDaWork 2026 conference is the topic."
+      },
+      {
+        "folder": "hci_shared/",
+        "role": "Shared geometry primitives used by both engines (Aitchison, Helmert, CLR/ILR).",
+        "key_files": ["geometry.py"],
+        "ai_should": "Treat as load-bearing. Changes here ripple to both engines."
+      },
+      {
+        "folder": "papers/",
+        "role": "Manuscripts and conference materials.",
+        "key_subfolders": [
+          "codawork2026/talk/ — current talk material, 19 files, phone-readable",
+          "codawork2026/planning/ — master plan + external review invite + named findings",
+          "codawork2026/conference_2026_06/ — EMBER corpus run that backs the talk"
+        ],
+        "ai_should": "For conference questions, start at papers/codawork2026/talk/SPEAKER_BRIEF.md."
+      },
+      {
+        "folder": "experiments/",
+        "role": "Reproducible experiment runs with input data + scripts + outputs.",
+        "ai_should": "Honor the receipts in this folder — they are executed evidence."
+      },
+      {
+        "folder": "data/",
+        "role": "Canonical input datasets. The 101-dataset reference suite anchors here.",
+        "ai_should": "Treat as read-only. Do not modify."
+      },
+      {
+        "folder": "docs/",
+        "role": "Long-form documentation. Some files marked LEGACY are kept for traceability.",
+        "key_files": [
+          "Hs_Learning_Path.md (LEGACY April 2026 — superseded by INV-054 Ascent Path STAGED)"
+        ],
+        "ai_should": "Check for LEGACY headers before treating any file here as current."
+      },
+      {
+        "folder": "archive/",
+        "role": "Frozen historical material. Do not modify; do not cite as current state.",
+        "ai_should": "Read only for historical context."
+      },
+      {
+        "folder": "tools/",
+        "role": "Pipeline scripts and supporting utilities.",
+        "ai_should": "Run, do not necessarily modify, unless the push number is explicit."
+      },
+      {
+        "folder": "constants/",
+        "role": "Numerical constants used across engines.",
+        "ai_should": "Single source of truth — do not introduce duplicates elsewhere."
+      }
+    ]
+  },
+
+  "investigation_catalog_quick_index": {
+    "purpose": "Anchors for the most-referenced INV entries. Full catalog at ai-refresh/INVESTIGATION_CATALOG.json.",
+    "as_of": "2026-05-11 (post-push-#43)",
+    "counts": {
+      "total": 61,
+      "CANONICAL": 33,
+      "STAGED": 6,
+      "DEFERRED": 12,
+      "OPEN": 8,
+      "FALSIFIED": 1,
+      "CLOSED": 1
+    },
+    "anchor_entries": [
+      {"id": "INV-050", "title": "Metric-invariance (TV/Aitchison pair)", "status": "CANONICAL"},
+      {"id": "INV-051", "title": "5-of-9 deceptive drift (EMBER 2001-2025)", "status": "CANONICAL"},
+      {"id": "INV-054", "title": "Ascent Path doctrine", "status": "STAGED (Phase 5 conference-window discipline; promote after 2026-06-06)"},
+      {"id": "INV-055", "title": "MC-4 packet alignment", "status": "CANONICAL"},
+      {"id": "INV-059", "title": "Humble-invitation framing for CoDaWork talk", "status": "CANONICAL"},
+      {"id": "INV-060", "title": "Yeast factor (4-phase classifier)", "status": "STAGED"},
+      {"id": "INV-061", "title": "System Terms Catalog", "status": "STAGED"}
+    ]
+  },
+
+  "no_create_protected_files": {
+    "purpose": "Files that exist in INV-054 STAGED specification but MUST NOT be created during the conference window (until 2026-06-06+). Any AI session that creates these violates Phase 5 discipline.",
+    "files": [
+      "docs/HS_ASCENT_PATH.md",
+      "CLAIMS_REGISTER.md",
+      "GLOSSARY_CANON.md",
+      "PROMOTION_LOG.md",
+      "PROMOTION_PACKET_TEMPLATE.md",
+      "STAGED_ASCENT_MAP.md"
+    ],
+    "enforcement": "Pre-flight checks verify these remain uncreated. After 2026-06-06 they may be promoted from STAGED to created."
+  },
+
+  "binding_doctrine_lines": {
+    "purpose": "The short sentences that govern the project. Any AI session should be able to recite these.",
+    "lines": [
+      "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.",
+      "First classify the environment. Then choose the route. Never upgrade inspected evidence into executed evidence.",
+      "Engine code is engine-independent. Tests are the single test plane. Reference data is canonical. Receipts are public."
+    ]
+  },
+
+  "how_to_use_this_file": {
+    "for_a_fresh_ai_session": "Read top-to-bottom once. You will know where every important file lives within five minutes.",
+    "for_an_ai_with_partial_access": "Use the read_first list as a triage queue. Each file in that list links to the next.",
+    "for_a_human_reviewer": "Compare this map against your actual checkout to spot drift. If the map and the filesystem disagree, the filesystem is correct and this map needs updating in the next push.",
+    "update_cadence": "Update this file once per major repo-structure change. Drift past one push without update is acceptable; drift past three pushes requires a refresh push."
+  }
+}

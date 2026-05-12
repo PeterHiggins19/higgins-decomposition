@@ -2,6 +2,7 @@
 
 **Title:** Compositional monitoring of energy-mix drift on the simplex
 **Time:** 15 min talk + Q&A
+**Strategic compass:** [SPEAKER_BRIEF.md](SPEAKER_BRIEF.md) (read once before going on)
 
 ---
 

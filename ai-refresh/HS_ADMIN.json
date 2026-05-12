@@ -12,7 +12,7 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-11T19:00:00Z",
+    "last_updated": "2026-05-12",
     "push_36_completed": "2026-05-10",
     "push_37_completed": "2026-05-10",
     "push_38_completed": "2026-05-10",
@@ -23,7 +23,9 @@
     "push_42_prepared": "2026-05-11",
     "push_42_completed": "2026-05-11",
     "push_43_prepared": "2026-05-11",
-    "push_43_completed": "2026-05-11"
+    "push_43_completed": "2026-05-11",
+    "push_44_prepared": "2026-05-11",
+    "push_44_completed": "2026-05-12"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1071,7 +1073,10 @@
       "engine_unchanged": true,
       "tests_unchanged": true,
       "schema_unchanged": true,
-      "review_window": "open from 2026-05-10 through 2026-06-01 (conference start). After 2026-06-05 the external-review-invite retires and feedback rolls into the post-conference journal track."
+      "review_window": "open from 2026-05-10 through 2026-06-01 (conference start). After 2026-06-05 the external-review-invite retires and feedback rolls into the post-conference journal track.",
+      "commit_sha": "34913f8",
+      "ci_run": 36,
+      "ci_note": "Validate Repository run #36 \"HCI Coherence\""
     },
     {
       "push": 39,
@@ -1098,7 +1103,10 @@
       "engine_unchanged": true,
       "tests_unchanged": true,
       "schema_unchanged": true,
-      "review_origin": "Claude self-review against EXTERNAL_REVIEW_INVITE.md fetch order; sharpening applied per Peter's directive 'make all improvements as suggested.'"
+      "review_origin": "Claude self-review against EXTERNAL_REVIEW_INVITE.md fetch order; sharpening applied per Peter's directive 'make all improvements as suggested.'",
+      "commit_sha": "50b7e61",
+      "ci_run": 37,
+      "ci_note": "Validate Repository run #37 \"CodaWork 2026 Conference\" - likely bundled with adjacent pushes"
     },
     {
       "push": 40,
@@ -1128,7 +1136,10 @@
       "engine_unchanged": true,
       "tests_unchanged": true,
       "schema_unchanged": true,
-      "review_origin": "Peter's directive 'use only the most useful and store the rest' after three ChatGPT deep-research reports."
+      "review_origin": "Peter's directive 'use only the most useful and store the rest' after three ChatGPT deep-research reports.",
+      "commit_sha": "50b7e61",
+      "ci_run": 37,
+      "ci_note": "Validate Repository run #37 - bundled with push #39 / #41 in single commit per Peter session log"
     },
     {
       "push": 41,
@@ -1160,7 +1171,10 @@
       "engine_unchanged": true,
       "tests_unchanged": true,
       "schema_unchanged": true,
-      "review_origin": "Grok round 4 (2026-05-10) + ChatGPT session 2 (2026-05-10). Both used the narrowed re-prompt template from push #40 INDEX. Template validated across two independent models. Peter directive: 'use only the most useful and store the rest' + HOLD-TO-PUSH until Peter authorizes."
+      "review_origin": "Grok round 4 (2026-05-10) + ChatGPT session 2 (2026-05-10). Both used the narrowed re-prompt template from push #40 INDEX. Template validated across two independent models. Peter directive: 'use only the most useful and store the rest' + HOLD-TO-PUSH until Peter authorizes.",
+      "commit_sha": "f176e2c",
+      "ci_run": 38,
+      "ci_note": "Validate Repository run #38 \"Three open questions\""
     },
     {
       "push": 42,
@@ -1202,7 +1216,10 @@
       "tests_unchanged": true,
       "schema_unchanged": true,
       "ascent_path_layer": "branch (applications / venue-specific delivery work; does not touch trunk or root canon; NO-CREATE list still empty)",
-      "review_origin": "Peter directive 2026-05-11: 'law students go through a moot... add to presentation folder... use the repo itself as the presentation if need be and for instant study anywhere even on my phone.'"
+      "review_origin": "Peter directive 2026-05-11: 'law students go through a moot... add to presentation folder... use the repo itself as the presentation if need be and for instant study anywhere even on my phone.'",
+      "commit_sha": "7bd8e91",
+      "ci_run": 39,
+      "ci_note": "Validate Repository run #39 \"CODAWORK2026 Conference\""
     },
     {
       "push": 43,
@@ -1233,7 +1250,45 @@
       "ascent_path_layer": "catalog-only work; no trunk/root changes; NO-CREATE list still empty",
       "review_origin": "Grok round 5 cross-check 2026-05-11 (Grok with full GitHub repo access; first such session) + Peter's architectural questions about the yeast factor as real tool and the system terms catalog.",
       "commit_sha": "e1f95e7",
-      "ci_run": 40
+      "ci_run": 40,
+      "post_release_sync_commit": "846693a (CI run #41 \"AI refresh\") - HS_FAST_REFRESH counter sync + REPO_STATE doc"
+    },
+    {
+      "push": 44,
+      "date": "2026-05-12",
+      "title": "Spring-cleaning maintenance: SPEAKER_BRIEF + SHA back-fill + READMEs refresh + PUSHES_INDEX + Hs_Learning_Path legacy mark",
+      "type": "doc-only + admin (housekeeping; no canonical doctrine changes)",
+      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive \"release push 44 and push it into existence\". All 33 pre-flight checks green. Bundle: spring cleaning + path-2-plus cross-AI coordination apparatus (TREASURE_MAP + CLAIM_TEST_PACKET STAGED + CROSS_AI_COORDINATION + ChatGPT session archived). 7 new files / 7 modified files. No catalog changes; no NO-CREATE files created; engine/tests/schema unchanged. Awaiting git commit + push for SHA + CI run #.",
+      "catalog_entries": [
+        "(no new INV — pure maintenance)"
+      ],
+      "summary": "Spring-cleaning maintenance push to consolidate the conference-prep arc traceability and add the strategic-compass speaker brief. Per Peter's directive: 'do as much system maintenance updates and json structure refresh and full push setup with option 2 as suggested, and any other items that would make things easy.' MAJOR ADDITIONS: (1) papers/codawork2026/talk/SPEAKER_BRIEF.md - strategic compass for the speaker covering motivation as orator, per-beat strategic objective, per-country narrative (DEU/JPN/GBR/AUS/CHN/IND/FRA/USA/WLD), the narrative arc, speaker's compass per beat, six-sentence fallback, Q&A posture, and the long-view rationale for the work. (2) ai-refresh/PUSHES_INDEX.md - full chronological push index #38-#43 with commit SHAs, CI run numbers, one-line summaries, catalog state at each push, cross-check archive verdicts, and the post-conference research roadmap. MAINTENANCE: (3) SHA back-fill in HS_ADMIN session_log for pushes #38 (34913f8 CI #36), #39+#40 bundled (50b7e61 CI #37), #41 (f176e2c CI #38), #42 (7bd8e91 CI #39); push #43 SHA e1f95e7 CI #40 already recorded. Plus post-#43 sync commit 846693a CI #41 noted on push #43 entry. (4) docs/Hs_Learning_Path.md marked as 'LEGACY - APRIL 2026 - preserved as historical foundation' with link to INV-054 Ascent Path STAGED. Phase 2 prep that does NOT violate Phase 5 conference-window discipline (just a label; no new files created). (5) Root README.md updated with 'What's New - May 2026 (CoDaWork 2026 Conference-Prep Arc)' section pointing at talk folder + SPEAKER_BRIEF + REPO_STATE + PUSHES_INDEX. (6) papers/codawork2026/README.md updated with 'START HERE' section pointing at talk/ + planning/; earlier manuscript drafts moved to historical section. (7) Talk folder cross-references: README.md + STUDY_PAGE.md + CHEAT_SHEET.md all reference SPEAKER_BRIEF.md as the strategic compass to read first. ASCENT PATH DISCIPLINE INTACT: still 6/6 NO-CREATE files uncreated. Catalog math unchanged: 61 / 33 / 6 STAGED / 12 / 8 / 1 / 1.",
+      "files_added": [
+        "papers/codawork2026/talk/SPEAKER_BRIEF.md",
+        "ai-refresh/PUSHES_INDEX.md",
+        "ai-refresh/PUSH44_PRE_PUSH_SUMMARY.md"
+      ],
+      "files_modified": [
+        "papers/codawork2026/talk/README.md (added SPEAKER_BRIEF as the strategic-compass first layer)",
+        "papers/codawork2026/talk/STUDY_PAGE.md (added SPEAKER_BRIEF read-first note)",
+        "papers/codawork2026/talk/CHEAT_SHEET.md (added SPEAKER_BRIEF reference)",
+        "papers/codawork2026/README.md (added START HERE section pointing at talk/ + planning/)",
+        "README.md (root) (added What's New - May 2026 conference-prep arc section)",
+        "docs/Hs_Learning_Path.md (added LEGACY April 2026 header marking)",
+        "ai-refresh/HS_ADMIN.json (SHA back-fill for pushes #38-#42; this session_log entry)"
+      ],
+      "engine_unchanged": true,
+      "tests_unchanged": true,
+      "schema_unchanged": true,
+      "ascent_path_layer": "branch/maintenance-layer; no trunk/root changes; NO-CREATE list still empty (6/6 uncreated)",
+      "review_origin": "Peter directive 2026-05-11: 'please do as much system maintenance updates and json structure refresh and full push setup with option 2 as suggested... very nice time to do house cleaning for spring.'",
+      "changes": [
+        "ai-refresh/HS_REPO_STRUCTURE_TREASURE_MAP.json (NEW): limited-AI navigation aid; ChatGPT v1 + Claude integration",
+        "ai-refresh/CLAIM_TEST_PACKET.json (NEW, STAGED): mirror-repo claim validation framework; promote post-conference",
+        "ai-refresh/CROSS_AI_COORDINATION.md (NEW): per-platform capability matrix + handoff conventions",
+        "ai-refresh/cross_check_archive/chatgpt_github_connector_session_2026-05-11.md (NEW): archive of ChatGPT GitHub-connector session that produced the two JSON specs and the ENV-0..ENV-5 environment classification doctrine"
+      ],
+      "scope_note": "Path 2 plus: ChatGPT-drafted treasure map and claim test packet integrated + cross-AI coordination apparatus written + ChatGPT session archived. No catalog changes; no NO-CREATE files created; engine/tests/schema unchanged."
     }
   ],
   "licensing": {

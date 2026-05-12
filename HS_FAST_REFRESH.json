@@ -9,9 +9,10 @@
     "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
-    "last_updated": "2026-05-11",
-    "last_push": "#43",
-    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
+    "last_updated": "2026-05-12",
+    "last_push": "#44",
+    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
+    "push_44_completed": "2026-05-12"
   },
   "identity": {
     "framework_name": "Higgins Decomposition",

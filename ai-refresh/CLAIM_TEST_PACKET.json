@@ -1,0 +1,113 @@
+{
+  "_schema": "hs_claim_test_packet_v1",
+  "_purpose": "Mirror-repo claim validation framework. Specifies exactly what an independent AI session (in a fresh clone, with no prior context) would need to run to verify the canonical claims of the Hs project end-to-end. The packet is designed so that any of three platforms (Claude, ChatGPT, Grok) can execute it and produce a comparable receipt.",
+  "_status": "STAGED",
+  "_status_reason": "The packet specification is complete and reviewable in this push, but it has not yet been exercised against a mirror clone. It is promoted from STAGED to CANONICAL only after a successful end-to-end run produces a green log committed to the cross_check_archive/.",
+  "_generated": "2026-05-12",
+  "_prepared_in": "push #44 (path-2-plus AI-coordination expansion)",
+  "_authority_chain": "ChatGPT GitHub-connector session 2026-05-11 (drafted) → Claude push #44 (integrated) → first mirror-repo run (TBD) → cross_check_archive entry (TBD) → promotion to CANONICAL",
+
+  "claim_matrix": {
+    "purpose": "The set of falsifiable claims to be exercised. Each claim has a numbered INV-### in the catalog and a specific test gate. The pass/fail of the gate determines whether the claim survives this round.",
+    "claims": [
+      {
+        "claim_id": "MC-4.C1",
+        "claim": "The Hs decomposition is Aitchison-native — distances and projections respect the simplex geometry, not Euclidean naive space.",
+        "anchor_inv": "INV-050",
+        "test_gate": "TV/Aitchison metric pair on the 101-dataset reference suite returns identical orderings of similarity within numerical tolerance. Pass = perfect rank agreement on all 101 datasets. Fail = any rank inversion.",
+        "exact_command": "python tools/pipeline/run_metric_invariance.py --suite reference_101 --out experiments/MC-4_C1_run.json",
+        "expected_output_signature": "experiments/MC-4_C1_run.json with 'rank_agreement': 1.0 across all pairs",
+        "stop_rule_if_fail": "Halt. Open issue. Do not promote downstream claims."
+      },
+      {
+        "claim_id": "MC-4.C2",
+        "claim": "Formal change detection via Helmert basis (pivot coordinates) is sound — change is detectable as displacement in pivot coordinates, not as raw composition shift.",
+        "anchor_inv": "INV-051",
+        "test_gate": "EMBER 2001-2025 9-country corpus run. 5 of 9 countries (AUS, CHN, GBR, IND, JPN) flag deceptive drift; 4 (DEU, FRA, USA, WLD) do not. Pass = exact 5-of-9 pattern reproduced.",
+        "exact_command": "python tools/pipeline/run_ember_9country.py --years 2001-2025 --out experiments/MC-4_C2_run.json",
+        "expected_output_signature": "experiments/MC-4_C2_run.json with 'deceptive_drift_countries': ['AUS','CHN','GBR','IND','JPN']",
+        "stop_rule_if_fail": "Halt. Investigate engine drift. Compare engine version against push #37 lock (CNT v3.1.0)."
+      },
+      {
+        "claim_id": "MC-4.C3",
+        "claim": "Carrier-level attribution is recoverable — when a country's composition shifts, the engine names which carrier(s) drove the shift, not just that one occurred.",
+        "anchor_inv": "INV-055",
+        "test_gate": "Run carrier-attribution on the AUS 2008-2014 inflection. Pass = engine returns coal-share decline + gas-share rise as the named drivers, both with magnitudes within 5% of recorded EMBER values.",
+        "exact_command": "python tools/pipeline/run_carrier_attribution.py --country AUS --window 2008-2014 --out experiments/MC-4_C3_run.json",
+        "expected_output_signature": "experiments/MC-4_C3_run.json with named carriers + magnitudes",
+        "stop_rule_if_fail": "Halt. Likely CLR/ILR transform bug. Check hci_shared/geometry.py against push #32 lock."
+      },
+      {
+        "claim_id": "YEAST.C1",
+        "claim": "The yeast factor (4-phase classifier: dormant / activating / dominant / saturated-declining) classifies the EMBER 9-country renewables trajectory consistently with documented energy-transition narratives.",
+        "anchor_inv": "INV-060",
+        "test_gate": "STAGED claim. Run the 4-phase classifier across 9 countries 2001-2025. Pass = phase labels match the qualitative narrative published in IEA energy-transition reports for at least 7 of 9 countries.",
+        "exact_command": "python tools/pipeline/run_yeast_factor.py --suite ember_9country --out experiments/YEAST_C1_run.json",
+        "expected_output_signature": "experiments/YEAST_C1_run.json with phase labels per country per year",
+        "stop_rule_if_fail": "Note: this is STAGED. Failure does not halt the conference-window release; it is logged for post-conference promotion review."
+      },
+      {
+        "claim_id": "DOCTRINE.C1",
+        "claim": "The four binding doctrines (SEA, STP, CRD, engine-independence) hold across the repo — no engine reaches into the other; tests use the single test plane; reference data is canonical.",
+        "anchor_inv": "OPERATIONS_PROTOCOL",
+        "test_gate": "Static analysis pass: no cross-engine imports between HCI/ and HCI-CNQ/; both engines pass tests against the same reference suite. Pass = static analysis clean + both engines green.",
+        "exact_command": "python tools/pipeline/check_engine_independence.py && pytest HCI/tests/ HCI-CNQ/tests/",
+        "expected_output_signature": "Static analysis exits 0; pytest exits 0",
+        "stop_rule_if_fail": "Halt. Engine-independence violation is a binding-doctrine break."
+      }
+    ]
+  },
+
+  "execution_environment_classification": {
+    "purpose": "Per ChatGPT GitHub-connector session 2026-05-11. Different AI environments have different capabilities. The packet is run differently in each. Never upgrade inspected evidence into executed evidence.",
+    "environments": [
+      {"code": "ENV-0", "name": "Human at workstation", "can_execute": true, "produces": "Executed evidence + commit"},
+      {"code": "ENV-1", "name": "GitHub Actions CI", "can_execute": true, "produces": "Public receipts (CI logs)"},
+      {"code": "ENV-2", "name": "Claude with file tools + bash sandbox", "can_execute": true, "produces": "Executed evidence in session; not yet public until pushed"},
+      {"code": "ENV-3", "name": "Claude mirror-repo execution agent", "can_execute": true, "produces": "Executed evidence + receipt in mirror repo; cross-referenced into main via cross_check_archive"},
+      {"code": "ENV-4", "name": "ChatGPT with GitHub connector (read + PR draft)", "can_execute": false, "produces": "Inspected evidence + structural advice; can draft PRs but cannot execute"},
+      {"code": "ENV-5", "name": "Grok with web fetch", "can_execute": false, "produces": "Inspected evidence; independent reviewer"}
+    ]
+  },
+
+  "pass_fail_gate_semantics": {
+    "purpose": "What 'pass' and 'fail' mean concretely.",
+    "rules": [
+      "Pass requires: command exits 0, expected_output_signature is present in output file, and any rank/match criterion is met exactly as specified.",
+      "Fail requires: any criterion above is missed. Numerical-tolerance criteria use the tolerance recorded in OPERATIONS_PROTOCOL.md.",
+      "Partial pass is not a category. A claim either survives the gate or it does not.",
+      "If the run cannot complete (environment failure, missing data), that is a separate category: NOT_EXECUTED. NOT_EXECUTED is not pass and not fail — it means the gate did not run."
+    ]
+  },
+
+  "receipt_format": {
+    "purpose": "What a completed run records back into the repo.",
+    "shape": {
+      "claim_id": "string (e.g., 'MC-4.C1')",
+      "environment": "string (ENV-0..ENV-5)",
+      "executor_platform": "string (Claude / ChatGPT / Grok / Human / CI)",
+      "executed_at": "ISO 8601 timestamp",
+      "command": "string (exact command run)",
+      "exit_code": "integer",
+      "output_file_sha256": "string",
+      "result": "string (pass | fail | not_executed)",
+      "notes": "string (optional, free text)"
+    },
+    "destination": "ai-refresh/cross_check_archive/CLAIM_RECEIPTS_YYYY-MM-DD.md (one file per dated batch of receipts)"
+  },
+
+  "promotion_rule": {
+    "purpose": "How this packet moves from STAGED to CANONICAL.",
+    "rule": "When a complete batch of receipts (one per claim in the matrix) has been produced from at least two independent environments (e.g., ENV-2 Claude + ENV-3 mirror-repo, or ENV-1 CI + ENV-2 Claude), and all claims show consistent pass results, the packet is eligible for promotion to CANONICAL in a subsequent push.",
+    "earliest_promotion_window": "2026-06-06 (post-conference)",
+    "conference_window_constraint": "During Phase 5 (now through 2026-06-06) this packet is STAGED only. No promotion attempts during the conference window."
+  },
+
+  "what_this_packet_is_not": {
+    "rules": [
+      "This is not a test suite. The actual test suite lives at HCI/tests/ and HCI-CNQ/tests/. This packet is the claim-level wrapper that binds tests to canonical claims.",
+      "This is not a substitute for OPERATIONS_PROTOCOL.md. Doctrine governs; this packet executes against doctrine.",
+      "This is not a substitute for the catalog. INVESTIGATION_CATALOG.md is the master claim record; this packet provides the executable check for selected catalog entries."
+    ]
+  }
+}
