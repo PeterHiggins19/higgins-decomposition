@@ -2,6 +2,8 @@
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
+> **🎯 Conference Status — CoDaWork 2026, Coimbra (1–5 June 2026).** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. Conference talk material lives at [`papers/codawork2026/talk/`](papers/codawork2026/talk/) — start with [`SPEAKER_BRIEF.md`](papers/codawork2026/talk/SPEAKER_BRIEF.md). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json).
+
 > **🎉 Public and publication-grade.** Both engines (CNT v3.0.0 and CNQ v2.0.0) ship in Python and R with language-agnostic pseudocode and a 43-test suite. The user entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing in [`LICENSING.md`](LICENSING.md). Free to use, free to cite, help is available — open an issue or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
 
 **Hˢ = R ∘ M ∘ E ∘ C ∘ T ∘ V ∘ S**

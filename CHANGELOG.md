@@ -14,7 +14,8 @@ The most recent push window is the CoDaWork 2026 conference-preparation arc: pus
 
 | Push | SHA | CI run | Theme |
 |---|---|---|---|
-| **#48** | *(this push, HOLD-TO-PUSH)* | *pending* | Cache-lag mitigation + maintenance gap fixes (AI_AGENTS §2.1, SHA promotion, grounding test, manifest legacy marker, this CHANGELOG.md) |
+| **#49** | *(this push, HOLD-TO-PUSH)* | *pending* | **Pre-Conference Lockdown** declared 2026-05-12 → 2026-06-06. PRE_CONFERENCE_LOCKDOWN.md + Root README Conference Status section + lockdown baseline receipt. |
+| **#48** | `eca9604` | #45 ("Cache-lag mitigation") | Cache-lag mitigation + maintenance gap fixes (AI_AGENTS §2.1, SHA promotion, grounding test, manifest legacy marker, this CHANGELOG.md) |
 | **#47** | `7f996e7` (combined) | #44 ("Document Control Protocol (DCP-001)") | DCP-001 executed end-to-end under Hs Change Control v1.0 |
 | **#46** | `7f996e7` (combined) | #44 | Hs Change Control v1.0 scaffolding + INV-063 STAGED + DCP-001 filed |
 | **#45** | `32e4018` | #43 ("CNQ Vector PDF") | Grok r6 intake + INV-062 STAGED + pedagogical tables |
