@@ -10,7 +10,7 @@
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
     "last_updated": "2026-05-12",
     "last_push": "#37",
-    "total_investigations": 62
+    "total_investigations": 63
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -1009,6 +1009,27 @@
         "INV-054 Ascent Path STAGED",
         "INV-061 System Terms Catalog STAGED"
       ]
+    },
+    {
+      "id": "INV-063",
+      "title": "Hs Change Control v1.0 doctrine — controlled discovery-to-baseline propagation system",
+      "raised_by": "USER + CHATGPT + CLAUDE",
+      "raised_date": "2026-05-12",
+      "raised_in_push": "#46",
+      "disposition": "STAGED",
+      "disposition_note": "Peter's framing: 'the entire system by design and necessity is a coherent system that must be coherent to successfully decompose other systems'; ChatGPT proposed a NASA-style configuration-management + interface-control + traceability + change-packet architecture; Claude verified the drift diagnosis (13 errors across 4 files) and built the scaffolding in push #46. The doctrine itself stays STAGED until DCP-001 + one more DCP have been executed end-to-end and the consistency checker exits 0 on a green state.",
+      "promotion_window": "post-conference 2026-06-06 onward",
+      "canonical_location": "ai-refresh/CHANGE_CONTROL_README.md + ai-refresh/CONFIGURATION_ITEMS.json + ai-refresh/INTERFACE_CONTROL.json + ai-refresh/TRACEABILITY_MATRIX.json + ai-refresh/CHANGE_PACKET_TEMPLATE.json + ai-refresh/change_packets/ + scripts/check_ai_refresh_consistency.py",
+      "summary": "A lightweight NASA-style change-control subsystem for the Hs repository. Treats the repo as a coherent system with controlled configuration items (CIs), explicit producer-consumer interfaces (IFs), bidirectional traceability between concepts and files, severity-classified change packets (DCPs), and a stdlib-only consistency checker that enforces the rules. Eight doctrine rules HCC-R001 through HCC-R008. Six severity classes S0 (archive-only) through S5 (scientific claim baseline). Lifecycle: proposed → in_progress → implemented → verified → released. HS_FAST_REFRESH.json is the single live source of truth for AI-facing state.",
+      "gate_criteria": "Promotion gates for STAGED → CANONICAL: (1) Scaffolding files exist and parse — DONE in push #46. (2) Consistency checker runs from stdlib Python and exits non-zero on documented drift — DONE in push #46 (13 errors captured as DCP-001 baseline evidence). (3) DCP-001 created with drift evidence attached — DONE in push #46. (4) At least one DCP executed end-to-end (status reaches 'released'), demonstrating the workflow — PENDING (likely DCP-001 in push #47 if Peter authorizes). (5) Consistency checker exits 0 after the executed DCP — PENDING. (6) A second DCP (any topic, any severity) created and processed successfully — PENDING. Earliest CANONICAL promotion: after Coimbra (2026-06-06+).",
+      "narrative": "This entry captures the structural-supports problem Peter named on 2026-05-12: as Hs grows, each new concept ripples across docs, claims, schemas, AI loaders, and protocols. Without controlled propagation, the repo accumulates stale facts and contradictory current-state files. ChatGPT diagnosed concrete drift (4 files with stale CNQ/version claims) and proposed a NASA SP-2007-6105-style architecture: configuration management (which items are controlled), interface management (who produces what for whom), requirements management with bidirectional traceability (which concept maps to which file maps to which test), change-control boards via change packets (what files this packet touches and how we verify), and technical reviews (release coherence checks). Claude verified all four drift claims against the live working repo, captured 13 specific errors via the consistency checker, and adopted the spec with two adjustments: (a) the mirror-repository framing was replaced with the actual HOLD-TO-PUSH single-repo workflow, (b) the DCP-001 execution was split off into a separate authorized push because patching public-facing live docs deserves explicit Phase-3 authorization. The doctrine sits STAGED until DCP-001 is executed cleanly and a second DCP demonstrates the system works for more than one pattern.",
+      "talk_audience": "Out of scope for the 15-minute conference talk. Internal infrastructure work product. If asked at Q&A about how the repo maintains coherence as it grows, 'NASA-style change control with configuration items, interfaces, traceability, and packetized changes' is a reasonable one-sentence answer.",
+      "related_inv_entries": [
+        "INV-052 ChatGPT review pattern CANONICAL",
+        "INV-054 Ascent Path STAGED",
+        "INV-061 System Terms Catalog STAGED",
+        "INV-062 CNQ Vector PDF STAGED"
+      ]
     }
   ],
   "summary_by_disposition": {
@@ -1017,13 +1038,13 @@
     "DEFERRED": 12,
     "CLOSED": 1,
     "OPEN": 8,
-    "STAGED": 7,
-    "TOTAL": 62
+    "STAGED": 8,
+    "TOTAL": 63
   },
   "summary_by_source": {
     "CLAUDE": 8,
     "CHATGPT": 10,
-    "USER": 26,
+    "USER": 27,
     "GROK": 18
   },
   "promotion_rules": {

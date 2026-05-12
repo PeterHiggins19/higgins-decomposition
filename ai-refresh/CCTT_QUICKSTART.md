@@ -1,5 +1,7 @@
 # CCTT Quickstart — One-page intro
 
+> **⚠️ LEGACY v1.0 PROTOCOL — written for CNT 2.0.4 / Schema 2.1.0.** The 7-phase protocol shape described below is timeless. The specific schema version references (Schema 2.1.0) are historical. Current engines per [`../HS_FAST_REFRESH.json`](../HS_FAST_REFRESH.json): **CNT v3.1.0 / schema 3.1.0** and **CNQ v2.0.0 / schema cnq/2.0.0**. A CCTT v1.1 update is queued post-conference. This file remains as legacy reference under Hs Change Control v1.0 rule HCC-R004 (archive preservation).
+
 **CCTT** = **C**NT **C**ompositional **T**ensor **T**rain. It is a 7-phase
 protocol that takes any compositional dataset and produces a CNT-grade
 analysis with full provenance — even if you have never heard of Aitchison

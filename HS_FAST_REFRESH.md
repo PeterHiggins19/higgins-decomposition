@@ -1,8 +1,10 @@
 # Hs (Higgins Decomposition) — Fast Refresh
 
+> **⚠️ HISTORICAL SNAPSHOT — push #27 (2026-05-08).** This Markdown mirror has not been regenerated since push #27 and reports outdated engine versions and investigation counts. For live current state (CNT v3.1.0, CNQ v2.0.0, 63+ investigations as of push #47), load [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json) — it is the single live source of truth under Hs Change Control v1.0 rule HCC-R001. This file is preserved as a legacy snapshot for traceability per HCC-R004 (archive preservation). The figures below are historical and may not match current canon.
+
 **Single-file context loader for any AI session or fresh reader.**
-**Companion machine-readable form:** [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json) (load that for parseable canonical values).
-**Version:** 1.0 (2026-05-08, push #27).
+**Companion machine-readable form:** [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json) — **this JSON is the authoritative live state.**
+**Version:** 1.0 (2026-05-08, push #27) — **snapshot only, see legacy header above.**
 
 ---
 

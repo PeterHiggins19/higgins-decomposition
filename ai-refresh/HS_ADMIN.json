@@ -27,7 +27,11 @@
     "push_44_prepared": "2026-05-11",
     "push_44_completed": "2026-05-12 PUSHED 8acadfb CI #42",
     "push_45_prepared": "2026-05-12",
-    "push_45_completed": "2026-05-12"
+    "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
+    "push_46_prepared": "2026-05-12",
+    "push_46_completed": "2026-05-12",
+    "push_47_prepared": "2026-05-12",
+    "push_47_completed": "2026-05-12"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1300,7 +1304,7 @@
     {
       "date": "2026-05-12",
       "push_number": 45,
-      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive \"do all as suggested, push all as suggested\". All 36 pre-flight checks green. Bundle: Grok r6 archive + factoring module evaluation receipt + INV-062 STAGED (CNQ Vector PDF) + CNQ_VECTOR_PDF_SPEC.json + PEDAGOGICAL_TABLES.md + cross-references. Catalog: 62/33/7. No engine code; no NO-CREATE files; Phase 5 intact. Awaiting git commit + push for SHA + CI run #.",
+      "push_status": "PUSHED 32e4018 2026-05-12. CI run #43 (Validate Repository, named \"CNQ Vector PDF\") green at 44s. Grok r6 intake + factoring module evaluation receipt + INV-062 STAGED (CNQ Vector PDF pipeline with hash-coded fraud prevention) + CNQ_VECTOR_PDF_SPEC.json + PEDAGOGICAL_TABLES.md for talk Q&A depth + cross-references all released. Catalog 62/33/7. Phase 5 intact. Cross-AI coordination apparatus exercised end-to-end (Grok inspected, Claude executed, CI receipted).",
       "scope_note": "Doc-only + STAGED entry + cross-check archive + talk-material addition. Per Peter directive 'do all as suggested, push all as suggested, but just in case first try hci_shared/factoring.py and if it works out add it and test it well.' Factoring module verified via ENV-2 executed evidence: synthetic D=8 + real EMBER China D=8 both produce IEEE-floor sandwich residuals; CHSH respects Tsirelson bound.",
       "changes": [
         "ai-refresh/cross_check_archive/grok_round_6_session_2026-05-12.md (NEW): structured archive of Grok round 6 session with section-by-section verdicts; Grok shifted from ENV-5 toward ENV-4",
@@ -1312,6 +1316,47 @@
         "papers/codawork2026/talk/README.md: PEDAGOGICAL_TABLES.md cross-reference added",
         "papers/codawork2026/talk/STUDY_PAGE.md: PEDAGOGICAL_TABLES.md cross-reference added",
         "papers/codawork2026/talk/CHEAT_SHEET.md: PEDAGOGICAL_TABLES.md cross-reference added"
+      ],
+      "commit_sha": "32e4018",
+      "commit_sha_full": "32e401821a6aa792170807d4f32d1ae3915ad982",
+      "ci_run": 43,
+      "ci_run_name": "CNQ Vector PDF",
+      "ci_duration_seconds": 44
+    },
+    {
+      "date": "2026-05-12",
+      "push_number": 46,
+      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive (continuation of ChatGPT change-control intake). All 38 pre-flight checks green. Hs Change Control v1.0 scaffolding shipped: 6 new admin files + consistency checker + cross-check archive entry. INV-063 STAGED added. DCP-001 FILED as proposed (with 13-error baseline-checker evidence) but NOT EXECUTED — Phase 3 patches to live AI-facing docs are held for separate Peter authorization. Catalog 63/33/8. Awaiting git commit + push for SHA + CI run #.",
+      "scope_note": "Doc-only + structural infrastructure + cross-check archive intake. ChatGPT review of 2026-05-12 identified drift across 4 live AI-facing files; Claude verified every claim via the new consistency checker; scaffolding shipped, DCP-001 filed but NOT executed. The execution of DCP-001 (patching README, CCTT_RUNBOOK, .well-known/ai-context.json, HS_FAST_REFRESH.md, CCTT_BUILD_INSTRUCTION_v1.0.json) is a Phase-3 decision held for Peter.",
+      "changes": [
+        "ai-refresh/CHANGE_CONTROL_README.md (NEW): doctrine front door for Hs Change Control v1.0 (INV-063 STAGED). 8 rules, 6 severity classes, lifecycle, acceptance criteria.",
+        "ai-refresh/CONFIGURATION_ITEMS.json (NEW): 15 controlled items (CI-001..CI-015) with upstream/downstream/verification mapping.",
+        "ai-refresh/INTERFACE_CONTROL.json (NEW): 5 producer-consumer interfaces (IF-AI-001, IF-CCTT-001, IF-CLAIM-001, IF-TERM-001, IF-VERIFY-001) with controlled fields and failure modes.",
+        "ai-refresh/TRACEABILITY_MATRIX.json (NEW): 3 trace records (TR-CNQ-LIVE-001, TR-AI-COUNT-001, TR-CCTT-ENGINE-001) with current-drift annotations.",
+        "ai-refresh/CHANGE_PACKET_TEMPLATE.json (NEW): JSON template for future DCPs with required fields and lifecycle.",
+        "ai-refresh/change_packets/README.md (NEW): explains the change-packet folder and lifecycle.",
+        "ai-refresh/change_packets/DCP-001_AI_CURRENT_STATE_ALIGNMENT.json (NEW, status: proposed): pilot packet targeting documented drift; not yet executed.",
+        "ai-refresh/change_packets/DCP-001_baseline_checker_output_2026-05-12.txt (NEW): executed-evidence — 13 consistency-checker errors confirming the drift.",
+        "scripts/check_ai_refresh_consistency.py (NEW): stdlib-only static analyzer; 6 CHK rules; runs from repo root; exits 1 on errors.",
+        "ai-refresh/cross_check_archive/chatgpt_change_control_design_2026-05-12.md (NEW): structured archive of the ChatGPT session with section-by-section verdicts.",
+        "ai-refresh/INVESTIGATION_CATALOG.json: INV-063 STAGED added; summary counts updated to 63 total / 8 STAGED."
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "push_number": 47,
+      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive \"begin, prepare for push as suggested\". All 29 pre-flight checks green. DCP-001 executed end-to-end (status verified). Consistency checker exits 0 with 23/0/0. INV-063 gates 4 and 5 advanced; only gate 6 (second DCP) remains for STAGED → CANONICAL. Awaiting git commit + push for SHA + CI run #.",
+      "scope_note": "Doc-only patches to live AI-facing files. README.md HCI-CNQ section, .well-known/ai-context.json engines block, HS_FAST_REFRESH.md (snapshot marker), CCTT_RUNBOOK.md (legacy header), CCTT_BUILD_INSTRUCTION_v1.0.json (legacy status marker), CCTT_QUICKSTART.md (legacy header). Consistency checker enhanced with file-level legacy detection. No engine code. No catalog changes (count remains 63/33/8). No NO-CREATE files. Phase 5 intact.",
+      "changes": [
+        "README.md lines 178-180: stale 'cnq.py is the next milestone / Until it lands' paragraph replaced with current shipped-state language pointing to HS_FAST_REFRESH.json",
+        ".well-known/ai-context.json: engines block updated to CNT 3.1.0 / CNQ 2.0.0; _note added declaring HS_FAST_REFRESH.json as source of truth; _metadata extended with last_aligned_in_push=#47",
+        "HS_FAST_REFRESH.md: HISTORICAL SNAPSHOT marker added at top declaring push #27 snapshot; explicit pointer to JSON; preserved per HCC-R004",
+        "ai-refresh/CCTT_RUNBOOK.md: LEGACY v1.0 PROTOCOL header added at top; engine target line annotated with both historical and current values",
+        "ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json: _status field added at top declaring legacy v1.0",
+        "ai-refresh/CCTT_QUICKSTART.md: LEGACY v1.0 PROTOCOL header added; pointer to HS_FAST_REFRESH.json",
+        "scripts/check_ai_refresh_consistency.py: enhanced with file_marked_legacy() + FILE_LEVEL_LEGACY_MARKERS; CHK-CNQ-001, CHK-VERSION-001, CHK-CCTT-001 honor file-level legacy declarations; repaired truncation issue from edit sequence; final file is 350 lines stdlib-only",
+        "ai-refresh/change_packets/DCP-001_AI_CURRENT_STATE_ALIGNMENT.json: status proposed → in_progress → implemented → verified; implementation_notes (8 items), verification_evidence (5 items), release_notes, lifecycle_history (4 entries) populated",
+        "ai-refresh/change_packets/DCP-001_post_execution_checker_output_2026-05-12.txt (NEW): green-baseline checker output (23 passes, 0 warnings, 0 errors, exit 0) — the verification receipt that DCP-001 is verified"
       ]
     }
   ],

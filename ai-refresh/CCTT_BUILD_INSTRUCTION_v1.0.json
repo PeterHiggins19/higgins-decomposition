@@ -1,10 +1,12 @@
 {
+  "_status": "LEGACY v1.0 — written for CNT 2.0.4 / Schema 2.1.0 in 2026-05. The CCTT protocol shape (7 phases, hash-chained provenance, deterministic engine + receipt) is timeless. The specific engine version targets in this file are historical. Current engines per HS_FAST_REFRESH.json (single source of truth under Hs Change Control v1.0 rule HCC-R001): CNT v3.1.0 / schema 3.1.0 + CNQ v2.0.0 / schema cnq/2.0.0. A CCTT v1.1 build instruction targeting current engines is queued post-conference. This file is preserved as a legacy snapshot for traceability per HCC-R004.",
+  "_legacy_aligned_in_push": "#47 (DCP-001 execution)",
   "_meta": {
     "schema": "cctt_build_instruction/1.0",
-    "name": "CNT Compositional Tensor Train — AI Build Instruction",
+    "name": "CNT Compositional Tensor Train — AI Build Instruction (LEGACY v1.0)",
     "version": "1.0.0",
     "documented_at": "2026-05-06",
-    "purpose": "Self-contained instruction set for any AI assistant (Claude, ChatGPT, Gemini, an open-source model, an in-house agent) to construct a deterministic CNT analysis pipeline for any compositional dataset. Following this instruction, an AI takes a raw CSV/XLSX, builds the pre-parser, runs the engine, picks the right output suite, renders it, self-verifies against the determinism gate, and returns a journalled, hash-chained result.",
+    "purpose": "Self-contained instruction set for any AI assistant (Claude, ChatGPT, Gemini, an open-source model, an in-house agent) to construct a deterministic CNT analysis pipeline for any compositional dataset. Following this instruction, an AI takes a raw CSV/XLSX, builds the pre-parser, runs the engine, picks the right output suite, renders it, self-verifies against the determinism gate, and returns a journalled, hash-chained result. NOTE: Engine version targets below are legacy v1.0 (CNT 2.0.4 / Schema 2.1.0). Current engines per HS_FAST_REFRESH.json.",
     "registered_with": "ai-refresh/HS_ADMIN.json -> ai_helpers.cctt",
     "companion_runbook": "ai-refresh/CCTT_RUNBOOK.md",
     "first_pilot": "ai-refresh/CCTT_PILOT_REPORT.md",

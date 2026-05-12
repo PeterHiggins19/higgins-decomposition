@@ -175,11 +175,12 @@ Three reproducible demonstrations are in the experiments folder. Each
 is self-contained — script, input data, CNT JSON output, results,
 report. Anyone can re-run.
 
-The compiled `cnq.py` engine itself is the next milestone (~14 days
-per [`HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md)).
-Until it lands, the experiments are the working proofs and the
-canonical CNT engine continues to produce the underlying compositional
-data. Quickstart: see [`HCI-CNQ/README.md`](HCI-CNQ/README.md).
+The compiled `cnq.py` engine shipped in push #26 (2026-05-08) and now
+runs at CNQ v2.0.0 / schema cnq/2.0.0 alongside CNT v3.1.0 / schema 3.1.0.
+The experiments remain the working proofs at the IEEE-floor residual
+(4.441 × 10⁻¹⁶ on Backblaze and Planck CMB; 7.4 × 10⁻¹⁷ on SM neutrino
+oscillation). Quickstart: see [`HCI-CNQ/README.md`](HCI-CNQ/README.md).
+Current engine state is authoritative in [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json).
 
 **How we work — demonstration first.** Every tool in the Hs family —
 CoDa methods (community-standard), CNT (`HCI-CNT/`), CNQ (`HCI-CNQ/`),

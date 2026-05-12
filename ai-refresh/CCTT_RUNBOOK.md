@@ -1,8 +1,11 @@
 # CCTT Runbook — CNT Compositional Tensor Train
 
-**Companion to** [`CCTT_BUILD_INSTRUCTION_v1.0.json`](CCTT_BUILD_INSTRUCTION_v1.0.json)
+> **⚠️ LEGACY v1.0 PROTOCOL — written for CNT 2.0.4 / Schema 2.1.0 in 2026-05.** The CCTT *protocol shape* (7 phases, hash-chained provenance, deterministic engine + receipt) is timeless and still describes how the framework should be used. The specific engine version references below (CNT 2.0.4 / Schema 2.1.0) and the cnq.py "future" framing are historical — the current engines are **CNT v3.1.0 / schema 3.1.0** and **CNQ v2.0.0 / schema cnq/2.0.0** (shipped in push #26). For the live engine state, load [`../HS_FAST_REFRESH.json`](../HS_FAST_REFRESH.json) — it is the single source of truth under Hs Change Control v1.0 rule HCC-R001. A CCTT v1.1 update targeting current engines is queued post-conference.
+
+**Companion to** [`CCTT_BUILD_INSTRUCTION_v1.0.json`](CCTT_BUILD_INSTRUCTION_v1.0.json) (also legacy v1.0)
 **Audience:** any user — researcher walking the steps by hand, or an AI assistant (Claude, ChatGPT, Gemini, in-house agent) executing on the user's behalf. Same protocol either way.
-**Engine target:** CNT 2.0.4 / Schema 2.1.0 / Output Doctrine v1.0.1
+**Engine target (historical, legacy v1.0):** CNT 2.0.4 / Schema 2.1.0 / Output Doctrine v1.0.1
+**Engine target (current, per HS_FAST_REFRESH.json):** CNT v3.1.0 / schema 3.1.0 + CNQ v2.0.0 / schema cnq/2.0.0
 
 > The instrument reads. The expert decides. The hashes carry the receipts.
 > CCTT is the same disciplined practitioner protocol whether a user or an AI

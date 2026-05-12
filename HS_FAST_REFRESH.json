@@ -10,10 +10,12 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-12",
-    "last_push": "#45",
+    "last_push": "#47",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
     "push_44_completed": "2026-05-12 PUSHED 8acadfb CI #42 \"Coordination\" green 49s",
-    "push_45_completed": "2026-05-12"
+    "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
+    "push_46_completed": "2026-05-12",
+    "push_47_completed": "2026-05-12"
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
@@ -293,14 +295,14 @@
     "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
     "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
     "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
-    "current_total": 62,
+    "current_total": 63,
     "by_disposition": {
       "CANONICAL": 33,
       "DEFERRED": 12,
       "FALSIFIED": 1,
       "OPEN": 8,
       "CLOSED": 1,
-      "STAGED": 7
+      "STAGED": 8
     },
     "by_source": {
       "CLAUDE": 8,
