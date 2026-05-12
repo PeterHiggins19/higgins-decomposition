@@ -6,7 +6,7 @@ For deeper detail on any push, see `HS_ADMIN.json.session_log` entry of the corr
 
 ---
 
-## The conference-prep arc — pushes #38 through #44
+## The conference-prep arc — pushes #38 through #45
 
 | Push | Date | Commit SHA | CI run | One-line summary |
 |---|---|---|---|---|
@@ -17,7 +17,8 @@ For deeper detail on any push, see `HS_ADMIN.json.session_log` entry of the corr
 | **#42** | 2026-05-10 | `7bd8e91` | #39 ("CODAWORK2026 Conference") | Talk delivery infrastructure — `papers/codawork2026/talk/` folder with 19 files: README (oratory) + STUDY_PAGE (moot method) + CHEAT_SHEET (backstage) + BACKUP_PRESENTATION (AV failure) + 10 slide files + 5 Q&A bench cards. Phone-readable, self-contained, offline-capable. INV-055 CANONICAL |
 | **#43** | 2026-05-11 | `e1f95e7` | #40 ("Investigation catalog") | Grok round 5 signal extraction (first session with full repo access). Six new INV entries: INV-056 STAGED (`fit_fixed_point()` Period-1 detection) + INV-057 STAGED (Householder formalisation) + INV-058 STAGED (Power Spectrum Analyzer) + INV-059 CANONICAL (cross-model framing validation) + **INV-060 STAGED (Yeast Factor diagnostic — real tool addition)** + **INV-061 STAGED (System Terms Catalog — prevents engine bloat)** |
 | **#43-sync** | 2026-05-11 | `846693a` | #41 ("AI refresh") | Post-#43 HS_FAST_REFRESH counter sync (last_push #43, totals 61 / 33 / 6 STAGED) + `REPO_STATE_2026-05-11_post-push43.md` hand-off doc |
-| **#44** | 2026-05-12 | *HOLD-TO-PUSH* | *pending* | **Spring cleaning + cross-AI coordination apparatus** (path-2-plus expansion). Spring cleaning: SPEAKER_BRIEF.md + PUSHES_INDEX.md + SHA back-fill (#38–#42) + Hs_Learning_Path legacy mark + READMEs refresh. AI coordination: `HS_REPO_STRUCTURE_TREASURE_MAP.json` (limited-AI navigation aid; ChatGPT v1 + Claude integration) + `CLAIM_TEST_PACKET.json` (mirror-repo validation framework, STAGED) + `CROSS_AI_COORDINATION.md` (per-platform capability matrix + handoff conventions) + ChatGPT GitHub-connector session archived. **No catalog changes. No new INV entries. No NO-CREATE files. No engine/tests/schema changes.** |
+| **#44** | 2026-05-12 | `8acadfb` | #42 ("Coordination") | **Spring cleaning + cross-AI coordination apparatus** (path-2-plus expansion). Spring cleaning: SPEAKER_BRIEF.md + PUSHES_INDEX.md + SHA back-fill (#38–#42) + Hs_Learning_Path legacy mark + READMEs refresh. AI coordination: `HS_REPO_STRUCTURE_TREASURE_MAP.json` (limited-AI navigation aid; ChatGPT v1 + Claude integration) + `CLAIM_TEST_PACKET.json` (mirror-repo validation framework, STAGED) + `CROSS_AI_COORDINATION.md` (per-platform capability matrix + handoff conventions) + ChatGPT GitHub-connector session archived. CI green at 49s. **No catalog changes. No new INV entries. No NO-CREATE files. No engine/tests/schema changes.** |
+| **#45** | 2026-05-12 | *HOLD-TO-PUSH* | *pending* | **Grok r6 intake + INV-062 STAGED + pedagogical tables.** Cross-check archive: `grok_round_6_session_2026-05-12.md` (improved connector access; ENV-5 → ENV-4 shift) + `factoring_module_evaluation_2026-05-12.md` (executed-evidence receipt confirming `hci_shared/factoring.py` works on real EMBER China D=8 at IEEE floor; INV-029 + INV-035 CANONICAL claims numerically reconfirmed). Design: `papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json` (30-key inspectable spec for INV-062 CNQ Vector PDF pipeline with hash-coded fraud prevention; PDF/A-3 + veraPDF + structured JOURNAL.md logging; implementation post-conference). Talk material: `papers/codawork2026/talk/PEDAGOGICAL_TABLES.md` (Aitchison-to-SU(2) 10-step + Helmsman 6-step tables for Q&A depth, Peter-requested). Catalog: 62 / 33 / 7 STAGED. **Doc-only + STAGED. No engine/tests/schema/NO-CREATE changes. Phase 5 intact.** |
 
 ---
 
@@ -83,7 +84,7 @@ First external-review session with full GitHub repo access. ~10,000 words across
 
 Cleared push #43 HOLD-TO-PUSH flags + bumped HS_FAST_REFRESH counters (61 / 33 / 6) + wrote `REPO_STATE_2026-05-11_post-push43.md` as the conference-prep arc summary and AI-session hand-off document.
 
-### Push #44 — Spring cleaning + cross-AI coordination apparatus (HOLD-TO-PUSH as of 2026-05-12)
+### Push #44 — Spring cleaning + cross-AI coordination apparatus (`8acadfb`, CI #42 "Coordination" green 49s)
 
 Path-2-plus expansion of the spring-cleaning maintenance push. Two coherent goals in one push: leave the repo cleaner than it was, and equip the three AI platforms (Claude / ChatGPT / Grok) with a deterministic coordination apparatus for the final pre-conference stretch.
 
@@ -115,7 +116,8 @@ Catalog state unchanged: **61 / 33 CANONICAL / 6 STAGED / 12 DEFERRED / 8 OPEN /
 | After #41 | 54 | 30 | 1 | 12 | 8 | 2 |
 | After #42 | 55 | 31 | 1 | 12 | 8 | 2 |
 | After #43 | 61 | 33 | 6 | 12 | 8 | 2 |
-| After #44 (HOLD) | 61 | 33 | 6 | 12 | 8 | 2 |
+| After #44 | 61 | 33 | 6 | 12 | 8 | 2 |
+| After #45 (HOLD) | 62 | 33 | 7 | 12 | 8 | 2 |
 
 The STAGED disposition was introduced in push #41 (INV-054 Ascent Path doctrine) to capture "canonical content with deferred ripple" per Phase 5 conference-window discipline. Five more STAGED entries were added in push #43 (INV-056, 057, 058, 060, 061).
 
@@ -132,7 +134,9 @@ The STAGED disposition was introduced in push #41 (INV-054 Ascent Path doctrine)
 | `grok_round_4_session_2026-05-10.md` | Grok r4 | #41 | First-answer signal + drift on follow-ups + hallucination on "run cnq.py" — INV-052 refinement source |
 | `chatgpt_review_2026-05-10_session2_three_parts.md` | ChatGPT s2 | #41 | Cleanest external review — three concrete talk improvements adopted |
 | `grok_round_5_session_2026-05-11.md` | Grok r5 | #43 | Longest session (full repo access) — INV-056 through INV-061 sources |
-| `chatgpt_github_connector_session_2026-05-11.md` | ChatGPT GH-connector | #44 (HOLD) | First session with GitHub-connector access — produced TREASURE_MAP + CLAIM_TEST_PACKET drafts + ENV-0..ENV-5 environment classification doctrine. Substantial structural signal; integrated as doc-only + STAGED. |
+| `chatgpt_github_connector_session_2026-05-11.md` | ChatGPT GH-connector | #44 | First session with GitHub-connector access — produced TREASURE_MAP + CLAIM_TEST_PACKET drafts + ENV-0..ENV-5 environment classification doctrine. Substantial structural signal; integrated as doc-only + STAGED. |
+| `grok_round_6_session_2026-05-12.md` | Grok r6 (improved connector) | #45 (HOLD) | Second pass after round 5 — accurate filename references, cleaner repo browsing. Crystallized Peter's CNQ-Vector-PDF vision into 30-key JSON spec (→ INV-062 STAGED). Two pedagogical tables Peter requested for talk. QFT/QWT/edge-detection extensions filed as STAGED-with-caveats for post-conference review. |
+| `factoring_module_evaluation_2026-05-12.md` | Claude in sandbox (ENV-2) | #45 (HOLD) | Executed-evidence receipt confirming `hci_shared/factoring.py` works on synthetic D=8 + real EMBER China D=8. Sandwich residuals at IEEE machine floor; CHSH respects Tsirelson bound. INV-029 + INV-035 CANONICAL claims numerically reconfirmed. |
 
 The narrowed re-prompt template from the INDEX has now been validated across two independent external models reading the MC-4 packet cold. Both converged on the same humble-invitation framing. INV-059 captures this.
 
@@ -150,7 +154,9 @@ The narrowed re-prompt template from the INDEX has now been validated across two
 | `PUSH42_READY_FOR_COMMIT.md` | Push #42 release card (talk infrastructure) |
 | `PUSH43_PRE_PUSH_SUMMARY.md` | Push #43 prep (Grok r5 signal extraction) |
 | `REPO_STATE_2026-05-11_post-push43.md` | Post-#43 hand-off card with full arc summary + next-cycle queue |
-| `PUSH44_PRE_PUSH_SUMMARY.md` | Push #44 prep summary (spring cleaning + cross-AI coordination apparatus; HOLD-TO-PUSH as of 2026-05-12) |
+| `PUSH44_PRE_PUSH_SUMMARY.md` | Push #44 prep summary (spring cleaning + cross-AI coordination apparatus) |
+| `PUSH44_READY_FOR_COMMIT.md` | Push #44 release card (post-HOLD; 33/33 + 26/26 green) |
+| `PUSH45_PRE_PUSH_SUMMARY.md` | Push #45 prep summary (Grok r6 intake + INV-062 STAGED + pedagogical tables; HOLD-TO-PUSH as of 2026-05-12) |
 
 ---
 

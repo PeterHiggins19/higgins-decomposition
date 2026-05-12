@@ -4,6 +4,8 @@
 **Machine-readable companion (JSON):** [`INVESTIGATION_CATALOG.json`](INVESTIGATION_CATALOG.json). This Markdown file is the plain-text companion.
 **Registered in:** [`HS_ADMIN.json`](HS_ADMIN.json) → `investigation_catalog` (top-level block).
 
+> **Note (2026-05-12):** The tables in this MD file are a push #24 snapshot showing the first 29 investigations. The live record is `INVESTIGATION_CATALOG.json`, which now contains **62 investigations** (33 CANONICAL / 7 STAGED / 12 DEFERRED / 8 OPEN / 1 FALSIFIED / 1 CLOSED) as of push #45. For entries post push #24 (INV-030 through INV-062), consult the JSON directly or read the corresponding cross-check archive entries and AI_REFRESH narratives. Most recent additions: INV-060 Yeast Factor (STAGED, push #43), INV-061 System Terms Catalog (STAGED, push #43), and **INV-062 CNQ Vector PDF pipeline (STAGED, push #45)**. The MD tables below preserve the methodology examples and disposition taxonomy as written in push #24; updates to those are intentionally rare.
+
 ---
 
 ## Why this exists

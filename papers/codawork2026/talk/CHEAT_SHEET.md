@@ -3,6 +3,7 @@
 **Title:** Compositional monitoring of energy-mix drift on the simplex
 **Time:** 15 min talk + Q&A
 **Strategic compass:** [SPEAKER_BRIEF.md](SPEAKER_BRIEF.md) (read once before going on)
+**Q&A depth backup:** [PEDAGOGICAL_TABLES.md](PEDAGOGICAL_TABLES.md) — Aitchison-to-SU(2) pipeline + helmsman attribution logic, mapped to function names in the published code
 
 ---
 

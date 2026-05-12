@@ -22,7 +22,11 @@ Three operational files:
 - **`CHEAT_SHEET.md`** — one-page backstage scanner. Spine phrases only.
 - **`BACKUP_PRESENTATION.md`** — if AV fails, you read directly from this README.
 
-**Reading order (recommended):** SPEAKER_BRIEF → README → STUDY_PAGE → slide files as needed → CHEAT_SHEET (pocket-print) → BACKUP_PRESENTATION (read once cold).
+One Q&A-depth file:
+
+- **`PEDAGOGICAL_TABLES.md`** *(added in push #45)* — Two step-by-step tables that map the spoken material back to specific functions in the published code. Use these when a questioner wants the full pipeline shown: Aitchison-to-SU(2) double cover (10 steps) and Helmsman attribution logic (6 steps).
+
+**Reading order (recommended):** SPEAKER_BRIEF → README → STUDY_PAGE → slide files as needed → CHEAT_SHEET (pocket-print) → BACKUP_PRESENTATION (read once cold) → PEDAGOGICAL_TABLES (keep within reach for Q&A).
 
 **Phone-friendly:** every page is short paragraphs. No tables wider than 3 columns. No requirement to load images.
 

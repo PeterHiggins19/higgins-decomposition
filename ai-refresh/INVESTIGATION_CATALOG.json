@@ -8,9 +8,9 @@
     "rationale": "The framework treats compositional data as a living record where every contribution above the EITT 5% threshold counts as a carrier; below 5% it doesn't make the cut. The same discipline applies to research investigations: every speculative branch is data, and the disposition record is the audit trail. This catalog is the project's research-methodology equivalent of the determinism contract: the path of every idea is traceable.",
     "companion_md": "INVESTIGATION_CATALOG.md (plain-text companion)",
     "registered_in": "HS_ADMIN.json -> investigation_catalog (top-level block)",
-    "last_updated": "2026-05-10",
+    "last_updated": "2026-05-12",
     "last_push": "#37",
-    "total_investigations": 61
+    "total_investigations": 62
   },
   "dispositions": {
     "CANONICAL": "Met its promotion gate. Lives in the repo. Binding doctrine, code, or schema.",
@@ -988,6 +988,27 @@
         "INV-054 Ascent Path STAGED",
         "INV-060 Yeast Factor diagnostic"
       ]
+    },
+    {
+      "id": "INV-062",
+      "title": "CNQ vector PDF pipeline with hash-coded fraud prevention (PDF/A-3 + veraPDF + structured logging)",
+      "raised_by": "USER + GROK + CLAUDE",
+      "raised_date": "2026-05-12",
+      "raised_in_push": "#45",
+      "disposition": "STAGED",
+      "disposition_note": "Peter's vision crystallized through Grok round 6 (2026-05-12) into a complete design specification. The vision: CNQ output JSON should directly produce a publication-quality vector PDF (multi-page, A4 landscape) with SHA-256 content hashes embedded in PDF metadata + the original CNT/CNQ JSON attached as a PDF/A-3 embedded file. veraPDF validation enforces PDF/A-3B archival compliance. Structured JSON-per-line logging to JOURNAL.md provides full auditability. This is the natural extension of the existing pipeline modules (hs_helix_exploded.py, hs_manifold_helix.py, hs_polar_stack.py, hs_reporter.py) which already produce vector PDFs but lack hash embedding and archival validation. Implementation is post-conference work; the specification is filed in push #45 for review and post-conference build.",
+      "promotion_window": "post-conference 2026-06-06 onward",
+      "canonical_location": "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json (inspectable design document) + planned tools/pipeline/hs_cnq_pdf_exporter.py",
+      "summary": "Design specification for a tools/pipeline/hs_cnq_pdf_exporter.py module that accepts a CNQ JSON output and produces a fraud-resistant archival PDF: vector graphics via matplotlib.PdfPages + metadata embedding via pypdf (Hs_Content_SHA256, Hs_CNQ_Content_SHA256, Hs_Generated_At, Hs_Provenance_JSON) + source JSON attached as a PDF/A-3 file attachment + automatic veraPDF validation (rejects the PDF if compliance fails) + structured JOURNAL.md logging with run_id, version, timestamp, and event taxonomy. The pattern follows the existing hs_*.py naming convention and integrates as the final mandatory step of CCTT Phase 7.",
+      "gate_criteria": "Post-conference implementation gates: (1) Module accepts CNQ JSON, produces a multi-page vector PDF with required hashes embedded; (2) Generated PDF passes 'verapdf --format json --flavour pdfa-3b --maxfailures 1' with batchSummary.failedJobs == 0; (3) Source CNT JSON + CNQ JSON are attached inside the PDF and can be re-extracted byte-for-byte (PDF/A-3 attachment); (4) Two runs on identical input produce byte-identical PDFs (within timestamp metadata, which can be locked deterministically); (5) Missing critical hashes raise ValueError; missing optional visualization data degrades gracefully with warnings logged; (6) JOURNAL.md entries are valid JSON-per-line and contain timestamp, module, version, event, run_id; (7) veraPDF-unavailable environments degrade gracefully (PDF returned but marked unvalidated in journal). Promotion to CANONICAL: after the module is implemented, tested on EMBER Germany sample, and produces a green CI run with embedded JSON re-extracts matching source byte-for-byte.",
+      "narrative": "This entry captures the convergence of three streams. (1) Peter's direct vision: 'CNQ direct vector graphics from a composition... a pdf standard output that is hash coded for fraud prevention.' (2) Grok round 6 produced six iterative refinements (v2.0 through v2.5) of a Python prototype plus a 30-key JSON specification designed as a Claude-management handoff artifact. (3) Claude's site examination confirmed the existing pipeline already treats PDF generation as a mandatory step (multiple hs_*.py modules produce PDFs) but lacks the hash-embedding and archival-validation layer that Peter's vision requires. PDF/A-3 was chosen as the format because it is the only PDF/A variant that allows embedding arbitrary files inside the PDF itself — perfect for the fraud-prevention goal: the document carries its own source data plus the hashes to verify against. veraPDF is the authoritative open-source reference implementation maintained by the PDF Association. The specification explicitly forbids implementation during the Phase 5 conference window (now through 2026-06-06) because it would constitute engine-adjacent code work; implementation is queued for post-conference and will produce its own push narrative with a fresh INV graduation from STAGED to CANONICAL once exercised against the EMBER corpus.",
+      "talk_audience": "Out of scope for the 15-minute conference talk. Post-conference work product. If asked at Q&A about long-term plans for the framework, 'fraud-resistant archival PDFs with embedded source data' is a reasonable one-sentence answer.",
+      "related_inv_entries": [
+        "INV-029 twin-quaternion factoring CANONICAL",
+        "INV-052 ChatGPT review pattern CANONICAL",
+        "INV-054 Ascent Path STAGED",
+        "INV-061 System Terms Catalog STAGED"
+      ]
     }
   ],
   "summary_by_disposition": {
@@ -996,12 +1017,13 @@
     "DEFERRED": 12,
     "CLOSED": 1,
     "OPEN": 8,
-    "STAGED": 6
+    "STAGED": 7,
+    "TOTAL": 62
   },
   "summary_by_source": {
     "CLAUDE": 8,
     "CHATGPT": 10,
-    "USER": 25,
+    "USER": 26,
     "GROK": 18
   },
   "promotion_rules": {
