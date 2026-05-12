@@ -3,7 +3,7 @@
   "id": "DCP-001_AI_CURRENT_STATE_ALIGNMENT",
   "title": "Align live AI-facing current-state files with HS_FAST_REFRESH.json",
   "severity": "S3",
-  "status": "verified",
+  "status": "released",
   "created_date": "2026-05-12",
   "created_by": "ChatGPT design + Claude verification",
   "owner": "Peter",
@@ -167,10 +167,13 @@
     "Consistency checker baseline run (scripts/check_ai_refresh_consistency.py) executed 2026-05-12. Output saved as the bottom-line proof that the drift exists. The checker exited with errors as expected — that is the evidence DCP-001 is real."
   ],
   "release_notes": [
-    "Phase 3 executed in push #47 (same calendar day as scaffolding push #46).",
-    "Final disposition: verified pending CI green on commit."
+    "Released 2026-05-12 as part of combined commit 7f996e7 (pushes #46 + #47 bundled).",
+    "CI run #44 \"Document Control Protocol (DCP-001)\" green at 51s.",
+    "Combined-commit pattern: push #46 (scaffolding + DCP-001 filed) and push #47 (DCP-001 execution) committed together; CI name honors the DCP that drove the work.",
+    "INV-063 STAGED gate 4 (DCP executed end-to-end) and gate 5 (checker exits 0 post-execution) both formally cleared on this commit.",
+    "Only INV-063 gate 6 (second DCP processed) remains before CANONICAL promotion is eligible (earliest 2026-06-06+)."
   ],
-  "final_disposition": null,
+  "final_disposition": "released_clean",
   "lifecycle_history": [
     {
       "timestamp": "2026-05-12",
@@ -195,6 +198,12 @@
       "status": "verified",
       "actor": "Claude in push #47",
       "note": "Consistency checker exits 0 with 23 passes / 0 warnings / 0 errors. All 13 baseline drift errors resolved."
+    },
+    {
+      "timestamp": "2026-05-12",
+      "status": "released",
+      "actor": "Peter (git commit + push) + GitHub Actions CI #44",
+      "note": "Combined commit 7f996e7 with push #46 scaffolding. CI run #44 named \"Document Control Protocol (DCP-001)\" green at 51s. DCP-001 lifecycle complete."
     }
   ],
   "implementation_notes": [

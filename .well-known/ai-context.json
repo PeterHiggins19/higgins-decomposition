@@ -37,22 +37,30 @@
     "_purpose": "Three quick questions any user can ask an AI to verify whether its summary of this repo is grounded vs hallucinated/cached.",
     "questions": [
       {
-        "question": "What is the latest release tag, and the most recent commit message on main?",
-        "current_answer": "Latest tag v0.29.0 (dated 2026-05-08). Patch pushes after the tag may move the SHA forward without bumping the tag; the tag is the durable anchor.",
-        "answer_changes_with_pushes": true
+        "question": "What is _meta.last_push and _meta.current_commit_sha in HS_FAST_REFRESH.json?",
+        "current_answer": "last_push: #47, current_commit_sha: 7f996e7 (CI run #44 'Document Control Protocol (DCP-001)' green 51s, 2026-05-12). If the GitHub commits page shows a more recent SHA, your connector cache is stale.",
+        "answer_changes_with_pushes": true,
+        "stale_state_diagnostic": "If your answer says last_push <= #43, your view is pre-push-#44 and missing cross-AI coordination apparatus + INV-062 + INV-063 + Hs Change Control v1.0. See AI_AGENTS.md §2.1 for refresh guidance."
       },
       {
         "question": "Does HCI-CNQ/engine/cnq.py exist? What is its size?",
-        "current_answer": "Yes; shipped in push #26 (commit aef4992, 2026-05-08). Now at CNQ v2.0.0 / schema cnq/2.0.0 per HS_FAST_REFRESH.json.",
+        "current_answer": "Yes; ~19 KB; 520 lines. Shipped in push #26 (commit aef4992, 2026-05-08). Current version per HS_FAST_REFRESH.json: CNQ v2.0.0 / schema cnq/2.0.0.",
         "fact_stable_post_push_26": true,
         "common_failure": "Grok stale-cache mode reported 'cnq.py does not exist' on 2026-05-08 despite live access. If an AI says cnq.py is missing, its view is stale or its claim is wrong."
+      },
+      {
+        "question": "Does ai-refresh/change_packets/DCP-001_AI_CURRENT_STATE_ALIGNMENT.json exist?",
+        "current_answer": "Yes. Status 'released'. Part of Hs Change Control v1.0 (INV-063 STAGED). Filed in push #46; executed end-to-end in push #47 (commit 7f996e7).",
+        "fact_stable_post_push_47": true,
+        "common_failure": "Grok on 2026-05-12 initially reported 'Not Found' due to connector cache lag minutes after the push landed. Direct raw URL access resolved it. See AI_AGENTS.md §2.1."
       },
       {
         "question": "Who is the author of this repository?",
         "current_answer": "Peter Higgins, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada. Electronics and audio engineer. The repo dates from April-May 2026.",
         "common_failure": "Gemini hallucinated 'Peter Higgins, 1950s chemist' from training data instead of fetching the actual repo."
       }
-    ]
+    ],
+    "_cache_lag_note": "If you cannot answer these correctly, your connector cache is stale. Use raw URLs (raw.githubusercontent.com/...) or the GitHub API endpoint at https://api.github.com/repos/PeterHiggins19/higgins-decomposition/commits/main to refresh. See AI_AGENTS.md §2.1."
   },
   "engines": {
     "_note": "Engine versions below mirror HS_FAST_REFRESH.json canonical_engines (single source of truth per Hs Change Control v1.0 rule HCC-R001). If this file and HS_FAST_REFRESH.json disagree, HS_FAST_REFRESH.json wins.",
@@ -123,7 +131,7 @@
     "_purpose": "Observed AI platform capabilities relative to this repo. Useful for selecting appropriate AI for cross-checks.",
     "claude": "full file/web access; reliable; primary builder",
     "chatgpt": "full file/web access; reliable; multiple productive cross-check rounds; improved GitHub-connector access since push #44",
-    "grok": "improved GitHub-connector access since push #44 (ENV-4 territory); previously web access only with occasional stale-cache",
+    "grok": "improved GitHub-connector access since push #44 (ENV-4 territory); connector cache lag observed 2026-05-12 (couldn't find DCP-001 minutes after push #46 landed; raw-URL access resolved it). Cache-lag mitigation guidance shipped in push #48 (AI_AGENTS.md §2.1).",
     "gemini": "training-data hallucination observed; confabulated wrong-person attribution; unreliable without explicit grounding",
     "copilot": "architectural access gate; cannot fetch repo content without enterprise add-ons in tested configurations"
   },
@@ -137,7 +145,7 @@
   "_metadata": {
     "schema_version": "1.0",
     "generated_in_push": "#29",
-    "last_aligned_in_push": "#47 (DCP-001 execution under Hs Change Control v1.0)",
+    "last_aligned_in_push": "#48 (cache-lag mitigation under Hs Change Control v1.0)",
     "last_aligned": "2026-05-12",
     "generated": "2026-05-08",
     "should_be_updated_when": "engine version changes; new push lands; new AI platform tested; new commercialisation pathway DEFERRED to ACTIVE",

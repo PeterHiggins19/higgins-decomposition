@@ -29,9 +29,11 @@
     "push_45_prepared": "2026-05-12",
     "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
     "push_46_prepared": "2026-05-12",
-    "push_46_completed": "2026-05-12",
+    "push_46_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with push #47)",
     "push_47_prepared": "2026-05-12",
-    "push_47_completed": "2026-05-12"
+    "push_47_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with push #46)",
+    "push_48_prepared": "2026-05-12",
+    "push_48_completed": "2026-05-12"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1326,7 +1328,7 @@
     {
       "date": "2026-05-12",
       "push_number": 46,
-      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive (continuation of ChatGPT change-control intake). All 38 pre-flight checks green. Hs Change Control v1.0 scaffolding shipped: 6 new admin files + consistency checker + cross-check archive entry. INV-063 STAGED added. DCP-001 FILED as proposed (with 13-error baseline-checker evidence) but NOT EXECUTED — Phase 3 patches to live AI-facing docs are held for separate Peter authorization. Catalog 63/33/8. Awaiting git commit + push for SHA + CI run #.",
+      "push_status": "PUSHED 7f996e7 2026-05-12. CI run #44 (Validate Repository, named \"Document Control Protocol (DCP-001)\") green at 51s. Combined commit with push #47 (DCP-001 execution). Hs Change Control v1.0 scaffolding shipped: 6 new admin files + consistency checker + cross-check archive entry. INV-063 STAGED added. DCP-001 filed and (in same commit) executed end-to-end. Catalog 63/33/8. Phase 5 intact.",
       "scope_note": "Doc-only + structural infrastructure + cross-check archive intake. ChatGPT review of 2026-05-12 identified drift across 4 live AI-facing files; Claude verified every claim via the new consistency checker; scaffolding shipped, DCP-001 filed but NOT executed. The execution of DCP-001 (patching README, CCTT_RUNBOOK, .well-known/ai-context.json, HS_FAST_REFRESH.md, CCTT_BUILD_INSTRUCTION_v1.0.json) is a Phase-3 decision held for Peter.",
       "changes": [
         "ai-refresh/CHANGE_CONTROL_README.md (NEW): doctrine front door for Hs Change Control v1.0 (INV-063 STAGED). 8 rules, 6 severity classes, lifecycle, acceptance criteria.",
@@ -1340,12 +1342,18 @@
         "scripts/check_ai_refresh_consistency.py (NEW): stdlib-only static analyzer; 6 CHK rules; runs from repo root; exits 1 on errors.",
         "ai-refresh/cross_check_archive/chatgpt_change_control_design_2026-05-12.md (NEW): structured archive of the ChatGPT session with section-by-section verdicts.",
         "ai-refresh/INVESTIGATION_CATALOG.json: INV-063 STAGED added; summary counts updated to 63 total / 8 STAGED."
-      ]
+      ],
+      "commit_sha": "7f996e7",
+      "commit_sha_full": "7f996e76a49ee3e709520ef1416fcad2c82badc6",
+      "ci_run": 44,
+      "ci_run_name": "Document Control Protocol (DCP-001)",
+      "ci_duration_seconds": 51,
+      "combined_with": 47
     },
     {
       "date": "2026-05-12",
       "push_number": 47,
-      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive \"begin, prepare for push as suggested\". All 29 pre-flight checks green. DCP-001 executed end-to-end (status verified). Consistency checker exits 0 with 23/0/0. INV-063 gates 4 and 5 advanced; only gate 6 (second DCP) remains for STAGED → CANONICAL. Awaiting git commit + push for SHA + CI run #.",
+      "push_status": "PUSHED 7f996e7 2026-05-12. CI run #44 (Validate Repository, named \"Document Control Protocol (DCP-001)\") green at 51s. Combined commit with push #46 (Hs Change Control v1.0 scaffolding). DCP-001 execution end-to-end: 6 live AI-facing files patched + consistency checker enhanced. Consistency checker exits 0 with 23/0/0 (baseline was 13 errors). DCP-001 status: proposed → in_progress → implemented → verified → RELEASED. INV-063 STAGED gates 4 and 5 cleared; only gate 6 (second DCP) remains for CANONICAL promotion.",
       "scope_note": "Doc-only patches to live AI-facing files. README.md HCI-CNQ section, .well-known/ai-context.json engines block, HS_FAST_REFRESH.md (snapshot marker), CCTT_RUNBOOK.md (legacy header), CCTT_BUILD_INSTRUCTION_v1.0.json (legacy status marker), CCTT_QUICKSTART.md (legacy header). Consistency checker enhanced with file-level legacy detection. No engine code. No catalog changes (count remains 63/33/8). No NO-CREATE files. Phase 5 intact.",
       "changes": [
         "README.md lines 178-180: stale 'cnq.py is the next milestone / Until it lands' paragraph replaced with current shipped-state language pointing to HS_FAST_REFRESH.json",
@@ -1357,6 +1365,26 @@
         "scripts/check_ai_refresh_consistency.py: enhanced with file_marked_legacy() + FILE_LEVEL_LEGACY_MARKERS; CHK-CNQ-001, CHK-VERSION-001, CHK-CCTT-001 honor file-level legacy declarations; repaired truncation issue from edit sequence; final file is 350 lines stdlib-only",
         "ai-refresh/change_packets/DCP-001_AI_CURRENT_STATE_ALIGNMENT.json: status proposed → in_progress → implemented → verified; implementation_notes (8 items), verification_evidence (5 items), release_notes, lifecycle_history (4 entries) populated",
         "ai-refresh/change_packets/DCP-001_post_execution_checker_output_2026-05-12.txt (NEW): green-baseline checker output (23 passes, 0 warnings, 0 errors, exit 0) — the verification receipt that DCP-001 is verified"
+      ],
+      "commit_sha": "7f996e7",
+      "commit_sha_full": "7f996e76a49ee3e709520ef1416fcad2c82badc6",
+      "ci_run": 44,
+      "ci_run_name": "Document Control Protocol (DCP-001)",
+      "ci_duration_seconds": 51,
+      "combined_with": 46
+    },
+    {
+      "date": "2026-05-12",
+      "push_number": 48,
+      "push_status": "READY FOR COMMIT 2026-05-12. HOLD-TO-PUSH cleared by Peter directive \"do a full maintenance push and update as suggested... then prepare for push.\" All 36 pre-flight checks green. Five gap fixes applied: AI_AGENTS §2.1 cache-lag section, HS_FAST_REFRESH SHA/CI top-level fields, .well-known grounding test refreshed, HS_MACHINE_MANIFEST legacy snapshot marker, CHANGELOG.md at repo root. Consistency checker still exits 0 with 23 passes / 0 errors. Catalog unchanged at 63/33/8. Awaiting git commit + push for SHA + CI run #.",
+      "scope_note": "Gap-closing maintenance push triggered by Grok's 2026-05-12 connector cache-lag confusion. Five gap fixes shipped: (1) AI_AGENTS.md gets explicit cache-lag detection/refresh guidance, (2) HS_FAST_REFRESH.json _meta promotes commit SHA + CI run to top-level fields for programmatic discovery, (3) .well-known/ai-context.json grounding test updated with stale-state self-check + DCP-001-existence question, (4) HS_MACHINE_MANIFEST.json gets _status legacy snapshot marker (was push #35 era; stale engine versions + absolute sandbox paths), (5) CHANGELOG.md at repo root makes PUSHES_INDEX.md discoverable from the front door. Doc-only; no engine changes; Phase 5 intact.",
+      "changes": [
+        "AI_AGENTS.md: §2 grounding test refreshed with current commit SHA 7f996e7 + new DCP-001 existence question. §2.1 'Connector cache lag' section added (detection signals + raw-URL workarounds + GitHub API endpoints + SHA-citation discipline). §5 platform-capability table updated with Grok's 2026-05-12 cache-lag experience.",
+        "HS_FAST_REFRESH.json: _meta.current_commit_sha + _meta.current_commit_sha_full + _meta.current_ci_run + _meta.current_ci_run_name + _meta.current_ci_duration_seconds + _meta.cache_lag_check_url + _meta.cache_lag_note added. SHA is now programmatically discoverable without string parsing.",
+        ".well-known/ai-context.json: grounding_test.questions rewritten (4 questions; one is the new DCP-001 existence check; one is the stale-state self-check). _cache_lag_note added. _metadata.last_aligned_in_push = #48. ai_platform_capability_observed.grok updated.",
+        "ai-refresh/HS_MACHINE_MANIFEST.json: _status LEGACY SNAPSHOT marker added pointing at HS_FAST_REFRESH.json as live source of truth. File preserved per HCC-R004; refreshed manifest queued as post-conference DCP candidate.",
+        "CHANGELOG.md (NEW at repo root): top-level digest pointer to PUSHES_INDEX.md with last 11 pushes inline + 'where to find things' table + pre-conference status block + cache-lag note for AI assistants.",
+        "ai-refresh/change_packets/push_48_post_maintenance_checker_output_2026-05-12.txt (NEW): consistency checker output post-maintenance — still 23 passes / 0 errors / exit 0."
       ]
     }
   ],

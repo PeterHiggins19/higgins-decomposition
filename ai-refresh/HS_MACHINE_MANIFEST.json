@@ -6,7 +6,11 @@
     "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context.",
     "session_pointer": "push #24 -- Grok crosscheck integration + HCI-AUDIO + HCI-ULTRASOUND sibling tiers + DADC origin lineage.",
     "last_updated": "2026-05-10",
-    "last_push": "#35"
+    "last_push": "#35",
+    "_status": "LEGACY SNAPSHOT — push #35 era (2026-05-10). Engine versions, last_push, engine_status, and absolute paths in this file are historical. Current authoritative state lives in HS_FAST_REFRESH.json (single source of truth per Hs Change Control v1.0 rule HCC-R001). This file is preserved per HCC-R004 (archive preservation). A refreshed manifest is queued as a post-conference DCP candidate. See AI_AGENTS.md §2.1 for cache-lag guidance.",
+    "_status_added_in_push": "#48 (cache-lag mitigation under Hs Change Control v1.0)",
+    "_status_added_date": "2026-05-12",
+    "_authoritative_current_state": "HS_FAST_REFRESH.json"
   },
   "system": {
     "name": "HUF-CNT (HCI-CNT) inside the Hˢ repository",
