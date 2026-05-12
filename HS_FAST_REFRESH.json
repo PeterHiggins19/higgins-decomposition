@@ -10,9 +10,8 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-11",
-    "last_push": "#42",
-    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
-    "push_43_prepared_held": "Push #43 prepared locally on 2026-05-11. Six new INV entries from Grok round 5 + Peter's terms-catalog observation: INV-056 fit_fixed_point STAGED, INV-057 Householder formalisation STAGED, INV-058 Power Spectrum Analyzer STAGED, INV-059 cross-model framing validation CANONICAL, INV-060 Yeast Factor diagnostic STAGED (real tool, 4-phase classifier), INV-061 System Terms Catalog STAGED. HOLD-TO-PUSH pending Peter authorization. NO canonical-file ripple before conference per Phase 5 staging."
+    "last_push": "#43",
+    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design."
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
@@ -292,20 +291,20 @@
     "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
     "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
     "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
-    "current_total": 55,
+    "current_total": 61,
     "by_disposition": {
-      "CANONICAL": 32,
+      "CANONICAL": 33,
       "DEFERRED": 12,
       "FALSIFIED": 1,
       "OPEN": 8,
       "CLOSED": 1,
-      "STAGED": 1
+      "STAGED": 6
     },
     "by_source": {
-      "CLAUDE": 7,
+      "CLAUDE": 8,
       "CHATGPT": 10,
-      "GROK": 15,
-      "USER": 23,
+      "GROK": 18,
+      "USER": 25,
       "PILOT": 0
     },
     "named_findings_for_codawork_2026": [
@@ -314,7 +313,9 @@
       "INV-051 — deceptive-drift signature reproduced across 5 of 9 EMBER countries",
       "INV-053 - Prior-art Area 4 partially executed (Morais et al. 2017/2018 + Arata & Onozaki 2017); MC-4 survives narrowed",
       "INV-054 STAGED - Hˢ Ascent Path doctrine (post-conference promotion 2026-06-06+)",
-      "INV-055 - Talk delivery infrastructure (papers/codawork2026/talk/ phone-readable repo-as-presentation)"
+      "INV-055 - Talk delivery infrastructure (papers/codawork2026/talk/ phone-readable repo-as-presentation)",
+      "INV-060 STAGED - Yeast Factor diagnostic (4-phase classifier; post-conference research thread)",
+      "INV-061 STAGED - System Terms Catalog (domain-to-engine mapping; prevents engine bloat)"
     ]
   },
   "notation_and_terminology_pointer": {
@@ -542,6 +543,8 @@
     "push_41_addendum": "ai-refresh/PUSH41_READY_FOR_COMMIT.md",
     "ascent_path_doctrine_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json (STAGED for post-conference 2026-06-06+)",
     "prior_art_search_status": "Area 4 partially executed (INV-053); 3 areas pending",
-    "talk_folder": "papers/codawork2026/talk/ (oratory + slides + Q&A + study + backup)"
+    "talk_folder": "papers/codawork2026/talk/ (oratory + slides + Q&A + study + backup)",
+    "push_43_addendum": "ai-refresh/PUSH43_PRE_PUSH_SUMMARY.md (six new INV entries)",
+    "post_conference_research_roadmap": "INV-060 Yeast Factor + INV-061 Terms Catalog + INV-058 Power Spectrum + INV-056 fit_fixed_point + INV-057 Householder formalisation"
   }
 }

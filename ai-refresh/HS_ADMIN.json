@@ -12,7 +12,7 @@
     "push_33_completed": "2026-05-10",
     "push_34_completed": "2026-05-10",
     "push_35_completed": "2026-05-10",
-    "last_updated": "2026-05-11T18:00:00Z",
+    "last_updated": "2026-05-11T19:00:00Z",
     "push_36_completed": "2026-05-10",
     "push_37_completed": "2026-05-10",
     "push_38_completed": "2026-05-10",
@@ -23,7 +23,7 @@
     "push_42_prepared": "2026-05-11",
     "push_42_completed": "2026-05-11",
     "push_43_prepared": "2026-05-11",
-    "push_43_status": "PREPARED locally; HOLD-TO-PUSH pending Peter authorization. Grok round 5 signal extraction + six new INV entries (1 CANONICAL + 5 STAGED). NO trunk/root canonical files; Phase 5 conference-window discipline intact."
+    "push_43_completed": "2026-05-11"
   },
   "operations_protocol": {
     "_description": "Gawande-style meta-checklist for the whole repo. One row per transition point where complexity creates failure modes; each row points at the canonical document holding the actual checklist. Apply at every operational moment — new analysis, push, cowork session start/end, AI cold-start, push failure, corpus drift, doc update, reviewer audit.",
@@ -1209,7 +1209,7 @@
       "date": "2026-05-11",
       "title": "Grok round 5 signal extraction: yeast factor + system terms catalog + fit_fixed_point + Householder + Power Spectrum + cross-model validation",
       "type": "doc-only + branch/catalog-layer (signal extraction from Grok round 5 with full repo access)",
-      "push_status": "PREPARED locally 2026-05-11; HOLD-TO-PUSH pending Peter authorization.",
+      "push_status": "PUSHED e1f95e7 2026-05-11. CI run #40 (Validate Repository) green at 50s. Six new INV entries live in main: INV-056..061. HOLD-TO-PUSH protocol followed; release authorized by Peter directive \"small push of 5 files... now clear to do a full repo ready for push cycle\".",
       "catalog_entries": [
         "INV-056 STAGED (fit_fixed_point Period-1 detection)",
         "INV-057 STAGED (Householder formalisation of metric-dual involution)",
@@ -1231,7 +1231,9 @@
       "tests_unchanged": true,
       "schema_unchanged": true,
       "ascent_path_layer": "catalog-only work; no trunk/root changes; NO-CREATE list still empty",
-      "review_origin": "Grok round 5 cross-check 2026-05-11 (Grok with full GitHub repo access; first such session) + Peter's architectural questions about the yeast factor as real tool and the system terms catalog."
+      "review_origin": "Grok round 5 cross-check 2026-05-11 (Grok with full GitHub repo access; first such session) + Peter's architectural questions about the yeast factor as real tool and the system terms catalog.",
+      "commit_sha": "e1f95e7",
+      "ci_run": 40
     }
   ],
   "licensing": {
