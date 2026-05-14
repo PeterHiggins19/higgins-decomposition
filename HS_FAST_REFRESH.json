@@ -9,24 +9,56 @@
     "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
-    "last_updated": "2026-05-12",
-    "last_push": "#49",
+    "last_updated": "2026-05-14",
+    "last_push": "#49 (push #50 READY FOR COMMIT)",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
     "push_44_completed": "2026-05-12 PUSHED 8acadfb CI #42 \"Coordination\" green 49s",
     "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
     "push_46_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #47)",
     "push_47_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #46)",
-    "current_commit_sha": "eca9604",
-    "current_commit_sha_full": "eca9604cd449083e2cf6709b616c3e6f5935aa2c",
-    "current_ci_run": 45,
-    "current_ci_run_name": "Cache-lag mitigation",
-    "current_ci_duration_seconds": 44,
+    "current_commit_sha": "67e2456",
+    "current_commit_sha_full": "67e2456efaf9d645e7e5af3b4cb78eb694483b2e",
+    "current_ci_run": 46,
+    "current_ci_run_name": "lectern",
+    "current_ci_duration_seconds": 48,
     "cache_lag_check_url": "https://api.github.com/repos/PeterHiggins19/higgins-decomposition/commits/main",
     "cache_lag_note": "If current_commit_sha here differs from the SHA returned by cache_lag_check_url, your AI connector cache is behind the repo. See AI_AGENTS.md §2.1.",
     "push_48_completed": "2026-05-12 PUSHED eca9604 CI #45 \"Cache-lag mitigation\" green 44s",
     "conference_window_lockdown": "2026-05-12 → 2026-06-06",
     "conference_window_lockdown_doc": "PRE_CONFERENCE_LOCKDOWN.md",
-    "push_49_completed": "2026-05-12"
+    "push_49_completed": "2026-05-12 PUSHED 67e2456 CI #46 \"lectern\" green 48s",
+    "publication_standards": {
+      "authority": "HUF-STD-001",
+      "path": "huf-gov/standards/HUF_PUBLICATION_STANDARDS.json",
+      "version": "1.0",
+      "established": "2026-05-13",
+      "principle": "All HUF and derivative-repository publicly-published media conform to HUF-STD-001. AI use is disclosed per ICMJE/COPE/Nature/Science/WAME/EU-AI-Act/arXiv/ACM/IEEE conventions. Authorship is human-only."
+    },
+    "tensor_train_io_standard": {
+      "authority": "HUF-STD-002",
+      "path": "huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json",
+      "companion_md": "huf-gov/standards/TENSOR_TRAIN.md",
+      "version": "1.0",
+      "established": "2026-05-13",
+      "principle": "data CSV → CNT (metric tensor, schema 3.1.0) → CNQ (metric quaternion, schema cnq/2.0.0) → vector output (PDF / PNG / SVG). PPTX excluded from standard package — conference-only.",
+      "draws_from": [
+        "HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md (Output Doctrine v1.0)",
+        "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json (INV-062 STAGED)"
+      ]
+    },
+    "hs_linear_algebra_foundations": {
+      "authority": "HUF-STD-003",
+      "path": "huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json",
+      "companion_md": "huf-gov/standards/FOUNDATIONS.md",
+      "traceability_audit": "huf-gov/standards/FOUNDATIONS_TRACEABILITY.md",
+      "version": "1.0",
+      "established": "2026-05-14",
+      "principle": "Names the seven linear-algebra components on which every Hs engine and plate generator rests: (1) Symmetric Matrix, (2) Property of Transpose, (3) Matrix Decomposition, (4) Eigenvectors/Eigenvalues, (5) Strong Property of Symmetric Matrices (Spectral Theorem), (6) Spectral Decomposition, (7) Visualization. Establishes Stage-0 (Foundations Plate) as the dedicated foundations-visualization tier underneath Stages 1–4.",
+      "stage_0_generator": "HCI/codawork2026/stage0_foundations/foundations_plate.py",
+      "stage_0_outputs_pdf": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FoundationsPlates_2026-05-14.pdf (19 pages, master PDF)",
+      "stage_0_outputs_per_country": "CODA-Association/CODAwork2026/data_outputs/per_country_pdfs/{ISO}_stage0.pdf × 9"
+    },
+    "push_50_prepared": "2026-05-14 READY FOR COMMIT — conference-prep arc package: huf-gov circuit breakers + CODA-Association folder authority + Premier Data Outputs (master PDF 325pp + master PPTX 66 slides) + HUF-STD-001/002/003 standards + dual-view Triplet Plates (503pp) + Stage-0 Foundations Plates (19pp). All lockdown-compliant (S2 doc + additive plate modules). Engine code, schemas, INV dispositions, NO-CREATE files, papers/codawork2026/talk/ all untouched. Checker green 23/0/0."
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
@@ -560,6 +592,7 @@
     "prior_art_search_status": "Area 4 partially executed (INV-053); 3 areas pending",
     "talk_folder": "papers/codawork2026/talk/ (oratory + slides + Q&A + study + backup)",
     "push_43_addendum": "ai-refresh/PUSH43_PRE_PUSH_SUMMARY.md (six new INV entries)",
-    "post_conference_research_roadmap": "INV-060 Yeast Factor + INV-061 Terms Catalog + INV-058 Power Spectrum + INV-056 fit_fixed_point + INV-057 Householder formalisation"
+    "post_conference_research_roadmap": "INV-060 Yeast Factor + INV-061 Terms Catalog + INV-058 Power Spectrum + INV-056 fit_fixed_point + INV-057 Householder formalisation",
+    "push_50_addendum": "ai-refresh/PUSH50_PRE_PUSH_SUMMARY.md (Conference-prep monster: huf-gov + CODA-Association + HUF-STD-001/002/003 + Dual-View + Stage-0 Foundations)"
   }
 }
