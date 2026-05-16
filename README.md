@@ -2,7 +2,7 @@
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
-> **🎯 Conference Status — CoDaWork 2026, Coimbra (1–5 June 2026).** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. Conference talk material lives at [`papers/codawork2026/talk/`](papers/codawork2026/talk/) — start with [`SPEAKER_BRIEF.md`](papers/codawork2026/talk/SPEAKER_BRIEF.md). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json).
+> **🎯 Conference Status — CoDaWork 2026, Coimbra (1–5 June 2026).** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. **Conference authority folder:** [`CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/) — versioned speaker materials + the published Premier Data Output package (325-page master PDF, 66-slide PPTX, 503-page Dual-View Stage-1 Output, 19-page Foundations Plates, per-country PDFs + hash-chained JSON). Speaker-prep snapshot under lockdown: [`papers/codawork2026/talk/`](papers/codawork2026/talk/) (historical source, do not edit until 2026-06-06). Start with [`CODA-Association/CODAwork2026/SPEAKER_BRIEF.md`](CODA-Association/CODAwork2026/SPEAKER_BRIEF.md). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Conference standards: [`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
 
 > **🎉 Public and publication-grade.** Both engines (CNT v3.0.0 and CNQ v2.0.0) ship in Python and R with language-agnostic pseudocode and a 43-test suite. The user entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing in [`LICENSING.md`](LICENSING.md). Free to use, free to cite, help is available — open an issue or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
 
@@ -45,6 +45,29 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 | Deterministic | Yes (Gauge R&R bit-identical, SHA-256 verified) |
 | Instrument metrology | QUALIFIED (6/6 metrics pass) |
 | License | Code: Apache-2.0 (LICENSE) · Docs: CC BY 4.0 (LICENSE-DOCS) |
+
+---
+
+## What's New — May 2026 (Push #50, 2026-05-14)
+
+**🎯 Conference-prep monster push lands** ([`47cecc9`](https://github.com/PeterHiggins19/higgins-decomposition/commit/47cecc9d9a03b53bf77d9fccf4563711026cf339), CI #47 "Foundations" green 48s). Twelve work products consolidated into a single coordinated commit under PRE_CONFERENCE_LOCKDOWN discipline:
+
+1. **[`Hs/huf-gov/`](huf-gov/)** — circuit-breaker structural addition with [`BREAKER_INVENTORY.md`](huf-gov/BREAKER_INVENTORY.md), 2 candidate DCPs (DCP-002 CHK-CNQ regex upgrade, DCP-003 CHK-DISPOSITION-001), and a breaker-test runner.
+2. **[`Hs/CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/)** — conference-authority folder with 8 versioned speaker docs, 13-slide talk deck, and a complete [`data_outputs/`](CODA-Association/CODAwork2026/data_outputs/) Premier Data Output package.
+3. **[`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) Publication Standards** — ICMJE/COPE/Nature/Science/WAME/EU-AI-Act/arXiv/ACM/IEEE-compliant AI Use Declaration template; human-only authorship.
+4. **[`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) Tensor Train I/O Standard** — names the data → CNT → CNQ → vector output chain. PDF/PNG/SVG are standard; PPTX is conference-only.
+5. **[`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) Hs Linear Algebra Foundations** — the seven components (Symmetric Matrix · Property of Transpose · Matrix Decomposition · Eigenvectors/Eigenvalues · Spectral Theorem · Spectral Decomposition · Visualization) named, with Stage-0 (Foundations Plate) as the visualization tier. Companion: [`FOUNDATIONS.md`](huf-gov/standards/FOUNDATIONS.md) + [`FOUNDATIONS_TRACEABILITY.md`](huf-gov/standards/FOUNDATIONS_TRACEABILITY.md).
+6. **ILR-Helmert Triplet Plate generator** ([`HCI/codawork2026/stage1_plates/ilr_triplet_plate.py`](HCI/codawork2026/stage1_plates/ilr_triplet_plate.py)) — orthonormal companion to the Section Plate.
+7. **Stage-0 Foundations Plate generator** ([`HCI/codawork2026/stage0_foundations/foundations_plate.py`](HCI/codawork2026/stage0_foundations/foundations_plate.py)) — visualizes the seven foundations directly with machine-precision verification of the Spectral Theorem on actual data (Germany rank-k = 60.5% / 90.4% / 99.9%).
+8. **Premier Data Output v2.0** — [`CodaWork2026_PremierDataOutput_2026-05-13.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) (325 pages) + [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) (66 slides with corrected CNQ + new Triplet slide per country).
+9. **Dual-View Stage 1 Output** — [`CodaWork2026_DualViewStage1Output_2026-05-13.pdf`](CODA-Association/CODAwork2026/data_outputs/dual_view/CodaWork2026_DualViewStage1Output_2026-05-13.pdf) (503 pages, Section + Triplet paired per country).
+10. **Foundations Plates master PDF** — [`CodaWork2026_FoundationsPlates_2026-05-14.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FoundationsPlates_2026-05-14.pdf) (19 pages, cover + 9 countries × 2-page Stage-0 plate).
+11. **CNQ dashboard fix** — JSON-key-path corrections; all 9 countries now show real Hs(t), ω(t), K_eff+TV, helmsman σ(t), spike-detector, and diagnostics box.
+12. **`papers/` additions** — [`EITT_CANONICAL_EXPLANATION_2026-05-12.md`](papers/EITT_CANONICAL_EXPLANATION_2026-05-12.md), [`BREAD_THE_HS_WAY_2026-05-12.md`](papers/BREAD_THE_HS_WAY_2026-05-12.md), [`HUF_GOV_BREAKER_TEST_2026-05-12.md`](papers/HUF_GOV_BREAKER_TEST_2026-05-12.md), [`POST_CODA_PARTNERSHIP_TARGETS.md`](papers/POST_CODA_PARTNERSHIP_TARGETS.md).
+
+All under lockdown discipline: engine code, schemas, INV catalog dispositions (still 63 entries / 33 CANONICAL / 8 STAGED), six NO-CREATE files, and [`papers/codawork2026/talk/`](papers/codawork2026/talk/) untouched.
+
+→ Push #50 summary: [`ai-refresh/PUSH50_READY_FOR_COMMIT.md`](ai-refresh/PUSH50_READY_FOR_COMMIT.md)
 
 ---
 

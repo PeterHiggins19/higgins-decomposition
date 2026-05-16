@@ -10,16 +10,16 @@
     "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
     "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
     "last_updated": "2026-05-14",
-    "last_push": "#49 (push #50 READY FOR COMMIT)",
+    "last_push": "#50 (push #51 READY FOR COMMIT — expanded 2026-05-16: AI-refresh routing + HUF-STD-001 v1.1 person-noun convention + HUF-STD-002 post-conference target reorder (Activation Coefficient = Order 1) + NOTATION_AND_TERMINOLOGY v2.0 + GLOSSARY v2.0 + INV-060 title sharpened + CodaWork talk deck polish (5 slides) + Grok round 7 archive. See ai-refresh/PUSH51_READY_FOR_COMMIT.md)",
     "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
     "push_44_completed": "2026-05-12 PUSHED 8acadfb CI #42 \"Coordination\" green 49s",
     "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
     "push_46_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #47)",
     "push_47_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #46)",
-    "current_commit_sha": "67e2456",
-    "current_commit_sha_full": "67e2456efaf9d645e7e5af3b4cb78eb694483b2e",
-    "current_ci_run": 46,
-    "current_ci_run_name": "lectern",
+    "current_commit_sha": "47cecc9",
+    "current_commit_sha_full": "47cecc9d9a03b53bf77d9fccf4563711026cf339",
+    "current_ci_run": 47,
+    "current_ci_run_name": "Foundations",
     "current_ci_duration_seconds": 48,
     "cache_lag_check_url": "https://api.github.com/repos/PeterHiggins19/higgins-decomposition/commits/main",
     "cache_lag_note": "If current_commit_sha here differs from the SHA returned by cache_lag_check_url, your AI connector cache is behind the repo. See AI_AGENTS.md §2.1.",
@@ -58,7 +58,7 @@
       "stage_0_outputs_pdf": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FoundationsPlates_2026-05-14.pdf (19 pages, master PDF)",
       "stage_0_outputs_per_country": "CODA-Association/CODAwork2026/data_outputs/per_country_pdfs/{ISO}_stage0.pdf × 9"
     },
-    "push_50_prepared": "2026-05-14 READY FOR COMMIT — conference-prep arc package: huf-gov circuit breakers + CODA-Association folder authority + Premier Data Outputs (master PDF 325pp + master PPTX 66 slides) + HUF-STD-001/002/003 standards + dual-view Triplet Plates (503pp) + Stage-0 Foundations Plates (19pp). All lockdown-compliant (S2 doc + additive plate modules). Engine code, schemas, INV dispositions, NO-CREATE files, papers/codawork2026/talk/ all untouched. Checker green 23/0/0."
+    "push_50_completed": "2026-05-14 PUSHED 47cecc9 CI #47 \"Foundations\" green 48s — conference-prep arc package: huf-gov circuit breakers + CODA-Association folder authority + Premier Data Outputs (master PDF 325pp + master PPTX 66 slides) + HUF-STD-001/002/003 standards + dual-view Triplet Plates (503pp) + Stage-0 Foundations Plates (19pp). All lockdown-compliant (S2 doc + additive plate modules). Engine code, schemas, INV dispositions, NO-CREATE files, papers/codawork2026/talk/ all untouched. Checker green 23/0/0."
   },
   "identity": {
     "framework_name": "Higgins Decomposition",
@@ -576,6 +576,8 @@
   "active_priority_pointer": {
     "_warning": "If resuming Hs work between 2026-05-10 and 2026-06-05, read this FIRST before any other planning artefact.",
     "topic": "CoDaWork 2026 — conference talk preparation",
+    "conference_authority_folder": "CODA-Association/CODAwork2026/ — versioned speaker materials + Premier Data Output package (master PDF 325pp + master PPTX 66 slides + Dual-View 503pp + Foundations Plates 19pp + per-country PDFs + hash-chained JSON). Established push #50 (2026-05-14).",
+    "speaker_prep_snapshot_under_lockdown": "papers/codawork2026/talk/ — historical source; do not edit until lockdown lifts on 2026-06-06.",
     "redirect_doc": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md",
     "push_38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
     "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",

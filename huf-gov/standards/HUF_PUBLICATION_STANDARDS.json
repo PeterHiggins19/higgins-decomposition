@@ -1,8 +1,9 @@
 {
   "document_id": "HUF-STD-001",
   "title": "HUF Publication Standards — Scientific Media Generation Conventions",
-  "version": "1.0",
+  "version": "1.1",
   "date_created": "2026-05-13",
+  "date_revised": "2026-05-14 (v1.1 — person_noun_convention added)",
   "authority_level": "FOUNDATIONAL — applies to all HUF, Hs, and derivative repository media intended for external audiences",
   "supersedes": null,
   "parent_doctrine": "huf-gov/HUF_GOVERNANCE_CHARTER.md Article V (Integrity of Purpose) + Article VI (Accountable Data) + Article VII (Accountable Resolution)",
@@ -201,6 +202,41 @@
     ]
   },
 
+  "person_noun_convention": {
+    "version": "1.1 (2026-05-14)",
+    "trigger": "Peter directive 2026-05-14 — 'change human to Researcher, the word itself draws attention as humans never refer to people as humans, only systems level and machine levels make this distinction for safety reasons or studies that are specific to the studies of anthropology, for general public facing documents however it sticks out... it just needs to be part of the standards.'",
+    "history_pointer": "Convention first established at push #25 (2026-05-08) and re-locked at push #36 (2026-05-10). Until 2026-05-14 it lived only in HS_FAST_REFRESH.json `common_drift_errors.human_vs_user_or_researcher`. This entry promotes it to a standards-level requirement.",
+    "principle": "In general public-facing output (slide decks, reports, READMEs, study deliverables, community materials), the word 'human' as a person noun reads as systems-level or anthropological framing and sticks out to readers who are themselves people. Replace it with 'researcher', 'user', or 'reader' as the context calls for. The technical adjective 'human-readable' is replaced with 'user-readable'.",
+    "general_output_replacements": {
+      "human reader": "reader",
+      "human author": "the author (or researcher / scientist where appropriate)",
+      "human researcher": "researcher",
+      "human user": "user",
+      "human entry point": "entry point",
+      "human-readable": "user-readable",
+      "for human consumption": "for the reader (or for direct use)",
+      "AI or human": "AI or researcher"
+    },
+    "exceptions_where_human_is_retained": {
+      "description": "The word 'human' is retained in the following narrow technical / standards contexts where its specific meaning (Homo sapiens as opposed to machine or AI) is load-bearing and the standards-community uses the exact term.",
+      "retained_contexts": [
+        "Authorship rules — 'authorship is human-only' is the exact ICMJE/COPE/Nature/Science/WAME convention and must not be reworded",
+        "AI safety vocabulary — 'human-in-the-loop' is the canonical AI safety term and is the precise concept",
+        "Anthropology / demographic-context studies — when the subject matter is literally the study of humans as a species (e.g. demographic compositions, religion-population studies), 'human population' is the appropriate technical phrase",
+        "Legal disclosures requiring explicit AI-vs-human distinction (EU AI Act 2024, FDA Section 524B, etc.)"
+      ],
+      "rationale": "These contexts are systems-level by construction — the word's stand-out quality IS the intent (to distinguish from machine or AI). Replacing them would either misuse a peer-community term or weaken a regulatory disclosure."
+    },
+    "applies_to": [
+      "All slide decks, reports, study PDFs, presentation materials",
+      "All README files and folder orientation documents",
+      "Community-outreach materials (the original trigger context)",
+      "Demographic and survey-context studies (with the anthropology exception above)",
+      "The Hs Standard Stamp page (`hs_standard_stamp.py`)"
+    ],
+    "consistency_check_proposal": "A new CHK-PERSON-NOUN-001 rule for `scripts/check_ai_refresh_consistency.py` would flag 'human' usages in non-exception contexts. Filed as a post-conference target — see CHK rule queue."
+  },
+
   "reference_implementations_compliant_with_HUF_STD_001": {
     "description": "Documents that have been brought into compliance with HUF-STD-001 v1.0 as of the standard's creation. Future-compliant documents are added here when revised.",
     "as_of_2026-05-13": [
@@ -234,6 +270,11 @@
       "version": "1.0",
       "date": "2026-05-13",
       "change_summary": "Baseline document. Adopts ICMJE / COPE / Nature / Science / WAME / EU AI Act / arXiv / ACM / IEEE as primary references. Establishes AI Use Declaration template, authorship attribution rules, falsifiability disclosure requirements, provenance and hash-chain requirements, versioning conventions, locale support, lockdown discipline, licensing, and open-loop doctrine disclosure as HUF standards."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-14",
+      "change_summary": "Adds person_noun_convention section codifying the 'human' → 'researcher/user/reader' rule for general public-facing output. The convention had existed since push #25 (2026-05-08) and was re-locked at push #36 (2026-05-10), but lived only in HS_FAST_REFRESH.json common_drift_errors. This revision promotes it to a standards-level requirement with explicit replacement table and a narrow list of retained-context exceptions (authorship rules, AI-safety vocabulary, anthropology, regulatory disclosure). Lockdown-compliant — S2 doc-only addition. Trigger: Peter directive 2026-05-14."
     }
   ],
 

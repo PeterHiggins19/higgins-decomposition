@@ -155,37 +155,48 @@
 
   "post_conference_implementation_targets": {
     "trigger_date": "2026-06-06 (PRE_CONFERENCE_LOCKDOWN clears)",
+    "_order_revised_2026-05-14": "Power Share / Yeast Factor diagnostic (INV-060) moved to Order 1 per Peter directive 2026-05-14 after the religion-study demonstration showed yeast factors up to 148× — i.e. small-share carriers doing 100× the directional work of their size. Promoted because the diagnostic produces structural readings that the existing plate suite materially misses, and because Peter has declared it a standard inclusion in all future Hs outputs.",
     "ordered_targets": [
       {
         "order": 1,
+        "target": "Power Share / Yeast Factor diagnostic — engine output + plate module (INV-060 promotion: STAGED → CANONICAL)",
+        "rationale": "Per-carrier directional work decomposition: power_share_j(t) = (ΔCLR_j)² / Σ_k (ΔCLR_k)², sums to 100% per step; yeast_j(t) = power_share_j(t) / composition_share_j(t-1) names structural leverage beyond size. Religion-study demonstration (Studies/Religion_2026-05-14, slide 8) showed yeast factors up to 148× for USA Hindus at 2030→2040. The diagnostic is mathematically clean (Aitchison-squared-distance decomposition), small to implement (~50 lines), and reads a structural fact existing plates miss completely.",
+        "spec": "Two pieces — (a) new engine output block `tensor.timesteps[t].power_share[]` and `yeast_factor[]` in CNT canonical JSON (schema bump 3.1.0 → 3.2.0); (b) new plate `HCI/codawork2026/stage1_plates/power_share_plate.py` rendering the stacked-bar-by-transition + yeast-cases-callout view demonstrated in the religion deck.",
+        "promotion_target": "Standard inclusion in every Hs-produced data deliverable going forward — sibling to the Section Plate and Triplet Plate at Stage 1.",
+        "estimated_effort": "1-2 days (engine block 0.5d, plate generator 0.5d, schema doc 0.25d, INV-060 promotion + doctrine update 0.5d)",
+        "demonstration_artifact": "CODA-Association/Studies/Religion_2026-05-14/Religion_HiddenDirections_2026-05-14.pdf slide 8/12",
+        "trigger_quote": "Peter 2026-05-14: 'the power share per composition per time slice is awesome as a general inclusion in all outputs, put it on top of todo list.'"
+      },
+      {
+        "order": 2,
         "target": "hs_cnq_pdf_exporter.py implementation (INV-062 promotion: STAGED → CANONICAL)",
         "spec": "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json",
         "estimated_effort": "2-3 days; phases 1-3 of the spec's implementation_priority",
         "completes_link": "link 4 — closes the final gap in the tensor train"
       },
       {
-        "order": 2,
-        "target": "PNG / SVG export siblings for stage1_plates_raw.py + stage23_plates.py",
+        "order": 3,
+        "target": "PNG / SVG export siblings for stage1_plates_raw.py + stage23_plates.py + power_share_plate.py + foundations_plate.py + ilr_triplet_plate.py",
         "rationale": "Matplotlib backend already supports both; mostly a CLI flag",
         "estimated_effort": "0.5 days",
         "completes_link": "link 4 alternate formats"
       },
       {
-        "order": 3,
+        "order": 4,
         "target": "Stage 3 plate module (atlas/stage3.py) per Output Doctrine v1.0 §4 (currently 'planned')",
         "rationale": "Depth tower, IR class, attractor visualization — currently text-only output from CNT; needs visual surface",
         "estimated_effort": "1-2 days",
         "completes_link": "link 4 Stage 3 visual surface"
       },
       {
-        "order": 4,
+        "order": 5,
         "target": "Stage 4 plate module (atlas/stage4.py) per Output Doctrine v1.0 §4 — EITT bench, cross-dataset comparison, schema-validator surface",
         "rationale": "Cross-dataset is the natural Stage 4 use case; EITT is a HUF-side scientific contribution that benefits from a dedicated visual",
         "estimated_effort": "2-3 days",
         "completes_link": "link 4 Stage 4 visual surface"
       }
     ],
-    "doctrine_compatibility": "All four targets implement existing Output Doctrine v1.0 specifications. None introduce new engine code in cnt.py or cnq.py; they extend link 4 only. Lockdown-compatible filing format: each becomes a Discovery Change Packet at proposed status during the lockdown window, executes after 2026-06-06."
+    "doctrine_compatibility": "All five targets implement existing Output Doctrine v1.0 specifications. Targets 2-5 extend link 4 only and introduce no engine changes. Target 1 (power share / yeast factor) DOES add a small block to CNT canonical JSON — a schema bump from 3.1.0 to 3.2.0 — which routes through the standard Discovery Change Packet protocol (HCC-R001..R008) once the lockdown clears. Lockdown-compatible filing format: each becomes a DCP at proposed status during the lockdown window, executes after 2026-06-06."
   },
 
   "authority_chain": {

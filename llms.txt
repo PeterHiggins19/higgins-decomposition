@@ -10,6 +10,16 @@ This file follows the [llms.txt convention](https://llmstxt.org/) — a proposed
 - [HS_FAST_REFRESH.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HS_FAST_REFRESH.md): Companion narrative for AI assistants who prefer Markdown.
 - [AI_AGENTS.md](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/AI_AGENTS.md): Full operating instructions for AI assistants engaging with this repo, including the grounding-test, fetch order, common drift errors, and known platform failure modes.
 
+## Conference (CoDaWork 2026, Coimbra, 1–5 June 2026)
+
+- **Conference authority folder:** [`CODA-Association/CODAwork2026/`](https://github.com/PeterHiggins19/higgins-decomposition/tree/main/CODA-Association/CODAwork2026) — versioned speaker materials + Premier Data Output package (master PDF + PPTX + Dual-View + Foundations Plates).
+- **Speaker-prep snapshot** (under lockdown until 2026-06-06): [`papers/codawork2026/talk/`](https://github.com/PeterHiggins19/higgins-decomposition/tree/main/papers/codawork2026/talk) — historical source, do not edit.
+- **Lockdown declaration:** [`PRE_CONFERENCE_LOCKDOWN.md`](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/PRE_CONFERENCE_LOCKDOWN.md).
+- **Conference standards** (push #50, 2026-05-14):
+  - [`HUF-STD-001`](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) Publication Standards (ICMJE/COPE/Nature/Science/WAME/EU-AI-Act/arXiv/ACM/IEEE)
+  - [`HUF-STD-002`](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) Tensor Train I/O Standard
+  - [`HUF-STD-003`](https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) Hs Linear Algebra Foundations (the seven components)
+
 ## Grounding test (run this before trusting any AI summary)
 
 Before trusting an AI summary of this repo, ask the assistant:
