@@ -280,6 +280,7 @@ A condensed event log for the CNT v2 → v3 transition window, in chronological 
 | **#35** | **2026-05-10** | EXPERIMENTS_JOURNAL.md + admin JSON sweep (this document) | (administrative; no new INV) |
 | **#36** | **2026-05-10** | CoDaWork 2026 redirect priority + planning folder + master plan | (catalog INV references; planning artefacts) |
 | **#37** | **2026-05-10** | **CNT v3.1.0 — navigation_concentration_family promoted into canonical engine.** TV distance + K_eff + concentration regime tag (one of `tightening`/`loosening`/`deceptive`/`stable`) now produced natively per timestep. The HUF MC-4 packet operators are now permanent engine diagnostics. Schema bumped 3.0.0 → 3.1.0. 5 of 9 EMBER countries (AUS, CHN, GBR, IND, JPN) show non-zero `deceptive` regime counts at annual grain. | [catalog INV-049](ai-refresh/INVESTIGATION_CATALOG.json) |
+| **#52** | **2026-05-19** | **🏁 Point-of-restore milestone — CoDaWork 2026 conference-ready.** **CNT v3.2.0** lands the new `navigation_2d` block — ILR-Helmert PCA barycenter trajectory, scaled to unit disk, with `pc1_direction`, `pc2_direction`, `variance_explained`, `bary_xy[t]`. Backwards-compatible: every v3.1.0 field unchanged; v3.2.0 outputs are supersets of v3.1.0 outputs. Conference corpus (`CODA-Association/CODAwork2026/data_outputs/per_country_json/cnt_v3/`) stays pinned to v3.1.0 — not regenerated under the pre-conference lockdown. The same math reaches the projector via sidecar `outputs/regen_baryxy.py`. **Projector v2.0** adopts the three-mode standard (RADAR / BARY / ALIGN) plus SHOCK overlay. Japan PC1+PC2 = 99.2 %; Germany 90.5 % (most multi-D); USA / World aggregate / India / China all > 99 %. **Manuscript v1.3** adds cover page + TOC + scientific-report layout. Five-piece bundle locked. R-port v3.2.0 + admin-JSON sync queued for post-conference. | [`AI_REFRESH_2026-05-19_conference_ready.md`](ai-refresh/AI_REFRESH_2026-05-19_conference_ready.md) · INV-064 (queued) |
 
 ---
 
@@ -346,7 +347,7 @@ For example, for the EMBER USA energy generation under CNT v3 + CNQ v2:
 
 This journal is refreshed at every push. Each entry to **§5 (push event log)** is added the same day the push lands. Each entry to **§3 (sequential ledger)** is added when a new experiment folder lands. Each entry to **§4 (cross-version diff)** is added when an engine-version transition occurs. The catalog cross-reference in **§6** is regenerated from the current INVESTIGATION_CATALOG.json on each push.
 
-**Last refresh:** 2026-05-10 (push #34, INV-048 promoted)
+**Last refresh:** 2026-05-19 (push #52, point-of-restore milestone; engine v3.2.0 + projector v2.0 + manuscript v1.3; INV-064 queued)
 
 ---
 

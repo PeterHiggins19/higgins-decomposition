@@ -186,4 +186,160 @@ All foundations verified at IEEE-floor across all 9 EMBER countries.
 
 ---
 
+### 2026-05-17 — Doctrine reset: paper first, talk is a condensation
+
+Per Peter realisation 2026-05-17: *"a presentation is representation of a full study report ... no real report was ever generated and therefore no presentation based on nothing but the method to create the report when the presentation is on what the method delivers goes nowhere."*
+
+The framework had been developed working **backwards** from the engine. Talk decks were trying to summarise a paper that was never written. Fixed by writing the publication-grade manuscript first, then condensing it.
+
+| File | New version | Change |
+|---|---|---|
+| `../../papers/codawork2026/manuscript/MANUSCRIPT.md` (NEW) | 1.0 → 1.2 | Publication-grade manuscript with Nature-style structure: 90-char title, 150-word abstract, Introduction (no header), Results with topical subheadings (Germany / Japan / UK / cross-country), Discussion with four falsifiable defeat paths, Methods at end. Five figures: method schematic, Germany 4-panel, Japan 4-panel, UK 4-panel, cross-country signature. Later expanded to 6 figures with Fig 6 (System Course Plots / navigation charts). Three back-matter appendices: A Equations (Eq. 1–10 with full variable definitions), B Terms (alphabetical glossary), C Figure Conventions + Plate Digest with universal carrier colour key. Split references: External (28 peer-reviewed) + Hˢ Repository (12 internal repo entries, single grouped reference, transparency note about peer-review status). |
+| `../../papers/codawork2026/manuscript/SUPPLEMENTARY.md` (NEW) | 1.0 | 9-country corpus tables, sensitivity analyses on 0.1% floor, top-30 yeast cases, cross-AI methodological notes, reproducibility instructions. |
+| `../../papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.docx` (NEW) | 1.2 | Authoritative submission file. ~14 pages with 6 figures embedded + back-matter appendices. Built via pandoc from markdown source. |
+| `../../papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.pdf` (NEW) | 1.2 | PDF render (LibreOffice). |
+
+**Doctrine note.** From this point on, the talk is a condensation of the paper, not the other way around. All future revisions begin with the manuscript.
+
+---
+
+### 2026-05-17 (later same day) — Final three-piece talk package
+
+Per Peter directive after the doctrine reset: *"update all slide decks and replace the slide show with one that makes sense to the newly developed slide show. this should be the final version with all now integrated and making sense."*
+
+New 20-slide FinalTalk replaces the 13-slide May-13 talk. Integrated three-piece presentation flow assembled in `data_outputs/`: main deck → cinema scroll → live HTML projector.
+
+| File | New version | Change |
+|---|---|---|
+| `data_outputs/CodaWork2026_FinalTalk_2026-05-17.pptx` (NEW) | 1.1 | 20-slide cohesive deck aligned with the manuscript. Story arc: question → size-view blind spot → five viewpoints → Activation Coefficient with USA Solar 2012 760× worked example → Germany / Japan / UK case archetypes (each with multi-panel plate including navigation chart) → cross-country signature → navigation-chart synthesis → WHAT/WHY → MC-4 four defeat paths → bridges to cinema scroll + Q&A projector → AI Use Declaration → Standard Stamp colophon. Layout: 11×8.5 landscape; dark-navy + gold accent palette consistent with Hs document style. Fig 1 method schematic + Fig 5 cross-country rebuilt with proper text containment after QA. |
+| `data_outputs/CodaWork2026_FinalTalk_2026-05-17.pdf` (NEW) | 1.1 | PDF render of the FinalTalk. |
+| `data_outputs/codawork2026_projector.html` (COPIED) | 1.0 | Interactive HTML manifold projector copied in from `experiments/Hs-M02_EMBER_Energy/codawork2026/`. Runs offline; controls for ORBIT / TRAILS / LABELS / GHOST / COLOR / FRONT/SIDE/TOP / per-country RUN. Used as the closing Q&A backdrop (slide 17 of FinalTalk). |
+| `data_outputs/build_final_talk.py` (NEW) | 1.0 | Reproducible deck-builder script. |
+| `data_outputs/README.md` | 3.0 | Restructured to document the three-piece presentation flow (main deck → cinema scroll → projector). Includes "How to run the presentation" walkthrough. |
+| `archive/talk_decks_legacy/CodaWork2026_Talk_2026-05-13.*` (MOVED) | (archived) | The 13-slide May-13 talk superseded by the FinalTalk. Original location was the CODAwork2026 root + an existing copy in archive/ — both moved into the new `talk_decks_legacy/` subfolder. |
+| `VERSION_HISTORY.md` (this file) | 1.5 | This entry. |
+
+**Doctrine compatibility:** S2 doc-only. Engine code, schemas, INV catalog dispositions, NO-CREATE files all untouched.
+
+---
+
+### 2026-05-18 — CODA-Association declared the standard CoDa folder
+
+Per Peter directive 2026-05-18: *"make this folder the standard coda folder from now on ... move all relevant codawork2026 conference documents and folders here ... outdated material for codawork2026 should be archived to prevent confusion."*
+
+The CODA-Association folder is now the canonical home for **all** Hˢ-side CoDa community work. Outdated material consolidated into `CODAwork2026/archive/` with structured subfolders so the lineage is preserved without confusing the active material.
+
+| File | New version | Change |
+|---|---|---|
+| `../README.md` (CODA-Association top-level) | 2.0 | Declared the standard CoDa folder. New folder map showing CODAwork2026 + archive subfolders. Cross-references to manuscript (`papers/codawork2026/manuscript/`) and community study (`Studies/Energy_HiddenDirections_2026-05-17/`). |
+| `README.md` (this folder) | 2.0 | Restructured around three-piece presentation flow + clear current-vs-archive split. New "How to run the presentation" section. |
+| `archive/README.md` (NEW) | 1.0 | Archive index — names everything in the three archive subfolders and explains why each was superseded. |
+| `archive/talk_decks_legacy/` (reorganised) | — | Now holds May-12 deck + May-13 deck + the duplicate May-13_v2 that lived at CODAwork2026 root. Four file pairs total. |
+| `archive/prep_docs_legacy_2026-05-13/` (NEW subfolder) | — | SPEAKER_BRIEF, BACKUP_PRESENTATION, CHEAT_SHEET, PEDAGOGICAL_TABLES, QA_BENCH, STUDY_PAGE moved here. These were written for the May-13 13-slide deck; their slide numbers and beat references will mislead readers against the FinalTalk. Preserved for lineage. New companion speaker docs should be built from the FinalTalk structure when needed. |
+| `archive/legacy_decks_external/` (NEW subfolder) | — | Copies of two earlier CoDaWork 2026 decks from other repository paths: `HCI_Japan_CoDaWork2026.*` from `HCI/codawork2026/` and `CodaWork2026_CNT_Talk.*` from `HCI-CNT/conference_demo/talk_deck/`. Originals remain at source paths so existing references resolve; these archive copies make the consolidation discoverable from inside CODA-Association. |
+| `VERSION_HISTORY.md` (this file) | 1.6 | This entry. |
+
+**Folder state after consolidation:**
+
+- `CODAwork2026/` root contains only: README, VERSION_HISTORY, ABSTRACT, the `Codaworks2026 proposal for conference/` subfolder (the original submission package), `data_outputs/` (the presentation package), and `archive/`. Everything else moved to archive.
+- `data_outputs/` is the canonical presentation home — three-piece package + the supporting Hˢ engine outputs.
+- `archive/` has structured subfolders so superseded material is preserved without ambiguity about what is current.
+
+**Doctrine compatibility:** S2 doc-only. Files moved, not deleted. Engine code, schemas, INV catalog dispositions, NO-CREATE files all untouched.
+
+---
+
+### 2026-05-19 — Manuscript v1.3: cover page + TOC + scientific-report layout
+
+Per Peter directive: *"update and adjust text in manuscript docx and pdf, some text needs a bigger box so as to not print outside the boarder, add a cover page and table of contents and make it a fully compliant scientific report add this to the CODA-Association/CODAwork2026 folder so everything is in one place."*
+
+The manuscript now opens with a dedicated cover page and an auto-populating Table of Contents. The repository-references table that previously overflowed at the bottom of the page has been replaced with vertical entry blocks. Master files now live in two places: the canonical `papers/codawork2026/manuscript/output/` and a working copy inside `CODAwork2026/` itself.
+
+| File | New version | Change |
+|---|---|---|
+| `../../papers/codawork2026/manuscript/build/build_docx.js` | 2.0 | Adds `coverPage()` + `tocPage()` helpers; replaces cramped 4-column repo table with vertical `RepoEntry` blocks; widens colour-table Notes column to 5660 DXA; equation-font reduced 24 → 22 pt to prevent margin overflow; adds first-page-suppression header/footer (`titlePage: true`); footer shows "P. Higgins · CoDaWork 2026 · Page N"; header shows abbreviated title with thin grey rule. |
+| `../../papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.docx` | 1.3 | Rebuilt — cover page page 1, TOC page 2, body from page 3. 25 pages total (was 28; the cramped repo table compressed cleanly into vertical blocks). |
+| `../../papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.pdf` | 1.3 | PDF render of v1.3 docx. |
+| `Compositional_Monitoring_2026.docx` (NEW in CODAwork2026 folder) | 1.3 | Working copy alongside the talk deck and projector so the conference folder holds everything in one place. |
+| `Compositional_Monitoring_2026.pdf` (NEW in CODAwork2026 folder) | 1.3 | PDF working copy. |
+| `VERSION_HISTORY.md` (this file) | 1.7 | This entry. |
+
+**Doctrine compatibility:** S2 doc-only. Engine code, schemas, INV catalog dispositions, NO-CREATE files all untouched.
+
+---
+
+### 2026-05-19 — Projector v2.0: three-mode standard (RADAR / BARY / ALIGN) + SHOCK
+
+Per Peter sequence of refinements: (i) drop "Year" from the carrier list (it was a slice label, never compositional data); (ii) rotate year labels 90° to align with the slice plane so they read as labels not data; (iii) add a live PROJECTION info panel showing the math so the audience can see what is on screen; (iv) add a BARY mode showing the share-weighted barycenter trajectory; (v) add a SHOCK overlay tinting plate outlines by Aitchison-step magnitude; (vi) add a BARYCENTER-ALIGNED mode that translates each plate by −b(t) so the trajectory lies on the central z-axis; (vii) consume engine-derived ILR-Helmert PCA coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly.
+
+The projector is now a true visual aid. Japan 2014 slides the plate-centre outward on BARY (the multi-year reorganisation), and on ALIGN shifts the polygon shape toward solar and renewables (the post-Fukushima absorption). This is what CoDa specialists will recognise immediately.
+
+| File | New version | Change |
+|---|---|---|
+| `data_outputs/codawork2026_projector.html` | 2.0 | Year stripped from carriers/CLR/norm; year labels rotated −90° as floating slice labels above each polygon; PROJECTION info panel added (top-left, toggleable PROJ); BARY mode (with centroid trail); SHOCK overlay (Aitchison-step-magnitude stroke tint); BARYCENTER-ALIGNED mode (plate translated by −b(t)). `plateCenter()` consumes engine v3.2.0 `bary_xy` field when present, falls back to share-weighted disk barycenter otherwise. Info-panel mode row reactive (RADAR STACK / BARYCENTER TRAJECTORY / BARYCENTER-ALIGNED, with "+ SHOCK" appended when shock active). Formulas displayed live. |
+| `VERSION_HISTORY.md` (this file) | 1.8 | This entry. |
+
+**The three projection modes are now the noted standard for Hˢ compositional time-series visualization.** Documented in `POINT_OF_RESTORE_2026-05-19.md` and propagated through the README chain. PC1+PC2 variance captured ranges 90.5 % (Germany) to 99.9 % (USA) across the nine EMBER countries.
+
+**Doctrine compatibility:** S2 doc-only at the projector level. The projector is a visualization layer over the engine — no schema change, no INV catalog change. The engine source bump to v3.2.0 (next entry) is structural, but the CoDaWork 2026 corpus data stays pinned to v3.1.0 and is not regenerated.
+
+---
+
+### 2026-05-19 — Engine v3.2.0: ILR-Helmert PCA barycenter trajectory
+
+Per Peter directive after the BARYCENTER-ALIGNED mode landed: *"the engine to ship pre-computed barycenter coordinates (so the visualization could use IL-Helmert-derived barycenters rather than the share-weighted disk barycenter we use here for visual clarity), that would be the engine-side change — and it would let the projector match the navigation-chart PCA exactly. update the engine and versions, regenerate the html, the codaworks2026 data is tied to a version of the engine that we can maintain until after the conference, the newer engines will not be used on this conference."*
+
+The CNT engine source bumps to v3.2.0 with a new `navigation_2d` block in every output. The CoDaWork 2026 corpus stays pinned to v3.1.0. The projector consumes the same math via a sidecar script reading the v3.1.0 JSONs — geometrically identical to what v3.2.0 would emit, so no re-run was needed for the conference.
+
+| File | New version | Change |
+|---|---|---|
+| `../../HCI-CNT/engine/cnt.py` | 3.2.0 (schema 3.2.0) | `ENGINE_VERSION` 3.1.0 → 3.2.0; `SCHEMA_VERSION` 3.1.0 → 3.2.0. New `compute_navigation_2d(ilr_matrix)` function: takes the ILR-Helmert-transformed trajectory, centres it, eigendecomposes the sample covariance (numpy `eigh`), projects each centred point onto the top-2 directions, scales to disk units so the most extreme step sits at radius 0.85. Emits a `navigation_2d` top-level block with `pc1_direction`, `pc2_direction`, `variance_explained`, `max_radius_pre_scale`, `disk_scale_factor`, and `bary_xy[t]`. Wired into `cnt_run` payload. Backwards-compatible — every v3.1.0 field unchanged. |
+| `outputs/regen_baryxy.py` (NEW sidecar — Cowork outputs folder) | 1.0 | Pure-stdlib Python: reads v3.1.0 JSONs, computes the same ILR-Helmert PCA, patches `bary_xy:[...]` fields directly into the projector HTML inline DATA for the 8 EMBER datasets. Produces engine-equivalent output without requiring the conference data to be regenerated. |
+| `data_outputs/codawork2026_projector.html` (inline DATA) | — | 8 datasets received `bary_xy:[[x,y]×T]` arrays from the sidecar regen. Projector reads them via `plateCenter()`. |
+| `VERSION_HISTORY.md` (this file) | 1.9 | This entry. |
+
+**Engine version policy under lockdown:**
+
+- Engine source: v3.2.0 (current).
+- CoDaWork 2026 corpus data: v3.1.0 (locked, not regenerated).
+- Projector data: v3.1.0 base + v3.2.0-equivalent `bary_xy` injected by sidecar.
+- R port (cnt.R): v3.1.0 — v3.2.0 port queued for post-conference parity work.
+- Manuscript citations: continue to cite engine v3.1.0 for the corpus. v3.2.0 referenced only in the projector info panel and in `POINT_OF_RESTORE_2026-05-19.md`.
+
+**Validation:** Japan PC1 + PC2 captures 99.5 % of the trajectory variance. The 2011 → 2012 step is 0.052 disk units (5–6× the quiet-year median). The deeper 2013 → 2014 step dominates at 0.83 disk units — the multi-year reorganisation, exactly as the manuscript's Discussion describes.
+
+**Doctrine compatibility:** S2 (engine code change) — but the engine output for the conference corpus is unchanged because the v3.1.0 JSONs remain authoritative for the conference. The v3.2.0 function is additive; running cnt.py v3.2.0 on the same inputs produces a superset of the v3.1.0 output (the existing fields are bit-identical; only the new `navigation_2d` block is added).
+
+---
+
+### 2026-05-19 — Point of Restore: CoDaWork 2026 conference-ready
+
+Per Peter directive: *"consider this a noted standard now, update all necessary documents and make the contents of CODA-Association standard formats, the readme files in the repo should be updated to reveal all the data, documents and media fully highlighted for the landing pages of each folder in the chain from root to last folder in the codawork folder. consider this a good success and that the entire project is something. scrape all of the coworker folder json and history and update streams to refresh perspective and then revise all journals and histories and summaries and notes, this is a point of restore, a point of achievements."*
+
+A milestone checkpoint document, `CODA-Association/POINT_OF_RESTORE_2026-05-19.md`, has been written to capture this state as the recovery target if anything destabilises between now and the conference (1 June 2026).
+
+| File | New version | Change |
+|---|---|---|
+| `../POINT_OF_RESTORE_2026-05-19.md` (NEW at CODA-Association) | 1.0 | Milestone document. Names the five-piece bundle (manuscript / talk deck / cinema scroll / projector / engine). Codifies the three-mode projection standard. Specifies the engine version policy under lockdown. Defines what "restore" means if anything later breaks. |
+| `../README.md` (CODA-Association top-level) | 2.1 | Adds milestone callout linking to POINT_OF_RESTORE; revised file index. |
+| `README.md` (CODAwork2026 folder) | 2.1 | Updated landing-page summary; new "What's new" section for 2026-05-19 milestone; talk-deck slide count updated 20 → 22; projector v2.0 highlighted. |
+| `data_outputs/README.md` | 4.0 | New "The projector — engine v3.2.0 ILR-Helmert PCA" section documenting the three modes + SHOCK overlay + info-panel formulas. Updated talk-deck slide count and run-the-presentation walkthrough (bridges at slides 18 and 19). |
+| `../../CHANGELOG.md` | — | Prepended a 2026-05-19 milestone entry. |
+| `../../EXPERIMENTS_JOURNAL.md` | — | Appended a 2026-05-19 entry recording the engine bump + projector standard + manuscript v1.3 + milestone doc. |
+| `../../ai-refresh/AI_REFRESH_2026-05-19_conference_ready.md` (NEW) | 1.0 | Narrative for cross-AI consumers covering the milestone state, the three-mode projection standard, the engine version policy, and the recovery target. |
+| `VERSION_HISTORY.md` (this file) | 1.10 | This entry. |
+
+**Admin-stream updates queued (not blocking conference):**
+
+- `HS_ADMIN.json` `session_log` entry for the 2026-05-19 milestone — to be applied at next admin sync.
+- `HS_FAST_REFRESH.json` `_meta.engine_version` and milestone reference — to be applied at next admin sync.
+- `INVESTIGATION_CATALOG.json` new entry `INV-064 — Engine v3.2.0 navigation_2d block` STAGED disposition — to be applied at next admin sync.
+- `cnt.R` port to v3.2.0 — queued for post-conference parity work.
+
+These queued items are recorded in the milestone doc and `AI_REFRESH_2026-05-19_conference_ready.md`. None are required for the conference itself.
+
+**Doctrine compatibility:** S2 doc-only at the conference layer (every artefact in `CODAwork2026/` is unchanged in substance; only the milestone records this state). The engine code bump in the previous entry is the only S2 source-code change in this restore-point window.
+
+---
+
 *This file is the audit trail. Authoritative is whatever is recorded as most recent here.*

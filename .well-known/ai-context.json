@@ -38,9 +38,9 @@
     "questions": [
       {
         "question": "What is _meta.last_push and _meta.current_commit_sha in HS_FAST_REFRESH.json?",
-        "current_answer": "last_push: #47, current_commit_sha: 7f996e7 (CI run #44 'Document Control Protocol (DCP-001)' green 51s, 2026-05-12). If the GitHub commits page shows a more recent SHA, your connector cache is stale.",
+        "current_answer": "last_push: #51, current_commit_sha: 6d2e492 (CI run #48 'Routing + Terms' green 52s, 2026-05-16). If the GitHub commits page shows a more recent SHA, your connector cache is stale.",
         "answer_changes_with_pushes": true,
-        "stale_state_diagnostic": "If your answer says last_push <= #43, your view is pre-push-#44 and missing cross-AI coordination apparatus + INV-062 + INV-063 + Hs Change Control v1.0. See AI_AGENTS.md §2.1 for refresh guidance."
+        "stale_state_diagnostic": "If your answer says last_push <= #50, your view is pre-push-#51 and missing HUF-STD-001 v1.1 person-noun convention + HUF-STD-002 Activation Coefficient promotion + NOTATION/GLOSSARY v2.0 + CodaWork talk deck polish. See AI_AGENTS.md §2.1 for refresh guidance."
       },
       {
         "question": "Does HCI-CNQ/engine/cnq.py exist? What is its size?",
@@ -145,8 +145,8 @@
   "_metadata": {
     "schema_version": "1.0",
     "generated_in_push": "#29",
-    "last_aligned_in_push": "#48 (cache-lag mitigation under Hs Change Control v1.0)",
-    "last_aligned": "2026-05-12",
+    "last_aligned_in_push": "#51 (Routing + Terms + Standards v1.1 — grounding SHA refreshed to 6d2e492 CI #48)",
+    "last_aligned": "2026-05-16",
     "generated": "2026-05-08",
     "should_be_updated_when": "engine version changes; new push lands; new AI platform tested; new commercialisation pathway DEFERRED to ACTIVE",
     "alignment_doctrine": "Per HCC-R001, this file mirrors HS_FAST_REFRESH.json. The consistency checker scripts/check_ai_refresh_consistency.py enforces alignment."

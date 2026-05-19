@@ -2,6 +2,16 @@
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
+> ## 🎤 CoDaWork 2026 attendees — start here
+>
+> If you are in the room (or watching remotely) for the talk *Compositional monitoring of energy-mix drift on the simplex* (CoDaWork 2026, Coimbra, 1–5 June 2026), open this single page and you have everything:
+>
+> **➡  [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md)**
+>
+> Direct links to the talk deck PDF, the manuscript PDF, the 325-page raw-output cinema scroll, and the interactive HTML projector you can run live in your browser. If you can't see the screen or are joining remotely, you can run the whole talk locally in two minutes.
+
+> **🏁 Point of restore — 2026-05-19, conference-ready.** Five-piece bundle locked: manuscript v1.3 (cover + TOC + scientific-report layout) · 22-slide talk deck · 66-slide cinema scroll · projector v2.0 with three-mode standard (RADAR / BARY / ALIGN) + SHOCK overlay · engine v3.2.0 with `navigation_2d` block (ILR-Helmert PCA barycenter trajectory). See [`CODA-Association/POINT_OF_RESTORE_2026-05-19.md`](CODA-Association/POINT_OF_RESTORE_2026-05-19.md).
+
 > **🎯 Conference Status — CoDaWork 2026, Coimbra (1–5 June 2026).** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. **Conference authority folder:** [`CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/) — versioned speaker materials + the published Premier Data Output package (325-page master PDF, 66-slide PPTX, 503-page Dual-View Stage-1 Output, 19-page Foundations Plates, per-country PDFs + hash-chained JSON). Speaker-prep snapshot under lockdown: [`papers/codawork2026/talk/`](papers/codawork2026/talk/) (historical source, do not edit until 2026-06-06). Start with [`CODA-Association/CODAwork2026/SPEAKER_BRIEF.md`](CODA-Association/CODAwork2026/SPEAKER_BRIEF.md). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Conference standards: [`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
 
 > **🎉 Public and publication-grade.** Both engines (CNT v3.0.0 and CNQ v2.0.0) ship in Python and R with language-agnostic pseudocode and a 43-test suite. The user entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing in [`LICENSING.md`](LICENSING.md). Free to use, free to cite, help is available — open an issue or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
@@ -48,9 +58,15 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 
 ---
 
-## What's New — May 2026 (Push #50, 2026-05-14)
+## What's New — May 2026
 
-**🎯 Conference-prep monster push lands** ([`47cecc9`](https://github.com/PeterHiggins19/higgins-decomposition/commit/47cecc9d9a03b53bf77d9fccf4563711026cf339), CI #47 "Foundations" green 48s). Twelve work products consolidated into a single coordinated commit under PRE_CONFERENCE_LOCKDOWN discipline:
+**🧭 Push #51 — Routing + Terms + Activation Coefficient** ([`6d2e492`](https://github.com/PeterHiggins19/higgins-decomposition/commit/6d2e49255a89ba72ba6671df9784b1ea55b51808), CI #48 "Routing + Terms" green 52s, 2026-05-16). Six-category bundle: (a) AI-refresh routing surfaces (README banner, llms.txt, HS_FAST_REFRESH.json) now point at `CODA-Association/CODAwork2026/` as the conference-authority folder; (b) **HUF-STD-001 v1.0 → v1.1** adds the person-noun convention (human → researcher / user / reader / participant) with an exception list for authorship rules, AI-safety vocabulary, anthropology, and regulatory disclosure; (c) **HUF-STD-002 post-conference target reorder** — Power Share / Activation Coefficient promoted to Order 1 (was the CNQ vector PDF exporter); (d) **NOTATION_AND_TERMINOLOGY.md v2.0 + GLOSSARY.md v2.0** full refresh — 8/9 new sections each, Helmsman family promoted PROPOSED → CANONICAL per schema 3.1.0; (e) INV-060 title sharpened, Activation Coefficient formal name recorded; (f) CodaWork 2026 talk deck five-slide polish per commitment audit (8-simplex notation + EMBER CC BY 4.0 + four-category monitoring frame + "Mathematics is not new; the monitoring application may be" working-posture line). Lockdown-compliant; engine code, schemas, and INV catalog dispositions all untouched.
+
+---
+
+### Previous: Push #50 (2026-05-14) — Conference-prep monster push
+
+[`47cecc9`](https://github.com/PeterHiggins19/higgins-decomposition/commit/47cecc9d9a03b53bf77d9fccf4563711026cf339), CI #47 "Foundations" green 48s. Twelve work products consolidated into a single coordinated commit under PRE_CONFERENCE_LOCKDOWN discipline:
 
 1. **[`Hs/huf-gov/`](huf-gov/)** — circuit-breaker structural addition with [`BREAKER_INVENTORY.md`](huf-gov/BREAKER_INVENTORY.md), 2 candidate DCPs (DCP-002 CHK-CNQ regex upgrade, DCP-003 CHK-DISPOSITION-001), and a breaker-test runner.
 2. **[`Hs/CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/)** — conference-authority folder with 8 versioned speaker docs, 13-slide talk deck, and a complete [`data_outputs/`](CODA-Association/CODAwork2026/data_outputs/) Premier Data Output package.

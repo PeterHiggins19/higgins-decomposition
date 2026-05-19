@@ -84,8 +84,15 @@ from hci_shared.helmsman import compute_helmsman_family  # noqa: E402
 # ---------------------------------------------------------------------------
 
 ENGINE_NAME: str = "HCI-CNT"
-ENGINE_VERSION: str = "3.1.0"
-SCHEMA_VERSION: str = "3.1.0"
+ENGINE_VERSION: str = "3.2.0"
+SCHEMA_VERSION: str = "3.2.0"
+# v3.2.0 (2026-05-19): added navigation_2d block — ILR-Helmert PCA 2-D
+#   barycenter trajectory, scaled to unit disk for downstream visualisation.
+#   Backwards-compatible: all v3.1.0 fields unchanged. Conference (CoDaWork
+#   2026) data was generated with v3.1.0 and is NOT regenerated on this bump.
+#   Reference: regen_baryxy.py for the sidecar implementation that produces
+#   the same navigation_2d payload from v3.1.0 JSONs without re-running the
+#   full pipeline.
 ENGINE_PRINCIPLE: str = (
     "Closure -> CLR -> Helmert ILR -> trajectory tensor -> depth tower; "
     "deterministic compositional inference with embedded version triple."
@@ -449,6 +456,86 @@ def compute_tensor_block(
         "n_timesteps": int(T),
         "navigation_concentration_summary": nav_conc_summary,
         "timesteps": timesteps,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Schema v3.2.0 navigation_2d  —  ILR-Helmert PCA barycenter trajectory
+# ---------------------------------------------------------------------------
+# 2-D projection of the centred ILR trajectory onto its top two principal
+# directions. Produces a disk-scaled (bary_xy ∈ [-0.85, +0.85]) per-timestep
+# coordinate consumable by downstream visualisations (the CoDaWork 2026
+# manifold projector reads exactly this block). Variance captured by PC1+PC2
+# is reported so the consumer can warn when the 2-D projection is lossy.
+#
+# Math:
+#   ILR(t)  = V^T · CLR(t)                     # (T x (D-1)) trajectory
+#   X       = ILR − mean_t ILR                 # centred
+#   PC1,PC2 = top-2 eigenvectors of (X^T X)/(T-1)
+#   pc_t    = (X[t] · PC1, X[t] · PC2)
+#   bary_xy[t] = pc_t / max_t ‖pc_t‖ · 0.85    # disk-scaled
+#
+# Backwards-compat: this block is additive to v3.1.0; CoDaWork 2026 data was
+# produced under v3.1.0 and is not regenerated for the conference.
+
+
+def compute_navigation_2d(ilr_matrix: np.ndarray) -> Dict[str, Any]:
+    """Project the ILR trajectory onto its top-2 PCA directions and return a
+    disk-scaled 2-D barycenter trajectory plus diagnostic metadata."""
+    X = np.asarray(ilr_matrix, dtype=np.float64)
+    T, K = X.shape
+    mu = X.mean(axis=0)
+    Xc = X - mu
+    if T < 2 or K < 2:
+        # Degenerate trajectory — return zero barycenter, no PCA.
+        return {
+            "_function": "review",
+            "_description": (
+                "Schema v3.2.0 ILR-Helmert PCA barycenter trajectory; degenerate "
+                "(T<2 or K<2), returning zeros."
+            ),
+            "pc1_direction": [0.0] * K,
+            "pc2_direction": [0.0] * K,
+            "variance_explained": [0.0, 0.0],
+            "max_radius_pre_scale": 0.0,
+            "disk_scale_factor": 0.85,
+            "bary_xy": [[0.0, 0.0] for _ in range(T)],
+        }
+    cov = (Xc.T @ Xc) / max(T - 1, 1)
+    eigvals, eigvecs = np.linalg.eigh(cov)  # ascending
+    order = np.argsort(eigvals)[::-1]
+    eigvals = eigvals[order]
+    eigvecs = eigvecs[:, order]
+    pc1 = eigvecs[:, 0]
+    pc2 = eigvecs[:, 1] if K >= 2 else np.zeros(K)
+    total = float(np.clip(eigvals, 0.0, None).sum())
+    ve = [
+        float(eigvals[0] / total) if total > 0 else 0.0,
+        float(eigvals[1] / total) if (total > 0 and K >= 2) else 0.0,
+    ]
+    p1_scores = Xc @ pc1
+    p2_scores = Xc @ pc2
+    raw = np.stack([p1_scores, p2_scores], axis=1)
+    max_r = float(np.linalg.norm(raw, axis=1).max())
+    if max_r > 0:
+        scaled = (raw / max_r * 0.85).tolist()
+    else:
+        scaled = [[0.0, 0.0] for _ in range(T)]
+    return {
+        "_function": "review",
+        "_description": (
+            "Schema v3.2.0 ILR-Helmert PCA barycenter trajectory, scaled to "
+            "the unit disk for visualisation. pc1_direction / pc2_direction "
+            "are unit vectors in (D-1)-dim ILR space; bary_xy[t] is the "
+            "(pc1, pc2) projection of the centred ILR coordinate at time t, "
+            "scaled so the most extreme step sits at radius 0.85 of the disk."
+        ),
+        "pc1_direction": pc1.tolist(),
+        "pc2_direction": pc2.tolist(),
+        "variance_explained": ve,
+        "max_radius_pre_scale": max_r,
+        "disk_scale_factor": 0.85,
+        "bary_xy": [[round(float(p[0]), 6), round(float(p[1]), 6)] for p in scaled],
     }
 
 
@@ -916,6 +1003,7 @@ def cnt_run(input_csv, out_path: Optional[Path] = None) -> Dict[str, Any]:
     stage1 = compute_stage1(clr_matrix, carriers)
     stage2 = compute_stage2(rows_closed, clr_matrix, carriers)
     stage3 = compute_stage3(rows_closed, clr_matrix, carriers)
+    navigation_2d = compute_navigation_2d(ilr_matrix)  # v3.2.0 addition
     depth_tower = compute_depth_tower(rows_closed, clr_matrix)
     helmsman = compute_helmsman_family(rows, window=HELMSMAN_ROLLING_WINDOW)
     attractor = fit_attractor(rows_closed)
@@ -966,6 +1054,7 @@ def cnt_run(input_csv, out_path: Optional[Path] = None) -> Dict[str, Any]:
         },
         "tensor": tensor_block,
         "stages": {"stage1": stage1, "stage2": stage2, "stage3": stage3},
+        "navigation_2d": navigation_2d,
         "depth_tower": depth_tower,
         "helmsman_family": helmsman,
         "attractor_fit": attractor,
