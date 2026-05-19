@@ -1,29 +1,23 @@
-# CODAwork2026 — authoritative conference folder
+# CODAwork2026 — conference folder
 
-**Document version:** 2.1 — conference-ready milestone (2026-05-19)
-**Document status:** authoritative folder index — point of restore for CoDaWork 2026
-**Revised:** 2026-05-19 — projector v2.0 with three-mode standard (RADAR / BARY / ALIGN), engine v3.2.0 ILR-Helmert PCA barycenter integration, manuscript v1.3 with cover page + TOC, working copy of manuscript .docx/.pdf inside this folder. See [`../POINT_OF_RESTORE_2026-05-19.md`](../POINT_OF_RESTORE_2026-05-19.md) for the milestone document.
-**Author:** Peter Higgins, Rogue Wave Audio
-**Conforms to:** HUF Publication Standards (HUF-STD-001 v1.1); HUF Tensor Train I/O Standard (HUF-STD-002); HUF Linear Algebra Foundations (HUF-STD-003)
+**Document version:** 2.2 · **Revised:** 2026-05-19 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+
+Authoritative home for the CoDaWork 2026 conference (Coimbra, Portugal · 1–5 June 2026). Current material lives at the root of this folder and in [`data_outputs/`](data_outputs/). Older material is in [`archive/`](archive/) with a folder-level explanation — kept for lineage, not for use.
 
 ---
 
-## What's new on 2026-05-19 (point of restore)
+## 🎤 For attendees — follow along with the talk
 
-- **Projector v2.0** — three projection modes now visible in the live tool: **RADAR STACK** (default), **BARYCENTER TRAJECTORY** (BARY), **BARYCENTER-ALIGNED** (ALIGN). A separate **SHOCK** overlay tints plate outlines red by Aitchison-step magnitude. A live PROJECTION info panel shows the math being applied.
-- **Engine v3.2.0** — `cnt.py` now ships a `navigation_2d` block (ILR-Helmert PCA barycenter trajectory). The conference corpus stays pinned to v3.1.0; the projector consumes v3.2.0-equivalent coordinates via a sidecar regen script.
-- **Manuscript v1.3** — added cover page, table of contents, header on every body page, page numbers; previously cramped repository-references table replaced with vertical entry blocks; equation font reduced to 22 pt to prevent margin overflow. Working copy now lives alongside the talk deck inside this folder.
-- **Three-mode projection standard** codified as canon for Hˢ compositional time-series visualization.
+The fastest entry point is **[`CONFERENCE_ATTENDEES.md`](../CONFERENCE_ATTENDEES.md)** (one folder up). It walks through the talk slide-by-slide with every supporting document linked in the order the speaker will reference them. The interactive HTML projector runs in your browser; no install required. If you can't see the screen or are remote, the whole talk runs from that page.
 
-Japan 2014 in BARY mode slides the plate-centre outward (the multi-year reorganisation); in ALIGN mode the polygon shape shifts toward solar and renewables (the post-Fukushima absorption). The CoDa-correct read is visible directly.
+## The presentation in three pieces
 
----
-
-## What this folder is
-
-Authoritative home for the CoDaWork 2026 conference (Coimbra, Portugal · 1–5 June 2026). Everything current lives at root or in `data_outputs/`. Everything outdated lives in `archive/` with a folder-level explanation.
-
-When in doubt about which file is current, follow the **how to run the presentation** section below.
+| # | Piece | File |
+|---|---|---|
+| 1 | **Manuscript** — 25-page peer-reviewable paper with cover, TOC, six figures, three appendices | [`Compositional_Monitoring_2026.pdf`](Compositional_Monitoring_2026.pdf) · [`.docx`](Compositional_Monitoring_2026.docx) |
+| 2 | **Talk deck** — 22-slide narrative arc, ~15 minutes | [`data_outputs/CodaWork2026_FinalTalk_2026-05-17.pdf`](data_outputs/CodaWork2026_FinalTalk_2026-05-17.pdf) · [`.pptx`](data_outputs/CodaWork2026_FinalTalk_2026-05-17.pptx) |
+| 3 | **Cinema scroll** — 66 slides / 325-page PDF: master cover + 9 country sections × 6 plates each | [`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) · [`.pptx`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) |
+| 4 | **Interactive HTML projector** — three projection modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline in any browser | [`data_outputs/codawork2026_projector.html`](data_outputs/codawork2026_projector.html) |
 
 ## Folder layout
 

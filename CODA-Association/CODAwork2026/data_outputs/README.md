@@ -1,9 +1,8 @@
 # CoDaWork 2026 — Final Presentation Package
 
-**Document version:** 4.0 — projector v2.0 (engine v3.2.0 ILR-Helmert PCA barycenters) + manuscript v1.3 (cover + TOC) + three-mode projection standard
-**Updated:** 2026-05-19 — point-of-restore milestone; see `../POINT_OF_RESTORE_2026-05-19.md`
-**Author:** Peter Higgins, Rogue Wave Audio
-**Conforms to:** HUF Publication Standards (HUF-STD-001 v1.1); HUF Tensor Train I/O Standard (HUF-STD-002); HUF Linear Algebra Foundations (HUF-STD-003)
+**Document version:** 4.1 · **Updated:** 2026-05-19 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+
+The three-piece presentation package: a 22-slide narrative talk deck, a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
 
 ---
 

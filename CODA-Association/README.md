@@ -1,24 +1,18 @@
 # CODA-Association — the Hˢ home for compositional-data community work
 
-**Document version:** 2.1 — point-of-restore milestone (2026-05-19)
-**Document status:** authoritative folder index — the standard CoDa folder for the Hˢ repository
-**Revised:** 2026-05-19 — milestone checkpoint: projector v2.0 with three-mode standard (RADAR / BARY / ALIGN), engine v3.2.0 ILR-Helmert PCA barycenters, manuscript v1.3 with cover page + TOC. See [`POINT_OF_RESTORE_2026-05-19.md`](POINT_OF_RESTORE_2026-05-19.md).
-**Author:** Peter Higgins, Rogue Wave Audio
-**Conforms to:** HUF Publication Standards (HUF-STD-001 v1.1); HUF Tensor Train I/O Standard (HUF-STD-002); HUF Linear Algebra Foundations (HUF-STD-003)
+**Document version:** 2.2 · **Revised:** 2026-05-19 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [HUF-STD-002](../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [HUF-STD-003](../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
+
+This folder is the Hˢ home for compositional-data community work — current talk material, conference packages, correspondence, and CoDaWork submissions. The active material lives at root and inside [`CODAwork2026/`](CODAwork2026/); older versions are kept in `CODAwork2026/archive/` for lineage, not for use.
 
 ---
 
-## 🏁 Point of restore — CoDaWork 2026 conference-ready
+## 🎤 For CoDaWork 2026 attendees
 
-This folder is in conference-ready state for CoDaWork 2026 (Coimbra, Portugal · 1–5 June 2026). The five-piece bundle — manuscript, talk deck, cinema scroll, interactive HTML projector, deterministic engine — is locked and reproducible. The projector is now a true visual aid for compositional time-series, with three projection modes (RADAR / BARY / ALIGN) reading engine v3.2.0 ILR-Helmert PCA barycenter coordinates. Japan 2014 visibly registers the multi-year reorganisation.
-
-📌 **Read first:** [`POINT_OF_RESTORE_2026-05-19.md`](POINT_OF_RESTORE_2026-05-19.md) — the milestone document; the recovery target if anything later destabilises.
-
----
+If you are in the audience (or following from anywhere) for *Compositional monitoring of energy-mix drift on the simplex* — open **[`CONFERENCE_ATTENDEES.md`](CONFERENCE_ATTENDEES.md)** on your phone or laptop. It is laid out **slide-by-slide alongside the talk**, with every supporting document, figure, equation, and data file linked in the order you'll hear them referenced. The interactive HTML projector at the end runs in your browser with no install. If you can't see the screen or are joining remotely, you can study the full talk from that page alone.
 
 ## What this folder is
 
-This is the **standard CoDa folder** for the Hˢ repository. Anything tied to the compositional-data community — current talk material, conference packages, community correspondence, CoDaWork submissions — lives here. Older versions of the same material are archived inside the folder structure (not deleted) so the lineage stays traceable while the current state remains unambiguous.
+This is the **standard CoDa folder** for the Hˢ repository.
 
 When in doubt about which file is current, this folder's README and the inner [`CODAwork2026/README.md`](CODAwork2026/README.md) are the source of truth.
 

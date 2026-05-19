@@ -2,17 +2,13 @@
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
-> ## 🎤 CoDaWork 2026 attendees — start here
->
-> If you are in the room (or watching remotely) for the talk *Compositional monitoring of energy-mix drift on the simplex* (CoDaWork 2026, Coimbra, 1–5 June 2026), open this single page and you have everything:
->
-> **➡  [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md)**
->
-> Direct links to the talk deck PDF, the manuscript PDF, the 325-page raw-output cinema scroll, and the interactive HTML projector you can run live in your browser. If you can't see the screen or are joining remotely, you can run the whole talk locally in two minutes.
+## 🎤 CoDaWork 2026 — follow along with the talk
 
-> **🏁 Point of restore — 2026-05-19, conference-ready.** Five-piece bundle locked: manuscript v1.3 (cover + TOC + scientific-report layout) · 22-slide talk deck · 66-slide cinema scroll · projector v2.0 with three-mode standard (RADAR / BARY / ALIGN) + SHOCK overlay · engine v3.2.0 with `navigation_2d` block (ILR-Helmert PCA barycenter trajectory). See [`CODA-Association/POINT_OF_RESTORE_2026-05-19.md`](CODA-Association/POINT_OF_RESTORE_2026-05-19.md).
+In the room (or watching from anywhere) for *Compositional monitoring of energy-mix drift on the simplex* (Coimbra, Portugal · 1–5 June 2026)?
 
-> **🎯 Conference Status — CoDaWork 2026, Coimbra (1–5 June 2026).** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. **Conference authority folder:** [`CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/) — versioned speaker materials + the published Premier Data Output package (325-page master PDF, 66-slide PPTX, 503-page Dual-View Stage-1 Output, 19-page Foundations Plates, per-country PDFs + hash-chained JSON). Speaker-prep snapshot under lockdown: [`papers/codawork2026/talk/`](papers/codawork2026/talk/) (historical source, do not edit until 2026-06-06). Start with [`CODA-Association/CODAwork2026/SPEAKER_BRIEF.md`](CODA-Association/CODAwork2026/SPEAKER_BRIEF.md). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Conference standards: [`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
+**Open [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md).** It's a slide-by-slide follow-along, ordered to the talk, with every link you need open on your phone or laptop. Manuscript, deck, raw-output scroll, and an interactive 3-D projector you can run live in your browser — no install, no network call. If the screen is hard to see, or you're remote, the whole talk runs from that page.
+
+> **🎯 Conference Status.** Talk material complete and validated across five reviews; repository in formal **pre-conference lockdown** through 2026-06-06. See [`PRE_CONFERENCE_LOCKDOWN.md`](PRE_CONFERENCE_LOCKDOWN.md) for what's locked and the S0-defect protocol. **Conference authority folder:** [`CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/). Recent change history: [`CHANGELOG.md`](CHANGELOG.md). Live state: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json). Conference standards: [`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
 
 > **🎉 Public and publication-grade.** Both engines (CNT v3.0.0 and CNQ v2.0.0) ship in Python and R with language-agnostic pseudocode and a 43-test suite. The user entry point is [`PUBLICATION_READY.md`](PUBLICATION_READY.md); plain-English licensing in [`LICENSING.md`](LICENSING.md). Free to use, free to cite, help is available — open an issue or follow the contact in [`PUBLICATION_READY.md`](PUBLICATION_READY.md).
 
