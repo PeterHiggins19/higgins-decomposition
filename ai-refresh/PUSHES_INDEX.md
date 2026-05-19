@@ -177,6 +177,37 @@ The narrowed re-prompt template from the INDEX has now been validated across two
 | `PUSH48_READY_FOR_COMMIT.md` | Push #48 release card (36/36 green; 5 gap fixes applied; checker stays green) |
 | `PUSH49_PRE_PUSH_SUMMARY.md` | Push #49 prep summary (Pre-Conference Lockdown; declares 2026-05-12 → 2026-06-06 window) |
 | `PUSH49_READY_FOR_COMMIT.md` | Push #49 release card (24/24 green; lockdown active) |
+| `PUSH50_PRE_PUSH_SUMMARY.md` | Push #50 prep summary (Conference-prep monster — huf-gov breakers + HUF-STD-001/002/003 + Premier Data Outputs + Stage-0 Foundations) |
+| `PUSH50_READY_FOR_COMMIT.md` | Push #50 release card (`47cecc9` CI #47 "Foundations" green 48s) |
+| `PUSH51_PRE_PUSH_SUMMARY.md` | Push #51 prep summary (AI-refresh routing + HUF-STD-001 v1.1 + NOTATION/GLOSSARY v2.0 + talk deck polish) |
+| `PUSH51_READY_FOR_COMMIT.md` | Push #51 release card (`6d2e492` CI #48 "Routing + Terms" green 52s) |
+| `PUSH52_PRE_PUSH_SUMMARY.md` | Push #52 prep summary (Conference-ready milestone publish — final-talk deck 22 slides + cinema scroll 66 slides + projector v2.0 + engine v3.2.0 + manuscript Fig 1-6) |
+| `PUSH52_READY_FOR_COMMIT.md` | Push #52 release card (`98ea1dd6` CI #49 "Conference-ready milestone" 2026-05-17) |
+| `PUSH54_PRE_PUSH_SUMMARY.md` | Push #54 prep summary (Glossary merge — GLOSSARY v3.0 + NOTATION redirect stub; plus admin catch-up for pushes #52 and #53) |
+
+---
+
+## Catch-up entries for pushes #52, #53, #54
+
+### Push #52 — Conference-ready milestone publish (`98ea1dd6`, CI #49, 2026-05-17)
+
+Final conference materials published for CoDaWork 2026 attendees. The three-piece presentation package landed: (1) main talk deck — `CodaWork2026_FinalTalk_2026-05-17.pptx` 22 slides; (2) cinema scroll — `CodaWork2026_PremierDataOutput_2026-05-13.pptx` 66 slides + 325-page master PDF; (3) interactive projector — `codawork2026_projector.html` v2.0 with three projection modes (RADAR / BARY / ALIGN) plus Aitchison-step SHOCK overlay. Engine bumped to v3.2.0 with new `compute_navigation_2d()` block producing pre-computed ILR-Helmert PCA barycenter coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly. Manuscript at `papers/codawork2026/manuscript/` shipped in Nature structure with Figures 1–6 + Supplementary Information + bibliography. Community-friendly deck at `Studies/Energy_HiddenDirections_2026-05-17.pdf`. Audience-facing entry point `CONFERENCE_ATTENDEES.md` written as slide-by-slide follow-along.
+
+### Push #53 — README polish chain (`bfb1c41`, CI #50, 2026-05-19)
+
+Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
+
+### Push #54 — Glossary merge (HOLD, prepared 2026-05-19)
+
+**Primary change.** `HCI-CNT/handbook/GLOSSARY.md` v2.0 and `HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md` v2.0 combined into a single authoritative reference at `GLOSSARY.md` v3.0 (~220 entries across 30 sections, 661 lines). `NOTATION_AND_TERMINOLOGY.md` reduced to an 81-line redirect stub pointing readers to the merged glossary.
+
+**Why.** The two reference documents had reached ~80 % overlap by v2.0. The split was a bootstrap artefact (a readable narrative file plus a locked terms file) that created a maintenance hazard. Peter directed the merge on 2026-05-19.
+
+**Net new content (~50 entries).** §1 Foundational mathematics (PCA, SVD, eigenvalue, eigenvector, Spectral Theorem) — previously referenced everywhere but never standalone. §2 Statistical concepts (Lyapunov exponent, Feigenbaum constant, CHSH, Tsirelson bound). §21 MC-1 / MC-2 / MC-3 — previously only MC-4 was documented. §25 Instrument-family and lineage names (RWA, BTL, HUF, Hs, V_Core, DADC, HCI-AUDIO, HCI-ULTRASOUND). §28 Abbreviations A–Z comprehensive index (PCA, SVD, EITT, CHSH, MC, ILR, CLR, CNT, CNQ, HUF, BTL, RWA, MORB, OIB, ...).
+
+**Admin catch-up.** Push #54 also writes session_log entries for pushes #52 and #53 (which landed but were not fully recorded in admin JSONs) and brings `HS_FAST_REFRESH.json` last_push pointer up to date.
+
+**Lockdown compliance.** S2 doc-only. Engine code, schemas, INV catalog dispositions, NO-CREATE files, `papers/codawork2026/talk/`, and `CODA-Association/CODAwork2026/data_outputs/` all untouched.
 
 ---
 

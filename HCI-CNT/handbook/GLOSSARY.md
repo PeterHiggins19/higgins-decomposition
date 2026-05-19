@@ -1,427 +1,812 @@
-# Glossary — Full Refresh v2.0
+# Hˢ — Canonical Glossary and Notation (v3.0)
 
-**Version:** v2.0 (2026-05-14). Initial release v1.0 push #27 (2026-05-08).
-**Canonical reference for locked vocabulary:** [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) v2.0 (2026-05-14). For any term that appears in both files, NOTATION_AND_TERMINOLOGY.md is authoritative; this glossary is the readable narrative companion.
-
-**Scope (v2.0):** the previously-glossed Volume IV / HCI / Helmsman vocabulary (~53 entries), PLUS comprehensive coverage of vocabulary added across pushes #28-#50: HUF Standards (HUF-STD-001/002/003), the seven linear-algebra foundations, Stage 0 / Foundations Plate, ILR-Helmert Triplet Plate, Dual-View Stage 1 Output, Power Share / Activation Coefficient, MC-4 three-conjunct, INV-050 metric pair-invariance, INV-051 deceptive drift, EITT, CRD-1.0, HUF AI Collective, AI Use Declaration, Standard Stamp, person-noun convention, document versioning, Hs Change Control (DCP, HCC, CHK rules), PRE_CONFERENCE_LOCKDOWN, Tensor Train v1.0, Output Doctrine v1.0 Order classification, and the canonical findings catalog. Approximately 100+ entries.
-
-**Companions:** [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) v2.0, [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md), [HCI/HCI_FOUNDATION.md](../../HCI/HCI_FOUNDATION.md), and the three HUF Standards JSONs at [`huf-gov/standards/`](../../huf-gov/standards/).
-
-**Terminology unification (push #27, retained).** Tensor index count is named **order** (not rank). κᴴˢ_ij is an **order-2** tensor; the diagonal sensitivity 1/x_j is the **order-1 carrier steering sensitivity vector** s_j (a distinct object). The "bi-quaternion factoring" of INV-029 is now formally called **twin-quaternion factoring** (SU(2) × SU(2)) to avoid confusion with the strict mathematical bi-quaternion (ℍ ⊗ ℂ). See [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) §1, §2, §7.
-
-**v2.0 additions (this refresh).** Helmsman Stability, Helmsman Flips, Helmsman Sigma Sequence, and Helmsman Torque Proxy are promoted PROPOSED → CANONICAL per CNT schema 3.1.0 (push #37). Stage 0 added to plate tier. "Yeast factor" formally renamed to **Activation Coefficient** (legacy term retained in prose for intuition; formal name used in tables and outputs). Person-noun convention codified at standards level (HUF-STD-001 v1.1).
+**Version:** v3.0 — comprehensive merged reference (2026-05-19). Replaces v2.0 GLOSSARY + NOTATION_AND_TERMINOLOGY.
+**Status:** AUTHORITATIVE. This is the single source of truth for every term used across the Hˢ / HUF / CoDaWork repositories.
+**Companion (legacy redirect):** [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) now forwards to this document.
+**Author:** Peter Higgins · Rogue Wave Audio · Binaural Test Lab · Markham, Ontario, Canada
+**Conforms to:** HUF-STD-001 v1.1 (Publication Standards) · HUF-STD-002 (Tensor Train I/O) · HUF-STD-003 (Linear Algebra Foundations).
 
 ---
 
-## §A — CoDa foundations
+## How to use this document
 
-**Aitchison metric.** The natural distance metric on the simplex, invariant under the simplex's intrinsic operations (perturbation and powering). Distances measured in Aitchison metric correspond to Euclidean distances in ILR coordinates. → Volume I §C.
+This is both a **narrative glossary** (read entries in sequence to learn the vocabulary) and a **locked notation reference** (cite specific entries to resolve ambiguity in any other document). The merger of GLOSSARY v2.0 and NOTATION_AND_TERMINOLOGY v2.0 was directed by Peter on 2026-05-19, with explicit instruction to include simple terms (e.g. PCA, eigenvalue) alongside obscure ones (e.g. EITT, LIMIT_CYCLE_P2) and to cover every HUF and CoDa term used in the repo.
 
-**Balance.** A single ILR coordinate, interpreted as the log-ratio between two carrier subgroups. Each balance is a single number representing one degree of freedom of the composition, chosen by an SBP. (Egozcue–Pawlowsky-Glahn vocabulary.) → Volume I §F.
+**Citation form in other documents:**
 
-**Closure.** The operation that rescales a positive vector to sum to a fixed constant (typically 1). Closure makes any positive vector into a composition on the simplex. → Volume I §B.
+> Notation: see Hs/HCI-CNT/handbook/GLOSSARY.md v3.0 (2026-05-19).
 
-**CLR (Centered Log-Ratio).** Maps a composition x → log(x) − mean(log(x)). Image lies in the (D−1)-dimensional hyperplane Σ = 0 inside ℝ^D. The "ambient" or "extrinsic" representation: same dimensionality as the original carrier set, with a sum-to-zero constraint. **Teaching alias: "close to simplex"** — CLR keeps you in the simplex's neighbourhood, just log-transformed and centered. → Volume I §C.
-
-**Composition.** A vector of strictly positive numbers (carrier abundances) treated as a point on the simplex, where only relative magnitudes matter (the absolute scale is removed by closure). → Volume I §B.
-
-**Helmert basis / Helmert ILR.** A specific canonical orthonormal basis on the (D−1)-dim CLR hyperplane, built from Helmert contrast vectors. The default ILR basis when no domain-specific SBP is preferred. The CNT engine's Stage 1 uses the Helmert ILR. → Volume I §F.
-
-**ILR (Isometric Log-Ratio).** The canonical orthogonal projection of a composition into ℝ^(D−1), preserving the Aitchison metric isometrically. Egozcue, Pawlowsky-Glahn, Mateu-Figueras & Barceló-Vidal (2003). The "intrinsic" or "isometric" representation: proper Cartesian coordinates of the simplex at its true dimension. **Teaching alias: "image simplex"** — ILR is the simplex's isometric image in normal Euclidean space. → Volume I §F.
-
-**ILR-Helmert orthogonal triplet.** CNT's specific D=4 Stage 1 representation: ILR with a Helmert basis projected to ℝ³, producing the per-timestep orthogonal triplet plate. → Volume I §F, Volume II §D.
-
-**🆕 ILR-quaternion (Volume IV addition).** The same ILR-Helmert projection re-expressed as a unit quaternion (axis+angle), valid specifically at D=4 where SO(D−1) = SO(3) is exactly covered by SU(2). Two names for the same mathematical object: ILR-Helmert names it in compositional vocabulary; ILR-quaternion names it in algebraic vocabulary. → Volume IV §C.
-
-**SBP (Sequential Binary Partition).** A way to specify which orthonormal basis to use for an ILR, by recursively partitioning the carrier set into two groups. Each SBP defines a balance dendrogram and corresponding ILR coordinates. → Volume I §F.
-
-**Simplex S^D.** The set of compositions with D positive components summing to 1. The natural sample space of compositional data analysis. → Volume I §B.
+**Coverage scope.** Approximately 220 entries across thirty sections. Every term used in the conference manuscript, the speaking script, the talk deck, the cinema scroll, the projector, the Investigation Catalog, the HUF governance charter, and the three HUF standards JSONs is defined here.
 
 ---
 
-## §B — CNT core terms
+## Contents
 
-**Amplitude A.** A scalar diagnostic of the period-2 attractor's strength (magnitude of curvature attractor). Reported per CNT JSON in `depth.higgins_extensions.impulse_response.amplitude_A`. → Volume I §H.
-
-**atan2 simplification.** CNT's per-timestep bearing computation, `θ = atan2(y, x)`, replacing the alternative `arccos(x · y)`. 3× fewer operations, 10⁷ better numerical stability, AND structurally equivalent to the 1D / single-axis case of the quaternion log map (Volume IV §C). → Volume I §F, Volume IV §C.
-
-**Bearing (θ).** Channel 1. The angular orientation of a CLR-projected pair, computed via atan2. The first of CNT's four channels. In Volume IV terms, this is the angle component of the quaternion log. → Volume I §F, Volume IV §C.
-
-**CBS cube.** The 3D structure used in Stage 2 with three orthogonal faces representing the (ω, κ), (κ, σ), (ω, σ) planes of the trajectory state space. The Higgins time axis runs orthogonal to all three. In Volume IV terms, the three faces correspond to the three quaternion-imaginary basis pairs (ij, jk, ki). → Volume II §D, Volume IV §A.
-
-**Channel.** One of CNT's four named per-timestep outputs: θ (bearing), ω (angular velocity), κ (curvature/steering), σ (helmsman). The four channels together describe the trajectory's instantaneous state. In Volume IV: the four channels are the four quaternion components in disguise. → Volume I §F, Volume IV §C.
-
-**Curvature (κ).** Channel 3. Δω/Δt — the rate of change of angular velocity. Captures trajectory turning. → Volume I §G.
-
-**Damping ζ (zeta).** A scalar diagnostic of how quickly the trajectory settles toward its attractor. Sets the IR class via threshold rules. → Volume I §H.
-
-**Depth tower.** CNT's recursive depth-sounder operation. Two parallel towers, `curvature_tower` and `energy_tower`, are built by recursive contraction until termination. Reported as `summary.curvature_depth` and `summary.energy_depth`. → Volume I §G.
-
-**Helmsman (σ).** Channel 4. The signed accumulated angular change — tracks left-handed vs right-handed rotation. In Volume IV: the spinor parity tracker, identifying which SU(2) sheet the trajectory lifts to. → Volume I §G, Volume IV §B.2.
-
-**Higgins time axis.** The trajectory's temporal direction, projected through the CBS cube. In Volume IV terms, the scalar (real) axis of the underlying quaternion. → Volume II §D, Volume IV §A.
-
-**IR class (8-class taxonomy).** Per-trajectory classification into one of: CRITICALLY_DAMPED, OVERDAMPED_EXTREME, LIGHTLY_DAMPED, MODERATELY_DAMPED, DEGENERATE, D2_DEGENERATE, ENERGY_STABLE_FIXED_POINT, CURVATURE_VERTEX_FLAT. Set by threshold rules on amplitude A and damping ζ. The "IR" stands for impulse-response classification. → Volume I §H.
-
-**LIMIT_CYCLE_P2.** Curvature termination code: trajectory returns to itself after exactly 2 recursion steps (period-2 attractor). Observed across virtually every substantively-flowing compositional dataset in the corpus AND on Planck CMB AND on SM neutrino oscillation. **Volume IV interpretation: the universal experimental signature of compositional dynamics carrying all three quaternion invariances at the population level** (simplex rotation, mass-flow handedness, time-reversal symmetry). Not a fermion-vs-boson distinguisher (that conjecture was tested and falsified in QD Round 2.5; reformulated here is the cleaner truth). → Volume I §H, Volume IV §B.
-
-**M² = I.** The metric tensor's involution property — the Banach contraction certificate. Apply M twice, get identity back. Reported per JSON as `M_squared_I_residual`, typically at IEEE floor (~10⁻¹⁷). In Volume IV: equals quaternion conjugation q → q*, which physically is time-reversal symmetry. → Volume I §D, Volume IV §B.3.
-
-**Period-2 attractor.** A trajectory that returns to itself after 2 recursion steps but not after 1. The structural signature of LIMIT_CYCLE_P2 termination. → Volume I §H.
-
-**Angular velocity (ω).** Channel 2. The bearing's rate of change Δθ/Δt. → Volume I §G.
+§1 [Foundational mathematics](#1) · §2 [Statistical concepts](#2) · §3 [CoDa foundations](#3) · §4 [CNT core terms](#4) · §5 [CNQ / Volume IV (quaternion view)](#5) · §6 [HCI instrument family](#6) · §7 [Helmsman family](#7)
+§8 [Tensor order vs rank](#8) · §9 [κᴴˢ vs s_j sensitivity](#9) · §10 [Frame, dimension, coordinate](#10) · §11 [Tier, Stage, Order, Level, Regime, Degree](#11) · §12 [Channel, factor, component, field](#12) · §13 [Trajectory, path, walk, sequence](#13) · §14 [Closure, invariance, signature, period](#14) · §15 [Engine, ledger, output, plate](#15)
+§16 [HUF Standards](#16) · §17 [Seven Linear-Algebra Foundations](#17) · §18 [Stage 0 / Foundations Plate / Dual-View](#18) · §19 [Power Share / Activation Coefficient](#19) · §20 [Canonical findings](#20) · §21 [MC-1 through MC-4 hierarchy](#21) · §22 [Other locked doctrines](#22) · §23 [Output conventions](#23) · §24 [Change control](#24)
+§25 [Instrument-family and lineage names](#25) · §26 [Standard symbols](#26) · §27 [Standard formulas](#27) · §28 [Abbreviations A–Z](#28) · §29 [Citation policy](#29) · §30 [Maintenance log](#30)
 
 ---
 
-## §C — Volume IV (Quaternion View) terms
+<a id="1"></a>
+## §1 — Foundational mathematics
 
-**Bi-quaternion.** The natural algebra for D=8 compositional dynamics, factoring as SU(2) × SU(2) under the SO(8) ⊃ SU(2) × SU(2) decomposition. Each EMBER country trajectory (D=8) potentially decomposes into two coupled quaternion paths under this factoring. → Volume IV §C; [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md) §H.
+The terms below are standard mathematical concepts used throughout the framework. They are not Hˢ-specific; they are listed here so any reader can resolve a term in one place.
 
-**Central claim.** *CNT measures invariance. CNQ names the algebra that invariance lives in.* → Volume IV §A.
+**Centroid.** The average of a set of points, weighted equally; in CoDa, the geometric centroid of the trajectory in CLR or ILR space (see §3).
 
-**Clifford algebra Cl(D−1).** The dimensional generalisation of quaternions to arbitrary D. For D=4, Cl(3) is the quaternions; for D=8, the natural factoring is bi-quaternions; for arbitrary D, Cl(D−1) is the algebra in which the three Volume-IV invariances are unified. → Volume IV §A.
+**Covariance matrix.** A symmetric matrix `Σ` whose entry `Σ_ij = Cov(X_i, X_j)` measures the joint variability of variables `X_i` and `X_j`. In CoDa, `Cov(clr(X))` is the central object of CoDa-PCA.
 
-**CNQ (Compositional Navigation Quaternion).** The quaternion-native sibling tier to CNT in the Hs system. Doctrine, three IEEE-floor demonstrations, three-tier comparison, ROI/use-case guidance, and the engineering proposal for a compiled `cnq.py` engine all live canonically at [`../../HCI-CNQ/`](../../HCI-CNQ/). The tier is live since push #23 (2026-05-07); the compiled `cnq.py` engine is pending (~14 days per the engineering proposal). When implemented, `cnq.py` produces the same JSON as CNT but via Hamilton products instead of channel arithmetic, exposing operations (SLERP, bi-quaternion factoring, spinor parity) that the channel form leaves implicit. → [`../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md`](../../HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md).
+**Determinant.** The scalar `det(A)` measuring the signed volume change a linear transformation `A` applies to its input space. `det(A) = 0` ⟺ `A` is singular (non-invertible).
 
-**Conjugation q\*.** Quaternion involution mapping (a, b, c, d) → (a, −b, −c, −d). Negates the imaginary part. Up to sign convention, the unique antiautomorphism of the quaternion algebra fixing the scalar part. Physically: time reversal. CNT's M² = I is structurally q → q*. → Volume IV §B.3.
+**Eigenvalue (λ).** A scalar such that `A·v = λ·v` for some non-zero `v`. The eigenvalue says *how much* the matrix `A` scales along direction `v`.
 
-**Hamilton product.** Quaternion multiplication: non-commutative, closed under unit quaternions. Expresses cross-dataset comparison as `R(t) = Q₁(t) · Q₂(t)⁻¹`. Replaces CNT's channel-by-channel Stage 4 logic with a single algebraic operation. → Volume IV §C.
+**Eigenvector (v).** A non-zero vector unchanged in direction (up to scaling) by `A`. For a symmetric matrix the eigenvectors form an orthonormal basis (Spectral Theorem, §17).
 
-**IEEE floor.** ≈ 2 × machine epsilon ≈ 4.441 × 10⁻¹⁶ for double-precision IEEE 754 floats. The smallest difference numerically representable on standard hardware. Volume IV's three confirmations (backblaze_fleet, Planck CMB, SM neutrino) all hit this floor exactly, demonstrating the quaternion identification is mathematically exact rather than approximate. → Volume IV §B, §D.
+**Eckart–Young theorem.** The optimal rank-k approximation of a matrix `M` is obtained by truncating its singular value decomposition (SVD) to the top-k singular values. The justification for low-rank approximations used in Stage 2 CoDa-PCA and Stage 3 attractor fits.
 
-**Quaternion (unit).** Element of the 3-sphere S³, written q = a + b·i + c·j + d·k with a² + b² + c² + d² = 1. The four-component algebra discovered by Hamilton (1843). For D=4 compositions, the algebra in which all three CNT invariances are unified. → Volume IV §A.
+**Euclidean space (ℝⁿ).** The familiar n-dimensional space with the usual dot product and distance. ILR coordinates of a composition live in `ℝ^(D−1)` and behave as Euclidean.
 
-**Quaternion log map.** Maps a unit quaternion to its axis-angle representation: log(q) = (atan2(|v|, a)/|v|) · v, where v = (b, c, d). The 1D / single-axis case is exactly CNT's atan2 bearing step. → Volume IV §C. (Vocabulary note: previously called the "rank-1 case"; "rank" is now reserved for matrix / decomposition contexts per [`NOTATION_AND_TERMINOLOGY.md`](NOTATION_AND_TERMINOLOGY.md) §1.)
+**Frobenius norm.** `‖A‖_F = √(Σ_ij a_ij²)`. The Euclidean norm of a matrix viewed as a vector. Used in foundations residual checks.
 
-**Sandwich product.** The operation q · v · q* applied to a 3-vector v, where q is a unit quaternion. Rotates v by the rotation that q represents in SO(3). For D=4 compositions, this is the same operation as Aitchison rotation between consecutive Helmert-projected unit vectors (verified at IEEE floor in QD Round 2). → Volume IV §B.1, §C.
+**Gram matrix.** `G = AᵀA`; symmetric positive-semidefinite. The Helmert basis satisfies `H·Hᵀ = I` — its Gram matrix is the identity (orthonormality certificate).
 
-**SLERP (Spherical Linear Interpolation).** Geodesic interpolation between two unit quaternions on S³. Replaces linear interpolation in CLR space with the geodesic that respects the underlying simplex geometry exactly. → Volume IV §C.
+**Hyperplane.** An (n-1)-dimensional flat subspace of ℝⁿ. The CLR image of the simplex is the hyperplane `Σ_i clr_i = 0` in ℝ^D.
 
-**Spinor branch / vector branch.** The two sheets of the SU(2) → SO(3) double cover. A trajectory's lift to SU(2) is in either the spinor branch (signed −1 in SU(2), needs 720° rotation to return to identity) or the vector branch (signed +1, needs 360°). Stage 2 calibration directness=1.0 tests the spinor branch (cumulative angle = π); directness=0.0 tests the vector branch (cumulative angle = 2π). → Volume IV §B.2.
+**Identity matrix (I).** Square matrix with 1s on the diagonal, 0 elsewhere. `I·v = v` for every vector `v`.
 
-**SU(2) cover of SO(3).** The double cover of the rotation group SO(3) by the unit quaternions SU(2) ≃ S³. Every SO(3) rotation has two preimages in SU(2): q and −q. This doubling is the spinor structure. For D=4 Aitchison rotations, SO(3) is the rotation group AND SU(2) is its universal cover, so unit quaternions are exact coordinates. → Volume IV §B.1.
+**Involution.** A function `f` such that `f(f(x)) = x`. The framework uses two: matrix involution `M² = I` (foundations, §4) and quaternion conjugation `(q*)* = q` (Volume IV, §5).
+
+**Linear map / linear transformation.** A function `T: V → W` with `T(αx + βy) = α T(x) + β T(y)`. Every Hˢ pipeline step is a linear map until the CLR transform applies a per-component logarithm.
+
+**Logarithm (natural, ln).** The inverse of the exponential. The CLR transform sits at the heart of CoDa precisely because `ln` converts ratios to differences and turns the simplex's multiplicative geometry into Euclidean.
+
+**Norm.** The length of a vector. Euclidean: `‖v‖_2 = √(Σ v_i²)`. The Aitchison distance is the Euclidean norm of the CLR difference.
+
+**Orthogonal.** Two vectors with inner product zero. Geometric meaning: at right angles.
+
+**Orthonormal basis.** A set of mutually orthogonal unit vectors that span a space. The Helmert basis is the canonical orthonormal basis on the CLR hyperplane.
+
+**PCA (Principal Component Analysis).** An eigendecomposition of a centred covariance matrix that produces the orthogonal directions of maximum variance (PC1, PC2, …) in the data. **In Hˢ, PCA is used four times:** (1) Stage 2 CoDa-PCA biplot of CLR-transformed compositions; (2) the navigation chart (Fig 6 in the manuscript, page 16 of stage23 plates) — PCA of the CLR trajectory; (3) the projector's BARY and ALIGN modes — engine v3.2.0 ILR-Helmert PCA barycenter trajectory; (4) Stage 3 attractor fit local linearisation. PC1 + PC2 captured variance: 90.5% (Germany, most multi-D) → 99.9% (USA, World, most rank-deficient) across the EMBER corpus.
+
+**Positive definite / Positive semidefinite.** A symmetric matrix `M` such that `xᵀ M x > 0` (definite) or `≥ 0` (semidefinite) for every non-zero `x`. Covariance matrices are positive semidefinite.
+
+**Projection (orthogonal).** Mapping a vector onto a subspace by dropping the perpendicular component. The ILR transform is an orthogonal projection from the CLR hyperplane onto `ℝ^(D−1)`.
+
+**Quadratic form.** `xᵀ A x`. The quadratic form of the Aitchison metric tensor is the squared Aitchison distance.
+
+**Rank (matrix).** The dimension of a matrix's column space (or equivalently, row space). The Helmert basis matrix has rank `D−1` for a `D`-dimensional composition.
+
+**Rank-1 / Rank-k approximation.** The best approximation of a matrix by one (or k) outer product term(s) of its SVD. Used for low-dimensional summaries.
+
+**Singular value.** The non-negative square roots of the eigenvalues of `AᵀA`. The SVD `A = UΣVᵀ` lists them in descending order.
+
+**SVD (Singular Value Decomposition).** Factor any real `m×n` matrix `A` as `A = UΣVᵀ` with `U`, `V` orthogonal and `Σ` diagonal. The most general matrix decomposition; the Spectral Theorem is the special case for symmetric matrices.
+
+**Spectral Theorem.** Every real symmetric matrix has real eigenvalues and an orthonormal basis of eigenvectors. The single most important theorem underpinning Hˢ — verified at IEEE floor in Stage-0 Foundations Plates.
+
+**Symmetric matrix.** `M = Mᵀ`. The objects of multivariate statistics (covariance, variation, Gram). See foundation §1 of HUF-STD-003.
+
+**Trace.** `tr(A) = Σ A_ii`. The sum of eigenvalues for diagonalisable matrices; used as a scalar invariant.
+
+**Transpose (Mᵀ).** Reflect a matrix across its main diagonal. For orthonormal `Q`: `Qᵀ = Q⁻¹` (foundation §2 of HUF-STD-003).
+
+**Variation matrix.** In CoDa: `var_ij = Var(log(x_i / x_j))`. Symmetric by construction. The Hˢ Stage-0 plate visualises this directly.
 
 ---
 
-## §D — Tier system and access protocols
+<a id="2"></a>
+## §2 — Statistical concepts
 
-**CCTT (CNT Compositional Tensor Train).** The 7-phase user/AI access protocol. Lets any researcher (by hand) or AI assistant (Claude, ChatGPT, Gemini, in-house) take a raw compositional CSV and produce a CNT-grade analysis end-to-end with hash-chained provenance. → `ai-refresh/CCTT_RUNBOOK.md`.
+**Bonferroni correction.** A multiple-testing correction: divide the per-test α threshold by the number of tests. Used in MC-4 case-defeat sensitivity analyses where multiple country-year transitions are tested simultaneously.
 
-**CNQ tier.** The high-performance compositional analytics tier above CNT in the Hs three-tier stack (CoDa → CNT → CNQ). Quaternion-native operations sized for dimensionally larger systems (climate modeling, multi-decade economics, microbiome cohorts). Built on Volume IV. **Tier is live and canonical since push #23 (2026-05-07)**: doctrine, three IEEE-floor demonstrations, comparisons, and the compiled-engine proposal all sit in [`../../HCI-CNQ/`](../../HCI-CNQ/). The compiled `cnq.py` engine itself is the next milestone (~14 days). → [`../../HCI-CNQ/README.md`](../../HCI-CNQ/README.md).
+**Confidence interval.** The range of values consistent with the data at a chosen confidence level (typically 95%). Hˢ outputs report bootstrap 95% CIs for the headline Activation Coefficient values.
 
-**CNT tier.** The current canonical engine: trajectory-navigation tensor for medium-scale compositional analysis. Engine 2.0.4, schema 2.1.0, 25-experiment determinism gate. → Volumes I-III.
+**Effective sample size (`N_eff`).** A correction to the nominal sample size accounting for autocorrelation in time series. For the EMBER 26-year window, `N_eff` is typically lower than 26 because successive years are correlated.
 
-**CoDa tier.** The compositional-data-analysis foundation: Aitchison closure, log-ratios, balance, ternary, biplot. Two centuries of mathematical machinery. → Volume I §B-§F.
+**Feigenbaum constants.** `δ ≈ 4.6692` (period-doubling ratio) and `α ≈ −2.5029` (scaling parameter). Universal constants for the route to chaos via period doubling in one-dimensional unimodal maps. The Helmsman Chaos extension (§7) predicts these to appear at sufficiently strong control parameter.
 
-**OPERATIONS_PROTOCOL.** The Gawande-style meta-checklist for the whole repo. 13 transition sections (as of 2026-05-07; Section 13 is the Volume IV verification path). → `OPERATIONS_PROTOCOL.md` at repo root.
+**Lyapunov exponent.** The exponential rate of separation of nearby trajectories in a dynamical system. Positive Lyapunov exponent ⟺ chaotic behaviour. Used as a diagnostic for proposed Helmsman Chaos regime.
+
+**p-value.** The probability of observing data at least as extreme as the actual data under a stated null hypothesis. The deceptive-drift signature for Germany has `p ≈ 0.0016` (manuscript Result §5).
+
+**Pearson correlation.** Linear correlation coefficient between two variables. Used in legacy non-compositional analyses; in Hˢ replaced by Aitchison-distance comparisons for compositional data.
+
+**Permutation test.** A non-parametric test in which the null distribution is constructed by shuffling labels and recomputing the test statistic. Used in MC-4 case-defeat for the deceptive-drift signature.
+
+**Shannon entropy (H).** `H = −Σ p_i ln p_i` (in nats). The information-theoretic measure of dispersion of a probability vector. For a composition, Shannon entropy quantifies how evenly carriers share the whole.
+
+**`K_eff` (effective number of carriers).** `K_eff = exp(H)`. The exponential of Shannon entropy. Equals D when all carriers are equal; collapses toward 1 as one carrier dominates. Reported in CNT JSON per timestep as `tensor.navigation_concentration_summary.k_eff`.
+
+**Tsirelson bound.** `S ≤ 2√2 ≈ 2.828`. The maximum value the CHSH expression can take under quantum mechanics. Values between the classical bound `S = 2` and Tsirelson are quantum-allowed; values exceeding Tsirelson would violate quantum theory itself. Hˢ-CNQ corpus produces `S ≈ 0.88` for China at D=8 — above the classical bound, below Tsirelson, consistent with quantum-like joint coherence in a strictly classical compositional dataset.
+
+**TV distance (Total Variation).** `TV(p, q) = ½ Σ_i |p_i − q_i|`. The half-L1 norm of proportion differences, bounded in [0, 1]. The true TV distance; distinct from the `L2_drift` metric that earlier engine versions mislabelled as TV (corrected push #41).
+
+**z-score.** Standardised deviation from the mean: `z = (x − μ) / σ`. Used in shock-event detection on the Aitchison distance time series.
 
 ---
 
-## §E — Standard symbols (most commonly used)
+<a id="3"></a>
+## §3 — CoDa foundations
+
+**Aitchison distance.** `d_Ait(x, y) = ‖clr(x) − clr(y)‖_2`. The Euclidean norm of the CLR difference. The natural distance between two compositions on the simplex; invariant under closure and perturbation.
+
+**Aitchison geometry.** The metric-space geometry on the simplex induced by Aitchison's inner product. The single most important framework for compositional data. Aitchison (1986); Pawlowsky-Glahn, Egozcue & Tolosana-Delgado (2015).
+
+**Aitchison inner product.** `⟨x, y⟩_A = clr(x) · clr(y)`. The Aitchison-geometric inner product on the simplex.
+
+**Aitchison metric.** Same as Aitchison distance. Invariant under perturbation and powering (the simplex's intrinsic group operations).
+
+**Aitchison pullback metric.** Same as κᴴˢ (§9): the Riemannian metric on the simplex induced by pulling back the Euclidean metric through the CLR map.
+
+**ALR (Additive Log-Ratio).** `alr_i(x) = log(x_i / x_D)` for one chosen reference carrier `x_D`. Defined for completeness; the framework canonically uses CLR and ILR-Helmert, not ALR.
+
+**Balance.** A single ILR coordinate, interpreted as a log-ratio between two carrier subgroups defined by an SBP.
+
+**Balance dendrogram.** Tree representation of an SBP showing the binary partition at each level.
+
+**Biplot (CoDa-PCA).** A scatter plot of compositional principal components with carrier loadings overlaid as arrows. Stage 2 plate.
+
+**Carrier.** A single fuel / category / part / component within a composition. EMBER uses nine carriers: bioenergy, coal, gas, hydro, nuclear, other fossil, other renewables, solar, wind.
+
+**Closure (C).** `C(x) = x / Σ_i x_i`. The operation that rescales a positive vector to sum to a fixed constant (typically 1). Maps any positive vector to the simplex.
+
+**CLR (Centered Log-Ratio).** `clr_i(x) = log(x_i) − (1/D) Σ_j log(x_j) = log(x_i / g(x))` where `g(x)` is the geometric mean. Image lies in the (D−1)-dimensional hyperplane `Σ clr_i = 0` in ℝ^D. **Teaching alias:** *"close to simplex"* — keeps you in the simplex's neighbourhood, just log-transformed and centred.
+
+**Composition.** A vector of strictly positive numbers, treated as a point on the simplex, where only relative magnitudes matter (the absolute scale is removed by closure).
+
+**Compositional time series.** An ordered sequence of compositions indexed by time.
+
+**Compositional whole.** The meaningful unity that the composition partitions — total electricity generation, sectoral GDP, household-expenditure budget, etc.
+
+**Course directness.** Ratio of net distance (start → end Aitchison distance) to total path length (sum of step Aitchison distances). 1.0 = perfectly straight; → 0 = pure looping. Reported per country in the CNT JSON `tensor.navigation_chart.course_directness`. EMBER values: Germany 0.41 (directional arc), Japan 0.09 (heavy loop), UK 0.36 (jump-and-return).
+
+**Deceptive drift.** Structural concentration or redistribution accumulating behind apparently stable aggregate indicators. Detected when K_eff is declining while structural velocity remains below the series median. The 5-of-9 cross-country signature reproduces in AUS, CHN, GBR, IND, and JPN at annual grain (INV-051).
+
+**Geometric mean (`g(x)`).** `g(x) = (∏_i x_i)^(1/D)`. The natural mean for compositional data; the CLR is defined relative to this.
+
+**Helmert basis / Helmert ILR.** A canonical orthonormal basis on the (D−1)-dim CLR hyperplane, built from Helmert contrast vectors. The default ILR basis used in Hˢ when no domain-specific SBP is preferred.
+
+**Hidden driver.** A small-share carrier whose Activation Coefficient (§19) is large — doing structural work far beyond its compositional weight. The protocol's central diagnostic surfaces these.
+
+**ILR (Isometric Log-Ratio).** `η = Vᵀ · clr(x)` for an orthonormal basis matrix `V`. The canonical orthogonal projection of a composition into `ℝ^(D−1)`, preserving the Aitchison metric isometrically. Egozcue, Pawlowsky-Glahn, Mateu-Figueras & Barceló-Vidal (2003). **Teaching alias:** *"image simplex"* — the simplex's isometric image in normal Euclidean space.
+
+**ILR-Helmert orthogonal triplet.** Hˢ's specific D=4 Stage 1 representation: ILR with a Helmert basis projected to ℝ³, producing the per-timestep orthogonal triplet plate.
+
+**ILR-quaternion.** The ILR-Helmert projection re-expressed as a unit quaternion (axis + angle), valid specifically at D=4. Two names for the same object.
+
+**Navigation chart.** Fig 6 of the manuscript and slides 12–14 of the talk deck — a PCA 2-D projection of the CLR trajectory, identical to page 16 of each per-country stage23.pdf. Course directness is annotated on each chart.
+
+**Perturbation (⊕).** The simplex's group operation: `(x ⊕ y)_i = x_i · y_i / Σ_j (x_j · y_j)`. The compositional analogue of addition; maps the simplex to itself.
+
+**Powering (⊙).** The simplex's scalar action: `(α ⊙ x)_i = x_i^α / Σ_j x_j^α`. The compositional analogue of scalar multiplication.
+
+**SBP (Sequential Binary Partition).** A way to specify which orthonormal basis to use for an ILR by recursively partitioning the carrier set into two groups. Egozcue–Pawlowsky-Glahn vocabulary.
+
+**Simplex (S^(D−1)).** The set of compositions with D positive components summing to 1. The natural sample space of compositional data analysis. Dimension: D−1.
+
+**Size view.** The standard stacked-area chart of composition shares over time. Answers *what carriers are big*; silently hides *which carriers are doing the structural work*. The view the protocol is designed to complement.
+
+**Sub-composition.** A subset of carriers re-closed to sum to 1. Aitchison's "sub-compositional coherence" requires sub-compositional results to be consistent with full-compositional ones; ILR satisfies this.
+
+**Yeast moment.** A specific transition (country, year, carrier) where the Activation Coefficient ≥ 3× and the carrier's starting composition share ≥ 0.1%. The 9-country EMBER corpus contains 406 yeast moments over 2000–2025.
+
+---
+
+<a id="4"></a>
+## §4 — CNT core terms
+
+**Amplitude (A).** A scalar diagnostic of the period-2 attractor's strength (magnitude of curvature attractor). Reported per CNT JSON in `depth.higgins_extensions.impulse_response.amplitude_A`.
+
+**Angular velocity (ω).** Channel 2. The bearing's rate of change Δθ/Δt.
+
+**atan2 simplification.** Hˢ's per-timestep bearing computation, `θ = atan2(y, x)`, replacing the alternative `arccos(x · y)`. 3× fewer operations, 10⁷× better numerical stability, AND structurally equivalent to the 1D / single-axis case of the quaternion log map (§5).
+
+**Bearing (θ).** Channel 1. The angular orientation of a CLR-projected pair, computed via atan2. The first of CNT's four channels. In Volume IV terms: the angle component of the quaternion log.
+
+**CBS cube.** The 3D structure used in Stage 2 with three orthogonal faces representing the (ω, κ), (κ, σ), (ω, σ) planes of the trajectory state space. The Higgins time axis runs orthogonal to all three. The three faces correspond to the three quaternion-imaginary basis pairs (ij, jk, ki).
+
+**Channel.** One of CNT's four named per-timestep outputs: θ (bearing), ω (angular velocity), κ (curvature/steering), σ (helmsman). The four channels together describe the trajectory's instantaneous state. In Volume IV: the four channels are the four quaternion components in disguise.
+
+**Curvature (κ).** Channel 3. `Δω/Δt` — the rate of change of angular velocity. Captures trajectory turning.
+
+**Damping (ζ).** A scalar diagnostic of how quickly the trajectory settles toward its attractor. Sets the IR class via threshold rules.
+
+**Depth tower.** Hˢ's recursive depth-sounder operation. Two parallel towers, `curvature_tower` and `energy_tower`, are built by recursive contraction until termination. Reported as `summary.curvature_depth` and `summary.energy_depth`.
+
+**Helmsman (σ).** Channel 4. The signed accumulated angular change — tracks left-handed vs right-handed rotation. In Volume IV: the spinor parity tracker. See §7 for the full Helmsman family taxonomy.
+
+**Higgins scale (H_s).** A scalar trajectory observable — the cumulative Aitchison-distance scale measure used in CNQ dashboard summaries. Hs(t) traces the trajectory's scale evolution; reported as `cnq_view.higgins_scale_trajectory` in CNQ JSON.
+
+**Higgins time axis.** The trajectory's temporal direction, projected through the CBS cube. In Volume IV terms: the scalar (real) axis of the underlying quaternion.
+
+**Information Retention (IR) class — 8-class taxonomy.** Per-trajectory classification into one of: CRITICALLY_DAMPED, OVERDAMPED_EXTREME, LIGHTLY_DAMPED, MODERATELY_DAMPED, DEGENERATE, D2_DEGENERATE, ENERGY_STABLE_FIXED_POINT, CURVATURE_VERTEX_FLAT. Set by threshold rules on amplitude A and damping ζ.
+
+**`LIMIT_CYCLE_P2`.** Curvature termination code: trajectory returns to itself after exactly 2 recursion steps (period-2 attractor). Observed across nearly every substantively-flowing compositional dataset AND on Planck CMB AND on SM neutrino oscillation. **The universal experimental signature of compositional dynamics carrying all three quaternion invariances** (simplex rotation, mass-flow handedness, time-reversal symmetry). Paper 1 — Universal Compositional Invariance Signature.
+
+**`M² = I`.** The metric tensor's involution property — the Banach contraction certificate. Apply M twice, get identity back. Reported per JSON as `M_squared_I_residual`, typically at IEEE floor (~10⁻¹⁷). Equals quaternion conjugation `q → q*`, physically time-reversal symmetry.
+
+**Period-2 attractor.** A trajectory returning to itself after 2 recursion steps but not after 1. The structural signature of LIMIT_CYCLE_P2 termination.
+
+**Termination codes (depth tower).** `LIMIT_CYCLE_P2` (period-2 attractor; the canonical case), `HS_FLAT` (Higgins scale flatline), `OMEGA_FLAT` (angular velocity flatline), `SIGNAL_SHORT` (insufficient length), `ENERGY_STABLE` (energy attractor without curvature). Each is a one-word verdict on the depth-tower fate.
+
+---
+
+<a id="5"></a>
+## §5 — CNQ / Volume IV (quaternion view)
+
+**Bi-quaternion (strict).** Element of `ℍ ⊗ ℂ`. The Lorentz-physics / Clifford-algebra meaning. **Distinct from twin-quaternion factoring.** Reserved for explicit Lorentz contexts where it actually applies.
+
+**Central claim (Volume IV).** *CNT measures invariance. CNQ names the algebra that invariance lives in.*
+
+**CHSH joint-coherence.** The Bell-test CHSH quantity `S = E(a,b) + E(a,b′) + E(a′,b) − E(a′,b′)`. Classical bound `|S| ≤ 2`; quantum (Tsirelson) bound `|S| ≤ 2√2 ≈ 2.828`. CNQ computes a compositional analogue from twin-quaternion-factored Joint Helmsmen at D=8. China EMBER 2001–2025 produces `S ≈ 0.88` — above classical bound, well below Tsirelson — consistent with quantum-like joint coherence in a strictly classical dataset.
+
+**Clifford algebra `Cl(D−1)`.** The dimensional generalisation of quaternions. For D=4: `Cl(3)` = quaternions. For D=8: the natural factoring is bi-quaternions (in the SU(2) × SU(2) sense). For arbitrary D: `Cl(D−1)` is the algebra in which the three Volume-IV invariances unify.
+
+**CNQ (Compositional Navigation Quaternion).** The quaternion-native sibling tier to CNT. Engine version 2.0.0, schema cnq/2.0.0. Hamilton-product core with twin-quaternion factoring, SLERP, sandwich product, and CHSH joint coherence diagnostics. Produces the same JSON as CNT but via quaternion algebra rather than channel arithmetic.
+
+**Conjugation (q\*).** Quaternion involution mapping `(a, b, c, d) → (a, −b, −c, −d)`. Negates the imaginary part. Physically: time reversal. Hˢ's `M² = I` is structurally `q → q*`.
+
+**Hamilton product.** Quaternion multiplication: non-commutative, closed under unit quaternions. Expresses cross-dataset comparison as `R(t) = Q₁(t) · Q₂(t)⁻¹`.
+
+**Hamilton's discovery.** William Rowan Hamilton, Dublin, 16 October 1843 — the moment quaternions entered mathematics, carved into Broom Bridge.
+
+**IEEE floor.** `≈ 2 × machine epsilon ≈ 4.441 × 10⁻¹⁶` for double-precision IEEE 754 floats. The smallest difference numerically representable on standard hardware. Volume IV's three confirmations all hit this floor exactly.
+
+**Pure quaternion.** Quaternion with scalar part zero: `q = (0, b, c, d)`. The pure-quaternion subspace is isomorphic to ℝ³.
+
+**Quaternion (unit).** Element of the 3-sphere S³, written `q = a + b·i + c·j + d·k` with `a² + b² + c² + d² = 1`. The four-component algebra discovered by Hamilton (1843).
+
+**Quaternion log map.** Maps a unit quaternion to its axis-angle representation: `log(q) = (atan2(|v|, a) / |v|) · v`, where `v = (b, c, d)`. The 1D case is exactly Hˢ's atan2 bearing step.
+
+**Sandwich product.** `q · v · q*` applied to a 3-vector `v`. Rotates `v` by the rotation that `q` represents in SO(3). For D=4 compositions, the same operation as Aitchison rotation between consecutive Helmert-projected unit vectors.
+
+**SLERP (Spherical Linear Interpolation).** Geodesic interpolation between two unit quaternions on S³. `slerp(q₁, q₂, α) = sin((1−α)Ω)/sinΩ · q₁ + sin(αΩ)/sinΩ · q₂` where `cosΩ = q₁ · q₂`. Replaces linear interpolation in CLR space with the geodesic that respects the simplex geometry.
+
+**Spinor branch / vector branch.** The two sheets of the SU(2) → SO(3) double cover. A trajectory's lift to SU(2) is in either the spinor branch (signed −1, needs 720° to return) or the vector branch (signed +1, needs 360°).
+
+**SU(2) cover of SO(3).** The double cover of the rotation group SO(3) by the unit quaternions SU(2) ≃ S³. Every SO(3) rotation has two preimages in SU(2): `q` and `−q`. For D=4 Aitchison rotations, SO(3) is the rotation group AND SU(2) is its universal cover, so unit quaternions are exact coordinates.
+
+**Twin-quaternion factoring.** Decomposition of a D=8 trajectory into two coupled SU(2) elements `q_A(t), q_B(t)` via the SO(8) ⊃ SU(2) × SU(2) factoring. **This is what INV-029 is about.** Formal name introduced push #27 to disambiguate from strict mathematical bi-quaternions.
+
+---
+
+<a id="6"></a>
+## §6 — HCI instrument family
+
+The HCI family (Higgins Compositional Instrument) is the parent name for the canonical engine tier above CoDa and below CNQ.
+
+**ABACUS (proposed).** Acronym placeholder for a future instrument concept. Not currently a defined Hˢ term.
+
+**ADAC.** Application Domain Adaptive Controller — a control-theory concept inherited from the audio-systems lineage (Rogue Wave Audio). Used in DADC documentation as the parent feedback-control discipline. See [`ai-refresh/ORIGIN_DADC_LINEAGE.md`](../../ai-refresh/ORIGIN_DADC_LINEAGE.md).
+
+**Atlas.** The complete plate-suite catalog. Stage 0/1/2/3/4 plates are atlas modules.
+
+**DADC (Direct Active Dual-Coil).** The audio-engineering lineage from which the Hˢ control-theoretic vocabulary derives. Originated at Rogue Wave Audio; documented in [`ai-refresh/ORIGIN_DADC_LINEAGE.md`](../../ai-refresh/ORIGIN_DADC_LINEAGE.md). Provides "closure" and feedback-loop intuitions that inform CNT terminology.
+
+**DCDI (Dominant Carrier Displacement Index).** Formal operator name for the carrier with the largest absolute CLR displacement between consecutive compositions: `σᴴˢ(t, t+1) = argmax_j |h_j(t+1) − h_j(t)|`. The instrument alias is the **Helmsman Index**.
+
+**HCI-AUDIO.** The audio-domain wrapper of HCI. Maps the CNT/CNQ generic vocabulary onto audio measurement (signal level, harmonic distortion, room modes, etc.). Lives at [`HCI-AUDIO/`](../../HCI-AUDIO/) in the repo. Status: doctrine-only (no engine yet); wrappers are JSON-driven.
+
+**HCI-ULTRASOUND.** The ultrasound-domain wrapper of HCI. Same architecture as HCI-AUDIO; different domain vocabulary. Lives at [`HCI-ULTRASOUND/`](../../HCI-ULTRASOUND/). Status: doctrine-only.
+
+**HCI Barycentric Navigation Volume.** The 3D enclosing manifold inside which a CNT trajectory navigates relative to the simplex barycentre. Relates to the CBS cube as the volume whose three orthogonal faces the cube parameterises.
+
+**HCI Spatial Morphographic Analyzer (HCI-VR).** Proposed VR / 3D-renderer instrument for walking through the Barycentric Navigation Volume. Status: design exploration only. The HTML projector (`codawork2026_projector.html`) is the first interactive pilot.
+
+**HLR (Higgins Log-Ratio Level).** The dimensionless natural-log unit in which all HCI plate coordinates are reported. `h_j(t) = ln(x_j(t)) − mean_k ln(x_k(t)) = ln(x_j(t) / g(x(t)))`. Nearest relative: the neper.
+
+**Multiplexed Carrier Section Plate.** The Stage 1 plate convention in which all carriers' sections are rendered under shared geometry on one multi-panel page (XY plan view + XZ bearings + YZ CLR bars + info + legend). Per timestep; the sequence forms the Section Atlas.
+
+**System Course Plot.** The summary terminal page of a Stage 1 plate cine-deck — the trajectory's whole-run course rendered in one frame after the per-timestep section plates.
+
+**Wrapper.** A JSON schema mapping the engine's generic CoDa vocabulary onto a specific application domain (audio, ultrasound, government budget, etc.). Allows the same engine to serve multiple domains by switching wrapper files. Lives at [`HCI-CNQ/wrappers/`](../../HCI-CNQ/wrappers/) in UN-6 locales (en, fr, es, ru, zh, ar).
+
+---
+
+<a id="7"></a>
+## §7 — Helmsman family
+
+Locked taxonomy (codified push #37 schema 3.1.0).
+
+| Term | Locked definition | Status |
+|---|---|---|
+| **Helmsman σ** | The directional channel computed by CNT; the σ channel of the four (θ, ω, κ, σ) | CANONICAL |
+| **Sign of the Helmsman** | The sign of σ at any timestep; handedness bookkeeping | CANONICAL |
+| **Helmsman Stability `S_σ`** | `1 − (number_of_flips)/(N−1)`; emitted as `helmsman_family.stability_S_sigma.{global, rolling}` | CANONICAL (schema 3.1.0) |
+| **Helmsman Flip** | A change in the helmsman index from one transition to the next. | CANONICAL |
+| **Helmsman Flips (count)** | Total flips across a window; emitted as `helmsman_family.flips.{total, rolling}` | CANONICAL |
+| **Helmsman Sigma Sequence** | Per-timestep carrier-index sequence; emitted as `helmsman_family.sigma[]` | CANONICAL |
+| **Helmsman Torque Proxy** | Per-timestep proxy for rate-of-change-of-σ; emitted as `helmsman_family.torque_proxy[]` | CANONICAL |
+| **Helmsman Trajectory** | Time series of helmsman indices, σ(1), σ(2), …; plotted with dotted line segments | CANONICAL |
+| **Helmsman Chaos** | Onset of irregular Helmsman dynamics via period-doubling cascade (Feigenbaum δ ≈ 4.6692). Diagnostics: positive Lyapunov exponent of σ̂(t), fractal Hausdorff dimension ≈ 0.538 | PROPOSED (INV-009, INV-058) |
+| **Joint Helmsman** | Multi-trajectory coupled Helmsman channel from a joint quaternion field; supports CHSH-like correlations | PROPOSED |
+
+**Flip count range across the EMBER 9-country corpus:** 4 (World aggregate, stable) → 17 (Japan, post-Fukushima cascade).
+
+---
+
+<a id="8"></a>
+## §8 — Tensor order vs rank (locked terminology)
+
+| Locked term | Definition | Use for |
+|---|---|---|
+| **Order** (or **valence**) | Number of indices on a tensor | "κᴴˢ is an order-2 tensor", "C_ijkl is order-4" |
+| **Rank (matrix)** | Linear-independence count of rows/columns | "Helmert matrix has rank D−1" |
+| **Rank (tensor decomposition)** | Minimum number of rank-1 tensors summing to a given tensor (CP rank, Tucker rank) | Only when explicitly doing decomposition |
+
+**Retired usages:** "rank-2 metric tensor" → say **order-2**. "rank-4 coupling tensor" → say **order-4**.
+
+**Standard alignment.** Use of "order" follows Kolda & Bader (2009), Hackbusch (2012), and standard differential-geometry usage for tensor valence.
+
+---
+
+<a id="9"></a>
+## §9 — κᴴˢ vs s_j sensitivity
+
+| Object | Symbol | Order | Definition |
+|---|---|---|---|
+| **Higgins Steering Metric Tensor** | `κᴴˢ_ij(x)` | order-2 | `(δ_ij − 1/D) / (x_i x_j)` — the Aitchison pullback metric on the simplex |
+| **Diagonal carrier steering sensitivity** | `s_j(x)` | order-1 | `1/x_j` — a vector of per-carrier sensitivities |
+
+The diagonal of the full tensor is `κᴴˢ_jj = (1 − 1/D) / x_j²`, NOT `1/x_j`. The legacy `κ_{jj} = 1/x_j` formulae in older HCI files are loosely labelling the sensitivity vector `s_j`, not the metric tensor proper.
+
+---
+
+<a id="10"></a>
+## §10 — Frame, dimension, coordinate, axis, basis
+
+| Term | Locked meaning |
+|---|---|
+| **Carrier dimension D** | Number of carriers in a composition |
+| **Simplex dimension D−1** | Dimension of S^(D−1) |
+| **ILR space dimension D−1** | Dimension of the ILR coordinate space |
+| **Frame** | Choice of orthonormal basis on the ILR space. Examples: Helmert frame, principal-ILR frame, named scientific balance frame. Always declared in CNQ output |
+| **Basis** | Synonym of frame; use "frame" in narrative, "basis" in matrix algebra |
+| **Axis** | One direction of a frame |
+| **Coordinate** | A single component of a vector in a declared frame |
+| **Projection dimension** | Dimension of the space CNQ projects into for the quaternion view; D−1 for D=4 (no loss), ℝ³ with `captured_step_fraction` for D > 4 |
+
+---
+
+<a id="11"></a>
+## §11 — Tier, Stage, Order, Level, Regime, Degree
+
+| Term | Locked meaning |
+|---|---|
+| **Tier** | Architectural level of the analytics stack: CoDa, CNT, CNQ are tiers |
+| **Stage** | Atlas plate stage (0, 1, 2, 3, 4). Output-plate level. Stage 0 added v2.0 per HUF-STD-003 |
+| **Order** | Tensor order (number of indices). ALSO: Output Doctrine derivational order (Order 0 raw / 0+ foundations / 1 first-principles / 2 inter-timestep / 3 recursive / 4+ inferential) — context disambiguates |
+| **Level** | HLR magnitude scale. The "level" channel of HLR |
+| **Regime** | Multi-scale dynamical regime in the HUF sense |
+| **Degree** | RESERVED — avoid. If "higher-degree analysis" appears, replace with "higher-order analysis" or be explicit |
+
+---
+
+<a id="12"></a>
+## §12 — Channel, factor, component, field
+
+| Term | Locked meaning |
+|---|---|
+| **Channel** | A scalar stream over time produced by the engine. CNT has four: θ, ω, κ, σ |
+| **Factor** | A sub-system in a multi-system decomposition. CNQ twin-quaternion factoring produces two factors `q_A(t), q_B(t)` |
+| **Component** | One number — one entry of a vector or one channel value at one timestep |
+| **Field** | A function over space or time. Reserve for field-theoretic contexts |
+
+---
+
+<a id="13"></a>
+## §13 — Trajectory, path, walk, sequence
+
+| Term | Locked meaning |
+|---|---|
+| **Compositional time-series** | The raw data: an ordered list of D-vectors over time |
+| **Trajectory** | The geometric path through CLR / ILR space defined by the time-series |
+| **Path** | Synonym of trajectory in geometric contexts; use "trajectory" in narrative |
+| **Walk** | Discrete-step view of the trajectory, for return-map and depth-tower analysis |
+| **Sequence** | Index-ordered view; emphasises ordering rather than geometry |
+
+---
+
+<a id="14"></a>
+## §14 — Closure, invariance, signature, period
+
+| Term | Locked meaning |
+|---|---|
+| **Closure (operator C)** | Aitchison's rescale-to-sum-1 operator |
+| **Closure (control-system)** | Closing a feedback loop. DADC / ADAC context |
+| **Structural invariance** | An algebraic invariance the trajectory carries: SO(D−1) simplex rotation, SU(2) handedness, M² = I metric involution |
+| **Invariance signature** | A pattern exhibiting structural invariance. LIMIT_CYCLE_P2 is the framework's named signature |
+| **UCIS (Universal Compositional Invariance Signature)** | Paper 1's term for LIMIT_CYCLE_P2 viewed as universal across compositional dynamics |
+| **Period (in LIMIT_CYCLE_Pn)** | The period of the depth-tower return map |
+
+---
+
+<a id="15"></a>
+## §15 — Engine, ledger, output, plate
+
+| Term | Locked meaning |
+|---|---|
+| **Engine** | A compiled program: `cnt.py`, `cnq.py`, `cnt.R`, `cnq.R` |
+| **Ledger** | An output JSON file with hash-chained provenance |
+| **Output** | Artefact a tool produces — ledger, plate, report, experiment record |
+| **Plate** | An atlas Stage 0/1/2/3/4 visual diagram output |
+| **Foundations Plate** | Stage-0 plate per HUF-STD-003 (variation matrix, Helmert basis check, decomposition tree, eigenvalue scree, orthonormal basis Q, Spectral Theorem residual) |
+| **Section Plate** | Stage-1 Multiplexed Carrier Section Plate |
+| **ILR-Helmert Triplet Plate** | Stage-1 orthonormal companion to Section Plate |
+| **Dual-View Stage 1 Output** | The paired Section + Triplet reading |
+| **Power Share Plate** | Forthcoming Stage-1 sibling visualising Power Share + Activation Coefficient |
+| **CNQ Dashboard** | Single-page summary of CNQ output per dataset |
+| **Standard Stamp** | The colophon page appended to every Hˢ-produced document |
+
+---
+
+<a id="16"></a>
+## §16 — HUF Standards (HUF-STD-001/002/003)
+
+| Standard | Title | Scope |
+|---|---|---|
+| **HUF-STD-001 v1.1** | HUF Publication Standards | AI Use Declaration template, authorship rules (human-only), person-noun convention, hash-chain expectations, versioning, locale support, lockdown discipline, licensing. Conforms to ICMJE / COPE / Nature/Springer / Science/AAAS / WAME / EU AI Act 2024 / arXiv / ACM / IEEE |
+| **HUF-STD-002 v1.0** | HUF Tensor Train I/O Standard | The data → CNT → CNQ → vector-output chain. PDF / PNG / SVG standard; PPTX excluded |
+| **HUF-STD-003 v1.0** | Hs Linear Algebra Foundations | The seven linear-algebra components every Hs engine and plate generator employs (§17) |
+
+**Standard citation:** *"Conforms to HUF-STD-001 + HUF-STD-002 + HUF-STD-003."*
+
+---
+
+<a id="17"></a>
+## §17 — The Seven Linear-Algebra Foundations (HUF-STD-003)
+
+1. **Symmetric Matrix.** `M = Mᵀ`. Covariance, variation, Gram matrices.
+2. **Property of Transpose.** Orthonormal `Q`: `Qᵀ = Q⁻¹`. ILR ↔ CLR exact via H, Hᵀ.
+3. **Matrix Decomposition.** closure → CLR → ILR; bearing tensor; depth tower; CoDa-PCA.
+4. **Eigenvectors / Eigenvalues.** Attractor fit; κᴴˢ sensitivity; CoDa-PCA principal axes.
+5. **Spectral Theorem.** Real symmetric → real eigenvalues, orthonormal eigenbasis. Silent justification of most of Hˢ.
+6. **Spectral Decomposition.** `Σ = Q Λ Qᵀ`; rank-k truncation (Eckart–Young).
+7. **Visualization.** Stage-0 Foundations Plate is the dedicated tier; Stages 1–4 visualise consequences.
+
+Conformance: every new module declares which foundations it employs in its docstring.
+
+---
+
+<a id="18"></a>
+## §18 — Stage 0 / Foundations Plate / Dual-View
+
+**Stage 0 (Foundations Plate).** Visualization tier for the seven HUF-STD-003 foundations. One plate per dataset (read **once** — foundations characterize the data's geometry). Two pages per country: six-panel grid + 16-row numeric verification table. Generator: `HCI/codawork2026/stage0_foundations/foundations_plate.py`. Reference output: master PDF `CodaWork2026_FoundationsPlates_2026-05-14.pdf` (19 pages, 9 EMBER countries × 2-page plate).
+
+**Stage 1 Dual View.**
+- **Section Plate (CoDa-Standard):** XY plan + XZ bearings + YZ CLR. Answers *"what are the magnitudes at this timestep?"*
+- **ILR-Helmert Triplet Plate (Orthonormal):** three orthogonal scatter projections. Answers *"where is the composition in ILR space?"*
+
+Together = **Dual-View Stage 1 Output**. Reference: 503-page master PDF.
+
+---
+
+<a id="19"></a>
+## §19 — Power Share / Activation Coefficient
+
+**Power Share.** `power_share_j(t) = (Δclr_j(t))² / Σ_k (Δclr_k(t))²`. Sums to 100% per step. The per-carrier component of squared Aitchison distance.
+
+**Activation Coefficient (α).** `α_j(t) = power_share_j(t) / composition_share_j(t−1)`. Leverage ratio of directional work to size. α > 1: structurally activating; α ≫ 1 (≥ 3×): yeast factor; α ≪ 1: structural ballast. Reported only when composition share ≥ 0.1%.
+
+**Activation Threshold.** α = 1 neutral; α > 1.5 AND power share > 5% is "structurally activating".
+
+**Yeast Factor.** Legacy / informal name for Activation Coefficient.
+
+**Reference numbers (EMBER 9-country corpus, 2000–2025):**
+- USA Solar 2012→2013: α = 760× at 0.107% share (Power Share 81.7%)
+- France Solar 2010→2011: α = 659× at 0.110% share
+- World aggregate Solar 2010→2011: α = 513× at 0.151%
+- China Solar 2013→2014: α = 549× at 0.154%
+- Germany Solar 2005→2006: α = 333× at 0.214%
+- 406 yeast moments total at α ≥ 3× and share ≥ 0.1%
+
+---
+
+<a id="20"></a>
+## §20 — Canonical findings
+
+**MC-4 three-conjunct claim** (push #39). *"No monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level — three conjuncts combined into one observable stack."* The three conjuncts: Aitchison-native + formal change detection + carrier-level attribution.
+
+**INV-050 metric pair-invariance.** TV distance and Aitchison distance agree on every shock hit/miss verdict across the 9-country EMBER 2001–2025 corpus. Pair-invariance only; broader-family invariance is INV-050.Q2 (open).
+
+**INV-051 deceptive drift 5-of-9.** The deceptive-drift signature fires in 5 of 9 EMBER countries (AUS, CHN, GBR, IND, JPN). Headline: Germany p ≈ 0.0016.
+
+**EITT (Entropy-Invariant Time Transformer).** The geometric-mean decimation step within the Hˢ pipeline that preserves Shannon entropy. Empirical: 0.18% variation in Shannon entropy across 341:1 compression. Canonical reference: [`papers/EITT_CANONICAL_EXPLANATION_2026-05-12.md`](../../papers/EITT_CANONICAL_EXPLANATION_2026-05-12.md). The step is **one operation inside the broader Hˢ pipeline**; the entropy-invariance is the named claim.
+
+**LIMIT_CYCLE_P2 (Paper 1 UCIS).** Period-2 attractor termination across virtually every substantively-flowing compositional dataset AND Planck CMB AND SM neutrino. Three IEEE-floor confirmations:
+
+| Dataset | D | T | Residual |
+|---|---|---|---|
+| Backblaze drives | 4 | 731 | 4.44e-16 |
+| Planck CMB photons | 4 | 2499 | 4.44e-16 |
+| SM neutrino oscillation | 3 | 1000 | 4.44e-16 |
+
+Cross-system bit-identity demonstrates the residual is float64 representation, not algorithmic noise.
+
+**INV-059 humble-invitation framing.** Cross-model validation across the HUF AI Collective (ChatGPT session 2 + Grok round 5) converged on the conference talk's humble + methods-challenge + invitation posture.
+
+---
+
+<a id="21"></a>
+## §21 — MC-1 through MC-4 (methods-claim hierarchy)
+
+The MC hierarchy frames Hˢ claims by scope:
+
+- **MC-1 — domain claim.** A specific empirical finding within one domain (e.g., "solar peaks at 760× AC in the USA 2012-13 transition"). Falsifiable by reproducing the corpus and showing the number is wrong.
+- **MC-2 — cross-domain claim.** The same compositional protocol works in a second independent domain (e.g., the religion study reproduces Activation Coefficient leverage with 148× peaks at 0.5% share). Falsifiable by showing the protocol fails to transfer.
+- **MC-3 — universality claim.** The Universal Compositional Invariance Signature (LIMIT_CYCLE_P2) holds across all compositional dynamics that meet the structural preconditions. Falsifiable by exhibiting a substantively-flowing compositional dataset that does NOT exhibit LIMIT_CYCLE_P2.
+- **MC-4 — methodological claim.** Compositional structure can be treated as a primary monitoring observable (the three-conjunct claim, §20). Falsifiable via the four defeat paths: prior-art / metric / case / category.
+
+The CoDaWork 2026 talk targets **MC-4**. The manuscript's Discussion lists the four defeat paths explicitly.
+
+---
+
+<a id="22"></a>
+## §22 — Other locked doctrines
+
+| Doctrine | What it says |
+|---|---|
+| **CRD-1.0 (Coherent Range Doctrine)** | Multi-carrier comparisons computed on the intersection of all members' time ranges; shortest-coverage member sets the binding window |
+| **SEA-1.0 (Suspicion of Every Assumption)** | Every public function and claim enumerates its failure modes with mitigation evidence; engine guilty until proven innocent |
+| **STP-1.0 (Self-Test Protocol / BIST)** | Every engine carries a frozen reference corpus and a runner producing dated, hash-chained pass/fail receipts |
+| **Engine independence policy** | `cnt_content_sha256` and `cnq_content_sha256` unrelated by design. Cross-engine hash chains forbidden |
+| **Tensor Train v1.0** | The named data → CNT → CNQ → vector-output chain. Four links with locked I/O contracts |
+| **Output Doctrine v1.0** | Order/Stage classification of plate outputs |
+| **HUF Governance Charter** | Nine-article governance document for HUF + Hs + derivative repos |
+| **SAFE-001** | Cognitive-agent safety doctrine governing AI-tool use |
+| **LOOP-001 (Skydiver Principle)** | The operator holds the last breaker. Circuit-breaker discipline routes through 16 breakers; Breaker 16 is held by the human and cannot be overridden by automation |
+| **KILL-001** | Named-failure-modes catalog (19 modes). Hˢ HAZOP/FMEA equivalent |
+| **Hungry Organism frame** | HUF partnership doctrine v4 — Hˢ as the organism that consumes data and produces standards-conformant outputs |
+
+---
+
+<a id="23"></a>
+## §23 — Output conventions (HUF-STD-001)
+
+**HUF AI Collective.** Claude (Anthropic), ChatGPT (OpenAI), Copilot (Microsoft), Gemini (Google), Grok (xAI). Disclosed in AI Use Declaration sections; NOT in author bylines.
+
+**AI Use Declaration.** Mandatory section at the end of every external-audience document. Lists AI tools, tasks performed, author responsibility, governance.
+
+**Authorship.** Human-only. Standard byline: *"P. Higgins, Rogue Wave Audio"*. AI tools are tools, not authors.
+
+**Person-noun convention.** "human" as person noun → "researcher / user / reader" in general public output. Exceptions: ICMJE authorship rules, AI-safety vocabulary ("human-in-the-loop"), anthropology / demographic studies, regulatory disclosure.
+
+**Document versioning.** Major (1.0 → 2.0): substantive content change. Minor (1.0 → 1.1): clarifications, corrections. Patch (1.0 → 1.0.1): typo and link fixes.
+
+**Date-stamped filenames.** Slide decks and PDFs carry ISO date in filename (e.g., `CodaWork2026_FinalTalk_2026-05-17.pptx`).
+
+**Standard Stamp.** The single-page colophon appended to every Hˢ-produced document — three columns: The Framework / Engines · Methods / Find us · Contact. Reusable helper at `Studies/_shared/hs_standard_stamp.py`.
+
+---
+
+<a id="24"></a>
+## §24 — Change control
+
+**HCC (Hs Change Control v1.0).** NASA-style configuration-management discipline. Eight rules HCC-R001..R008 govern what can change and how.
+
+**DCP (Discovery Change Packet).** Formal change-packet template. Status flow: `proposed → in_progress → implemented → verified`.
+
+**CHK rule.** A consistency-checker rule in `scripts/check_ai_refresh_consistency.py`. Live: CHK-JSON-001, CHK-VERSION-001, CHK-INV-001, CHK-CCTT-001, CHK-CNQ-001, CHK-README-001. Post-conference: CHK-FOUNDATIONS-001, CHK-PERSON-NOUN-001.
+
+**Configuration Items (CIs).** 15 baseline CIs defining the framework's controlled surface.
+
+**Interface Controls (IFs).** 5 interface contracts between subsystems.
+
+**Traceability Matrix.** Maps each computational module to its governing doctrine, INV, and standard.
+
+**PRE_CONFERENCE_LOCKDOWN.** Repository-wide protective lockdown 2026-05-12 → 2026-06-06. Allowed: S1-S2 doc fixes, archive entries, DCP filing without execution. Forbidden: engine code changes, claim promotions, NO-CREATE file creation.
+
+**NO-CREATE files.** Six files explicitly marked "do not create during lockdown".
+
+**Severity levels.** S0 = breaks engine determinism. S1 = breaks user-facing claim or doc. S2 = doc / wording / cross-reference.
+
+**Push protocol.** pre-flight survey → admin JSON updates → `PUSHnn_PRE_PUSH_SUMMARY.md` (HOLD) → verification → clear HOLD → `PUSHnn_READY_FOR_COMMIT.md` → commit → post-commit sync.
+
+**CCTT (CNT Compositional Tensor Train) v0.1.** Legacy 7-phase user/AI access protocol. Lets a researcher or AI assistant take a raw compositional CSV and produce a CNT-grade analysis end-to-end with hash-chained provenance. Superseded by the Tensor Train v1.0 doctrine but the runbook is retained for reference at `ai-refresh/CCTT_RUNBOOK.md`.
+
+**Mission Command.** The audit-pipeline module that consolidates per-experiment journals into a master report. Used during the 2026-05-10 full-corpus validation push.
+
+**OPERATIONS_PROTOCOL.** The Gawande-style meta-checklist for the whole repo. 13 transition sections.
+
+---
+
+<a id="25"></a>
+## §25 — Instrument-family and lineage names
+
+**BTL (Binaural Test Lab).** Peter Higgins' instrument-development laboratory. The "Lab" affiliation alongside Rogue Wave Audio.
+
+**RWA (Rogue Wave Audio).** Peter Higgins' company. Located in Markham, Ontario, Canada. The "Audio" affiliation. Hosts the parent DADC research lineage.
+
+**HUF (Higgins-Unity-Framework).** The parent governance / philosophy framework. Houses the MC framing, EITT canonical, KILL-001, the governance charter, and the partnership/hungry-organism frame.
+
+**Hˢ (Higgins-Decomposition).** This repository — the deterministic compositional inference engine on the simplex. Child of HUF; the implementation-side family of tools.
+
+**Hs (informal).** Plain-text rendering of Hˢ. Used in filenames and where the superscript can't render.
+
+**V_Core.** A legacy code/concept lineage from earlier Higgins work. Referenced in some AI-refresh narratives as historical context; not part of the current canonical chain.
+
+**Hs-Direct.** A legacy direct-style measurement pipeline. Folder retained for lineage.
+
+**Higgins-Unity-Framework repo.** Sibling repository to higgins-decomposition. Holds HUF governance, MC-1..MC-4 framing, KILL-001 catalog, the partnership matrix.
+
+---
+
+<a id="26"></a>
+## §26 — Standard symbols
 
 | Symbol | Meaning |
 |---|---|
 | **D** | number of carriers (composition dimension) |
 | **T** | number of records (timesteps) |
 | **N** | number of trajectories in a bundle |
+| **x_i, ρ_i** | the i-th carrier's value or share |
+| **clr_i(t)** | the i-th CLR coordinate at time t |
+| **η(t)** | ILR coordinate vector at time t |
 | **θ, ω, κ, σ** | the four CNT channels (bearing, angular velocity, curvature, helmsman) |
 | **A, ζ** | period-2 attractor amplitude and damping |
 | **q** | unit quaternion |
 | **q\*** | quaternion conjugate |
 | **v** | 3-vector (typically a Helmert-projected CLR triple) |
 | **Q(t)** | trajectory as a quaternion-valued function of time |
-| **R(t)** | relative quaternion between two trajectories: Q₁(t) · Q₂(t)⁻¹ |
-| **M** | metric tensor (M² = I) |
-| **H** | Helmert orthogonal contrast matrix |
-| **S^D** | the (D−1)-simplex |
+| **R(t)** | relative quaternion: Q₁(t) · Q₂(t)⁻¹ |
+| **M** | metric tensor (`M² = I`) |
+| **H, V** | Helmert orthogonal contrast matrix |
+| **κᴴˢ_ij** | Higgins Steering Metric Tensor (order-2) |
+| **s_j** | diagonal carrier sensitivity vector `= 1/x_j` (order-1) |
+| **S^(D−1)** | the (D−1)-simplex |
 | **S³** | the 3-sphere = unit quaternions = SU(2) |
+| **α_j(t)** | Activation Coefficient for carrier j at time t |
+| **π_j(t)** | Power Share for carrier j at time t |
+| **σ̂(t)** | Sign of the Helmsman at time t |
+| **K_eff** | effective number of carriers (`exp(H)`) |
+| **g(x)** | geometric mean of composition x |
 
 ---
 
-## §F — Standard formulas (Volume IV-touched)
+<a id="27"></a>
+## §27 — Standard formulas
 
 ```
-Closure:                  C(x) = x / Σ x_i
-CLR:                      clr(x) = log(x) - mean(log(x))
-ILR (Helmert):            ilr(x) = H @ clr(x)        where H is (D-1) × D Helmert basis
-Aitchison distance:       d_A(x, y) = || ilr(x) - ilr(y) ||  (Euclidean in ILR coords)
+Closure:                  C(x)        = x / Σ x_i
+Geometric mean:           g(x)        = ( ∏ x_i ) ^ (1/D)
+CLR:                      clr_i(x)    = log(x_i) − (1/D) Σ_j log(x_j)
+ILR (Helmert):            η(x)        = Vᵀ · clr(x)            with V·Vᵀ = I
+Aitchison distance:       d_Ait(x, y) = ‖clr(x) − clr(y)‖₂
 
-CNT bearing (atan2):      θ = atan2(y, x)
-Quaternion log:           log(q) = (atan2(|v|, a) / |v|) · v        with v = (b, c, d)
-Quaternion sandwich:      v' = q · v · q*                            v as pure quaternion (0, b, c, d)
-Hamilton product:         (p · q)_components per Hamilton 1843 multiplication table
-Quaternion conjugation:   q* = (a, -b, -c, -d)
-Metric involution:        M² = I    ↔    (q*)* = q
-SLERP:                    slerp(Q_t, Q_{t+1}, α) = sin((1-α)Ω)/sinΩ · Q_t + sin(αΩ)/sinΩ · Q_{t+1}
-                                                where cosΩ = Q_t · Q_{t+1}
+Helmsman index:           σ(t)        = argmax_i | clr_i(t+1) − clr_i(t) |
+Power Share:              π_j(t)      = (Δclr_j)² / Σ_k (Δclr_k)²,    Σ π_j = 1
+Activation Coefficient:   α_j(t)      = π_j(t) / ρ_j(t)              (when ρ_j ≥ 10⁻³)
+Shannon entropy:          H(t)        = − Σ ρ_j(t) ln ρ_j(t)
+K_eff:                    K_eff(t)    = exp( H(t) )
+TV distance:              TV(p, q)    = (1/2) Σ |p_i − q_i|
+L2 drift:                 L2(p, q)    = √( Σ (p_i − q_i)² )
+
+CNT bearing (atan2):      θ           = atan2(y, x)
+Quaternion log:           log(q)      = (atan2(|v|, a) / |v|) · v
+Quaternion sandwich:      v'          = q · v · q*
+Hamilton product:         (p · q)_k   = Hamilton 1843 multiplication
+Quaternion conjugation:   q*          = (a, −b, −c, −d)
+Metric involution:        M² = I      ⟺    (q*)* = q
+SLERP:                    slerp(q₁, q₂, α) = sin((1−α)Ω)/sinΩ · q₁ + sin(αΩ)/sinΩ · q₂
+                                       where cosΩ = q₁ · q₂
+
+Course directness:        d_directness = ‖clr(T) − clr(0)‖ / Σ_t ‖clr(t+1) − clr(t)‖
+PCA on ILR trajectory:    [PC1, PC2]  = top-2 eigenvectors of (Xᵀ X)/(T−1)
+                                       where X is centred ILR coordinate matrix
+Disk-scaled barycenter:   bary_xy[t]  = (PC1·η(t), PC2·η(t)) · 0.85 / max_t ‖·‖
+CHSH joint coherence:     S           = E(a,b) + E(a,b′) + E(a′,b) − E(a′,b′)
 ```
 
 ---
 
-## §G — Pointers to Volume IV-only content
+<a id="28"></a>
+## §28 — Abbreviations A–Z
 
-The central claim, the three IEEE-floor confirmations, the operation map (CNT step → quaternion-native equivalent), and the Hs-CNQ engineering proposal are all in [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md). This glossary defines the vocabulary; Volume IV gives the math chains, the evidence summary, and the integration plan.
-
----
-
-## §H — HCI instrument-family vocabulary (cross-check refresh, push #23)
-
-The HCI (Higgins Compositional Instrument) family has its own working
-vocabulary defined in `HCI/HCI_FOUNDATION.md` and `HCI/README.md`. The
-following entries promote the most-used HCI terms into the canonical
-glossary so the handbook volumes and the HCI-side specifications share
-one authoritative naming layer. Sourced from the HCI files plus the
-2026-05-07 ChatGPT cross-check pass.
-
-**HLR (Higgins Log-Ratio Level).** The dimensionless natural-log unit in
-which all HCI plate coordinates are reported. Defined as
-`h_j(t) = ln(x_j(t)) − mean_k ln(x_k(t)) = ln(x_j(t) / g(x(t)))`. Nearest
-relative in the log-level family: the neper. → `HCI/README.md` Unit
-Standard, `HCI/HCI_USER_GUIDE.md`.
-
-**κᴴˢ (Higgins Steering Metric Tensor).** The full D×D Aitchison pullback
-metric on the simplex, written `κᴴˢ_ij(x) = (δ_ij − 1/D) / (x_i · x_j)`.
-In matrix form, `κᴴˢ(x) = diag(1/x) · P · diag(1/x)` with `P = I − (1/D)·11ᵀ`.
-The diagonal `κᴴˢ_jj(x) = (1 − 1/D) / x_j²` governs single-carrier
-sensitivity; the off-diagonal `κᴴˢ_ij(x) = −1 / (D · x_i · x_j)` governs
-inter-carrier metric coupling. The scalar `s_j(x) = 1/x_j` is the **diagonal
-steering sensitivity** — one diagnostic readout from κᴴˢ, **not** the full
-tensor. CNT channel κ (curvature) reports the trajectory's response to this
-metric; this glossary entry names the metric itself. → `HCI/HCI_FOUNDATION.md`
-Definition 3.
-
-**DCDI (Dominant Carrier Displacement Index).** Formal operator name for
-the carrier with the largest absolute CLR displacement between consecutive
-compositions: `σᴴˢ(t, t+1) = argmax_j |h_j(t+1) − h_j(t)|`. The instrument
-alias is the **Helmsman Index** — the carrier "steering" the local
-displacement at each step. CNT channel σ reports DCDI per timestep.
-→ `HCI/HCI_FOUNDATION.md` Definition 4.
-
-**Multiplexed Carrier Section Plate.** The Stage 1 plate convention in
-which all carriers' sections are rendered under shared geometry on one
-multi-panel page (XY plan view + XZ bearings + YZ CLR bars + info + legend).
-One section plate is produced per time index; the time-indexed sequence
-forms the Section Atlas. → `HCI/HCI_FOUNDATION.md` Stage 1, `HCI/README.md`
-Stage 1 — Section Plate Generator.
-
-**System Course Plot.** The summary terminal page of a Stage 1 plate
-cine-deck — the trajectory's whole-run course rendered in one frame after
-the per-timestep section plates. Provides at-a-glance trajectory shape;
-the per-timestep plates provide the per-step authority. → `HCI/README.md`
-Stage 1, `HCI/codawork2026/stage1_plates/`.
-
-**HCI Barycentric Navigation Volume.** The 3D enclosing manifold inside
-which a CNT trajectory navigates relative to the simplex barycentre — the
-spatial scope a Spatial Morphographic Analyzer (HCI-VR) renders. Relates
-to the CBS cube (Volume II §D, Volume IV §A) as the volume whose three
-orthogonal faces the cube parameterises. Status: defined in HCI vocabulary;
-no rendering instrument yet implemented in the canonical engine.
-
-**HCI Spatial Morphographic Analyzer (HCI-VR, exploratory).** Proposed VR
-or 3D-renderer instrument for walking through the Barycentric Navigation
-Volume — manipulable section plates in 3D, CBS cube faces seen from inside.
-Status: design exploration only. Lives in the experimental folder
-(`Quaternion Decomposition/Hs-VR/` at workspace root, not in the canonical
-repo) until a working pilot exists. Listed here so the vocabulary is
-canonical when the instrument arrives.
-
----
-
-## §I — Helmsman family extensions (proposed, Grok crosscheck)
-
-Status: **proposed extensions**, not yet implemented in `cnt.py` 2.0.4. Surfaced during the 2026-05-08 Grok cross-check pass (push #24). These extend the existing CNT helmsman σ channel (defined in §B) with a coherent diagnostic vocabulary for trajectory steering. They will graduate from "proposed" to canonical only when the engine implements them and produces them in the JSON schema.
-
-**Sign of the Helmsman (σ̂).** The dominant carrier exerting the largest weighted directional influence on the compositional state at a given step, with sign attached: σ̂(t) = sign(Δx_{i*}) where i* = argmax_i (|Δx_i(t)| · w_i(t)). The weight w_i is typically the local intensity x_i(t), but in the quark-sector extension proposed by Grok it incorporates mass-hierarchy dependence on energy scale Q². The sign component carries handedness (CP-like in the quark sector, polarisation handedness in EM, room-mode parity in acoustics). → Volume IV §B.2 for the CNT-side relationship to spinor parity. **Proposed, not implemented.**
-
-**Helmsman Stability (S_σ).** Scalar diagnostic in [0, 1] measuring how persistently the same helmsman dominates over a window. Defined as S_σ = 1 − (number_of_flips) / (N − 1) for a trajectory of length N. Practical interpretation: S_σ near 1 means the trajectory is dominated by one carrier throughout (high modal lock); S_σ near 0 means the helmsman changes at almost every step (rapid trading of dominance, often a sign of chaos or strong oscillation). **Proposed, not implemented.**
-
-**Helmsman Flips.** Count of indices t where σ̂(t) ≠ σ̂(t−1). Equivalently, the number of times the dominant-carrier identity changes along the trajectory. Sustained periodic flipping between two carriers is the universal signature of a sustained `LIMIT_CYCLE_P2` regime (the period-2 attractor); flip statistics that show the period-doubling cascade (P2 → P4 → P8 → … → chaos) are the dynamical-systems route to Helmsman Chaos described below. **Proposed, not implemented.**
-
-**Helmsman Chaos.** The regime in which the Helmsman sequence becomes aperiodic and sensitive to initial conditions. Reached via the period-doubling cascade governed (universally, for one-dimensional unimodal maps) by Feigenbaum's δ ≈ 4.6692 and α ≈ −2.5029. Diagnostic signatures: positive Lyapunov exponent of the σ̂(t) sequence, fractal structure with Hausdorff dimension ≈ 0.538, and breakdown of the standard IR taxonomy (the trajectory no longer fits cleanly into a damping class). Predicted to appear in driven nonlinear acoustic, EM, or quark-sector trajectories at sufficiently strong control parameter. **Proposed, not implemented.**
-
-**Helmsman Torque.** Rate of change of the helmsman's effective steering direction. Lightly developed — Grok proposed it as a diagnostic correlated with rapid CKM running or new physics in the quark sector, and as a potential observable in EM polarisation rotation rates. No formal definition committed. **Proposed, weakly developed.**
-
-**Joint Helmsman.** When two or more subsystems (channels, drivers, polarisation states, phonon modes, droplets, …) share a common physical field (joint quaternion field q_joint), the helmsman extracted from log(q_joint) is the **joint helmsman** — non-separable across subsystems. The joint statistics of helmsman signs across multiple measurement settings can produce CHSH-like correlations bounded by the Tsirelson value 2√2; values around S ≈ 2.49 are typical in high-memory hydrodynamic analogs and are predicted in strongly coupled multi-channel acoustic or EM systems. → [`../../HCI-CNQ/doctrine/`](../../HCI-CNQ/doctrine/) for the CNQ-side many-body machinery. **Proposed, not implemented in cnt.py; some hand computation is possible from existing JSON outputs.**
+| Abbrev | Full term |
+|---|---|
+| **ADAC** | Application Domain Adaptive Controller |
+| **AC** | Activation Coefficient |
+| **AKB** | (not currently a defined Hˢ term) |
+| **ALR** | Additive Log-Ratio |
+| **BIST** | Built-In Self-Test (= STP-1.0) |
+| **BTL** | Binaural Test Lab |
+| **CBS** | (Curvature-Bearing-Sigma) cube — the 3D Stage-2 visual structure |
+| **CC** | Coherent Range (in CRD-1.0) |
+| **CCTT** | CNT Compositional Tensor Train (legacy v0.1) |
+| **CHK** | Consistency-checker rule prefix |
+| **CHSH** | Clauser–Horne–Shimony–Holt inequality |
+| **CI** | Configuration Item |
+| **CLR** | Centred Log-Ratio |
+| **CNQ** | Compositional Navigation Quaternion |
+| **CNT** | Compositional Navigation Tensor |
+| **CoDa** | Compositional Data Analysis |
+| **COPE** | Committee on Publication Ethics |
+| **CRD** | Coherent Range Doctrine |
+| **DADC** | Direct Active Dual-Coil (RWA audio lineage) |
+| **DCDI** | Dominant Carrier Displacement Index (= Helmsman) |
+| **DCP** | Discovery Change Packet |
+| **EITT** | Entropy-Invariant Time Transformer |
+| **EMBER** | The energy think tank (ember-energy.org) — the conference data source |
+| **FAO** | Food and Agriculture Organization |
+| **FMEA** | Failure Mode and Effects Analysis (related to KILL-001) |
+| **HCC** | Hˢ Change Control |
+| **HCI** | Higgins Compositional Instrument |
+| **HLR** | Higgins Log-Ratio Level |
+| **Hˢ / Hs** | Higgins-Decomposition (this repo) |
+| **HUF** | Higgins-Unity-Framework (parent governance) |
+| **ICMJE** | International Committee of Medical Journal Editors |
+| **IEEE** | Institute of Electrical and Electronics Engineers |
+| **IF** | Interface Control |
+| **ILR** | Isometric Log-Ratio |
+| **IR** | Information Retention (CNT class taxonomy) |
+| **IRENA** | International Renewable Energy Agency |
+| **INV-NNN** | Investigation Catalog entry number NNN |
+| **JSON** | JavaScript Object Notation |
+| **KILL** | Named-failure-modes catalog (KILL-001) |
+| **L2** | L2 drift (Euclidean norm of proportion differences) |
+| **LOOP** | Open-loop doctrine (LOOP-001) |
+| **MC** | Methods Claim (hierarchy MC-1..MC-4) |
+| **NEDA** | National Eating Disorders Association (NOT used by Hˢ; deprecated as a referral) |
+| **NO-CREATE** | Files explicitly marked do-not-create during lockdown |
+| **PCA** | Principal Component Analysis |
+| **PDF** | Portable Document Format |
+| **PNG** | Portable Network Graphics |
+| **PPTX** | PowerPoint OOXML format |
+| **RWA** | Rogue Wave Audio |
+| **S0/S1/S2** | Severity classes for changes under lockdown |
+| **SAFE** | Cognitive-agent safety doctrine (SAFE-001) |
+| **SBP** | Sequential Binary Partition |
+| **SEA** | Suspicion of Every Assumption (SEA-1.0) |
+| **SHA-256** | Secure Hash Algorithm, 256-bit |
+| **SLERP** | Spherical Linear Interpolation |
+| **SO(3)** | Special Orthogonal group, 3 dimensions (rotations of ℝ³) |
+| **STP** | Self-Test Protocol (STP-1.0) |
+| **SU(2)** | Special Unitary group, 2 dimensions (unit quaternions) |
+| **SVD** | Singular Value Decomposition |
+| **SVG** | Scalable Vector Graphics |
+| **TV** | Total Variation (distance) |
+| **UCIS** | Universal Compositional Invariance Signature |
+| **WAME** | World Association of Medical Editors |
 
 ---
 
----
+<a id="29"></a>
+## §29 — Citation policy
 
-## §J — HUF Standards (added v2.0)
+Every document using any term defined here SHOULD cite:
 
-**HUF-STD-001 (Publication Standards).** Adopts ICMJE / COPE / Nature/Springer / Science/AAAS / WAME / EU AI Act 2024 / arXiv / ACM / IEEE as primary references. Establishes the AI Use Declaration template (mandatory section at the end of every externally-published document), authorship rules (human-only — AI tools are NOT authors), the person-noun convention (HUF-STD-001 v1.1, 2026-05-14), provenance/hash-chain expectations, versioning conventions, locale support, lockdown discipline, and licensing. File: [`huf-gov/standards/HUF_PUBLICATION_STANDARDS.json`](../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) v1.1.
+> Notation: see Hs/HCI-CNT/handbook/GLOSSARY.md v3.0 (2026-05-19).
 
-**HUF-STD-002 (Tensor Train I/O Standard).** Codifies the data → CNT → CNQ → vector-output pipeline as the named **Tensor Train v1.0**. Four links: adapter (Order 0) → CNT (Orders 1-3 metric tensor) → CNQ (D=2/3/4 quaternion view) → vector diagrammatic output (PDF / PNG / SVG). **PPTX is explicitly excluded** from the standard tensor-train package — it's a conference-delivery format, not engine output. File: [`huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json`](../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) v1.0; narrative at [`TENSOR_TRAIN.md`](../../huf-gov/standards/TENSOR_TRAIN.md). Post-conference targets list (Order 1: Power Share / Activation Coefficient diagnostic; Order 2: CNQ Vector PDF exporter per INV-062; Orders 3-5: alternate-format exports + Stage-3 + Stage-4 plates).
-
-**HUF-STD-003 (Hs Linear Algebra Foundations).** Names the seven classical linear-algebra components that every Hs engine and plate generator employs. Establishes Stage 0 (Foundations Plate) as the dedicated visualization tier for the foundations themselves. File: [`huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json`](../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) v1.0; narrative at [`FOUNDATIONS.md`](../../huf-gov/standards/FOUNDATIONS.md); per-foundation file/plate/schema audit at [`FOUNDATIONS_TRACEABILITY.md`](../../huf-gov/standards/FOUNDATIONS_TRACEABILITY.md). Established push #50.
-
----
-
-## §K — The Seven Linear-Algebra Foundations (HUF-STD-003)
-
-The framework rests on seven classical components. Each is locked-named in NOTATION §14; the narrative reading for each is below.
-
-**Symmetric Matrix (Foundation §1).** M = Mᵀ. The canonical objects of multivariate statistics — covariance, variation, Gram matrices are all symmetric by construction. In Hs: the **variation matrix** var(log x_i/x_j) is symmetric; the **CLR covariance** Cov(clr(X)) is symmetric and positive-semidefinite; the **Helmert Gram matrix** H·Hᵀ = I is the orthonormality certificate. The bearing tensor θ_ij is the antisymmetric (skew-symmetric) sibling: θ_ji = −θ_ij.
-
-**Property of Transpose (Foundation §2).** For orthonormal Q, Qᵀ = Q⁻¹. The property that makes ILR-Helmert coordinate changes exact and lossless. In Hs: `ilr = clr @ Hᵀ` and `clr = ilr @ H` — both directions exact because H·Hᵀ = I. The covariance propagation rule Cov(M·X) = M · Cov(X) · Mᵀ is the engine of change-of-basis statistics.
-
-**Matrix Decomposition (Foundation §3).** Factor a matrix into structurally-simpler pieces. In Hs: the **closure → CLR → ILR** chain decomposes a raw composition into a vector in Euclidean space; the **bearing tensor** decomposes a trajectory step into D(D−1)/2 pairwise angular channels; the **depth tower** (Stage 3) is a recursive orthogonal subspace decomposition; **CoDa-PCA** (Stage 2) is the spectral decomposition of CLR covariance.
-
-**Eigenvectors and Eigenvalues (Foundation §4).** M·v = λ·v. Eigenvectors are the privileged directions of M; eigenvalues are how strongly M acts there. In Hs: the **attractor fit** in `cnq.py` is an eigendecomposition of the local linearization; the **κ^HS sensitivity vector** is an eigenvector-style direction on the simplex; the **CoDa-PCA biplot** plots the top eigenvectors of the CLR covariance.
-
-**Strong Property of Symmetric Matrices / Spectral Theorem (Foundation §5).** Real symmetric Σ has real eigenvalues and an orthonormal eigenbasis: Σ = Q·Λ·Qᵀ. The strongest single result in elementary linear algebra and the **silent justification** for almost everything in Hs: ILR forms an orthonormal basis because of this theorem; CoDa-PCA produces real principal components because of this theorem; the attractor fit's eigenvalues are real because of this theorem. The Stage-0 Foundations Plate verifies the theorem numerically at IEEE-floor on actual data (typical residual ~1e-13).
-
-**Spectral Decomposition (Foundation §6).** The explicit factorization Σ = Q·Λ·Qᵀ. Rank-k truncation gives the optimal rank-k approximation (Eckart–Young theorem). In Hs: Stage-2 CoDa-PCA biplot performs this partially (top 2 axes); Stage-0 Foundations Plate visualizes the full Q heatmap + rank-k cumulative variance.
-
-**Visualization (Foundation §7).** The plate suite is the visible surface of all six foundations above. Stage 0 visualizes the foundations directly; Stages 1-4 visualize their consequences. Standard output formats are PDF / PNG / SVG per HUF-STD-002.
+A short reference is sufficient. The point is to give downstream readers a single place to resolve ambiguity and to make future term-drift visible.
 
 ---
 
-## §L — Stage 0 / Foundations Plate (added v2.0)
-
-**Stage 0 (Foundations Plate).** The visualization tier reserved for the seven HUF-STD-003 foundations. One plate per dataset (read **once per dataset** — foundations characterize the data's geometry, they don't change frame-to-frame). Two pages per country: page 1 is a six-panel grid (variation matrix heatmap, Helmert basis + orthonormality check, decomposition tree, eigenvalue scree, orthonormal eigenbasis Q heatmap, Spectral Theorem residual); page 2 is a 16-row numeric verification table reporting `max|M − Mᵀ|`, `max|H·Hᵀ − I|`, `max|Σ − Q·Λ·Qᵀ|`, rank-k cumulative variance, and other foundations residuals at IEEE-floor. Generator: [`HCI/codawork2026/stage0_foundations/foundations_plate.py`](../../HCI/codawork2026/stage0_foundations/foundations_plate.py). Reference output: master PDF [`CodaWork2026_FoundationsPlates_2026-05-14.pdf`](../../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FoundationsPlates_2026-05-14.pdf) (19 pages, 9 EMBER countries × 2-page plate). Established push #50.
-
-**Stage 1 dual view.** Two complementary readings of the same Stage-1 step:
-- **Section Plate** (CoDa-Standard): XY plan view + XZ pairwise bearings (bars) + YZ CLR per carrier (bars) + info + legend. Answers *"what are the magnitudes at this timestep?"* Generator: [`HCI/codawork2026/stage1_plates/stage1_plates_raw.py`](../../HCI/codawork2026/stage1_plates/stage1_plates_raw.py).
-- **ILR-Helmert Triplet Plate** (Orthonormal): three orthogonal scatter projections (ilr_1×ilr_2, ilr_1×ilr_3, ilr_2×ilr_3) of the full trajectory in ILR space. Answers *"where is the composition in ILR space and where has it moved?"* Generator: [`HCI/codawork2026/stage1_plates/ilr_triplet_plate.py`](../../HCI/codawork2026/stage1_plates/ilr_triplet_plate.py). Established push #50.
-
-Together they form the **Dual-View Stage 1 Output** — the complete Stage-1 reading. The Section Plate gives the timestep-by-timestep magnitude index; the Triplet Plate gives the trajectory shape across the full time window. Reference output: master PDF [`CodaWork2026_DualViewStage1Output_2026-05-13.pdf`](../../CODA-Association/CODAwork2026/data_outputs/dual_view/CodaWork2026_DualViewStage1Output_2026-05-13.pdf) (503 pages).
-
----
-
-## §M — Power Share / Activation Coefficient (added v2.0)
-
-**Power Share.** Per-carrier fraction of squared CLR motion at one transition step:
-
-```
-power_share_j(t)  =  (ΔCLR_j(t))²  /  Σ_k (ΔCLR_k(t))²
-```
-
-Sums to 100% across carriers per step. Identical to the per-carrier component of squared Aitchison distance: `d²(t-1, t) = Σ_k (ΔCLR_k)²`. Gives a clean answer to "which carrier is doing what fraction of the directional work at this step?"
-
-**Activation Coefficient.** The leverage ratio of directional work to size:
-
-```
-activation_coefficient_j(t)  =  power_share_j(t)  /  composition_share_j(t-1)
-```
-
-A carrier with AC > 1 is **structurally activating** the system beyond its share — doing more directional work than its size would suggest. AC ≫ 1 (e.g. > 10) names the *yeast factor* cases — small-share carriers doing disproportionate structural work. Activation threshold: AC = 1 is neutral; AC > 1 is activated.
-
-**Yeast Factor.** Legacy / informal name for Activation Coefficient. The biological metaphor (a small percentage that, when active, transforms the loaf) carries the right intuition; the formal name is Activation Coefficient. Both terms appear in narrative prose; outputs and tables use the formal name.
-
-**Reference demonstration.** [`CODA-Association/Studies/Religion_2026-05-14/Religion_HiddenDirections_2026-05-14.pdf`](../../CODA-Association/Studies/Religion_2026-05-14/Religion_HiddenDirections_2026-05-14.pdf) slide 8 — Pew religion data surfaced activation coefficients up to 148× (USA Hindus 2030→2040 step, driving 74% of directional work from 0.5% composition share).
-
-**Engine status.** Computed externally from CLR coordinates already in CNT JSON `tensor.timesteps[t].coda_standard.clr[]`. Native engine block queued as schema bump 3.1.0 → 3.2.0 + new plate generator `power_share_plate.py` (Stage-1 sibling). This is the top-of-queue post-conference target per HUF-STD-002 (Order 1) and INV-060 promotion path. Standard inclusion in every Hs-produced data deliverable going forward per Peter directive 2026-05-14.
-
----
-
-## §N — Canonical Findings (added v2.0)
-
-**MC-4 three-conjunct claim.** *"No monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level — three conjuncts combined into one observable stack."* Sharpened from an earlier 4-conjunct formulation at push #39. The three conjuncts are: (1) Aitchison-native operation, (2) formal change detection, (3) carrier-level attribution. Each is non-novel individually; the conjunction is the unmet structural gap MC-4 names. Reference: [`papers/codawork2026/planning/`](../../papers/codawork2026/planning/) MC-4 packet.
-
-**INV-050 metric pair-invariance.** Total Variation distance and Aitchison distance agree on every shock hit/miss verdict across the 9-country EMBER 2001-2025 corpus. Demonstrated pair-invariance only (TV ↔ Aitchison); broader-family invariance across all simplex distances is INV-050.Q2 (open). The finding preempts the "your verdict depends on which metric you chose" critique for this specific pair.
-
-**INV-051 deceptive drift 5-of-9.** The deceptive-drift signature (Aitchison distance moves while individual carrier percentages stay near-stationary) fires in 5 of 9 EMBER countries at annual grain. Headline case: Germany p ≈ 0.0016. Carriers: AUS, CHN, GBR, IND, JPN. The pattern is the structural justification for compositional vs single-carrier monitoring — the geometry sees what each carrier individually does not.
-
-**EITT — Entropy-Invariant Time Transformer.** The geometric-mean decimation step within the Hs pipeline that preserves Shannon entropy across compression. Empirical result: 0.18% variation in Shannon entropy across 341:1 compression. Documented at [`papers/EITT_CANONICAL_EXPLANATION_2026-05-12.md`](../../papers/EITT_CANONICAL_EXPLANATION_2026-05-12.md). One step inside the broader pipeline; the entropy-invariance under geometric-mean decimation is the canonical claim.
-
-**LIMIT_CYCLE_P2 (Paper 1 universal invariance signature).** Period-2 attractor termination of the CNT depth tower; observed across virtually every substantively-flowing compositional dataset in the corpus AND on Planck CMB AND on SM neutrino oscillation. Three IEEE-floor confirmations at residual ~4.44e-16 (machine epsilon × 2). The "universal compositional invariance signature" reading. See Volume IV §B for the quaternion-algebraic interpretation.
-
-**Three IEEE-floor confirmations.** Backblaze drives (D=4, T=731), Planck CMB photons (D=4, T=2499), SM neutrino oscillation (D=3, T=1000). All three reproduce LIMIT_CYCLE_P2 with `max_residual` bit-identical at 4.44e-16 across systems. Cross-system bit-identity demonstrates the residual is hardware float64 representation, not algorithmic noise.
-
-**INV-059 humble-invitation framing.** Cross-model validation: two independent external models (ChatGPT session 2, Grok round 5) reading the MC-4 packet cold produced convergent recommendations on the conference talk's framing (humble + methods-challenge + invitation). The talk's posture is independently stress-tested across the HUF AI Collective.
-
----
-
-## §O — Other Locked Doctrines (added v2.0)
-
-**CRD-1.0 (Coherent Range Doctrine).** Every multi-carrier comparison is computed on the intersection of all members' time ranges; the shortest-coverage member sets the binding window; every output declares its coherent-range manifest in its header. Established push #33 (INV-047). Triggered by the USA-EMBER missing-year-2000 asymmetry. [`docs/COHERENT_RANGE_DOCTRINE.md`](../../docs/COHERENT_RANGE_DOCTRINE.md).
-
-**SEA-1.0 (Suspicion of Every Assumption).** Every public function and claim enumerates its failure modes with mitigation evidence; the engine is guilty until proven innocent. Established push #32 (INV-045). [`docs/SUSPICION_OF_EVERY_ASSUMPTION.md`](../../docs/SUSPICION_OF_EVERY_ASSUMPTION.md).
-
-**STP-1.0 (Self-Test Protocol / BIST).** Every engine carries a frozen reference corpus and a runner that produces dated, hash-chained receipts of pass/fail status. Built-In Self-Test discipline. Established push #32 (INV-046). [`docs/SELF_TEST_PROTOCOL.md`](../../docs/SELF_TEST_PROTOCOL.md).
-
-**Engine independence policy.** `cnt_content_sha256` and `cnq_content_sha256` are unrelated by design. Cross-engine hash chains are forbidden. Each engine is deterministic on its own. Established push #32. Documented in [`ai-refresh/CNT_V3_CNQ_V2_DESIGN.md`](../../ai-refresh/CNT_V3_CNQ_V2_DESIGN.md).
-
-**Tensor Train v1.0.** The named data → CNT → CNQ → vector-output chain. Four links with locked I/O contracts at each. PDF / PNG / SVG are standard outputs; PPTX is conference-delivery only. Established at HUF-STD-002, push #50. [`huf-gov/standards/TENSOR_TRAIN.md`](../../huf-gov/standards/TENSOR_TRAIN.md).
-
-**Output Doctrine v1.0.** Order/Stage classification of plate outputs (Order 0 raw → 1 first-principles → 2 inter-timestep → 3 recursive → 4+ inferential, mapped to Stages 1-4). Locked May 5 2026. Extended at push #50 to include Order 0+ / Stage 0 (Foundations Plate). [`HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md`](../../HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md).
-
-**HUF Governance Charter.** Nine-article governance document for HUF + Hs + derivative repos. Establishes principles (Integrity of Purpose, Accountable Data, Accountable Resolution) and authority structures. Parent doctrine for HUF-STD-001/002/003 and SAFE-001/LOOP-001/KILL-001. [`huf-gov/HUF_GOVERNANCE_CHARTER.md`](../../huf-gov/HUF_GOVERNANCE_CHARTER.md).
-
-**SAFE-001 (Cognitive-agent safety doctrine).** Governs AI-tool use in framework operations. Cross-check protocol, human-in-the-loop discipline, fail-safe defaults.
-
-**LOOP-001 (Open-loop / Skydiver Principle).** The operator holds the last breaker. The framework's circuit-breaker discipline routes through 16 breakers; Breaker 16 is held by the human operator and cannot be overridden by automation.
-
-**KILL-001 (Named-failure-modes catalog).** Nineteen named failure modes with mitigations. The Hs system's HAZOP/FMEA equivalent at framework level.
-
----
-
-## §P — Output Conventions (added v2.0)
-
-**HUF AI Collective.** Claude (Anthropic), ChatGPT (OpenAI), Copilot (Microsoft), Gemini (Google), Grok (xAI) — the five AI participants in Hs cross-check work. Operated under the HUF Governance Charter Articles II-IV + SAFE-001 cross-check protocol. Disclosed in AI Use Declaration sections at the END of every external-audience document; **NOT** in author bylines. Established as convention 2026-05-08+; codified at HUF-STD-001.
-
-**AI Use Declaration.** Mandatory section in every externally-published HUF or Hs document, placed at the end (before signature / repository pointers). Per HUF-STD-001, must include: AI tools used (specific name + vendor), tasks performed by AI, author responsibility statement (explicit acceptance), governance description (cross-check protocol), dates of use. Standards reference: ICMJE 2023+ / COPE 2023+ / Nature/Springer / Science/AAAS / WAME / EU AI Act 2024 / arXiv / ACM / IEEE — these conventions align with established scientific-community practice.
-
-**Authorship convention.** Authorship is human-only; AI tools are tools, not authors. Standard byline: *"[Author Name], [Affiliation]"* (e.g. *"P. Higgins, Rogue Wave Audio"*). The HUF AI Collective is cited in the AI Use Declaration, not in the byline. This conforms to ICMJE / COPE / Nature / Science / WAME conventions on AI authorship.
-
-**Standard Stamp.** The single-page colophon appended to every Hs-produced document — slide deck, report, study output, presentation. Three columns: **The Framework** (Hˢ one-liner, principle, license, validation footprint), **Engines · Methods** (CNT + CNQ versions, plate suite, output formats), **Find us · Contact** (repository URL, quick-start, author + lab, contact). Established 2026-05-14 per Peter directive. Reusable Python helper at [`Studies/_shared/hs_standard_stamp.py`](../../../Studies/_shared/hs_standard_stamp.py); convention doc at [`Studies/_shared/STAMP_STANDARD.md`](../../../Studies/_shared/STAMP_STANDARD.md). Like a publisher's colophon — present, factual, easy to find, never selling.
-
-**Person-noun convention.** In general public-facing output, the word "human" as a person noun is replaced with "researcher" / "user" / "reader" as context calls for; "human-readable" becomes "user-readable". Established at push #25 (2026-05-08) as drift-error correction; promoted to standards-level rule at HUF-STD-001 v1.1 (2026-05-14). Exception contexts (retain "human"): ICMJE authorship rules ("authorship is human-only"), AI-safety vocabulary ("human-in-the-loop"), anthropology / demographic-context studies, regulatory disclosure (EU AI Act, FDA §524B).
-
-**Document versioning.** Conference and study materials carry an explicit version in the header. Major (1.0 → 2.0): substantive content change. Minor (1.0 → 1.1): clarifications, corrections, additions. Patch (1.0 → 1.0.1): typo and link fixes only. Established in CODA-Association folder pattern; documented in [`CODA-Association/CODAwork2026/VERSION_HISTORY.md`](../../CODA-Association/CODAwork2026/VERSION_HISTORY.md).
-
-**Date-stamped media filenames.** Slide decks and PDFs carry an ISO date in the filename (e.g. `CodaWork2026_Talk_2026-05-13.pptx`). Major slide revisions create a new dated file; the prior file moves to `archive/`.
-
----
-
-## §Q — Change Control (added v2.0)
-
-**Hs Change Control v1.0 (HCC).** NASA-style configuration-management discipline. Eight rules HCC-R001..R008 govern what can change and how. Established push #46 (2026-05-12) following ChatGPT cross-check audit that identified drift between live AI-facing files and the authoritative `HS_FAST_REFRESH.json`. [`HCC_CHARTER.md`](../../HCC_CHARTER.md).
-
-**DCP (Discovery Change Packet).** Formal change-packet template. Every new computational change files a DCP at `proposed` status, then `in_progress`, `implemented`, `verified`. First example: DCP-001 (AI current-state alignment, push #47 — 6 live AI-facing files patched to align with `HS_FAST_REFRESH.json`). DCPs queued during PRE_CONFERENCE_LOCKDOWN at `proposed` and execute post-conference. Template at [`ai-refresh/CHANGE_PACKET_TEMPLATE.json`](../../ai-refresh/CHANGE_PACKET_TEMPLATE.json).
-
-**CHK rule.** A consistency-checker rule in [`scripts/check_ai_refresh_consistency.py`](../../scripts/check_ai_refresh_consistency.py). The checker validates that documented state matches actual state. Live rules: **CHK-JSON-001** (all admin JSONs parse), **CHK-VERSION-001** (no stale engine versions in live files), **CHK-INV-001** (catalog count consistency), **CHK-CCTT-001** (legacy markers on CCTT v0.1 files), **CHK-CNQ-001** (no stale CNQ-pending phrases), **CHK-README-001** (no internal contradictions). Baseline: 23 passes / 0 warnings / 0 errors. Post-conference queued: **CHK-FOUNDATIONS-001** (HUF-STD-003 docstring conformance audit), **CHK-PERSON-NOUN-001** (person-noun convention audit).
-
-**Configuration Items (CIs).** The 15 baseline CIs that define the framework's controlled surface — engine binaries (cnt.py, cnq.py, cnt.R, cnq.R), schemas, INV catalog, NO-CREATE file list, key admin JSONs. Each CI has a current revision, an interface contract, and a change-control gate. Listed in [`ai-refresh/CONFIGURATION_ITEMS.json`](../../ai-refresh/CONFIGURATION_ITEMS.json).
-
-**Interface Controls (IFs).** The 5 interface contracts between subsystems — engine → JSON, JSON → plate, plate → PDF, CNT JSON → CNQ adapter, CNQ output → hash chain. Listed in [`ai-refresh/INTERFACE_CONTROL.json`](../../ai-refresh/INTERFACE_CONTROL.json).
-
-**Traceability Matrix.** Maps each computational module to the doctrine, INV entry, and standards that govern it. [`ai-refresh/TRACEABILITY_MATRIX.json`](../../ai-refresh/TRACEABILITY_MATRIX.json).
-
-**PRE_CONFERENCE_LOCKDOWN.** Repository-wide protective lockdown for the 2026-05-12 → 2026-06-06 conference window (CoDaWork 2026 in Coimbra, 1-5 June). **Allowed:** S1-S2 doc fixes, archive entries, DCP filing without execution, ai-refresh narrative updates, terminology corrections for real reader-confusion bugs. **Forbidden:** engine code changes, schema bumps, claim promotions (STAGED → CANONICAL on disposition entries), `hs_cnq_pdf_exporter.py` implementation, QFT/QWT speculation, CCTT v1.1, NO-CREATE file creation. **S0-defect protocol:** if a defect breaks engine determinism, a focused patch lands with HCC-R001..R008 discipline; everything else queues for post-conference. Documented at [`PRE_CONFERENCE_LOCKDOWN.md`](../../PRE_CONFERENCE_LOCKDOWN.md). Established push #49.
-
-**NO-CREATE files.** Six files explicitly marked "do not create during lockdown." Placeholder paths the framework expects to remain empty until post-conference DCPs execute. The list is captured in PRE_CONFERENCE_LOCKDOWN.md.
-
-**Severity levels.** **S0** = breaks engine determinism (requires patch). **S1** = breaks user-facing claim or doc (allowed under lockdown for fixes). **S2** = doc / wording / cross-reference fixes (always allowed).
-
-**Push protocol.** Standard sequence: pre-flight survey → admin JSON updates → `PUSHnn_PRE_PUSH_SUMMARY.md` (HOLD status) → verification → clear HOLD → `PUSHnn_READY_FOR_COMMIT.md` → commit → push → post-commit sync (record SHA + CI). Documented in [`ai-refresh/PUSHES_INDEX.md`](../../ai-refresh/PUSHES_INDEX.md).
-
----
-
-## §R — Notation cleanup (v2.0 audit)
-
-Carried over from the v1.0 "Out of scope" section, now mostly closed:
-
-- ✅ Engine schema fields beyond Volume IV's needs — **closed at v2.0** via NOTATION §11 update + this file's §G-§Q additions
-- ✅ Atlas module names (Stage 0/1/2/3/4 modules, spectrum_paper, projector_html) — **closed at v2.0** via §L Stage 0 + Stage 1 dual-view + Volume II references
-- Termination codes beyond LIMIT_CYCLE_P2 (HS_FLAT, OMEGA_FLAT, SIGNAL_SHORT, ENERGY_STABLE) — still glossed primarily in Volume I §H; no v2.0 changes needed
-- Adapter, Mission Command, and CCTT phase-by-phase terminology — still glossed primarily in Volume II §C-§E and `CCTT_RUNBOOK.md`
-- ✅ Output Doctrine v1.0 specifics — **closed at v2.0** via §L (Stage taxonomy) and NOTATION §15
-- Audit-chain terms (corpus, INDEX, JOURNAL, PUSH-N audit reports) — still glossed primarily in Volume III; PUSHES_INDEX added in §Q
-
-The full-refresh-target threshold (6-8k words) is met by v2.0. Future glossary refreshes will be smaller, term-specific additions tracked in the maintenance log.
-
----
-
-## Maintenance log
+<a id="30"></a>
+## §30 — Maintenance log
 
 | Version | Date | Push | Summary |
 |---|---|---|---|
-| v1.0 | 2026-05-08 | #27 | Initial release — minimal-now refresh covering Volume IV terms + HCI vocabulary + Helmsman family proposed extensions. ~53 entries. |
-| v2.0 | 2026-05-14 | (TBD) | Full refresh. Added §J HUF Standards / §K Seven Foundations / §L Stage 0 + Dual-View / §M Power Share + Activation Coefficient / §N Canonical Findings / §O Other Doctrines / §P Output Conventions / §Q Change Control / §R Notation cleanup. Updated header to declare v2.0 scope. Promoted Helmsman Stability + Flips + Sigma + Torque Proxy to CANONICAL per schema 3.1.0. Closed several of the v1.0 "out of scope" deferrals via the new sections. Trigger: Peter directive 2026-05-14 — *"an updated terms will now need to be revised, i believe one exists, i may be very outdated and in need of a big refresh."* |
+| v1.0 | 2026-05-08 | #27 | Initial GLOSSARY — ~53 entries covering Volume IV + HCI + Helmsman family |
+| v1.0 (notation) | 2026-05-08 | #27 | Initial NOTATION_AND_TERMINOLOGY — §1–§14 locking tensor order, κᴴˢ vs s_j, frames, channels |
+| v2.0 (glossary) | 2026-05-14 | (TBD) | Full refresh — §J HUF Standards / §K Foundations / §L Stage 0 / §M Power Share / §N Findings / §O Doctrines / §P Conventions / §Q Change Control |
+| v2.0 (notation) | 2026-05-14 | (TBD) | Full refresh — §13 Standards / §14 Foundations / §15 Order classification / §16 Power Share / §17 Findings / §18 Doctrines / §19 Conventions / §20 Change Control |
+| **v3.0** | **2026-05-19** | **(this push)** | **Merged comprehensive reference. Combined GLOSSARY v2.0 + NOTATION_AND_TERMINOLOGY v2.0 into a single authoritative document. Added §1 Foundational mathematics (PCA, SVD, eigenvalue, eigenvector, Spectral Theorem as standalone entries), §2 Statistical concepts (Lyapunov, Feigenbaum, CHSH, Tsirelson, Shannon entropy, p-value, TV distance, K_eff), §3 enriched CoDa foundations (course directness, deceptive drift, hidden driver, navigation chart, yeast moment, size view, perturbation, powering, sub-composition), §4 enriched CNT terms (Higgins scale, termination codes), §5 enriched CNQ (CHSH, sandwich, SLERP, spinor branch, pure quaternion), §6 HCI instrument family (HCI-AUDIO, HCI-ULTRASOUND, DADC, ADAC, wrapper), §21 MC-1 through MC-4 hierarchy (new — only MC-4 was previously documented), §25 Instrument-family and lineage names (RWA, BTL, HUF, Hs, V_Core, Hs-Direct as standalone entries), §28 comprehensive A–Z abbreviations index. Approximately 220 entries. Triggered by Peter directive 2026-05-19: *"check the glossary, seems it needs updating, combine the glossary with the terms and make the glossary and terms complete, include simple and obscure references such as PCA and EITT, all huf and coda terms, make it comprehensive."* |
 
 ---
 
-*The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.*
-*CNT measures invariance. CNQ names the algebra it lives in.*
+## Related documents
+
+- **Manuscript** — [`papers/codawork2026/manuscript/MANUSCRIPT.md`](../../papers/codawork2026/manuscript/MANUSCRIPT.md)
+- **Investigation Catalog** — [`ai-refresh/INVESTIGATION_CATALOG.md`](../../ai-refresh/INVESTIGATION_CATALOG.md)
+- **HUF standards JSONs** — [`huf-gov/standards/`](../../huf-gov/standards/)
+- **CNQ scope and limits** — [`HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md`](../../HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md)
+- **Volumes I–IV** — [Volume I — Theory and Mathematics](VOLUME_1_THEORY_AND_MATHEMATICS.md), [Volume II — Practitioner and Operations](VOLUME_2_PRACTITIONER_AND_OPERATIONS.md), [Volume III — Verification, Reference and Release](VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md), [Volume IV — The Quaternion View](VOLUME_4_QUATERNION_VIEW.md)
+- **HCI foundation** — [`HCI/HCI_FOUNDATION.md`](../../HCI/HCI_FOUNDATION.md)
+
+---
+
+*The instrument reads.   The expert decides.   The hashes carry the receipts.   The vocabulary holds the line.*
+*CNT measures invariance.   CNQ names the algebra it lives in.*
+*The mathematics is not new; the monitoring application may be.*
