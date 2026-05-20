@@ -11,6 +11,25 @@
 
 ---
 
+## 2026-05-20 — 10-slide compressed deck promoted to primary
+
+**FinalTalk deck — version 2.0 (10-slide compressed).** The 10-slide deck (`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`) becomes the conference talk. Built from a ChatGPT-prepared compression plan plus a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer; all contact details (email, repo, UN-6 handout) move onto slide 1. ~8 minutes spoken, leaves time for the cinema scroll and projector during Q&A. Slides 6/7/8 (Germany / Japan / UK case studies) deliberately weighted at 75 seconds each. Beat-by-beat verbal script committed at [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md).
+
+**Preserved siblings** (not deleted; may be used if a longer time slot is offered):
+- `CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx` — ChatGPT-plan intermediate compression (retains the MC-4 slide).
+- `CodaWork2026_FinalTalk_2026-05-17.pptx` — original 22-slide narrative deck (full per-country navigation slides).
+
+**Documents updated for the deck switch:**
+- `data_outputs/README.md` → version 5.0 — three-piece package now describes the 10-slide deck as Piece 1; preserved siblings called out.
+- `CODAwork2026/README.md` — table row 2 (Talk deck) now points at the 10-slide deck and the speaking script; folder layout shows all three deck variants.
+- `CODA-Association/README.md` (front door) — START HERE pointer now reads `CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`; three-piece summary updated.
+- `CONFERENCE_ATTENDEES.md` (audience follow-along page) — slide-by-slide block rewritten from 22 slides to 10 slides; manuscript-section and figure links preserved, redistributed across the new slide structure; a "Things not in the deck but available" section added explaining MC-4 and the closer still live in the manuscript and speaker brief.
+- `SPEAKING_SCRIPT_10slide.md` (new) — direct, information-packed beat-by-beat script. Slides 6/7/8 weighted for case studies. Optional verbal returns documented for likely Q&A (MC-4, why-not-already-standard-CoDa, why-these-five-viewpoints).
+
+**Rationale.** Peter's directive: *"this gives me breathing room and time to talk and not manage slides and juggle media too much, make this all seamless, simplify and make sense not confusion."* The 10-slide deck collapses six slides' worth of separable teaching beats (helmsman + Power Share + Activation Coefficient definitions; per-country navigation chart slides; MC-4 framing; closing apparatus slides) into the case studies and the synthesis. The repo and the manuscript carry the rest.
+
+---
+
 ## 2026-05-13 — Folder declared authoritative
 
 Per Peter directive 2026-05-13: *"i have one folder that is the authority from now on and all other folders are the source for the information that is current and present in this folder, ensure document versions are now implemented for coda-association media."*

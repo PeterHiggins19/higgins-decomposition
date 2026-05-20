@@ -33,9 +33,12 @@ CODA-Association/
     ├── VERSION_HISTORY.md                    ← changes over time
     ├── ABSTRACT.md                           ← committed abstract (the conference letter)
     ├── Codaworks2026 proposal for conference/ ← original submission (abstract + MC-4 packet + committee letter)
+    ├── SPEAKING_SCRIPT_10slide.md            ← beat-by-beat speaking script (10-slide deck)
     ├── data_outputs/                         ← **the presentation package**
-    │   ├── CodaWork2026_FinalTalk_2026-05-17.pptx  ← main talk (22 slides) — START HERE
-    │   ├── CodaWork2026_FinalTalk_2026-05-17.pdf
+    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx  ← MAIN TALK (10 slides) — START HERE
+    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf
+    │   ├── CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx  ← 12-slide variant (preserved sibling)
+    │   ├── CodaWork2026_FinalTalk_2026-05-17.pptx          ← 22-slide narrative (preserved sibling)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx  ← the cinema scroll (66 slides)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
     │   ├── codawork2026_projector.html        ← live HTML manifold projector for Q&A
@@ -55,8 +58,8 @@ CODA-Association/
 
 The **three-piece presentation package** lives in `CODAwork2026/data_outputs/`:
 
-1. **`CodaWork2026_FinalTalk_2026-05-17.pptx`** — 22-slide talk (the story).
-2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide cinema scroll (the engine's actual output, played as a movie).
+1. **`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`** — **10-slide compressed final talk** (what Peter will present, ~8 min spoken). Beat-by-beat speaking script: [`CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODAwork2026/SPEAKING_SCRIPT_10slide.md). Longer-form variants preserved as siblings (`...12Slide_2026-05-20.pptx`, `...2026-05-17.pptx` for 22 slides) in the same folder as time-budget fallbacks.
+2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide cinema scroll (the engine's actual output, played as a movie during Q&A after slide 10).
 3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; Q&A backdrop).
 
 The companion **manuscript** lives in [`../papers/codawork2026/manuscript/`](../../papers/codawork2026/manuscript/) — the talk is a condensation of the paper, not the other way around. The paper is the foundation document.

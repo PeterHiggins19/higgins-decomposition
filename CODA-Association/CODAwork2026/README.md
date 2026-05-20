@@ -15,7 +15,7 @@ The fastest entry point is **[`CONFERENCE_ATTENDEES.md`](../CONFERENCE_ATTENDEES
 | # | Piece | File |
 |---|---|---|
 | 1 | **Manuscript** — 25-page peer-reviewable paper with cover, TOC, six figures, three appendices | [`Compositional_Monitoring_2026.pdf`](Compositional_Monitoring_2026.pdf) · [`.docx`](Compositional_Monitoring_2026.docx) |
-| 2 | **Talk deck** — 22-slide narrative arc, ~15 minutes | [`data_outputs/CodaWork2026_FinalTalk_2026-05-17.pdf`](data_outputs/CodaWork2026_FinalTalk_2026-05-17.pdf) · [`.pptx`](data_outputs/CodaWork2026_FinalTalk_2026-05-17.pptx) |
+| 2 | **Talk deck** — **10-slide compressed final**, ~8 min spoken + cinema scroll + projector demo during Q&A. Spoken script in [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md). | [`data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) · [`.pptx`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx). 12-slide and 22-slide longer-form variants preserved as siblings in `data_outputs/`. |
 | 3 | **Cinema scroll** — 66 slides / 325-page PDF: master cover + 9 country sections × 6 plates each | [`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) · [`.pptx`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) |
 | 4 | **Interactive HTML projector** — three projection modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline in any browser | [`data_outputs/codawork2026_projector.html`](data_outputs/codawork2026_projector.html) |
 
@@ -33,7 +33,11 @@ CODAwork2026/
 │   ├── HUF_MC4_CoDaWork_Packet_v3.pdf  (11 pages — the methods-challenge framing)
 │   └── CoDaWork 2026 Organising Committee.txt
 ├── data_outputs/                      ← the THREE-PIECE presentation package
-│   ├── CodaWork2026_FinalTalk_2026-05-17.pptx     ← Piece 1 — main talk (22 slides)
+│   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx   ← Piece 1 — MAIN TALK (10 slides, what gets presented)
+│   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf
+│   ├── CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx   ← preserved sibling — 12-slide variant
+│   ├── CodaWork2026_FinalTalk_12Slide_2026-05-20.pdf
+│   ├── CodaWork2026_FinalTalk_2026-05-17.pptx           ← preserved sibling — original 22-slide narrative
 │   ├── CodaWork2026_FinalTalk_2026-05-17.pdf
 │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx ← Piece 2 — cinema scroll (66 slides)
 │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
@@ -54,7 +58,7 @@ CODAwork2026/
 
 ## How to run the presentation
 
-1. Open **`data_outputs/CodaWork2026_FinalTalk_2026-05-17.pptx`** in presenter mode. Walk through the 22-slide story arc (~15 minutes). The story arc walks the audience through: the question → the size view's blind spot → five viewpoints → Activation Coefficient (the yeast factor) → Germany / Japan / UK case archetypes → per-country navigation charts (slides 12 / 13 / 14, one country per slide for readability) → cross-country signature → WHAT/WHY synthesis → MC-4 falsifiable claim + four defeat paths → bridges to pieces 2 and 3.
+1. Open **`data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`** in presenter mode. Walk through the 10-slide story arc (~8 minutes spoken). The arc walks the audience through: title + question + contact → size view's blind spot (USA Solar 760× hook) → five viewpoints in one schematic → Activation Coefficient (the yeast factor) → three archetypes preview → Germany (continuous arc) → Japan (shock + reorganisation) → UK (regime change) → 5-of-9 cross-country signature → synthesis (what the stack answers). MC-4 falsifiability and the "Inspect the instrument" closer were dropped from the deck; both still live in the manuscript and the speaker brief. The verbal beat-by-beat is in [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md).
 2. At slide 18 (*Now — every plate the engine produced*), switch projector to **`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx`**. Auto-advance at ~1 second per slide, or scroll manually. The 66-slide reel is the engine's actual output — pause anywhere.
 3. At slide 19 (*Q&A with the manifold projector running*), open **`data_outputs/codawork2026_projector.html`** in a browser. Click ORBIT. Take questions with the manifold rotating behind you. Runs offline; no network required.
 

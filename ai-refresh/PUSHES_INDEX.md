@@ -198,7 +198,34 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
-### Push #56 — UN-6 PDF ambassador bundle (HOLD, prepared 2026-05-20)
+### Push #57 — Talk deck compression: 22 → 10 slides (HOLD, prepared 2026-05-20)
+
+The 10-slide compressed talk deck becomes the conference talk. Built from a ChatGPT-prepared compression plan (`CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` in the data_outputs folder) plus a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer; all contact details move onto slide 1. ~8 minutes spoken across 10 slides, slides 6/7/8 (Germany / Japan / UK case studies) deliberately weighted at 75 sec each.
+
+**Files in the bundle:**
+
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}` — the primary conference deck.
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_2026-05-20.{pptx,pdf}` — preserved sibling, ChatGPT compression-plan intermediate.
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_2026-05-17.{pptx,pdf}` — preserved sibling, original 22-slide narrative deck.
+- `CODA-Association/CODAwork2026/data_outputs/build_final_talk_10slide.py` + `build_final_talk_12slide.py` — reproducible builders.
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` — ChatGPT's compression plan archived in the repo.
+- `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md` — new beat-by-beat verbal script. ~8 min spoken with case studies at 75 sec, includes voice notes and optional Q&A returns.
+
+**README chain refreshed:**
+
+- `CODA-Association/README.md` — front door, START HERE pointer updated.
+- `CODA-Association/CODAwork2026/README.md` — table row 2 + folder layout updated, all three deck variants visible.
+- `CODA-Association/CODAwork2026/data_outputs/README.md` — version 5.0; the three-piece presentation package described in terms of the 10-slide deck.
+- `CODA-Association/CONFERENCE_ATTENDEES.md` — slide-by-slide block rewritten from 22 slides to 10 slides, with manuscript and figure links redistributed; a "Things not in the deck but available" section explaining MC-4 and the closer still live in the manuscript and speaker brief.
+- `CODA-Association/CODAwork2026/VERSION_HISTORY.md` — 2026-05-20 entry documenting the FinalTalk v2.0 (10-slide) promotion.
+
+**Rationale.** Peter's directive: *"this gives me breathing room and time to talk and not manage slides and juggle media too much, make this all seamless, simplify and make sense not confusion."* The 10-slide deck collapses six slides' worth of separable teaching beats (helmsman + Power Share + Activation Coefficient definitions; per-country navigation chart slides; MC-4 framing; closing apparatus slides) into the case studies and the synthesis. The repo and the manuscript carry the rest.
+
+**Lockdown compliance.** S2 doc-only. Engine code, schemas, INV catalog dispositions, NO-CREATE files, `papers/codawork2026/talk/` all untouched. The cinema scroll (`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.{pptx,pdf}`), projector (`codawork2026_projector.html`), and all `per_country_*` files untouched.
+
+---
+
+### Push #56 — UN-6 PDF ambassador bundle (`4e0e1a9`, CI #53 "UN-6 Ambassador" green 52s, 2026-05-20)
 
 Push #55 shipped the operationalization-pitch handout in English PDF + six UN-6 Markdown twins. Push #56 closes the asymmetry: **all six UN-6 locales now have print-ready PDFs.**
 

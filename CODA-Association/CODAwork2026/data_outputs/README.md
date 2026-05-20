@@ -1,8 +1,10 @@
 # CoDaWork 2026 — Final Presentation Package
 
-**Document version:** 4.1 · **Updated:** 2026-05-19 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+**Document version:** 5.0 · **Updated:** 2026-05-20 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
 
-The three-piece presentation package: a 22-slide narrative talk deck, a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
+The three-piece presentation package: a **10-slide compressed final-talk deck**, a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
+
+The 10-slide deck is what Peter will present. The 12-slide and 22-slide longer-form variants are preserved as siblings here for reference and as time-budget fallbacks.
 
 ---
 
@@ -11,24 +13,29 @@ The three-piece presentation package: a 22-slide narrative talk deck, a 66-slide
 The CoDaWork 2026 presentation runs as **three stacked artefacts**, each doing a specific job:
 
 **Piece 1 — the main talk deck (story).**
-[`CodaWork2026_FinalTalk_2026-05-17.pptx`](CodaWork2026_FinalTalk_2026-05-17.pptx) — 22 slides, 1.6 MB
-[`CodaWork2026_FinalTalk_2026-05-17.pdf`](CodaWork2026_FinalTalk_2026-05-17.pdf) — read-only companion
-Built 2026-05-17, expanded to 22 slides on 2026-05-19 (per-country navigation charts split out for readability). Aligned with the manuscript and the community study.
-**Story arc:** the question → size-view blind spot → five viewpoints → Activation Coefficient (yeast factor) → Germany / Japan / UK case archetypes → per-country navigation charts (slides 12 / 13 / 14, one country per slide) → cross-country signature → WHAT/WHY synthesis → MC-4 falsifiable claim + four defeat paths → bridge to cinema scroll → bridge to projector + Q&A → AI Use Declaration → Standard Stamp colophon.
+[`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) — **10 slides**, ~750 KB
+[`CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) — read-only companion
+Built 2026-05-20. Compressed from the 22-slide narrative deck via a ChatGPT-prepared plan and a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer in favour of moving all contact details onto slide 1.
+**Story arc (10 slides):** title + question + contact → size-view blind spot (USA Solar 760× hook) → five viewpoints in one schematic → Activation Coefficient (yeast factor + formula) → three archetypes overview → Germany (continuous arc) → Japan (shock + reorganisation) → UK (regime change) → 5-of-9 cross-country signature → synthesis ("what the stack answers") with AI Use Declaration footer.
+**Timing:** ~8 min spoken across the 10 slides + ~1.5 min cinema scroll + ~1 min projector demo = ~10.5 min apparatus time, leaving ~4.5 min Q&A in a 15-minute slot.
+
+**Talk variants preserved as siblings (do not delete):**
+- [`CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx`](CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx) — 12-slide intermediate compression from the ChatGPT plan (keeps the MC-4 falsifiability slide).
+- [`CodaWork2026_FinalTalk_2026-05-17.pptx`](CodaWork2026_FinalTalk_2026-05-17.pptx) — original 22-slide narrative deck with full per-country navigation chart slides; use if a longer slot is offered.
 
 **Piece 2 — the data scroll (movie).**
 [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CodaWork2026_PremierDataOutput_2026-05-13.pptx) — 66 slides, 6.3 MB
 [`CodaWork2026_PremierDataOutput_2026-05-13.pdf`](CodaWork2026_PremierDataOutput_2026-05-13.pdf) — 325-page master PDF
-Master cover + 9 country sections × 6 plates each (cover · Stage 1 Section · system course plot · helmsman · ILR-Helmert Triplet · CNQ dashboard). Hash-chained to the input CSVs. Designed to be **scrolled at speed** so the audience sees the engine's actual output as a movie — the mass of data, the year-by-year evolution, the cross-country variety in one continuous reel. Pause anywhere.
+Master cover + 9 country sections × 6 plates each (cover · Stage 1 Section · system course plot · helmsman · ILR-Helmert Triplet · CNQ dashboard). Hash-chained to the input CSVs. Designed to be **scrolled at speed** as a Q&A backdrop after slide 10 — the audience sees the engine's actual output as a movie. Pause anywhere.
 
 **Piece 3 — the closing projector (live) — v2.0.**
-[`codawork2026_projector.html`](codawork2026_projector.html) — interactive 3-D manifold projector, runs offline in a browser. **Three projection modes** plus an Aitchison-step shock overlay. Consumes engine v3.2.0 ILR-Helmert PCA barycenter coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly. A live PROJECTION info panel (top-left, toggleable) shows the math being applied. See "The projector — engine v3.2.0 ILR-Helmert PCA" below for full detail.
+[`codawork2026_projector.html`](codawork2026_projector.html) — interactive 3-D manifold projector, runs offline in a browser. **Three projection modes** (RADAR / BARY / ALIGN) plus an Aitchison-step **SHOCK** overlay. Consumes engine v3.2.0 ILR-Helmert PCA barycenter coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly. A live PROJECTION info panel (top-left, toggleable) shows the math being applied. See "The projector — engine v3.2.0 ILR-Helmert PCA" below for full detail.
 
 ## How to run the presentation
 
-1. Open `CodaWork2026_FinalTalk_2026-05-17.pptx` in presenter mode. Walk through the 22-slide story arc (≈ 15 minutes).
-2. At **slide 18** ("Now — every plate the engine produced"), switch projector to `CodaWork2026_PremierDataOutput_2026-05-13.pptx`. Auto-advance at ~1 second per slide, or scroll manually. The 66-slide reel is the engine's actual output.
-3. At **slide 19** ("Q&A with the manifold projector running"), open `codawork2026_projector.html` in a browser (Chrome / Firefox / Safari all work; no network required). Click ORBIT, then click BARY for the trajectory view, click ALIGN to flatten it onto the central axis, click SHOCK to highlight Aitchison-step shocks. Take questions with the manifold live.
+1. Open `CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx` in presenter mode. Walk through the 10-slide story arc using [`../SPEAKING_SCRIPT_10slide.md`](../SPEAKING_SCRIPT_10slide.md) for timing (≈ 8 minutes spoken, slides 6/7/8 weighted for the case studies).
+2. Immediately after slide 10, switch the projector display to `CodaWork2026_PremierDataOutput_2026-05-13.pptx`. Auto-advance at ~1 second per slide or scroll manually. The 66-slide reel is the engine's actual output — *"Pause me anywhere."*
+3. Open `codawork2026_projector.html` in a browser (Chrome / Firefox / Safari all work; no network required) as the Q&A backdrop. Click **JPN**, then **BARY** for the trajectory view, **ALIGN** to flatten it onto the central axis, **SHOCK** to highlight Aitchison-step shocks. Take questions with the manifold live.
 
 ## The projector — engine v3.2.0 ILR-Helmert PCA
 
