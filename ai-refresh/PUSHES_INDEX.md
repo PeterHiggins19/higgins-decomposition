@@ -198,7 +198,28 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
-### Push #55 — Community readiness: UN-6 handout + test packet + slide-count fix (HOLD, prepared 2026-05-20)
+### Push #56 — UN-6 PDF ambassador bundle (HOLD, prepared 2026-05-20)
+
+Push #55 shipped the operationalization-pitch handout in English PDF + six UN-6 Markdown twins. Push #56 closes the asymmetry: **all six UN-6 locales now have print-ready PDFs.**
+
+**Five new PDFs at `CODA-Association/`:**
+- `Higgins_Decomposition_Handout_CoDaCommunity.fr.pdf` (44 KB, French — BIPM register)
+- `Higgins_Decomposition_Handout_CoDaCommunity.es.pdf` (42 KB, Spanish)
+- `Higgins_Decomposition_Handout_CoDaCommunity.ru.pdf` (55 KB, Russian)
+- `Higgins_Decomposition_Handout_CoDaCommunity.zh.pdf` (116 KB, Simplified Chinese, CJK font embedded)
+- `Higgins_Decomposition_Handout_CoDaCommunity.ar.pdf` (61 KB, Arabic, RTL)
+
+All single A4, same v10 layout (QR top-right with locale strip, operationalization callout, three-pillar Why-operationalize, technical-advantages block, three-layer stack, USA Solar 760× headline, five-step onboarding, contact + adoption footer, five-line doctrine). Identical content surface; localized prose.
+
+**Engineering notes baked into the builder (`build_handout_un6.py`):** Romance and Russian translations naturally run ~30 % longer than English; the builder applies per-locale line-height tuning (FR/ES/RU body 1.20 vs 1.28 for others) to keep them on one A4. Chinese fits at standard line-height because Mandarin is denser per glyph. Arabic uses `direction: rtl` on body and `dir="rtl"` on `<html>` with `direction: ltr` overrides on code spans so file paths still read LTR within the RTL flow. All six PDFs embed the same QR pointing at the EN repo root.
+
+**Side updates:** `CODA-Association/README.md` handout-pointer rewritten with explicit 6-PDF + 6-MD inline links; Arabic-RTL and Chinese-Simplified notes added for transparency. EN canonical PDF unchanged from push #55. Non-English PDFs ship as drafts pending native expert review per `HCI-CNQ/wrappers/WRAPPER_SCHEMA.md §11.1` — same discipline as the MD twins.
+
+**Framing.** The one-page community handout — distributed at the conference, scannable via QR from anywhere — is now the repo's world-facing ambassador in all six UN official languages. The operationalization pitch lands in EN, FR, ES, RU, ZH, AR at identical visual quality. Lockdown-compliant S2 doc-only.
+
+---
+
+### Push #55 — Community readiness: UN-6 handout + test packet + slide-count fix (`a647c55`, CI #52 "Operationalization" green 55s, 2026-05-20)
 
 Community-readiness bundle for CoDaWork 2026 attendees and the broader CoDa community. Three substantive additions plus one consistency fix:
 

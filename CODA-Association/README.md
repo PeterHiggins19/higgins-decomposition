@@ -10,7 +10,12 @@ This folder is the Hˢ home for compositional-data community work — current ta
 
 If you are in the audience (or following from anywhere) for *Compositional monitoring of energy-mix drift on the simplex* — open **[`CONFERENCE_ATTENDEES.md`](CONFERENCE_ATTENDEES.md)** on your phone or laptop. It is laid out **slide-by-slide alongside the talk**, with every supporting document, figure, equation, and data file linked in the order you'll hear them referenced. The interactive HTML projector at the end runs in your browser with no install. If you can't see the screen or are joining remotely, you can study the full talk from that page alone.
 
-A one-page community handout (with QR code to this repo) is available at **[`Higgins_Decomposition_Handout_CoDaCommunity.pdf`](Higgins_Decomposition_Handout_CoDaCommunity.pdf)** — print-ready for distribution at the conference. **Available in UN-6 locales** as Markdown: [EN](Higgins_Decomposition_Handout_CoDaCommunity.md) (canonical) · [FR](Higgins_Decomposition_Handout_CoDaCommunity.fr.md) · [ES](Higgins_Decomposition_Handout_CoDaCommunity.es.md) · [RU](Higgins_Decomposition_Handout_CoDaCommunity.ru.md) · [ZH](Higgins_Decomposition_Handout_CoDaCommunity.zh.md) · [AR](Higgins_Decomposition_Handout_CoDaCommunity.ar.md). Non-English versions are drafts pending native expert review per `HCI-CNQ/wrappers/WRAPPER_SCHEMA.md §11.1`.
+A one-page community handout (with QR code to this repo) is available **print-ready in all UN-6 locales** — same layout, same single A4 page, localized prose:
+
+- **PDF (print-ready):** [EN](Higgins_Decomposition_Handout_CoDaCommunity.pdf) · [FR](Higgins_Decomposition_Handout_CoDaCommunity.fr.pdf) · [ES](Higgins_Decomposition_Handout_CoDaCommunity.es.pdf) · [RU](Higgins_Decomposition_Handout_CoDaCommunity.ru.pdf) · [ZH](Higgins_Decomposition_Handout_CoDaCommunity.zh.pdf) · [AR](Higgins_Decomposition_Handout_CoDaCommunity.ar.pdf)
+- **Markdown (editable source):** [EN](Higgins_Decomposition_Handout_CoDaCommunity.md) · [FR](Higgins_Decomposition_Handout_CoDaCommunity.fr.md) · [ES](Higgins_Decomposition_Handout_CoDaCommunity.es.md) · [RU](Higgins_Decomposition_Handout_CoDaCommunity.ru.md) · [ZH](Higgins_Decomposition_Handout_CoDaCommunity.zh.md) · [AR](Higgins_Decomposition_Handout_CoDaCommunity.ar.md)
+
+English is canonical. FR/ES/RU/ZH/AR non-English versions are drafts pending native expert review per `HCI-CNQ/wrappers/WRAPPER_SCHEMA.md §11.1`. Arabic is rendered right-to-left; Chinese uses Simplified glyphs.
 
 ## What this folder is
 
