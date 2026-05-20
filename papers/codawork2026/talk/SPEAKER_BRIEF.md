@@ -457,6 +457,20 @@ But this is the *right* room for this talk, because the mathematics belongs to t
 
 ---
 
+## Candidate closing line — the locomotive (optional verbal close)
+
+If, in the last 60 seconds, the room has responded to the operationalization frame — the runnable standard, the seven phases, the AI-assist co-pilot, the technical advantages laid out on the handout — you have a closing line available that distills the entire pitch into one image:
+
+> *"Compositional data analysis has been a stationary steam engine for forty years — beautifully engineered, well-tended by CoDaWork, and waiting for the work to come to it. What Hˢ adds is tracks. Same engine. Now it travels."*
+
+The metaphor is operational, not decorative. It names exactly what the runnable standard does: takes a mature methodology and makes it mobile, so a finance analyst, a hydrochemist, a market-share researcher, or an ops monitoring team can run it on their own data — manually or with the AI assistant they already have — and get the same hash-verifiable output as the CoDa-trained methodologist in the room.
+
+**When to land it.** Only if the operationalization frame has visibly worked — eyes following, notes being taken, the handout being read at the back. If the room is in pure-methodology mode, skip the line; it would land as marketing rather than as the technical summary it is. The doctrine line below is the safer default close.
+
+**When to expand it.** If a question after the talk asks "how does this propagate outside CoDa," the locomotive metaphor is the answer. *"The engine sits at CoDaWork. The tracks are CCTT. The trains run anywhere a researcher has a composition and an AI assistant — São Paulo, Lagos, Tokyo, all without needing to be in this room."*
+
+---
+
 ## Closing — the orator's identity
 
 You are not a polished academic theatre player. You are a research engineer who built a working instrument, ran it on public data, and submitted the result to the people who own the mathematics.

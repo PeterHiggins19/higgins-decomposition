@@ -184,6 +184,7 @@ The narrowed re-prompt template from the INDEX has now been validated across two
 | `PUSH52_PRE_PUSH_SUMMARY.md` | Push #52 prep summary (Conference-ready milestone publish — final-talk deck 22 slides + cinema scroll 66 slides + projector v2.0 + engine v3.2.0 + manuscript Fig 1-6) |
 | `PUSH52_READY_FOR_COMMIT.md` | Push #52 release card (`98ea1dd6` CI #49 "Conference-ready milestone" 2026-05-17) |
 | `PUSH54_PRE_PUSH_SUMMARY.md` | Push #54 prep summary (Glossary merge — GLOSSARY v3.0 + NOTATION redirect stub; plus admin catch-up for pushes #52 and #53) |
+| `PUSH54_READY_FOR_COMMIT.md` | Push #54 release card (`396688b` CI #51 "Glossary" green 49s) |
 
 ---
 
@@ -197,7 +198,23 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
-### Push #54 — Glossary merge (HOLD, prepared 2026-05-19)
+### Push #55 — Community readiness: UN-6 handout + test packet + slide-count fix (HOLD, prepared 2026-05-20)
+
+Community-readiness bundle for CoDaWork 2026 attendees and the broader CoDa community. Three substantive additions plus one consistency fix:
+
+**(a) Operationalization-pitch handout v10.** `CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.pdf` — single A4 page, QR top-right with UN-6 locale strip beneath (EN · FR · ES · RU · ZH · AR). Reframes Hs from "deterministic instrument" to *"operationalizing compositional data analysis — a runnable standard for researchers and the AI assistants they choose."* Adds Why-operationalize three-pillar callout (measurability / consistency / hypothesis-testing), technical-advantages block (atan2 for ±π wrap-safety, Helmert-ILR orthonormality, hash-chained provenance, IEEE-floor determinism, CRD-1.0, schema versioning), bidirectional-training claim, five-line doctrine.
+
+**(b) UN-6 Markdown handout suite.** Per `HCI-CNQ/wrappers/WRAPPER_SCHEMA.md §11.1`. Files at `CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.{md,fr.md,es.md,ru.md,zh.md,ar.md}`. EN canonical; FR/ES/RU/ZH/AR ship as drafts pending native expert review with discipline markers in each header. Technical vocabulary (CNT/CNQ/CCTT/CLR/ILR/helmsman/Power Share/Activation Coefficient/MC-4) kept in English across all locales for controlled-vocabulary diff-ability.
+
+**(c) Community Test Packet v1.0.** `ai-refresh/COMMUNITY_TEST_PACKET.{json,md}` STAGED — sibling to `CLAIM_TEST_PACKET.json`. Seven phases × four tester scenarios for user-acceptance testing of the repo. Promotion to CANONICAL after two independent tester completions from different ENV classes.
+
+**(d) Slide-count consistency fix.** ChatGPT review flagged `CODA-Association/README.md` lines 30 + 51 still said "20 slides" while every other surface said 22. Patched. Lines 57 + 78 left as-is (they describe the legitimately 20-slide community deck `Studies/Energy_HiddenDirections_2026-05-17`).
+
+**Side updates:** SPEAKER_BRIEF.md gains optional locomotive-metaphor closing-line section. `Hs/README.md` + `CODA-Association/README.md` gain UN-6 support callouts. Lockdown-compliant S2 doc-only — engine code, schemas, INV catalog dispositions, NO-CREATE files, papers/codawork2026/talk/, and CODA-Association/CODAwork2026/data_outputs/ all untouched.
+
+---
+
+### Push #54 — Glossary merge (`396688b`, CI #51 "Glossary" green 49s, 2026-05-19)
 
 **Primary change.** `HCI-CNT/handbook/GLOSSARY.md` v2.0 and `HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md` v2.0 combined into a single authoritative reference at `GLOSSARY.md` v3.0 (~220 entries across 30 sections, 661 lines). `NOTATION_AND_TERMINOLOGY.md` reduced to an 81-line redirect stub pointing readers to the merged glossary.
 
