@@ -88,6 +88,7 @@ For the full archive index see [`CODAwork2026/archive/README.md`](CODAwork2026/a
 
 ## Cross-references
 
+- ⭐ **Flagship master-standard paper** — [`../papers/flagship/GROUND_STATE_AND_TRACTION.md`](../papers/flagship/GROUND_STATE_AND_TRACTION.md) (v2.1, 2026-05-21). The unified-formula statement of the framework's foundation. The CoDaWork 2026 manuscript is the *first non-acoustic application* of the unified formula derived there; the flagship paper carries the mathematical apparatus (Banach contraction, Helmholtz reciprocity, Rayleigh-Sommerfeld, Gershgorin, group-delay-as-rotation, closure invariance) and the lineage from BTL acoustic work to the present Hˢ framework. Read it for *why the conference manuscript works on energy-mix data*.
 - **Manuscript** — `papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.docx` (and `.pdf`). Nature-structure with back-matter Appendices A (Equations), B (Terms), C (Plate Digest), and split references (External / Hˢ Repository).
 - **Community study** — `Studies/Energy_HiddenDirections_2026-05-17/Energy_HiddenDirections_2026-05-17.pdf`. 20-slide community-friendly version.
 - **Original submission** — `CODAwork2026/Codaworks2026 proposal for conference/`. The abstract, the MC-4 packet (v3, 11 pages), and the committee-letter request to present.

@@ -198,17 +198,49 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
-### Push #57 — Talk deck compression: 22 → 10 slides (HOLD, prepared 2026-05-20)
+### Push #58 — Refinement-trail archive: 10-slide is the only talk (`ec9a3c6`, CI #55 "Validate Repository" green 50s, 2026-05-20)
+
+**Trigger.** ChatGPT review of `CODA-Association/` flagged that the README chain still framed the 22-slide and 12-slide decks as "preserved siblings" or "time-budget fallbacks", and that two specific stale references survived in `CODAwork2026/README.md`: (1) "At slide 18, switch projector to cinema scroll" and "At slide 19, open the manifold projector" in *How to run the presentation*; (2) "AI Use Declaration on slide 19; Standard Stamp on slide 20" in Standards conformance. The 10-slide deck only has slides 1–10, so both references broke against the active deck.
+
+**Peter's directive.** *"keep the 10 slide and talk, archive the other slides and associated talks and update the readme files and md files to reflect the change, this will clean up and make the repo less confusing, the trail of refinements get archived the best move forward."*
+
+**Files moved into `CODA-Association/CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`** (with a folder-level README documenting each stage's role at time of writing):
+
+- `CodaWork2026_FinalTalk_2026-05-17.{pptx,pdf}` — 22-slide narrative deck.
+- `CodaWork2026_FinalTalk_12Slide_2026-05-20.{pptx,pdf}` — 12-slide intermediate compression.
+- `CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` — ChatGPT 22→12 plan.
+- `build_final_talk.py`, `build_final_talk_v2.py`, `build_final_talk_12slide.py` — python-pptx builders for those two earlier stages.
+- `SPEAKING_SCRIPT.md` — 22-slide beat-by-beat script.
+
+**Files remaining at the active surface:** `CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}`, `build_final_talk_10slide.py`, `SPEAKING_SCRIPT_10slide.md`. Single deck, single builder, single speaking script.
+
+**README chain refresh:**
+
+- `CODA-Association/README.md` → v2.3. Folder map updated to show the new archive subfolder; "What is archived" section rewritten to lead with the new pre-10-slide refinement trail.
+- `CODA-Association/CONFERENCE_ATTENDEES.md` — sibling-deck link replaced with archive-folder link.
+- `CODA-Association/POINT_OF_RESTORE_2026-05-19.md` — non-destructive 2026-05-20 update note added, preserving restore-point recoverability (the 22-slide deck is recoverable from the archive folder byte-for-byte).
+- `CODA-Association/CODAwork2026/README.md` → v2.3. **Stale-reference fixes:** "At slide 18 / At slide 19" replaced with "After slide 10, switch the projector display to the cinema scroll. Then open the projector as the Q&A backdrop." AI-Use-Declaration line corrected from "slide 19 / slide 20 of the FinalTalk" to "slide 10 of the talk (synthesis-slide footer) and on the manuscript cover + back-matter."
+- `CODA-Association/CODAwork2026/data_outputs/README.md` → v6.0. Drops "preserved siblings"; points at the archive folder. Conformance section updated to slide-10-aware language.
+- `CODA-Association/CODAwork2026/archive/README.md` rebuilt with the new `talk_decks_pre_10slide_2026-05-20/` section first, plus a new section covering manuscript-render lineage (msprint + LibreOffice empty-TOC archive folders).
+- `CODA-Association/CODAwork2026/VERSION_HISTORY.md` — new entry at the top of the chronological log documenting the trigger, files moved, README chain refresh, and discipline preserved.
+
+**Lockdown compliance.** Push class S2 doc-only. Engine code, schemas, INV catalog dispositions, NO-CREATE files, `papers/codawork2026/talk/`, the manuscript (working copy at `CODAwork2026/Compositional_Monitoring_2026.{docx,pdf}` byte-identical to canonical), the cinema scroll, the projector, and all per-country plates all untouched.
+
+**Outcome.** The repo now presents one deck as the conference talk, one speaking script as its verbal companion, one archive folder explaining how that deck was reached. ChatGPT's flagged stale references closed. The trail is preserved; the surface is clean.
+
+---
+
+### Push #57 — Talk deck compression: 22 → 10 slides (`09696d5`, CI #54 "10-slide deck" green 56s, 2026-05-20)
 
 The 10-slide compressed talk deck becomes the conference talk. Built from a ChatGPT-prepared compression plan (`CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` in the data_outputs folder) plus a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer; all contact details move onto slide 1. ~8 minutes spoken across 10 slides, slides 6/7/8 (Germany / Japan / UK case studies) deliberately weighted at 75 sec each.
 
 **Files in the bundle:**
 
 - `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}` — the primary conference deck.
-- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_2026-05-20.{pptx,pdf}` — preserved sibling, ChatGPT compression-plan intermediate.
-- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_2026-05-17.{pptx,pdf}` — preserved sibling, original 22-slide narrative deck.
-- `CODA-Association/CODAwork2026/data_outputs/build_final_talk_10slide.py` + `build_final_talk_12slide.py` — reproducible builders.
-- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` — ChatGPT's compression plan archived in the repo.
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_2026-05-20.{pptx,pdf}` — preserved sibling, ChatGPT compression-plan intermediate. *(Archived in push #58 into `archive/talk_decks_pre_10slide_2026-05-20/`.)*
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_2026-05-17.{pptx,pdf}` — preserved sibling, original 22-slide narrative deck. *(Archived in push #58.)*
+- `CODA-Association/CODAwork2026/data_outputs/build_final_talk_10slide.py` + `build_final_talk_12slide.py` — reproducible builders. *(12slide builder archived in push #58.)*
+- `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` — ChatGPT's compression plan archived in the repo. *(Archived in push #58.)*
 - `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md` — new beat-by-beat verbal script. ~8 min spoken with case studies at 75 sec, includes voice notes and optional Q&A returns.
 
 **README chain refreshed:**

@@ -58,6 +58,27 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 
 ## What's New — May 2026
 
+### 🌟 Flagship paper: The Isotropic Radiation Ground State and the Traction Engine (v2.1, 2026-05-21)
+
+The first unified-formula statement of the framework's foundation: a 40-page master standard linking thirty years of measured Binaural Test Lab acoustic work to the present-day Hˢ simplex framework, with the full lemma chain in support (Banach fixed-point convergence, Helmholtz reciprocity, Rayleigh-Sommerfeld diffraction, Gershgorin invertibility, group-delay-as-rotation on S³, closure invariance under the log-ratio transform). Every component of equation (13) — the **unified isotropic-radiation ground-state formula** — has been measured at BTL for three decades and never failed a closure check.
+
+- **Source:** [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) (markdown, editable)
+- **Word document:** [`papers/flagship/GROUND_STATE_AND_TRACTION_v2.1.docx`](papers/flagship/GROUND_STATE_AND_TRACTION_v2.1.docx)
+- **PDF (40 pp):** [`papers/flagship/GROUND_STATE_AND_TRACTION_v2.1.pdf`](papers/flagship/GROUND_STATE_AND_TRACTION_v2.1.pdf)
+- **Companion (historical narrative):** [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md)
+
+The flagship answers a question reviewers have repeatedly asked: *"why are you so confident?"* The answer is now provable, not faith-based. The acoustic ground state (6.02 dB, 4π → 2π baffle-step transition) is the physical instance; the unified formula generalizes it via Theorem 2 to any compositional time-series with a conserved budget and a log-carrier. The CoDaWork 2026 energy-mix manuscript is the *first non-acoustic application of an apparatus with thirty years of empirical validation behind it.*
+
+### Recent pushes
+
+**🗂️ Push #58 (2026-05-20) — Refinement-trail archive: 10-slide is the only talk** ([`ec9a3c6`](https://github.com/PeterHiggins19/higgins-decomposition/commit/ec9a3c6b1c14ca87c8079753fe516264072c2fa9), CI #55 "Validate Repository" green 50s). With the 10-slide compressed final talk adopted as the conference deck, the 22-slide narrative and 12-slide intermediate compression (and their builders, the ChatGPT 22→12 compression-plan JSON, and the 22-slide speaking script) were moved into `CODA-Association/CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/` with a folder-level README. README chain refreshed across `CODA-Association/`, `CODAwork2026/`, and `data_outputs/`. Stale slide-number references in *How to run the presentation* and Standards conformance closed. Single deck at the active surface.
+
+**🎤 Push #57 (2026-05-20) — Talk deck compression: 22 → 10 slides** ([`09696d5`](https://github.com/PeterHiggins19/higgins-decomposition/commit/09696d5881cca53340b2d73ac09753294c44370f), CI #54 "10-slide deck" green 56s). The 10-slide compressed final-talk deck ([`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx)) becomes the conference talk. ~8 min spoken; slides 6 / 7 / 8 (Germany / Japan / UK case studies) deliberately weighted at 75 sec each. Beat-by-beat script: [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md).
+
+**🌐 Push #56 (2026-05-20) — UN-6 PDF ambassador bundle** ([`4e0e1a9`](https://github.com/PeterHiggins19/higgins-decomposition/commit/4e0e1a9), CI #53 "UN-6 Ambassador" green 52s). Five new print-ready PDFs at `CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.{fr,es,ru,zh,ar}.pdf` — same v10 layout, locale-specific line-height tuning, Arabic RTL with code-span LTR overrides, Chinese with CJK font embed. EN PDF unchanged.
+
+### Earlier in the conference-prep arc
+
 **🧭 Push #51 — Routing + Terms + Activation Coefficient** ([`6d2e492`](https://github.com/PeterHiggins19/higgins-decomposition/commit/6d2e49255a89ba72ba6671df9784b1ea55b51808), CI #48 "Routing + Terms" green 52s, 2026-05-16). Six-category bundle: (a) AI-refresh routing surfaces (README banner, llms.txt, HS_FAST_REFRESH.json) now point at `CODA-Association/CODAwork2026/` as the conference-authority folder; (b) **HUF-STD-001 v1.0 → v1.1** adds the person-noun convention (human → researcher / user / reader / participant) with an exception list for authorship rules, AI-safety vocabulary, anthropology, and regulatory disclosure; (c) **HUF-STD-002 post-conference target reorder** — Power Share / Activation Coefficient promoted to Order 1 (was the CNQ vector PDF exporter); (d) **NOTATION_AND_TERMINOLOGY.md v2.0 + GLOSSARY.md v2.0** full refresh — 8/9 new sections each, Helmsman family promoted PROPOSED → CANONICAL per schema 3.1.0; (e) INV-060 title sharpened, Activation Coefficient formal name recorded; (f) CodaWork 2026 talk deck five-slide polish per commitment audit (8-simplex notation + EMBER CC BY 4.0 + four-category monitoring frame + "Mathematics is not new; the monitoring application may be" working-posture line). Lockdown-compliant; engine code, schemas, and INV catalog dispositions all untouched.
 
 ---
@@ -460,19 +481,36 @@ results = engine.run_all_schemes()  # tests all valid carrier merges
 
 ## CoDaWork 2026 — Coimbra, Portugal (June 1–5)
 
-Hˢ has been submitted to the 11th International Workshop on Compositional Data Analysis.
+The 11th International Workshop on Compositional Data Analysis. **11 days away** as of this README revision. The conference-authority folder is [`CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/) — everything an attendee or reviewer needs is there, in one place.
 
-| Deliverable | File |
+### Present at the talk
+
+| What | File |
 |---|---|
-| Abstract (PDF) | [CoDaWork2026_Abstract_Higgins.pdf](papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf) |
-| Submission letter + abstract (source) | [CoDaWork2026_Letter_and_Revised_Abstract.md](papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md) |
-| Executive summary (tiered claims) | [Hs_CoDaWork2026_Executive_Summary.md](papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md) |
-| Strategic agenda | [CoDaWork2026_Strategic_Agenda.md](papers/codawork2026/CoDaWork2026_Strategic_Agenda.md) |
-| Collaboration path | [CoDaWork2026_Collaboration_Path.md](papers/codawork2026/CoDaWork2026_Collaboration_Path.md) |
-| Speech — gift ramp format | [CoDaWork2026_Speech_GiftRamp.md](papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md) |
-| Slide deck (.pptx) | [CoDaWork2026_Presentation.pptx](papers/codawork2026/CoDaWork2026_Presentation.pptx) |
-| Standards Edition notebook | [Hs_Standards_Edition.ipynb](papers/codawork2026/Hs_Standards_Edition.ipynb) — self-contained conference handout, 18 cells, 3 reference standards |
-| Action plan | [CoDaWork2026_Action_Plan.md](papers/codawork2026/CoDaWork2026_Action_Plan.md) |
+| **Audience follow-along page** | [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md) — slide-by-slide, every link in talk order |
+| **Manuscript (PDF, 26 pp)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf) |
+| **Manuscript (.docx)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx) |
+| **Talk deck — 10 slides (.pptx)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) |
+| **Talk deck (.pdf)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) |
+| **Speaking script (beat-by-beat)** | [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md) |
+| **Cinema scroll (66 slides, 325 pp)** | [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) · [`.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) |
+| **Interactive HTML projector** | [`codawork2026_projector.html`](CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html) — three modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline |
+| **Community handout (UN-6)** | EN · FR · ES · RU · ZH · AR — at [`CODA-Association/`](CODA-Association/) |
+| **Foundation paper (companion master standard)** | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) — the unified formula behind the framework |
+
+### Conference timing
+
+| Piece | Time |
+|---|---|
+| 10-slide talk | ~8 min 20 sec spoken (slides 6 / 7 / 8 at 75 sec each — case-study weighting) |
+| Cinema scroll | ~1 min 30 sec as a movie after slide 10 |
+| HTML projector | ~1 min Q&A demo |
+| **Apparatus time** | ~11 min |
+| **Q&A** | ~4 min remaining in a 15-min slot |
+
+### Source materials (working folder)
+
+The working build folder is at [`papers/codawork2026/`](papers/codawork2026/) — abstract, executive summary, manuscript build pipeline, talk-prep documents. The conference distribution lives in `CODA-Association/CODAwork2026/`; the working build remains in `papers/codawork2026/`. Both surfaces are documented and current.
 
 Three open questions posed to the CoDa community: (1) Can the EITT entropy invariance be proved from Aitchison geometry? (2) Does classification survive ILR 
 ---

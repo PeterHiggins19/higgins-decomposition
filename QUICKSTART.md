@@ -103,15 +103,17 @@ Bit-identical residual on Backblaze and Planck (two physically unrelated D=4 dat
 
 | Goal | Read |
 |---|---|
+| **Flagship paper (master standard — why the framework works)** | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) |
 | Full publication-grade overview | [`PUBLICATION_READY.md`](PUBLICATION_READY.md) |
 | Single-file AI loader (one fetch = full system context) | [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json) |
 | Operations protocol (12-transition Gawande checklist) | [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md) |
 | 7-phase reproduction runbook | [`ai-refresh/CCTT_RUNBOOK.md`](ai-refresh/CCTT_RUNBOOK.md) |
 | CNT engine docs + handbook | [`HCI-CNT/`](HCI-CNT/) |
 | CNQ engine docs + claim-strength + scope | [`HCI-CNQ/`](HCI-CNQ/) |
-| Investigation Catalog (29 entries, 4 dispositions) | [`ai-refresh/INVESTIGATION_CATALOG.md`](ai-refresh/INVESTIGATION_CATALOG.md) |
-| Locked vocabulary | [`HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md`](HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md) |
+| Investigation Catalog (63 entries, 6 dispositions) | [`ai-refresh/INVESTIGATION_CATALOG.md`](ai-refresh/INVESTIGATION_CATALOG.md) |
+| Locked vocabulary (~220-entry glossary v3.0) | [`HCI-CNT/handbook/GLOSSARY.md`](HCI-CNT/handbook/GLOSSARY.md) |
 | Origin lineage (DADC → H₁ → HUF → Hs → CNT → CNQ) | [`HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md) |
+| **CoDaWork 2026 — attendee follow-along** | [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md) |
 
 ---
 

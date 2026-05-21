@@ -11,6 +11,12 @@
 
 ---
 
+## 2026-05-21 — Heading polish (manuscript / presentation hierarchy)
+
+**README.md → version 2.4.** ChatGPT post-push #58 review of `CODA-Association/CODAwork2026/` flagged a wording inconsistency: the section heading "The presentation in three pieces" sat above a four-row table (manuscript + talk + cinema scroll + projector). ChatGPT's suggested polish — *"foundation manuscript + three-piece presentation"* — adopted. Heading rewritten to "The conference package — foundation manuscript + three-piece presentation", with an introductory sentence clarifying that the manuscript is the foundation and the talk/cinema/projector triplet condenses it. Table row indices renumbered 0–3 (0 = foundation manuscript; 1–3 = the presentation pieces) to make the hierarchy explicit. No content moved or rebuilt; pure heading-and-numbering polish. Push class: S2 doc-only, no admin-chain churn, lockdown-compliant.
+
+---
+
 ## 2026-05-20 — Refinement trail archived, 10-slide deck is now the only active talk
 
 **Trigger.** ChatGPT review of `CODA-Association/CODAwork2026/` flagged that the README chain still framed the 22-slide and 12-slide decks as "preserved siblings" or "time-budget fallbacks". With the 10-slide compressed final adopted as the conference talk, the sibling framing was a source of confusion — the repo still looked like three decks were on offer rather than one. Peter's directive: *"keep the 10 slide and talk, archive the the other slides and associated talks and update the readme files... the trail of refinements get archived the best move forward."*

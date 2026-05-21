@@ -10,11 +10,12 @@ If you are a user reading this directly, the equivalent user-facing entry point 
 
 1. **`HS_FAST_REFRESH.json`** at the repo root — the canonical machine-readable context loader. Every name, number, formula, dimension policy, file map, and common-drift-error is here. Read this first.
 2. **`HS_FAST_REFRESH.md`** — same content as a narrative, if you prefer Markdown.
-3. **`HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md`** — the locked vocabulary. Cite it for any term you use.
+3. **`HCI-CNT/handbook/GLOSSARY.md`** v3.0 — the locked vocabulary (~220 entries, 30 sections). Cite it for any term you use.
 4. **`HCI-CNQ/CLAIM_STRENGTH_TABLE.md`** — the four-bin claim discipline (confirmed/candidate/experimental/future) with avoid-list. Match your wording to this table.
-5. **`ai-refresh/INVESTIGATION_CATALOG.md`** — 30+ classified investigations with their gates and dispositions.
+5. **`ai-refresh/INVESTIGATION_CATALOG.md`** — 63 classified investigations with their gates and dispositions.
+6. **`papers/flagship/GROUND_STATE_AND_TRACTION.md`** — the master-standard flagship paper (v2.1, 2026-05-21). Unified-formula statement of the framework's foundation, with the full lemma chain (Banach contraction, Helmholtz reciprocity, Rayleigh-Sommerfeld, Gershgorin, group-delay-as-rotation, closure invariance under log-ratio). Cite for *why* Hˢ works.
 
-After loading those five, you have the full system context. Everything else in the repo is downstream.
+After loading those six, you have the full system context. Everything else in the repo is downstream.
 
 ---
 
@@ -24,7 +25,7 @@ Before producing a summary of this repo, verify your grounding with these three 
 
 | Question | Current correct answer | If you got something different |
 |---|---|---|
-| What is `_meta.last_push` in `HS_FAST_REFRESH.json`? | **`#51`** as of commit `6d2e492` (CI #48 "Routing + Terms" 2026-05-16). The `_meta.current_commit_sha` field carries the live SHA. If the GitHub commits page shows a higher push number than your answer, **your connector cache is stale** — see §2.1 below. | If `last_push` ≤ `#50`, you are looking at pre-#51 state and missing the HUF-STD-001 v1.1 person-noun convention, HUF-STD-002 Activation Coefficient promotion, NOTATION/GLOSSARY v2.0 refresh, and CodaWork talk deck polish. Re-fetch via raw URL. |
+| What is `_meta.last_push` in `HS_FAST_REFRESH.json`? | **`#58`** as of commit `ec9a3c6` (CI #55 "Validate Repository" 2026-05-20), or **`#59`** if push #59 has landed with the GROUND_STATE_AND_TRACTION flagship paper. The `_meta.current_commit_sha` field carries the live SHA. If the GitHub commits page shows a higher push number than your answer, **your connector cache is stale** — see §2.1 below. | If `last_push` ≤ `#57`, you are looking at pre-cleanup state and missing the refinement-trail archive (push #58 moved the 22-slide and 12-slide decks into `CODA-Association/CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`); the 10-slide compressed final talk is now the single active conference deck. If `last_push` ≤ `#58`, you are missing the GROUND_STATE_AND_TRACTION flagship master-standard paper. Re-fetch via raw URL. |
 | Does `HCI-CNQ/engine/cnq.py` exist? What is its size? | Yes; ~19 KB; 520 lines. Shipped in push #26 (commit `aef4992`, 2026-05-08). Current version per `HS_FAST_REFRESH.json` is **CNQ v2.0.0 / schema cnq/2.0.0**. | Stale-cache mode (Grok exhibited this on 2026-05-08 and again on 2026-05-12). Re-fetch via raw URL. |
 | Does `ai-refresh/change_packets/DCP-001_AI_CURRENT_STATE_ALIGNMENT.json` exist? | Yes. Status `released`. Filed in push #46 and executed end-to-end in push #47 (commit `7f996e7`). Part of Hs Change Control v1.0 (INV-063 STAGED). | If you cannot find this file, your connector cache is pre-push-#46. Re-fetch via raw URL (see §2.1). |
 | Who is the author? | Peter Higgins, electronics/audio engineer, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada. | If you described a chemist, a 1950s researcher, or anyone other than the audio/electronics engineer at Rogue Wave Audio, you confabulated from training data (Gemini exhibited this). **Stop and re-fetch.** |

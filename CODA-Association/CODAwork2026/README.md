@@ -1,6 +1,6 @@
 # CODAwork2026 — conference folder
 
-**Document version:** 2.3 · **Revised:** 2026-05-20 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+**Document version:** 2.4 · **Revised:** 2026-05-21 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
 
 Authoritative home for the CoDaWork 2026 conference (Coimbra, Portugal · 1–5 June 2026). Current material lives at the root of this folder and in [`data_outputs/`](data_outputs/). Older material is in [`archive/`](archive/) with a folder-level explanation — kept for lineage, not for use.
 
@@ -10,14 +10,16 @@ Authoritative home for the CoDaWork 2026 conference (Coimbra, Portugal · 1–5 
 
 The fastest entry point is **[`CONFERENCE_ATTENDEES.md`](../CONFERENCE_ATTENDEES.md)** (one folder up). It walks through the talk slide-by-slide with every supporting document linked in the order the speaker will reference them. The interactive HTML projector runs in your browser; no install required. If you can't see the screen or are remote, the whole talk runs from that page.
 
-## The presentation in three pieces
+## The conference package — foundation manuscript + three-piece presentation
+
+The manuscript is the foundation document. The three-piece presentation (talk + cinema scroll + projector) sits on top of it; the talk condenses the paper, not the other way around.
 
 | # | Piece | File |
 |---|---|---|
-| 1 | **Manuscript** — 25-page peer-reviewable paper with cover, TOC, six figures, three appendices | [`Compositional_Monitoring_2026.pdf`](Compositional_Monitoring_2026.pdf) · [`.docx`](Compositional_Monitoring_2026.docx) |
-| 2 | **Talk deck** — **10-slide compressed final**, ~8 min spoken + cinema scroll + projector demo during Q&A. Spoken script in [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md). | [`data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) · [`.pptx`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx). Earlier 22-slide narrative and 12-slide intermediate compression archived for lineage at [`archive/talk_decks_pre_10slide_2026-05-20/`](archive/talk_decks_pre_10slide_2026-05-20/). |
-| 3 | **Cinema scroll** — 66 slides / 325-page PDF: master cover + 9 country sections × 6 plates each | [`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) · [`.pptx`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) |
-| 4 | **Interactive HTML projector** — three projection modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline in any browser | [`data_outputs/codawork2026_projector.html`](data_outputs/codawork2026_projector.html) |
+| 0 | **Foundation manuscript** — 25-page peer-reviewable paper with cover, TOC, six figures, three appendices | [`Compositional_Monitoring_2026.pdf`](Compositional_Monitoring_2026.pdf) · [`.docx`](Compositional_Monitoring_2026.docx) |
+| 1 | **Talk deck** — **10-slide compressed final**, ~8 min spoken + cinema scroll + projector demo during Q&A. Spoken script in [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md). | [`data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) · [`.pptx`](data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx). Earlier 22-slide narrative and 12-slide intermediate compression archived for lineage at [`archive/talk_decks_pre_10slide_2026-05-20/`](archive/talk_decks_pre_10slide_2026-05-20/). |
+| 2 | **Cinema scroll** — 66 slides / 325-page PDF: master cover + 9 country sections × 6 plates each | [`data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) · [`.pptx`](data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) |
+| 3 | **Interactive HTML projector** — three projection modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline in any browser | [`data_outputs/codawork2026_projector.html`](data_outputs/codawork2026_projector.html) |
 
 ## Folder layout
 
@@ -79,6 +81,7 @@ Everything in `archive/` has been **superseded** by current material. Preserved 
 
 ## Companion documents elsewhere in the repo
 
+- ⭐ **Flagship master-standard paper** — [`../../papers/flagship/GROUND_STATE_AND_TRACTION.md`](../../papers/flagship/GROUND_STATE_AND_TRACTION.md) (v2.1, 2026-05-21). The unified-formula statement of the framework's foundation, with the full lemma chain (Banach contraction, Helmholtz reciprocity, Rayleigh-Sommerfeld, Gershgorin, group-delay-as-rotation, closure invariance under log-ratio). The CoDaWork 2026 manuscript is the *first non-acoustic application* of the unified formula derived there.
 - **Manuscript** — [`papers/codawork2026/manuscript/`](../../papers/codawork2026/manuscript/). The peer-reviewable paper that the talk condenses. Nature-style structure with Appendix A (Equations), B (Terms), C (Plate Digest), and split references (External / Hˢ Repository).
 - **Community study** — `Studies/Energy_HiddenDirections_2026-05-17/Energy_HiddenDirections_2026-05-17.pdf` (outside the Hs repo). 20-slide community-friendly version of the same data.
 

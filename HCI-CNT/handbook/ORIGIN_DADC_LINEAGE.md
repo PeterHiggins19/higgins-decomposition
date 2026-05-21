@@ -1,8 +1,11 @@
 # Origin and Lineage — DADC, the Higgins Operator H₁, and the Path to CNQ
 
 **Status:** Canonical historical document, push #24 (2026-05-08).
-**Companion to:** Volumes I–IV of the handbook.
+**Companion to:** Volumes I–IV of the handbook, and **the master-standard flagship paper [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](../../papers/flagship/GROUND_STATE_AND_TRACTION.md)** (v2.1, 2026-05-21). The present document carries the historical narrative; the flagship paper carries the unified-formula mathematical statement with the full lemma chain.
 **Origin discovery credited to:** independent Grok cross-check pass (2026-05-08), verified against the public [Rogue-Wave-Audio](https://github.com/PeterHiggins19/Rogue-Wave-Audio) repository.
+
+> **Read this document for:** *what happened, in what order, who discovered what when.*
+> **Read [`GROUND_STATE_AND_TRACTION.md`](../../papers/flagship/GROUND_STATE_AND_TRACTION.md) for:** *the unified formula T_i(f, t) = c · (dimᵢ/S) · S(f, F_c,i) · exp(i·2π·f·τᵢ·n̂ᵢ), the lemma chain that proves it (Banach contraction, Helmholtz reciprocity, Rayleigh-Sommerfeld, Gershgorin, group-delay-as-rotation, closure invariance), and why Hˢ is a traction engine — the simplex carries time through the log-frequency ↔ group-delay coupling.*
 
 ---
 
