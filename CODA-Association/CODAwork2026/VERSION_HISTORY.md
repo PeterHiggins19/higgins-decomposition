@@ -11,6 +11,53 @@
 
 ---
 
+## 2026-05-20 — Refinement trail archived, 10-slide deck is now the only active talk
+
+**Trigger.** ChatGPT review of `CODA-Association/CODAwork2026/` flagged that the README chain still framed the 22-slide and 12-slide decks as "preserved siblings" or "time-budget fallbacks". With the 10-slide compressed final adopted as the conference talk, the sibling framing was a source of confusion — the repo still looked like three decks were on offer rather than one. Peter's directive: *"keep the 10 slide and talk, archive the the other slides and associated talks and update the readme files... the trail of refinements get archived the best move forward."*
+
+**Files archived to `archive/talk_decks_pre_10slide_2026-05-20/`** (with folder-level README):
+- `CodaWork2026_FinalTalk_2026-05-17.{pptx,pdf}` — 22-slide original narrative.
+- `CodaWork2026_FinalTalk_12Slide_2026-05-20.{pptx,pdf}` — 12-slide intermediate compression.
+- `CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` — ChatGPT-prepared 22→12 plan.
+- `build_final_talk.py`, `build_final_talk_v2.py`, `build_final_talk_12slide.py` — python-pptx builders for those two stages.
+- `SPEAKING_SCRIPT.md` — 22-slide beat-by-beat script (slide numbers no longer apply to the 10-slide deck).
+
+**Files remaining at active locations:**
+- `data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}` — the talk.
+- `data_outputs/build_final_talk_10slide.py` — its reproducible builder.
+- `SPEAKING_SCRIPT_10slide.md` — its beat-by-beat verbal script.
+
+**README chain refresh.**
+- `data_outputs/README.md` → version 6.0. Drops "preserved siblings", points at the archive folder. "How to run the presentation" simplified.
+- `CODAwork2026/README.md` → version 2.3. **Critical stale-reference fixes flagged by ChatGPT:** "At slide 18... At slide 19..." replaced with "After slide 10, switch to the cinema scroll. Then open the projector." Standards-conformance line updated from "slide 19 / slide 20" to "slide 10 footer + manuscript cover/back". Folder-layout block reflects the new archive subfolder.
+- `CODA-Association/README.md` → version 2.3. Folder map and "what is archived" reflect the new archive subfolder. AI-Use-Declaration line corrected to "slide 10 + manuscript".
+- `archive/README.md` rebuilt with the new section first, plus manuscript-render lineage section.
+
+**Discipline preserved.** Engine code untouched. Manuscript untouched. Per-country JSON/PDF outputs untouched. Cinema scroll and projector untouched. Push class: S2 (doc-only), Pre-Conference Lockdown-compliant.
+
+**Outcome.** Repo presents one deck as the conference talk, one speaking script as its verbal companion, one archive folder explaining how that deck was reached. ChatGPT's flagged stale references closed. The trail is preserved; the surface is clean.
+
+---
+
+## 2026-05-20 — Manuscript working-copy correction (TOC integrity)
+
+**Initial action (later reversed in the same session).** Moved the `CODA-Association/CODAwork2026/Compositional_Monitoring_2026.{docx,pdf}` working copies to `archive/manuscript_2026-05-19_msprint_pre-push58/` on the assumption they were stale Microsoft Print To PDF renders that should be replaced by the canonical LibreOffice build at `papers/codawork2026/manuscript/output/`.
+
+**Reversal.** Peter flagged that the archived version actually had a fully populated Table of Contents (with every section + page numbers) while the LibreOffice canonical export shipped with the un-populated TOC placeholder text *("If your reader does not auto-populate this section, right-click and choose Update Field")*. Microsoft Word populates TOC fields on open before printing; LibreOffice headless export does not. The msprint render was therefore **superior for conference distribution** despite the irregular toolchain.
+
+**Final state:**
+- `CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf` ← MS Print To PDF render with populated TOC (26 pp, 2.6 MB) — conference distribution version.
+- `CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx` ← byte-identical to `papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.docx`.
+- `papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.pdf` ← LibreOffice canonical build artefact, retains the un-populated TOC. Preserved as the build-pipeline reproducibility record but not used for distribution.
+- `archive/manuscript_2026-05-19_libreoffice_empty_toc/` ← parked copy of the LibreOffice export, for traceability of this correction.
+- `archive/manuscript_2026-05-19_msprint_pre-push58/` ← fallback copy of the msprint render, with corrected README explaining the full history.
+
+**Policy reinforced.** Conference working copies at `CODA-Association/CODAwork2026/` must produce a populated TOC. Until the build pipeline (`papers/codawork2026/manuscript/build/build_docx.js`) can produce a populated-TOC PDF headlessly, the msprint render is the authoritative distribution artefact.
+
+**Post-conference to-do.** Fix the headless PDF export pipeline so the LibreOffice canonical produces a populated TOC, closing the policy gap that currently lets the canonical and the distribution artefact differ. Track as a post-conference task; not blocking for CoDaWork 2026.
+
+---
+
 ## 2026-05-20 — 10-slide compressed deck promoted to primary
 
 **FinalTalk deck — version 2.0 (10-slide compressed).** The 10-slide deck (`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`) becomes the conference talk. Built from a ChatGPT-prepared compression plan plus a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer; all contact details (email, repo, UN-6 handout) move onto slide 1. ~8 minutes spoken, leaves time for the cinema scroll and projector during Q&A. Slides 6/7/8 (Germany / Japan / UK case studies) deliberately weighted at 75 seconds each. Beat-by-beat verbal script committed at [`SPEAKING_SCRIPT_10slide.md`](SPEAKING_SCRIPT_10slide.md).

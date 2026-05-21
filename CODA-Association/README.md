@@ -1,6 +1,6 @@
 # CODA-Association — the Hˢ home for compositional-data community work
 
-**Document version:** 2.2 · **Revised:** 2026-05-19 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [HUF-STD-002](../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [HUF-STD-003](../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
+**Document version:** 2.3 · **Revised:** 2026-05-20 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) (Publication) · [HUF-STD-002](../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) (Tensor Train I/O) · [HUF-STD-003](../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) (Linear Algebra Foundations).
 
 This folder is the Hˢ home for compositional-data community work — current talk material, conference packages, correspondence, and CoDaWork submissions. The active material lives at root and inside [`CODAwork2026/`](CODAwork2026/); older versions are kept in `CODAwork2026/archive/` for lineage, not for use.
 
@@ -35,10 +35,8 @@ CODA-Association/
     ├── Codaworks2026 proposal for conference/ ← original submission (abstract + MC-4 packet + committee letter)
     ├── SPEAKING_SCRIPT_10slide.md            ← beat-by-beat speaking script (10-slide deck)
     ├── data_outputs/                         ← **the presentation package**
-    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx  ← MAIN TALK (10 slides) — START HERE
+    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx  ← THE TALK (10 slides) — START HERE
     │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf
-    │   ├── CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx  ← 12-slide variant (preserved sibling)
-    │   ├── CodaWork2026_FinalTalk_2026-05-17.pptx          ← 22-slide narrative (preserved sibling)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx  ← the cinema scroll (66 slides)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
     │   ├── codawork2026_projector.html        ← live HTML manifold projector for Q&A
@@ -46,19 +44,23 @@ CODA-Association/
     │   ├── per_country_json/                  ← canonical engine output per country
     │   ├── per_country_pdfs/                  ← per-country Stage 0/1/2/3/CNQ plates
     │   ├── dual_view/                         ← Stage 1 Section + ILR-Helmert Triplet
+    │   ├── build_final_talk_10slide.py        ← reproducible 10-slide deck builder
     │   └── README.md                          ← presentation flow + reproducibility
     └── archive/                              ← superseded material — preserved for lineage
         ├── README.md                          ← archive index
-        ├── talk_decks_legacy/                 ← superseded Hˢ-authored decks
+        ├── talk_decks_pre_10slide_2026-05-20/ ← 22-slide narrative + 12-slide intermediate + builders + old 22-slide script
+        ├── talk_decks_legacy/                 ← earlier Hˢ-authored decks (May-12, May-13)
         ├── prep_docs_legacy_2026-05-13/       ← speaker prep written for the old 13-slide talk
-        └── legacy_decks_external/             ← copies of older external decks for record
+        ├── legacy_decks_external/             ← copies of older external decks for record
+        ├── manuscript_2026-05-19_msprint_pre-push58/         ← fallback msprint manuscript copy
+        └── manuscript_2026-05-19_libreoffice_empty_toc/      ← parked LibreOffice empty-TOC copy
 ```
 
 ## What is current
 
 The **three-piece presentation package** lives in `CODAwork2026/data_outputs/`:
 
-1. **`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`** — **10-slide compressed final talk** (what Peter will present, ~8 min spoken). Beat-by-beat speaking script: [`CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODAwork2026/SPEAKING_SCRIPT_10slide.md). Longer-form variants preserved as siblings (`...12Slide_2026-05-20.pptx`, `...2026-05-17.pptx` for 22 slides) in the same folder as time-budget fallbacks.
+1. **`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`** — **the 10-slide compressed final talk** (what Peter will present, ~8 min 20 sec spoken, slides 6 / 7 / 8 weighted at 75 sec each for the Germany / Japan / UK cases). Beat-by-beat speaking script: [`CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODAwork2026/SPEAKING_SCRIPT_10slide.md). The earlier 22-slide narrative and 12-slide intermediate compression are archived for lineage at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/) — preserved for traceability, not for use.
 2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide cinema scroll (the engine's actual output, played as a movie during Q&A after slide 10).
 3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; Q&A backdrop).
 
@@ -70,15 +72,17 @@ The companion **community study deck** lives in [`../../../Studies/Energy_Hidden
 
 Inside `CODAwork2026/archive/`:
 
-- **`talk_decks_legacy/`** — previous Hˢ-authored decks (2026-05-12, 2026-05-13) that have been superseded by the FinalTalk.
-- **`prep_docs_legacy_2026-05-13/`** — SPEAKER_BRIEF, BACKUP_PRESENTATION, CHEAT_SHEET, PEDAGOGICAL_TABLES, QA_BENCH, STUDY_PAGE. These were written for the 13-slide May-13 talk; their slide numbers and beat references are no longer accurate against the FinalTalk. Preserved for lineage; do not use as source for current speaker prep without rebuilding.
+- **`talk_decks_pre_10slide_2026-05-20/`** — the refinement trail that led to the 10-slide final: the 22-slide narrative (2026-05-17), the 12-slide intermediate compression (2026-05-20 morning), their python-pptx builders, the ChatGPT compression-plan JSON, and the 22-slide speaking script. The 10-slide deck is now the only active talk artefact.
+- **`talk_decks_legacy/`** — earlier Hˢ-authored decks (2026-05-12, 2026-05-13) that pre-date the 22-slide final-talk family.
+- **`prep_docs_legacy_2026-05-13/`** — SPEAKER_BRIEF, BACKUP_PRESENTATION, CHEAT_SHEET, PEDAGOGICAL_TABLES, QA_BENCH, STUDY_PAGE. These were written for the 13-slide May-13 talk; their slide numbers and beat references are no longer accurate. Preserved for lineage; do not use as source for current speaker prep without rebuilding.
 - **`legacy_decks_external/`** — copies of earlier CoDaWork 2026 decks from other repository locations (`HCI/codawork2026/HCI_Japan_CoDaWork2026.*`, `HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.*`). Originals remain at their source paths so existing references continue to resolve; these archive copies make the consolidation discoverable from inside CODA-Association.
+- **`manuscript_2026-05-19_msprint_pre-push58/`** and **`manuscript_2026-05-19_libreoffice_empty_toc/`** — manuscript render lineage. The msprint version (26 pp, populated TOC) is the conference-distribution authoritative; the LibreOffice export (25 pp, empty-TOC placeholder) is parked here for build-pipeline reproducibility records.
 
 For the full archive index see [`CODAwork2026/archive/README.md`](CODAwork2026/archive/README.md).
 
 ## Standards conformance
 
-- **HUF-STD-001 v1.1** (Publication Standards): AI Use Declaration on slide 19 of the FinalTalk; Standard Stamp colophon on slide 20. The HUF AI Collective is named in both. Author retains full scientific responsibility.
+- **HUF-STD-001 v1.1** (Publication Standards): AI Use Declaration on slide 10 of the talk (synthesis-slide footer) and on the manuscript cover + back-matter. The HUF AI Collective is named in both. Author retains full scientific responsibility.
 - **HUF-STD-002** (Tensor Train I/O): All engine outputs (per-country CNT JSON, CNQ JSON, Foundations Plates, Stage 1/2/3, CNQ dashboards) ship as deterministic vector outputs with hash-chained provenance to the raw EMBER CSVs.
 - **HUF-STD-003** (Linear Algebra Foundations): The seven foundations are visualised in `CodaWork2026_FoundationsPlates_2026-05-14.pdf` (Stage 0).
 

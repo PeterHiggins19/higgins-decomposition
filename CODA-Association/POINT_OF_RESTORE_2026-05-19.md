@@ -5,6 +5,8 @@
 **Scope:** the Hˢ (Higgins-Decomposition) framework as delivered for CoDaWork 2026, Coimbra, Portugal · 1–5 June 2026
 **Status:** restore checkpoint — this is the state we revert to if anything later breaks
 
+> **Update 2026-05-20.** Since this checkpoint was committed, the talk deck has been compressed from the 22-slide narrative described in §2 below to a **10-slide compressed final** (`CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}`). The 22-slide deck and its 12-slide intermediate compression remain fully recoverable from [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/), so this restore point is still recoverable byte-for-byte. The rest of the five-piece bundle (manuscript, cinema scroll, projector, engine) is unchanged.
+
 ---
 
 ## What "conference-ready" means here

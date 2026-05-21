@@ -1,10 +1,10 @@
 # CoDaWork 2026 — Final Presentation Package
 
-**Document version:** 5.0 · **Updated:** 2026-05-20 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+**Document version:** 6.0 · **Updated:** 2026-05-20 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
 
-The three-piece presentation package: a **10-slide compressed final-talk deck**, a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
+The three-piece presentation package: the **10-slide compressed final-talk deck**, a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
 
-The 10-slide deck is what Peter will present. The 12-slide and 22-slide longer-form variants are preserved as siblings here for reference and as time-budget fallbacks.
+The 10-slide deck is **the** talk. Earlier-stage refinements (22-slide narrative, 12-slide intermediate compression, their builders, the 22-slide speaking script) have been archived for lineage at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/) — preserved for traceability, not for use.
 
 ---
 
@@ -12,16 +12,14 @@ The 10-slide deck is what Peter will present. The 12-slide and 22-slide longer-f
 
 The CoDaWork 2026 presentation runs as **three stacked artefacts**, each doing a specific job:
 
-**Piece 1 — the main talk deck (story).**
-[`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) — **10 slides**, ~750 KB
+**Piece 1 — the talk deck (story).**
+[`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) — **10 slides**, ~1.5 MB
 [`CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) — read-only companion
 Built 2026-05-20. Compressed from the 22-slide narrative deck via a ChatGPT-prepared plan and a final pass that drops the MC-4 falsifiability slide and the "Inspect the instrument" closer in favour of moving all contact details onto slide 1.
 **Story arc (10 slides):** title + question + contact → size-view blind spot (USA Solar 760× hook) → five viewpoints in one schematic → Activation Coefficient (yeast factor + formula) → three archetypes overview → Germany (continuous arc) → Japan (shock + reorganisation) → UK (regime change) → 5-of-9 cross-country signature → synthesis ("what the stack answers") with AI Use Declaration footer.
-**Timing:** ~8 min spoken across the 10 slides + ~1.5 min cinema scroll + ~1 min projector demo = ~10.5 min apparatus time, leaving ~4.5 min Q&A in a 15-minute slot.
+**Timing:** ~8 min 20 sec spoken across the 10 slides + ~1.5 min cinema scroll + ~1 min projector demo = ~11.5 min apparatus time, leaving ~3.5 min Q&A in a 15-minute slot. Slides 6 / 7 / 8 (Germany / Japan / UK) weighted at 75 sec each — the cases are where the room sees the instrument do work.
 
-**Talk variants preserved as siblings (do not delete):**
-- [`CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx`](CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx) — 12-slide intermediate compression from the ChatGPT plan (keeps the MC-4 falsifiability slide).
-- [`CodaWork2026_FinalTalk_2026-05-17.pptx`](CodaWork2026_FinalTalk_2026-05-17.pptx) — original 22-slide narrative deck with full per-country navigation chart slides; use if a longer slot is offered.
+**Earlier stages archived for lineage.** The 22-slide narrative, 12-slide intermediate, their builders, the original compression-plan JSON, and the 22-slide speaking script live at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/) with a folder-level README. Preserved for traceability; do not use against the 10-slide deck — slide numbers will not match.
 
 **Piece 2 — the data scroll (movie).**
 [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CodaWork2026_PremierDataOutput_2026-05-13.pptx) — 66 slides, 6.3 MB
@@ -114,20 +112,21 @@ label        calendar year, rotated 90°, above plate
 | `per_country_pdfs/<ISO>_stage23.pdf` × 9 | varies | — | Per-country Stage 2/3 navigation plates (plate 16 of these is the navigation chart used as Fig 6 in the manuscript) |
 | `per_country_pdfs/<ISO>_cnq.pdf` × 9 | 1 page each | — | Per-country CNQ dashboards |
 | `dual_view/CodaWork2026_DualViewStage1Output_2026-05-13.pdf` | 503 pages | 4.1 MB | Master Dual-View PDF — Section + ILR-Helmert Triplet per country |
-| `build_final_talk.py` | — | 35 KB | Source of the final talk deck (reproducible build) |
+| `build_final_talk_10slide.py` | — | 17 KB | Source of the 10-slide compressed final talk deck (reproducible build) |
 
 ## Lineage
 
-- The new final talk deck (`CodaWork2026_FinalTalk_2026-05-17`) **replaces** `CodaWork2026_Talk_2026-05-13.pptx` (archived in `../archive/`).
+- The **10-slide compressed final talk** (`CodaWork2026_FinalTalk_10Slide_2026-05-20`) is the active conference deck. It was reached through three stages, archived for lineage at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/): the 22-slide narrative (2026-05-17) → 12-slide intermediate compression (2026-05-20 morning) → 10-slide final (2026-05-20 afternoon).
+- Earlier May 2026 decks (`CodaWork2026_Talk_2026-05-12`, `..._2026-05-13`, and the external `HCI/CNT` legacy decks) are archived under [`../archive/talk_decks_legacy/`](../archive/talk_decks_legacy/) and [`../archive/legacy_decks_external/`](../archive/legacy_decks_external/).
 - The story arc derives from the **manuscript** at `papers/codawork2026/manuscript/`. The talk is a condensation of the paper, not the other way around.
 - The five-viewpoint protocol, the Activation Coefficient diagnostic, the three transition archetypes, and the navigation chart (Fig 6) are all consistent across:
   - the manuscript (`Compositional_Monitoring_2026.docx`)
   - the community study deck (`Studies/Energy_HiddenDirections_2026-05-17.pdf`)
-  - this final talk deck
+  - the 10-slide final talk deck
 
 ## Conformance
 
-- **HUF-STD-001 v1.1** — AI Use Declaration on slide 19 of the final talk; Standard Stamp colophon on slide 20.
+- **HUF-STD-001 v1.1** — AI Use Declaration is on slide 10 of the talk (synthesis slide footer), and on the cover and back of the manuscript. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
 - **HUF-STD-002** — All engine outputs (CNT JSON, CNQ JSON, Foundations Plates, Stage 1/2/3, CNQ dashboards) ship as deterministic vector outputs (PDF / PNG / SVG) with hash-chained provenance to the raw EMBER CSVs.
 - **HUF-STD-003** — The seven Linear Algebra Foundations (Symmetric Matrix · Property of Transpose · Matrix Decomposition · Eigenvectors/Eigenvalues · Spectral Theorem · Spectral Decomposition · Visualization) are visualised in `CodaWork2026_FoundationsPlates_2026-05-14.pdf`.
 
