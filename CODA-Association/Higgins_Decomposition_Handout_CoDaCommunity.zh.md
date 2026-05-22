@@ -103,3 +103,76 @@ Aitchison 在 1986 年为本领域奠定了几何基础；CoDaWork 已培养四�
 ---
 
 *仪器读取。专家判定。哈希承载凭证。词汇守住底线。AI 遵循同一协议。*
+
+
+---
+
+## 第 2 面 — 操作、符号与仪器图谱
+
+*CoDa 方法所执行的操作、H^s 在其上添加的内容、CNQ 在四元数视图下添加的内容、每个领域闭包的来源，以及哪个仪器读取什么 — 紧凑参考。*
+
+### CoDa 核心操作（Aitchison 于 1986 年为本领域奠基）
+
+| 操作 | 符号 | 公式 / 定义 |
+|---|---|---|
+| Closure | C(x) | x / Σᵢ xᵢ |
+| Geometric mean | g(x) | (∏ᵢ xᵢ)^(1/D) |
+| CLR (centred log-ratio) | clrᵢ(x) | log(xᵢ) − (1/D) Σⱼ log(xⱼ) |
+| ILR (Helmert) | η(x) | Vᵀ · clr(x),   V·Vᵀ = I |
+| Aitchison distance | d_Ait(x,y) | ‖clr(x) − clr(y)‖₂ |
+| Perturbation | x ⊕ y | C(x ⊙ y)   — additive on the simplex |
+| Power scaling | α ⊙ x | C(x^α)   — scalar action on the simplex |
+
+### H^s 补充操作（标准在其上添加的内容）
+
+| 操作 | 符号 | 公式 / 定义 |
+|---|---|---|
+| Helmsman index | σ(t) | argmaxᵢ |clrᵢ(t+1) − clrᵢ(t)| |
+| Aitchison-step | ‖Δclr(t)‖ | ‖clr(t+1) − clr(t)‖₂ |
+| Power Share | πⱼ(t) | (Δclrⱼ)² / Σₖ (Δclrₖ)²,   Σ πⱼ = 1 |
+| Activation Coefficient | αⱼ(t) | πⱼ(t) / ρⱼ(t)   (when ρⱼ ≥ 10⁻³) |
+| Shannon entropy | H(t) | −Σⱼ ρⱼ ln ρⱼ |
+| Effective carriers | K_eff(t) | exp(H(t)) |
+| L2 drift | L2(p,q) | √Σᵢ (pᵢ − qᵢ)² |
+| TV distance | TV(p,q) | (1/2) Σᵢ |pᵢ − qᵢ| |
+
+### CNQ 四元数操作（S³ 上的相位读取）
+
+| 操作 | 符号 | 公式 / 定义 |
+|---|---|---|
+| Phase quaternion | q(t) | ∈ S³ ≅ SU(2) |
+| Quaternion conjugate | q* | (a, −b, −c, −d) |
+| Hamilton product | (p·q)_k | non-commutative quaternion multiplication |
+| Quaternion sandwich | v' | q · v · q*   (rotation of 3-vector) |
+| Quaternion log | log(q) | (atan2(|v|, a) / |v|) · v |
+| Metric involution | M² | = I   ⟺   (q*)* = q |
+| SLERP (spherical interp) | slerp(q₁,q₂,α) | sin((1−α)Ω)/sinΩ · q₁ + sin(αΩ)/sinΩ · q₂ |
+| CHSH joint coherence | S | E(a,b) + E(a,b') + E(a',b) − E(a',b') |
+
+### 跨领域闭包约束（分割所分配的预算）
+
+| 领域 | 预算 | 闭包约束 |
+|---|---|---|
+| Acoustic (BTL) | c = 20·log₁₀(2) ≈ 6.02 dB | Σ Gᵢ = c   (4π → 2π baffle-step) |
+| Electrical mix | 100 % generation | Σ pᵢ = 1   (coal+gas+hydro+nuclear+solar+wind+oil+other) |
+| Geochemistry | 100 % weight | Σ wᵢ = 1   (major-element oxide fraction) |
+| Macro-economic | 100 % GDP | Σ pᵢ = 1   (sectoral share) |
+| ERB loudness (HCI-AUDIO) | 100 % perceptual | Σⱼ Σ_drivers = 1   (40 bands × 4 drivers) |
+
+### 仪器一览 — 谁读什么
+
+| 仪器 | 读取 | 输出 |
+|---|---|---|
+| CoDa community | static partition / one timestep | log-ratio biplot, distance matrix |
+| CNT — tensor engine | trajectory amplitude / per-timestep | simplex coords, Helmsman, Power Share, navigation |
+| CNQ — quaternion engine | phase trajectory / S³ rotation rates | quaternion path, CHSH, twin-quaternion factoring |
+| HCI-AUDIO | 4-way listening-position field | ERB band × driver matrix, phase quaternions |
+| HUF (umbrella) | governance | HUF-STD-001 (Publication), -002 (Tensor Train I/O), -003 (Linear Algebra Foundations) |
+
+### 符号图例
+
+**D** carriers · **T** timesteps · **pᵢ** portion · **Gᵢ** gain (dB) · **F_c** cutoff · **τ** group delay · **n̂** rotation axis · **q** unit quaternion · **σ** Helmsman · **αⱼ** Activation · **πⱼ** Power Share · **η** ILR coordinate · **clr** centred log-ratio · **g(x)** geometric mean · **S^(D−1)** simplex · **S³** 3-sphere ≅ SU(2)
+
+---
+
+*同输入同输出，始终如一。仪器读取。专家判定。哈希承载凭证。词汇守住底线。AI 遵循同一协议。*

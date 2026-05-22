@@ -103,3 +103,76 @@ Aitchison дал области её геометрию в 1986 году; CoDaWo
 ---
 
 *Инструмент читает. Эксперт решает. Хэши несут квитанции. Словарь держит линию. ИИ следует тому же протоколу.*
+
+
+---
+
+## Сторона 2 — Операции, символы и карта прибора
+
+*Компактный справочник операций методов CoDa, того, что Hˢ добавляет сверху, что добавляет CNQ в кватернионном представлении, откуда берётся замыкание в каждой области и какой прибор что считывает.*
+
+### Базовые операции CoDa (основание, которое Aitchison дал области в 1986 г.)
+
+| Операция | Символ | Формула / определение |
+|---|---|---|
+| Closure | C(x) | x / Σᵢ xᵢ |
+| Geometric mean | g(x) | (∏ᵢ xᵢ)^(1/D) |
+| CLR (centred log-ratio) | clrᵢ(x) | log(xᵢ) − (1/D) Σⱼ log(xⱼ) |
+| ILR (Helmert) | η(x) | Vᵀ · clr(x),   V·Vᵀ = I |
+| Aitchison distance | d_Ait(x,y) | ‖clr(x) − clr(y)‖₂ |
+| Perturbation | x ⊕ y | C(x ⊙ y)   — additive on the simplex |
+| Power scaling | α ⊙ x | C(x^α)   — scalar action on the simplex |
+
+### Дополнительные операции Hˢ (то, что добавляет стандарт)
+
+| Операция | Символ | Формула / определение |
+|---|---|---|
+| Helmsman index | σ(t) | argmaxᵢ |clrᵢ(t+1) − clrᵢ(t)| |
+| Aitchison-step | ‖Δclr(t)‖ | ‖clr(t+1) − clr(t)‖₂ |
+| Power Share | πⱼ(t) | (Δclrⱼ)² / Σₖ (Δclrₖ)²,   Σ πⱼ = 1 |
+| Activation Coefficient | αⱼ(t) | πⱼ(t) / ρⱼ(t)   (when ρⱼ ≥ 10⁻³) |
+| Shannon entropy | H(t) | −Σⱼ ρⱼ ln ρⱼ |
+| Effective carriers | K_eff(t) | exp(H(t)) |
+| L2 drift | L2(p,q) | √Σᵢ (pᵢ − qᵢ)² |
+| TV distance | TV(p,q) | (1/2) Σᵢ |pᵢ − qᵢ| |
+
+### Кватернионные операции CNQ (считывание фазы на S³)
+
+| Операция | Символ | Формула / определение |
+|---|---|---|
+| Phase quaternion | q(t) | ∈ S³ ≅ SU(2) |
+| Quaternion conjugate | q* | (a, −b, −c, −d) |
+| Hamilton product | (p·q)_k | non-commutative quaternion multiplication |
+| Quaternion sandwich | v' | q · v · q*   (rotation of 3-vector) |
+| Quaternion log | log(q) | (atan2(|v|, a) / |v|) · v |
+| Metric involution | M² | = I   ⟺   (q*)* = q |
+| SLERP (spherical interp) | slerp(q₁,q₂,α) | sin((1−α)Ω)/sinΩ · q₁ + sin(αΩ)/sinΩ · q₂ |
+| CHSH joint coherence | S | E(a,b) + E(a,b') + E(a',b) − E(a',b') |
+
+### Ограничения замыкания по областям (бюджет, который распределяет разбиение)
+
+| Область | Бюджет | Ограничение замыкания |
+|---|---|---|
+| Acoustic (BTL) | c = 20·log₁₀(2) ≈ 6.02 dB | Σ Gᵢ = c   (4π → 2π baffle-step) |
+| Electrical mix | 100 % generation | Σ pᵢ = 1   (coal+gas+hydro+nuclear+solar+wind+oil+other) |
+| Geochemistry | 100 % weight | Σ wᵢ = 1   (major-element oxide fraction) |
+| Macro-economic | 100 % GDP | Σ pᵢ = 1   (sectoral share) |
+| ERB loudness (HCI-AUDIO) | 100 % perceptual | Σⱼ Σ_drivers = 1   (40 bands × 4 drivers) |
+
+### Прибор с одного взгляда — кто что считывает
+
+| Прибор | Читает | Выход |
+|---|---|---|
+| CoDa community | static partition / one timestep | log-ratio biplot, distance matrix |
+| CNT — tensor engine | trajectory amplitude / per-timestep | simplex coords, Helmsman, Power Share, navigation |
+| CNQ — quaternion engine | phase trajectory / S³ rotation rates | quaternion path, CHSH, twin-quaternion factoring |
+| HCI-AUDIO | 4-way listening-position field | ERB band × driver matrix, phase quaternions |
+| HUF (umbrella) | governance | HUF-STD-001 (Publication), -002 (Tensor Train I/O), -003 (Linear Algebra Foundations) |
+
+### Легенда символов
+
+**D** carriers · **T** timesteps · **pᵢ** portion · **Gᵢ** gain (dB) · **F_c** cutoff · **τ** group delay · **n̂** rotation axis · **q** unit quaternion · **σ** Helmsman · **αⱼ** Activation · **πⱼ** Power Share · **η** ILR coordinate · **clr** centred log-ratio · **g(x)** geometric mean · **S^(D−1)** simplex · **S³** 3-sphere ≅ SU(2)
+
+---
+
+*Тот же вход — тот же выход, всегда. Инструмент читает. Эксперт решает. Хэши несут квитанции. Словарь держит линию. ИИ следует тому же протоколу.*

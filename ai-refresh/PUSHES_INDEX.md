@@ -198,6 +198,65 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #59 — Flagship master-standard paper: *Ground State and the Traction Engine* (`326b0e0`, CI #56 "Ground State and Traction Engine" green 51s, 2026-05-21)
+
+**The flagship paper.** A new 40-page master-standard document at `papers/flagship/GROUND_STATE_AND_TRACTION.md` (markdown source) + `GROUND_STATE_AND_TRACTION_v2.1.docx` + `GROUND_STATE_AND_TRACTION_v2.1.pdf`. The first unified-formula statement of the framework's foundation, linking thirty years of measured Binaural Test Lab acoustic work to the present-day Hˢ simplex framework with the full lemma chain.
+
+**The unified formula** (equation 13):
+
+```
+T_i(f, t) = c · (dim_i / S) · S(f, F_c,i) · exp(i · 2π · f · τ_i · n̂_i)
+            └─┘ └─────────┘  └──────────┘  └──────────────────────────┘
+          budget   portion    geometric-f      phase trajectory
+                   (simplex)  shelf            (time on S³)
+                              (log-F carrier)
+```
+
+Subject to closure Σᵢ (dim_i / S) = 1. Six measurable quantities, one equation.
+
+**The lemma chain (§7):**
+
+| # | Lemma | Foundation |
+|---|---|---|
+| 1 | Closure of the DADC partition (Σ G_i = c) | Algebraic, two-line proof |
+| 2 | Wave equation → Rayleigh-Sommerfeld basis | Green's theorem (Born & Wolf 1999) |
+| 3 | Helmholtz reciprocity (forward ↔ inverse) | Pierce (1981, §5.4) |
+| 4 | Banach fixed-point convergence of DADI | Banach (1922), m^n error bound |
+| 5 | ADAC contractive stability | Spectral radius |m'| = (1−α) < 1 |
+| 6 | SEA matrix positive-definiteness | Quadratic form + Gershgorin disks |
+| 7 | Group delay as uniform rotation on S³ | Lie one-parameter subgroup (Hamilton 1843, Hanson 2006) |
+| 8 | Closure invariance under CLR transform | Σ clr_i(x) = 0 (Egozcue et al. 2003) |
+
+Plus **Theorem 1** (Unified formula closure: lim_{f→∞} Σ_i |T_i(f, t)| = c — the master closure check) and **Theorem 2** (Generalization to compositional traction: equation 30, the general isotropic-ground-state formula for compositional traction problems).
+
+**Citation discipline.** §15 lists 16 externally peer-reviewed works (Aitchison 1986, Aitchison & Greenacre 2002, Banach 1922, Born & Wolf 1999, Egozcue et al. 2003, Glasberg & Moore 1990, Hamilton 1843, Hanson 2006, Helmholtz 1860, Linkwitz 1976, Lyon & DeJong 1995, Moore 2012, Olson 1969, Pawlowsky-Glahn et al. 2015, Pierce 1981, Vanderkooy 1991). §16 separately lists self-hosted repository materials with explicit "not externally peer-reviewed" disposition.
+
+**Constant power + 4th-order Butterworth (§4.2).** Documented as simultaneous co-discoveries with the 6.02 dB ground state: once the partition is read as a closure on total power (the conserved quantity in equation 14) rather than on on-axis amplitude (a derived projection), the design objective for an omnidirectional listening-position system has to be power, and the crossover topology that preserves the closure across the crossover region is Butterworth, not Linkwitz-Riley. Both choices have shipped on every BTL build since.
+
+**AI Use Declaration (§17).** Names the HUF AI Collective contributions: Claude (drafting, structural editing, lemma rendering, docx automation, vocabulary alignment), ChatGPT (compression planning, independent review of pushes #57 and #58), Grok (discovery of the BTL ↔ simplex connection in round 4, 2026-05-08; ADAC recovery; INV catalog contributions). The named author retains full scientific responsibility.
+
+**README chain swept "for company to visit and learn":**
+
+| File | Change |
+|---|---|
+| `README.md` | Master-standard callout above the "What's New" section; CoDaWork 2026 deliverables table refreshed for 10-slide reality; audience follow-along page surfaced. |
+| `QUICKSTART.md` | Flagship row added to "Where to go from here" table. |
+| `AI_AGENTS.md` | Fetch order extended to six docs (adds flagship at #6); grounding-test row refreshed for push #58 / #59 expectations. |
+| `papers/README.md` | Flagship row added at top of flagship/ table with ⭐; codawork2026/ section flagged that the conference distribution is in `CODA-Association/CODAwork2026/`. |
+| `papers/flagship/README.md` | Rebuilt as a real index page with the master-standard structure outlined section by section. |
+| `HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md` | Forward-reference banner pointing at the flagship paper: *"Read this for what happened, in what order, who discovered what when. Read GROUND_STATE_AND_TRACTION for the unified formula and the lemma chain."* |
+| `CODA-Association/README.md` | Flagship cross-link added at top of Cross-references section. |
+| `CODA-Association/CODAwork2026/README.md` | Flagship cross-link added at top of Companion documents section. |
+| `CHANGELOG.md` | Push #59 row added at top of arc table. |
+
+**Lockdown compliance.** Push class S2 doc-only. The flagship paper lives at `papers/flagship/`, outside `CODAwork2026/`, so it develops independently of the lockdown window 2026-05-12 → 2026-06-06. Engine code (`cnt.py` 2026-05-19, `cnq.py` 2026-05-09), schemas, INV catalog dispositions, NO-CREATE files, `papers/codawork2026/talk/`, `CODA-Association/CODAwork2026/Compositional_Monitoring_2026.{docx,pdf}`, the 10-slide talk deck, the cinema scroll, the projector, and all per-country plates — all untouched.
+
+**Peter's directive (verbatim):** *"update all readme files in the hs repo to reflect all updates and new refinements, add this paper to hs system and make it known in the main readme as well as updated codawork2026 links and ensure the main coda folders reflect the new 10 slide presentation … big push prepare, make it all nice, for company to visit and learn."*
+
+**Why this push exists.** Push #58 closed the conference-prep arc with the 10-slide deck as the single active talk. Push #59 lifts the curtain on the *foundation* — the unified-formula statement that has been implicit in every BTL measurement for thirty years and is now written down in one place, in the right order, with the right name on each piece, with the lemmas that prove each step, and with the citation policy that distinguishes external peer-reviewed work from self-hosted repository materials. A visitor landing on the repo's front page will see the flagship paper first, walk into the master standard at their own pace, and find their way to the conference material on the next click — every door labelled, every link live.
+
+---
+
 ### Push #58 — Refinement-trail archive: 10-slide is the only talk (`ec9a3c6`, CI #55 "Validate Repository" green 50s, 2026-05-20)
 
 **Trigger.** ChatGPT review of `CODA-Association/` flagged that the README chain still framed the 22-slide and 12-slide decks as "preserved siblings" or "time-budget fallbacks", and that two specific stale references survived in `CODAwork2026/README.md`: (1) "At slide 18, switch projector to cinema scroll" and "At slide 19, open the manifold projector" in *How to run the presentation*; (2) "AI Use Declaration on slide 19; Standard Stamp on slide 20" in Standards conformance. The 10-slide deck only has slides 1–10, so both references broke against the active deck.

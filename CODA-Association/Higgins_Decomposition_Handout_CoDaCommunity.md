@@ -101,3 +101,76 @@ The cross-country deceptive-drift signature fires in **5 of 9 countries** (AUS, 
 ---
 
 *The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line. The AI follows the same protocol.*
+
+
+---
+
+## Side 2 — Operations, symbols, and the apparatus map
+
+*Compact reference for the operations performed by CoDa methods, what Hˢ adds on top, what CNQ adds in the quaternion view, where the closure comes from in each domain, and which apparatus reads what.*
+
+### CoDa core operations (the foundation Aitchison gave the field in 1986)
+
+| Operation | Symbol | Formula / definition |
+|---|---|---|
+| Closure | C(x) | x / Σᵢ xᵢ |
+| Geometric mean | g(x) | (∏ᵢ xᵢ)^(1/D) |
+| CLR (centred log-ratio) | clrᵢ(x) | log(xᵢ) − (1/D) Σⱼ log(xⱼ) |
+| ILR (Helmert) | η(x) | Vᵀ · clr(x),   V·Vᵀ = I |
+| Aitchison distance | d_Ait(x,y) | ‖clr(x) − clr(y)‖₂ |
+| Perturbation | x ⊕ y | C(x ⊙ y)   — additive on the simplex |
+| Power scaling | α ⊙ x | C(x^α)   — scalar action on the simplex |
+
+### Hˢ supplementary operations (what the standard adds)
+
+| Operation | Symbol | Formula / definition |
+|---|---|---|
+| Helmsman index | σ(t) | argmaxᵢ |clrᵢ(t+1) − clrᵢ(t)| |
+| Aitchison-step | ‖Δclr(t)‖ | ‖clr(t+1) − clr(t)‖₂ |
+| Power Share | πⱼ(t) | (Δclrⱼ)² / Σₖ (Δclrₖ)²,   Σ πⱼ = 1 |
+| Activation Coefficient | αⱼ(t) | πⱼ(t) / ρⱼ(t)   (when ρⱼ ≥ 10⁻³) |
+| Shannon entropy | H(t) | −Σⱼ ρⱼ ln ρⱼ |
+| Effective carriers | K_eff(t) | exp(H(t)) |
+| L2 drift | L2(p,q) | √Σᵢ (pᵢ − qᵢ)² |
+| TV distance | TV(p,q) | (1/2) Σᵢ |pᵢ − qᵢ| |
+
+### CNQ quaternion operations (the phase readout on S³)
+
+| Operation | Symbol | Formula / definition |
+|---|---|---|
+| Phase quaternion | q(t) | ∈ S³ ≅ SU(2) |
+| Quaternion conjugate | q* | (a, −b, −c, −d) |
+| Hamilton product | (p·q)_k | non-commutative quaternion multiplication |
+| Quaternion sandwich | v' | q · v · q*   (rotation of 3-vector) |
+| Quaternion log | log(q) | (atan2(|v|, a) / |v|) · v |
+| Metric involution | M² | = I   ⟺   (q*)* = q |
+| SLERP (spherical interp) | slerp(q₁,q₂,α) | sin((1−α)Ω)/sinΩ · q₁ + sin(αΩ)/sinΩ · q₂ |
+| CHSH joint coherence | S | E(a,b) + E(a,b') + E(a',b) − E(a',b') |
+
+### Closure constraints across domains (the budget the partition apportions)
+
+| Domain | Budget | Closure constraint |
+|---|---|---|
+| Acoustic (BTL) | c = 20·log₁₀(2) ≈ 6.02 dB | Σ Gᵢ = c   (4π → 2π baffle-step) |
+| Electrical mix | 100 % generation | Σ pᵢ = 1   (coal+gas+hydro+nuclear+solar+wind+oil+other) |
+| Geochemistry | 100 % weight | Σ wᵢ = 1   (major-element oxide fraction) |
+| Macro-economic | 100 % GDP | Σ pᵢ = 1   (sectoral share) |
+| ERB loudness (HCI-AUDIO) | 100 % perceptual | Σⱼ Σ_drivers = 1   (40 bands × 4 drivers) |
+
+### Apparatus at a glance — who reads what
+
+| Apparatus | Reads | Output |
+|---|---|---|
+| CoDa community | static partition / one timestep | log-ratio biplot, distance matrix |
+| CNT — tensor engine | trajectory amplitude / per-timestep | simplex coords, Helmsman, Power Share, navigation |
+| CNQ — quaternion engine | phase trajectory / S³ rotation rates | quaternion path, CHSH, twin-quaternion factoring |
+| HCI-AUDIO | 4-way listening-position field | ERB band × driver matrix, phase quaternions |
+| HUF (umbrella) | governance | HUF-STD-001 (Publication), -002 (Tensor Train I/O), -003 (Linear Algebra Foundations) |
+
+### Symbols legend
+
+**D** carriers · **T** timesteps · **pᵢ** portion · **Gᵢ** gain (dB) · **F_c** cutoff · **τ** group delay · **n̂** rotation axis · **q** unit quaternion · **σ** Helmsman · **αⱼ** Activation · **πⱼ** Power Share · **η** ILR coordinate · **clr** centred log-ratio · **g(x)** geometric mean · **S^(D−1)** simplex · **S³** 3-sphere ≅ SU(2)
+
+---
+
+*Same input, same output, always. The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line. The AI follows the same protocol.*

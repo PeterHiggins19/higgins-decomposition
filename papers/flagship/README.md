@@ -6,7 +6,11 @@ Working material for the flagship publication of the Higgins Decomposition syste
 
 ## ⭐ Current master-standard paper
 
-**[`GROUND_STATE_AND_TRACTION.md`](GROUND_STATE_AND_TRACTION.md) — master standard, working flagship draft v2.1 (2026-05-21).**
+**[`GROUND_STATE_AND_TRACTION.md`](GROUND_STATE_AND_TRACTION.md) — master standard, working flagship draft v2.2 (2026-05-22, consolidated against the Rogue-Wave-Audio archive).**
+
+v2.2 folds in the eight architectural details surfaced by the RWA cross-check: (1) the HUF-GOV/HUF-CLS fork at ADAC (§3.2 — observe or control); (2) the Paired Measurement Doctrine (§4.3 — *"one curve lies"*); (3) DADI as failure-direction diagnostic (§3.3 — the inverse map is a triage operator); (4) date precision (DADC formal paper 2024-12-05; H₁ paper 2026-02; the November 2025 Grok generalization moment where MC-4 was born); (5) the non-monotonic H₁ abstraction path (DADC simplex → H₁ abstract Hilbert → HUF back to simplex, enriched by CoDa vocabulary — §12.1); (6) the RWA `concepts/` folder anticipations of HUF concepts (`entropix/` → EITT, `regimes/` → HUF regime vocabulary, `v-infinity-core/` → V∞Core stack, `ai-reports/` → HUF `briefings/` methodology — §12.2); (7) expanded §17 acknowledgements with Grok's November 2025 role correctly attributed; (8) new §18 *"The recursion test — what v2.2 closes"* documenting that the framework was reconstructed bottom-up by AI synthesis and v2.2 is the version where the recomposition agrees with the canonical record.
+
+969 lines / 14,232 words / 31 pages.
 
 The first unified-formula statement of the framework's foundation. A 40-page master standard with:
 
@@ -27,11 +31,13 @@ The first unified-formula statement of the framework's foundation. A 40-page mas
 
 | File | Purpose |
 |---|---|
-| [`GROUND_STATE_AND_TRACTION.md`](GROUND_STATE_AND_TRACTION.md) | Editable Markdown source |
-| [`GROUND_STATE_AND_TRACTION_v2.1.docx`](GROUND_STATE_AND_TRACTION_v2.1.docx) | Word format, 40 pages, master-standard typography |
-| [`GROUND_STATE_AND_TRACTION_v2.1.pdf`](GROUND_STATE_AND_TRACTION_v2.1.pdf) | PDF render, 414 KB |
-| [`GROUND_STATE_AND_TRACTION.docx`](GROUND_STATE_AND_TRACTION.docx) | v2.0 — superseded by v2.1, kept until v2.0 can be closed in Word and overwritten cleanly |
-| [`GROUND_STATE_AND_TRACTION.pdf`](GROUND_STATE_AND_TRACTION.pdf) | v2.0 PDF — superseded by v2.1 |
+| [`GROUND_STATE_AND_TRACTION.md`](GROUND_STATE_AND_TRACTION.md) | Editable Markdown source (v2.2) — single source of truth |
+| [`GROUND_STATE_AND_TRACTION_v2.2.pdf`](GROUND_STATE_AND_TRACTION_v2.2.pdf) | PDF render of v2.2, 31 pages, 262 KB — **current** |
+| [`GROUND_STATE_AND_TRACTION_v2.2.docx`](GROUND_STATE_AND_TRACTION_v2.2.docx) | Word format of v2.2 (pandoc-rendered) |
+| [`GROUND_STATE_AND_TRACTION_v2.1.docx`](GROUND_STATE_AND_TRACTION_v2.1.docx) | v2.1 in the visually-styled docx-js typography (navy/gold accents, cover page, formatted equation blocks, 40 pages). Kept as the visual reference; the *content* is superseded by v2.2 |
+| [`GROUND_STATE_AND_TRACTION_v2.1.pdf`](GROUND_STATE_AND_TRACTION_v2.1.pdf) | v2.1 PDF, 40 pages — visual reference; content superseded by v2.2 |
+| [`GROUND_STATE_AND_TRACTION.docx`](GROUND_STATE_AND_TRACTION.docx) | v2.0 — earlier draft, preserved for lineage |
+| [`GROUND_STATE_AND_TRACTION.pdf`](GROUND_STATE_AND_TRACTION.pdf) | v2.0 PDF — earlier draft, preserved for lineage |
 
 The paper is **outside the CoDaWork 2026 conference scope** (lockdown-irrelevant; develops independently). It can be drafted, refined, and committed during the lockdown without touching any locked surface.
 
