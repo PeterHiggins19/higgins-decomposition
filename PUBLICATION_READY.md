@@ -6,6 +6,8 @@
 
 **Audience.** Researchers, practitioners, code reviewers, AI assistants, and curious readers of any technical level. If you have a CSV of compositional time-series, you can produce a CNT-grade analysis from a clean clone in two commands.
 
+> **🛡️ Trust path for skeptical users.** Every algorithm is published in **four forms**: Python reference, R reference, language-agnostic pseudocode, and formal HUF-STD-002 specification. A skeptical user can re-implement from the pseudocode in any language and verify byte-identically against the published code via `content_sha256` on the three canonical reference inputs (Backblaze, Planck CMB, SM neutrino — all converging at IEEE float64 floor, `max_residual = 4.44 × 10⁻¹⁶`). See [`TRUST_AND_VERIFICATION.md`](TRUST_AND_VERIFICATION.md) for the 7-step verification protocol. *Trust is earned, not expected.*
+
 ---
 
 ## What's in this repository

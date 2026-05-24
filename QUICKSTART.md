@@ -6,6 +6,21 @@ This is the absolute shortest path to a working result, in any language.
 
 ---
 
+## 🛡️ Verify before you trust (skeptical-user path)
+
+**You don't have to run the published code to verify it.** The Hˢ framework publishes every algorithm in **four forms** — Python reference, R reference, language-agnostic pseudocode, and formal HUF-STD-002 specification — so that a skeptical user can re-implement from the pseudocode in any language and verify byte-identically against the published code via `content_sha256` on the three canonical reference inputs.
+
+| If you want to | Read |
+|---|---|
+| Verify *the math* before trusting anything | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) v2.2 §7 — 8 lemmas + 2 theorems, each resting on standard published results (Banach 1922, Helmholtz 1860, Hamilton 1843, Aitchison 1986, …) |
+| Verify *the algorithm* before trusting the code | [`HCI-CNT/engine/CNT_PSEUDOCODE.md`](HCI-CNT/engine/CNT_PSEUDOCODE.md) v3.1.0 and [`HCI-CNQ/engine/CNQ_PSEUDOCODE.md`](HCI-CNQ/engine/CNQ_PSEUDOCODE.md) — language-neutral algorithm references |
+| Verify *the implementation* by independent re-implementation | [`TRUST_AND_VERIFICATION.md`](TRUST_AND_VERIFICATION.md) — the 7-step verification protocol with three canonical reference inputs and published hashes |
+| Verify *the empirical claims* | Run the three pinned reference datasets (Backblaze, Planck CMB, SM neutrino) and check IEEE-floor convergence (`max_residual = 4.44 × 10⁻¹⁶`) |
+
+The framework's discipline is **trust by independent reproduction.** *We need to prove to be trustworthy, not expect it.*
+
+---
+
 ## 30 seconds — reproduce the three IEEE-floor confirmations
 
 ```bash
@@ -103,7 +118,8 @@ Bit-identical residual on Backblaze and Planck (two physically unrelated D=4 dat
 
 | Goal | Read |
 |---|---|
-| **Flagship paper (master standard — why the framework works)** | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) |
+| 🛡️ **Trust path — independently verify the code without running it** | [`TRUST_AND_VERIFICATION.md`](TRUST_AND_VERIFICATION.md) |
+| **Flagship paper (master standard — why the framework works)** | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) v2.2 |
 | Full publication-grade overview | [`PUBLICATION_READY.md`](PUBLICATION_READY.md) |
 | Single-file AI loader (one fetch = full system context) | [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json) |
 | Operations protocol (12-transition Gawande checklist) | [`OPERATIONS_PROTOCOL.md`](OPERATIONS_PROTOCOL.md) |

@@ -5,10 +5,14 @@ byte-identical `content_sha256`.
 
 | File | Purpose |
 |---|---|
-| [`cnt.py`](cnt.py) | Python canonical engine, version 2.0.4 |
-| [`cnt.R`](cnt.R) | R parity port, version 2.0.4 |
+| [`cnt.py`](cnt.py) | Python canonical engine, version **3.1.0** |
+| [`cnt.R`](cnt.R) | R parity port, version 3.0.0 (v3.1.0 parity queued as EngPromo-2 post-conference) |
+| ⭐ [`CNT_PSEUDOCODE.md`](CNT_PSEUDOCODE.md) | **Language-agnostic algorithm reference for v3.1.0** — re-implement in any language from this document alone |
+| [`ANTI_SPECIFICATION.md`](ANTI_SPECIFICATION.md) | What the engine MUST NOT do (failure-mode catalogue) |
 | [`native_units.py`](native_units.py) | v1.1-B native-units helper (input_units / higgins_scale_units / units_scale_factor_to_neper) |
 | [`tests/`](tests/) | determinism gate + parity tests |
+
+**For skeptical users:** see [`../../TRUST_AND_VERIFICATION.md`](../../TRUST_AND_VERIFICATION.md) at the repo root. That document explains how to independently verify this code without running it: read the pseudocode, re-implement in your language of choice, run on the three canonical reference inputs (Backblaze, Planck CMB, SM neutrino), compare `content_sha256` against the published values. The engine is published in four forms (Python + R + pseudocode + HUF-STD-002 specification) precisely so that trust is earned by independent reproduction, not expected by default.
 
 ## Usage
 

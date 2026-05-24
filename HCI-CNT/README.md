@@ -1,8 +1,10 @@
 # HCI-CNT — Compositional Navigation Tensor
 
-> **🎉 Fully Public — Publication-Grade (push #27, 2026-05-08).** Both engines (CNT and CNQ) are shipped in Python and R; CNQ has language-agnostic pseudocode and a 43-test suite. Single-file AI loader at [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json); user entry point at [`PUBLICATION_READY.md`](PUBLICATION_READY.md). All "EXPERIMENTAL — NOT FOR REPO USE" guards retired. Free to use, help available.
+> **🎉 Fully Public — Publication-Grade.** Both engines (CNT and CNQ) shipped in Python and R; **both engines now ship with language-agnostic pseudocode (push #62, 2026-05-22)** — CNT_PSEUDOCODE.md v3.1.0 and CNQ_PSEUDOCODE.md v1.0.0; 43-test suite; three IEEE-floor confirmation datasets (Backblaze, Planck CMB, SM neutrino). Single-file AI loader at [`../HS_FAST_REFRESH.json`](../HS_FAST_REFRESH.json); user entry point at [`../PUBLICATION_READY.md`](../PUBLICATION_READY.md). Free to use, help available.
 
-**Engine 2.0.4 · Schema 2.1.0 · 25 reference experiments · Code: Apache-2.0 · Docs: CC BY 4.0**
+> **🛡️ For skeptical users — [`../TRUST_AND_VERIFICATION.md`](../TRUST_AND_VERIFICATION.md).** You do not have to run the published Python or R code to verify the algorithm. Re-implement from the pseudocode in any language; run on the three pinned reference inputs; compare `content_sha256` against published values. *Trust is earned, not expected.*
+
+**Engine 3.1.0 · Schema 3.1.0 · 25 reference experiments · Code: Apache-2.0 · Docs: CC BY 4.0**
 
 The HCI-CNT subsystem is the Compositional Navigation Tensor implementation
 inside the Hˢ research repository. It is a deterministic, fully-disclosed

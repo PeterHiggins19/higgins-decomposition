@@ -21,6 +21,8 @@ English is canonical. FR/ES/RU/ZH/AR non-English versions are drafts pending nat
 
 This is the **standard CoDa folder** for the Hˢ repository.
 
+> **🛡️ For skeptical users — verify before you trust.** The Hˢ framework publishes every algorithm in four forms (Python + R + language-agnostic pseudocode + HUF-STD-002 specification) so you can re-implement in your language of choice and verify byte-identically against the published code via `content_sha256` on the three canonical reference inputs. See [`../TRUST_AND_VERIFICATION.md`](../TRUST_AND_VERIFICATION.md) for the 7-step verification protocol. The conference manuscript is the first non-acoustic application of the same engine that has held a 6.02 dB closure invariant at BTL continuously, and the verification path lets you confirm that the manuscript's claims are reproducible from first principles.
+
 When in doubt about which file is current, this folder's README and the inner [`CODAwork2026/README.md`](CODAwork2026/README.md) are the source of truth.
 
 ## Folder map

@@ -1,6 +1,8 @@
 # HCI-CNQ — Compositional Navigation Quaternion
 
-> **🎉 CNQ engine fully public — Python + R + pseudocode + 43-test suite (push #27, 2026-05-08).** [`engine/cnq.py`](engine/cnq.py) Python reference. [`engine/cnq.R`](engine/cnq.R) R port (parity contract). [`engine/CNQ_PSEUDOCODE.md`](engine/CNQ_PSEUDOCODE.md) language-agnostic algorithm. [`engine/tests/`](engine/tests/) 43 tests covering geometry, dimension policy, determinism. All deterministic, all hash-chained to parent CNT. Cross-platform reproduction challenge open.
+> **🎉 CNQ engine fully public — Python + R + pseudocode + 43-test suite (push #27, 2026-05-08).** [`engine/cnq.py`](engine/cnq.py) Python reference. [`engine/cnq.R`](engine/cnq.R) R port (parity contract). [`engine/CNQ_PSEUDOCODE.md`](engine/CNQ_PSEUDOCODE.md) language-agnostic algorithm. [`engine/CNQ_SCHEMA.md`](engine/CNQ_SCHEMA.md) formal output schema. [`engine/ANTI_SPECIFICATION.md`](engine/ANTI_SPECIFICATION.md) failure-mode catalogue. [`engine/tests/`](engine/tests/) 43 tests covering geometry, dimension policy, determinism. All deterministic, all hash-chained to parent CNT. Cross-platform reproduction challenge open.
+
+> **🛡️ For skeptical users — [`../TRUST_AND_VERIFICATION.md`](../TRUST_AND_VERIFICATION.md).** The engine ships in four forms (Python + R + language-agnostic pseudocode + HUF-STD-002 specification) precisely so a skeptical user can re-implement in any language and verify byte-identically against the published code via `cnq_content_sha256`. The engine-independence policy means CNQ verification is independent of CNT verification — each engine carries its own hash and its own conformance test.
 
 **Status (four-field model, push #26):**
 

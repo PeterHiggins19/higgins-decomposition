@@ -2,8 +2,10 @@
 
 **Status:** canonical sibling tier, doctrine-only (push #24, 2026-05-08).
 **Sibling of:** [`HCI-CNT/`](../HCI-CNT/), [`HCI-CNQ/`](../HCI-CNQ/), and the [`HCI/`](../HCI/) instrument family.
-**Origin:** direct modern descendant of the original DADC (Dimension-Apportioned Diffraction Correction) work documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md).
+**Origin:** direct modern descendant of the original DADC (Dimension-Apportioned Diffraction Correction) work documented in the [Rogue-Wave-Audio repository](https://github.com/PeterHiggins19/Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md) and the master-standard flagship paper [`../papers/flagship/GROUND_STATE_AND_TRACTION.md`](../papers/flagship/GROUND_STATE_AND_TRACTION.md) v2.2 — the latter formalises the unified isotropic-radiation ground-state formula that the BTL acoustic apparatus has been measuring continuously.
 **Engine status:** no compiled engine yet. Doctrine and design specifications only. The `cnt.py` engine (canonical) produces the underlying compositional data; HCI-AUDIO is the application layer.
+
+> **🛡️ Verify before you trust.** The underlying CNT and CNQ engines ship in four forms (Python + R + language-agnostic pseudocode + HUF-STD-002 specification). See [`../TRUST_AND_VERIFICATION.md`](../TRUST_AND_VERIFICATION.md). HCI-AUDIO doctrine documents in this folder describe *how the engine output is applied* to the loudspeaker-listening-position problem; the engine itself is independently verifiable from the pseudocode without running the published code.
 
 ---
 

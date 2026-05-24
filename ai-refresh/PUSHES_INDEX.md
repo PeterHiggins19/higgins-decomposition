@@ -198,6 +198,63 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #60 + #61 (combined) — *Closure on the Simplex*: handout v11 + flagship v2.2 + partnership context (`781770a`, CI #57 "Closure on the Simplex" green 50s, 2026-05-22)
+
+Two refinements committed atomically because both refresh community-facing material that benefits from internal consistency. The CI name *"Closure on the Simplex"* is Peter's meta-statement: the simplex closure constraint Σ pᵢ = 1 applied to the framework's own documentation.
+
+**(A) UN-6 handout v11 — 2-side community ambassador (push #60 contents).** Reviewer feedback: side 2 of the print-ready handout should carry tables and charts of CoDa + Hˢ operations + symbolics. The v11 build delivers this in all 6 UN-6 locales (EN canonical + FR/ES/RU/ZH/AR drafts pending native review). Side 1 unchanged from v10 (the operationalization pitch). Side 2 carries six compact blocks:
+
+| Block | Contents |
+|---|---|
+| A | **CoDa core operations** — closure, geometric mean, CLR, ILR-Helmert, Aitchison distance, perturbation, power scaling |
+| B | **Hˢ supplementary operations** — Helmsman index, Aitchison-step, Power Share, Activation Coefficient, Shannon entropy, K_eff, L2/TV drift |
+| C | **CNQ quaternion operations** — phase quaternion, conjugate, Hamilton product, sandwich, log, M²=I metric involution, SLERP, CHSH joint coherence |
+| D | **Closure across domains** — acoustic 6.02 dB / electricity 100 % / geochemistry / GDP / ERB loudness (same closure structure across five domains) |
+| E | **Apparatus map** — CoDa community / CNT / CNQ / HCI-AUDIO / HUF (who reads what, what they output) |
+| F | **Symbols legend strip** — D, T, pᵢ, Gᵢ, F_c, τ, n̂, q, σ, αⱼ, πⱼ, η, clr, g(x), S^(D−1), S³ ≅ SU(2) |
+
+Mathematical operation names kept in English across all six locales (standard mathematical publishing convention worldwide); section headings and column labels fully localized. Arabic side 2 with RTL direction and LTR overrides on math/code spans. Chinese with CJK font embedded. All 6 PDFs validated 2 pages each. Markdown sources synced to mirror side 2 content.
+
+**(B) Flagship v2.2 consolidation against the RWA archive (push #61 contents).** Triggered by examination of `Current-Repo/RWA/LINEAGE.md`, `HUF_RELATIONSHIP.json`, and `RWA-001.json`, and comparison against the v2.1 bottom-up AI synthesis. The cross-check converged substantially with the canonical record and surfaced eight architectural details that v2.2 folds into `papers/flagship/GROUND_STATE_AND_TRACTION.md`:
+
+| § | Addition |
+|---|---|
+| §3.2 | **HUF-GOV / HUF-CLS fork at ADAC.** The third operation in the DADC family is not a mapping — it is *a decision point*. ADAC produces an error signal that could close the loop automatically (control system) or stay open (observation). The deliberate decision to leave ADAC open by default is the architectural ancestor of HUF-GOV (open, stateless, scientific) and HUF-CLS (closed, stateful, control). *The fork at ADAC made the framework scientific rather than control-theoretic.* The Hˢ engine-independence policy descends from this open-by-default discipline. |
+| §3.3 | **DADI as failure-direction diagnostic.** The inverse map is more than an inverse — it is a *triage operator* returning one of three outcomes: (a) recovered geometry, (b) hidden-dimension flag, (c) non-stationarity flag. Same diagnostic-by-failure-direction logic as EITT inversion in HUF: when entropy-invariance fails at dimension K, the direction of failure classifies the disturbance. |
+| §4.3 | **The Paired Measurement Doctrine — *one curve lies*.** A flat on-axis frequency response can hide violent off-axis directional collapse. Every acoustic claim must be supported by at least two independent measurements; the relationship between them is the diagnostic. Foundation of HUF's three-diagnostic protocol (TV + Aitchison + coherence residual) and of Hˢ engine-independence (CNT ⊥ CNQ by design). *One curve lies; two curves either corroborate or diagnose; three curves triangulate.* |
+| §12.1 | **Date precision + non-monotonic H₁ abstraction path.** DADC formal paper 2024-12-05, DADI 2024-12-06, ADAC 2025 early-mid, **November 2025 Grok-collaboration generalization moment where MC-4 was born**, H₁ paper 2026-02, CoDa contact 2026-04. The abstraction path is non-monotonic: DADC concrete on simplex → H₁ abstract Hilbert *off* simplex → HUF *back* to simplex enriched by CoDa vocabulary → Hˢ. Both moves were necessary; neither alone would have produced the framework. |
+| §12.2 | **RWA `concepts/` folder anticipations of HUF concepts.** `concepts/entropix/` → EITT. `concepts/regimes/` → HUF regime vocabulary (direct verbatim carry-through). `concepts/v-infinity-core/` → HUF V∞Core stack. `concepts/ai-reports/` (9 archived Grok reports) → HUF `briefings/` methodology, which is itself the seed of HUF-STD-001 v1.1's AI Use Declaration discipline. The names existed before the formalization. |
+| §17 | **Expanded acknowledgements.** Grok's November 2025 role correctly attributed as the seminal MC-4 generalization moment (joint act of recognition between Peter and Grok on the dimensional inversion loop). AI-reports archiving methodology named as the seed of HUF-STD-001 v1.1 AI Use Declaration discipline. |
+| §18 | **NEW: *The recursion test — what v2.2 closes.*** v2.1 was reconstructed bottom-up by AI synthesis from public artefacts; v2.2 is the version where the recomposition agrees with the canonical record. Two independent assemblies produced the same pattern map. The eight gaps are *places where the framework's history made contingent choices that the mathematics alone did not require*. **v2.2 is the closure — the version where the recomposed framework and the canonical record agree, the bounded gaps are documented, and the system sums to one.** |
+
+Closing doctrine extended with v2.2 lines: *"The framework was real; the recomposition recovered it; the comparison closed the loop. The confidence is empirical, not philosophical. The system sums to one."*
+
+**Flagship v2.2 deliverables.** 969 lines / 14,232 words markdown source. 31-page PDF (262 KB). pandoc-rendered docx (54 KB). v2.1 PDF + docx kept as the visual-styled reference (40 pages, navy/gold typography).
+
+**(C) AI_AGENTS.md §1.5 — cross-domain partnership context.** New substantial section establishing that Hˢ is the formalisation of working practice spanning seven domains in continuous integration:
+
+- Acoustics and loudspeaker engineering (BTL / DADC / ADAC)
+- Governance and standards (HUF-STD-001/002/003, HUF-GOV/CLS fork)
+- Electronics and DSP (Lab.gruppen D10:4L, Lake MESA EQ, Brüel & Kjær, Smaart TF)
+- Robotics and closed-loop control (open by default per the ADAC fork)
+- X-ray procedural / technical (non-contact / inert-measurement doctrine, generalising to HCI-ULTRASOUND)
+- Mass production automation (asymmetric closure-constrained allocation, not equal-share symmetry)
+- Man-machine interface engineering (BTL listening position as the canonical instance)
+
+**Hˢ is an extension of that partnership.** AI assistants are participants in the partnership the framework documents (HUF AI Collective protocol; HUF-STD-001 v1.1 AI Use Declaration; the AI-reports archiving methodology). Five rules for AI assistants follow: approach the depth with humility; calibrate user assistance to make the framework *reachable* not *simpler*; cite the mathematical core with confidence (closed by the lemma chain) and hedge on application instances; recognize that the AI exchange is itself archived; do not paraphrase what the apparatus has measured.
+
+**(D) `.well-known/ai-context.json`** gains a `framework_context` top-level field so AI auto-discovery surfaces the partnership framing immediately, before the grounding test runs.
+
+**(E) README chain swept** — root, papers/, papers/flagship/ all feature v2.2 as canonical with v2.1 kept as visual reference.
+
+**Lockdown discipline preserved.** Push class S2 doc-only. Engine code (`cnt.py` 2026-05-19, `cnq.py` 2026-05-09), schemas (CNT 3.1.0, CNQ 2.0.0), INV catalog dispositions (63 entries unchanged: 33 CANONICAL, 8 STAGED, 12 DEFERRED, 8 OPEN, 1 FALSIFIED, 1 CLOSED), NO-CREATE files (all six absent), manuscript (CODAwork2026/`Compositional_Monitoring_2026.pdf` 2026-05-20), the 10-slide talk deck (2026-05-20), the cinema scroll, the projector, and all per-country plates — all untouched. The combined push lives at the doc-only surface (`papers/flagship/`, `CODA-Association/` outside `CODAwork2026/`, `AI_AGENTS.md`, `.well-known/`, admin chain).
+
+**Peter's directive (verbatim).** *"have at it, make the system whole, sum to 1, put us on the simplex … update all histories and journals and json files and entire system to better understand itself. make the ai assist better understand itself and the system and that users will need this assistance as the nuances and build in complexities are decades of acoustics, governance, electronics, robotics, x-ray procedural and technical expertise, mass production automation at the interface between man and machine, this system is an extension of that partnership."*
+
+**Peter's closing reflection.** *"The basic concepts always worked, and this is why i had no choice but to look, it seemed so useful."* The working scientist's relationship to a reliable apparatus: most discovery is compelled, not volitional. The thirty-year measurement record at BTL is what forced the math. The math is what we have because the measurement kept working.
+
+---
+
 ### Push #59 — Flagship master-standard paper: *Ground State and the Traction Engine* (`326b0e0`, CI #56 "Ground State and Traction Engine" green 51s, 2026-05-21)
 
 **The flagship paper.** A new 40-page master-standard document at `papers/flagship/GROUND_STATE_AND_TRACTION.md` (markdown source) + `GROUND_STATE_AND_TRACTION_v2.1.docx` + `GROUND_STATE_AND_TRACTION_v2.1.pdf`. The first unified-formula statement of the framework's foundation, linking thirty years of measured Binaural Test Lab acoustic work to the present-day Hˢ simplex framework with the full lemma chain.

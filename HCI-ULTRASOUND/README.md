@@ -2,8 +2,10 @@
 
 **Status:** canonical sibling tier, doctrine-only (push #24, 2026-05-08).
 **Sibling of:** [`HCI-CNT/`](../HCI-CNT/), [`HCI-CNQ/`](../HCI-CNQ/), [`HCI-AUDIO/`](../HCI-AUDIO/), and the [`HCI/`](../HCI/) instrument family.
-**Origin:** identified as *"one of the major application goals derivative from the original work"* (the original DADC work in Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md).
+**Origin:** identified as *"one of the major application goals derivative from the original work"* (the original DADC work in Rogue-Wave-Audio). See [`../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md`](../HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md) and the master-standard flagship paper [`../papers/flagship/GROUND_STATE_AND_TRACTION.md`](../papers/flagship/GROUND_STATE_AND_TRACTION.md) v2.2 §§3.3 (DADI as failure-direction diagnostic) and 4.3 (Paired Measurement Doctrine — the foundation of the inert-measurement / non-contact probe discipline).
 **Engine status:** no compiled engine yet. Doctrine and design specifications only.
+
+> **🛡️ Verify before you trust.** The underlying CNT and CNQ engines ship in four forms (Python + R + language-agnostic pseudocode + HUF-STD-002 specification). See [`../TRUST_AND_VERIFICATION.md`](../TRUST_AND_VERIFICATION.md). HCI-ULTRASOUND extends the same inert-measurement doctrine that DADI implements for acoustic baffle measurement to non-contact medical and industrial ultrasound — the probe reads the geometry without imprinting its own signature. The Paired Measurement Doctrine ("one curve lies") is especially load-bearing for medical imaging where a single magnitude reading can mask serious directional artefacts.
 
 ---
 
