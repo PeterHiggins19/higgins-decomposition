@@ -198,6 +198,91 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #62 — *Trust infrastructure*: four-form code discipline + README sweep + standing push protocol (`99103ce`, CI #58 "Trust infrastructure" green 49s, 2026-05-24)
+
+The framework's discipline that *"trust must be earned, not expected"* is operationalised at the documentation surface. Every algorithm in the Hˢ repo now exists in **four forms** so a skeptical user can re-implement from the pseudocode in any language and verify byte-identically against the published code via `content_sha256` on the three IEEE-floor reference inputs.
+
+**The four-form discipline closure table:**
+
+| Form | CNT v3.1.0 | CNQ v2.0.0 |
+|---|---|---|
+| Python reference | `HCI-CNT/engine/cnt.py` (1103 lines) | `HCI-CNQ/engine/cnq.py` (737 lines) |
+| R reference | `HCI-CNT/engine/cnt.R` (738 lines, v3.0.0; v3.1.0 parity queued EngPromo-2) | `HCI-CNQ/engine/cnq.R` (791 lines) |
+| **Pseudocode** | **`HCI-CNT/engine/CNT_PSEUDOCODE.md` NEW v3.1.0** | `HCI-CNQ/engine/CNQ_PSEUDOCODE.md` |
+| Anti-specification | `HCI-CNT/engine/ANTI_SPECIFICATION.md` | `HCI-CNQ/engine/ANTI_SPECIFICATION.md` |
+| Specification | `huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json` (HUF-STD-002) | same |
+| Schema | `HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md` §E | `HCI-CNQ/engine/CNQ_SCHEMA.md` |
+| Tests | `HCI-CNT/engine/tests/` (4 files) | `HCI-CNQ/engine/tests/` (4 files) |
+| Conformance | three IEEE-floor datasets (Backblaze D=4, Planck CMB D=4, SM neutrino D=3) | same |
+
+**Major gap closed.** The CNT v3.x engine had no pseudocode file prior to this push. CNQ has had `CNQ_PSEUDOCODE.md` since push #27, but CNT only had a legacy v2.0.3 pseudocode at `HCI/cnt_v2/CNT_PSEUDOCODE.md` — describing the engine that v3.x replaced in push #32. The new `HCI-CNT/engine/CNT_PSEUDOCODE.md` v3.1.0 (~33 KB, 15 sections) covers the full v3.1.0 algorithm: closure / CLR / ILR-Helmert / per-step tensor blocks (kappa_HS, s_j sensitivity, bearing, helmsman, angular velocity) / stages 1-2-3 / depth tower with period-2 attractor fit and M²=I involution sample / navigation_2D (v3.2.0 block) / diagnostics (lock events, degeneracy, EITT bench) / output JSON structure / content_sha256 derivation / determinism contract / three reference inputs with published hashes / configuration block constants / cross-references / version lineage.
+
+**New files in this push:**
+
+| File | Size | Purpose |
+|---|---|---|
+| `HCI-CNT/engine/CNT_PSEUDOCODE.md` | ~33 KB, 15 sections | CNT v3.1.0 language-agnostic algorithm reference |
+| `TRUST_AND_VERIFICATION.md` (root) | ~22 KB, 10 sections | Top-level trust navigation surface; 7-step verification protocol |
+| `HCI-CNQ/engine/README.md` | ~5 KB | NEW — CNQ engine folder previously had no README |
+| `PUSH_PROTOCOL.md` (root) | ~21 KB, 11 sections | Durable standing prepare-to-push protocol; formalises conventions in use since push #44 |
+| `ai-refresh/PUSH62_READY_FOR_COMMIT.md` | ~13 KB | This push's prep doc; first to reference PUSH_PROTOCOL.md as authority |
+
+**`TRUST_AND_VERIFICATION.md` — the 7-step verification protocol:**
+
+1. Read the pseudocode for the engine you wish to verify
+2. Read the specification (HUF-STD-002)
+3. Read the anti-specification (failure modes the engine MUST NOT exhibit)
+4. Re-implement in your language of choice (do not consult the published Python or R)
+5. Run your implementation on the three canonical reference inputs (Backblaze, Planck CMB, SM neutrino)
+6. Compute your output's `content_sha256` per the canonical derivation
+7. Compare against published hash — match means the published code is faithful to the pseudocode; difference is observable and actionable
+
+The framework's central empirical claim — bit-identical `max_residual = 4.440892098500626 × 10⁻¹⁶` on Backblaze and Planck CMB (physically unrelated D=4 datasets) — is the operational proof that the determinism contract holds at the hardware float64 floor. Any conformant re-implementation reproduces this number.
+
+**`PUSH_PROTOCOL.md` — the standing protocol** (11 sections):
+
+| § | Content |
+|---|---|
+| 1 | Push classes (S0 critical defect / S1 engine-schema-INV / S2 doc-only / S3 standards-amendment additive) |
+| 2 | Pre-push verification — 6-step checklist (consistency checker, lockdown discipline, JSON parse, four-form discipline for S1, cross-mount cache-lag handling, live SHA cross-check) |
+| 3 | PUSH##_READY_FOR_COMMIT.md template structure |
+| 4 | Commit message format |
+| 5 | CI configuration + naming convention |
+| 6 | Post-commit sync — 5-step checklist (HS_FAST_REFRESH + HS_ADMIN + PUSHES_INDEX + CHANGELOG + consistency check) |
+| 7 | Closure-check principle applied to the push workflow itself (admin-surface consistency table) |
+| 8 | Trust-verify-test integration for S1 pushes |
+| 9 | Historical record from push #44 forward |
+| 10 | Cross-references |
+| 11 | Contact |
+
+The protocol's first real-world application is itself: push #62 is the first push to fully apply the discipline filed in the same commit. From #62 forward, every prep document references PUSH_PROTOCOL.md as authority for what it must contain.
+
+**README sweep — trust path reachable from 13 surfaces:**
+
+```
+README.md                            root entry: four-form block + trust callout
+QUICKSTART.md                        "Verify before you trust" block at top
+PUBLICATION_READY.md                 trust callout in audience block
+CODA-Association/README.md           conference-attendee verification block
+HCI-CNT/README.md                    version corrected 2.0.4 → 3.1.0; four-form + trust callout
+HCI-CNQ/README.md                    schema + anti-spec + trust callout; engine-independence framing
+HCI-AUDIO/README.md                  applied-tier verification cross-link
+HCI-ULTRASOUND/README.md             inert-measurement / Paired Doctrine framing
+HCI-CNT/engine/README.md             v3.1.0 + pseudocode + anti-spec + trust block
+HCI-CNQ/engine/README.md             NEW — four-form discipline foregrounded
+PUSH_PROTOCOL.md                     references TRUST_AND_VERIFICATION as the external companion
+CHANGELOG.md                         push #62 row
+ai-refresh/PUSH62_READY_FOR_COMMIT.md prep doc with full bundle inventory
+```
+
+**Lockdown compliance.** Push class S2 doc-only. Engine code mod times verified pre-lockdown: `cnt.py` 2026-05-19, `cnt.R` 2026-05-10, `cnq.py` 2026-05-09, `cnq.R` 2026-05-10. All schemas untouched. INV catalog dispositions unchanged (63 entries: 33 CANONICAL, 8 STAGED, 12 DEFERRED, 8 OPEN, 1 FALSIFIED, 1 CLOSED). All six NO-CREATE files absent. The manuscript at `CODAwork2026/Compositional_Monitoring_2026.pdf` (2026-05-20), the 10-slide talk deck (2026-05-20), the cinema scroll, the projector, and all per-country plates — all untouched.
+
+**Why this push is structural.** The framework's claim that *closure is a measurable invariant of compositional systems* is now operationally extended to the framework's own implementation: the four-form discipline closure (Python ⊥ R ⊥ pseudocode ⊥ specification, all agreeing on `content_sha256` for the three reference inputs) is the implementation analog of the simplex closure constraint. And the push workflow itself is now subject to the same closure check via PUSH_PROTOCOL.md §7's admin-surface consistency table. Every layer of the framework now describes itself accurately to the partners it expects to encounter — researchers, reviewers, AI assistants, skeptical users. *Trust by independent reproduction.* The discipline holds.
+
+**Peter's directives.** *"trust must be earned, not expected ... we ensure that all code in the hs repo is in python and R and pseudocode and software specification written for all, and that all sections of code are marked and associated with each other, those users who are skeptical can use the pseudocode and create their own version and then compare against the published code."* + *"do a full update of readme files to highlight the test the trust and verify concepts as indicated in chat as a readme update, along with a full prepare to push to repo protocol."*
+
+---
+
 ### Push #60 + #61 (combined) — *Closure on the Simplex*: handout v11 + flagship v2.2 + partnership context (`781770a`, CI #57 "Closure on the Simplex" green 50s, 2026-05-22)
 
 Two refinements committed atomically because both refresh community-facing material that benefits from internal consistency. The CI name *"Closure on the Simplex"* is Peter's meta-statement: the simplex closure constraint Σ pᵢ = 1 applied to the framework's own documentation.

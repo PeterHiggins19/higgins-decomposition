@@ -1,6 +1,8 @@
 # Archive — talk decks superseded by the 10-slide compressed final
 
-**Archived:** 2026-05-20 · **Successor:** [`../../data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](../../data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx)
+**Archived:** 2026-05-20 · **Original successor (when this folder was created):** the 10-slide compressed deck.
+
+> **📌 Update 2026-05-24** — the 10-slide deck has itself since been archived. The current active conference deck is the **13-slide expanded final talk** at [`../../data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](../../data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx); the 10-slide predecessor lives in the sibling archive folder [`../talk_decks_pre_13slide_2026-05-24/`](../talk_decks_pre_13slide_2026-05-24/). The rest of this README documents what it documented at the time of archival; the "Active talk deck" references below refer to the 10-slide deck (the active deck *then*), now itself archived. For the full chain see [`../README.md`](../README.md).
 
 These files are the **refinement trail** that led to the 10-slide compressed final talk. They are preserved for lineage and reproducibility, **not** for use at CoDaWork 2026. The active talk deck and its speaking script live one level up at [`../../data_outputs/`](../../data_outputs/) and [`../../SPEAKING_SCRIPT_10slide.md`](../../SPEAKING_SCRIPT_10slide.md).
 

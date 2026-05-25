@@ -35,10 +35,10 @@ CODA-Association/
     ├── VERSION_HISTORY.md                    ← changes over time
     ├── ABSTRACT.md                           ← committed abstract (the conference letter)
     ├── Codaworks2026 proposal for conference/ ← original submission (abstract + MC-4 packet + committee letter)
-    ├── SPEAKING_SCRIPT_10slide.md            ← beat-by-beat speaking script (10-slide deck)
+    ├── SPEAKING_SCRIPT_13slide.md            ← beat-by-beat speaking script (13-slide deck)
     ├── data_outputs/                         ← **the presentation package**
-    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx  ← THE TALK (10 slides) — START HERE
-    │   ├── CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf
+    │   ├── CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx  ← THE TALK (13 slides) — START HERE
+    │   ├── CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx  ← the cinema scroll (66 slides)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
     │   ├── codawork2026_projector.html        ← live HTML manifold projector for Q&A
@@ -46,11 +46,12 @@ CODA-Association/
     │   ├── per_country_json/                  ← canonical engine output per country
     │   ├── per_country_pdfs/                  ← per-country Stage 0/1/2/3/CNQ plates
     │   ├── dual_view/                         ← Stage 1 Section + ILR-Helmert Triplet
-    │   ├── build_final_talk_10slide.py        ← reproducible 10-slide deck builder
+    │   ├── build_final_talk_13slide.py        ← reproducible 13-slide deck builder
     │   └── README.md                          ← presentation flow + reproducibility
     └── archive/                              ← superseded material — preserved for lineage
         ├── README.md                          ← archive index
-        ├── talk_decks_pre_10slide_2026-05-20/ ← 22-slide narrative + 12-slide intermediate + builders + old 22-slide script
+        ├── talk_decks_pre_13slide_2026-05-24/ ← 10-slide compressed deck + builder + 10-slide script
+        ├── talk_decks_pre_10slide_2026-05-20/ ← 22-slide narrative + 12-slide intermediate + builders + 22-slide script
         ├── talk_decks_legacy/                 ← earlier Hˢ-authored decks (May-12, May-13)
         ├── prep_docs_legacy_2026-05-13/       ← speaker prep written for the old 13-slide talk
         ├── legacy_decks_external/             ← copies of older external decks for record
@@ -62,8 +63,8 @@ CODA-Association/
 
 The **three-piece presentation package** lives in `CODAwork2026/data_outputs/`:
 
-1. **`CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`** — **the 10-slide compressed final talk** (what Peter will present, ~8 min 20 sec spoken, slides 6 / 7 / 8 weighted at 75 sec each for the Germany / Japan / UK cases). Beat-by-beat speaking script: [`CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODAwork2026/SPEAKING_SCRIPT_10slide.md). The earlier 22-slide narrative and 12-slide intermediate compression are archived for lineage at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/) — preserved for traceability, not for use.
-2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide cinema scroll (the engine's actual output, played as a movie during Q&A after slide 10).
+1. **`CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`** — **the 13-slide expanded final talk** (what Peter will present, ~8 min 50 sec spoken). Each country case-study (Germany / Japan / UK) runs as a paired sequence: the share-and-work view (the 4-panel figure at 9″ wide), then the per-country navigation chart on its own slide at 6.5″ × 5.0″ centered — legible from the back of the room. Beat-by-beat speaking script: [`CODAwork2026/SPEAKING_SCRIPT_13slide.md`](CODAwork2026/SPEAKING_SCRIPT_13slide.md). The 10-slide compressed predecessor (which crammed the per-country navigation chart at 2.6″ wide onto the same slide as the share-and-work view) is archived at [`CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/); the earlier 22-slide narrative and 12-slide intermediate at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). Both preserved for lineage, not for use.
+2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide cinema scroll (the engine's actual output, played as a movie during Q&A after slide 13).
 3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; Q&A backdrop).
 
 The companion **manuscript** lives in [`../papers/codawork2026/manuscript/`](../../papers/codawork2026/manuscript/) — the talk is a condensation of the paper, not the other way around. The paper is the foundation document.
@@ -74,7 +75,8 @@ The companion **community study deck** lives in [`../../../Studies/Energy_Hidden
 
 Inside `CODAwork2026/archive/`:
 
-- **`talk_decks_pre_10slide_2026-05-20/`** — the refinement trail that led to the 10-slide final: the 22-slide narrative (2026-05-17), the 12-slide intermediate compression (2026-05-20 morning), their python-pptx builders, the ChatGPT compression-plan JSON, and the 22-slide speaking script. The 10-slide deck is now the only active talk artefact.
+- **`talk_decks_pre_13slide_2026-05-24/`** *(added 2026-05-24)* — the 10-slide compressed deck that was active 2026-05-20 → 2026-05-24, with its python-pptx builder and 10-slide speaking script. Archived when the 13-slide expansion landed so each country case-study could carry its navigation chart on a dedicated slide at legible size. See the folder's own README for full detail.
+- **`talk_decks_pre_10slide_2026-05-20/`** — the refinement trail that led to the 10-slide compressed deck: the 22-slide narrative (2026-05-17), the 12-slide intermediate compression (2026-05-20 morning), their python-pptx builders, the ChatGPT compression-plan JSON, and the 22-slide speaking script. The 13-slide expanded deck is now the only active talk artefact.
 - **`talk_decks_legacy/`** — earlier Hˢ-authored decks (2026-05-12, 2026-05-13) that pre-date the 22-slide final-talk family.
 - **`prep_docs_legacy_2026-05-13/`** — SPEAKER_BRIEF, BACKUP_PRESENTATION, CHEAT_SHEET, PEDAGOGICAL_TABLES, QA_BENCH, STUDY_PAGE. These were written for the 13-slide May-13 talk; their slide numbers and beat references are no longer accurate. Preserved for lineage; do not use as source for current speaker prep without rebuilding.
 - **`legacy_decks_external/`** — copies of earlier CoDaWork 2026 decks from other repository locations (`HCI/codawork2026/HCI_Japan_CoDaWork2026.*`, `HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.*`). Originals remain at their source paths so existing references continue to resolve; these archive copies make the consolidation discoverable from inside CODA-Association.
@@ -84,7 +86,7 @@ For the full archive index see [`CODAwork2026/archive/README.md`](CODAwork2026/a
 
 ## Standards conformance
 
-- **HUF-STD-001 v1.1** (Publication Standards): AI Use Declaration on slide 10 of the talk (synthesis-slide footer) and on the manuscript cover + back-matter. The HUF AI Collective is named in both. Author retains full scientific responsibility.
+- **HUF-STD-001 v1.1** (Publication Standards): AI Use Declaration on slide 13 of the talk (synthesis-slide footer) and on the manuscript cover + back-matter. The HUF AI Collective is named in both. Author retains full scientific responsibility.
 - **HUF-STD-002** (Tensor Train I/O): All engine outputs (per-country CNT JSON, CNQ JSON, Foundations Plates, Stage 1/2/3, CNQ dashboards) ship as deterministic vector outputs with hash-chained provenance to the raw EMBER CSVs.
 - **HUF-STD-003** (Linear Algebra Foundations): The seven foundations are visualised in `CodaWork2026_FoundationsPlates_2026-05-14.pdf` (Stage 0).
 

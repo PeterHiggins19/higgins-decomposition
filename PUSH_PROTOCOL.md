@@ -52,11 +52,11 @@ stat HCI-CNQ/engine/cnq.py        # expect mod time ≤ 2026-05-12
 stat HCI-CNQ/engine/cnq.R         # expect mod time ≤ 2026-05-12
 ```
 
-Manuscript + 10-slide deck mod times must be at or before their landing pushes:
+Manuscript + 13-slide deck mod times must be at or before their landing pushes:
 
 ```
 stat CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf      # expect ≤ 2026-05-20
-stat CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx
+stat CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx
 ```
 
 NO-CREATE files must remain absent:

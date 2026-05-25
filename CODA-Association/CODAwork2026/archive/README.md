@@ -1,6 +1,6 @@
 # Archive — superseded CoDaWork 2026 material
 
-**Updated:** 2026-05-20 — consolidated to put the 10-slide compressed final talk as the only active conference deck
+**Updated:** 2026-05-24 — the 10-slide compressed deck archived; the **13-slide expanded deck** is now the active conference deck (each country case-study gets a dedicated navigation-chart slide at legible size; total stays under the 15-slide conference recommendation)
 **Purpose:** preserve the lineage of CoDaWork 2026 work without confusing the active material.
 
 Everything in this folder has been **superseded** by current material elsewhere in `CODAwork2026/`. It is preserved here so reviewers can trace the lineage of the work, but it should **not** be used as source for the current presentation.
@@ -9,9 +9,21 @@ For current material see the parent folder's [`README.md`](../README.md) and the
 
 ## Folder layout
 
+### `talk_decks_pre_13slide_2026-05-24/` *(added 2026-05-24)*
+
+The 10-slide compressed deck that lived as the active conference deck 2026-05-20 → 2026-05-24, with its builder and speaking script. Replaced by the 13-slide expanded deck so each country case-study could carry its navigation chart on a dedicated slide at legible size (the 2.6″-wide nav chart crammed onto the right margin of the 10-slide pairings was not readable from the back of the conference room).
+
+| File | Date | Slides | Role at time of writing |
+|---|---|---|---|
+| `CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx` / `.pdf` | 2026-05-20 | 10 | The compressed final-talk deck — Germany / Japan / UK each on one slide with a small nav-chart inset. |
+| `build_final_talk_10slide.py` | 2026-05-20 | — | python-pptx builder for the 10-slide deck. |
+| `SPEAKING_SCRIPT_10slide.md` | 2026-05-20 | — | Beat-by-beat speaking script for the 10-slide pacing. Slide numbers do not apply to the 13-slide expansion. |
+
+Successor: [`../data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](../data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) with [`../SPEAKING_SCRIPT_13slide.md`](../SPEAKING_SCRIPT_13slide.md). See the folder-level [`README.md`](talk_decks_pre_13slide_2026-05-24/README.md) for full detail.
+
 ### `talk_decks_pre_10slide_2026-05-20/` *(added 2026-05-20)*
 
-The immediate refinement trail that led to the active 10-slide compressed final talk. Each stage is preserved with its own builder so the lineage is reproducible.
+The immediate refinement trail that led to the 10-slide compressed final talk. Each stage is preserved with its own builder so the lineage is reproducible.
 
 | File | Date | Slides | Role at time of writing |
 |---|---|---|---|
@@ -20,9 +32,9 @@ The immediate refinement trail that led to the active 10-slide compressed final 
 | `CodaWork2026_FinalTalk_12Slide_CompressionPlan.json` | 2026-05-20 | — | The 22→12 compression plan (slide-by-slide rationale). |
 | `build_final_talk.py`, `build_final_talk_v2.py` | 2026-05-17 | — | python-pptx builders for the 22-slide narrative. |
 | `build_final_talk_12slide.py` | 2026-05-20 | — | python-pptx builder for the 12-slide intermediate. |
-| `SPEAKING_SCRIPT.md` | 2026-05-19 | — | Beat-by-beat speaking script for the **22-slide** deck. Slide numbers do not apply to the 10-slide final. |
+| `SPEAKING_SCRIPT.md` | 2026-05-19 | — | Beat-by-beat speaking script for the **22-slide** deck. Slide numbers do not apply to the 10-slide or 13-slide finals. |
 
-Successor: [`../data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](../data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) with [`../SPEAKING_SCRIPT_10slide.md`](../SPEAKING_SCRIPT_10slide.md). See the folder-level [`README.md`](talk_decks_pre_10slide_2026-05-20/README.md) for full detail.
+Successor at the time of archival: the 10-slide deck (since itself archived 2026-05-24; see `talk_decks_pre_13slide_2026-05-24/` above for the current active 13-slide deck).
 
 ### `talk_decks_legacy/`
 

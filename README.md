@@ -496,9 +496,9 @@ The 11th International Workshop on Compositional Data Analysis. **11 days away**
 | **Audience follow-along page** | [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md) — slide-by-slide, every link in talk order |
 | **Manuscript (PDF, 26 pp)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf) |
 | **Manuscript (.docx)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx) |
-| **Talk deck — 10 slides (.pptx)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) |
-| **Talk deck (.pdf)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf) |
-| **Speaking script (beat-by-beat)** | [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md) |
+| **Talk deck — 13 slides (.pptx)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) |
+| **Talk deck (.pdf)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf) |
+| **Speaking script (beat-by-beat)** | [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide.md) |
 | **Cinema scroll (66 slides, 325 pp)** | [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) · [`.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) |
 | **Interactive HTML projector** | [`codawork2026_projector.html`](CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html) — three modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline |
 | **Community handout (UN-6)** | EN · FR · ES · RU · ZH · AR — at [`CODA-Association/`](CODA-Association/) |
@@ -508,8 +508,8 @@ The 11th International Workshop on Compositional Data Analysis. **11 days away**
 
 | Piece | Time |
 |---|---|
-| 10-slide talk | ~8 min 20 sec spoken (slides 6 / 7 / 8 at 75 sec each — case-study weighting) |
-| Cinema scroll | ~1 min 30 sec as a movie after slide 10 |
+| 13-slide talk | ~8 min 50 sec spoken (slides 6–11 are the three country pairs — share-and-work + navigation, 85 sec per country) |
+| Cinema scroll | ~1 min as a movie after slide 13 |
 | HTML projector | ~1 min Q&A demo |
 | **Apparatus time** | ~11 min |
 | **Q&A** | ~4 min remaining in a 15-min slot |

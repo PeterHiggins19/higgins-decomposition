@@ -11,6 +11,35 @@
 
 ---
 
+## 2026-05-24 — 13-slide deck promoted (the navigation chart finally readable from the back)
+
+**Trigger.** Peter's directive 2026-05-24: *"for CodaWork2026_FinalTalk_10Slide_2026-05-20 slide 6.7.8 should have the navigation chart follow dividing from 3 to 6 slides, this was originally done and then it was condensed but now it needs to go back which is fine and the slide talk can stay as is just divide the navigation part to that slide, this will make 13 slides, this is under the recommended 15 slides suggestions, problem is the image is just too small to see and now all slides can be shown large and easier to see."*
+
+The 10-slide compressed deck paired each country case-study with a per-country navigation chart at 2.6″ wide on the right margin. From the back of a conference room that navigation chart was not legible. The 13-slide expansion splits each country into a pair: **share-and-work view** (the 4-panel figure at 9″ wide, dominant) and **course on the simplex** (the per-country navigation chart at 6.5″ × 5.0″ centered, finally readable). Total stays under the 15-slide conference recommendation. Speaking-script substance unchanged; allocated across the new pair (~55 sec share-and-work + ~30 sec navigation per country = 85 sec total, vs the 10-slide version's 75 sec single slide — net 10 extra seconds per country for legibility).
+
+**New active files at root and in `data_outputs/`:**
+- `data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.{pptx,pdf}` — the talk (13 slides, ~8 min 50 sec spoken).
+- `data_outputs/build_final_talk_13slide.py` — reproducible builder.
+- `SPEAKING_SCRIPT_13slide.md` (new) — beat-by-beat script with explicit pairing rhythm (content slide then geometry slide, three times); per-country pacing notes; voice notes on letting the navigation chart breathe.
+
+**Files archived to `archive/talk_decks_pre_13slide_2026-05-24/`** (with folder-level README):
+- `CodaWork2026_FinalTalk_10Slide_2026-05-20.{pptx,pdf}` — the 10-slide compressed deck.
+- `build_final_talk_10slide.py` — its python-pptx builder.
+- `SPEAKING_SCRIPT_10slide.md` — its 10-slide beat-by-beat script.
+
+**Documents updated for the deck switch:**
+- `data_outputs/README.md` → version 7.0 — three-piece package now describes the 13-slide deck as Piece 1; expansion rationale and pairing rhythm called out.
+- `CODAwork2026/README.md` → version 2.5 — table row 1 (Talk deck) now points at the 13-slide deck and the new speaking script; folder layout shows the new archive folder and the new builder; *"How to run the presentation"* section rewritten to describe the per-country pairing rhythm.
+- `CODA-Association/README.md` (front door) — START HERE pointer now reads `CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`; three-piece summary updated; archive section gains the new folder; AI Use Declaration reference moved from slide 10 to slide 13.
+- `CONFERENCE_ATTENDEES.md` (audience follow-along page) — slide-by-slide block rewritten from 10 slides to 13 slides; new dedicated navigation-chart sections for Germany (slide 7), Japan (slide 9), and UK (slide 11); the *"compare Germany's smooth arc to Japan's looping search to UK's jump-and-return"* comparison threaded explicitly through the navigation slides.
+- `archive/README.md` — new section for `talk_decks_pre_13slide_2026-05-24/` added at top; archive index now lists 10-slide as the most recently archived predecessor.
+
+**Visual QA discipline.** First render of the 13-slide deck had bottom-third crowding on all six new slides (gold callout + italic explainer sitting at or below the y=8.10″ footer baseline) and two-line italic wraps on slides 9 and 11 spilling below the footer. Fixes applied: case-study figures shrunk from 5.2″ to 4.85″ tall; nav charts pinned to explicit 6.5″ × 5.0″ box; callouts moved up to y=6.55/6.65; italics moved up to y=7.00/7.15; slide 9 and 11 italics shortened to fit one line. Re-rendered and re-QAed; all six previously flagged slides resolved, no new issues introduced.
+
+**Push class:** S2 doc-only, lockdown-compliant — engine code, schemas, INV catalog dispositions, NO-CREATE files, manuscript, cinema scroll, projector, per-country plates all untouched. The 13-slide expansion is a presentation-layer change; the underlying engine outputs are unchanged.
+
+---
+
 ## 2026-05-21 — Heading polish (manuscript / presentation hierarchy)
 
 **README.md → version 2.4.** ChatGPT post-push #58 review of `CODA-Association/CODAwork2026/` flagged a wording inconsistency: the section heading "The presentation in three pieces" sat above a four-row table (manuscript + talk + cinema scroll + projector). ChatGPT's suggested polish — *"foundation manuscript + three-piece presentation"* — adopted. Heading rewritten to "The conference package — foundation manuscript + three-piece presentation", with an introductory sentence clarifying that the manuscript is the foundation and the talk/cinema/projector triplet condenses it. Table row indices renumbered 0–3 (0 = foundation manuscript; 1–3 = the presentation pieces) to make the hierarchy explicit. No content moved or rebuilt; pure heading-and-numbering polish. Push class: S2 doc-only, no admin-chain churn, lockdown-compliant.

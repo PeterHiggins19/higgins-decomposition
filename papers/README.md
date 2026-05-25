@@ -37,15 +37,15 @@ Core publications that describe, apply, and extend the Hs pipeline.
 
 Materials for the Compositional Data Analysis Workshop (CoDaWork 2026), held in Coimbra, Portugal, 1--5 June 2026.
 
-> **🎤 Conference distribution lives in [`CODA-Association/CODAwork2026/`](../CODA-Association/CODAwork2026/).** The folder you are reading (`papers/codawork2026/`) holds the *working build* (abstract source, manuscript build pipeline, original talk-prep documents). The *active conference deck* is the **10-slide compressed final talk** at [`../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx`](../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx); the audience follow-along page is [`../CODA-Association/CONFERENCE_ATTENDEES.md`](../CODA-Association/CONFERENCE_ATTENDEES.md). The legacy presentation files listed below are preserved for archival traceability of the build chain.
+> **🎤 Conference distribution lives in [`CODA-Association/CODAwork2026/`](../CODA-Association/CODAwork2026/).** The folder you are reading (`papers/codawork2026/`) holds the *working build* (abstract source, manuscript build pipeline, original talk-prep documents). The *active conference deck* is the **13-slide expanded final talk** at [`../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx); the audience follow-along page is [`../CODA-Association/CONFERENCE_ATTENDEES.md`](../CODA-Association/CONFERENCE_ATTENDEES.md). The legacy presentation files listed below are preserved for archival traceability of the build chain.
 
 ### Submission and presentation
 
 | File | Description |
 |---|---|
 | [CoDaWork2026_Abstract_Higgins.pdf](codawork2026/CoDaWork2026_Abstract_Higgins.pdf) | Submitted abstract |
-| [CoDaWork2026_Presentation.pptx](codawork2026/CoDaWork2026_Presentation.pptx) | Slide deck (early submission version; conference talk is the 10-slide deck in `CODA-Association/CODAwork2026/data_outputs/`) |
-| [CoDaWork2026_Speech_GiftRamp.md](codawork2026/CoDaWork2026_Speech_GiftRamp.md) | Speaker notes (gift ramp structure; current beat-by-beat script is `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_10slide.md`) |
+| [CoDaWork2026_Presentation.pptx](codawork2026/CoDaWork2026_Presentation.pptx) | Slide deck (early submission version; conference talk is the 13-slide deck in `CODA-Association/CODAwork2026/data_outputs/`) |
+| [CoDaWork2026_Speech_GiftRamp.md](codawork2026/CoDaWork2026_Speech_GiftRamp.md) | Speaker notes (gift ramp structure; current beat-by-beat script is `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide.md`) |
 
 ### Correspondence and planning
 

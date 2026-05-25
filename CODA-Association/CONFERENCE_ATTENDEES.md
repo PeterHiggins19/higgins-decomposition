@@ -14,7 +14,7 @@ Pick one to keep open alongside this page; the speaker will move between them as
 | | File | What it is |
 |---|---|---|
 | 📄 | **[`Manuscript (PDF)`](CODAwork2026/Compositional_Monitoring_2026.pdf)** · [`(DOCX)`](CODAwork2026/Compositional_Monitoring_2026.docx) | The 25-page peer-reviewable paper. Cover, table of contents, six figures, three appendices, full reference list. |
-| 🎞 | **[`Talk deck (PDF)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pdf)** · [`(PPTX)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_10Slide_2026-05-20.pptx) | The **10 slides** being presented (compressed final version, ~8 min 20 sec spoken, leaves time for the cinema scroll and projector during Q&A). The 22-slide narrative and 12-slide intermediate compression that preceded it are archived for lineage at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). |
+| 🎞 | **[`Talk deck (PDF)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf)** · [`(PPTX)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) | The **13 slides** being presented (expanded final version, ~8 min 50 sec spoken). Each country case-study runs as a paired sequence — share-and-work view, then dedicated navigation chart at legible size. The 10-slide compressed predecessor is archived at [`CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/); the earlier 22-slide narrative and 12-slide intermediate at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). |
 | 🎬 | **[`Cinema scroll (PDF)`](CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf)** | The 325-page master PDF of the engine's actual output — every plate the engine produced, master cover + 9 country sections × 6 plates each. |
 | 🔭 | **[`Interactive HTML projector`](CODAwork2026/data_outputs/codawork2026_projector.html)** | The 3-D manifold projector. Runs in your browser. No install. See "How to run the projector" at the end of this page. |
 
@@ -22,7 +22,7 @@ Pick one to keep open alongside this page; the speaker will move between them as
 
 ## Slide-by-slide follow-along
 
-The talk runs about eight minutes spoken across ten slides, with extra time deliberately given to the three case studies. The cinema scroll and projector then run during Q&A.
+The talk runs about nine minutes spoken across thirteen slides, with the three country case-studies each split into a paired sequence (share-and-work view, then navigation chart at legible size). The cinema scroll and projector then run during Q&A.
 
 ### Slide 1 · Title + question + contact
 *Compositional monitoring of energy-mix drift on the simplex.*  **Which carrier did the structural work?** Not which one got bigger — which one moved the composition.
@@ -50,43 +50,59 @@ A carrier can be small in share and large in structural work. **USA Solar, 2012 
 - [Supplementary Information §S2 — full 406-yeast-moment table](../papers/codawork2026/manuscript/SUPPLEMENTARY.md)
 
 ### Slide 5 · Three archetypes — one instrument, three regimes
-**Germany** — deliberate transition, continuous arc on the simplex. **Japan** — external shock from Fukushima 2011, loop and reorganise. **United Kingdom** — regime change, coal exit, jump and return. One protocol reads all three.
+**Germany** — deliberate transition, continuous arc on the simplex. **Japan** — external shock from Fukushima 2011, loop and reorganise. **United Kingdom** — regime change, coal exit, jump and return. One protocol reads all three. Each country runs as a paired sequence next.
 
 - [Manuscript — Results §2–4](CODAwork2026/Compositional_Monitoring_2026.pdf)
 
-### Slide 6 · Germany — deliberate transition as continuous course
-The Energiewende as a single smooth arc on the simplex. **Solar 2005–2006** at 0.21 % share, doing 71.1 % of the work — **AC ≈ 333×**. The structural beginning of the transition is named *three years* before the size view calls it visible. Course directness 0.41 — continuous arc to the renewable vertex.
+### Slide 6 · Germany — share-and-work view *(case study 1, beat 1)*
+The Energiewende through the share-and-work lens. **Solar 2005–2006** at 0.21 % share, doing 71.1 % of the work — **AC ≈ 333×**. The structural beginning of the transition is named *three years* before the size view calls it visible. Tiny share, dominant work — the yeast-factor signature.
 
-- **Fig. 2** — four-panel Germany plate + Fig. 6 navigation chart inset
+- **Fig. 2** — four-panel Germany plate (shares, helmsman trajectory, Power Share, Activation Coefficient)
 - [Manuscript — Results §2 Germany](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_DEU.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_DEU.json)
 - 📂 Germany plates: [`DEU_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage0.pdf), [`DEU_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage1.pdf), [`DEU_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage23.pdf), [`DEU_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_cnq.pdf)
 
-### Slide 7 · Japan — Fukushima shock and multi-year reorganisation
-The shock appears in every viewpoint at once. **Helmsman flips 17 times** — the loudest count in the corpus. **Aitchison distance 2011 → 2012 ≈ 3× neighbouring-year baseline.** But the years *after* tell the deeper story: a decade-long reorganisation across solar, gas, wind, renewables. Course directness 0.09 — looping reorganisation, not a single step.
+### Slide 7 · Germany — course on the simplex *(case study 1, beat 2)*
+The Helmsman trajectory at full size — **course directness 0.41**, a continuous arc toward the renewable vertex. Smooth, monotone reorientation. No loops, no flips. The geometry of policy intent — deliberate transition reads as a single sustained course, year after year, in one direction.
 
-- **Fig. 3** — Japan four-panel plate (gold-shaded 2011–2013 window) + Fig. 6 navigation chart inset
+- **Fig. 6 (Germany panel)** — per-country navigation chart at full legibility
+- The next country pair will show what an unplanned reorganisation looks like by contrast.
+
+### Slide 8 · Japan — share-and-work view *(case study 2, beat 1)*
+The Fukushima 2011 shock appears in every viewpoint at once. **Helmsman flips 17 times** — the loudest count in the corpus. **Aitchison distance 2011 → 2012 ≈ 3× neighbouring-year baseline.** The years *after* tell the deeper story: a decade-long reorganisation across solar, gas, wind, renewables — wind 2004→2005 α 188, nuclear 2015→2016 α 187, solar 2005→2006 α 176, the list goes on.
+
+- **Fig. 3** — Japan four-panel plate (gold-shaded 2011–2013 window)
 - [Manuscript — Results §3 Japan](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_JPN.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_JPN.json)
 - 📂 Japan plates: [`JPN_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage0.pdf), [`JPN_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage1.pdf), [`JPN_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage23.pdf), [`JPN_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_cnq.pdf)
+
+### Slide 9 · Japan — course on the simplex *(case study 2, beat 2)*
+The Helmsman trajectory at full size — **course directness 0.09**, the loop-and-reorganise archetype. Trajectory revisits and reroutes. Compared directly to Germany's smooth arc, Japan's course shows a system *searching* for a new composition rather than walking a planned one — a basin being explored, not a direction being followed.
+
+- **Fig. 6 (Japan panel)** — per-country navigation chart at full legibility
 - 🔭 **Projector matches this slide:** click **JPN**, then **BARY**, then **SHOCK**, then **ALIGN** for the CoDa-centred view.
 
-### Slide 8 · United Kingdom — coal exit as regime change
-Between 2012 and 2020, coal goes from > 30 % to < 2 %. A true regime change. The Power Share view tells you *how the displaced structural work was absorbed* — wind, solar, biomass, other renewables each took portions. Course directness 0.36 — jump-and-return archetype. The protocol separates **size decline** from **who absorbed the structural work**.
+### Slide 10 · United Kingdom — share-and-work view *(case study 3, beat 1)*
+Coal exit as regime change. Between 2012 and 2020, coal goes from > 30 % to < 2 %. A true regime change, not a drift. The Power Share view tells you *how the displaced structural work was absorbed* — wind, solar, biomass, other renewables each took portions. Multiple yeast moments across the exit period; no single replacement carrier.
 
-- **Fig. 4** — UK four-panel plate + Fig. 6 navigation chart inset
+- **Fig. 4** — UK four-panel plate
 - [Manuscript — Results §4 United Kingdom](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_GBR.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_GBR.json)
 - 📂 UK plates: [`GBR_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage0.pdf), [`GBR_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage1.pdf), [`GBR_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage23.pdf), [`GBR_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_cnq.pdf)
 
-### Slide 9 · Cross-country signature — 5 of 9 reproduce the pattern
+### Slide 11 · United Kingdom — course on the simplex *(case study 3, beat 2)*
+The Helmsman trajectory at full size — **course directness 0.36**, the jump-and-return archetype. The course leaves the coal vertex sharply, then settles toward a new mix. Distinct from Germany's continuous arc, distinct from Japan's looping search. Regime change as one decisive displacement followed by re-stabilisation. Three transitions, three archetypes, one geometry.
+
+- **Fig. 6 (UK panel)** — per-country navigation chart at full legibility
+
+### Slide 12 · Cross-country signature — 5 of 9 reproduce the pattern
 Same instrument, nine EMBER countries. The deceptive-drift signature fires in **5 of 9** — **AUS, CHN, GBR, IND, JPN**. It does *not* fire in DEU at annual grain, FRA, USA, or the World aggregate. A useful detector should not fire everywhere; discrimination is itself evidence the protocol is reading real structure.
 
 - **Fig. 5** — nine-country cross-country signature plate (top-10 activation moments + yeast-moment counts + Activation Coefficients + helmsman flips)
 - [Manuscript — Results §5 (cross-country signature)](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 All nine countries: [`per_country_json/cnt_v3/`](CODAwork2026/data_outputs/per_country_json/cnt_v3/)
 
-### Slide 10 · What the stack answers — closing synthesis
+### Slide 13 · What the stack answers — closing synthesis
 **WHAT** carriers are big · **WHO** is at the wheel · **WHEN** the steering changes · **HOW MUCH** work each carrier did · **WHY** a small carrier mattered. One observable, five questions, one reproducible object. *The stack does not replace interpretation. It gives interpretation a reproducible object.*
 
 - [Manuscript — Discussion + Conclusions](CODAwork2026/Compositional_Monitoring_2026.pdf)
@@ -97,7 +113,7 @@ Same instrument, nine EMBER countries. The deceptive-drift signature fires in **
 
 ## Things not in the deck but available
 
-The 10-slide deck deliberately drops the MC-4 falsifiability slide and the "inspect the instrument" closer to keep the talk under 8 minutes. Both still live in the repo:
+The 13-slide deck deliberately omits the MC-4 falsifiability slide and the "inspect the instrument" closer to keep the talk under nine minutes. Both still live in the repo:
 
 - **MC-4 falsifiable claim** (three conjuncts + four defeat paths) — full text in the manuscript Discussion and in [`papers/codawork2026/MC4_PACKET.md`](../papers/codawork2026/planning/HUF_MC4_CoDaWork_Packet_v3.pdf).
 - **Speaker brief** with optional verbal closing-line (the locomotive metaphor) — [`papers/codawork2026/talk/SPEAKER_BRIEF.md`](../papers/codawork2026/talk/SPEAKER_BRIEF.md).
@@ -138,7 +154,7 @@ The HUD is laid out as follows:
   - **FRONT / SIDE / TOP / ISO** — fixed camera angles.
 - **Bottom** — TIME slider scrubs year-by-year. Drag to pause anywhere.
 
-### Try this on Japan (matches the Slide 12–14 reading)
+### Try this on Japan (matches Slides 8–9 — the Japan pair)
 
 1. Click **JPN**.
 2. Click **BARY**. Watch what happens at 2011 → 2012 (Fukushima) and especially through 2013 → 2014–2015 (the multi-year reorganisation toward solar + renewables).
