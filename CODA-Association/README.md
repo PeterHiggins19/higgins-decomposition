@@ -36,6 +36,8 @@ CODA-Association/
     ├── ABSTRACT.md                           ← committed abstract (the conference letter)
     ├── Codaworks2026 proposal for conference/ ← original submission (abstract + MC-4 packet + committee letter)
     ├── SPEAKING_SCRIPT_13slide.md            ← beat-by-beat speaking script (13-slide deck)
+    ├── SPEAKING_SCRIPT_13slide_QA_companion.md  ← side-by-side speech + Q&A bench reading aid (md + pdf)
+    ├── SPEAKING_SCRIPT_13slide_QA_companion.pdf
     ├── data_outputs/                         ← **the presentation package**
     │   ├── CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx  ← THE TALK (13 slides) — START HERE
     │   ├── CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf

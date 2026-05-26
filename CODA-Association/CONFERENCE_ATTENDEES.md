@@ -24,14 +24,16 @@ Pick one to keep open alongside this page; the speaker will move between them as
 
 The talk runs about nine minutes spoken across thirteen slides, with the three country case-studies each split into a paired sequence (share-and-work view, then navigation chart at legible size). The cinema scroll and projector then run during Q&A.
 
-### Slide 1 · Title + question + contact
+### Slide 1 · Title + question + contact + follow-along + CoDa-tools framing
 *Compositional monitoring of energy-mix drift on the simplex.*  **Which carrier did the structural work?** Not which one got bigger — which one moved the composition.
 
 - Speaker contact, repository URL, community folder, and UN-6 handout availability are all on this slide.
+- **Follow along on the repository** — the slide deck, manuscript, and live projector are all open.
+- **Hˢ runs any compositional dataset the CoDa community can describe** — the views in this talk are reproducible on your data.
 - [Manuscript cover page + abstract](CODAwork2026/Compositional_Monitoring_2026.pdf)
 
 ### Slide 2 · The size view hides the work
-A carrier can be small in share and large in structural work. **USA Solar, 2012 → 2013** — starting share 0.107 %, structural Power Share 81.7 %, **Activation Coefficient ≈ 760×.** Solar acted at 760× its size. No size view shows that.
+A carrier can be small in share and large in structural work. **Germany Solar, 2005 → 2006** — starting share 0.21 %, structural Power Share 71.1 %, **Activation Coefficient ≈ 333×.** Solar acted at 333× its size, four years before the share view called solar visible. No size view shows that.
 
 - [Manuscript — Introduction §1, Fig. 1](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - That number is the reason for this talk.
@@ -46,7 +48,7 @@ A carrier can be small in share and large in structural work. **USA Solar, 2012 
 *α_i(t) = Power Share_i(t) ÷ starting share_i(t).*  **α ≈ 1** ordinary · **α ≫ 1** hidden driver · **α < 1** coasting. Yeast is 2 % of a loaf by mass and does 100 % of the rising — same mathematical shape.
 
 - **Eq. 7** — Activation Coefficient formula, Appendix A
-- Worked example carried through: USA Solar 2012 → 2013 = 760×.
+- Worked example carried through: Germany Solar 2005 → 2006 = 333×.
 - [Supplementary Information §S2 — full 406-yeast-moment table](../papers/codawork2026/manuscript/SUPPLEMENTARY.md)
 
 ### Slide 5 · Three archetypes — one instrument, three regimes

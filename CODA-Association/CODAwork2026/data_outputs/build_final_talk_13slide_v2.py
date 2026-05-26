@@ -1,40 +1,26 @@
 """
-CoDaWork 2026 — Final Talk Deck builder, 13-SLIDE VERSION.
+CoDaWork 2026 — Final Talk Deck builder, 13-SLIDE VERSION (v2 rebuild 2026-05-25).
 
-Built 2026-05-24 — expansion from the 10-slide compressed deck.
-Per Peter's directive: the per-country navigation chart was too small to read
-on the previous slides 6/7/8 (3 charts crammed onto the right margin at
-2.6" wide). The 13-slide version splits each country into two slides:
-one for the share-and-work view (the existing fig2/3/4), one for the
-navigation chart at full size (5.5"+ wide, finally legible from the back).
-
-DOES NOT supersede the 10-slide deck unless promoted; ships as another sibling.
+Identical to build_final_talk_13slide.py; written to a fresh filename to bypass
+a cross-mount cache lag that was feeding the Linux build the original script
+truncated at line 371 (missing the prs.save call at line 381). The Windows-side
+file is authoritative and well-formed; this v2 copy with a fresh filename has
+no prior Linux cache entry, so Python reads it cleanly.
 
 Story arc (13 slides):
-   1. Title + question + FULL CONTACT
-   2. Size view hides work        (USA Solar 760× hook)
-   3. Five viewpoints              (one schematic)
-   4. Activation Coefficient       (yeast factor + formula)
+   1. Title + question + FULL CONTACT + follow-along + CoDa-tools-deployable
+   2. Size view hides work        (Germany Solar 2005-06 α≈333× hook)
+   3. Five viewpoints              (one schematic; bigger headers + spacing)
+   4. Activation Coefficient       (yeast factor + Germany worked example)
    5. Three archetypes overview    (DEU / JPN / GBR)
-   6. Germany — share-and-work view       (continuous arc; fig2)
-   7. Germany — navigation chart           (course on simplex; fig6_nav_deu LARGE)
-   8. Japan — share-and-work view          (shock + reorganisation; fig3)
-   9. Japan — navigation chart             (loop on simplex; fig6_nav_jpn LARGE)
-  10. UK — share-and-work view            (regime change; fig4)
-  11. UK — navigation chart                (jump-and-return on simplex; fig6_nav_gbr LARGE)
-  12. 5-of-9 cross-country signature       (fig5)
-  13. What the stack answers              (synthesis + AI Use footer)
-
-Under the conference's 15-slide recommendation. Live time target:
-~10 min talk + 1 min scroll + 1 min projector + ~3 min Q&A = ~15 min.
-
-Speaking script content unchanged from 10-slide version; the per-country
-talk is allocated across the new pair (share-and-work facts on the first
-slide of each pair, helmsman-trajectory and course-directness interpretation
-on the navigation slide).
-
-MC-4 falsifiability frame remains in manuscript only.
-Cinema scroll / projector run after slide 13 verbally; no dedicated slide.
+   6. Germany — share-and-work view
+   7. Germany — navigation chart
+   8. Japan — share-and-work view
+   9. Japan — navigation chart
+  10. UK — share-and-work view
+  11. UK — navigation chart
+  12. 5-of-9 cross-country signature
+  13. What the stack answers
 """
 from pathlib import Path
 from pptx import Presentation
@@ -45,7 +31,6 @@ from pptx.dml.color import RGBColor
 OUT = Path("/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx")
 MANU_FIG = Path("/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/papers/codawork2026/manuscript/figures")
 
-# Palette — preserved from 10/22-slide decks for visual continuity
 NAVY   = RGBColor(0x0B, 0x1F, 0x33)
 GOLD   = RGBColor(0xF2, 0xB6, 0x32)
 INK    = RGBColor(0xEE, 0xEE, 0xEE)
@@ -102,7 +87,7 @@ def add_image(slide, path, left, top, width, height=None):
     else:
         slide.shapes.add_picture(str(path), Inches(left), Inches(top), width=Inches(width), height=Inches(height))
 
-# ───────── SLIDE 1 — Title + question + FULL CONTACT ─────────
+# ───────── SLIDE 1 — Title + question + FULL CONTACT + follow-along + CoDa-tools-deployable ─────────
 s = add_slide()
 add_text(s, "Compositional monitoring of energy-mix drift on the simplex",
          0.5, 0.55, 10.0, 1.0, font_size=28, bold=True, color=INK, align=PP_ALIGN.CENTER)
@@ -111,29 +96,19 @@ add_text(s, "Which carrier did the structural work?",
 add_text(s,
          "Not only which carrier got bigger — which carrier moved the composition.",
          0.5, 2.40, 10.0, 0.4, font_size=13, color=INK, italic=True, align=PP_ALIGN.CENTER)
-
-# Follow-along + CoDa-tools-deployable framing (new 2026-05-25 per Peter's slide-1 adjustment)
 add_text(s,
          "Follow along on the repository — the slide deck, manuscript, and live projector are all open.",
          0.5, 3.05, 10.0, 0.35, font_size=12, italic=True, color=GOLD, align=PP_ALIGN.CENTER)
 add_text(s,
          "Hˢ runs any compositional dataset the CoDa community can describe — the views in this talk are reproducible on your data.",
          0.5, 3.45, 10.0, 0.40, font_size=12, italic=True, color=INK, align=PP_ALIGN.CENTER)
-
-# Operationalization tagline
 add_text(s,
          "Operationalizing compositional analysis — a runnable standard for researchers and the AI assistants they choose.",
          0.5, 4.05, 10.0, 0.40, font_size=12, italic=True, color=GOLD, align=PP_ALIGN.CENTER)
-
-# Conference line
 add_text(s, "CoDaWork 2026  ·  Coimbra, Portugal  ·  1–5 June 2026",
          0.5, 4.70, 10.0, 0.40, font_size=13, color=DIM, align=PP_ALIGN.CENTER)
-
-# Author + lab
 add_text(s, "P. Higgins  ·  Rogue Wave Audio / Binaural Test Lab  ·  Markham, Ontario, Canada",
          0.5, 5.25, 10.0, 0.40, font_size=13, bold=True, color=INK, align=PP_ALIGN.CENTER)
-
-# Contact block — boxed for visual weight
 add_text(s, "Contact",
          0.5, 5.90, 10.0, 0.30, font_size=11, bold=True, color=GOLD, align=PP_ALIGN.CENTER)
 add_text(s, "PeterHiggins@RogueWaveAudio.com",
@@ -142,13 +117,11 @@ add_text(s, "github.com / PeterHiggins19 / higgins-decomposition",
          0.5, 6.62, 10.0, 0.35, font_size=12, color=INK, align=PP_ALIGN.CENTER)
 add_text(s, "Community folder:  CODA-Association/   ·   Hand-out in UN-6 locales (EN · FR · ES · RU · ZH · AR)",
          0.5, 7.05, 10.0, 0.35, font_size=11, color=DIM, align=PP_ALIGN.CENTER)
-
-# Doctrine
 add_text(s,
          "The instrument reads.   The expert decides.   The hashes carry the receipts.   The vocabulary holds the line.",
          0.5, 7.75, 10.0, 0.35, font_size=10, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 
-# ───────── SLIDE 2 — Size view hides work ─────────
+# ───────── SLIDE 2 — Size view hides work (Germany Solar 2005-06) ─────────
 s = add_slide()
 add_title_strip(s, "The size view hides the work",
                 "A carrier can be small in share and large in structural work.")
@@ -180,12 +153,11 @@ add_text(s,
          0.7, 7.5, 9.6, 0.4, font_size=11, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 2)
 
-# ───────── SLIDE 3 — Five viewpoints, one observable stack ─────────
+# ───────── SLIDE 3 — Five viewpoints (bigger headers + spacing) ─────────
 s = add_slide()
 add_title_strip(s, "Five viewpoints, one observable stack",
                 "Each viewpoint answers one question.  Together: an auditable transition event.")
 add_image(s, MANU_FIG / "fig1_method.png", 0.5, 1.8, 5.4)
-# Five-row block on the right — bigger headers, better vertical spacing per Peter's slide-3 adjustment
 add_text(s, "Composition",      6.2, 1.80, 4.5, 0.45, font_size=18, bold=True, color=GOLD)
 add_text(s, "what share each carrier has.", 6.2, 2.25, 4.5, 0.40, font_size=13, color=INK)
 add_text(s, "Helmsman",         6.2, 2.85, 4.5, 0.45, font_size=18, bold=True, color=GOLD)
@@ -201,7 +173,7 @@ add_text(s,
          0.5, 7.55, 10.0, 0.4, font_size=11, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 3)
 
-# ───────── SLIDE 4 — Activation Coefficient, the yeast factor ─────────
+# ───────── SLIDE 4 — Activation Coefficient (Germany worked example) ─────────
 s = add_slide()
 add_title_strip(s, "The Activation Coefficient — the yeast factor",
                 "How much structural work a carrier does, relative to how much of the mix it is.")
@@ -237,26 +209,22 @@ add_text(s, "deliberate transition",  1.05, 2.30, 3.0, 0.4, font_size=12, italic
 add_text(s, "continuous arc",         1.05, 2.65, 3.0, 0.4, font_size=12, italic=True, color=DIM)
 add_text(s, "Energiewende\n2000 → 2025\nsolar + wind absorb\nstructural work\nbefore size dominates.",
          1.05, 3.25, 3.0, 3.0, font_size=13, color=INK)
-
 add_text(s, "Japan",     4.5, 1.85, 3.0, 0.5, font_size=18, bold=True, color=GOLD)
 add_text(s, "external shock",         4.5, 2.30, 3.0, 0.4, font_size=12, italic=True, color=INK)
 add_text(s, "loop and reorganise",    4.5, 2.65, 3.0, 0.4, font_size=12, italic=True, color=DIM)
 add_text(s, "Fukushima 2011\ndisplaces nuclear,\ncauses 2011–2013\nmulti-year compositional\nreorganisation.",
          4.5, 3.25, 3.0, 3.0, font_size=13, color=INK)
-
 add_text(s, "United Kingdom", 7.95, 1.85, 3.0, 0.5, font_size=18, bold=True, color=GOLD)
 add_text(s, "regime change",          7.95, 2.30, 3.0, 0.4, font_size=12, italic=True, color=INK)
 add_text(s, "jump and return",        7.95, 2.65, 3.0, 0.4, font_size=12, italic=True, color=DIM)
 add_text(s, "Coal exit 2012–2020\nfrom > 30 % to < 2 %.\nWind, solar, others\nabsorb displaced\nstructural work.",
          7.95, 3.25, 3.0, 3.0, font_size=13, color=INK)
-
 add_text(s,
          "Three different transition regimes.  One operational protocol reads them all.",
          0.5, 7.4, 10.0, 0.5, font_size=13, color=GOLD, italic=True, align=PP_ALIGN.CENTER)
 add_footer(s, 5)
 
-# ───────── SLIDE 6 — Germany share-and-work view ─────────
-# Layout: case-study figure shrunk to 4.85" tall (was 5.2") to clear bottom for callout + italic + footer
+# ───────── SLIDE 6 — Germany share-and-work ─────────
 s = add_slide()
 add_title_strip(s, "Germany — share-and-work view",
                 "Energiewende read as a single smooth arc on the simplex (chart pair: shares + structural work).")
@@ -269,8 +237,7 @@ add_text(s,
          0.5, 7.00, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 6, "Germany — share + work  ·  navigation chart on next slide")
 
-# ───────── SLIDE 7 — Germany navigation chart (LARGE) ─────────
-# Layout: nav chart explicit 6.5" × 5.0" to clear bottom; centered horizontally
+# ───────── SLIDE 7 — Germany navigation chart ─────────
 s = add_slide()
 add_title_strip(s, "Germany — course on the simplex",
                 "The Helmsman trajectory: where the composition went, year by year.")
@@ -283,7 +250,7 @@ add_text(s,
          0.5, 7.15, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 7, "Germany — navigation chart")
 
-# ───────── SLIDE 8 — Japan share-and-work view ─────────
+# ───────── SLIDE 8 — Japan share-and-work ─────────
 s = add_slide()
 add_title_strip(s, "Japan — share-and-work view",
                 "Fukushima 2011: external shock displaces nuclear, multi-year compositional reorganisation.")
@@ -296,7 +263,7 @@ add_text(s,
          0.5, 7.00, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 8, "Japan — share + work  ·  navigation chart on next slide")
 
-# ───────── SLIDE 9 — Japan navigation chart (LARGE) ─────────
+# ───────── SLIDE 9 — Japan navigation chart ─────────
 s = add_slide()
 add_title_strip(s, "Japan — course on the simplex",
                 "The Helmsman trajectory: looping reorganisation, not a single step.")
@@ -309,7 +276,7 @@ add_text(s,
          0.5, 7.15, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 9, "Japan — navigation chart")
 
-# ───────── SLIDE 10 — UK share-and-work view ─────────
+# ───────── SLIDE 10 — UK share-and-work ─────────
 s = add_slide()
 add_title_strip(s, "United Kingdom — share-and-work view",
                 "Coal exit as policy-driven regime change, absorbed across multiple renewable carriers.")
@@ -322,7 +289,7 @@ add_text(s,
          0.5, 7.00, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 10, "United Kingdom — share + work  ·  navigation chart on next slide")
 
-# ───────── SLIDE 11 — UK navigation chart (LARGE) ─────────
+# ───────── SLIDE 11 — UK navigation chart ─────────
 s = add_slide()
 add_title_strip(s, "United Kingdom — course on the simplex",
                 "The Helmsman trajectory: a jump from the coal vertex, then a return toward stability.")
@@ -335,7 +302,7 @@ add_text(s,
          0.5, 7.15, 10.0, 0.4, font_size=12, italic=True, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 11, "United Kingdom — navigation chart")
 
-# ───────── SLIDE 12 — Cross-country: 5 of 9 ─────────
+# ───────── SLIDE 12 — Cross-country 5 of 9 ─────────
 s = add_slide()
 add_title_strip(s, "Cross-country signature — 5 of 9 reproduce the pattern",
                 "From three case archetypes to a corpus-level result.")
@@ -369,13 +336,13 @@ for i, (q, ans, who) in enumerate(rows):
 add_text(s,
          "The stack does not replace interpretation.  It gives interpretation a reproducible object.",
          0.5, 7.5, 10.0, 0.5, font_size=13, italic=True, color=GOLD, align=PP_ALIGN.CENTER)
-# AI Use Declaration footer (HUF-STD-001 v1.1 compliance)
 add_text(s,
          "AI Use Declaration (HUF-STD-001 v1.1):  research design, mathematical content, code, and scientific "
          "responsibility remain with the named author.  AI assistants (Claude, ChatGPT, Grok) used for drafting, "
          "sweeps, and reviews.  Author retains full responsibility.   Apache-2.0 code  ·  CC BY 4.0 docs.",
          0.5, 7.85, 10.0, 0.6, font_size=8, color=DIM, align=PP_ALIGN.CENTER)
 add_footer(s, 13)
+
 # Save
 OUT.parent.mkdir(parents=True, exist_ok=True)
 prs.save(str(OUT))

@@ -11,6 +11,37 @@
 
 ---
 
+## 2026-05-25 — Post-#63 maintenance round (working tree, held for push #64)
+
+*Working state entry — these items live on the working tree after push #63 (`5d0119f` CI #59 "13 slide codawork2026") landed. They are held for inclusion in push #64 when Peter's pending slide-talk edits are ready to bundle in.*
+
+**New artifacts on the working tree (not yet committed):**
+
+- **`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide_QA_companion.md`** + **`.pdf`** (15 pages, letter landscape) — two-column reading aid for the talk: left column carries the speech per slide, right column carries 3–6 anticipated Q&A bench cards with ready responses per slide, plus a general Q&A bench (MC-4, why-not-already-CoDa, BTL lineage, reproducibility, manifold-category, gauge theory, hostile-question handling, time-running-out handoff) and a voice-and-posture reminders table. Rendered via pandoc-to-HTML-to-weasyprint (HTML preserves the two-column tables that LaTeX collapses). Per Peter's directive *"i will read from this, and have ready possible responses on a per slide basis."*
+- **`CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html`** updated to **v2.2 SHOCK design** — the SHOCK overlay moved off the plate perimeter (which kept fighting carrier-identity color and base line-width encoding) onto the previously-unused year-label text color: when SHOCK is on and `smag > 0.5`, the year label flips to the chromatic opposite of the plate's base color (`lblR = 255 − cr`, etc.) with a small alpha bump. Carrier identity stays clean in the line; SHOCK gets a clean channel of its own. Five-line implementation, no interference with carrier encoding, high contrast against any palette by RGB-complement math. Replaces the brief v2.1 dual-encoding stroke-width attempt per Peter's *"instead of lighting the band red, simplify, make the year/plate markers the chromatic opposite color as a marker by text change."*
+- **`papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §4.11** updated with: v2.2 supersession note for item 2 (dual-encoding stroke-width superseded by year-label chromatic-opposite); new **channel-discipline doctrine** subsection recording the principle that emerged — *each visual channel owns one job; adding a diagnostic = find a clean channel, not stack onto a busy one* — explicitly tied to the BTL constant-power Butterworth crossover precedent (flagship §4.2). Acoustic engineering taught the discipline in 2024; the projector inherited it in 2026. The framework's recursion-test pattern in action.
+
+**Insight captured.** Peter's call to revert the v2.1 dual-encoding and move SHOCK to the year label is more than a UX tweak — it is the worked-example of a doctrine that should travel. *Visual channels are driver bands.* Every encoding axis stacked onto a busy channel costs more in interference than it gains in salience. The same physics that gave the BTL crossover its constant-power objective gives the projector its single-channel-per-job objective. The §4.11 channel-discipline subsection captures the principle for future Stage 4 plate work, HUD overlays, HCI-AUDIO listening-position indicators, HCI-ULTRASOUND non-contact-measurement markers, and the post-conference temporal-profile classifier (item 3 of §4.11) whose visual surface has not yet been designed.
+
+**Admin chain state.** Post-#63 5-step sync per `PUSH_PROTOCOL.md §6` is complete on the working tree: `HS_FAST_REFRESH.json` (last_push, push_63_completed, previous_last_push, last_updated → 2026-05-25), `ai-refresh/HS_ADMIN.json` (push_63_completed entry), `ai-refresh/PUSHES_INDEX.md` (Push #63 deep-detail section + new layered-parity table + file manifest), `CHANGELOG.md` (#63 row with actual SHA `5d0119f` + CI #59 + 50s + theme). All four admin surfaces ready to ride along in push #64. (Bash-side cache lag has reported false-positive JSON parse errors on HS_FAST_REFRESH.json; Windows-side Read confirms the file is well-formed and extends through line 621 with proper closing braces; live GitHub HEAD SHA cross-check confirms `5d0119f` matches.)
+
+**Push #64 working-tree manifest (~10 files, all S2 doc-only, all lockdown-compliant):**
+
+- `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide_QA_companion.md` (new)
+- `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide_QA_companion.pdf` (new, rendered)
+- `CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html` (modified, v2.0 → v2.2 SHOCK redesign)
+- `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` (modified, §4.11 supersession + channel-discipline doctrine)
+- `HS_FAST_REFRESH.json` (modified, post-#63 admin sync)
+- `ai-refresh/HS_ADMIN.json` (modified, push_63_completed)
+- `ai-refresh/PUSHES_INDEX.md` (modified, Push #63 section added)
+- `CHANGELOG.md` (modified, #63 row filled)
+- `CODA-Association/CODAwork2026/VERSION_HISTORY.md` (modified, this 2026-05-25 entry)
+- Plus Peter's slide-talk edits in progress (TBD)
+
+Push class S2 doc-only. Lockdown-compliant. No engine, no schema, no INV catalog, no NO-CREATE.
+
+---
+
 ## 2026-05-24 — 13-slide deck promoted (the navigation chart finally readable from the back)
 
 **Trigger.** Peter's directive 2026-05-24: *"for CodaWork2026_FinalTalk_10Slide_2026-05-20 slide 6.7.8 should have the navigation chart follow dividing from 3 to 6 slides, this was originally done and then it was condensed but now it needs to go back which is fine and the slide talk can stay as is just divide the navigation part to that slide, this will make 13 slides, this is under the recommended 15 slides suggestions, problem is the image is just too small to see and now all slides can be shown large and easier to see."*

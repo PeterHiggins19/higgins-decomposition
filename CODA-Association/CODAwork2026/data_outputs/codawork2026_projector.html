@@ -46,7 +46,7 @@ canvas{display:block;position:absolute;top:0;left:0}
   <div class="row"><span class="key">mode</span><span class="val" id="projModeVal">RADAR STACK</span></div>
   <div class="row" id="projBaryRow" style="display:none"><span class="key">b(t)</span><span class="val">PCA₂( V<sup>T</sup>·CLR(t) − μ ) · 0.85R</span><span class="unit">ILR-Helmert</span></div>
   <div class="row" id="projAlignRow" style="display:none"><span class="key">alignment</span><span class="val">v_j(t) = (r_j·cos θ_j, r_j·sin θ_j) − b(t)</span></div>
-  <div class="row" id="projShockRow" style="display:none"><span class="key">shock tint</span><span class="val">stroke→red as ‖Δclr(t)‖ / max → 1</span></div>
+  <div class="row" id="projShockRow" style="display:none"><span class="key">shock marker</span><span class="val">year label → chromatic opposite of plate when ‖Δclr(t)‖ / max &gt; 0.5</span></div>
   <div class="row"><span class="key">view</span><span class="val" id="projViewVal">3-D radar/spider stack — per-year snapshots</span></div>
   <div class="row"><span class="key">vertex j</span><span class="val">(r·cos θ_j, r·sin θ_j) at depth z(t)</span></div>
   <div class="row"><span class="key">angle θ_j</span><span class="val">(j/D)·2π − π/2</span><span class="unit">rad</span></div>
@@ -328,11 +328,30 @@ function drawOneRun(d,asGhost){
       ctx.fillStyle='rgba('+cr2[0]+','+cr2[1]+','+cr2[2]+','+(al*1.5)+')';ctx.fill();}}
     else{ctx.fillStyle='rgba('+cr+','+cg+','+cb+','+al+')';ctx.fill();}
     ctx.beginPath();for(var fi=0;fi<p2.length;fi++){if(fi===0)ctx.moveTo(p2[fi].x,p2[fi].y);else ctx.lineTo(p2[fi].x,p2[fi].y);}ctx.closePath();
-    var sR=cr,sG=cg,sB=cb;if(shock&&!asGhost&&d.stepMax>0&&t<d.step.length){var smag=d.step[t]/d.stepMax;if(smag>0.5){var m=Math.min(1,(smag-0.5)*2);sR=Math.round(cr+(220-cr)*m);sG=Math.round(cg*(1-m*0.7));sB=Math.round(cb*(1-m*0.7));}}ctx.strokeStyle='rgba('+sR+','+sG+','+sB+','+sa+')';ctx.lineWidth=isF?(asGhost?0.8:1.2):0.6;ctx.stroke();
+    // SHOCK indicator (v2.2, 2026-05-25): plate perimeter stroke unchanged — carrier identity stays clean in the line color and width. The SHOCK signal moves into the year-label text below; see the year-label rendering block for the chromatic-opposite color flip.
+    ctx.strokeStyle='rgba('+cr+','+cg+','+cb+','+sa+')';
+    ctx.lineWidth=isF?(asGhost?0.8:1.2):0.6;
+    ctx.stroke();
     if(isL&&!asGhost){ctx.shadowColor='#ffd700';ctx.shadowBlur=12;ctx.strokeStyle='#ffd70080';ctx.lineWidth=2;
       ctx.beginPath();for(var fi=0;fi<p2.length;fi++){if(fi===0)ctx.moveTo(p2[fi].x,p2[fi].y);else ctx.lineTo(p2[fi].x,p2[fi].y);}
       ctx.closePath();ctx.stroke();ctx.shadowBlur=0;}
-    if(isF&&p2.length>0){var cxL=0,cyL=0;for(var li=0;li<p2.length;li++){cxL+=p2[li].x;cyL+=p2[li].y;}cxL/=p2.length;cyL/=p2.length;ctx.save();ctx.translate(cxL,cyL-RADIUS-4);ctx.rotate(-Math.PI/2);ctx.fillStyle='rgba(242,182,50,'+(sa*0.85)+')';ctx.font='bold 12px Courier New';ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText(String(d.years[t]),0,0);ctx.restore();ctx.textAlign='left';ctx.textBaseline='alphabetic';}
+    if(isF&&p2.length>0){
+      var cxL=0,cyL=0;for(var li=0;li<p2.length;li++){cxL+=p2[li].x;cyL+=p2[li].y;}cxL/=p2.length;cyL/=p2.length;
+      ctx.save();ctx.translate(cxL,cyL-RADIUS-4);ctx.rotate(-Math.PI/2);
+      // Year/plate marker — gold by default. SHOCK marks high-magnitude years
+      // (smag > 0.5) by flipping the label to the chromatic opposite of the
+      // plate's base color (255-r, 255-g, 255-b). Robust against any palette;
+      // does not touch the perimeter line. (v2.2, 2026-05-25)
+      var lblR=242,lblG=182,lblB=50,lblA=sa*0.85;
+      if(shock&&!asGhost&&d.stepMax>0&&t<d.step.length){
+        var smag=d.step[t]/d.stepMax;
+        if(smag>0.5){lblR=255-cr;lblG=255-cg;lblB=255-cb;lblA=Math.min(1,sa+0.2);}
+      }
+      ctx.fillStyle='rgba('+lblR+','+lblG+','+lblB+','+lblA+')';
+      ctx.font='bold 12px Courier New';ctx.textAlign='left';ctx.textBaseline='middle';
+      ctx.fillText(String(d.years[t]),0,0);
+      ctx.restore();ctx.textAlign='left';ctx.textBaseline='alphabetic';
+    }
     if(isF&&!asGhost){for(var j=0;j<p2.length;j++){var cc3=CARRIER_COLORS[d.carriers[j]]||'#6898b8';
       ctx.fillStyle=cc3;ctx.beginPath();ctx.arc(p2[j].x,p2[j].y,2.5,0,Math.PI*2);ctx.fill();}}
     if(labels&&isF&&!asGhost){for(var j=0;j<p2.length;j++){

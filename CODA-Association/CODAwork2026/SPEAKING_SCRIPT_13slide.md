@@ -9,25 +9,27 @@ The country case-study **pairs** (slides 6+7 Germany, 8+9 Japan, 10+11 UK) are t
 
 ---
 
-## Slide 1 — Title + question + contact   ·   25 sec
+## Slide 1 — Title + question + contact   ·   30 sec
 
 Good morning. *Compositional monitoring of energy-mix drift on the simplex.*
 
 The question of this talk: **which carrier did the structural work?** Not which one got bigger. Which one moved the composition.
 
-My email and the repo URL are on this slide. The one-page handout is in six UN languages — the QR code at the back leads to all of them. Let me begin.
+Follow along on the repository — the slide deck, manuscript, and live projector are all open. The framework runs any compositional dataset the CoDa community can describe; what you'll see in the next nine minutes is reproducible on your data.
+
+My email and the repo URL are on this slide. The one-page handout is in six UN languages. Let me begin.
 
 ---
 
 ## Slide 2 — The size view hides the work   ·   50 sec
 
-Twenty-five years of world electricity. Stacked-area chart. Coal dominant. Gas grows. Nuclear declines. Solar appears as a thin sliver after 2010.
+Twenty-five years of German electricity. Stacked-area chart. Coal and lignite recede. Nuclear phases out. Gas holds. Solar and wind grow steadily. Wind passes coal in the late twenty-tens.
 
 That is the headline view. Here is what it hides.
 
-**USA Solar, 2012 → 2013.** Starting share, 0.107 percent. Structural Power Share, 81.7 percent. Activation Coefficient, approximately 760×.
+**Germany Solar, 2005 → 2006.** Starting share, zero-point-two-one percent. Structural Power Share, seventy-one-point-one percent. Activation Coefficient, approximately three-hundred-thirty-three times.
 
-Solar acted at 760 times its size. No size view shows that. No size view ever could.
+Solar acted at three-hundred-thirty-three times its size — four years before the share view calls solar visible. No size view shows that. No size view ever could.
 
 This talk is the reason that number exists. The mathematics is standard compositional data analysis — Aitchison geometry, CLR, ILR. The application — monitoring the simplex for structural work — may be new.
 
@@ -49,9 +51,9 @@ Alpha-sub-i of t equals Power Share over starting share. That ratio is the diagn
 
 When alpha is near 1, the carrier does work proportional to its size. Ordinary. When alpha is much greater than 1 — hidden driver. The carrier acts above its size. When alpha is less than 1 — coasting.
 
-Worked example. USA Solar, 2012 → 2013. Starting share 0.107 percent — small. Power Share 81.7 percent — most of the work. Alpha approximately 760.
+Worked example. Germany Solar, 2005 → 2006. Starting share zero-point-two-one percent — small. Power Share seventy-one-point-one percent — most of the work. Alpha approximately three-hundred-thirty-three.
 
-Yeast is two percent of a loaf by mass and does one hundred percent of the rising. Same mathematical shape. Solar 2010 through 2015 appears repeatedly across the corpus as small-share, large-structural-work.
+Yeast is two percent of a loaf by mass and does one hundred percent of the rising. Same mathematical shape. The Energiewende's structural beginning — named four years before solar appears in the share view.
 
 ---
 
@@ -189,7 +191,7 @@ Thank you. Questions next — the cinema scroll will run behind us. Every plate 
 
 | Slide | Topic | Seconds |
 |---|---|---|
-| 1 | Title + question + contact | 25 |
+| 1 | Title + question + contact + follow-along + CoDa-tools framing | 30 |
 | 2 | Size view hides work (USA Solar 760×) | 50 |
 | 3 | Five viewpoints | 35 |
 | 4 | Activation Coefficient | 45 |
