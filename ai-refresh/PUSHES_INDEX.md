@@ -198,6 +198,55 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #64 — *Slide update*: final slide polish + SHOCK simplify + Q&A companion + post-#63 admin sync (`ef3fbc5`, CI #60 "Slide update" green 53s, 2026-05-26)
+
+Six S2 doc-only change groups land together seven days before CoDaWork 2026. Each began as a specific interaction with Peter during post-#63 work; each landed as a clean S2 doc-only edit on the working tree.
+
+**(A) Post-#63 admin chain sync.** The 5-step post-commit sync per `PUSH_PROTOCOL.md §6` for push #63 (`5d0119f` / CI #59 "13 slide codawork2026" green 50s) lived on the working tree from 2026-05-25; carried through here. All four admin surfaces (`HS_FAST_REFRESH.json` last_push + push_63_completed + demoted previous; `ai-refresh/HS_ADMIN.json` push_63_completed full entry; `ai-refresh/PUSHES_INDEX.md` Push #63 deep-detail section; `CHANGELOG.md` #63 row filled) updated.
+
+**(B) Projector v2.0 → v2.2 SHOCK simplification.** Two iterations within the same session.
+
+- **v2.1 (briefly implemented):** added stroke colour + stroke width dual-encoding per ChatGPT-flagged visibility issue against warm-toned carrier palettes (biomass / oil / coal-on-some-palettes where the red shock tint disappears).
+- **v2.2 (final, superseding v2.1):** the SHOCK indicator moved off the perimeter stroke entirely and onto the previously-unused year/plate text label. When `SHOCK` is on and `smag > 0.5`, the year label flips to the **chromatic opposite** of the plate's base color (`lblR = 255 − cr, lblG = 255 − cg, lblB = 255 − cb`), with a small alpha bump (≤ +0.2). Five-line implementation in the draw function. No interference with carrier-identity line encoding. High contrast against any palette by RGB-complement math. PROJECTION info panel collapsed to a single row: *shock marker | year label → chromatic opposite of plate when ‖Δclr(t)‖ / max > 0.5*.
+
+Peter's directive: *"instead of lighting the band red, simplify, make the year/plate markers the chromatic opposite color as a marker by text change, simple, and removes messing with the line colors and widths."*
+
+**(C) 13-slide deck content edits — slides 1 / 2 / 3 / 4.**
+
+| Slide | Change | Why |
+|---|---|---|
+| 1 | Added two italic lines: *"Follow along on the repository — the slide deck, manuscript, and live projector are all open."* and *"Hˢ runs any compositional dataset the CoDa community can describe — the views in this talk are reproducible on your data."* Timing 25→30 s. | Surfaces talk's follow-along posture + the framework's open / domain-neutral generality |
+| 2 | Replaced World electricity intro + USA Solar 2012-13 / 0.107% / 81.7% / α≈760× hook with **Germany electricity intro + Germany Solar 2005-06 / 0.21% / 71.1% / α≈333× hook** | Keeps the talk specific to Germany / Japan / UK throughout; broader corpus appears as natural extension on slide 12 |
+| 3 | Header fonts 15→18 pt, descriptions 12→13 pt, vertical spacing redistributed at ~1.05" between rows | Per Peter: *"increase size and better spacing for headers and vertical spacing between components in diagram."* |
+| 4 | Worked example replaced USA Solar 2012-13 with **Germany Solar 2005-06** (0.21% / 71.1% / 333×); new tagline *"The Energiewende's structural beginning, four years before solar appears in the share view."* | Matches slide 2 hook; reinforces the through-line |
+
+Per Peter: *"use Germany, Japan or UK only in examples, use only these three for the slide show, keep the rest of the world out of it, that will show up later as an extension but not the main talk."*
+
+**(D) `SPEAKING_SCRIPT_13slide.md` content match.** Slide 1 expanded for follow-along + CoDa-tools-deployable, slide 2 rewritten for Germany Solar 2005-06 hook with phonetic numbers (*zero-point-two-one percent*, *seventy-one-point-one percent*, *approximately three-hundred-thirty-three times*), slide 4 rewritten for Germany worked example. Timing table updated for slide 1 30-second bump.
+
+**(E) `SPEAKING_SCRIPT_13slide_QA_companion.md` + `.pdf` — NEW dual-column reading aid for the podium.** Per Peter: *"i will read from this, and have ready possible responses on a per slide basis, make it a left side slide speech and right side q&a."*
+
+- **Left column** carries the speech per slide (read from this).
+- **Right column** carries 3–6 anticipated Q&A bench cards with ready responses per slide.
+- **Asymmetric font sizing** per Peter's low-light spec (*"increase size of speech font to that of slide header for low light visibility"*): 13 pt speech column matches slide-header h2; 10 pt Q&A column for at-a-glance reference.
+- Per-slide Q&A bench cards updated for slide 1/2/4 content changes. New card on slide 1 — *"Any compositional dataset — what does that include?"* — lists the cross-domain CoDa-describable set (energy mixes, biogeochemistry, geochemical assemblages, microbiome ratios, expenditure shares, electoral compositions, fleet reliability, CMB photon power per multipole) plus the three IEEE-floor reference datasets (Backblaze D=4, Planck CMB D=4, SM neutrino D=3).
+- Rendered via pandoc → HTML → weasyprint (HTML preserves the two-column tables that LaTeX collapses); 16 pages letter landscape, 88 KB.
+- General Q&A bench section + voice-and-posture reminders + apparatus-during-Q&A block carry forward.
+
+**(F) `POST_CONFERENCE_ROADMAP_2026-06.md` §4.11 supersession + channel-discipline doctrine.** Item 2 (dual-encoding stroke-width modulation, v2.1) marked as superseded 2026-05-25 by the v2.2 year-label chromatic-opposite design.
+
+New **channel-discipline doctrine** subsection records the principle that emerged from the v2.1 → v2.2 redesign:
+
+> **Each visual channel owns one job. Adding a diagnostic = find a clean channel, not stack onto a busy one. If no clean channel exists, the diagnostic isn't ready yet — refine the diagnostic until it fits a single channel.**
+
+Explicitly tied to the **BTL constant-power Butterworth crossover precedent** (flagship §4.2) — the same physics as let-each-driver-own-its-band-cleanly applied at the visualization layer. Acoustic engineering taught the discipline in 2024; the projector inherited it in 2026. *The framework that walked from BTL to Hˢ knows things about itself it learned at the previous level.* Recursion-test pattern in action.
+
+**README chain sweep + CONFERENCE_ATTENDEES sweep.** Three active surfaces updated to remove stale `USA Solar 760×` / `World electricity` references from the talk description (`CONFERENCE_ATTENDEES.md` slides 1/2/4 entries; `CODAwork2026/README.md` "How to run the presentation" story arc; `data_outputs/README.md` story arc). `CODA-Association/README.md` + `CODAwork2026/README.md` folder layouts gain the Q&A-companion pointer. `CODAwork2026/VERSION_HISTORY.md` 2026-05-25 journal entry covers the working state captured between push #63 and #64.
+
+**Transitional artifact** — `build_final_talk_13slide_v2.py` (byte-identical content copy of canonical builder, created 2026-05-25 to bypass a Linux-side cross-mount cache lag where the build sandbox served a truncated view of the canonical script missing the final `prs.save()` call). Included as documented evidence of the cache-bypass workaround pattern; can be deleted in a future push.
+
+**Lockdown discipline:** S2 doc-only. Engine code (cnt.py 2026-05-19 from #52, cnt.R 2026-05-10, cnq.py 2026-05-09, cnq.R 2026-05-10), schemas (HUF-STD-001/002/003), INV catalog dispositions (63 entries: 33C / 8S / 12D / 8O / 1F / 1C), NO-CREATE files (all six absent), manuscript, cinema scroll, per-country plates — all untouched. 13-slide deck content edits + projector v2.2 = presentation-layer; engine outputs unchanged.
+
 ### Push #63 — *Final polish*: layered parity precision + 13-slide deck expansion + post-conference roadmap notes (`5d0119f`, CI #59 "13 slide codawork2026" green 50s, 2026-05-24)
 
 Three coordinated S2 doc-only change groups landed together eight days before CoDaWork 2026, each with its own external trigger. The framework's discipline that *"the surface is judged at what reviewers and audiences see"* was operationalised three ways at the documentation surface.

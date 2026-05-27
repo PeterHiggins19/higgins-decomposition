@@ -52,10 +52,14 @@ P2 = {
     h_cnq="CNQ quaternion operations (the phase readout on S³)",
     h_closure="Closure constraints across domains (the budget the partition apportions)",
     h_appar="Apparatus at a glance — who reads what",
+    h_tt="HUF-STD-002 Tensor Train — pipeline order, link, mode, rank",
     h_sym="Symbols legend",
     c_op="Operation", c_sym="Symbol", c_formula="Formula / definition",
     c_dom="Domain", c_bud="Budget", c_clos="Closure constraint",
     c_app="Apparatus", c_reads="Reads", c_out="Output",
+    c_order="Order", c_link="Link", c_mode="Mode (input → output)", c_rank="Rank",
+    flow_label="Flow:",
+    hash_note="Each link emits SHA-256; chain reproducible from raw input to final artifact in one command.",
     closing="Same input, same output, always. The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line. The AI follows the same protocol.",
 ),
 "fr": dict(
@@ -66,10 +70,14 @@ P2 = {
     h_cnq="Opérations quaternioniques CNQ (la lecture de phase sur S³)",
     h_closure="Contraintes de fermeture par domaine (le budget que la partition répartit)",
     h_appar="Appareil en un coup d'œil — qui lit quoi",
+    h_tt="Train tensoriel HUF-STD-002 — ordre, lien, mode et rang du pipeline",
     h_sym="Légende des symboles",
     c_op="Opération", c_sym="Symbole", c_formula="Formule / définition",
     c_dom="Domaine", c_bud="Budget", c_clos="Contrainte de fermeture",
     c_app="Appareil", c_reads="Lit", c_out="Sortie",
+    c_order="Ordre", c_link="Lien", c_mode="Mode (entrée → sortie)", c_rank="Rang",
+    flow_label="Flux :",
+    hash_note="Chaque lien émet SHA-256 ; chaîne reproductible de l'entrée brute à l'artefact final en une seule commande.",
     closing="Même entrée, même sortie, toujours. L'instrument lit. L'expert décide. Les hachages portent les reçus. Le vocabulaire tient la ligne. L'IA suit le même protocole.",
 ),
 "es": dict(
@@ -80,10 +88,14 @@ P2 = {
     h_cnq="Operaciones quaterniónicas CNQ (la lectura de fase en S³)",
     h_closure="Restricciones de clausura por dominio (el presupuesto que reparte la partición)",
     h_appar="El instrumento de un vistazo — quién lee qué",
+    h_tt="Tren tensorial HUF-STD-002 — orden, enlace, modo y rango del pipeline",
     h_sym="Leyenda de símbolos",
     c_op="Operación", c_sym="Símbolo", c_formula="Fórmula / definición",
     c_dom="Dominio", c_bud="Presupuesto", c_clos="Restricción de clausura",
     c_app="Instrumento", c_reads="Lee", c_out="Salida",
+    c_order="Orden", c_link="Enlace", c_mode="Modo (entrada → salida)", c_rank="Rango",
+    flow_label="Flujo:",
+    hash_note="Cada enlace emite SHA-256; cadena reproducible desde la entrada bruta hasta el artefacto final en un solo comando.",
     closing="Misma entrada, misma salida, siempre. El instrumento lee. El experto decide. Los hashes llevan los recibos. El vocabulario sostiene la línea. La IA sigue el mismo protocolo.",
 ),
 "ru": dict(
@@ -94,10 +106,14 @@ P2 = {
     h_cnq="Кватернионные операции CNQ (считывание фазы на S³)",
     h_closure="Ограничения замыкания по областям (бюджет, который распределяет разбиение)",
     h_appar="Прибор с одного взгляда — кто что считывает",
+    h_tt="Тензорный поезд HUF-STD-002 — порядок, звено, режим и ранг конвейера",
     h_sym="Легенда символов",
     c_op="Операция", c_sym="Символ", c_formula="Формула / определение",
     c_dom="Область", c_bud="Бюджет", c_clos="Ограничение замыкания",
     c_app="Прибор", c_reads="Читает", c_out="Выход",
+    c_order="Порядок", c_link="Звено", c_mode="Режим (вход → выход)", c_rank="Ранг",
+    flow_label="Поток:",
+    hash_note="Каждое звено выдаёт SHA-256; цепочка воспроизводима от исходного ввода до финального артефакта одной командой.",
     closing="Тот же вход — тот же выход, всегда. Инструмент читает. Эксперт решает. Хэши несут квитанции. Словарь держит линию. ИИ следует тому же протоколу.",
 ),
 "zh": dict(
@@ -108,10 +124,14 @@ P2 = {
     h_cnq="CNQ 四元数操作（S³ 上的相位读取）",
     h_closure="跨领域闭包约束（分割所分配的预算）",
     h_appar="仪器一览 — 谁读什么",
+    h_tt="HUF-STD-002 张量链 — 流程顺序、环节、模式、秩",
     h_sym="符号图例",
     c_op="操作", c_sym="符号", c_formula="公式 / 定义",
     c_dom="领域", c_bud="预算", c_clos="闭包约束",
     c_app="仪器", c_reads="读取", c_out="输出",
+    c_order="顺序", c_link="环节", c_mode="模式（输入 → 输出）", c_rank="秩",
+    flow_label="流程：",
+    hash_note="每个环节发出 SHA-256；从原始输入到最终成果可由一条命令完整复现。",
     closing="同输入同输出，始终如一。仪器读取。专家判定。哈希承载凭证。词汇守住底线。AI 遵循同一协议。",
 ),
 "ar": dict(
@@ -122,10 +142,14 @@ P2 = {
     h_cnq="عمليات الكواتيرنيون CNQ (قراءة الطور على S³)",
     h_closure="قيود الإغلاق عبر المجالات (الميزانية التي يوزّعها التقسيم)",
     h_appar="الجهاز بنظرة واحدة — من يقرأ ماذا",
+    h_tt="قطار HUF-STD-002 الموتري — الترتيب والرابط والنمط والرتبة في خط الأنابيب",
     h_sym="مفتاح الرموز",
     c_op="العملية", c_sym="الرمز", c_formula="الصيغة / التعريف",
     c_dom="المجال", c_bud="الميزانية", c_clos="قيد الإغلاق",
     c_app="الجهاز", c_reads="يقرأ", c_out="المخرج",
+    c_order="الترتيب", c_link="الرابط", c_mode="النمط (مدخل → مخرج)", c_rank="الرتبة",
+    flow_label="التدفق:",
+    hash_note="كل رابط يصدر SHA-256؛ السلسلة قابلة للتكرار من المدخلات الخام إلى المنتج النهائي بأمر واحد.",
     closing="نفس المُدخل ونفس المُخرج دائمًا. الأداة تقرأ. الخبير يقرر. الهاشات تحمل الإيصالات. المصطلحات تحفظ الخط. ويتبع الذكاء الاصطناعي البروتوكول نفسه.",
 ),
 }
@@ -180,6 +204,31 @@ ROWS_APPAR = [
     ("HUF (umbrella)",          "governance",                            "HUF-STD-001 (Publication), -002 (Tensor Train I/O), -003 (Linear Algebra Foundations)"),
 ]
 
+# Tensor-Train rows (new 2026-05-26 — reviewer noted 1/3 page free on side 2; Peter
+# approved adding pipeline order/link/mode/rank from huf-gov/standards/
+# HUF_TENSOR_TRAIN_IO_STANDARD.json the_tensor_train_v1_0.links[]. Stimulates CoDa-
+# community interaction: the pipeline complements the apparatus map above.)
+ROWS_TT = [
+    ("Order 0",   "Adapter",                       "raw → CSV (T × D)",                            "D = 2 … 9+"),
+    ("Order 1",   "CNT — closure + Helmert-ILR",   "(T, D) → (T, D − 1)",                          "D − 1"),
+    ("Order 2",   "CNT — per-step viewpoints",     "(T, D − 1) → (T, K)",                          "K = 5 metrics"),
+    ("Order 3",   "CNT — depth tower + IR class",  "(T, K) → scalar block",                        "regime label"),
+    ("Order 2-3", "CNQ — quaternion path",         "CNT JSON → (T, 4) at D = 2 / 3 / 4",           "4   ( S³ ≅ SU(2) )"),
+    ("Order 4",   "Vector render",                 "JSON → plate tensor",                          "PDF · PNG · SVG"),
+]
+
+# K=5 footnote — math content stays in English per existing handout convention
+TT_K_FOOTNOTE = (
+    "K = 5 metrics  :  Helmsman · Aitchison-step · Power Share · "
+    "Activation Coefficient · navigation_2D"
+)
+
+# One-line flow chart for the tensor train (math content stays in English)
+TT_FLOW_LINE = (
+    "raw  →  [Adapter]  →  CSV  →  [CNT v3.1.0]  →  cnt_*.json  "
+    "→  [CNQ v2.0.0]  →  cnq_*.json  →  [Render]  →  PDF · PNG · SVG"
+)
+
 SYMBOLS_LINE = (
     "<strong>D</strong> carriers · <strong>T</strong> timesteps · "
     "<strong>pᵢ</strong> portion · <strong>Gᵢ</strong> gain (dB) · "
@@ -217,6 +266,23 @@ def render_side2(loc):
     closure_table = table(ROWS_CLOSURE, (P['c_dom'], P['c_bud'], P['c_clos']))
     appar_table   = table(ROWS_APPAR,   (P['c_app'], P['c_reads'], P['c_out']))
 
+    # Tensor-train table uses 4 columns (Order, Link, Mode, Rank) — needs a slightly
+    # different table builder since the existing one is hard-coded to 3 columns.
+    def table4(rows, cols):
+        head = "<tr>" + "".join(f'<th>{c}</th>' for c in cols) + "</tr>"
+        body = ""
+        for row in rows:
+            body += "<tr>"
+            body += f'<td class="ord">{row[0]}</td>'
+            body += f'<td class="op">{row[1]}</td>'
+            body += f'<td class="fmla">{row[2]}</td>'
+            body += f'<td class="fmla">{row[3]}</td>'
+            body += "</tr>"
+        return f"<table class='ops tt'><thead>{head}</thead><tbody>{body}</tbody></table>"
+
+    tt_table_html = table4(ROWS_TT,
+        (P['c_order'], P['c_link'], P['c_mode'], P['c_rank']))
+
     return f"""
 <div class="page2">
   <h1 class="p2-title">{P['h_title']}</h1>
@@ -250,6 +316,11 @@ def render_side2(loc):
       </td>
     </tr>
   </table>
+
+  <h3 class="block">{P['h_tt']}</h3>
+  {tt_table_html}
+  <p class="tt-flow"><strong>{P['flow_label']}</strong> <span class="tt-flow-line">{TT_FLOW_LINE}</span></p>
+  <p class="tt-footnote"><em>{TT_K_FOOTNOTE}</em> &nbsp;·&nbsp; <em>{P['hash_note']}</em></p>
 
   <h3 class="block">{P['h_sym']}</h3>
   <p class="symbols">{SYMBOLS_LINE}</p>
@@ -312,6 +383,19 @@ def render(loc):
                      line-height: 1.45; direction: ltr; }
   .page2 p.symbols strong { color: #1a3a5c; font-family: "Consolas","Monaco",monospace;
                             font-size: 7.0pt; }
+  /* Tensor-train table (4-column variant) */
+  .page2 table.ops.tt td.ord { color: #1a3a5c; font-weight: bold;
+                                font-family: "Consolas","Monaco",monospace;
+                                width: 13%; white-space: nowrap; font-size: 7.0pt; }
+  .page2 table.ops.tt td.op { width: 28%; }
+  .page2 table.ops.tt td.fmla { width: 29.5%; }
+  .page2 p.tt-flow { font-size: 7.0pt; color: #222; margin: 3px 0 1px 0;
+                     line-height: 1.30; direction: ltr;
+                     font-family: "Consolas","Monaco",monospace; }
+  .page2 p.tt-flow strong { color: #1a3a5c; font-family: inherit; }
+  .page2 p.tt-flow .tt-flow-line { color: #333; }
+  .page2 p.tt-footnote { font-size: 6.7pt; color: #555; margin: 1px 0 3px 0;
+                         line-height: 1.30; direction: ltr; font-style: italic; }
   .page2 p.p2-closing { text-align: center; font-style: italic;
                         color: #1a3a5c; font-size: 7.4pt;
                         margin: 6px 0 0 0; line-height: 1.35;

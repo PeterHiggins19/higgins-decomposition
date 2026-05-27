@@ -169,6 +169,21 @@ Aitchison дал области её геометрию в 1986 году; CoDaWo
 | HCI-AUDIO | 4-way listening-position field | ERB band × driver matrix, phase quaternions |
 | HUF (umbrella) | governance | HUF-STD-001 (Publication), -002 (Tensor Train I/O), -003 (Linear Algebra Foundations) |
 
+### Тензорный поезд HUF-STD-002 — порядок, звено, режим и ранг конвейера
+
+| Порядок | Звено | Режим (вход → выход) | Ранг |
+|---|---|---|---|
+| **0** | Adapter | raw → CSV (T × D) | D = 2 … 9+ |
+| **1** | CNT — closure + Helmert-ILR | (T, D) → (T, D − 1) | D − 1 |
+| **2** | CNT — per-step viewpoints | (T, D − 1) → (T, K) | K = 5 metrics |
+| **3** | CNT — depth tower + IR class | (T, K) → scalar block | regime label |
+| **2-3** | CNQ — quaternion path | CNT JSON → (T, 4) at D = 2 / 3 / 4 | 4 ( S³ ≅ SU(2) ) |
+| **4** | Vector render | JSON → plate tensor | PDF · PNG · SVG |
+
+**Поток:** `raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG`
+
+*K = 5 metrics: Helmsman · Aitchison-step · Power Share · Activation Coefficient · navigation_2D · Каждое звено выдаёт SHA-256; цепочка воспроизводима от исходного ввода до финального артефакта одной командой.*
+
 ### Легенда символов
 
 **D** carriers · **T** timesteps · **pᵢ** portion · **Gᵢ** gain (dB) · **F_c** cutoff · **τ** group delay · **n̂** rotation axis · **q** unit quaternion · **σ** Helmsman · **αⱼ** Activation · **πⱼ** Power Share · **η** ILR coordinate · **clr** centred log-ratio · **g(x)** geometric mean · **S^(D−1)** simplex · **S³** 3-sphere ≅ SU(2)
