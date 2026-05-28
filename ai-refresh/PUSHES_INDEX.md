@@ -198,6 +198,70 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #65 — *Tensor Train Handout*: pipeline order/mode/rank on side-2 of UN-6 handout + post-#64 admin sync (`1b48894`, CI #61 "Tensor Train Handout" green 51s, 2026-05-27)
+
+Six days before CoDaWork 2026. One substantive S2 doc-only change group plus the post-#64 admin chain sync carrying along.
+
+**(A) UN-6 handout v11 — Tensor Train block on side-2 empty quarter.**
+
+A community reviewer noted ~1/3 of side-2 was still available after push #60+#61 shipped the operations reference (CoDa core / Hˢ supplementary / CNQ quaternion / closure / apparatus / symbols — five tables of operations discipline plus a one-line vocabulary strip). Peter's question — *"could a tensor train representation of the full cnt and cnq with order, mode and rank data in a table and flow chart be made to fit?"* — surfaced the right additional content for that empty quarter.
+
+The framework's own tensor-train I/O standard (HUF-STD-002, shipped in push #50) specifies the pipeline as a sequence of links each with explicit input mode, output mode, hash-emission contract, and order classification per the Output Doctrine v1.0. Re-presenting that structure on the handout completes the apparatus story without crowding any existing block — the apparatus table already answered *"who reads what"*; the TT table answers *"what flows from where to where"*.
+
+**The TT row data (drawn directly from `huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json` `the_tensor_train_v1_0.links[]`):**
+
+| Order | Link | Mode (input → output) | Rank |
+|---|---|---|---|
+| **0** | Adapter | raw → CSV `(T × D)` | D = 2 … 9+ |
+| **1** | CNT — closure + Helmert-ILR | `(T, D)` → `(T, D − 1)` | D − 1 |
+| **2** | CNT — per-step viewpoints | `(T, D − 1)` → `(T, K)` | K = 5 metrics¹ |
+| **3** | CNT — depth tower + IR class | `(T, K)` → scalar block | regime label |
+| **2-3** | CNQ — quaternion path | CNT JSON → `(T, 4)` at D = 2 / 3 / 4 | 4 ( S³ ≅ SU(2) ) |
+| **4** | Vector render | JSON → plate tensor | PDF · PNG · SVG |
+
+¹ Helmsman · Aitchison-step · Power Share · Activation Coefficient · navigation_2D
+
+**One-line flow chart underneath:**
+
+```
+raw  →  [Adapter]  →  CSV  →  [CNT v3.1.0]  →  cnt_*.json  →  [CNQ v2.0.0]  →  cnq_*.json  →  [Render]  →  PDF · PNG · SVG
+```
+
+**Hash-chain note (localized per language):** *"Each link emits SHA-256; chain reproducible from raw input to final artifact in one command."*
+
+**Implementation footprint:**
+
+- `outputs/build_handout_v11.py` gains new `ROWS_TT` data list + `h_tt` / `c_order` / `c_link` / `c_mode` / `c_rank` / `flow_label` / `hash_note` per-locale strings in the `P2` dict for all six locales + new `table4()` 4-column builder function (the existing `table()` helper was hard-coded to 3 columns) + new TT-specific CSS classes (`.tt` / `.ord` / `.tt-flow` / `.tt-flow-line` / `.tt-footnote`) tuned to 6.7–7.0pt sizing matching the existing 7.0pt page-2 baseline.
+- All six markdown sources (`CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity{,.fr,.es,.ru,.zh,.ar}.md`) carry the new `### HUF-STD-002 Tensor Train` section between the Apparatus table and the Symbols legend; section heading + column headers localized per locale; mathematical content (table body, flow line, K=5 metric names) kept in English per the existing handout convention.
+- All six PDFs rebuilt 2pp letter via WeasyPrint:
+
+| Locale | Size | Pages | Notes |
+|---|---|---|---|
+| EN | 73 KB | 2 | LTR canonical |
+| FR | 74 KB | 2 | LTR |
+| ES | 74 KB | 2 | LTR |
+| RU | 86 KB | 2 | Cyrillic |
+| ZH | 158 KB | 2 | CJK font embed |
+| AR | 95 KB | 2 | RTL |
+
+**Visual QA pass** on three representative locales:
+
+- **EN** (default LTR) — 6 rows + flow + footnote fit; visual rhythm matches the five existing side-2 tables; section heading at same scale.
+- **AR** (RTL stress test) — Arabic section heading + column headers render right-to-left; LTR English math content preserved within cells; Arabic hash-note sentence renders RTL inline with LTR K=5 list; no reflow break.
+- **ZH** (CJK font test) — Chinese section heading + column headers render with embedded CJK font; English math content stays LTR within cells; flow line + K=5 footnote both render without missing glyphs.
+
+**Channel-discipline doctrine applied at the print-layout level.** The design follows the same principle that emerged from the v2.1 → v2.2 SHOCK redesign and is recorded in `POST_CONFERENCE_ROADMAP_2026-06.md` §4.11:
+
+> **Each visual channel owns one job. Adding a diagnostic = find a clean channel, not stack onto a busy one. If no clean channel exists, the diagnostic isn't ready yet — refine the diagnostic until it fits a single channel.**
+
+The TT table had nowhere else to go on side-2; the existing five tables each owned their job; the page's empty quarter was the clean channel. *Channel discipline applied at the layout layer; same physics as constant-power crossover applied at the audio layer* (flagship §4.2). The framework's recursion-test pattern — *each level inherits the previous level's discipline* — continues at the print-layout level: **BTL acoustic 2024 → projector 2026 → handout 2026**.
+
+**Reviewer-stimulation reading.** A CoDa community member who picks up the handout at the conference has, on one piece of paper in their language, the full operational stack — CoDa core operations they know, the Hˢ supplementary operations the framework adds, the CNQ quaternion algebraic refinement, the closure budget in each domain, the apparatus map of who reads what, and now the pipeline itself with explicit order/mode/rank discipline. Every row of the TT table traces back to the canonical `HUF_TENSOR_TRAIN_IO_STANDARD.json`; a reviewer who wants to verify a number can check it in two clicks. *The framework documents its own pipeline using its own standard.* That is the meta-statement the CI name records.
+
+**(B) Post-#64 admin chain sync.** The 5-step post-commit sync per `PUSH_PROTOCOL.md §6` for push #64 (`ef3fbc5` / CI #60 "Slide update" green 53s) lived on the working tree from 2026-05-26 right after #64 landed. All four admin surfaces (`HS_FAST_REFRESH.json` last_push + push_64_completed + demoted previous; `ai-refresh/HS_ADMIN.json` push_64_completed full entry; `ai-refresh/PUSHES_INDEX.md` Push #64 deep-detail section; `CHANGELOG.md` #64 row filled) ride along here so the audit chain stays consistent across the post-#64 → post-#65 boundary.
+
+**Lockdown discipline:** S2 doc-only. Engine code (cnt.py 2026-05-19 from #52, cnt.R 2026-05-10, cnq.py 2026-05-09, cnq.R 2026-05-10), schemas (HUF-STD-001/002/003 — the TT block *reads* from HUF-STD-002, does not modify it), INV catalog dispositions (63 entries: 33C / 8S / 12D / 8O / 1F / 1C), NO-CREATE files (all six absent), manuscript, 13-slide deck, projector v2.2, cinema scroll, per-country plates — all untouched.
+
 ### Push #64 — *Slide update*: final slide polish + SHOCK simplify + Q&A companion + post-#63 admin sync (`ef3fbc5`, CI #60 "Slide update" green 53s, 2026-05-26)
 
 Six S2 doc-only change groups land together seven days before CoDaWork 2026. Each began as a specific interaction with Peter during post-#63 work; each landed as a clean S2 doc-only edit on the working tree.

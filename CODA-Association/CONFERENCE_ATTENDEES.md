@@ -14,108 +14,112 @@ Pick one to keep open alongside this page; the speaker will move between them as
 | | File | What it is |
 |---|---|---|
 | 📄 | **[`Manuscript (PDF)`](CODAwork2026/Compositional_Monitoring_2026.pdf)** · [`(DOCX)`](CODAwork2026/Compositional_Monitoring_2026.docx) | The 25-page peer-reviewable paper. Cover, table of contents, six figures, three appendices, full reference list. |
-| 🎞 | **[`Talk deck (PDF)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf)** · [`(PPTX)`](CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) | The **13 slides** being presented (expanded final version, ~8 min 50 sec spoken). Each country case-study runs as a paired sequence — share-and-work view, then dedicated navigation chart at legible size. The 10-slide compressed predecessor is archived at [`CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/); the earlier 22-slide narrative and 12-slide intermediate at [`CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). |
-| 🎬 | **[`Cinema scroll (PDF)`](CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf)** | The 325-page master PDF of the engine's actual output — every plate the engine produced, master cover + 9 country sections × 6 plates each. |
+| 🎞 | **[`Presentation (PDF)`](CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pdf)** · [`(PPTX)`](CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx) | The **19 slides** being presented — a single grayscale deck (numbered N / 19, ~13 min spoken): the talk, then the rest-of-world finale (the other six countries), then the live-projector close. Named on its subject, **deceptive drift**, defined where it first appears. The 13-slide colour predecessor + scripts are archived at [`CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/`](CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/). |
+| 🎬 | **[`Full-corpus reference (PDF)`](CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf)** | The 325-page master PDF of the engine's complete output — master cover + 9 country sections × 6 plates each. For Q&A that reaches past the trajectories shown in the deck. |
 | 🔭 | **[`Interactive HTML projector`](CODAwork2026/data_outputs/codawork2026_projector.html)** | The 3-D manifold projector. Runs in your browser. No install. See "How to run the projector" at the end of this page. |
 
 ---
 
 ## Slide-by-slide follow-along
 
-The talk runs about nine minutes spoken across thirteen slides, with the three country case-studies each split into a paired sequence (share-and-work view, then navigation chart at legible size). The cinema scroll and projector then run during Q&A.
+The talk runs about thirteen minutes spoken across nineteen numbered slides (N / 19): the method and the three country case-studies, then the rest-of-world finale (the other six countries), then the live-projector close. About five minutes of Q&A follow.
 
-### Slide 1 · Title + question + contact + follow-along + CoDa-tools framing
-*Compositional monitoring of energy-mix drift on the simplex.*  **Which carrier did the structural work?** Not which one got bigger — which one moved the composition.
+### Slide 1 · Title — standard CoDa, and we add time
+*Compositional monitoring of energy-mix drift on the simplex.*  **Which carrier did the structural work?** Not which one got bigger — which one moved the composition. Standard compositional data analysis; the one new move is reading the simplex (shares that sum to one) forward in time.
 
 - Speaker contact, repository URL, community folder, and UN-6 handout availability are all on this slide.
-- **Follow along on the repository** — the slide deck, manuscript, and live projector are all open.
-- **Hˢ runs any compositional dataset the CoDa community can describe** — the views in this talk are reproducible on your data.
+- **Hˢ runs any compositional dataset the CoDa community can describe** — every view here is reproducible on your data.
 - [Manuscript cover page + abstract](CODAwork2026/Compositional_Monitoring_2026.pdf)
 
-### Slide 2 · The size view hides the work
-A carrier can be small in share and large in structural work. **Germany Solar, 2005 → 2006** — starting share 0.21 %, structural Power Share 71.1 %, **Activation Coefficient ≈ 333×.** Solar acted at 333× its size, four years before the share view called solar visible. No size view shows that.
+### Slide 2 · The size view hides the work — *deceptive drift* defined
+A carrier can be small in share yet do most of the structural work. **Germany Solar, 2005 → 2006** — starting share 0.21 %, structural Power Share 71.1 %, **Activation Coefficient ≈ 333×.** **Deceptive drift:** the size (share) view hides which carrier did the structural work — here a 0.21 % carrier does 71 % of it.
 
 - [Manuscript — Introduction §1, Fig. 1](CODAwork2026/Compositional_Monitoring_2026.pdf)
-- That number is the reason for this talk.
 
-### Slide 3 · Five viewpoints, one observable stack
-**Composition** (size) · **Helmsman** (largest CLR move at a step) · **Helmsman trajectory** (when steering changes) · **Power Share** (how much squared CLR motion each carrier did) · **Activation Coefficient** (Power Share ÷ starting share — the yeast factor). All five derive from CLR + Helmert-ILR. Standard CoDa geometry, new framing as a stack.
+### Slide 3 · Reading time on the simplex — the five named methods
+**Composition** (each carrier's share) · **Helmsman** (the carrier with the largest CLR move at a step) · **Helmsman trajectory** (when the largest-motion carrier changes) · **Power Share** (each carrier's share of the squared CLR motion) · **Activation Coefficient** (Power Share ÷ starting share). All five derive from CLR + Helmert-ILR. Standard CoDa geometry; the new move is reading it over time.
 
-- **Fig. 1** — the five-viewpoint schematic
+- **Fig. 1** — the method diagram (each term defined in its box)
 - [Manuscript Appendix A — Equations 1–8](CODAwork2026/Compositional_Monitoring_2026.pdf)
 
-### Slide 4 · The Activation Coefficient — the yeast factor
-*α_i(t) = Power Share_i(t) ÷ starting share_i(t).*  **α ≈ 1** ordinary · **α ≫ 1** hidden driver · **α < 1** coasting. Yeast is 2 % of a loaf by mass and does 100 % of the rising — same mathematical shape.
+### Slide 4 · The Activation Coefficient
+*α_i(t) = Power Share_i(t) ÷ starting share_i(t).*  **α ≈ 1** ordinary · **α ≫ 1** hidden driver · **α < 1** coasting. By analogy: yeast is 2 % of a loaf by mass and does 100 % of the rising — the same shape.
 
 - **Eq. 7** — Activation Coefficient formula, Appendix A
-- Worked example carried through: Germany Solar 2005 → 2006 = 333×.
-- [Supplementary Information §S2 — full 406-yeast-moment table](../papers/codawork2026/manuscript/SUPPLEMENTARY.md)
+- Worked example: Germany Solar 2005 → 2006 = 333×.
+- [Supplementary Information §S2 — full activation-moment table](../papers/codawork2026/manuscript/SUPPLEMENTARY.md)
 
 ### Slide 5 · Three archetypes — one instrument, three regimes
-**Germany** — deliberate transition, continuous arc on the simplex. **Japan** — external shock from Fukushima 2011, loop and reorganise. **United Kingdom** — regime change, coal exit, jump and return. One protocol reads all three. Each country runs as a paired sequence next.
+**Germany** — deliberate transition, continuous arc on the simplex. **Japan** — external shock from Fukushima 2011, loop and reorganise. **United Kingdom** — regime change, coal exit, jump and return. One protocol reads all three. Each country runs as a pair next.
 
 - [Manuscript — Results §2–4](CODAwork2026/Compositional_Monitoring_2026.pdf)
 
-### Slide 6 · Germany — share-and-work view *(case study 1, beat 1)*
-The Energiewende through the share-and-work lens. **Solar 2005–2006** at 0.21 % share, doing 71.1 % of the work — **AC ≈ 333×**. The structural beginning of the transition is named *three years* before the size view calls it visible. Tiny share, dominant work — the yeast-factor signature.
+### Slide 6 · Germany — share and structural work *(case study 1, beat 1)*
+The Energiewende through the share-and-structural-work lens. **Solar 2005–2006** at 0.21 % share, doing 71.1 % of the work — **α ≈ 333×**. The structural beginning of the transition is named *three years* before the size view calls it visible — the deceptive-drift signature.
 
-- **Fig. 2** — four-panel Germany plate (shares, helmsman trajectory, Power Share, Activation Coefficient)
+- **Fig. 2** — Germany size-view (hatched stacked area) + Power-Share decomposition
 - [Manuscript — Results §2 Germany](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_DEU.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_DEU.json)
 - 📂 Germany plates: [`DEU_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage0.pdf), [`DEU_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage1.pdf), [`DEU_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_stage23.pdf), [`DEU_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/DEU_cnq.pdf)
 
-### Slide 7 · Germany — course on the simplex *(case study 1, beat 2)*
-The Helmsman trajectory at full size — **course directness 0.41**, a continuous arc toward the renewable vertex. Smooth, monotone reorientation. No loops, no flips. The geometry of policy intent — deliberate transition reads as a single sustained course, year after year, in one direction.
+### Slide 7 · Germany — the trajectory *(case study 1, beat 2)*
+The Helmsman trajectory at full size — **trajectory directness 0.41** (end-to-end distance ÷ path length), a continuous arc toward the renewable vertex. Smooth, monotone reorientation — no loops, no flips. Deliberate transition as a single sustained trajectory.
 
 - **Fig. 6 (Germany panel)** — per-country navigation chart at full legibility
-- The next country pair will show what an unplanned reorganisation looks like by contrast.
+- The next country pair shows what an unplanned reorganisation looks like by contrast.
 
-### Slide 8 · Japan — share-and-work view *(case study 2, beat 1)*
-The Fukushima 2011 shock appears in every viewpoint at once. **Helmsman flips 17 times** — the loudest count in the corpus. **Aitchison distance 2011 → 2012 ≈ 3× neighbouring-year baseline.** The years *after* tell the deeper story: a decade-long reorganisation across solar, gas, wind, renewables — wind 2004→2005 α 188, nuclear 2015→2016 α 187, solar 2005→2006 α 176, the list goes on.
+### Slide 8 · Japan — share and structural work *(case study 2, beat 1)*
+The Fukushima 2011 shock appears in every reading at once. **17 Helmsman flips** — the loudest count in the corpus. **Aitchison distance (distance on the simplex) 2011 → 2012 ≈ 3× the baseline step.** The years *after* tell the deeper story: a decade-long reorganisation across solar, gas, wind, renewables.
 
-- **Fig. 3** — Japan four-panel plate (gold-shaded 2011–2013 window)
+- **Fig. 3** — Japan size-view + Power-Share decomposition
 - [Manuscript — Results §3 Japan](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_JPN.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_JPN.json)
 - 📂 Japan plates: [`JPN_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage0.pdf), [`JPN_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage1.pdf), [`JPN_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_stage23.pdf), [`JPN_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/JPN_cnq.pdf)
 
-### Slide 9 · Japan — course on the simplex *(case study 2, beat 2)*
-The Helmsman trajectory at full size — **course directness 0.09**, the loop-and-reorganise archetype. Trajectory revisits and reroutes. Compared directly to Germany's smooth arc, Japan's course shows a system *searching* for a new composition rather than walking a planned one — a basin being explored, not a direction being followed.
+### Slide 9 · Japan — the trajectory *(case study 2, beat 2)*
+The Helmsman trajectory at full size — **trajectory directness 0.09**, the loop-and-reorganise pattern. The trajectory revisits and reroutes. Compared to Germany's smooth arc, Japan's trajectory shows a system *searching* for a new composition rather than walking a planned one.
 
 - **Fig. 6 (Japan panel)** — per-country navigation chart at full legibility
 - 🔭 **Projector matches this slide:** click **JPN**, then **BARY**, then **SHOCK**, then **ALIGN** for the CoDa-centred view.
 
-### Slide 10 · United Kingdom — share-and-work view *(case study 3, beat 1)*
-Coal exit as regime change. Between 2012 and 2020, coal goes from > 30 % to < 2 %. A true regime change, not a drift. The Power Share view tells you *how the displaced structural work was absorbed* — wind, solar, biomass, other renewables each took portions. Multiple yeast moments across the exit period; no single replacement carrier.
+### Slide 10 · United Kingdom — share and structural work *(case study 3, beat 1)*
+Coal exit as regime change. Between 2012 and 2020, coal goes from > 30 % to < 2 %. A true regime change, not a drift. The Power-Share view tells you *how the displaced structural work was absorbed* — wind, solar, biomass, other renewables each took portions. No single replacement carrier.
 
-- **Fig. 4** — UK four-panel plate
+- **Fig. 4** — UK size-view + Power-Share decomposition
 - [Manuscript — Results §4 United Kingdom](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 Raw output: [`cnt_GBR.json`](CODAwork2026/data_outputs/per_country_json/cnt_v3/cnt_GBR.json)
 - 📂 UK plates: [`GBR_stage0.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage0.pdf), [`GBR_stage1.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage1.pdf), [`GBR_stage23.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_stage23.pdf), [`GBR_cnq.pdf`](CODAwork2026/data_outputs/per_country_pdfs/GBR_cnq.pdf)
 
-### Slide 11 · United Kingdom — course on the simplex *(case study 3, beat 2)*
-The Helmsman trajectory at full size — **course directness 0.36**, the jump-and-return archetype. The course leaves the coal vertex sharply, then settles toward a new mix. Distinct from Germany's continuous arc, distinct from Japan's looping search. Regime change as one decisive displacement followed by re-stabilisation. Three transitions, three archetypes, one geometry.
+### Slide 11 · United Kingdom — the trajectory *(case study 3, beat 2)*
+The Helmsman trajectory at full size — **trajectory directness 0.36**, the jump-and-return pattern. The trajectory leaves the coal vertex sharply, then settles toward a new mix. Distinct from Germany's continuous arc, distinct from Japan's looping search. Three transitions, three patterns, one geometry.
 
 - **Fig. 6 (UK panel)** — per-country navigation chart at full legibility
 
-### Slide 12 · Cross-country signature — 5 of 9 reproduce the pattern
-Same instrument, nine EMBER countries. The deceptive-drift signature fires in **5 of 9** — **AUS, CHN, GBR, IND, JPN**. It does *not* fire in DEU at annual grain, FRA, USA, or the World aggregate. A useful detector should not fire everywhere; discrimination is itself evidence the protocol is reading real structure.
+### Slide 12 · Across the corpus — deceptive drift in 5 of 9
+Same instrument, nine EMBER countries. Deceptive drift is **present in 5 of 9** — **AUS, CHN, GBR, IND, JPN** — and **absent in four** — DEU (annual grain), FRA, USA, the World aggregate. Discrimination — flagging some systems and not others — is itself evidence the detector reads real structure.
 
-- **Fig. 5** — nine-country cross-country signature plate (top-10 activation moments + yeast-moment counts + Activation Coefficients + helmsman flips)
+- **Fig. 5** — nine-country signature plate (top activation moments + counts + Activation Coefficients + Helmsman flips)
 - [Manuscript — Results §5 (cross-country signature)](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - 📂 All nine countries: [`per_country_json/cnt_v3/`](CODAwork2026/data_outputs/per_country_json/cnt_v3/)
 
-### Slide 13 · What the stack answers — closing synthesis
-**WHAT** carriers are big · **WHO** is at the wheel · **WHEN** the steering changes · **HOW MUCH** work each carrier did · **WHY** a small carrier mattered. One observable, five questions, one reproducible object. *The stack does not replace interpretation. It gives interpretation a reproducible object.*
+### Slides 13–18 · The rest of the world — the other six
+The breadth sweep: one full-trajectory diagram per country, the six not walked through in the case studies. **Deceptive drift present** — **Slide 13 Australia · Slide 14 China · Slide 15 India.** **Deceptive drift absent** — **Slide 16 France · Slide 17 United States · Slide 18 World aggregate** (large-N smoothing hides the deceptive drift in its constituents). One breath each; this is the direct visual backing for slide 12.
+
+- 📂 All six: [`per_country_json/cnt_v3/`](CODAwork2026/data_outputs/per_country_json/cnt_v3/) — `cnt_AUS`, `cnt_CHN`, `cnt_IND`, `cnt_FRA`, `cnt_USA`, `cnt_WLD`
+- 📂 Full plate sets for every country: [`per_country_pdfs/`](CODAwork2026/data_outputs/per_country_pdfs/) and the full-corpus reference PDF
+
+### Slide 19 · What the stack answers — the live instrument closes
+**WHAT** carriers are big · **WHO** is in largest motion (Helmsman) · **WHEN** the largest-motion carrier changes · **HOW MUCH** structural work each carrier did (Power Share) · **WHY** a small carrier mattered (Activation Coefficient). One observable, five questions, one reproducible object. *The stack does not replace interpretation. It gives interpretation a reproducible object.* Then the live projector takes over for Q&A.
 
 - [Manuscript — Discussion + Conclusions](CODAwork2026/Compositional_Monitoring_2026.pdf)
 - **AI Use Declaration (HUF-STD-001 v1.1)** — research design, mathematical content, code, and scientific responsibility remain with the named author. AI assistants used for drafting, sweeps, and reviews. Author retains full responsibility.
-- Then the cinema scroll runs as Q&A backdrop. Pause it anywhere.
+- 🔭 Open the projector; for any question past the trajectories, the full-corpus reference holds all 27 plates per country.
 
 ---
 
 ## Things not in the deck but available
 
-The 13-slide deck deliberately omits the MC-4 falsifiability slide and the "inspect the instrument" closer to keep the talk under nine minutes. Both still live in the repo:
+The talk deliberately omits the MC-4 falsifiability slide and the "inspect the instrument" closer to keep within time. Both still live in the repo:
 
 - **MC-4 falsifiable claim** (three conjuncts + four defeat paths) — full text in the manuscript Discussion and in [`papers/codawork2026/MC4_PACKET.md`](../papers/codawork2026/planning/HUF_MC4_CoDaWork_Packet_v3.pdf).
 - **Speaker brief** with optional verbal closing-line (the locomotive metaphor) — [`papers/codawork2026/talk/SPEAKER_BRIEF.md`](../papers/codawork2026/talk/SPEAKER_BRIEF.md).
@@ -152,7 +156,7 @@ The HUD is laid out as follows:
   - **ORBIT / TRAILS / LABELS / GHOST / COLOR** — display toggles.
   - **BARY** — barycenter trajectory mode: the spine bends through space, tracing the composition's path on the simplex's principal 2-D subspace.
   - **ALIGN** — barycenter-aligned mode: the trajectory is forced onto the central z-axis; pure shape variation around each year's own centroid (the CoDa-standard centred view).
-  - **SHOCK** — combine with any mode: tints plate outlines red proportional to Aitchison-step magnitude.
+  - **SHOCK** — combine with any mode: on a shock year (Aitchison-step distance above threshold) the year label flips to the chromatic opposite of the plate's base colour — a dedicated channel that flags shock years without disturbing the trajectory's own colours.
   - **FRONT / SIDE / TOP / ISO** — fixed camera angles.
 - **Bottom** — TIME slider scrubs year-by-year. Drag to pause anywhere.
 
@@ -161,7 +165,7 @@ The HUD is laid out as follows:
 1. Click **JPN**.
 2. Click **BARY**. Watch what happens at 2011 → 2012 (Fukushima) and especially through 2013 → 2014–2015 (the multi-year reorganisation toward solar + renewables).
 3. Click **ALIGN**. The bend is removed; the polygon shape variation per year is what remains — the CoDa-correct centred view.
-4. Click **SHOCK**. The shock years light up in red.
+4. Click **SHOCK**. The shock years' labels flip to the chromatic-opposite colour.
 5. Read the PROJECTION info panel for the math. It updates live with the active mode.
 
 ---

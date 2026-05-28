@@ -94,7 +94,7 @@ The flagship answers a question reviewers have repeatedly asked: *"why are you s
 [`47cecc9`](https://github.com/PeterHiggins19/higgins-decomposition/commit/47cecc9d9a03b53bf77d9fccf4563711026cf339), CI #47 "Foundations" green 48s. Twelve work products consolidated into a single coordinated commit under PRE_CONFERENCE_LOCKDOWN discipline:
 
 1. **[`Hs/huf-gov/`](huf-gov/)** — circuit-breaker structural addition with [`BREAKER_INVENTORY.md`](huf-gov/BREAKER_INVENTORY.md), 2 candidate DCPs (DCP-002 CHK-CNQ regex upgrade, DCP-003 CHK-DISPOSITION-001), and a breaker-test runner.
-2. **[`Hs/CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/)** — conference-authority folder with 8 versioned speaker docs, 13-slide talk deck, and a complete [`data_outputs/`](CODA-Association/CODAwork2026/data_outputs/) Premier Data Output package.
+2. **[`Hs/CODA-Association/CODAwork2026/`](CODA-Association/CODAwork2026/)** — conference-authority folder with the **19-slide grayscale Presentation** + speaking-script companion, and a complete [`data_outputs/`](CODA-Association/CODAwork2026/data_outputs/) package.
 3. **[`HUF-STD-001`](huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) Publication Standards** — ICMJE/COPE/Nature/Science/WAME/EU-AI-Act/arXiv/ACM/IEEE-compliant AI Use Declaration template; human-only authorship.
 4. **[`HUF-STD-002`](huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) Tensor Train I/O Standard** — names the data → CNT → CNQ → vector output chain. PDF/PNG/SVG are standard; PPTX is conference-only.
 5. **[`HUF-STD-003`](huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json) Hs Linear Algebra Foundations** — the seven components (Symmetric Matrix · Property of Transpose · Matrix Decomposition · Eigenvectors/Eigenvalues · Spectral Theorem · Spectral Decomposition · Visualization) named, with Stage-0 (Foundations Plate) as the visualization tier. Companion: [`FOUNDATIONS.md`](huf-gov/standards/FOUNDATIONS.md) + [`FOUNDATIONS_TRACEABILITY.md`](huf-gov/standards/FOUNDATIONS_TRACEABILITY.md).
@@ -496,10 +496,10 @@ The 11th International Workshop on Compositional Data Analysis. **11 days away**
 | **Audience follow-along page** | [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md) — slide-by-slide, every link in talk order |
 | **Manuscript (PDF, 26 pp)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf) |
 | **Manuscript (.docx)** | [`CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx`](CODA-Association/CODAwork2026/Compositional_Monitoring_2026.docx) |
-| **Talk deck — 13 slides (.pptx)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) |
-| **Talk deck (.pdf)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf) |
-| **Speaking script (beat-by-beat)** | [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_13slide.md) |
-| **Cinema scroll (66 slides, 325 pp)** | [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) · [`.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) |
+| **Presentation — 19 slides (.pptx)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx) — single grayscale deck (talk + rest-of-world finale + live-projector close) |
+| **Presentation (.pdf)** | [`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pdf) |
+| **Speaking script + Q&A bench** | [`CODA-Association/CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.md`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.md) · [`.pdf`](CODA-Association/CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.pdf) |
+| **Full-corpus reference (66 slides, 325 pp)** | [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pptx) · [`.pdf`](CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf) |
 | **Interactive HTML projector** | [`codawork2026_projector.html`](CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html) — three modes (RADAR / BARY / ALIGN) + SHOCK overlay; runs offline |
 | **Community handout (UN-6)** | EN · FR · ES · RU · ZH · AR — at [`CODA-Association/`](CODA-Association/) |
 | **Foundation paper (companion master standard)** | [`papers/flagship/GROUND_STATE_AND_TRACTION.md`](papers/flagship/GROUND_STATE_AND_TRACTION.md) — the unified formula behind the framework |
@@ -508,10 +508,9 @@ The 11th International Workshop on Compositional Data Analysis. **11 days away**
 
 | Piece | Time |
 |---|---|
-| 13-slide talk | ~8 min 50 sec spoken (slides 6–11 are the three country pairs — share-and-work + navigation, 85 sec per country) |
-| Cinema scroll | ~1 min as a movie after slide 13 |
-| HTML projector | ~1 min Q&A demo |
-| **Apparatus time** | ~11 min |
+| 19-slide talk | ~13 min spoken (slides 6–11 the three country pairs; slides 13–18 the rest-of-world finale) |
+| Live HTML projector close | ~1 min (slide 19 hands to it) |
+| **Presentation total** | ~14 min, then ~5 min Q&A |
 | **Q&A** | ~4 min remaining in a 15-min slot |
 
 ### Source materials (working folder)

@@ -1,10 +1,10 @@
 # CoDaWork 2026 — Final Presentation Package
 
-**Document version:** 7.0 · **Updated:** 2026-05-24 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
+**Document version:** 7.1 · **Updated:** 2026-05-27 · **Author:** Peter Higgins, Rogue Wave Audio · **Conforms to:** [HUF-STD-001 v1.1](../../../huf-gov/standards/HUF_PUBLICATION_STANDARDS.json) · [HUF-STD-002](../../../huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json) · [HUF-STD-003](../../../huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json).
 
-The three-piece presentation package: the **13-slide expanded final-talk deck** (each country case-study split into a paired sequence — share-and-work view + dedicated full-size navigation chart), a 66-slide cinema scroll of the engine's raw output, and an interactive HTML projector for live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
+The presentation package: a **single grayscale deck of 19 slides** (the talk, the rest-of-world finale, and the live-projector close — one file, no switching), a 66-slide full-corpus reference, and an interactive HTML projector that closes the show and drives live Q&A. Audience-facing entry point: **[`../../CONFERENCE_ATTENDEES.md`](../../CONFERENCE_ATTENDEES.md)** — a slide-by-slide follow-along.
 
-The 13-slide deck is **the** talk. The 10-slide compressed predecessor (which crammed the per-country navigation chart at 2.6″ wide alongside the share-and-work view) has been archived for lineage at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/); the earlier 22-slide narrative and 12-slide intermediate at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/) — both preserved for traceability, not for use.
+The 19-slide **Presentation** is **the** talk. Its 13-slide colour predecessor and the two 13-slide speaking-script files are archived for lineage at [`../archive/talk_decks_pre_presentation_2026-05-27/`](../archive/talk_decks_pre_presentation_2026-05-27/); earlier stages at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/) and [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/) — all preserved for traceability, not for use.
 
 ---
 
@@ -12,28 +12,28 @@ The 13-slide deck is **the** talk. The 10-slide compressed predecessor (which cr
 
 The CoDaWork 2026 presentation runs as **three stacked artefacts**, each doing a specific job:
 
-**Piece 1 — the talk deck (story).**
-[`CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`](CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx) — **13 slides**, ~2.5 MB
-[`CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf`](CodaWork2026_FinalTalk_13Slide_2026-05-24.pdf) — read-only companion
-Built 2026-05-24. Expanded from the 10-slide compressed deck so each country case-study can carry its navigation chart on a dedicated slide at legible size (the 2.6″-wide nav chart crammed onto the right margin of the 10-slide pairings was not readable from the back of a conference room). Total stays under the 15-slide conference recommendation.
-**Story arc (13 slides):** title + question + contact + follow-along + CoDa-tools framing → size-view blind spot (Germany Solar 2005-06 α≈333× hook) → five viewpoints in one schematic → Activation Coefficient (yeast factor + formula + Germany worked example) → three archetypes overview → **Germany share-and-work → Germany navigation chart → Japan share-and-work → Japan navigation chart → UK share-and-work → UK navigation chart** → 5-of-9 cross-country signature → synthesis ("what the stack answers") with AI Use Declaration footer. The talk stays specific to Germany / Japan / UK throughout; broader corpus context appears as the extension on slide 12.
-**Timing:** ~8 min 50 sec spoken across the 13 slides + ~1 min cinema scroll + ~1 min projector demo = ~10 min 50 sec apparatus time, leaving ~4 min Q&A in a 15-minute slot. Each country pair is 85 seconds total (55 share-and-work + 30 navigation) — the same total time as the 10-slide version's 75-second single slide, plus 10 seconds for the flip; the trade is 10 extra seconds for a navigation chart the room can actually read.
+**Piece 1 — the Presentation (the whole talk in one file).**
+[`CodaWork2026_Presentation_2026-05-27.pptx`](CodaWork2026_Presentation_2026-05-27.pptx) — **19 slides**, ~3 MB
+[`CodaWork2026_Presentation_2026-05-27.pdf`](CodaWork2026_Presentation_2026-05-27.pdf) — read-only companion
+Built 2026-05-27. A single grayscale deck — white background, black text, hatched (value + pattern) size-view and Power-Share figures for low-ink printing and distance contrast — numbered **N / 19** so the speaker stays in sync. Pure-science terminology: the talk is named on its subject, **deceptive drift**, defined on the slide where it first appears; the metaphors ("fires/quiet", "course", "at the wheel", "yeast factor") are replaced with the correct terms (the bread analogy is kept, marked as an analogy).
+**Arc (19 slides):** title (standard CoDa → adding time to the simplex) → the size view's blind spot, where deceptive drift is defined (Germany Solar 2005–2006, α ≈ 333×) → the method diagram (the five named readings, each defined) → the Activation Coefficient → three archetypes → **Germany / Japan / UK each as a pair (share-and-structural-work view → trajectory on the simplex)** → deceptive drift across the corpus (5 of 9) → the **rest-of-world finale** (the other six: Australia / China / India present, France / United States / World absent) → the close (what the stack answers; hands to the live instrument) with AI Use Declaration footer.
+**Timing:** ~13 min spoken across the 19 slides + ~1 min live HTML close = ~14 min, then 5 min Q&A.
 
-**Earlier stages archived for lineage.** The 10-slide compressed deck at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/); the 22-slide narrative + 12-slide intermediate + their builders + the 22-slide speaking script at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/). Both with folder-level READMEs. Preserved for traceability; do not use against the active 13-slide deck — slide numbers will not match.
+**Earlier stages archived for lineage.** The 13-slide colour predecessor + its scripts + builders at [`../archive/talk_decks_pre_presentation_2026-05-27/`](../archive/talk_decks_pre_presentation_2026-05-27/); the 10-slide compressed deck at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/); the 22-slide narrative + 12-slide intermediate at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/). All with folder-level READMEs. Preserved for traceability; do not use against the active 19-slide deck — slide numbers will not match.
 
-**Piece 2 — the data scroll (movie).**
+**Piece 2 — the full-corpus reference.**
 [`CodaWork2026_PremierDataOutput_2026-05-13.pptx`](CodaWork2026_PremierDataOutput_2026-05-13.pptx) — 66 slides, 6.3 MB
 [`CodaWork2026_PremierDataOutput_2026-05-13.pdf`](CodaWork2026_PremierDataOutput_2026-05-13.pdf) — 325-page master PDF
-Master cover + 9 country sections × 6 plates each (cover · Stage 1 Section · system course plot · helmsman · ILR-Helmert Triplet · CNQ dashboard). Hash-chained to the input CSVs. Designed to be **scrolled at speed** as a Q&A backdrop after slide 13 — the audience sees the engine's actual output as a movie. Pause anywhere.
+Master cover + 9 country sections × 6 plates each (cover · Stage 1 Section · trajectory plot · helmsman · ILR-Helmert Triplet · CNQ dashboard). Hash-chained to the input CSVs. The six non-case-study countries already appear in the Presentation's rest-of-world finale; this is the complete output for any Q&A that reaches past the trajectories. Pause anywhere.
 
-**Piece 3 — the closing projector (live) — v2.0.**
-[`codawork2026_projector.html`](codawork2026_projector.html) — interactive 3-D manifold projector, runs offline in a browser. **Three projection modes** (RADAR / BARY / ALIGN) plus an Aitchison-step **SHOCK** overlay. Consumes engine v3.2.0 ILR-Helmert PCA barycenter coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly. A live PROJECTION info panel (top-left, toggleable) shows the math being applied. See "The projector — engine v3.2.0 ILR-Helmert PCA" below for full detail.
+**Piece 3 — the closing projector (live) — v2.2.**
+[`codawork2026_projector.html`](codawork2026_projector.html) — interactive 3-D manifold projector, runs offline in a browser. **Three projection modes** (RADAR / BARY / ALIGN) plus an Aitchison-step **SHOCK** overlay. Consumes engine v3.2.0 ILR-Helmert PCA barycenter coordinates so BARY and ALIGN match the manuscript's Fig 6 navigation chart exactly. Slide 19 of the Presentation hands to this projector to close the show. A live PROJECTION info panel (top-left, toggleable) shows the math being applied. See "The projector — engine v3.2.0 ILR-Helmert PCA" below for full detail.
 
 ## How to run the presentation
 
-1. Open `CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx` in presenter mode. Walk through the 13-slide story arc using [`../SPEAKING_SCRIPT_13slide.md`](../SPEAKING_SCRIPT_13slide.md) for timing (≈ 8 min 50 sec spoken, slides 6–11 are the three country pairs — share-and-work view then navigation chart, ~85 sec per country).
-2. Immediately after slide 13, switch the projector display to `CodaWork2026_PremierDataOutput_2026-05-13.pptx`. Auto-advance at ~1 second per slide or scroll manually. The 66-slide reel is the engine's actual output — *"Pause me anywhere."*
-3. Open `codawork2026_projector.html` in a browser (Chrome / Firefox / Safari all work; no network required) as the Q&A backdrop. Click **JPN**, then **BARY** for the trajectory view, **ALIGN** to flatten it onto the central axis, **SHOCK** to highlight Aitchison-step shocks. Take questions with the manifold live.
+1. Open `CodaWork2026_Presentation_2026-05-27.pptx` in presenter mode. Walk the 19-slide arc using [`../SPEAKING_SCRIPT_19slide_QA_companion.md`](../SPEAKING_SCRIPT_19slide_QA_companion.md) for timing (≈ 13 min spoken; slides 6–11 are the three country pairs — share-and-structural-work view then trajectory; slides 13–18 are the rest-of-world finale, one breath each).
+2. **Slide 19 hands to the live instrument.** Open `codawork2026_projector.html` in a browser (Chrome / Firefox / Safari all work; no network required). Click a country code, then **BARY** for the trajectory, **ALIGN** to flatten it onto the central axis, **SHOCK** to highlight Aitchison-step shocks. Take questions with the manifold live (~5 min Q&A).
+3. For any question that reaches past the trajectories, `CodaWork2026_PremierDataOutput_2026-05-13.pptx` holds the complete engine output — all 27 plates per country + Stage 2/3 + CNQ for all nine countries.
 
 ## The projector — engine v3.2.0 ILR-Helmert PCA
 
@@ -52,7 +52,7 @@ The HTML projector is now a true visual aid for compositional time-series. It lo
 **Reads:** the barycenter trajectory is mathematically forced onto the central z-axis. What survives in the polygon shape is the structural variation around each year's own centroid. The standard CoDa "centred" view — every composition observed relative to its own geometric centre.
 
 ### SHOCK overlay *(combinable with any of the three modes)*
-Tints each plate's outline red proportional to the Aitchison-step distance from the previous year. Quiet years stay in the country's base colour; external-shock years (Japan 2011 → 2012, the multi-year 2013–2014 reorganisation) light up obviously. Magnitude precomputed once per dataset on load.
+On a shock year (Aitchison-step distance above threshold), the **year label flips to the chromatic opposite of the plate's base colour** — a clean, dedicated channel that flags external-shock years (Japan 2011 → 2012, the multi-year 2013–2014 reorganisation) without disturbing the carrier-identity colours or line weights of the trajectory itself (v2.2; the earlier v2.1 stroke-width/red-tint approach was superseded per the channel-discipline doctrine). Magnitude precomputed once per dataset on load.
 
 ### Variance captured by the 2-D projection (per country)
 
@@ -112,21 +112,20 @@ label        calendar year, rotated 90°, above plate
 | `per_country_pdfs/<ISO>_stage23.pdf` × 9 | varies | — | Per-country Stage 2/3 navigation plates (plate 16 of these is the navigation chart used as Fig 6 in the manuscript) |
 | `per_country_pdfs/<ISO>_cnq.pdf` × 9 | 1 page each | — | Per-country CNQ dashboards |
 | `dual_view/CodaWork2026_DualViewStage1Output_2026-05-13.pdf` | 503 pages | 4.1 MB | Master Dual-View PDF — Section + ILR-Helmert Triplet per country |
-| `build_final_talk_13slide.py` | — | 18 KB | Source of the 13-slide expanded final talk deck (reproducible build) |
 
 ## Lineage
 
-- The **13-slide expanded final talk** (`CodaWork2026_FinalTalk_13Slide_2026-05-24`) is the active conference deck. It was reached through four stages: the 22-slide narrative (2026-05-17) → 12-slide intermediate compression (2026-05-20 morning) → 10-slide compressed final (2026-05-20 afternoon) → 13-slide expansion (2026-05-24, splitting each country into share-and-work + navigation pair so the nav chart is legible). The 10-slide predecessor lives at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/); the 22-slide and 12-slide stages at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/).
+- The **19-slide grayscale Presentation** (`CodaWork2026_Presentation_2026-05-27`) is the active conference deck. It was reached through five stages: the 22-slide narrative (2026-05-17) → 12-slide intermediate (2026-05-20 morning) → 10-slide compressed (2026-05-20 afternoon) → 13-slide expansion (2026-05-24) → single grayscale 19-slide Presentation (2026-05-27: one file with the rest-of-world finale + live-projector close, deceptive-drift terminology, hatched grayscale figures, per-slide numbering). The 13-slide colour predecessor + scripts live at [`../archive/talk_decks_pre_presentation_2026-05-27/`](../archive/talk_decks_pre_presentation_2026-05-27/); the 10-slide at [`../archive/talk_decks_pre_13slide_2026-05-24/`](../archive/talk_decks_pre_13slide_2026-05-24/); the 22-slide and 12-slide stages at [`../archive/talk_decks_pre_10slide_2026-05-20/`](../archive/talk_decks_pre_10slide_2026-05-20/).
 - Earlier May 2026 decks (`CodaWork2026_Talk_2026-05-12`, `..._2026-05-13`, and the external `HCI/CNT` legacy decks) are archived under [`../archive/talk_decks_legacy/`](../archive/talk_decks_legacy/) and [`../archive/legacy_decks_external/`](../archive/legacy_decks_external/).
 - The story arc derives from the **manuscript** at `papers/codawork2026/manuscript/`. The talk is a condensation of the paper, not the other way around.
 - The five-viewpoint protocol, the Activation Coefficient diagnostic, the three transition archetypes, and the navigation chart (Fig 6) are all consistent across:
   - the manuscript (`Compositional_Monitoring_2026.docx`)
   - the community study deck (`Studies/Energy_HiddenDirections_2026-05-17.pdf`)
-  - the 13-slide final talk deck
+  - the 19-slide grayscale Presentation
 
 ## Conformance
 
-- **HUF-STD-001 v1.1** — AI Use Declaration is on slide 13 of the talk (synthesis slide footer), and on the cover and back of the manuscript. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
+- **HUF-STD-001 v1.1** — AI Use Declaration is on slide 19 of the talk (the closing synthesis-slide footer), and on the cover and back of the manuscript. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
 - **HUF-STD-002** — All engine outputs (CNT JSON, CNQ JSON, Foundations Plates, Stage 1/2/3, CNQ dashboards) ship as deterministic vector outputs (PDF / PNG / SVG) with hash-chained provenance to the raw EMBER CSVs.
 - **HUF-STD-003** — The seven Linear Algebra Foundations (Symmetric Matrix · Property of Transpose · Matrix Decomposition · Eigenvectors/Eigenvalues · Spectral Theorem · Spectral Decomposition · Visualization) are visualised in `CodaWork2026_FoundationsPlates_2026-05-14.pdf`.
 
