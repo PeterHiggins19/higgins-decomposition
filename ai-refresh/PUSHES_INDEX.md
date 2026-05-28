@@ -198,6 +198,20 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #67 — *Presentation refinements*: Germany complete plate set → 21-slide deck; companion renamed count-free; legend two-row fix (`057177e`, CI #63 "Presentation refinements" green 50s, 2026-05-27)
+
+Five days before CoDaWork 2026. S2 doc/media only; post-#66 working tree. Three small refinements to the conference deck, all in the presentation layer.
+
+**(A) Germany — the complete plate set.** Two Premier-deck plates for Germany — Premier slide 19 (Stage-1 **Section view**: XY CLR plan · XZ carrier-pair bearings · YZ per-carrier CLR for a representative year) and Premier slide 22 (**ILR-Helmert orthogonal triplet**: ilr1×ilr2 · ilr1×ilr3 · ilr2×ilr3) — grayscaled and inserted into the Germany section as **slides 8 and 9** of `CodaWork2026_Presentation_2026-05-27.pptx`. Germany is now the one country shown with the complete plate set (share-and-structural-work → trajectory → orthogonal projections → ILR-Helmert triplet); the other countries keep the headline views. Both plates are clean engine output (no placeholder fields). Downstream renumbered: Japan 10–11, United Kingdom 12–13, cross-country 14, rest-of-world finale 15–20, close 21; every footer N / 21.
+
+**(B) Speech highlights it.** The companion gains two Germany sections (8–9) naming Germany as the worked exemplar carried in full, with masthead, timing, narrative line, voice notes, and apparatus references renumbered to 21.
+
+**(C) Companion renamed count-free.** `SPEAKING_SCRIPT_19slide_QA_companion.{md,pdf}` → `SPEAKING_SCRIPT_QA_companion.{md,pdf}` — matching the deck's count-free name so a future slide-count change never forces another rename. All references updated across the README chain (CODAwork2026, data_outputs, CODA-Association, root, papers), `CONFERENCE_ATTENDEES.md` (slide-by-slide rewritten to 21 with the two Germany slides), and the archive index; "19 / N/19 / slide-19 close" → "21 / N/21 / slide-21" throughout the active docs. Historical push records (CHANGELOG #66, this index's #66 section, the #66 VERSION_HISTORY entry) keep "19-slide" as the record of what #66 shipped.
+
+**(D) Legend two-row fix.** On the three hatched share-and-work figures (Germany 6, Japan 10, UK 12) the carrier key was a single nine-item row overrunning the figure margins; re-rendered as two rows (`ncol=5`, larger bottom margin) so it sits inside the page with the font kept large.
+
+**Lockdown discipline:** S2 doc/media. Engine code, schemas (HUF-STD-001/002/003), INV catalog dispositions (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference deck, projector v2.2, per-country plates — all untouched. **Known residual (post-lockdown engine work):** the trajectory plate PNGs still carry the engine-internal `course_directness` label; the slide captions already use "trajectory directness."
+
 ### Push #66 — *course directness*: single grayscale 19-slide Presentation promoted; 13-slide deck archived; CODAwork2026 streamlined + docs in agreement (`ee20706`, CI #62 "course directness" green 49s, 2026-05-27)
 
 Five days before CoDaWork 2026. S2 doc/media only. The close of the session-long presentation rework that converged the conference deck onto its subject — **deceptive drift** (the term already canonical in the planning layer as INV-051; the deck and its docs now match it).

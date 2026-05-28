@@ -85,7 +85,7 @@ depth z(t)   (t − ⌊T/2⌋)·18                                         px
 CLR_i(t)     log ρ_i(t) − (1/D)Σ log ρ_j(t)
 b(t)         PCA₂( Vᵀ·CLR(t) − μ ) · 0.85R                          ILR-Helmert  (BARY/ALIGN)
 alignment    v_j(t) = (r_j·cos θ_j, r_j·sin θ_j) − b(t)              (ALIGN only)
-shock tint   stroke→red as ‖Δclr(t)‖ / max → 1                      (SHOCK only)
+shock tint   year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5   (SHOCK only)
 perspective  s = FOV/(FOV+z+350), FOV=700
 D, T         carriers 8–9, years 25–26
 source       EMBER CSV → CNT v3.1.0  ·  bary_xy via v3.2.0
@@ -125,7 +125,7 @@ label        calendar year, rotated 90°, above plate
 
 ## Conformance
 
-- **HUF-STD-001 v1.1** — AI Use Declaration is on slide 19 of the talk (the closing synthesis-slide footer), and on the cover and back of the manuscript. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
+- **HUF-STD-001 v1.1** — AI Use Declaration is on slide 21 of the talk (the closing synthesis-slide footer), and on the cover and back of the manuscript. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
 - **HUF-STD-002** — All engine outputs (CNT JSON, CNQ JSON, Foundations Plates, Stage 1/2/3, CNQ dashboards) ship as deterministic vector outputs (PDF / PNG / SVG) with hash-chained provenance to the raw EMBER CSVs.
 - **HUF-STD-003** — The seven Linear Algebra Foundations (Symmetric Matrix · Property of Transpose · Matrix Decomposition · Eigenvectors/Eigenvalues · Spectral Theorem · Spectral Decomposition · Visualization) are visualised in `CodaWork2026_FoundationsPlates_2026-05-14.pdf`.
 

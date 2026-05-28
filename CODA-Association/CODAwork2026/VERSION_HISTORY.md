@@ -11,7 +11,19 @@
 
 ---
 
-## 2026-05-27 — Germany complete plate set added → 21-slide deck; companion renamed count-free (working tree, post-#66)
+## 2026-05-27 — Consistency-fix pass (ChatGPT review, post-#67 working tree, S2 doc-only)
+
+*Three stale-reference remnants flagged in an external review of the pushed `057177e` state, all corrected. Doc/media only — no engine, schema, INV, or NO-CREATE surfaces touched.*
+
+1. **AI-Use-Declaration slide number.** `CODAwork2026/README.md` and `data_outputs/README.md` standards-conformance lines, plus the in-block VERSION_HISTORY look-summary, said the declaration sits on **slide 19**. The active deck is 21 slides and the script closes the declaration on **slide 21** — all three updated to slide 21. (Dated historical journal entries and the Premier-deck plate references — Premier slide 19 = Stage-1 Section view — are records of past/other state and left unchanged.)
+2. **SHOCK math-panel wording.** `data_outputs/README.md` math panel still read `stroke→red as ‖Δclr(t)‖/max → 1`, a remnant of the superseded line-recolour design. Updated to the live v2.2 behaviour — `year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5`. The projector HTML itself already carried the correct chromatic-opposite text; only the README panel was stale.
+3. **ALIGN mode description.** The speaking script described `ALIGN` as "the helmsman" in two places (talk close + Q&A bench). ALIGN is the barycenter-aligned / centred shape view, distinct from the Helmsman (largest-motion carrier). Both lines changed to "ALIGN, the centred view" / "ALIGN (the centred / barycenter-aligned shape view)"; source `qa_companion_21.md` synced and `SPEAKING_SCRIPT_QA_companion.pdf` rebuilt.
+
+*Staged for push #68.*
+
+---
+
+## 2026-05-27 — Germany complete plate set added → 21-slide deck; companion renamed count-free (pushed `057177e`, CI #63 "Presentation refinements" green 50s)
 
 *Conference-prep arc, S2 doc/media. Per Peter: "add slide 19 and 22 to Germany only to provide 1 country with a complete set and highlight this in the updated speech."*
 
@@ -33,7 +45,7 @@
 - **Talk (1–12):** title (standard CoDa → adding time to the simplex) → the size view's blind spot, where **deceptive drift** is defined → the rebuilt method diagram (five named readings, each defined) → the Activation Coefficient → three archetypes → Germany / Japan / UK each as a pair (share-and-structural-work view → trajectory) → deceptive drift across the corpus (5 of 9).
 - **Rest-of-world finale (13–18):** the other six countries as full-trajectory diagrams — Australia / China / India (deceptive drift present), France / United States / World (absent).
 - **Close (19):** what the stack answers; hands to the live projector.
-- **Look:** white background, black text, **hatched (value + pattern) size-view and Power-Share figures** (re-plotted from the EMBER CSVs via standard CLR) for low-ink printing and distance contrast; bigger fonts throughout; the AI Use Declaration is on slide 19.
+- **Look:** white background, black text, **hatched (value + pattern) size-view and Power-Share figures** (re-plotted from the EMBER CSVs via standard CLR) for low-ink printing and distance contrast; bigger fonts throughout; the AI Use Declaration is on slide 21.
 - **Terminology:** pure-science. The talk is named on its subject, **deceptive drift**, defined on first appearance; the metaphors ("fires/quiet", "course", "at the wheel", "yeast factor") are replaced with the correct terms. The bread analogy is kept, marked as an analogy.
 
 **Companion — `SPEAKING_SCRIPT_19slide_QA_companion.md` (+ `.pdf`).** Rewritten to the 19-slide arc and the deceptive-drift terminology; two-column speech + Q&A bench; ~13 min spoken + ~1 min live projector close = ~14 min, then 5 min Q&A.

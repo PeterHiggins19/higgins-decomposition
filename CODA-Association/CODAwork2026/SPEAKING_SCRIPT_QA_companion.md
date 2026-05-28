@@ -538,7 +538,7 @@ One observable. Five distinct questions.
 
 The stack does not replace interpretation. It gives interpretation a reproducible object.
 
-And everything you have seen is live. *Open `codawork2026_projector.html`.* Same engine output, in the browser — one file, no server. Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the helmsman. *Click DEU → BARY* — Germany's arc. *Click JPN → BARY* — Japan's loop. Same instrument, two regimes, side by side. It runs on any country here, and on your data when you point it at a CoDa series.
+And everything you have seen is live. *Open `codawork2026_projector.html`.* Same engine output, in the browser — one file, no server. Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the centred view. *Click DEU → BARY* — Germany's arc. *Click JPN → BARY* — Japan's loop. Same instrument, two regimes, side by side. It runs on any country here, and on your data when you point it at a CoDa series.
 
 Thank you. Questions.
 
@@ -549,7 +549,7 @@ Thank you. Questions.
 **A:** Single self-contained HTML file in the repo (`CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html`). No server, no build step. Apache-2.0.
 
 **Q:** What are the three modes?
-**A:** RADAR (per-carrier star plot), BARY (trajectory on the simplex), ALIGN (the Helmsman / largest-motion carrier). SHOCK is an overlay that recolours year markers on shock years.
+**A:** RADAR (per-carrier star plot), BARY (trajectory on the simplex), ALIGN (the centred / barycenter-aligned shape view). SHOCK is an overlay that recolours year markers on shock years.
 
 **Q:** Code availability?
 **A:** Apache-2.0 code + CC BY 4.0 docs. Every algorithm in four forms: Python + R + pseudocode + HUF-STD-002 spec. Three IEEE-floor confirmation datasets verified.

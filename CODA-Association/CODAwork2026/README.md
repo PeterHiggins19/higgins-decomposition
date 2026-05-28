@@ -92,7 +92,7 @@ Everything in `archive/` has been **superseded** by current material. Preserved 
 
 ## Standards conformance
 
-- **HUF-STD-001 v1.1** — AI Use Declaration on slide 19 of the talk (the closing synthesis-slide footer) and on the manuscript cover + back-matter. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
+- **HUF-STD-001 v1.1** — AI Use Declaration on slide 21 of the talk (the closing synthesis-slide footer) and on the manuscript cover + back-matter. The HUF AI Collective is named in both; the named author retains full scientific responsibility.
 - **HUF-STD-002** — All engine outputs ship as deterministic vector outputs (PDF / PNG / SVG) with hash-chained provenance.
 - **HUF-STD-003** — Seven Linear Algebra Foundations visualised in the Stage-0 plates.
 
