@@ -40,9 +40,10 @@ CODA-Association/
     ├── data_outputs/                         ← **the presentation package**
     │   ├── CodaWork2026_Presentation_2026-05-27.pptx  ← THE TALK (single grayscale deck, 21 slides) — START HERE
     │   ├── CodaWork2026_Presentation_2026-05-27.pdf
-    │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx  ← full-corpus reference (66 slides)
-    │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
-    │   ├── codawork2026_projector.html        ← live HTML manifold projector; closes the show + Q&A
+    │   ├── CodaWork2026_CN-TT_Output_2026-05-28.pdf       ← CN-TT Output — full-corpus raw-data provenance (325 pp); 30s flash-through at the close
+    │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx ← CN-TT Output editing source (66-slide PPTX)
+    │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf  ← prior-name PDF, byte-identical content, superseded by CN-TT_Output_2026-05-28.pdf
+    │   ├── codawork2026_projector.html        ← live HTML manifold projector; 30s at the close after the CN-TT flash + drives Q&A
     │   ├── CodaWork2026_FoundationsPlates_2026-05-14.pdf  ← Stage-0 Foundations
     │   ├── per_country_json/                  ← canonical engine output per country
     │   ├── per_country_pdfs/                  ← per-country Stage 0/1/2/3/CNQ plates
@@ -65,8 +66,8 @@ CODA-Association/
 The **presentation package** lives in `CODAwork2026/data_outputs/`:
 
 1. **`CodaWork2026_Presentation_2026-05-27.pptx`** — **the single grayscale deck, 21 slides** (numbered N / 21, ~14 min spoken): the talk → the rest-of-world finale → the live-projector close, one file. White background, black text, hatched (value + pattern) size-view and Power-Share figures. Pure-science terminology: named on its subject, **deceptive drift**, defined on the slide where it first appears. Side-by-side speech + Q&A bench: [`CODAwork2026/SPEAKING_SCRIPT_QA_companion.md`](CODAwork2026/SPEAKING_SCRIPT_QA_companion.md) / [`.pdf`](CODAwork2026/SPEAKING_SCRIPT_QA_companion.pdf). The 13-slide colour predecessor + scripts are archived at [`CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/`](CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/); earlier stages at [`.../talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/) and [`.../talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). All preserved for lineage, not for use.
-2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide full-corpus reference (the engine's complete output; the six non-case-study countries are already in the Presentation's rest-of-world finale, so this is for Q&A that reaches past the trajectories).
-3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; slide 19 hands to it to close the show and drive Q&A).
+2. **`CodaWork2026_CN-TT_Output_2026-05-28.pdf`** — **CN-TT Output**, 325-page master PDF: the full-corpus raw-data provenance for every claim in the talk. Renamed 2026-05-28 from PremierDataOutput per HUF-STD-002 Tensor Train I/O Standard (CN-TT = CNT / Tensor Train). The talk's close flashes through this PDF for 30 sec (Stage 1 plates, movie-like animation of the simplex points) before handing to the live projector. The six non-case-study countries already appear in the Presentation's rest-of-world finale; the CN-TT Output is the complete output for any Q&A that reaches past the trajectories. Manual plate-by-plate verification — a HUF-system requirement — is done from this artifact. Editing source: `CodaWork2026_PremierDataOutput_2026-05-13.pptx`.
+3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; slide 21 hands first to the CN-TT Output PDF (30 sec flash) and then to this projector (30 sec live) to close the show and drive Q&A).
 
 The companion **manuscript** lives in [`../papers/codawork2026/manuscript/`](../../papers/codawork2026/manuscript/) — the talk is a condensation of the paper, not the other way around. The paper is the foundation document.
 

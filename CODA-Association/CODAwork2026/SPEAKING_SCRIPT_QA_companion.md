@@ -11,11 +11,11 @@ date: "2026-05-27"
 
 **Narrative (clinical order):** standard CoDa → how we add **time** to the simplex (the five named readings) → three highlighted countries (Germany carried in full — the complete plate set) → **the rest of the world** (the other six) → the live instrument closes the show.
 
-**Timing:** ~14 min spoken across 21 slides (Germany carried in full; the rest-of-world finale a brisk sweep) · +~1 min live HTML close = **~15 min** · then **5 min Q&A**.
+**Timing:** ~14 min spoken across 21 slides (Germany carried in full; the rest-of-world finale a brisk sweep) · +~1 min live close (**30 sec CN-TT Output PDF flash-through** of the Stage 1 plates, movie-like, + **30 sec live HTML projector**) = **~15 min** · then **5 min Q&A**.
 
 **How to read this page:** left column is what you say (read from this). Right column is the Q&A bench — likely questions with ready responses. Glance right only if a question lands.
 
-**Voice notes:** No preamble. Periods, not commas. Numbers first, qualifier after. Slow on the three case studies (slides 6–13; Germany carries two extra complete-set plates, 8–9). The rest-of-world finale (15–20) is a sweep — one breath per country, do not dwell. End on slide 21 and open the projector.
+**Voice notes:** No preamble. Periods, not commas. Numbers first, qualifier after. Slow on the three case studies (slides 6–13; Germany carries two extra complete-set plates, 8–9). The rest-of-world finale (15–20) is a sweep — one breath per country, do not dwell. End on slide 21, then **flash through the CN-TT Output PDF** (Stage 1 plates, ~1 sec/page, raw-data provenance moving like film) for 30 sec, and **open the projector** for the final 30 sec.
 
 ---
 
@@ -41,7 +41,7 @@ Follow along on the repository — the deck, the manuscript, and the live projec
 **A:** Audio/electronics engineer; founder of the Binaural Test Lab at Rogue Wave Audio, Markham, Ontario. Hˢ generalised retroactively from acoustic compositional work.
 
 **Q:** How long is the talk?
-**A:** ~14 minutes across 21 slides, then ~1 minute on the live projector — about 15 minutes — then 5 minutes of Q&A.
+**A:** ~14 minutes across 21 slides, then ~1 minute live close (30 sec CN-TT Output PDF flash-through of the Stage 1 plates + 30 sec HTML projector) — about 15 minutes total — then 5 minutes of Q&A.
 
 **Q:** "Any compositional dataset" — what's included?
 **A:** Anything CoDa-describable: closed, non-negative, finite carriers, static or time-series. Energy mixes, biogeochemistry, microbiome ratios, expenditure shares, CMB photon power per multipole. Three IEEE-floor reference datasets in the repo confirm engine behaviour across unrelated domains.
@@ -278,7 +278,7 @@ This is the Section view: the CLR plan, the XZ bearings between carrier pairs, a
 **A:** The Stage-1 orthogonal projections — XY (CLR plan), XZ (bearings), YZ (per-carrier CLR) — for one representative year (2013 here), plus the metadata box (Hˢ, kappa, the Helmsman, the directness ratio).
 
 **Q:** Where are the other countries' full plates?
-**A:** The 66-slide full-corpus reference (`PremierDataOutput`) holds all 27 plates per country for all nine.
+**A:** The 325-page CN-TT Output (`CodaWork2026_CN-TT_Output_2026-05-28.pdf` — renamed 2026-05-28 from PremierDataOutput per HUF-STD-002; PPTX editing source kept at `CodaWork2026_PremierDataOutput_2026-05-13.pptx`) holds all 27 plates per country for all nine.
 
 </td>
 </tr>
@@ -525,7 +525,7 @@ Nine countries. Five show deceptive drift, four do not. One instrument read them
 
 ---
 
-## Slide 21 · What the stack answers — the live instrument closes   ·   45 sec + ~1 min live
+## Slide 21 · What the stack answers — the live instrument closes   ·   45 sec spoken + 30 sec CN-TT PDF flash + 30 sec HTML projector
 
 <table>
 <tr><th width="60%">Speech (read this)</th><th width="40%">Q&A bench</th></tr>
@@ -538,7 +538,9 @@ One observable. Five distinct questions.
 
 The stack does not replace interpretation. It gives interpretation a reproducible object.
 
-And everything you have seen is live. *Open `codawork2026_projector.html`.* Same engine output, in the browser — one file, no server. Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the centred view. *Click DEU → BARY* — Germany's arc. *Click JPN → BARY* — Japan's loop. Same instrument, two regimes, side by side. It runs on any country here, and on your data when you point it at a CoDa series.
+And everything you have seen has a record. *Open `CodaWork2026_CN-TT_Output_2026-05-28.pdf` and flash through the Stage 1 plates — one page per second.* The data points move on the simplex like frames of a film — the raw provenance of every claim in the talk, played at speed. This is the artifact a reviewer opens to verify any plate by hand. **(30 sec.)**
+
+*Now open `codawork2026_projector.html`.* Same engine output, in the browser — one file, no server. Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the centred view. *Click DEU → BARY* — Germany's arc. *Click JPN → BARY* — Japan's loop. Same instrument, two regimes, side by side. It runs on any country here, and on your data when you point it at a CoDa series. **(30 sec.)**
 
 Thank you. Questions.
 
@@ -623,7 +625,7 @@ Thank you. Questions.
 | **Numbers** | Numbers first, qualifier after. "0.21 percent — small" beats "small — about 0.21 percent". |
 | **Case studies (6–13)** | Slow there. The cases pay off. On the trajectory slides (7, 11, 13) let the chart breathe — ~40 seconds. Germany's two complete-set plates (8–9) are quick — ~30 seconds each. |
 | **Rest-of-world finale (15–20)** | A sweep, not six talks. One breath per country. Say the prompt and move. ~20 seconds each. |
-| **Close (19)** | End on *"It gives interpretation a reproducible object,"* then open the projector and let the live instrument carry the last minute. |
+| **Close (21)** | End on *"It gives interpretation a reproducible object,"* then **flash the CN-TT Output PDF** through the Stage 1 plates at ~1 sec/page for 30 sec — the simplex points move like frames of a film, raw-data provenance — then **open the projector** for the final 30 sec (DEU → BARY; JPN → BARY). Two artifacts, one minute, audience-driven last click. |
 | **Hostile question** | Defend the measurement, not the framework. Invite the specific case. Move on. |
 
 ---
@@ -632,8 +634,8 @@ Thank you. Questions.
 
 - **The deck is one grayscale file** — 21 slides, every slide numbered N / 21. White background, black text, grayscale charts: prints cheaply, reads at a distance.
 - **The rest-of-world finale (slides 15–20)** is in the flow, not an appendix — six clean trajectories (deceptive drift present: AUS · CHN · IND; absent: FRA · USA · WLD), one breath each, then the close.
-- **Projector** (`codawork2026_projector.html`) — three modes RADAR / BARY / ALIGN + SHOCK overlay. Closes the show; also the Q&A instrument. "Show me a country" → click code → BARY.
-- **Full corpus** — the 66-slide, 325-page master PremierDataOutput (all nine countries, all 27 plates each + Stage 2/3 + CNQ) remains in `data_outputs/` for any question that reaches past the trajectories.
+- **CN-TT Output PDF** (`CodaWork2026_CN-TT_Output_2026-05-28.pdf`) — 325-page raw-data provenance reference (master cover + 9 country sections × 6 plates each: Stage 0 · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ). **First half of the close (30 sec):** flash through the Stage 1 plates at ~1 sec/page — the simplex points animate like film. Also the Q&A artifact for plate-by-plate verification (a HUF-system requirement). Renamed 2026-05-28 from PremierDataOutput per HUF-STD-002 (CN-TT = CNT / Tensor Train); PPTX editing source kept at `CodaWork2026_PremierDataOutput_2026-05-13.pptx`.
+- **Projector** (`codawork2026_projector.html`) — three modes RADAR / BARY / ALIGN + SHOCK overlay. **Second half of the close (30 sec):** click a country code → BARY. Also the Q&A instrument: "Show me a country" → click code → BARY.
 - **Handout** in 6 UN languages — QR on the back leads to all of them.
 
 ---

@@ -11,7 +11,32 @@
 
 ---
 
-## 2026-05-27 — Consistency-fix pass (ChatGPT review, post-#67 working tree, S2 doc-only)
+## 2026-05-28 — CN-TT Output promoted to public face + new 30s+30s close (post-#68 working tree, S2 doc/media only)
+
+*Per Peter: "the below document has been renamed and added back to the codawork2026 repo public face as it is the raw data needed to show what data originates all analysis downstream including manual verification plate by plate, a must in the huf system. my intention is to flash through at the end to show the movie like movement of the data points on the stage 1 plates, 30 second of this and 30sec of the html."*
+
+**The full-corpus 325-page PDF (formerly `CodaWork2026_PremierDataOutput_2026-05-13.pdf`) is now promoted to the public face under a new framework-aligned name: `CodaWork2026_CN-TT_Output_2026-05-28.pdf` (CN-TT = CNT / Tensor Train, per HUF-STD-002 Tensor Train I/O Standard).** It is the raw-data provenance artifact for every claim in the talk — master cover + 9 country sections × 6 plates each (Stage 0 Foundations · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ). Manual plate-by-plate verification is a HUF-system requirement; this is where a reviewer does it. The PPTX editing source is kept at its original `CodaWork2026_PremierDataOutput_2026-05-13.pptx` name; the prior-name PDF stays in `data_outputs/` for now (byte-identical content, just superseded as the public-face artifact).
+
+**The talk's close is now a 30 sec + 30 sec two-step.** The previous "~1 min live HTML close" becomes: (1) **30 sec CN-TT Output PDF flash-through** of the Stage 1 plates at ~1 sec/page — the data points move on the simplex frame-by-frame, like film, showing the raw provenance; (2) **30 sec live HTML projector** — DEU → BARY, JPN → BARY, audience-driven last click. Total talk time unchanged at ~15 min + 5 min Q&A.
+
+**Doc chain swept** for the rename and the new close timing:
+
+- `CODAwork2026/README.md` — Presentation timing line + Piece 2 table row + folder-layout block + how-to-run-the-presentation steps 2–3.
+- `CODAwork2026/data_outputs/README.md` — Timing line, Piece 2 description, Piece 3 close-handoff, how-to-run-the-presentation steps 2–3.
+- `CODA-Association/README.md` — folder-layout block + "What is current" piece-2/piece-3 entries.
+- root `README.md` — push-#50 monster-push inventory item 8 + CoDaWork-deliverables table row.
+- `CONFERENCE_ATTENDEES.md` — 🎬 CN-TT Output row (was "Full-corpus reference (PDF)").
+- `SPEAKING_SCRIPT_QA_companion.md` — masthead timing, voice notes, Slide-21 header timing + narrative (the new two-step close written into the speech), Q&A timing answer, "where are other countries' full plates" Q&A answer, voice-and-posture Close (21) line, Apparatus block (CN-TT Output PDF and Projector as two separate bullets with timing). Source `qa_companion_21.md` synced; `SPEAKING_SCRIPT_QA_companion.pdf` rebuilt via pandoc → HTML → weasyprint (~68 KB landscape Letter), placed in the repo.
+
+**Lockdown discipline.** S2 doc/media only — no engine, schema, INV catalog, NO-CREATE, or locked-surface edits. The CN-TT Output file content is byte-identical to the prior PremierDataOutput PDF; only the public-face name changed and the documentation chain updated.
+
+**Naming rationale.** "CN-TT" expands as "CNT / Tensor Train" — the canonical name for the engine's full output package per HUF-STD-002 (the Tensor Train I/O Standard, shipped push #50). The rename aligns the public-face artifact's name with the standard that defines the pipeline structure (`raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG`). The framework now documents its own pipeline using its own standard on its own world-facing artifact — the same meta-pattern that drove the UN-6 handout v11 Tensor Train block in push #65.
+
+*Staged for push #69.*
+
+---
+
+## 2026-05-27 — Consistency-fix pass (ChatGPT review, post-#67 working tree, S2 doc-only) — pushed `dc0b4dc`, CI #64 "coda updates" green 50s
 
 *Three stale-reference remnants flagged in an external review of the pushed `057177e` state, all corrected. Doc/media only — no engine, schema, INV, or NO-CREATE surfaces touched.*
 
@@ -19,7 +44,7 @@
 2. **SHOCK math-panel wording.** `data_outputs/README.md` math panel still read `stroke→red as ‖Δclr(t)‖/max → 1`, a remnant of the superseded line-recolour design. Updated to the live v2.2 behaviour — `year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5`. The projector HTML itself already carried the correct chromatic-opposite text; only the README panel was stale.
 3. **ALIGN mode description.** The speaking script described `ALIGN` as "the helmsman" in two places (talk close + Q&A bench). ALIGN is the barycenter-aligned / centred shape view, distinct from the Helmsman (largest-motion carrier). Both lines changed to "ALIGN, the centred view" / "ALIGN (the centred / barycenter-aligned shape view)"; source `qa_companion_21.md` synced and `SPEAKING_SCRIPT_QA_companion.pdf` rebuilt.
 
-*Staged for push #68.*
+*Landed in push #68 — commit `dc0b4dc`, CI #64 "coda updates" green 50s, 2026-05-28.*
 
 ---
 

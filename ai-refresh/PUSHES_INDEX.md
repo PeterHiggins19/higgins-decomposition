@@ -198,6 +198,29 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #68 — *coda updates*: ChatGPT consistency-fix pass — slide-19→21 / SHOCK panel / ALIGN-mode wording (`dc0b4dc`, CI #64 "coda updates" green 50s, 2026-05-28)
+
+Five days before CoDaWork 2026. S2 doc/media only; post-#67 working tree. Three stale-reference remnants in the pushed `057177e` state, surfaced by an external (ChatGPT) review of the repo and folded into one S2 patch.
+
+**(A) AI-Use-Declaration slide number.** `CODAwork2026/README.md` §Standards conformance (line 95), `data_outputs/README.md` §Conformance (line 128), and the in-block "Look:" summary in `VERSION_HISTORY.md` (line 36, the active 2026-05-27 entry) all asserted the declaration was on **slide 19**. The active deck is now 21 slides (push #67) and the script closes the declaration on slide 21. Swept slide 19 → slide 21 across the three surfaces. Historical journal entries that record past 19-slide state (VERSION_HISTORY lines 22, 45, 168) and the Premier-deck plate references ("Premier slide 19 = Stage-1 Section view" at lines 16, 18 — the source plate's slide number, not a slide-in-our-deck claim) were point-in-time records and left as-is.
+
+**(B) SHOCK math-panel wording.** `data_outputs/README.md` line 88 still read `shock tint   stroke→red as ‖Δclr(t)‖ / max → 1`, a remnant of the superseded v2.0/v2.1 stroke-recolour design. Updated to the v2.2 live behaviour: `shock tint   year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5 (SHOCK only)`. The projector HTML itself (`codawork2026_projector.html` lines 49, 331, 342) was already carrying the correct chromatic-opposite text — only the README math panel was stale. The README §Math + plot panel now matches what the live projector actually does.
+
+**(C) ALIGN mode wording.** The speaking script described ALIGN as "the helmsman" in two places: line 541 in the talk close ("*Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the helmsman.*") and line 552 in the Q&A bench answer to "What are the three modes?" ("*RADAR (per-carrier star plot), BARY (trajectory on the simplex), ALIGN (the Helmsman / largest-motion carrier).*"). ALIGN is the barycenter-aligned shape view (computed as `v_j(t) = (r_j·cos θ_j, r_j·sin θ_j) − b(t)` per the data_outputs README math panel), distinct from the Helmsman family (the largest-CLR-move-carrier at a step). Both lines updated:
+
+- Talk close: "*Three modes: RADAR, the composition; BARY, the trajectory; ALIGN, the centred view.*"
+- Q&A bench: "*RADAR (per-carrier star plot), BARY (trajectory on the simplex), ALIGN (the centred / barycenter-aligned shape view).*"
+
+Source `qa_companion_21.md` synced in the `outputs/combined_build/` scratchpad; `SPEAKING_SCRIPT_QA_companion.pdf` rebuilt via the same pandoc → HTML → weasyprint pipeline (66.7 KB landscape Letter); placed in the repo alongside the already-fixed `.md`. The other Helmsman method references elsewhere in the script (lines 278, 343, 372, 404, 537 — all legitimate uses of the Helmsman method as the largest-motion-carrier reading) were inspected and kept intact.
+
+**(D) Journal entry.** `CODA-Association/CODAwork2026/VERSION_HISTORY.md` gains a new 2026-05-27 entry above the push-#67 entry, documenting the three fixes with explicit anchors (which surface, which line, what changed, why). Self-locating in the chain via the "Staged for push #68." flag at the bottom.
+
+**Lockdown discipline.** S2 doc/media only. Engine code (`cnt.py` 2026-05-19, `cnt.R`, `cnq.py`, `cnq.R`), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference deck, projector v2.2, per-country plates all untouched.
+
+**External-trigger narrative.** ChatGPT's review of the post-#67 state surfaced these three remnants as a single "fold three small textual remnants into one S2 patch" batch — exactly the kind of consistency-fix pass the post-commit sync rhythm was designed to absorb without disrupting the conference-prep arc. The CI name "coda updates" reflects that grouping: three small CoDa-talk wording updates landing together five days before the talk. Talk and Q&A bench now describe ALIGN correctly (no in-room contradiction for a reviewer who reads the README and listens to the talk); the README math panel matches what the live projector actually does ("why does the panel say `stroke→red` when nothing turns red?" confusion prevented); and the standards-conformance lines name the correct slide for the AI Use Declaration.
+
+---
+
 ### Push #67 — *Presentation refinements*: Germany complete plate set → 21-slide deck; companion renamed count-free; legend two-row fix (`057177e`, CI #63 "Presentation refinements" green 50s, 2026-05-27)
 
 Five days before CoDaWork 2026. S2 doc/media only; post-#66 working tree. Three small refinements to the conference deck, all in the presentation layer.
