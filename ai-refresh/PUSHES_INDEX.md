@@ -198,6 +198,24 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #66 — *course directness*: single grayscale 19-slide Presentation promoted; 13-slide deck archived; CODAwork2026 streamlined + docs in agreement (`ee20706`, CI #62 "course directness" green 49s, 2026-05-27)
+
+Five days before CoDaWork 2026. S2 doc/media only. The close of the session-long presentation rework that converged the conference deck onto its subject — **deceptive drift** (the term already canonical in the planning layer as INV-051; the deck and its docs now match it).
+
+**(A) New active deliverable — the Presentation.** `data_outputs/CodaWork2026_Presentation_2026-05-27.pptx` (+ `.pdf`): a single grayscale deck of **19 slides** (numbered N / 19) carrying the whole talk in one file — talk (1–12), rest-of-world finale (13–18: the other six countries, AUS/CHN/IND deceptive-drift-present, FRA/USA/WLD absent), live-projector close (19). White background, black text, **hatched (value + pattern) size-view and Power-Share figures** re-plotted from the EMBER CSVs via standard CLR for low-ink printing + distance contrast; bigger fonts; rebuilt well-spaced method diagram; AI Use Declaration on slide 19. **Pure-science terminology:** named on its subject, deceptive drift, defined on the slide where it first appears; the metaphors (fires/quiet, course, at-the-wheel, yeast factor) replaced with the correct terms; the bread analogy kept and marked as an analogy. Power-share computation validated against the canonical Germany Solar 2005→2006 = 71.1 %.
+
+**(B) Companion.** `SPEAKING_SCRIPT_19slide_QA_companion.md` (+ `.pdf`), rewritten to the 19-slide arc + deceptive-drift terminology; ~13 min spoken + ~1 min live close = ~14 min, then 5 min Q&A.
+
+**(C) Archived (lineage, not for use).** New `archive/talk_decks_pre_presentation_2026-05-27/` holds the 13-slide colour deck (`CodaWork2026_FinalTalk_13Slide_2026-05-24.pptx`/`.pdf`), its two builders, its two 13-slide script files, and a stale README snapshot, with a folder-level README.
+
+**(D) Streamlined.** Removed junk from `data_outputs/` (a stale LibreOffice `.~lock` and a 2 MB `.tmp`); `data_outputs/` now presents the critical files directly — the Presentation, the projector HTML, the full-corpus reference, the Foundations plates, and the per-country engine outputs.
+
+**(E) Docs in agreement.** Promoted the 19-slide Presentation across the README chain (`CODAwork2026/README.md` v2.5→v2.6, `data_outputs/README.md` v7.0→v7.1, `CODA-Association/README.md`, root `README.md`, `papers/README.md`), the audience follow-along (`CONFERENCE_ATTENDEES.md` slide-by-slide section rewritten to the 19-slide arc + deceptive-drift terms), and the archive index (`archive/README.md`). AI-Use-Declaration references moved slide 13 → slide 19; projector SHOCK descriptions updated to the v2.2 year-label chromatic-opposite behaviour; `PUSH_PROTOCOL.md` §2 example path refreshed to the Presentation. Two `VERSION_HISTORY.md` entries added. Historical push records (CHANGELOG rows, this index's earlier sections, PUSH63/64/65 docs) left unchanged as the record.
+
+**(F) Carry-along (post-#65 working tree).** `papers/in_progress/ATTRACTOR_MORPHOLOGY_AND_TRANSCENDENTAL_BASINS.md` + `WETLAND_COMPOSITIONAL_ANALYSIS_RAMSAR.md` (new), `POST_CONFERENCE_ROADMAP_2026-06.md` §4.12 (attractor morphology) + §5.9 (Ramsar wetlands).
+
+**Lockdown discipline:** S2 doc/media. Engine code (cnt.py 2026-05-19, cnt.R / cnq.py / cnq.R pre-lockdown), schemas (HUF-STD-001/002/003), INV catalog dispositions (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference deck, projector v2.2, per-country plates — all untouched. **Known residual (post-lockdown engine work):** the trajectory plate PNGs (slides 7/9/11 + finale) still carry the engine's internal `course_directness` / `System Course Plot` labels; the slide captions around them already use the science term "trajectory directness." The CI name *course directness* marks that residual.
+
 ### Push #65 — *Tensor Train Handout*: pipeline order/mode/rank on side-2 of UN-6 handout + post-#64 admin sync (`1b48894`, CI #61 "Tensor Train Handout" green 51s, 2026-05-27)
 
 Six days before CoDaWork 2026. One substantive S2 doc-only change group plus the post-#64 admin chain sync carrying along.

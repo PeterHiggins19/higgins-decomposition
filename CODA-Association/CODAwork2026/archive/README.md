@@ -1,6 +1,6 @@
 # Archive — superseded CoDaWork 2026 material
 
-**Updated:** 2026-05-27 — the 13-slide colour deck (and its scripts) archived; the **single grayscale 19-slide Presentation** (`CodaWork2026_Presentation_2026-05-27`) is now the active conference deck — the talk + the rest-of-world finale + the live-projector close, in one file, with deceptive-drift terminology, hatched grayscale figures, and per-slide numbering.
+**Updated:** 2026-05-27 — the 13-slide colour deck (and its scripts) archived; the **single grayscale 21-slide Presentation** (`CodaWork2026_Presentation_2026-05-27`) is now the active conference deck — the talk + the rest-of-world finale + the live-projector close, in one file, with deceptive-drift terminology, hatched grayscale figures, and per-slide numbering.
 **Purpose:** preserve the lineage of CoDaWork 2026 work without confusing the active material.
 
 Everything in this folder has been **superseded** by current material elsewhere in `CODAwork2026/`. It is preserved here so reviewers can trace the lineage of the work, but it should **not** be used as source for the current presentation.
@@ -11,7 +11,7 @@ For current material see the parent folder's [`README.md`](../README.md) and the
 
 ### `talk_decks_pre_presentation_2026-05-27/` *(added 2026-05-27)*
 
-The 13-slide colour talk deck (navy/gold) that lived as the active conference deck 2026-05-24 → 2026-05-27, with its two python-pptx builders and its two 13-slide speaking-script files (the plain script and the speech + Q&A-bench companion). Replaced by the single grayscale 19-slide Presentation.
+The 13-slide colour talk deck (navy/gold) that lived as the active conference deck 2026-05-24 → 2026-05-27, with its two python-pptx builders and its two 13-slide speaking-script files (the plain script and the speech + Q&A-bench companion). Replaced by the single grayscale 21-slide Presentation.
 
 | File | Date | Role at time of writing |
 |---|---|---|
@@ -21,7 +21,7 @@ The 13-slide colour talk deck (navy/gold) that lived as the active conference de
 | `SPEAKING_SCRIPT_13slide_QA_companion.md` / `.pdf` | 2026-05-25 | Two-column speech + Q&A-bench companion. |
 | `README_package_snapshot_2026-05-20.pdf` | 2026-05-20 | Stale rendered snapshot of an earlier data_outputs README (10-slide era). |
 
-Successor: [`../data_outputs/CodaWork2026_Presentation_2026-05-27.pptx`](../data_outputs/CodaWork2026_Presentation_2026-05-27.pptx) with [`../SPEAKING_SCRIPT_19slide_QA_companion.md`](../SPEAKING_SCRIPT_19slide_QA_companion.md). See the folder-level [`README.md`](talk_decks_pre_presentation_2026-05-27/README.md) for full detail.
+Successor: [`../data_outputs/CodaWork2026_Presentation_2026-05-27.pptx`](../data_outputs/CodaWork2026_Presentation_2026-05-27.pptx) with [`../SPEAKING_SCRIPT_QA_companion.md`](../SPEAKING_SCRIPT_QA_companion.md). See the folder-level [`README.md`](talk_decks_pre_presentation_2026-05-27/README.md) for full detail.
 
 ### `talk_decks_pre_13slide_2026-05-24/` *(added 2026-05-24)*
 

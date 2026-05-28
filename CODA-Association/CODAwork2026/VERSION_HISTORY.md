@@ -11,7 +11,21 @@
 
 ---
 
-## 2026-05-27 — Single grayscale 19-slide Presentation promoted; 13-slide deck archived; folder streamlined (working tree)
+## 2026-05-27 — Germany complete plate set added → 21-slide deck; companion renamed count-free (working tree, post-#66)
+
+*Conference-prep arc, S2 doc/media. Per Peter: "add slide 19 and 22 to Germany only to provide 1 country with a complete set and highlight this in the updated speech."*
+
+**Deck → 21 slides.** Two Premier-deck plates for Germany (Premier slide 19 = the Stage-1 Section view / XY-XZ-YZ orthogonal projections; Premier slide 22 = the ILR-Helmert orthogonal triplet) grayscaled and inserted into the Germany section as **slides 8 and 9** of `CodaWork2026_Presentation_2026-05-27.pptx`. Germany is now the one country shown with the **complete plate set** (share-and-structural-work → trajectory → orthogonal projections → ILR-Helmert triplet); the other countries keep the headline views. Both plates are clean engine output (no placeholder fields). Downstream slides renumbered: Japan 10–11, United Kingdom 12–13, cross-country 14, rest-of-world finale 15–20, close 21; every footer now N / 21.
+
+**Speech updated to highlight it.** The companion gains two Germany sections (slides 8–9) that name Germany as the worked exemplar carried in full, with the complete-set framing; the masthead, timing (~14 min spoken + ~1 min live close, then 5 min Q&A), narrative line, voice notes, and apparatus references all renumbered to 21.
+
+**Companion renamed count-free.** `SPEAKING_SCRIPT_19slide_QA_companion.md`/`.pdf` → `SPEAKING_SCRIPT_QA_companion.md`/`.pdf` (matching the deck's count-free naming so future slide-count changes don't force a rename). All references updated across the README chain (CODAwork2026 README, data_outputs README, CODA-Association README, root README, papers README), `CONFERENCE_ATTENDEES.md` (slide-by-slide rewritten to 21 with the two Germany slides), and the archive index. "19 slides / N / 19 / slide 19 close" → "21 / N / 21 / slide 21" throughout the active docs.
+
+**Lockdown posture.** S2 doc/media. No engine, schema, INV, or NO-CREATE touches. Carries forward in the next push (post-#66 working tree). The trajectory plate residual (engine-internal `course_directness` label) is unchanged — still post-lockdown engine work.
+
+---
+
+## 2026-05-27 — Single grayscale 19-slide Presentation promoted; 13-slide deck archived; folder streamlined (pushed `ee20706`, CI #62 "course directness" green 49s)
 
 *Conference-prep arc, S2 doc/media class. Peter's directive sequence over this session, ending with: "archive the old, promote the new and updated, simplify and streamline the repo for easy and direct access to the critical files in the presentation, make all updated files and readme and other support files in agreement … and ready for push."*
 

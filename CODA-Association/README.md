@@ -35,10 +35,10 @@ CODA-Association/
     ├── VERSION_HISTORY.md                    ← changes over time
     ├── ABSTRACT.md                           ← committed abstract (the conference letter)
     ├── Codaworks2026 proposal for conference/ ← original submission (abstract + MC-4 packet + committee letter)
-    ├── SPEAKING_SCRIPT_19slide_QA_companion.md  ← side-by-side speech + Q&A bench reading aid (md + pdf)
-    ├── SPEAKING_SCRIPT_19slide_QA_companion.pdf
+    ├── SPEAKING_SCRIPT_QA_companion.md  ← side-by-side speech + Q&A bench reading aid (md + pdf)
+    ├── SPEAKING_SCRIPT_QA_companion.pdf
     ├── data_outputs/                         ← **the presentation package**
-    │   ├── CodaWork2026_Presentation_2026-05-27.pptx  ← THE TALK (single grayscale deck, 19 slides) — START HERE
+    │   ├── CodaWork2026_Presentation_2026-05-27.pptx  ← THE TALK (single grayscale deck, 21 slides) — START HERE
     │   ├── CodaWork2026_Presentation_2026-05-27.pdf
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pptx  ← full-corpus reference (66 slides)
     │   ├── CodaWork2026_PremierDataOutput_2026-05-13.pdf
@@ -64,7 +64,7 @@ CODA-Association/
 
 The **presentation package** lives in `CODAwork2026/data_outputs/`:
 
-1. **`CodaWork2026_Presentation_2026-05-27.pptx`** — **the single grayscale deck, 19 slides** (numbered N / 19, ~13 min spoken): the talk → the rest-of-world finale → the live-projector close, one file. White background, black text, hatched (value + pattern) size-view and Power-Share figures. Pure-science terminology: named on its subject, **deceptive drift**, defined on the slide where it first appears. Side-by-side speech + Q&A bench: [`CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.md`](CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.md) / [`.pdf`](CODAwork2026/SPEAKING_SCRIPT_19slide_QA_companion.pdf). The 13-slide colour predecessor + scripts are archived at [`CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/`](CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/); earlier stages at [`.../talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/) and [`.../talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). All preserved for lineage, not for use.
+1. **`CodaWork2026_Presentation_2026-05-27.pptx`** — **the single grayscale deck, 21 slides** (numbered N / 21, ~14 min spoken): the talk → the rest-of-world finale → the live-projector close, one file. White background, black text, hatched (value + pattern) size-view and Power-Share figures. Pure-science terminology: named on its subject, **deceptive drift**, defined on the slide where it first appears. Side-by-side speech + Q&A bench: [`CODAwork2026/SPEAKING_SCRIPT_QA_companion.md`](CODAwork2026/SPEAKING_SCRIPT_QA_companion.md) / [`.pdf`](CODAwork2026/SPEAKING_SCRIPT_QA_companion.pdf). The 13-slide colour predecessor + scripts are archived at [`CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/`](CODAwork2026/archive/talk_decks_pre_presentation_2026-05-27/); earlier stages at [`.../talk_decks_pre_13slide_2026-05-24/`](CODAwork2026/archive/talk_decks_pre_13slide_2026-05-24/) and [`.../talk_decks_pre_10slide_2026-05-20/`](CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/). All preserved for lineage, not for use.
 2. **`CodaWork2026_PremierDataOutput_2026-05-13.pptx`** — 66-slide full-corpus reference (the engine's complete output; the six non-case-study countries are already in the Presentation's rest-of-world finale, so this is for Q&A that reaches past the trajectories).
 3. **`codawork2026_projector.html`** — interactive HTML manifold projector (runs offline; slide 19 hands to it to close the show and drive Q&A).
 
@@ -76,9 +76,9 @@ The companion **community study deck** lives in [`../../../Studies/Energy_Hidden
 
 Inside `CODAwork2026/archive/`:
 
-- **`talk_decks_pre_presentation_2026-05-27/`** *(added 2026-05-27)* — the 13-slide colour talk deck (navy/gold) that was active 2026-05-24 → 2026-05-27, with its builders and its two 13-slide speaking-script files. Archived when the single grayscale 19-slide Presentation landed (talk + rest-of-world finale + live-projector close; deceptive-drift terminology; hatched grayscale figures; per-slide numbering). See the folder's own README for full detail.
+- **`talk_decks_pre_presentation_2026-05-27/`** *(added 2026-05-27)* — the 13-slide colour talk deck (navy/gold) that was active 2026-05-24 → 2026-05-27, with its builders and its two 13-slide speaking-script files. Archived when the single grayscale 21-slide Presentation landed (talk + rest-of-world finale + live-projector close; deceptive-drift terminology; hatched grayscale figures; per-slide numbering). See the folder's own README for full detail.
 - **`talk_decks_pre_13slide_2026-05-24/`** *(added 2026-05-24)* — the 10-slide compressed deck that was active 2026-05-20 → 2026-05-24, with its python-pptx builder and 10-slide speaking script. Archived when the 13-slide expansion landed so each country case-study could carry its navigation chart on a dedicated slide at legible size. See the folder's own README for full detail.
-- **`talk_decks_pre_10slide_2026-05-20/`** — the refinement trail that led to the 10-slide compressed deck: the 22-slide narrative (2026-05-17), the 12-slide intermediate compression (2026-05-20 morning), their python-pptx builders, the ChatGPT compression-plan JSON, and the 22-slide speaking script. The 19-slide grayscale Presentation is now the only active talk artefact.
+- **`talk_decks_pre_10slide_2026-05-20/`** — the refinement trail that led to the 10-slide compressed deck: the 22-slide narrative (2026-05-17), the 12-slide intermediate compression (2026-05-20 morning), their python-pptx builders, the ChatGPT compression-plan JSON, and the 22-slide speaking script. The 21-slide grayscale Presentation is now the only active talk artefact.
 - **`talk_decks_legacy/`** — earlier Hˢ-authored decks (2026-05-12, 2026-05-13) that pre-date the 22-slide final-talk family.
 - **`prep_docs_legacy_2026-05-13/`** — SPEAKER_BRIEF, BACKUP_PRESENTATION, CHEAT_SHEET, PEDAGOGICAL_TABLES, QA_BENCH, STUDY_PAGE. These were written for the 13-slide May-13 talk; their slide numbers and beat references are no longer accurate. Preserved for lineage; do not use as source for current speaker prep without rebuilding.
 - **`legacy_decks_external/`** — copies of earlier CoDaWork 2026 decks from other repository locations (`HCI/codawork2026/HCI_Japan_CoDaWork2026.*`, `HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.*`). Originals remain at their source paths so existing references continue to resolve; these archive copies make the consolidation discoverable from inside CODA-Association.
