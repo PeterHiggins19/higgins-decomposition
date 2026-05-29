@@ -256,6 +256,22 @@ The BTL listening position is the canonical instance; the broader application is
 
 ---
 
+### §5.10 — Presentation-format aspect-ratio standard (Tensor-Train companion update, 2026-05-28)
+
+**Conference-prep lesson learned, codified.** During the CoDaWork 2026 conference-prep arc the Presentation deck was rebuilt several times at **Letter landscape (11 × 8.5, aspect 1.294)** before the cause of the persistent visual issues — small text, side black bars on the projector — was correctly diagnosed as an **aspect-ratio mismatch with modern 16:9 displays**. The fix was to author the Presentation at **exact 16:9 (13.333 × 7.5, PowerPoint widescreen standard)** so the PDF maps 1:1 onto any 16:9 projector or monitor with no letterboxing.
+
+This is codified as durable guidance in `huf-gov/standards/TENSOR_TRAIN.md` §"Presentation rendering — aspect-ratio guidance" (the HUF-STD-002 companion doc). The recommendation:
+
+> *Use 16:9 widescreen as the general-purpose presentation format. Render at exact 13.333 × 7.5 in so the PDF drops 1:1 onto any modern 16:9 projector or monitor with no letterboxing and no wasted real estate.*
+
+Engine-output decks (CN-TT Output, Foundations Plates) remain at their existing aspects (16:10 for CN-TT) — re-rendering 325-page engine plate books is not S2-conference work and the small letterbox on a 16:9 display is acceptable for an archival reference. New presentation decks built post-conference start at 16:9.
+
+Worked example: `CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-28.pdf` (21 slides, 959.981 × 540 pts, exact 16:9).
+
+**Cross-references.** `huf-gov/standards/TENSOR_TRAIN.md` §"Presentation rendering — aspect-ratio guidance" · `CODA-Association/CODAwork2026/VERSION_HISTORY.md` 2026-05-28 entry "Presentation switches to 16:9 widescreen."
+
+---
+
 ## 6. Consolidated scheduled work — INV STAGED + HUF-STD-002 + NO-CREATE + DCP candidates
 
 ### 6.1 Eight STAGED investigations (current snapshot of `ai-refresh/INVESTIGATION_CATALOG.json`)

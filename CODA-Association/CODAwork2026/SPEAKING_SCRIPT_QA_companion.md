@@ -7,7 +7,7 @@ date: "2026-05-27"
 
 # Speaking Script + Q&A Bench — 21-slide grayscale talk
 
-**Deck:** `CodaWork2026_Presentation_2026-05-27.pptx` — single grayscale file, **21 slides**, every slide numbered N / 21.
+**Deck:** `CodaWork2026_Presentation_2026-05-28.pdf` — single grayscale PDF, **16:9 widescreen** (13.333 × 7.5 in, exact 1.778 aspect — maps edge-to-edge onto modern projector / monitor displays with no letterboxing), **21 slides**, every slide numbered N / 21. PDF-only as of 2026-05-28 (no PPTX); the nav-chart / plate / cross-country slides use a two-column layout (chart on left + side reading panel on right) to fully use the canvas width without black bars.
 
 **Narrative (clinical order):** standard CoDa → how we add **time** to the simplex (the five named readings) → three highlighted countries (Germany carried in full — the complete plate set) → **the rest of the world** (the other six) → the live instrument closes the show.
 
@@ -49,6 +49,8 @@ Follow along on the repository — the deck, the manuscript, and the live projec
 **Q:** Why is the deck grayscale?
 **A:** High-contrast at a distance and low-cost to reproduce. The structure carries the meaning; colour was doing no work the labels don't already do.
 
+
+**Terms used:** *CoDa · simplex · Hˢ (Higgins decomposition) · reproducible-on-your-data*
 </td>
 </tr>
 </table>
@@ -87,6 +89,8 @@ This talk is the reason that number exists. The mathematics is standard composit
 **Q:** Could this be noise?
 **A:** No — 0.21 % is recorded share, not estimate. CLR motion is mathematically defined and reproducible byte-identically.
 
+
+**Terms used:** *deceptive drift · CLR (Centred Log-Ratio) · Power Share · Activation Coefficient (α) · structural work · squared compositional motion · stacked-area*
 </td>
 </tr>
 </table>
@@ -121,6 +125,8 @@ All five derive from CLR plus Helmert-ILR. Standard geometry — no new mathemat
 **Q:** Is this in the manuscript?
 **A:** Yes — Appendix A equations 1–8 + Supplementary §S2 has the full formula tables.
 
+
+**Terms used:** *Closure · CLR · Helmert-orthonormal ILR · Aitchison-distance trajectory · Composition · Helmsman · Helmsman trajectory · Power Share · Activation Coefficient · observable stack · falsifiable*
 </td>
 </tr>
 </table>
@@ -157,6 +163,8 @@ Yeast is two percent of a loaf by mass and does one hundred percent of the risin
 **Q:** Does it generalise beyond Germany Solar?
 **A:** Yes — Japan (multiple high-Activation-Coefficient moments post-Fukushima) and the UK coal exit show the same shape in different regimes.
 
+
+**Terms used:** *α_i(t) · Power Share_i(t) · starting share_i(t) · ordinary · hidden driver · coasting · yeast analogy*
 </td>
 </tr>
 </table>
@@ -185,6 +193,8 @@ One instrument reads all three. Each country gets a pair of slides next: the sha
 **Q:** Did you cherry-pick?
 **A:** No. The protocol was fixed before dispositions were known; the same five-reading stack applied to all nine countries.
 
+
+**Terms used:** *archetype · deliberate transition · external shock · regime change · continuous arc · loop and reorganise · jump and return · Energiewende · Fukushima · coal exit*
 </td>
 </tr>
 </table>
@@ -220,6 +230,8 @@ Three years before the size view calls solar visible, the instrument names solar
 **Q:** Why call it deliberate?
 **A:** The trajectory (next slide) is a smooth monotone arc — no loops, no flips. The geometry of a planned trajectory.
 
+
+**Terms used:** *size view · stacked-area · Power Share · % squared CLR motion per step · structural work · Energiewende · α ≈ 333 ×*
 </td>
 </tr>
 </table>
@@ -251,6 +263,8 @@ This is the geometry of policy intent. Because Germany is our worked exemplar, t
 **Q:** Can I see this live?
 **A:** Yes — projector at the close. Click DEU → BARY.
 
+
+**Terms used:** *PCA · CLR trajectory projected by PCA · PC1 / PC2 · course directness (= net distance ÷ path length) · h_S (start) · h_F (final) · HLR (Higgins Log-Ratio) · V_net = h_F − h_S · dynamic range · Reading guide*
 </td>
 </tr>
 </table>
@@ -280,6 +294,8 @@ This is the Section view: the CLR plan, the XZ bearings between carrier pairs, a
 **Q:** Where are the other countries' full plates?
 **A:** The 325-page CN-TT Output (`CodaWork2026_CN-TT_Output_2026-05-28.pdf` — renamed 2026-05-28 from PremierDataOutput per HUF-STD-002; PPTX editing source kept at `CodaWork2026_PremierDataOutput_2026-05-13.pptx`) holds all 27 plates per country for all nine.
 
+
+**Terms used:** *Section plate · t = 13 (Year 2013) · D = 9 carriers · N = 26 readings · pairs = 36 · Hˢ · Ring (= Hˢ − 2) · E_metric · κ_HS · ω (omega) · d_A (Aitchison) · Helm (Helmsman) · Helm d · DR (Dynamic Range) · DR ratio · XY plan · XZ bearings · YZ CLR · CLR plan view*
 </td>
 </tr>
 </table>
@@ -308,6 +324,8 @@ Now the other two regimes, then the rest of the world.
 **Q:** What do the ILR axes mean?
 **A:** Helmert contrasts: ilr1 = Bioenergy vs Coal; ilr2 = (Bioenergy + Coal) vs Gas; ilr3 = (Bioenergy + Coal + Gas) vs Hydro. Orthonormal, rotation-invariant, no preferred carrier.
 
+
+**Terms used:** *ILR-Helmert orthogonal triplet · ilr1 × ilr2 · ilr1 × ilr3 · ilr2 × ilr3 · Helmert basis loadings · orthonormal · Stage 1 Order-1 plate*
 </td>
 </tr>
 </table>
@@ -343,6 +361,8 @@ The instrument detects both the shock and the multi-year reorganisation that fol
 **Q:** Why isn't nuclear the helmsman every year after 2011?
 **A:** Helmsman is the carrier *moving most* at a step, not the one in crisis. Once nuclear stabilises low, the largest-motion role passes to whichever renewable absorbs the load that year.
 
+
+**Terms used:** *size view · Power Share · Aitchison distance · baseline step · Fukushima 2011 · Helmsman flips (17 on the corpus)*
 </td>
 </tr>
 </table>
@@ -374,6 +394,8 @@ That is what an unplanned reorganisation looks like on the simplex. Not a direct
 **Q:** Could noise produce this?
 **A:** No — see the supplementary null-model. A loop this strong needs correlated perturbation across carriers over years.
 
+
+**Terms used:** *PCA · Helmsman trajectory · looping reorganisation · course directness 0.0875 · PC1 / PC2*
 </td>
 </tr>
 </table>
@@ -409,6 +431,8 @@ The protocol separates size decline from who absorbed the structural work. A reg
 **Q:** Policy-driven?
 **A:** UK Climate Change Act + carbon pricing + market dynamics. The instrument reads composition; policy is downstream of what it shows.
 
+
+**Terms used:** *size view · Power Share · coal exit · regime change · displaced work*
 </td>
 </tr>
 </table>
@@ -437,6 +461,8 @@ Three transitions. Three archetypes. One geometry that names them all.
 **Q:** Only three archetypes?
 **A:** Three illustrative. The framework also recognises drift, oscillation, fixed-point, periodic, and chaotic regimes. Three is what fits a short talk.
 
+
+**Terms used:** *PCA · Helmsman trajectory · jump-and-return · course directness 0.3613 · coal vertex*
 </td>
 </tr>
 </table>
@@ -452,11 +478,30 @@ Three transitions. Three archetypes. One geometry that names them all.
 
 From three case archetypes to a corpus-level result.
 
-We applied the same protocol — same engine, same definition of deceptive drift — to all nine EMBER countries.
+We applied the same protocol — same engine, same definition of deceptive drift — to all nine EMBER countries. Deceptive drift is present in five of nine; absent in four. Below: the two tables in slide-show order, top to bottom.
 
-Deceptive drift is present in five of nine. **Australia, China, United Kingdom, India, Japan.** It is *absent* in Germany at annual grain, France, the USA, and the World aggregate.
+**PRESENT (5 of 9) — slide-show order**
 
-This matters. A useful detector should not flag every system. Discrimination is itself evidence the protocol reads real structure, not artifact.
+<table class="inner">
+<tr><th>#</th><th>Country</th><th>Why drift fires</th></tr>
+<tr><td>10</td><td>JPN — Japan</td><td>Fukushima 2011 displaces nuclear; 17 Helmsman flips on the corpus; multi-year reorganisation</td></tr>
+<tr><td>12</td><td>GBR — United Kingdom</td><td>Coal exit 2012–2020 (>30 % → <2 %); wind / solar / others absorb displaced work — many small carriers carrying large Power Share each</td></tr>
+<tr><td>15</td><td>AUS — Australia</td><td>Solar growth from near-zero; deceptive-drift signature at small-share carriers across 2000–2025</td></tr>
+<tr><td>16</td><td>CHN — China</td><td>Coal-era growth then a turn; small carriers tagged by yeast moments at multiple steps</td></tr>
+<tr><td>17</td><td>IND — India</td><td>Solar 2010–2015 activation above proportionality — the third small-share case</td></tr>
+</table>
+
+**ABSENT (4 of 9) — slide-show order**
+
+<table class="inner">
+<tr><th>#</th><th>Country</th><th>Why drift is absent</th></tr>
+<tr><td>6</td><td>DEU — Germany (annual)</td><td>Step view fires (Solar 2005–06: α ≈ 333 ×); annual aggregate dilutes the signal — sub-annual grain might still detect it</td></tr>
+<tr><td>18</td><td>FRA — France</td><td>Nuclear-stable composition; no peak Activation Coefficient passes threshold</td></tr>
+<tr><td>19</td><td>USA — United States</td><td>Large grid; many carriers averaging; no single carrier crosses α threshold at annual grain</td></tr>
+<tr><td>20</td><td>WLD — World</td><td>Aggregate-of-aggregates trajectory; large-N smoothing dissolves what's present in constituents</td></tr>
+</table>
+
+A useful detector should not flag every system. Discrimination is itself evidence the protocol reads real structure, not artifact.
 
 You have seen three. Here is the rest of the corpus.
 
@@ -472,6 +517,8 @@ You have seen three. Here is the rest of the corpus.
 **Q:** Why isn't deceptive drift detected in Germany at annual grain?
 **A:** Its trajectory is mostly monotone (slide 7); annual grain misses moments-within-years. Sub-annual grain might detect it — open question.
 
+
+**Terms used:** *yeast moments (count) · AC ≥ 3 × · Peak Activation Coefficient · leverage · Helmsman flips (total, 25 transitions) · top-10 activation moments · annual grain · step grain*
 </td>
 </tr>
 </table>
@@ -497,7 +544,7 @@ You have seen three. Here is the rest of the corpus.
 
 **19 · United States (absent).** The United States — a large grid; no deceptive drift at annual grain. Real moments exist within years; the annual view averages them out.
 
-**20 · World (absent).** And the world aggregate. Large-N smoothing hides the deceptive drift in its constituents — the corpus average is calmer than any country in it.
+**20 · World (absent).** And the world aggregate. Large-N smoothing hides the deceptive drift in its constituents — the corpus average is calmer than any country in it. *Notice the Helmsman: uniform across the study window — one largest-motion carrier holds from start to finish. The world as a whole is a smoothly-operating energy system over time; countries absorb the perturbations, the global composition does not flip.*
 
 Nine countries. Five show deceptive drift, four do not. One instrument read them all. *Move to the close.*
 
@@ -519,6 +566,8 @@ Nine countries. Five show deceptive drift, four do not. One instrument read them
 **Q:** Is the present/absent split robust to grain?
 **A:** At annual grain, this is the split. Sub-annual grain is an open question flagged in the roadmap — France and the USA are the obvious re-tests.
 
+
+**Terms used:** *System Course Plot · ember CSV · PC1 / PC2 loadings · top displacement events · COURSE METRICS panel · scale provenance · large-N smoothing · annual grain · sub-annual (open question)*
 </td>
 </tr>
 </table>
@@ -562,6 +611,8 @@ Thank you. Questions.
 **Q:** Can I collaborate / cite?
 **A:** Yes. CITATION.cff in the repo. Non-contact discipline: expect either no reply or a substantive one; no follow-up.
 
+
+**Terms used:** *observable stack · falsifiable · live close · CN-TT Output (HUF-STD-002, CNT / Tensor Train) · codawork2026_projector · RADAR · BARY · ALIGN · SHOCK · HUF-STD-001 v1.1 · AI Use Declaration · Apache-2.0 · CC BY 4.0*
 </td>
 </tr>
 </table>
@@ -625,20 +676,4 @@ Thank you. Questions.
 | **Numbers** | Numbers first, qualifier after. "0.21 percent — small" beats "small — about 0.21 percent". |
 | **Case studies (6–13)** | Slow there. The cases pay off. On the trajectory slides (7, 11, 13) let the chart breathe — ~40 seconds. Germany's two complete-set plates (8–9) are quick — ~30 seconds each. |
 | **Rest-of-world finale (15–20)** | A sweep, not six talks. One breath per country. Say the prompt and move. ~20 seconds each. |
-| **Close (21)** | End on *"It gives interpretation a reproducible object,"* then **flash the CN-TT Output PDF** through the Stage 1 plates at ~1 sec/page for 30 sec — the simplex points move like frames of a film, raw-data provenance — then **open the projector** for the final 30 sec (DEU → BARY; JPN → BARY). Two artifacts, one minute, audience-driven last click. |
-| **Hostile question** | Defend the measurement, not the framework. Invite the specific case. Move on. |
-
----
-
-## Apparatus
-
-- **The deck is one grayscale file** — 21 slides, every slide numbered N / 21. White background, black text, grayscale charts: prints cheaply, reads at a distance.
-- **The rest-of-world finale (slides 15–20)** is in the flow, not an appendix — six clean trajectories (deceptive drift present: AUS · CHN · IND; absent: FRA · USA · WLD), one breath each, then the close.
-- **CN-TT Output PDF** (`CodaWork2026_CN-TT_Output_2026-05-28.pdf`) — 325-page raw-data provenance reference (master cover + 9 country sections × 6 plates each: Stage 0 · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ). **First half of the close (30 sec):** flash through the Stage 1 plates at ~1 sec/page — the simplex points animate like film. Also the Q&A artifact for plate-by-plate verification (a HUF-system requirement). Renamed 2026-05-28 from PremierDataOutput per HUF-STD-002 (CN-TT = CNT / Tensor Train); PPTX editing source kept at `CodaWork2026_PremierDataOutput_2026-05-13.pptx`.
-- **Projector** (`codawork2026_projector.html`) — three modes RADAR / BARY / ALIGN + SHOCK overlay. **Second half of the close (30 sec):** click a country code → BARY. Also the Q&A instrument: "Show me a country" → click code → BARY.
-- **Handout** in 6 UN languages — QR on the back leads to all of them.
-
----
-
-*The instrument reads.   The expert decides.   The hashes carry the receipts.   The vocabulary holds the line.*
-*Five days to Coimbra. Walk to the lectern.*
+| **Close (21)** | End on *"It gives interpretation a reproducible object,"* then **flash the CN-TT Output PDF** through the Stage 1 plates at ~

@@ -1,6 +1,6 @@
 # Archive — superseded CoDaWork 2026 material
 
-**Updated:** 2026-05-27 — the 13-slide colour deck (and its scripts) archived; the **single grayscale 21-slide Presentation** (`CodaWork2026_Presentation_2026-05-27`) is now the active conference deck — the talk + the rest-of-world finale + the live-projector close, in one file, with deceptive-drift terminology, hatched grayscale figures, and per-slide numbering.
+**Updated:** 2026-05-28 — the prior 21-slide Presentation PPTX + PDF (2026-05-27 layout) archived after Peter's PDF-only directive; the **single grayscale 21-slide PDF, Letter landscape** (`CodaWork2026_Presentation_2026-05-28.pdf`) is now the active conference deck — same arc as before (talk + rest-of-world finale + live-projector close, deceptive-drift terminology, hatched grayscale figures, per-slide numbering) but with the layout rebuilt to fully use the expanded canvas (figures up to 10.20 in wide; fonts +20 % for distance reading).
 **Purpose:** preserve the lineage of CoDaWork 2026 work without confusing the active material.
 
 Everything in this folder has been **superseded** by current material elsewhere in `CODAwork2026/`. It is preserved here so reviewers can trace the lineage of the work, but it should **not** be used as source for the current presentation.
@@ -8,6 +8,17 @@ Everything in this folder has been **superseded** by current material elsewhere 
 For current material see the parent folder's [`README.md`](../README.md) and the [`data_outputs/`](../data_outputs/) presentation package.
 
 ## Folder layout
+
+### `talk_decks_pre_pdfonly_2026-05-28/` *(added 2026-05-28)*
+
+The 21-slide grayscale Presentation as it stood **just before** the 2026-05-28 switch to PDF-only delivery + the layout-expansion rebuild. Holds the prior `CodaWork2026_Presentation_2026-05-27.pptx` (3.3 MB) and its rendered `.pdf` (2.9 MB) — same 21-slide content as the active 2026-05-28 PDF, but with the older v10 layout (figures under-using canvas width; some sub-7-pt fonts at distance).
+
+| File | Date | Role at time of writing |
+|---|---|---|
+| `CodaWork2026_Presentation_2026-05-27.pptx` | 2026-05-27 | The last PPTX shipped as a public artifact. |
+| `CodaWork2026_Presentation_2026-05-27.pdf` | 2026-05-27 | The rendered PDF from that PPTX. |
+
+Successor: [`../data_outputs/CodaWork2026_Presentation_2026-05-28.pdf`](../data_outputs/CodaWork2026_Presentation_2026-05-28.pdf) (PDF-only). See the folder-level [`README.md`](talk_decks_pre_pdfonly_2026-05-28/README.md) for full detail.
 
 ### `talk_decks_pre_presentation_2026-05-27/` *(added 2026-05-27)*
 

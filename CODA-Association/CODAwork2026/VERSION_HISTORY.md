@@ -11,7 +11,141 @@
 
 ---
 
-## 2026-05-28 — CN-TT Output promoted to public face + new 30s+30s close (post-#68 working tree, S2 doc/media only)
+## 2026-05-28 — Presentation switches to 16:9 widescreen (v13/v14): exact match to projector / monitor displays (post-#69 working tree, S2 doc/media only)
+
+*Per Peter, 2026-05-28: "ok i figured out what is happening — the CodaWork2026_CN-TT_Output_2026-05-28.pdf file is actually on 16 in by 10 inch paper then scaled for view to 69% and fits the screens with 16:9 perfectly... can the same be done for the 21 slide presentation to make it utilize the full screen. this time it should work as now it make sense what is happening, the 16:10 scale fits 16:9 screens very well, perhaps design to 16:9 for the paper scaling to get an exact perfect display."*
+
+**Root-cause analysis.** The earlier 2026-05-28 rebuilds were on **Letter landscape (11 × 8.5, aspect 1.294)**. On a modern 16:9 projector or monitor (aspect 1.778), Letter landscape gets letterboxed: the PDF viewer adds black bars on the top and bottom (or sides) because the page aspect doesn't match the display aspect. Peter noticed that the CN-TT Output PDF (which is **16 × 10 inches, aspect 1.60**) fits 16:9 screens nearly perfectly — only thin bars — because 1.60 is much closer to 1.778. The fix is to take the Presentation all the way to **exact 16:9** so a 16:9 display shows the slide edge-to-edge with no letterboxing at all.
+
+**Canvas.** Switched from `11 × 8.5` to **`13.333 × 7.5` inches** — the PowerPoint widescreen standard, exact 16:9 (1.7777…). Rendered PDF is **959.981 × 540 pts (16:9)**. Drops 1:1 onto any 16:9 display.
+
+**Builder.** `outputs/combined_build/build_v14_final.py` in the workspace scratchpad. PPTX is an intermediate; only the PDF is placed in the repo.
+
+**Per-slide layout grid (16:9, 13.333 × 7.5).** Tight margins (0.18 in left/right). Title strip y=0.15, h=0.62 (font 28); subtitle y=0.80, h=0.34 (font 16); content area y=1.18 to y=6.95 (5.77 in tall); footer y=7.05, h=0.30.
+
+| Slide | Subject | Layout |
+|---|---|---|
+| 1 | Title + contact | Centered text stack, large hierarchy (title 38 pt, byline 26 pt, contact 22 pt). |
+| 2 | Size view hides the work | Two columns 6.25 in each (wider canvas → roomier columns), full-width emphasis bar bottom. |
+| 3 | Method diagram | **Two-column** — `fig1_method.png` at width 8.40 in on the left + "FIVE READINGS" labeled list at 20 pt + descriptors on the right. The wider canvas gives the diagram and the readings their own real estate side by side. |
+| 4 | Activation Coefficient | Centered formula band (26 pt Consolas) + 3 regime lines at 22 pt + worked-example block at 22 pt. |
+| 5 | Three archetypes | Three columns 4.20 in each (more room than Letter-landscape gave) — country name 28 pt, descriptor 17 pt italic, body 19 pt. |
+| 6 / 10 / 12 | Share-and-work (hatched) | Figure at width ~9.00 (aspect 1.857, height 4.85) centered, captions below. The intrinsic 1.857 aspect is only ~4% wider than the 1.778 canvas, so figures end up centred with a small symmetric framing (≤ 2 in each side). |
+| **7 / 11 / 13** | **Nav-chart trajectories** | **Two-column** — chart at 7.12 × 5.50 on the left + side reading panel on the right with HUGE country code (44 pt: DEU / JPN / GBR), descriptor (22 pt: continuous arc / loop and reorganise / jump and return), pattern label (16 pt italic), and five key metric lines (18 pt). **No black bars** — the right panel fills exactly the space the chart's aspect ratio leaves. |
+| 8 / 9 | Germany complete plate set | **Two-column** — plate image at width 9.04 in (aspect 1.6, height 5.65) on the left + side reading panel on the right with country code at 44 pt and 6 takeaway lines. The plate has the engineer-grade metric panel built in; the external side panel gives the distance-reading version. |
+| **14** | **Cross-country (5 of 9)** | **Two-column** — `fig5_crosscountry.png` at width 6.39 in on the left + right panel with **52 pt "5 of 9"** + PRESENT / ABSENT country lists at 22 pt. |
+| 15–20 | Rest of world (6 plates) | Two-column plate + side panel matching 8 / 9. Each side panel carries the country code + present/absent state + one-line takeaway. |
+| 21 | Close | Five WHAT / WHO / WHEN / HOW MUCH / WHY rows at 26 / 20 / 19 pt spanning full width; live-close cue line names the CN-TT Output PDF (30 s) + projector (30 s). |
+
+**The aspect-fit doctrine, written down.** A presentation PDF and its display device are coupled by *aspect ratio*. If the PDF is 1.294 (Letter landscape) and the screen is 1.778 (16:9), the viewer letterboxes. The fix is to author the PDF at the display's aspect; then the PDF fills the screen edge to edge. The CN-TT Output's accidental 16:10 (1.60) fits 16:9 well because it's close. The Presentation's exact 16:9 (1.778) fits 16:9 perfectly. Going forward, Presentation = 16:9; CN-TT Output stays 16:10 because re-rendering 325 engine plates is out of scope. The projector (HTML, browser-scaled) fits any aspect natively.
+
+**Doc chain.** Filename unchanged (`CodaWork2026_Presentation_2026-05-28.pdf`) and the PDF-only convention is unchanged, so the README chain swept in the earlier 2026-05-28 entry remains accurate. The descriptions in the README chain that say "Letter landscape" should be revised in the next sweep to "16:9 widescreen" — flagged here for the push #70 surface check.
+
+**Lockdown discipline.** S2 doc/media only. Engine code, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates all untouched. Same 21-slide content arc; the *canvas aspect* is what changed. The two prior 2026-05-28 entries (the Letter-landscape layout expansion and the v12 full canvas-fill rebuild) are superseded by this 16:9 rebuild.
+
+*Staged for push #70.*
+
+### Companion edit — 2026-05-28: presentation-format guidance written into the standards companion
+
+Per Peter's directive that "16:9 widescreen is the general use case for presentation formats" should live in one of the standards documents, the aspect-ratio doctrine is codified as a new section in `huf-gov/standards/TENSOR_TRAIN.md` (the HUF-STD-002 companion .md — the HUF-STD-002 JSON schema itself is locked under the pre-conference lockdown, but the companion documentation is S2 doc-only and editable). New section: **"Presentation rendering — aspect-ratio guidance"** between the existing "PPTX boundary" section and the "What was already there vs what HUF-STD-002 adds" section. It documents:
+
+- The headline recommendation: use 16:9 widescreen (13.333 × 7.5 in, PowerPoint widescreen standard, exact 1.7777…) as the general-purpose presentation format so a PDF maps 1:1 onto any 16:9 projector or monitor with no letterboxing.
+- The display-fit table showing the loss percentages for the common alternatives (16:10, Letter landscape, 4:3, A4 landscape) — Letter landscape at 1.294 loses ~37 % of display area to top/bottom bars on a 16:9 screen, which is the lesson the CoDaWork 2026 prep arc learned the hard way.
+- The when-to-use-what table separating presentation decks (16:9), engine-output decks (16:10 — CN-TT Output stays at its existing aspect because re-rendering 325 plate pages is not S2 work), manuscripts/handouts (Letter / A4 portrait — print, not projection), and HTML projectors (viewport-relative — scales natively).
+- The layout-consequences subsection noting that a 16:9 canvas is wider and shorter than Letter landscape: more horizontal room for two-column layouts; less vertical room for full-canvas figures with aspect ≤ 1.6, which therefore get paired with side reading panels. Distance-reading font ranges named (titles 28–38 pt, body 18–22 pt, callouts 20–28 pt, side-panel labels 28–52 pt).
+- The worked example: this Presentation PDF at `CodaWork2026_Presentation_2026-05-28.pdf` (959.981 × 540 pts, exact 16:9) + the v14 build script.
+
+Cross-reference also added to `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` as §5.10 — "Presentation-format aspect-ratio standard (Tensor-Train companion update, 2026-05-28)" — recording the conference-prep lesson learned alongside the other §4–§5 application/standards entries.
+
+**Lockdown discipline.** Both edits are S2 doc-only on companion-markdown surfaces — the HUF-STD-001/002/003 JSON schemas remain untouched. The aspect-ratio doctrine is a presentation-rendering practice, not a schema change.
+
+*This sub-entry also stages for push #70.*
+
+### Companion edit — 2026-05-28: speech companion adjustments (page-fit + Terms + slide-14 tables + World observation)
+
+Per Peter, four targeted refinements to `SPEAKING_SCRIPT_QA_companion.md` (+ rebuilt `.pdf`, 75 KB, 13 pages Letter landscape):
+
+1. **One-slide-per-page-side rule.** New CSS in the build pipeline (`outputs/combined_build/` rebuild step): `h2 { page-break-after: avoid }` keeps the slide heading attached to its table, `h2 + table { page-break-inside: avoid }` keeps the whole slide block on one page. Adjacent slides naturally group when both fit on a single page (e.g. slides 7 + 8 now share page 5); a slide that won't fit on the current page bumps to the next page rather than splitting mid-table. Peter intends to double-side print and hold the companion while talking — zero page flips during a single slide's talk is now the discipline.
+2. **Per-slide "Terms used" italic block** at the bottom of each Q&A bench column. Concise dot-separated lists of the technical terms used on each slide (e.g. slide 7 = *PCA · CLR trajectory projected by PCA · PC1 / PC2 · course directness (= net distance ÷ path length) · h_S · h_F · HLR (Higgins Log-Ratio) · V_net = h_F − h_S · dynamic range · Reading guide*; slide 8 = *Section plate · t = 13 · D = 9 carriers · N = 26 readings · pairs = 36 · Hˢ · Ring · E_metric · κ_HS · ω · d_A · Helm · Helm d · DR · DR ratio · XY plan · XZ bearings · YZ CLR · CLR plan view*). These are fill-in glossary cues for clarification IF the audience needs more depth — not part of the main speech; can be skipped if time is short. Bug caught and fixed during QA: an initial regex prefix-match assigned slide 1's terms to slides 10–14 + slide 21 (because `## Slide 1` is a prefix of `## Slide 10`, `## Slide 11`, etc.); fixed with a strict numeric-section match.
+3. **Slide 14 — PRESENT / ABSENT reference tables in slide-show order.** In the speech column on slide 14 (cross-country corpus summary), two compact inner tables replace the previous prose. **PRESENT (5 of 9)** in slide-show order: JPN (10) · GBR (12) · AUS (15) · CHN (16) · IND (17), each row carrying a one-line *why drift fires* reason. **ABSENT (4 of 9)** in slide-show order: DEU (6, annual) · FRA (18) · USA (19) · WLD (20), each row carrying a *why absent* reason. Compact inner-table CSS (9.5 pt body, 2 pt padding) keeps slide 14 on one page side.
+4. **Slide 20 — World uniformity observation appended.** At the end of the World line: *"Notice the Helmsman: uniform across the study window — one largest-motion carrier holds from start to finish. The world as a whole is a smoothly-operating energy system over time; countries absorb the perturbations, the global composition does not flip."* Written in italics so the speaker can read it or skip it depending on time. The observation lands on the slide where it makes immediate sense and is consistent with what the aggregate trajectory shows.
+
+**Build provenance.** Source: `SPEAKING_SCRIPT_QA_companion.md` (644 lines). Pipeline: pandoc → HTML → weasyprint. Output: 13 pages Letter landscape, 75 KB. The masthead `**Deck:**` line was already updated for the 16:9 widescreen Presentation in the parent entry above; no further README-chain sweep needed for this edit.
+
+**Lockdown discipline.** S2 doc/media only on `CODAwork2026/` companion surfaces; engine, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates untouched.
+
+*This sub-entry also stages for push #70.*
+
+---
+
+## 2026-05-28 — Presentation full clean-slate rebuild (v12): PDF-only, Letter landscape, full canvas fill, no black bars (post-#69 working tree, S2 doc/media only)  *[superseded by the 16:9 rebuild above — the canvas was still Letter landscape, so 16:9 displays still letterboxed]*
+
+*Per Peter, 2026-05-28: "i believe multiple rewrites and scaling and moving between PowerPoint and pdf have taken a toll on the aspect ratio and content of the presentation, please generate a complete new presentation set of 21 plates ... generated to utilize full 11 inch wide by 8.5 inch tall letter paper output standard landscape pdf, big job but the more i practice and test the presentation the more i see the need to have fast response and full size diagrams and text without black bars and wasted space."*
+
+**This entry supersedes the earlier 2026-05-28 layout-expansion entry below** — that rebuild's incremental layout fixes (margins 0.5 → 0.4, figure widths bumped) were not enough; multiple iterations had left residual aspect-ratio artifacts and side black bars on the nav-chart slides (7, 11, 13) and the cross-country slide (14). A **complete clean-slate redo** replaces it. Same 21-slide arc, same content, same five named readings, same deceptive-drift terminology — but every slide redesigned from the ground up for the Letter-landscape canvas with no residual width-vs-aspect compromises.
+
+**Builder:** `outputs/combined_build/build_v12_final.py` (workspace scratchpad). Output: `data_outputs/CodaWork2026_Presentation_2026-05-28.pdf` (3.3 MB, 21 pages, 792 × 612 pts Letter landscape).
+
+**(A) Design philosophy.** Tight margins (0.25 in left/right, 0.20 in top/bottom). Content width 10.50 in, content height ~7.0 in (after 0.92 in title strip + 0.30 in footer). Every figure fills as much of the canvas as its intrinsic aspect ratio allows. Fonts scaled aggressively for distance reading.
+
+**(B) Per-slide layout grid.**
+
+| Slide | Subject | Layout |
+|---|---|---|
+| 1 | Title + contact | Centered text stack, large hierarchy (title 38 pt, byline 26 pt, contact 22 pt). |
+| 2 | Size view hides the work | Two columns 5.0 in each — left narrative, right Germany-Solar metrics + callout — full-width emphasis bar bottom. |
+| 3 | Method diagram | `fig1_method.png` at full canvas width (10.50 in, height 6.50 in via aspect 1.5625). |
+| 4 | Activation Coefficient | Formula centered (Consolas 24 pt), three regime lines at 22 pt, worked-example table 22 pt Consolas. |
+| 5 | Three archetypes | Three columns 3.40 in each (Germany / Japan / UK) with country name at 28 pt + descriptor + body 20 pt. |
+| 6 / 10 / 12 | Share-and-work (hatched) | Figures at full canvas width 10.50 in (aspect 1.857 → height 5.66 in). |
+| **7 / 11 / 13** | **Nav-chart trajectories** | **Two-column** — chart at 7.20 in wide on the left + side reading panel on the right (3.10 in wide) with **HUGE country code** (44 pt: DEU / JPN / GBR), descriptor (22 pt: continuous arc / loop and reorganise / jump and return), pattern label (17 pt italic), and five key metric lines (18 pt). **Eliminates the side black bars that the centered-with-margin v11 had.** |
+| 8 / 9 | Germany complete plate set | Plate images at 10.40 in wide (aspect ~1.6, height 6.50 in). |
+| **14** | **Cross-country (5 of 9)** | **Two-column** — `fig5_crosscountry.png` at 6.80 in wide on the left + right panel with **48 pt "5 of 9"**, PRESENT / ABSENT country lists at 22 pt — no side black bars. |
+| 15–20 | Rest of world (6 plates) | Plate images at 10.40 in wide. |
+| 21 | Close | Five WHAT/WHO/WHEN/HOW MUCH/WHY rows at 28/22/20 pt across full width; live-close cue line names CN-TT Output PDF (30 s) + projector (30 s). |
+
+**(C) The black-bar fix in detail.** The previous version's nav-chart slides centered a 7.30 in figure on the 11 in canvas, leaving 1.85 in of empty margin on each side. The new two-column layout pairs a 7.20 in chart on the left with a 3.10 in reading panel on the right — the right panel carries the trajectory's key reading IN LARGE TEXT (44 pt country code + 22 pt descriptor + 18 pt metric lines), giving the audience the distance-friendly version of what the chart's built-in metric panel says in small engine-output font. Slide 14 (cross-country) gets the same treatment: figure on the left, a giant "5 of 9" + present/absent country lists on the right.
+
+**(D) Layout-overflow fixes verified in QA** (all 21 slides rendered to JPGs and inspected): the α formula on slide 4 fits one line at 24 pt; the Activation-Coefficient Consolas line on slide 2 fits one line at 17 pt; all captions on case-study slides 7, 10, 11, 13 read in a single line; no caption-into-figure overlaps; all footer labels and slide-of-total markers clean.
+
+**(E) Doc chain.** No additional sweep needed in this entry — the file path remains `CodaWork2026_Presentation_2026-05-28.pdf` (unchanged from the earlier 2026-05-28 layout-expansion rebuild that also lives at this filename). The earlier rebuild's doc-chain updates (six surfaces swept for PDF-only delivery + the 2026-05-27 → 2026-05-28 rename) already cover this redo. The archived `talk_decks_pre_pdfonly_2026-05-28/` folder still holds the prior 2026-05-27 PPTX + PDF as the pre-rebuild lineage; the intermediate v11 PDF (also at 2026-05-28) is overwritten by this v12 PDF since the filename did not change and the content is the same arc — only the layout is materially better.
+
+**Lockdown discipline.** S2 doc/media only. Engine code, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates all untouched. The PDF *content* (21-slide arc, deceptive-drift definition, hatched figures, named methods, CN-TT + projector close) is identical to the prior 2026-05-28 deck; only the *layout footprint* is materially different (full-canvas fill, two-column nav and cross-country slides, larger distance-reading fonts).
+
+*Staged for push #70.*
+
+---
+
+## 2026-05-28 — Presentation switches to PDF-only, Letter landscape, layout expanded (post-#69 working tree, S2 doc/media only)  *[superseded by the v12 clean-slate rebuild above]*
+
+*Per Peter, 2026-05-28: "i have worked out that the best format is pdf letter size and landscape. the PowerPoint can be archived and no more PowerPoint, only pdf, the complications with PowerPoint software make pdf just that much easier and faster to work with. regenerate to utilize the expanded width real estate and make the slide even better to see at a distance now with 25% more width space, pdf landscape matches the full frame of the display much better as well giving a full performance."*
+
+Two coordinated change groups land together; same 21-slide arc and content (no story changes), but the delivery format and the layout footprint are both rebuilt.
+
+**(A) PDF-only delivery.** The 21-slide grayscale Presentation is now shipped as a **single PDF, Letter landscape (11 × 8.5 in)**: `data_outputs/CodaWork2026_Presentation_2026-05-28.pdf` (3.3 MB). The previous PPTX + PDF (`CodaWork2026_Presentation_2026-05-27.{pptx,pdf}`, last public PPTX) have been moved into `archive/talk_decks_pre_pdfonly_2026-05-28/` with a folder-level README documenting the lineage. The build workflow continues to use python-pptx as an internal scaffold (the v11b builder lives in the workspace scratchpad, not in the repo) and immediately converts to PDF via headless LibreOffice; only the PDF is placed in the repo. Rationale: the PPTX surface introduces a software-compatibility dependency at the conference (PowerPoint version, font availability, ligature handling); the PDF avoids all of that — frame-perfect rendering anywhere a PDF reader runs.
+
+**(B) Layout expanded to fully use the Letter-landscape canvas.** Same canvas as before (11 × 8.5 in — the prior PPTX was already Letter landscape), but the v10 layout under-used the available width on multiple slides (e.g., the nav-chart trajectory slides centered a 7.0 in figure with 2.0 in side margins; the cross-country bar set was 5.7 in wide with 5.3 in unused). v11 tightens margins from 0.5 in to 0.4 in (content width 10.00 → 10.20 in) and bumps figure widths to take the full available real estate: the method diagram on slide 3 goes 9.80 → 10.20 in (+4 %); the hatched share-and-work figures on slides 6 / 10 / 12 go 9.60 → 10.20 in (+6 %); the world-plate and Germany-plate trajectories on slides 8 / 9 / 15–20 go 8.50 → 9.50 in (+12 %); the nav-chart trajectories on slides 7 / 11 / 13 go 7.00 → 7.30 in (+4 %, content-bounded by aspect ratio against caption space); the cross-country bar set on slide 14 goes 5.70 → 6.00 in (+5 %, content-bounded). Fonts scaled up ~20 % throughout for distance reading — title strip 30 → 34 pt, body text 15–17 → 17–19 pt, callout text 17–18 → 19–22 pt, footer slide-of-total 15 → 17 pt. Two layout-overflow fixes verified in QA: the α formula on slide 4 (font 28 → 22 to fit one line at the new width); the Activation-Coefficient Consolas line on slide 2 (font 19 → 17 to fit one line at the new width). Two caption-overflow fixes (cleaner one-line reads): slide 7 caption "Trajectory directness 0.41 (end-to-end distance ÷ path length) — a continuous arc toward the renewable vertex." → "Trajectory directness 0.41 — a continuous arc toward the renewable vertex." (the parenthetical math definition moves into the verbal delivery); slide 10 caption "Aitchison distance (distance on the simplex) 2011 → 2012 ≈ 3 × the baseline step · 17 Helmsman flips" → "Aitchison distance 2011 → 2012 ≈ 3 × the baseline step · 17 Helmsman flips on the corpus" (defines "on the corpus" as the Helmsman-flip-count scope). Visual QA: all 21 slides rendered to JPGs and inspected — no overlaps, no truncations, no off-page text, no caption-into-figure crashes; slide 21 close still names both CN-TT Output PDF (30 s) + projector (30 s) per push #69.
+
+**(C) Doc chain swept** for the rename (2026-05-27 → 2026-05-28) and the PDF-only convention:
+
+- `CODAwork2026/README.md` — Piece 1 table row, folder-layout block (drops PPTX line + adds the new archive folder), how-to-run step 1.
+- `CODAwork2026/data_outputs/README.md` — Piece 1 file listing (PPTX line removed; the PDF gets the size + layout-expansion description), how-to-run step 1, Lineage block (now records six stages, latest being the PDF-only + expanded-layout switch).
+- `CODA-Association/README.md` — folder-layout block (drops PPTX line; adds the new archive folder), What-is-current piece 1.
+- root `README.md` — CoDaWork-deliverables table: two rows (Presentation .pptx + Presentation .pdf) collapse into one row (Presentation PDF-only, Letter landscape).
+- `CONFERENCE_ATTENDEES.md` — 🎞 Presentation row updated (PDF only; rename note; layout-expansion note).
+- `papers/README.md` — conference-distribution callout pointer updated to the PDF.
+- `archive/README.md` — header banner updated (active deck is now the 2026-05-28 PDF); new `talk_decks_pre_pdfonly_2026-05-28/` section added at the top of the folder-layout block.
+- `SPEAKING_SCRIPT_QA_companion.md` — masthead `**Deck:**` line updated. Source `qa_companion_21.md` synced; `SPEAKING_SCRIPT_QA_companion.pdf` rebuilt via pandoc → HTML → weasyprint (~69 KB landscape Letter), placed in the repo.
+
+**Lockdown discipline.** S2 doc/media only — no engine, schema, INV catalog, NO-CREATE, or locked-surface edits. The PDF content (21-slide arc, deceptive-drift terminology, hatched figures, named methods, CN-TT close + projector close) is identical to the 2026-05-27 deck; only the delivery format changed (PDF-only) and the layout footprint expanded.
+
+**Discipline note.** Switching the deck to PDF-only mirrors the doctrine already established for the projector (single self-contained HTML file, no build step, runs anywhere a browser runs) and for the UN-6 handouts (PDF deliverables, markdown sources). The conference packet is now three artifacts, three formats, each chosen for the medium: the Presentation runs as a PDF on any laptop, the projector runs as HTML in any browser, the handouts print as PDF in any locale. No platform lock-in.
+
+*Staged for push #70.*
+
+---
+
+## 2026-05-28 — CN-TT Output promoted to public face + new 30s+30s close (post-#68 working tree, S2 doc/media only) — pushed `76d2eb2`, CI #65 "CodaWork2026_CN-TT_Output" green 49s
 
 *Per Peter: "the below document has been renamed and added back to the codawork2026 repo public face as it is the raw data needed to show what data originates all analysis downstream including manual verification plate by plate, a must in the huf system. my intention is to flash through at the end to show the movie like movement of the data points on the stage 1 plates, 30 second of this and 30sec of the html."*
 
@@ -32,7 +166,7 @@
 
 **Naming rationale.** "CN-TT" expands as "CNT / Tensor Train" — the canonical name for the engine's full output package per HUF-STD-002 (the Tensor Train I/O Standard, shipped push #50). The rename aligns the public-face artifact's name with the standard that defines the pipeline structure (`raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG`). The framework now documents its own pipeline using its own standard on its own world-facing artifact — the same meta-pattern that drove the UN-6 handout v11 Tensor Train block in push #65.
 
-*Staged for push #69.*
+*Landed in push #69 — commit `76d2eb2`, CI #65 "CodaWork2026_CN-TT_Output" green 49s, 2026-05-28.*
 
 ---
 

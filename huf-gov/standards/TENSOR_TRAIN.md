@@ -90,6 +90,55 @@ PPTX is built **downstream of** the standard PDF / PNG / SVG outputs by curating
 
 ---
 
+## Presentation rendering — aspect-ratio guidance  *(added 2026-05-28)*
+
+A presentation PDF and its display device are **coupled by aspect ratio**. If the PDF aspect doesn't match the display aspect, the viewer letterboxes (adds black bars). For projection-targeted PDFs — slide decks intended to be shown on a projector or a monitor at a conference / talk / meeting — the standard recommendation is:
+
+> **Use 16:9 widescreen as the general-purpose presentation format.**
+>
+> Render the PDF at exact 16:9 (e.g. 13.333 × 7.5 in — the PowerPoint widescreen standard, 1.7777…) so the document drops 1:1 onto any modern 16:9 projector or monitor with no letterboxing and no wasted real estate.
+
+### Why 16:9, specifically
+
+| Aspect | Display fit on 16:9 (1.778) | Common formats |
+|---|---|---|
+| **16:9 (1.778)** | **edge-to-edge, no letterboxing** | PowerPoint widescreen (13.333 × 7.5) · 16 × 9 |
+| 16:10 (1.60)     | thin horizontal bars (~6 % loss) | CN-TT Output 325-page PDF (16 × 10 — engine plate tradition) |
+| Letter landscape (1.294) | substantial top/bottom bars (~37 % loss) | 11 × 8.5 — the historical default; **do not use for projection** |
+| 4:3 (1.333) | substantial top/bottom bars (~33 % loss) | legacy PowerPoint default; **do not use for projection** |
+| A4 landscape (1.414) | moderate bars (~26 % loss) | European default; usable but not optimal |
+
+A 16:9 PDF on a 16:9 display fills the screen edge to edge. A 16:10 PDF on a 16:9 display fills nearly to the edges (small horizontal bars). Anything narrower than 16:10 leaves visible black bars that shrink the rendered slide and reduce the legible size of all text and figures from the back of a conference room.
+
+### When to use 16:9 vs other aspects
+
+| Artifact class | Recommended aspect | Reason |
+|---|---|---|
+| **Presentation deck** (projector / monitor) | **16:9 widescreen, exact (13.333 × 7.5)** | Maps 1:1 onto modern displays; maximises legible text size at distance. |
+| **Engine output deck / per-country plate book** (CN-TT Output, Foundations Plates) | **16:10 (16 × 10)** | Engine-plate rendering tradition; close to 16:9 (small letterbox) but gives each plate slightly more vertical room for the embedded metric panel. Re-rendering a 325-page output deck is not S2 work. |
+| **Manuscript / printed paper** | **Letter portrait (8.5 × 11) or A4 portrait** | Print delivery, not projection. |
+| **Handout / one-pager** | **Letter (8.5 × 11) or A4 portrait** | Print delivery, not projection. |
+| **Interactive HTML projector** | **viewport-relative** | Scales to any aspect natively; the browser handles fit. |
+
+### Layout consequences at 16:9
+
+A 16:9 canvas is **wider and shorter** than Letter landscape:
+
+- More horizontal room for two-column layouts (chart + side reading panel; figure + worked-example panel).
+- Less vertical room for full-canvas figures with aspect ≤ 1.6 (plates, nav charts). Pair such figures with side reading panels rather than centering with side gaps.
+- Title strips, footers, and caption rows must be kept narrow vertically (≤ 0.65 in titles, ≤ 0.40 in subtitles, ≤ 0.40 in captions, ≤ 0.30 in footers) so the figure region gets the most height available.
+- Distance-reading fonts: titles 28–38 pt, body 18–22 pt, callouts 20–28 pt, side-panel labels 28–52 pt.
+
+### Worked example
+
+`CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-28.pdf` is the canonical 16:9 worked example — 21 slides on a 13.333 × 7.5 in canvas (959.981 × 540 pts at 72 dpi, exact 16:9). The build script `outputs/combined_build/build_v14_final.py` documents the per-slide layout grid. See also `CODAwork2026/VERSION_HISTORY.md` (2026-05-28 entry "Presentation switches to 16:9 widescreen") for the rationale and the lesson learned from the earlier Letter-landscape rebuilds.
+
+### Lockdown note
+
+This aspect-ratio guidance is **doc-only S2** added to the HUF-STD-002 companion. It does not modify the JSON schema itself; it codifies a presentation-rendering practice that emerged during the CoDaWork 2026 conference-prep arc.
+
+---
+
 ## What was already there vs what HUF-STD-002 adds
 
 | Already there (before 2026-05-13) | What HUF-STD-002 adds |

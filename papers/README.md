@@ -37,7 +37,7 @@ Core publications that describe, apply, and extend the Hs pipeline.
 
 Materials for the Compositional Data Analysis Workshop (CoDaWork 2026), held in Coimbra, Portugal, 1--5 June 2026.
 
-> **🎤 Conference distribution lives in [`CODA-Association/CODAwork2026/`](../CODA-Association/CODAwork2026/).** The folder you are reading (`papers/codawork2026/`) holds the *working build* (abstract source, manuscript build pipeline, original talk-prep documents). The *active conference deck* is the **21-slide grayscale Presentation** at [`../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx`](../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx); the audience follow-along page is [`../CODA-Association/CONFERENCE_ATTENDEES.md`](../CODA-Association/CONFERENCE_ATTENDEES.md). The legacy presentation files listed below are preserved for archival traceability of the build chain.
+> **🎤 Conference distribution lives in [`CODA-Association/CODAwork2026/`](../CODA-Association/CODAwork2026/).** The folder you are reading (`papers/codawork2026/`) holds the *working build* (abstract source, manuscript build pipeline, original talk-prep documents). The *active conference deck* is the **21-slide grayscale PDF (16:9 widescreen)** at [`../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-28.pdf`](../CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-28.pdf) — PDF-only as of 2026-05-28; the audience follow-along page is [`../CODA-Association/CONFERENCE_ATTENDEES.md`](../CODA-Association/CONFERENCE_ATTENDEES.md). The legacy presentation files listed below are preserved for archival traceability of the build chain.
 
 ### Submission and presentation
 

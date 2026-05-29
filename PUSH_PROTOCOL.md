@@ -56,7 +56,7 @@ Manuscript + active Presentation deck mod times must be at or before their landi
 
 ```
 stat CODA-Association/CODAwork2026/Compositional_Monitoring_2026.pdf      # expect ≤ 2026-05-20
-stat CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-27.pptx
+stat CODA-Association/CODAwork2026/data_outputs/CodaWork2026_Presentation_2026-05-28.pdf
 ```
 
 NO-CREATE files must remain absent:

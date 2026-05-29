@@ -198,6 +198,40 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #69 — *CodaWork2026_CN-TT_Output*: CN-TT Output promoted to public face + new 30 s + 30 s two-artifact close (`76d2eb2`, CI #65 "CodaWork2026_CN-TT_Output" green 49s, 2026-05-28)
+
+Five days before CoDaWork 2026. S2 doc/media only; post-#68 working tree. Two coordinated change groups land together: a public-face rename of the full-corpus PDF and a redesigned slide-21 close that carries both the raw-data provenance and the live instrument.
+
+**(A) Public-face rename.** The 325-page full-corpus PDF (3.7 MB; formerly `CodaWork2026_PremierDataOutput_2026-05-13.pdf`) is added back to the CODAwork2026 public face under a new framework-aligned name: **`CodaWork2026_CN-TT_Output_2026-05-28.pdf`**. The expansion: **CN-TT = CNT / Tensor Train**, drawn directly from HUF-STD-002 Tensor Train I/O Standard. The rename aligns the public-face artifact's name with the standard that defines its pipeline structure (`raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG`). Content byte-identical to the prior-name PDF (which stays in place in `data_outputs/`, marked superseded for the public face — readers landing on the old filename are not broken). PPTX editing source kept under its original `CodaWork2026_PremierDataOutput_2026-05-13.pptx` name as the editable source; only the public-face PDF gets the new name.
+
+**(B) Role — raw-data provenance.** The CN-TT Output is the raw-data provenance artifact for every claim in the talk. Master cover + 9 country sections × 6 plates each (Stage 0 Foundations · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ dashboard). Every slide in the Presentation traces back to a plate here. Manual plate-by-plate verification is a HUF-system requirement (per HUF-STD-002 hash-chain doctrine); this is the artifact where a skeptical reviewer performs it. The Presentation deck distils 21 slides from this 325-page reference. Peter's framing: *"the below document has been renamed and added back to the codawork2026 repo public face as it is the raw data needed to show what data originates all analysis downstream including manual verification plate by plate, a must in the huf system."*
+
+**(C) New 30 s + 30 s close — two-artifact handoff.** Peter's framing: *"my intention is to flash through at the end to show the movie like movement of the data points on the stage 1 plates, 30 second of this and 30sec of the html."* The previous "~1 min live HTML close" becomes a two-step handoff:
+
+1. **30 sec — CN-TT Output PDF flash-through.** Open `CodaWork2026_CN-TT_Output_2026-05-28.pdf` and advance through the Stage 1 plate sequence at ~1 sec / page. The data points move on the simplex frame-by-frame, like a film — the raw-data provenance of every claim in the talk, played at speed.
+2. **30 sec — live HTML projector.** Open `codawork2026_projector.html` in a browser. Click DEU → BARY (Germany's arc); click JPN → BARY (Japan's loop). Audience-driven last click.
+
+Total talk time unchanged: ~14 min spoken + ~1 min live close = ~15 min, then 5 min Q&A. The close now carries both the receipts (CN-TT PDF, the raw plates a reviewer would verify) and the live instrument (projector, the engine running in front of the audience).
+
+**(D) Doc chain swept across six active surfaces.**
+
+| Surface | Update |
+|---|---|
+| root `README.md` | Push-#50 monster-push inventory item 8 reframed as "CN-TT Output v2.0"; CoDaWork-deliverables table row swapped from "Full-corpus reference" to "CN-TT Output". |
+| `CODA-Association/README.md` | Folder-layout block + "What is current" piece-2/piece-3 entries rewritten for the new artifact and the two-step close. |
+| `CODA-Association/CODAwork2026/README.md` | Piece-2 table row rewritten (CN-TT Output description + closing-flash + raw-data provenance + manual plate-by-plate verification framing); folder-layout block updated (CN-TT Output PDF primary, PPTX as editing source, prior-name PDF as superseded byte-identical); how-to-run-the-presentation steps 2–3 rewritten for the two-artifact close. |
+| `CODAwork2026/data_outputs/README.md` | Timing line updated (~14 min spoken + 30 s CN-TT PDF flash + 30 s HTML = ~15 min); Piece-2 fully rewritten with role + raw-data provenance + closing-flash + manual-verification + naming-rationale paragraphs; Piece-3 close-handoff updated; how-to-run steps 2–3 rewritten. |
+| `CONFERENCE_ATTENDEES.md` | 🎬 row "Full-corpus reference (PDF)" → "CN-TT Output (PDF)" with the closing-flash language + manual-verification framing + rename note. |
+| `SPEAKING_SCRIPT_QA_companion.md` (+ rebuilt `.pdf`) | Masthead Timing line + Voice notes line + Slide-21 header timing + **Slide-21 speech narrative — the two-step close written into the speech with explicit `(30 sec.)` markers** + Q&A timing answer + "where are the other countries' full plates" answer + voice-and-posture Close (21) line + Apparatus block. Source `qa_companion_21.md` in `outputs/combined_build/` synced; PDF rebuilt via pandoc → HTML → weasyprint (68 KB landscape Letter), placed in the repo. |
+
+**(E) Naming rationale / meta-statement.** CN-TT = CNT / Tensor Train per HUF-STD-002. The framework now documents its own pipeline using its own standard on its own world-facing artifact. Same meta-pattern that drove the UN-6 handout v11 Tensor Train block in push #65; same channel-discipline doctrine recorded in `POST_CONFERENCE_ROADMAP_2026-06.md` §4.11 (each visual channel owns one job); same recursion-test pattern (BTL acoustic 2024 → projector 2026 → handout 2026 → public-face PDF 2026). The CI name "CodaWork2026_CN-TT_Output" announces the artifact directly.
+
+**Remaining `PremierDataOutput` references in the active tree** are all intentional or historical and were left in place: (a) explicit kept-under-original-name PPTX editing source + prior-name PDF references inside the same READMEs that describe the rename (`CODAwork2026/data_outputs/README.md:26-27`, `CODAwork2026/README.md:43-44`, `CODA-Association/README.md:44-45`); (b) dated historical push-admin docs in `ai-refresh/` (PUSH50_HOLD_STATUS · PUSH50_PRE_PUSH_SUMMARY · PUSH50_READY_FOR_COMMIT · PUSH54_PRE_PUSH_SUMMARY · PUSH63/64/65_READY_FOR_COMMIT · PUSH66_READY_FOR_COMMIT · AI_REFRESH_2026-05-19_conference_ready · COMMUNITY_TEST_PACKET.json — point-in-time records of past pushes); (c) `POINT_OF_RESTORE_2026-05-19.md` (dated milestone document); (d) `huf-gov/standards/TENSOR_TRAIN.md` (cites the prior-name PDF path which still exists; standards docs are inside the lockdown surface, left untouched).
+
+**Lockdown discipline.** S2 doc/media only. Engine code (`cnt.py` 2026-05-19, `cnt.R`, `cnq.py`, `cnq.R`), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, projector v2.2, per-country plates all untouched. The CN-TT Output PDF content is byte-identical to the prior PremierDataOutput PDF (same hash); the rename is a public-face name change + doc-chain alignment + new close design + companion-PDF rebuild.
+
+---
+
 ### Push #68 — *coda updates*: ChatGPT consistency-fix pass — slide-19→21 / SHOCK panel / ALIGN-mode wording (`dc0b4dc`, CI #64 "coda updates" green 50s, 2026-05-28)
 
 Five days before CoDaWork 2026. S2 doc/media only; post-#67 working tree. Three stale-reference remnants in the pushed `057177e` state, surfaced by an external (ChatGPT) review of the repo and folded into one S2 patch.
