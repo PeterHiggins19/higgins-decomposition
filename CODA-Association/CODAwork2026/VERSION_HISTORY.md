@@ -11,7 +11,7 @@
 
 ---
 
-## 2026-05-28 — Presentation switches to 16:9 widescreen (v13/v14): exact match to projector / monitor displays (post-#69 working tree, S2 doc/media only)
+## 2026-05-28 — Presentation switches to 16:9 widescreen (v13/v14): exact match to projector / monitor displays (post-#69 working tree, S2 doc/media only) — pushed `5ab59c9`, CI #66 "Presentation tuning" green 53s
 
 *Per Peter, 2026-05-28: "ok i figured out what is happening — the CodaWork2026_CN-TT_Output_2026-05-28.pdf file is actually on 16 in by 10 inch paper then scaled for view to 69% and fits the screens with 16:9 perfectly... can the same be done for the 21 slide presentation to make it utilize the full screen. this time it should work as now it make sense what is happening, the 16:10 scale fits 16:9 screens very well, perhaps design to 16:9 for the paper scaling to get an exact perfect display."*
 
@@ -43,7 +43,7 @@
 
 **Lockdown discipline.** S2 doc/media only. Engine code, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates all untouched. Same 21-slide content arc; the *canvas aspect* is what changed. The two prior 2026-05-28 entries (the Letter-landscape layout expansion and the v12 full canvas-fill rebuild) are superseded by this 16:9 rebuild.
 
-*Staged for push #70.*
+*Landed in push #70 — commit `5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29.*
 
 ### Companion edit — 2026-05-28: presentation-format guidance written into the standards companion
 
@@ -59,7 +59,7 @@ Cross-reference also added to `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-0
 
 **Lockdown discipline.** Both edits are S2 doc-only on companion-markdown surfaces — the HUF-STD-001/002/003 JSON schemas remain untouched. The aspect-ratio doctrine is a presentation-rendering practice, not a schema change.
 
-*This sub-entry also stages for push #70.*
+*Landed in push #70 — commit `5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29.*
 
 ### Companion edit — 2026-05-28: speech companion adjustments (page-fit + Terms + slide-14 tables + World observation)
 
@@ -74,7 +74,7 @@ Per Peter, four targeted refinements to `SPEAKING_SCRIPT_QA_companion.md` (+ reb
 
 **Lockdown discipline.** S2 doc/media only on `CODAwork2026/` companion surfaces; engine, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates untouched.
 
-*This sub-entry also stages for push #70.*
+*Landed in push #70 — commit `5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29.*
 
 ---
 
@@ -112,7 +112,7 @@ Per Peter, four targeted refinements to `SPEAKING_SCRIPT_QA_companion.md` (+ reb
 
 **Lockdown discipline.** S2 doc/media only. Engine code, schemas, INV catalog, NO-CREATE, manuscript, projector v2.2, per-country plates all untouched. The PDF *content* (21-slide arc, deceptive-drift definition, hatched figures, named methods, CN-TT + projector close) is identical to the prior 2026-05-28 deck; only the *layout footprint* is materially different (full-canvas fill, two-column nav and cross-country slides, larger distance-reading fonts).
 
-*Staged for push #70.*
+*Landed in push #70 — commit `5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29.*
 
 ---
 
@@ -141,7 +141,7 @@ Two coordinated change groups land together; same 21-slide arc and content (no s
 
 **Discipline note.** Switching the deck to PDF-only mirrors the doctrine already established for the projector (single self-contained HTML file, no build step, runs anywhere a browser runs) and for the UN-6 handouts (PDF deliverables, markdown sources). The conference packet is now three artifacts, three formats, each chosen for the medium: the Presentation runs as a PDF on any laptop, the projector runs as HTML in any browser, the handouts print as PDF in any locale. No platform lock-in.
 
-*Staged for push #70.*
+*Landed in push #70 — commit `5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29.*
 
 ---
 

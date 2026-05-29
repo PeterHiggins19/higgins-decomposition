@@ -198,6 +198,44 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #70 — *Presentation tuning*: Presentation rebuilt at exact 16:9 widescreen + aspect-ratio doctrine into HUF-STD-002 companion + speech companion adjusted for podium use (`5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29)
+
+Four days before CoDaWork 2026. S2 doc/media only; post-#69 working tree. Three coordinated change groups land together: a canvas-aspect switch for the Presentation, a durable doctrine entry in the standards companion, and four podium-use refinements to the speech companion.
+
+**(A) Presentation switches to exact 16:9 widescreen.** `CodaWork2026_Presentation_2026-05-28.pdf` rebuilt at **13.333 × 7.5 in (PowerPoint widescreen standard, 959.981 × 540 pts, exact 1.7777…)**. The earlier Letter-landscape canvas (11 × 8.5, 1.294 aspect) was letterboxed on 16:9 displays — that was the visible issue Peter was diagnosing through three earlier 2026-05-28 rebuilds (the layout-expansion entry and the v12 full clean-slate rebuild, both now flagged superseded). **Root cause:** a presentation PDF and its display device are coupled by aspect ratio; the fix is to author the PDF at the display's aspect. CN-TT Output's 16:10 (1.60) fits 16:9 well because it's close; the Presentation's exact 16:9 (1.778) fits perfectly. Same 21-slide arc and content as `057177e` (deceptive drift defined on first appearance · Germany complete plate set on slides 8–9 · world finale 15–20 · CN-TT + projector close on slide 21); only the canvas aspect changed. Two-column layouts on nav-chart slides (7 / 11 / 13), Germany plate slides (8 / 9), cross-country (14), and world plates (15–20) — chart on the left + side reading panel on the right with **country code at 44 pt, descriptor at 22 pt, key metrics at 18 pt**. Slide 3 (method diagram) also two-column. Distance-reading fonts: titles 28–38 pt, body 18–22 pt, callouts 20–28 pt, side-panel labels 28–52 pt. **No black bars on any slide.**
+
+**(B) Aspect-ratio doctrine codified into the standards companion.** `huf-gov/standards/TENSOR_TRAIN.md` (the HUF-STD-002 companion .md) gains a new section **"Presentation rendering — aspect-ratio guidance"** between the existing PPTX-boundary section and the what-HUF-STD-002-adds section. Records:
+
+- the headline recommendation (use 16:9 widescreen, render at exact 13.333 × 7.5 in);
+- a display-fit table showing aspect-loss percentages on a 16:9 screen (16:9 = 0 % · 16:10 ≈ 6 % · A4 landscape ≈ 26 % · 4:3 ≈ 33 % · Letter landscape ≈ 37 % — the lesson the CoDaWork 2026 prep arc learned the hard way);
+- a when-to-use-what table separating presentation decks (16:9) / engine-output decks (16:10 — CN-TT Output stays as-is) / manuscripts / handouts (Letter or A4 portrait) / HTML projector (viewport-relative);
+- layout consequences for the wider/shorter canvas (more horizontal room for two-column layouts; less vertical room for full-canvas figures with aspect ≤ 1.6, which get paired with side reading panels);
+- distance-reading font ranges named;
+- the worked example.
+
+Cross-referenced as `POST_CONFERENCE_ROADMAP_2026-06.md` **§5.10 — Presentation-format aspect-ratio standard** as the lessons-learned record. Lockdown-compliant: the HUF-STD-002 JSON schema itself remains untouched (locked under the pre-conference lockdown); only the companion .md gets the S2 doc-only addition.
+
+**(C) Speech companion adjustments — page-fit + Terms + slide-14 tables + World observation.** Per Peter's podium-use directive ("*i will double side print and hold while talking … i do not want to flip a page during a slide talk*"), four refinements to `SPEAKING_SCRIPT_QA_companion.md` (+ rebuilt `.pdf`, 75 KB, 13 pages Letter landscape):
+
+| # | Refinement | Detail |
+|---|---|---|
+| 1 | **One-slide-per-page-side CSS** | `h2 { page-break-after: avoid }` + `h2 + table { page-break-inside: avoid }`. Adjacent slides naturally group when both fit on a single page (e.g. slides 7 + 8 share page 5); a slide that won't fit bumps to a fresh page rather than splitting mid-table. Compact inner-table styling (9.5 pt body, 2 pt padding) keeps slide 14 — the largest slide due to the two reference tables — on one page side. |
+| 2 | **Per-slide *Terms used* italic blocks** in the Q&A bench column | Concise dot-separated lists of technical terms used on each slide (e.g. slide 7 = *PCA · CLR trajectory projected by PCA · PC1 / PC2 · course directness · h_S · h_F · HLR (Higgins Log-Ratio) · V_net = h_F − h_S · dynamic range · Reading guide*; slide 8 = *Section plate · t = 13 · D = 9 carriers · N = 26 readings · pairs = 36 · Hˢ · Ring · E_metric · κ_HS · ω · d_A · Helm · Helm d · DR · DR ratio · XY plan · XZ bearings · YZ CLR · CLR plan view*). ~15 terms per slide on average. Fill-in glossary cues for clarification — not part of the main speech; skippable when time is tight. Bug caught and fixed during QA: an initial regex prefix-match assigned slide 1's terms to slides 10–14 + slide 21; fixed with a strict numeric-section match. |
+| 3 | **Slide 14 PRESENT (5 of 9) + ABSENT (4 of 9) reference tables** | In slide-show order. PRESENT: **JPN (10) · GBR (12) · AUS (15) · CHN (16) · IND (17)** — each row carries a one-line *why drift fires* reason. ABSENT: **DEU (6, annual) · FRA (18) · USA (19) · WLD (20)** — each row carries a *why absent* reason. |
+| 4 | **Slide 20 World uniformity observation** | Appended in italics: *"Notice the Helmsman: uniform across the study window — one largest-motion carrier holds from start to finish. The world as a whole is a smoothly-operating energy system over time; countries absorb the perturbations, the global composition does not flip."* Read it or skip it depending on time. |
+
+**(D) Doc chain swept** across 8 active surfaces — root `README.md` · `CODA-Association/README.md` · `CODA-Association/CODAwork2026/README.md` · `CODA-Association/CODAwork2026/data_outputs/README.md` · `CODA-Association/CONFERENCE_ATTENDEES.md` · `papers/README.md` · `CODA-Association/CODAwork2026/SPEAKING_SCRIPT_QA_companion.md` (masthead) · `PUSH_PROTOCOL.md` (worked-example stat command). "Letter landscape" → "16:9 widescreen" throughout the active tree; historical references in archives, dated journal entries, push admin records, and `HS_FAST_REFRESH` / `HS_ADMIN` narrative entries left as records. Two intentional remaining matches in `TENSOR_TRAIN.md` (the doctrine table names Letter landscape with its 37 % display loss as the "do not use for projection" row) and `POST_CONFERENCE_ROADMAP §5.10` (the lessons-learned record).
+
+**(E) Archive.** New `talk_decks_pre_pdfonly_2026-05-28/` folder holds the prior `CodaWork2026_Presentation_2026-05-27.pptx` (3.3 MB) + `.pdf` (2.9 MB) — the last PPTX shipped as a public artifact — with a folder-level README documenting the v10 → v11 → v12 → v13/v14 rebuild trail.
+
+**(F) VERSION_HISTORY** gains three sub-entries under the 16:9 rebuild anchor entry: the rebuild itself + the standards-companion addition + the speech-companion adjustments. The two earlier 2026-05-28 entries (Letter-landscape layout expansion + v12 full clean-slate rebuild) are flagged superseded.
+
+**Lockdown discipline.** S2 doc/media only — engine code (`cnt.py` 2026-05-19, `cnt.R`, `cnq.py`, `cnq.R`), schemas (HUF-STD-001 / 002 / 003 JSONs), INV catalog (63: 33 C / 8 S / 12 D / 8 O / 1 F / 1 C), NO-CREATE files (all six absent), manuscript, CN-TT Output + Premier PPTX editing source, projector v2.2, per-country plates all untouched.
+
+**CI name "Presentation tuning"** is the meta-statement: the canvas, the standards companion, and the speech all tuned together for podium use.
+
+---
+
 ### Push #69 — *CodaWork2026_CN-TT_Output*: CN-TT Output promoted to public face + new 30 s + 30 s two-artifact close (`76d2eb2`, CI #65 "CodaWork2026_CN-TT_Output" green 49s, 2026-05-28)
 
 Five days before CoDaWork 2026. S2 doc/media only; post-#68 working tree. Two coordinated change groups land together: a public-face rename of the full-corpus PDF and a redesigned slide-21 close that carries both the raw-data provenance and the live instrument.
