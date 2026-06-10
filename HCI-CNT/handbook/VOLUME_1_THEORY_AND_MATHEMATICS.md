@@ -3028,3 +3028,14 @@ day-triads for the cross-temporal correlation analysis.
 ---
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+A new applied extension (mudstone chemostratigraphy) and a new geometric concept (CNQ tiling / faceted read of the high-D compositional manifold) extend the theory's reach; the theory itself is unchanged.
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.

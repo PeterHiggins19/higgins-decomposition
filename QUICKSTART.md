@@ -144,3 +144,14 @@ Code: [Apache-2.0](LICENSE). Documentation, slides, papers: [CC BY 4.0](LICENSE-
 Free to use. Help available — open a GitHub issue, find Peter at a conference, or email `peterhiggins2016@gmail.com`.
 
 The instrument reads. The expert decides. The hashes carry the receipts.
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+A new fully-worked, one-command-reproducible example is available — Frielingen-9 mudstone — under `collaborations/geology-wehner/demo_frielingen9/` (`REPRODUCE.md`).
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.

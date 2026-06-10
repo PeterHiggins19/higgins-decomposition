@@ -1,0 +1,18 @@
+{
+ "N": 219,
+ "D": 4,
+ "depth_min": 15.39,
+ "depth_max": 249.75,
+ "helmsman_counts": {
+  "SiO2": 18,
+  "Al2O3": 22,
+  "Rb": 68,
+  "Zr": 110
+ },
+ "flips": 123,
+ "directness": 0.433,
+ "regime_steps": 19,
+ "corr_step_dCaCO3": 0.239,
+ "corr_step_dTOC": -0.082,
+ "trace_deceptive_drift_top": []
+}

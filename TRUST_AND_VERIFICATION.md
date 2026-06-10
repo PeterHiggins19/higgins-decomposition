@@ -325,3 +325,14 @@ Open issues on the repository are triaged under Hs Change Control v1.0. Direct e
 *The instrument reads.   The expert decides.   The hashes carry the receipts.   The vocabulary holds the line.   The AI follows the same protocol.   Same input, same output, always.*
 *Trust is earned, not expected.   The framework holds itself to the same standard it holds the apparatus to.*
 **The closure check is the test we are using to know whether the measurement is right — and that includes the measurement of our own implementation.**
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+A new end-to-end verification target now exists: the cited, one-command-reproducible Frielingen-9 demo. The CNQ-tiling reconstruction was demonstrated lossless on real data. The four-form / layered-parity discipline is unchanged.
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.

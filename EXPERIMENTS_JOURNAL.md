@@ -352,3 +352,14 @@ This journal is refreshed at every push. Each entry to **§5 (push event log)** 
 ---
 
 *This document is itself an artefact of the SEA-1.0 doctrine: the failure mode it dispatches is "a reader cannot trace what has been done, on what version, in what order." Every link in this document is meant to be followed.*
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+New experiments to log: (a) CNT/CNQ on Frielingen-9 mudstone (PANGAEA 897615, 219 samples) — Zr/Rb drive most steps, directness 0.43, 19 regime surfaces, r(step,|dCaCO3|)=+0.24, |dTOC|~0, deceptive-drift guard silent; (b) CNQ multi-map tiling — a D=6 composition tiled into 6 overlapping exact D=4 charts; full-D reconstruction lossless (alignment 8.9e-16, recon 3.9e-14, radial corr 1.000000, rank 12/12); disjoint atlas rank-deficient → overlap proven necessary.
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.

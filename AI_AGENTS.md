@@ -227,3 +227,14 @@ False findings — like Grok's "cnq.py does not exist" claim from a stale cache 
 ---
 
 *The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.*
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+The HUF AI Collective and the HUF-STD-001 AI Use Declaration discipline were surfaced into a public, government-facing executive overview (disclosed AI role; human-only authorship; sole human commit authority).
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.

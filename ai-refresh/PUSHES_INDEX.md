@@ -198,6 +198,31 @@ Final conference materials published for CoDaWork 2026 attendees. The three-piec
 
 Light follow-up push polishing the README chain: removed restore-point callouts from root + `CODA-Association/CODAwork2026/README.md` + `CODA-Association/CODAwork2026/data_outputs/README.md`; updated data_outputs README to reflect the 22-slide deck structure (per-country navigation slides 12 / 13 / 14, one country per slide) + projector v2.0 three-mode standard; `CONFERENCE_ATTENDEES.md` slide-by-slide follow-along polished as the audience-facing entry point. Lockdown-compliant doc-only.
 
+### Push #71 — *Hs Admin*: post-#70 §6 audit chain landed as its own commit (`6b76cf1`, CI #67 "Hs Admin" green 53s, 2026-05-29)
+
+Three days before CoDaWork 2026. S2 doc/media on admin / audit-trail surfaces only. Per `PUSH_PROTOCOL.md` §6 standard rhythm, the 5-step post-commit sync that fires after every push sits on the working tree until the next Peter-initiated commit window, then ships as its own commit with a *"Hs Admin"* (or similar) CI name. This is that ship for push #70.
+
+**(A) `CHANGELOG.md`.** The #70 row that was filed with `*(pending — see ai-refresh/PUSH70_READY_FOR_COMMIT.md)*` placeholders during pre-push prep is now filled: SHA `5ab59c9` · CI run #66 · CI name *"Presentation tuning"* · duration 53s. The row text itself — the multi-paragraph A/B/C/D/E narrative covering the 16:9 rebuild, the standards-companion addition, the four speech-companion adjustments, the doc-chain sweep, and the archive — was pre-written during the PUSH70_READY_FOR_COMMIT preparation, so only the SHA/CI placeholders changed at sync time.
+
+**(B) `HS_FAST_REFRESH.json`.**
+- `_meta.last_updated` 2026-05-28T22:00Z → 2026-05-29 (sync-time).
+- `_meta.current_commit_sha` 76d2eb2 → 5ab59c9 · `_full` → `5ab59c9e9c6dc12070e10e756432005432fc1339` · `current_ci_run` 65 → 66 · `current_ci_run_name` "CodaWork2026_CN-TT_Output" → "Presentation tuning" · `current_ci_duration_seconds` 49 → 53.
+- `_meta.previous_commit_sha` dc0b4dc → 76d2eb2 · `previous_ci_run` 64 → 65 · `previous_ci_run_name` "coda updates" → "CodaWork2026_CN-TT_Output" (carries the prior #69 values).
+- New `push_70_completed` key with the full multi-paragraph narrative covering: the 16:9 canvas switch (13.333 × 7.5 in, exact 1.7777…, 959.981 × 540 pts); the root-cause framing (PDF–display aspect coupling, Letter landscape was letterboxed at ≈ 37 % loss on 16:9); the two-column layouts on nav-chart slides (7 / 11 / 13), Germany plates (8 / 9), cross-country (14), world plates (15–20) with side reading panels (country code 44 pt, descriptor 22 pt, key metrics 18 pt); the TENSOR_TRAIN.md doctrine codification with the display-fit + when-to-use-what tables; the POST_CONFERENCE_ROADMAP §5.10 cross-reference; the four speech-companion refinements (one-slide-per-page-side CSS, per-slide Terms-used italic blocks, slide 14 PRESENT/ABSENT tables in slide-show order, slide 20 World uniformity observation); the 8-surface doc-chain sweep; the new archive folder.
+- `last_push` rewritten with the #70 narrative + chained "Previous: #69 PUSHED 76d2eb2 CI #65 …"; the prior #69 `last_push` value demoted to `previous_pushed_69_was_last_push` to preserve the chain in the file.
+
+**(C) `ai-refresh/HS_ADMIN.json`.** `last_updated` advance · new `push_70_completed` entry with the full multi-paragraph structure quoting Peter's directive verbatim (*"ok i figured out what is happening — the CodaWork2026_CN-TT_Output_2026-05-28.pdf file is actually on 16 in by 10 inch paper then scaled for view to 69%…"*); the root-cause framing including the framework's projection-display aspect-coupling doctrine; the layout consequences in detail; the four speech-companion refinements with podium-use motivation; the 8-surface doc-chain sweep named; the archive folder; the journal-entry trail.
+
+**(D) `ai-refresh/PUSHES_INDEX.md`.** New "Push #70 — *Presentation tuning*" deep-detail section landed above the existing #69 deep-detail block with: the change-group narrative; a four-row table for the speech-companion refinements; the intentional-remnant inventory (the two "Letter landscape" mentions that survive sweep — both deliberate, in `TENSOR_TRAIN.md` doctrine table and `POST_CONFERENCE_ROADMAP §5.10`); the lockdown statement.
+
+**(E) `CODA-Association/CODAwork2026/VERSION_HISTORY.md`.** The 2026-05-28 main 16:9 rebuild entry header gained "pushed `5ab59c9`, CI #66 'Presentation tuning' green 53s". All five staging-flag lines — the main entry's closing "*Staged for push #70.*" + the two companion sub-entries' "*This sub-entry also stages for push #70.*" + the two superseded-rebuild entries' closing "*Staged for push #70.*" — now read "*Landed in push #70 — commit `5ab59c9`, CI #66 'Presentation tuning' green 53s, 2026-05-29.*" Five total annotations.
+
+**Lockdown discipline.** S2 doc/media only — admin / audit-trail surfaces. Engine code (`cnt.py` 2026-05-19, `cnt.R`, `cnq.py`, `cnq.R`), schemas (HUF-STD-001 / 002 / 003 JSONs), INV catalog (63: 33C / 8S / 12D / 8O / 1F / 1C), NO-CREATE files (all six absent), manuscript, active Presentation PDF, companion PDF, CN-TT Output PDF, Premier PPTX editing source, projector v2.2, per-country plates all untouched.
+
+**CI name "Hs Admin"** is the meta-statement: this is the standard §6 audit-chain advance, the pattern that lets the audit trail stay current as human-initiated commits focus on substantive content.
+
+---
+
 ### Push #70 — *Presentation tuning*: Presentation rebuilt at exact 16:9 widescreen + aspect-ratio doctrine into HUF-STD-002 companion + speech companion adjusted for podium use (`5ab59c9`, CI #66 "Presentation tuning" green 53s, 2026-05-29)
 
 Four days before CoDaWork 2026. S2 doc/media only; post-#69 working tree. Three coordinated change groups land together: a canvas-aspect switch for the Presentation, a durable doctrine entry in the standards companion, and four podium-use refinements to the speech companion.

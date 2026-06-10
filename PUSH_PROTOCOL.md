@@ -365,3 +365,14 @@ Discrepancies in the push workflow are taken seriously and triaged under Hs Chan
 
 *The instrument reads.   The expert decides.   The hashes carry the receipts.   The vocabulary holds the line.   The AI follows the same protocol.   Same input, same output, always.*
 *The push workflow is subject to the same closure check the framework applies to its measurements.   Discrepancy is observable.   Discrepancy is actionable.   The protocol holds.*
+
+
+---
+
+## Addendum — 2026-06-09 (post-publication advancement)
+
+*Non-destructive note (Cowork working tree; not yet git-committed). The content above is unchanged and remains valid as published.*
+
+The 2026-06-09 geology buildout + executive overview + admin/refresh roll-forward are staged on the Cowork working tree and are NOT yet committed; when committed, follow this protocol (CHANGELOG row + HS_ADMIN/HS_FAST_REFRESH + PUSHES_INDEX).
+
+Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.
