@@ -1,3 +1,7 @@
+> ⚠️ **ARCHIVED — frozen validation oracle · past reference only.** This is no longer the active Hˢ engine. The **current engine is CN‑TT v4** → [`../HCI-CNTT/`](../HCI-CNTT/) — the latest engine information always lives there (start at [`../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md) and [`../HS_GUIDE.md`](../HS_GUIDE.md)). CN‑TT v4 carries the exact D=4 quaternion reading forward and tiles it to any dimension; it reproduces this engine's output bit‑for‑bit on real data. Retained as the frozen oracle for lineage + validation. **Do not build new work on this engine.** The content below is the historical CNQ v2.0.0 record.
+
+---
+
 # HCI-CNQ — Compositional Navigation Quaternion
 
 > **🎉 CNQ engine fully public — Python + R + pseudocode + 43-test suite (push #27, 2026-05-08).** [`engine/cnq.py`](engine/cnq.py) Python reference. [`engine/cnq.R`](engine/cnq.R) R port (parity contract). [`engine/CNQ_PSEUDOCODE.md`](engine/CNQ_PSEUDOCODE.md) language-agnostic algorithm. [`engine/CNQ_SCHEMA.md`](engine/CNQ_SCHEMA.md) formal output schema. [`engine/ANTI_SPECIFICATION.md`](engine/ANTI_SPECIFICATION.md) failure-mode catalogue. [`engine/tests/`](engine/tests/) 43 tests covering geometry, dimension policy, determinism. All deterministic, all hash-chained to parent CNT. Cross-platform reproduction challenge open.

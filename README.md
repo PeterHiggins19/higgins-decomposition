@@ -2,6 +2,15 @@
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
 
+> ## 🆕 Current engine — **CN‑TT v4** (post‑CoDaWork 2026)
+> The current engine is the tile‑native **CN‑TT v4.0.0** in [`HCI-CNTT/`](HCI-CNTT/) — full spec: [`HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md). It identifies a 4‑part composition with an exact unit quaternion (S³=SU(2)) and **tiles** that exactness to any dimension via overlapping charts — **lossless reconstruction proven to D=1,000,000**, deterministic and hash‑chained, with a modular control surface (per‑stage state + start/halt), a cross‑platform determinism contract, internal‑vs‑external **shock self‑diagnostics**, and a [diagnostic **code system**](HCI-CNTT/CNTT_DIAGNOSTIC_CODES.md). It has been certified to reproduce the **entire output of the frozen oracle (CNT v3.2.0)** **bit‑for‑bit on real Backblaze data** ([parity report](experiments/backblaze_v4_parity_2026-06/RESULTS_backblaze_v4_vs_oracle.md)). The CNT v3.2.0 / CNQ v2.0.0 engines documented below are now the **frozen validation oracle**; CN‑TT v4 is the live engine and is additive to them.
+>
+> **New here? Start with [`HS_GUIDE.md`](HS_GUIDE.md)** — the one‑file guide to what Hˢ is, what it does, and how to use it (distills the whole corpus). **Run it:** `python HCI-CNTT/run_cntt.py <composition.csv> -o out.json`. **Real data for every study:** [`DATA_SOURCES.md`](DATA_SOURCES.md). **New applications:** [`collaborations/microbiome/`](collaborations/microbiome/) (with coda4microbiome) · [`collaborations/geology-wehner/`](collaborations/geology-wehner/) (geosensing → flight). **🛰️ Hˢ in space — an open challenge:** [`SPACE_READINESS_AND_CHALLENGE.md`](SPACE_READINESS_AND_CHALLENGE.md) (deterministic Earth/space twin studies; any composition, anywhere). **Live agenda:** [`ai-refresh/UNIFIED_AGENDA_2026-06-10.md`](ai-refresh/UNIFIED_AGENDA_2026-06-10.md). **Rapid onboarding for AI/new readers:** [`ai-refresh/AI_RAPID_LEARN.md`](ai-refresh/AI_RAPID_LEARN.md). Source of truth: [`HS_FAST_REFRESH.json`](HS_FAST_REFRESH.json).
+>
+> **🧪 Applications & real‑data runs.** Hˢ now runs as a deterministic **industrial instrument** ([`industrial-instruments/`](industrial-instruments/)) — a four‑study **gas & process‑fluid** collection (closed‑loop O₂/CO₂/N₂ life support · oil & gas produced water · blood/alveolar gas · spacecraft cabin atmosphere) demonstrating the **MC‑4 / Ratio Blindness** doctrine ([`../HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md`](../HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md)): *three monitoring categories measure magnitude; the fourth reads the ratios.* **Verified on REAL public data:** anaesthesia gas across **two independent datasets** (VitalDB + UQ Vital Signs — O₂ the dominant compositional driver in **13/13** cases) · **USGS Produced Waters** (Williston — minor ions SO₄/HCO₃ drive, not the Na‑Cl bulk brine) · the **Frielingen‑9 mudstone** (PANGAEA) · and **NASA GeneLab GLDS‑1** spaceflight transcriptome ([`collaborations/spaceflight-glds1/`](collaborations/spaceflight-glds1/) — **lossless at D=18,952** + an honest global null). Data sources: [`DATA_SOURCES.md`](DATA_SOURCES.md). **Distributed AI onboarding:** every folder that matters carries an `AI_ASSIST.json` (convention: [`ai-refresh/AI_ASSIST_PATH_PROTOCOL.md`](ai-refresh/AI_ASSIST_PATH_PROTOCOL.md)).
+
+---
+
 ## 🎤 CoDaWork 2026 — follow along with the talk
 
 In the room (or watching from anywhere) for *Compositional monitoring of energy-mix drift on the simplex* (Coimbra, Portugal · 1–5 June 2026)?
@@ -51,7 +60,8 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 | UN-6 wrapper locales | 6 (en, fr, es, ru, zh, ar) — `HCI-CNQ/wrappers/` (push #32) |
 | Languages supported (union) | **9** (en, fr, es, ru, zh, ar, hi, pt, it) |
 | Scale range | 10⁻¹⁸ m to 10²⁶ m (44 orders of magnitude) |
-| Framework version | 3.0 |
+| Current engine | **CN‑TT v4.0.0** (`HCI-CNTT/`) — tile‑native; CNT v3.2.0 / CNQ v2.0.0 frozen as the validation oracle |
+| Framework version | 4.0 (CN‑TT) · conference material below was 3.x |
 | Deterministic | Yes (Gauge R&R bit-identical, SHA-256 verified) |
 | Instrument metrology | QUALIFIED (6/6 metrics pass) |
 | License | Code: Apache-2.0 (LICENSE) · Docs: CC BY 4.0 (LICENSE-DOCS) |

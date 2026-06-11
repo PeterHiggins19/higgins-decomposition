@@ -1,0 +1,28 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/collaborations/spaceflight-glds1/",
+  "topic": "Real space-biology run: NASA GeneLab GLDS-1 (Drosophila spaceflight transcriptome) read by Hs.",
+  "purpose": "Local node for the space-biology real-data run -- the OSDR arm of the Earth/space program.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "specific_knowledge": {
+    "what": "GLDS-1/OSD-1 = GeneLab's first study (Drosophila immune response in spaceflight, Affymetrix). Hs read the uninfected ground->flight subset over all 18,952 probesets as a per-sample composition.",
+    "key_files": ["README.md", "results/out.json", "results/glds1_aitchison_figure.png"],
+    "key_results": [
+      "Tier 1: LOSSLESS high-D read at D=18,952 (reconstruction 1.2e-13) -- a real ~19k-dimensional transcriptome, deterministic (hash bcdc19e9)",
+      "Tier 1: HONEST GLOBAL NULL -- whole-transcriptome ground-vs-flight Aitchison distance = 0.95x within-group replicate variation (no global separation)",
+      "Tier 2: the null -> seek-a-signature lesson (same as the Crohn microbiome null + MC-4); GeneLab DE table is the gene-level complement"
+    ],
+    "related_topics": ["../../SPACE_READINESS_AND_CHALLENGE.md", "../microbiome/AI_ASSIST.json", "../../../HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md"],
+    "claim_tiers": "Tier 1 = lossless D=18,952 + the global-null distances; Tier 2 = the null->signature lesson; Tier 3 = any biological conclusion + microarray-as-composition validity (use GeneLab DE / RNA-seq counts)."
+  },
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at README.md. Data source: NASA OSDR s3://nasa-osdr/ (OSD-1). Derived composition off-repo; raw not redistributed. Read-only context; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker (the null is reported straight); defer biology to GeneLab's differential-expression analysis; no AI commits.",
+  "updated": "2026-06-11"
+}

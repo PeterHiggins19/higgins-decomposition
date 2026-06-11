@@ -1,3 +1,7 @@
+> ⚠️ **ARCHIVED — frozen oracle · past reference only.** Not the active engine. Current engine: **CN‑TT v4** → [`../../HCI-CNTT/`](../../HCI-CNTT/) (latest info always there; see [`../../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](../../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md) and [`../../HS_GUIDE.md`](../../HS_GUIDE.md)). v4 reproduces this engine's output bit‑for‑bit (Backblaze parity). Do not build new work here.
+
+---
+
 # Engine — Compositional Navigation Tensor
 
 The deterministic CNT engine. Same input + same configuration ⇒

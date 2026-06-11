@@ -1,3 +1,7 @@
+> ⚠️ **ARCHIVED — frozen validation oracle · past reference only.** This is no longer the active Hˢ engine. The **current engine is CN‑TT v4** → [`../HCI-CNTT/`](../HCI-CNTT/) — the latest engine information always lives there (start at [`../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md) and [`../HS_GUIDE.md`](../HS_GUIDE.md)). CN‑TT v4 reproduces this engine's **entire output bit‑for‑bit** (certified on real Backblaze data, [`../experiments/backblaze_v4_parity_2026-06/`](../experiments/backblaze_v4_parity_2026-06/)). Retained as the frozen oracle for lineage + validation; corpus‑wide re‑validation (the parity harness) is the one open verification step. **Do not build new work on this engine.** The content below is the historical CNT v3.2.0 record.
+
+---
+
 # HCI-CNT — Compositional Navigation Tensor
 
 > **🎉 Fully Public — Publication-Grade.** Both engines (CNT and CNQ) shipped in Python and R; **both engines now ship with language-agnostic pseudocode (push #62, 2026-05-22)** — CNT_PSEUDOCODE.md v3.1.0 and CNQ_PSEUDOCODE.md v1.0.0; 43-test suite; three IEEE-floor confirmation datasets (Backblaze, Planck CMB, SM neutrino). Single-file AI loader at [`../HS_FAST_REFRESH.json`](../HS_FAST_REFRESH.json); user entry point at [`../PUBLICATION_READY.md`](../PUBLICATION_READY.md). Free to use, help available.

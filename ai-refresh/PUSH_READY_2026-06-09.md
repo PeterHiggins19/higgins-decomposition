@@ -1,5 +1,7 @@
 # PUSH READY — 2026-06-09 (pre-push prep, Hs repo)
 
+> **STATUS: PUSHED.** Executed as **push #72 = commit `336a6e9`, CI #68 "CoDawork2026 Post Projection" green 56s (2026-06-09)**, verified live on `main`. This is now a **historical pre-push record**; the post-#72 §6 admin-chain sync rides as the next "Hs Admin" commit.
+
 **Prepared for Peter to commit/push. No AI commits to main — this is the prep; you are the authority gate.**
 Target: the **higgins-decomposition (Hs)** repo. Work lives in the **Cowork mirror**; sync the mirror → your GitHub-Desktop repo folder, then commit/push.
 
@@ -83,4 +85,4 @@ AI-assisted per HUF-STD-001; human authorship.
 - [ ] Capture SHA + CI run; do the §6 admin-chain sync.
 - [ ] (Optional) delete the empty international-trade folder + scratch files.
 
-*Prep only — nothing committed, nothing pushed, nothing sent. The instrument reads. The expert decides. The hashes carry the receipts.*
+*Historical pre-push record — push #72 (`336a6e9`, CI #68) landed; nothing SENT (Matthew outreach remains Peter's). The instrument reads. The expert decides. The hashes carry the receipts.*

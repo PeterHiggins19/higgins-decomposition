@@ -1,3 +1,7 @@
+> ⚠️ **ARCHIVED — frozen oracle · past reference only.** Not the active engine. Current engine: **CN‑TT v4** → [`../../HCI-CNTT/`](../../HCI-CNTT/) (latest info always there; see [`../../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](../../HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md) and [`../../HS_GUIDE.md`](../../HS_GUIDE.md)). v4 carries the exact D=4 quaternion reading forward and tiles to any D. Do not build new work here.
+
+---
+
 # Engine — Compositional Navigation Quaternion
 
 The deterministic CNQ engine. Same input + same configuration ⇒ byte-identical `cnq_content_sha256`.
