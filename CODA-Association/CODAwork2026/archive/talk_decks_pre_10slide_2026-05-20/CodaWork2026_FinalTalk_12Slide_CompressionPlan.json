@@ -1,0 +1,397 @@
+{
+  "handoff_type": "claude_slide_compression_packet",
+  "title": "CoDaWork 2026 22-slide to 12-slide compression plan",
+  "date_prepared": "2026-05-20",
+  "prepared_for": "Claude",
+  "prepared_from": "ChatGPT adviser review of CODA-Association/CODAwork2026 current conference folder",
+  "source_context": {
+    "repo": "PeterHiggins19/higgins-decomposition",
+    "authority_folder": "CODA-Association/CODAwork2026/",
+    "primary_repo_files_to_read_first": [
+      "CODA-Association/CONFERENCE_ATTENDEES.md",
+      "CODA-Association/CODAwork2026/README.md",
+      "CODA-Association/CODAwork2026/data_outputs/README.md",
+      "CODA-Association/CODAwork2026/VERSION_HISTORY.md"
+    ],
+    "current_known_package": {
+      "manuscript": "25-page peer-reviewable paper",
+      "current_talk_deck": "22-slide narrative deck",
+      "cinema_scroll": "66-slide / 325-page engine-output reel",
+      "projector": "offline HTML projector with RADAR / BARY / ALIGN / SHOCK modes"
+    }
+  },
+  "user_goal": {
+    "plain_language": "Peter wants to cut the 22-slide talk approximately in half, down to 12 slides, because 22 slides plus data flip-through will likely exceed the time limit.",
+    "target": "12 slides maximum for the main talk, preserving only the absolute necessary argument and leaving detailed output exploration to the cinema scroll and projector.",
+    "constraint": "Do not make 12 crowded slides. Merge concepts into stronger narrative slides and move detail into verbal notes, handout, attendee page, cinema scroll, projector, and manuscript.",
+    "preferred_result": "A 12-slide alternative deck plan Claude can use to rebuild or draft a compressed version."
+  },
+  "core_strategy": {
+    "principle": "The compressed talk should be a 12-slide argument, not a 12-slide catalog.",
+    "spine": [
+      "The size view hides structural work.",
+      "The five-viewpoint protocol measures structural work.",
+      "Activation Coefficient makes the hidden driver visible.",
+      "Three country archetypes show the method works in different transition regimes.",
+      "The 5-of-9 cross-country signature shows the pattern is not anecdotal.",
+      "MC-4 makes the claim falsifiable.",
+      "The cinema scroll and projector carry the proof reserve."
+    ],
+    "hard_rule": "Anything not required to make the audience understand and test the central claim moves out of the main deck."
+  },
+  "recommended_timing": {
+    "total_live_talk_target_minutes": 15,
+    "main_12_slide_talk_minutes": 10.5,
+    "cinema_scroll_minutes": 1.5,
+    "projector_transition_or_q_and_a_setup_minutes": 1.0,
+    "buffer_minutes": 2.0,
+    "timing_note": "This keeps time for the data flip-through. If the chair is strict, skip slide 12 verbally and let it be a closing/contact slide shown during questions."
+  },
+  "new_12_slide_deck": [
+    {
+      "new_slide": 1,
+      "title": "Compositional monitoring of energy-mix drift on the simplex",
+      "role": "Open the talk; state the one-sentence problem.",
+      "source_old_slides": [
+        1,
+        2
+      ],
+      "keep_from_old": [
+        "Title",
+        "Question: what carriers really drove each country's energy transition and which did structural work?"
+      ],
+      "visual": "Title + one-line research question + small repo/CoDaWork footer.",
+      "speaker_goal": "Frame this as a monitoring application of CoDa geometry, not as a claim to replace CoDa mathematics.",
+      "time_seconds": 35,
+      "must_say": "The question is not only what got bigger; it is which carrier did the structural work."
+    },
+    {
+      "new_slide": 2,
+      "title": "The size view hides work",
+      "role": "Create the need for the method.",
+      "source_old_slides": [
+        3
+      ],
+      "keep_from_old": [
+        "Stacked-area / size-view blind spot",
+        "USA Solar 2012→2013: 0.107% share but 81.7% structural Power Share; Activation Coefficient ≈760×"
+      ],
+      "visual": "World or USA stacked-area view with callout: small share ≠ small work.",
+      "speaker_goal": "Use the USA Solar number as the hook early, not later.",
+      "time_seconds": 55,
+      "must_say": "This number is the reason for the talk: the size view made the driver nearly invisible."
+    },
+    {
+      "new_slide": 3,
+      "title": "Five viewpoints, one observable stack",
+      "role": "Introduce the method in one slide.",
+      "source_old_slides": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "keep_from_old": [
+        "Composition",
+        "Helmsman",
+        "Helmsman trajectory",
+        "Power Share",
+        "Activation Coefficient"
+      ],
+      "merge_instruction": "Collapse old slides 4–7 into one schematic. Do not separately teach helmsman and Power Share unless asked.",
+      "visual": "Five-viewpoint diagram with one line under each viewpoint: size / who steers / when steering changes / how much work / why small mattered.",
+      "speaker_goal": "Give the audience enough vocabulary to follow the results.",
+      "time_seconds": 75,
+      "must_say": "Each view answers one question. Together they turn a compositional transition into an auditable event."
+    },
+    {
+      "new_slide": 4,
+      "title": "Activation Coefficient: the yeast factor",
+      "role": "Make the key diagnostic unforgettable.",
+      "source_old_slides": [
+        7,
+        8
+      ],
+      "keep_from_old": [
+        "α_i(t)=Power Share / starting share",
+        "α=1 expected work, α≫1 hidden driver",
+        "Solar 2010–2015 appears repeatedly as small share / large structural work"
+      ],
+      "visual": "Formula + USA Solar worked example + top yeast moment strip.",
+      "speaker_goal": "This is the memorable diagnostic. Give it room.",
+      "time_seconds": 75,
+      "must_say": "A small carrier can act like yeast: tiny in mass, large in structural effect."
+    },
+    {
+      "new_slide": 5,
+      "title": "Three archetypes: continuous arc, shock, regime change",
+      "role": "Preview Germany/Japan/UK as one comparative concept.",
+      "source_old_slides": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "keep_from_old": [
+        "Germany = continuous arc to renewable vertex",
+        "Japan = Fukushima shock and multi-year reorganisation",
+        "UK = coal exit as regime change",
+        "Navigation chart archetypes: continuous arc / looping / jump-and-return"
+      ],
+      "merge_instruction": "Replace six old case/navigation slides with one archetype overview plus three following focused slides.",
+      "visual": "Three-column overview: DEU, JPN, GBR with one mini-plate/icon each.",
+      "speaker_goal": "Tell audience why these three countries were selected.",
+      "time_seconds": 60,
+      "must_say": "These are not three examples of the same behavior; they are three different transition regimes read by the same instrument."
+    },
+    {
+      "new_slide": 6,
+      "title": "Germany: deliberate transition as continuous course",
+      "role": "Case 1.",
+      "source_old_slides": [
+        9,
+        12
+      ],
+      "keep_from_old": [
+        "Germany Energiewende",
+        "Solar 2005–2006 at 0.21% share doing 71.1% of work, AC≈333×",
+        "Course directness 0.41 if retained"
+      ],
+      "visual": "Germany four-panel or single strongest Germany plate plus one navigation inset.",
+      "speaker_goal": "Show that the method names the beginning of structural change before size dominates.",
+      "time_seconds": 60,
+      "must_say": "The structural start appears before the size view makes it obvious."
+    },
+    {
+      "new_slide": 7,
+      "title": "Japan: Fukushima shock and reorganisation",
+      "role": "Case 2.",
+      "source_old_slides": [
+        10,
+        13
+      ],
+      "keep_from_old": [
+        "Fukushima 2011",
+        "Helmsman flips 17 times",
+        "Aitchison distance 2011→2012 about 3× neighbouring years",
+        "Course directness 0.09 / looping if retained"
+      ],
+      "visual": "Japan four-panel with gold-shaded 2011–2013 window + navigation inset.",
+      "speaker_goal": "Show the instrument detects both the shock and the multi-year reorganization.",
+      "time_seconds": 60,
+      "must_say": "The shock is not one point; the composition reorganizes over several years."
+    },
+    {
+      "new_slide": 8,
+      "title": "United Kingdom: coal exit as regime change",
+      "role": "Case 3.",
+      "source_old_slides": [
+        11,
+        14
+      ],
+      "keep_from_old": [
+        "Coal goes from >30% to <2%",
+        "Wind, solar, and other renewables absorb displaced structural work",
+        "Course directness 0.36 / jump-and-return if retained"
+      ],
+      "visual": "UK four-panel or coal-exit plate with navigation inset.",
+      "speaker_goal": "Show policy-driven transition as a different archetype.",
+      "time_seconds": 60,
+      "must_say": "The method separates size decline from who absorbed the structural work."
+    },
+    {
+      "new_slide": 9,
+      "title": "Cross-country signature: 5 of 9 reproduce the pattern",
+      "role": "Move from anecdotes to corpus-level result.",
+      "source_old_slides": [
+        15
+      ],
+      "keep_from_old": [
+        "AUS, CHN, GBR, IND, JPN fire",
+        "DEU, FRA, USA, WLD do not",
+        "Protocol discriminates; it does not over-fire"
+      ],
+      "visual": "Nine-country grid or Fig. 5 cross-country signature plate.",
+      "speaker_goal": "Make it clear that non-firing countries are evidence of discrimination, not failure.",
+      "time_seconds": 70,
+      "must_say": "A useful detector should not fire everywhere. Here it fires in five countries and stays quiet in four."
+    },
+    {
+      "new_slide": 10,
+      "title": "What the stack answers",
+      "role": "Synthesis.",
+      "source_old_slides": [
+        16
+      ],
+      "keep_from_old": [
+        "WHAT carriers are big",
+        "WHO is at the wheel",
+        "WHEN steering changes",
+        "HOW MUCH work each carrier did",
+        "WHY a small carrier mattered"
+      ],
+      "visual": "Five-question synthesis table, possibly using icons from slide 3.",
+      "speaker_goal": "Rebuild the method/result into one memorable object before the falsifiability slide.",
+      "time_seconds": 55,
+      "must_say": "The stack does not replace interpretation; it gives interpretation a reproducible object."
+    },
+    {
+      "new_slide": 11,
+      "title": "The falsifiable claim: MC-4",
+      "role": "Scientific discipline / CoDaWork credibility.",
+      "source_old_slides": [
+        17
+      ],
+      "keep_from_old": [
+        "Aitchison-native + formal change detection + carrier-level attribution",
+        "four defeat paths: prior-art, metric, case, category"
+      ],
+      "visual": "Three-conjunct claim on left, four defeat paths on right.",
+      "speaker_goal": "Show humility and invite expert challenge.",
+      "time_seconds": 65,
+      "must_say": "This is the claim I want the CoDa community to test. If one of these four defeat paths succeeds, the claim narrows or fails."
+    },
+    {
+      "new_slide": 12,
+      "title": "Now inspect the instrument",
+      "role": "Bridge to data scroll, projector, repo, AI declaration/contact.",
+      "source_old_slides": [
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "keep_from_old": [
+        "Cinema scroll: every plate the engine produced",
+        "Projector for Q&A",
+        "Repo / reproduce every plate",
+        "AI use declaration / standard stamp compressed into footer or single small block"
+      ],
+      "merge_instruction": "Collapse old slides 18–22 into one end slide. Do not spend time on AI declaration unless required; put it as visible conformance footer.",
+      "visual": "Three boxes: Manuscript, Cinema Scroll, Projector + QR/repo/contact footer.",
+      "speaker_goal": "Hand the audience from talk to evidence. Then flip the data scroll.",
+      "time_seconds": 55,
+      "must_say": "I will not ask you to trust the speaker; the outputs, hashes, manuscript, and projector are open for inspection."
+    }
+  ],
+  "old_to_new_mapping": {
+    "old_1_title": "new_1",
+    "old_2_question": "new_1",
+    "old_3_size_view": "new_2",
+    "old_4_five_viewpoint_protocol": "new_3",
+    "old_5_helmsman": "new_3",
+    "old_6_power_share": "new_3",
+    "old_7_activation_coefficient": "new_4",
+    "old_8_hidden_driver_solar": "new_4",
+    "old_9_germany_case": "new_5_and_6",
+    "old_10_japan_case": "new_5_and_7",
+    "old_11_uk_case": "new_5_and_8",
+    "old_12_germany_navigation": "new_6",
+    "old_13_japan_navigation": "new_7",
+    "old_14_uk_navigation": "new_8",
+    "old_15_cross_country": "new_9",
+    "old_16_synthesis": "new_10",
+    "old_17_mc4": "new_11",
+    "old_18_cinema_scroll": "new_12",
+    "old_19_projector": "new_12",
+    "old_20_repositories": "new_12",
+    "old_21_ai_use_declaration": "new_12_footer_or_appendix",
+    "old_22_standard_stamp": "new_12_footer_or_appendix"
+  },
+  "cut_or_move_to_appendix": [
+    {
+      "old_slide": 5,
+      "title": "Helmsman detailed definition",
+      "action": "Fold into slide 3; equation only in speaker notes or manuscript."
+    },
+    {
+      "old_slide": 6,
+      "title": "Power Share detailed definition",
+      "action": "Fold into slide 3; keep equation if there is room, otherwise verbal."
+    },
+    {
+      "old_slide": 12,
+      "title": "Germany standalone navigation chart",
+      "action": "Merge into Germany case slide as inset."
+    },
+    {
+      "old_slide": 13,
+      "title": "Japan standalone navigation chart",
+      "action": "Merge into Japan case slide as inset."
+    },
+    {
+      "old_slide": 14,
+      "title": "UK standalone navigation chart",
+      "action": "Merge into UK case slide as inset."
+    },
+    {
+      "old_slide": 18,
+      "title": "Bridge to every plate",
+      "action": "Compress into final slide; actual scroll does the work."
+    },
+    {
+      "old_slide": 19,
+      "title": "Projector Q&A",
+      "action": "Compress into final slide; open projector after talk."
+    },
+    {
+      "old_slide": 20,
+      "title": "Repositories",
+      "action": "Move to final slide footer and handout."
+    },
+    {
+      "old_slide": 21,
+      "title": "AI Use Declaration",
+      "action": "Move to visible final-slide footer, manuscript, and attendee page; not a full live slide unless required."
+    },
+    {
+      "old_slide": 22,
+      "title": "Standard Stamp",
+      "action": "Move to final slide footer / backup slide."
+    }
+  ],
+  "backup_appendix_slides_optional": [
+    "AI Use Declaration full slide",
+    "Standard Stamp full slide",
+    "Equation details for helmsman / Power Share / Activation Coefficient",
+    "Projector controls slide",
+    "Repository reproduction commands",
+    "Full MC-4 defeat path wording"
+  ],
+  "cinema_scroll_guidance": {
+    "when_to_run": "After slide 12 or immediately as slide 12 is displayed.",
+    "duration": "60–90 seconds unless the chair gives more time.",
+    "instruction": "Auto-advance quickly; do not narrate every country. Say: 'This is the output field. Pause me anywhere.'",
+    "speaker_line": "What follows is not more claims; it is the engine output reserve."
+  },
+  "projector_guidance": {
+    "when_to_open": "During Q&A, not during the 10.5-minute compressed talk unless time remains.",
+    "default_demo": "Japan, BARY, SHOCK, then ALIGN.",
+    "speaker_line": "BARY shows the course; ALIGN removes the course and leaves shape variation around each year's own center."
+  },
+  "claude_tasks": [
+    {
+      "task": "Build a compressed 12-slide alternative deck outline",
+      "input_files": [
+        "CODA-Association/CONFERENCE_ATTENDEES.md",
+        "CODA-Association/CODAwork2026/data_outputs/README.md",
+        "CODA-Association/CODAwork2026/data_outputs/build_final_talk.py"
+      ],
+      "output": "A new Markdown or JSON plan titled CodaWork2026_FinalTalk_12Slide_CompressionPlan."
+    },
+    {
+      "task": "Optionally rebuild deck",
+      "instruction": "Do not overwrite the current 22-slide deck. Create a new dated file such as CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx and PDF."
+    },
+    {
+      "task": "Update attendee page only if Peter approves",
+      "instruction": "Current CONFERENCE_ATTENDEES.md maps the 22-slide deck. A 12-slide deck needs its own companion or a branch note; do not destroy the current page."
+    }
+  ],
+  "suggested_new_deck_filename": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_2026-05-20.pptx",
+  "suggested_plan_filename": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FinalTalk_12Slide_CompressionPlan.json",
+  "final_advice": "The 12-slide deck should end the argument by slide 11. Slide 12 is not a conclusion; it is the switchyard to the evidence reserve."
+}

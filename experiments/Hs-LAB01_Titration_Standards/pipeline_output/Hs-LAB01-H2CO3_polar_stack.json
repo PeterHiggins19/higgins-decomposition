@@ -1,0 +1,3443 @@
+{
+  "experiment": "CARBONIC_ACID_TITRAT",
+  "test_object": "Carbonic Acid Titration",
+  "carriers": [
+    "H2CO3",
+    "HCO3_minus",
+    "CO3_2minus"
+  ],
+  "D": 3,
+  "N": 200,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 3.395937,
+    "norm_max": 11.667696,
+    "norm_mean": 6.291926,
+    "norm_range": 8.271759,
+    "phase_range_deg": 132.975,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 92,
+      "type": "DOM_SHIFT",
+      "label": "CO3_->H2CO"
+    },
+    {
+      "t": 99,
+      "type": "DOM_SHIFT",
+      "label": "H2CO->HCO3"
+    },
+    {
+      "t": 146,
+      "type": "DOM_SHIFT",
+      "label": "HCO3->H2CO"
+    },
+    {
+      "t": 119,
+      "type": "NORM_TROUGH",
+      "label": "||x||=3.4"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "H2CO3": -7.391288746541184,
+        "HCO3_minus": 2.496477960344473,
+        "CO3_2minus": -8.675920114299041
+      },
+      "aitchison_norm": 11.667696,
+      "phase_deg": 161.337
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "H2CO3": -7.231798425436997,
+        "HCO3_minus": 2.50967290774227,
+        "CO3_2minus": -8.481165979982986
+      },
+      "aitchison_norm": 11.424865,
+      "phase_deg": 160.862,
+      "delta_norm": -0.242831,
+      "delta_clr": {
+        "H2CO3": 0.15949,
+        "HCO3_minus": 0.013195,
+        "CO3_2minus": 0.194754
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "H2CO3": -7.072517562872138,
+        "HCO3_minus": 2.5228410540613133,
+        "CO3_2minus": -8.28698030992078
+      },
+      "aitchison_norm": 11.18299,
+      "phase_deg": 160.368,
+      "delta_norm": -0.241875,
+      "delta_clr": {
+        "H2CO3": 0.159281,
+        "HCO3_minus": 0.013168,
+        "CO3_2minus": 0.194186
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "H2CO3": -6.91365514765085,
+        "HCO3_minus": 2.5359556847662543,
+        "CO3_2minus": -8.09392907011442
+      },
+      "aitchison_norm": 10.942641,
+      "phase_deg": 159.857,
+      "delta_norm": -0.24035,
+      "delta_clr": {
+        "H2CO3": 0.158862,
+        "HCO3_minus": 0.013115,
+        "CO3_2minus": 0.193051
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "H2CO3": -6.755419230160662,
+        "HCO3_minus": 2.548990258129091,
+        "CO3_2minus": -7.902573241041347
+      },
+      "aitchison_norm": 10.704378,
+      "phase_deg": 159.327,
+      "delta_norm": -0.238263,
+      "delta_clr": {
+        "H2CO3": 0.158236,
+        "HCO3_minus": 0.013035,
+        "CO3_2minus": 0.191356
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "H2CO3": -6.5980164557952445,
+        "HCO3_minus": 2.5619184909351054,
+        "CO3_2minus": -7.713466352291835
+      },
+      "aitchison_norm": 10.468754,
+      "phase_deg": 158.779,
+      "delta_norm": -0.235624,
+      "delta_clr": {
+        "H2CO3": 0.157403,
+        "HCO3_minus": 0.012928,
+        "CO3_2minus": 0.189107
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "H2CO3": -6.441651601528141,
+        "HCO3_minus": 2.574714443354028,
+        "CO3_2minus": -7.527152049951086
+      },
+      "aitchison_norm": 10.23631,
+      "phase_deg": 158.214,
+      "delta_norm": -0.232444,
+      "delta_clr": {
+        "H2CO3": 0.156365,
+        "HCO3_minus": 0.012796,
+        "CO3_2minus": 0.186314
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "H2CO3": -6.286527116676646,
+        "HCO3_minus": 2.5873526027023854,
+        "CO3_2minus": -7.344161707416729
+      },
+      "aitchison_norm": 10.007574,
+      "phase_deg": 157.629,
+      "delta_norm": -0.228737,
+      "delta_clr": {
+        "H2CO3": 0.155124,
+        "HCO3_minus": 0.012638,
+        "CO3_2minus": 0.18299
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "H2CO3": -6.132842668885712,
+        "HCO3_minus": 2.5998079658265416,
+        "CO3_2minus": -7.165012090151581
+      },
+      "aitchison_norm": 9.783055,
+      "phase_deg": 157.027,
+      "delta_norm": -0.224519,
+      "delta_clr": {
+        "H2CO3": 0.153684,
+        "HCO3_minus": 0.012455,
+        "CO3_2minus": 0.17915
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "H2CO3": -5.980794696350101,
+        "HCO3_minus": 2.6120561198404206,
+        "CO3_2minus": -6.9902030846344845
+      },
+      "aitchison_norm": 9.563246,
+      "phase_deg": 156.407,
+      "delta_norm": -0.219808,
+      "delta_clr": {
+        "H2CO3": 0.152048,
+        "HCO3_minus": 0.012248,
+        "CO3_2minus": 0.174809
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "H2CO3": -5.830575967278926,
+        "HCO3_minus": 2.624073320957191,
+        "CO3_2minus": -6.820215501489831
+      },
+      "aitchison_norm": 9.348621,
+      "phase_deg": 155.77,
+      "delta_norm": -0.214625,
+      "delta_clr": {
+        "H2CO3": 0.150219,
+        "HCO3_minus": 0.012017,
+        "CO3_2minus": 0.169988
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "H2CO3": -5.682375147590587,
+        "HCO3_minus": 2.6358365711603664,
+        "CO3_2minus": -6.655508962450518
+      },
+      "aitchison_norm": 9.139629,
+      "phase_deg": 155.115,
+      "delta_norm": -0.208992,
+      "delta_clr": {
+        "H2CO3": 0.148201,
+        "HCO3_minus": 0.011763,
+        "CO3_2minus": 0.164707
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "H2CO3": -5.536376377807551,
+        "HCO3_minus": 2.6473236924667307,
+        "CO3_2minus": -6.496519880440523
+      },
+      "aitchison_norm": 8.936697,
+      "phase_deg": 154.444,
+      "delta_norm": -0.202932,
+      "delta_clr": {
+        "H2CO3": 0.145999,
+        "HCO3_minus": 0.011487,
+        "CO3_2minus": 0.158989
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "H2CO3": -5.392758860099868,
+        "HCO3_minus": 2.6585133985413,
+        "CO3_2minus": -6.343659541654139
+      },
+      "aitchison_norm": 8.740226,
+      "phase_deg": 153.758,
+      "delta_norm": -0.196471,
+      "delta_clr": {
+        "H2CO3": 0.143618,
+        "HCO3_minus": 0.01119,
+        "CO3_2minus": 0.15286
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "H2CO3": -5.251696456403506,
+        "HCO3_minus": 2.6693853634330567,
+        "CO3_2minus": -6.197312298060619
+      },
+      "aitchison_norm": 8.550591,
+      "phase_deg": 153.056,
+      "delta_norm": -0.189635,
+      "delta_clr": {
+        "H2CO3": 0.141062,
+        "HCO3_minus": 0.010872,
+        "CO3_2minus": 0.146347
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "H2CO3": -5.113357298514792,
+        "HCO3_minus": 2.6799202872095087,
+        "CO3_2minus": -6.0578338782776955
+      },
+      "aitchison_norm": 8.368139,
+      "phase_deg": 152.341,
+      "delta_norm": -0.182453,
+      "delta_clr": {
+        "H2CO3": 0.138339,
+        "HCO3_minus": 0.010535,
+        "CO3_2minus": 0.139478
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "H2CO3": -4.977903411035348,
+        "HCO3_minus": 2.6900999582781306,
+        "CO3_2minus": -5.925549824237266
+      },
+      "aitchison_norm": 8.193186,
+      "phase_deg": 151.613,
+      "delta_norm": -0.174953,
+      "delta_clr": {
+        "H2CO3": 0.135454,
+        "HCO3_minus": 0.01018,
+        "CO3_2minus": 0.132284
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "H2CO3": -4.845490348013124,
+        "HCO3_minus": 2.6999073121934423,
+        "CO3_2minus": -5.800754060513661
+      },
+      "aitchison_norm": 8.026022,
+      "phase_deg": 150.873,
+      "delta_norm": -0.167165,
+      "delta_clr": {
+        "H2CO3": 0.132413,
+        "HCO3_minus": 0.009807,
+        "CO3_2minus": 0.124796
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "H2CO3": -4.716266844094388,
+        "HCO3_minus": 2.7093264867598372,
+        "CO3_2minus": -5.68370760260194
+      },
+      "aitchison_norm": 7.866903,
+      "phase_deg": 150.124,
+      "delta_norm": -0.159119,
+      "delta_clr": {
+        "H2CO3": 0.129224,
+        "HCO3_minus": 0.009419,
+        "CO3_2minus": 0.117046
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "H2CO3": -4.590374480969038,
+        "HCO3_minus": 2.718342873252222,
+        "CO3_2minus": -5.574637409822998
+      },
+      "aitchison_norm": 7.716055,
+      "phase_deg": 149.367,
+      "delta_norm": -0.150847,
+      "delta_clr": {
+        "H2CO3": 0.125892,
+        "HCO3_minus": 0.009016,
+        "CO3_2minus": 0.10907
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "H2CO3": -4.467947369857222,
+        "HCO3_minus": 2.7269431635890693,
+        "CO3_2minus": -5.473735387896646
+      },
+      "aitchison_norm": 7.573675,
+      "phase_deg": 148.603,
+      "delta_norm": -0.14238,
+      "delta_clr": {
+        "H2CO3": 0.122427,
+        "HCO3_minus": 0.0086,
+        "CO3_2minus": 0.100902
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "H2CO3": -4.349111850749373,
+        "HCO3_minus": 2.7351153933055676,
+        "CO3_2minus": -5.381157545566129
+      },
+      "aitchison_norm": 7.439925,
+      "phase_deg": 147.835,
+      "delta_norm": -0.13375,
+      "delta_clr": {
+        "H2CO3": 0.118836,
+        "HCO3_minus": 0.008172,
+        "CO3_2minus": 0.092578
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "H2CO3": -4.233986209074118,
+        "HCO3_minus": 2.74284898018809,
+        "CO3_2minus": -5.297023308980453
+      },
+      "aitchison_norm": 7.314938,
+      "phase_deg": 147.064,
+      "delta_norm": -0.124987,
+      "delta_clr": {
+        "H2CO3": 0.115126,
+        "HCO3_minus": 0.007734,
+        "CO3_2minus": 0.084134
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "H2CO3": -4.1226804104294805,
+        "HCO3_minus": 2.750134758445236,
+        "CO3_2minus": -5.221414996847674
+      },
+      "aitchison_norm": 7.198813,
+      "phase_deg": 146.294,
+      "delta_norm": -0.116125,
+      "delta_clr": {
+        "H2CO3": 0.111306,
+        "HCO3_minus": 0.007286,
+        "CO3_2minus": 0.075608
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "H2CO3": -4.015295853972266,
+        "HCO3_minus": 2.7569650083051025,
+        "CO3_2minus": -5.154377458665679
+      },
+      "aitchison_norm": 7.091619,
+      "phase_deg": 145.526,
+      "delta_norm": -0.107194,
+      "delta_clr": {
+        "H2CO3": 0.107385,
+        "HCO3_minus": 0.00683,
+        "CO3_2minus": 0.067038
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "H2CO3": -3.9119251450186905,
+        "HCO3_minus": 2.7633334809432113,
+        "CO3_2minus": -5.095917877620366
+      },
+      "aitchison_norm": 6.993393,
+      "phase_deg": 144.763,
+      "delta_norm": -0.098226,
+      "delta_clr": {
+        "H2CO3": 0.103371,
+        "HCO3_minus": 0.006368,
+        "CO3_2minus": 0.05846
+      }
+    },
+    {
+      "index": 26,
+      "year": 26,
+      "clr": {
+        "H2CO3": -3.812651887366208,
+        "HCO3_minus": 2.7692354186605965,
+        "CO3_2minus": -5.046005739017417
+      },
+      "aitchison_norm": 6.90414,
+      "phase_deg": 144.008,
+      "delta_norm": -0.089253,
+      "delta_clr": {
+        "H2CO3": 0.099273,
+        "HCO3_minus": 0.005902,
+        "CO3_2minus": 0.049912
+      }
+    },
+    {
+      "index": 27,
+      "year": 27,
+      "clr": {
+        "H2CO3": -3.7175504958023033,
+        "HCO3_minus": 2.7746675702468977,
+        "CO3_2minus": -5.004572964386412
+      },
+      "aitchison_norm": 6.823834,
+      "phase_deg": 143.263,
+      "delta_norm": -0.080306,
+      "delta_clr": {
+        "H2CO3": 0.095101,
+        "HCO3_minus": 0.005432,
+        "CO3_2minus": 0.041433
+      }
+    },
+    {
+      "index": 28,
+      "year": 28,
+      "clr": {
+        "H2CO3": -3.6266860292206875,
+        "HCO3_minus": 2.7796282014788485,
+        "CO3_2minus": -4.971514210667907
+      },
+      "aitchison_norm": 6.752417,
+      "phase_deg": 142.532,
+      "delta_norm": -0.071417,
+      "delta_clr": {
+        "H2CO3": 0.090864,
+        "HCO3_minus": 0.004961,
+        "CO3_2minus": 0.033059
+      }
+    },
+    {
+      "index": 29,
+      "year": 29,
+      "clr": {
+        "H2CO3": -3.5401140447191874,
+        "HCO3_minus": 2.7841171007202594,
+        "CO3_2minus": -4.946687333168665
+      },
+      "aitchison_norm": 6.689801,
+      "phase_deg": 141.817,
+      "delta_norm": -0.062617,
+      "delta_clr": {
+        "H2CO3": 0.086572,
+        "HCO3_minus": 0.004489,
+        "CO3_2minus": 0.024827
+      }
+    },
+    {
+      "index": 30,
+      "year": 30,
+      "clr": {
+        "H2CO3": -3.4578804730064983,
+        "HCO3_minus": 2.7881355796054117,
+        "CO3_2minus": -4.929914010250431
+      },
+      "aitchison_norm": 6.635864,
+      "phase_deg": 141.12,
+      "delta_norm": -0.053937,
+      "delta_clr": {
+        "H2CO3": 0.082234,
+        "HCO3_minus": 0.004018,
+        "CO3_2minus": 0.016773
+      }
+    },
+    {
+      "index": 31,
+      "year": 31,
+      "clr": {
+        "H2CO3": -3.3800215153972495,
+        "HCO3_minus": 2.7916864688036584,
+        "CO3_2minus": -4.920980527006946
+      },
+      "aitchison_norm": 6.590456,
+      "phase_deg": 140.445,
+      "delta_norm": -0.045408,
+      "delta_clr": {
+        "H2CO3": 0.077859,
+        "HCO3_minus": 0.003551,
+        "CO3_2minus": 0.008933
+      }
+    },
+    {
+      "index": 32,
+      "year": 32,
+      "clr": {
+        "H2CO3": -3.3065635626263523,
+        "HCO3_minus": 2.7947741088789053,
+        "CO3_2minus": -4.919638714485111
+      },
+      "aitchison_norm": 6.553394,
+      "phase_deg": 139.795,
+      "delta_norm": -0.037062,
+      "delta_clr": {
+        "H2CO3": 0.073458,
+        "HCO3_minus": 0.003088,
+        "CO3_2minus": 0.001342
+      }
+    },
+    {
+      "index": 33,
+      "year": 33,
+      "clr": {
+        "H2CO3": -3.2375231356647136,
+        "HCO3_minus": 2.7974043362734893,
+        "CO3_2minus": -4.925607040322694
+      },
+      "aitchison_norm": 6.524464,
+      "phase_deg": 139.171,
+      "delta_norm": -0.02893,
+      "delta_clr": {
+        "H2CO3": 0.06904,
+        "HCO3_minus": 0.00263,
+        "CO3_2minus": -0.005968
+      }
+    },
+    {
+      "index": 34,
+      "year": 34,
+      "clr": {
+        "H2CO3": -3.1729068486690406,
+        "HCO3_minus": 2.7995844644617125,
+        "CO3_2minus": -4.938571846009492
+      },
+      "aitchison_norm": 6.503422,
+      "phase_deg": 138.577,
+      "delta_norm": -0.021042,
+      "delta_clr": {
+        "H2CO3": 0.064616,
+        "HCO3_minus": 0.00218,
+        "CO3_2minus": -0.012965
+      }
+    },
+    {
+      "index": 35,
+      "year": 35,
+      "clr": {
+        "H2CO3": -3.1127113941488322,
+        "HCO3_minus": 2.8013232603338953,
+        "CO3_2minus": -4.958188725334532
+      },
+      "aitchison_norm": 6.489994,
+      "phase_deg": 138.014,
+      "delta_norm": -0.013429,
+      "delta_clr": {
+        "H2CO3": 0.060195,
+        "HCO3_minus": 0.001739,
+        "CO3_2minus": -0.019617
+      }
+    },
+    {
+      "index": 36,
+      "year": 36,
+      "clr": {
+        "H2CO3": -3.0569235503838055,
+        "HCO3_minus": 2.8026309158871943,
+        "CO3_2minus": -4.984084037961371
+      },
+      "aitchison_norm": 6.483873,
+      "phase_deg": 137.485,
+      "delta_norm": -0.00612,
+      "delta_clr": {
+        "H2CO3": 0.055788,
+        "HCO3_minus": 0.001308,
+        "CO3_2minus": -0.025895
+      }
+    },
+    {
+      "index": 37,
+      "year": 37,
+      "clr": {
+        "H2CO3": -3.0055202110751384,
+        "HCO3_minus": 2.8035190153146097,
+        "CO3_2minus": -5.015856551479747
+      },
+      "aitchison_norm": 6.484727,
+      "phase_deg": 136.992,
+      "delta_norm": 0.000854,
+      "delta_clr": {
+        "H2CO3": 0.051403,
+        "HCO3_minus": 0.000888,
+        "CO3_2minus": -0.031773
+      }
+    },
+    {
+      "index": 38,
+      "year": 38,
+      "clr": {
+        "H2CO3": -2.9584684371640284,
+        "HCO3_minus": 2.804000497598451,
+        "CO3_2minus": -5.053079204717176
+      },
+      "aitchison_norm": 6.492193,
+      "phase_deg": 136.535,
+      "delta_norm": 0.007465,
+      "delta_clr": {
+        "H2CO3": 0.047052,
+        "HCO3_minus": 0.000481,
+        "CO3_2minus": -0.037223
+      }
+    },
+    {
+      "index": 39,
+      "year": 39,
+      "clr": {
+        "H2CO3": -2.915725530701351,
+        "HCO3_minus": 2.8040896147290524,
+        "CO3_2minus": -5.095300984561222
+      },
+      "aitchison_norm": 6.505879,
+      "phase_deg": 136.118,
+      "delta_norm": 0.013687,
+      "delta_clr": {
+        "H2CO3": 0.042743,
+        "HCO3_minus": 8.9e-05,
+        "CO3_2minus": -0.042222
+      }
+    },
+    {
+      "index": 40,
+      "year": 40,
+      "clr": {
+        "H2CO3": -2.877239130602763,
+        "HCO3_minus": 2.8038018856836437,
+        "CO3_2minus": -5.142048908044271
+      },
+      "aitchison_norm": 6.525372,
+      "phase_deg": 135.741,
+      "delta_norm": 0.019492,
+      "delta_clr": {
+        "H2CO3": 0.038486,
+        "HCO3_minus": -0.000288,
+        "CO3_2minus": -0.046748
+      }
+    },
+    {
+      "index": 41,
+      "year": 41,
+      "clr": {
+        "H2CO3": -2.8429473300745185,
+        "HCO3_minus": 2.8031540463140043,
+        "CO3_2minus": -5.192830100980085
+      },
+      "aitchison_norm": 6.55023,
+      "phase_deg": 135.404,
+      "delta_norm": 0.024858,
+      "delta_clr": {
+        "H2CO3": 0.034292,
+        "HCO3_minus": -0.000648,
+        "CO3_2minus": -0.050781
+      }
+    },
+    {
+      "index": 42,
+      "year": 42,
+      "clr": {
+        "H2CO3": -2.812778815446626,
+        "HCO3_minus": 2.8021639953046957,
+        "CO3_2minus": -5.247133964017067
+      },
+      "aitchison_norm": 6.57999,
+      "phase_deg": 135.108,
+      "delta_norm": 0.02976,
+      "delta_clr": {
+        "H2CO3": 0.030169,
+        "HCO3_minus": -0.00099,
+        "CO3_2minus": -0.054304
+      }
+    },
+    {
+      "index": 43,
+      "year": 43,
+      "clr": {
+        "H2CO3": -2.786653026102037,
+        "HCO3_minus": 2.800850736376393,
+        "CO3_2minus": -5.304434416588992
+      },
+      "aitchison_norm": 6.614168,
+      "phase_deg": 134.854,
+      "delta_norm": 0.034179,
+      "delta_clr": {
+        "H2CO3": 0.026126,
+        "HCO3_minus": -0.001313,
+        "CO3_2minus": -0.0573
+      }
+    },
+    {
+      "index": 44,
+      "year": 44,
+      "clr": {
+        "H2CO3": -2.764480335143169,
+        "HCO3_minus": 2.7992343169209426,
+        "CO3_2minus": -5.364192208901631
+      },
+      "aitchison_norm": 6.652264,
+      "phase_deg": 134.642,
+      "delta_norm": 0.038096,
+      "delta_clr": {
+        "H2CO3": 0.022173,
+        "HCO3_minus": -0.001616,
+        "CO3_2minus": -0.059758
+      }
+    },
+    {
+      "index": 45,
+      "year": 45,
+      "clr": {
+        "H2CO3": -2.74616225039063,
+        "HCO3_minus": 2.7973357632663,
+        "CO3_2minus": -5.4258572917946895
+      },
+      "aitchison_norm": 6.69376,
+      "phase_deg": 134.471,
+      "delta_norm": 0.041495,
+      "delta_clr": {
+        "H2CO3": 0.018318,
+        "HCO3_minus": -0.001899,
+        "CO3_2minus": -0.061665
+      }
+    },
+    {
+      "index": 46,
+      "year": 46,
+      "clr": {
+        "H2CO3": -2.7315916352633556,
+        "HCO3_minus": 2.795177012780382,
+        "CO3_2minus": -5.488871234064144
+      },
+      "aitchison_norm": 6.738124,
+      "phase_deg": 134.341,
+      "delta_norm": 0.044364,
+      "delta_clr": {
+        "H2CO3": 0.014571,
+        "HCO3_minus": -0.002159,
+        "CO3_2minus": -0.063014
+      }
+    },
+    {
+      "index": 47,
+      "year": 47,
+      "clr": {
+        "H2CO3": -2.7206529490448217,
+        "HCO3_minus": 2.792780843033081,
+        "CO3_2minus": -5.552669676621465
+      },
+      "aitchison_norm": 6.784815,
+      "phase_deg": 134.25,
+      "delta_norm": 0.046691,
+      "delta_clr": {
+        "H2CO3": 0.010939,
+        "HCO3_minus": -0.002396,
+        "CO3_2minus": -0.063798
+      }
+    },
+    {
+      "index": 48,
+      "year": 48,
+      "clr": {
+        "H2CO3": -2.7132225059965145,
+        "HCO3_minus": 2.7901707982451764,
+        "CO3_2minus": -5.616684812704351
+      },
+      "aitchison_norm": 6.833285,
+      "phase_deg": 134.199,
+      "delta_norm": 0.048469,
+      "delta_clr": {
+        "H2CO3": 0.00743,
+        "HCO3_minus": -0.00261,
+        "CO3_2minus": -0.064015
+      }
+    },
+    {
+      "index": 49,
+      "year": 49,
+      "clr": {
+        "H2CO3": -2.70916875273754,
+        "HCO3_minus": 2.7873711132616616,
+        "CO3_2minus": -5.680347883239071
+      },
+      "aitchison_norm": 6.882978,
+      "phase_deg": 134.185,
+      "delta_norm": 0.049693,
+      "delta_clr": {
+        "H2CO3": 0.004054,
+        "HCO3_minus": -0.0028,
+        "CO3_2minus": -0.063663
+      }
+    },
+    {
+      "index": 50,
+      "year": 50,
+      "clr": {
+        "H2CO3": -2.7083525632683534,
+        "HCO3_minus": 2.7844066352949666,
+        "CO3_2minus": -5.743091676387981
+      },
+      "aitchison_norm": 6.933339,
+      "phase_deg": 134.207,
+      "delta_norm": 0.050362,
+      "delta_clr": {
+        "H2CO3": 0.000816,
+        "HCO3_minus": -0.002964,
+        "CO3_2minus": -0.062744
+      }
+    },
+    {
+      "index": 51,
+      "year": 51,
+      "clr": {
+        "H2CO3": -2.7106275509769535,
+        "HCO3_minus": 2.781302743690787,
+        "CO3_2minus": -5.804353020297354
+      },
+      "aitchison_norm": 6.983814,
+      "phase_deg": 134.263,
+      "delta_norm": 0.050475,
+      "delta_clr": {
+        "H2CO3": -0.002275,
+        "HCO3_minus": -0.003104,
+        "CO3_2minus": -0.061261
+      }
+    },
+    {
+      "index": 52,
+      "year": 52,
+      "clr": {
+        "H2CO3": -2.7158403969278435,
+        "HCO3_minus": 2.7780852679756034,
+        "CO3_2minus": -5.863575258090503
+      },
+      "aitchison_norm": 7.033851,
+      "phase_deg": 134.351,
+      "delta_norm": 0.050037,
+      "delta_clr": {
+        "H2CO3": -0.005213,
+        "HCO3_minus": -0.003217,
+        "CO3_2minus": -0.059222
+      }
+    },
+    {
+      "index": 53,
+      "year": 53,
+      "clr": {
+        "H2CO3": -2.7238311936975363,
+        "HCO3_minus": 2.774780404450518,
+        "CO3_2minus": -5.920210694229305
+      },
+      "aitchison_norm": 7.082906,
+      "phase_deg": 134.469,
+      "delta_norm": 0.049055,
+      "delta_clr": {
+        "H2CO3": -0.007991,
+        "HCO3_minus": -0.003305,
+        "CO3_2minus": -0.056635
+      }
+    },
+    {
+      "index": 54,
+      "year": 54,
+      "clr": {
+        "H2CO3": -2.734433803985506,
+        "HCO3_minus": 2.7714146316007398,
+        "CO3_2minus": -5.973723001492992
+      },
+      "aitchison_norm": 7.130444,
+      "phase_deg": 134.615,
+      "delta_norm": 0.047538,
+      "delta_clr": {
+        "H2CO3": -0.010603,
+        "HCO3_minus": -0.003366,
+        "CO3_2minus": -0.053512
+      }
+    },
+    {
+      "index": 55,
+      "year": 55,
+      "clr": {
+        "H2CO3": -2.7474762331963576,
+        "HCO3_minus": 2.768014624593868,
+        "CO3_2minus": -6.023589577996127
+      },
+      "aitchison_norm": 7.175943,
+      "phase_deg": 134.787,
+      "delta_norm": 0.045499,
+      "delta_clr": {
+        "H2CO3": -0.013042,
+        "HCO3_minus": -0.0034,
+        "CO3_2minus": -0.049867
+      }
+    },
+    {
+      "index": 56,
+      "year": 56,
+      "clr": {
+        "H2CO3": -2.7627810151576693,
+        "HCO3_minus": 2.76460716914307,
+        "CO3_2minus": -6.0693038438873455
+      },
+      "aitchison_norm": 7.218896,
+      "phase_deg": 134.981,
+      "delta_norm": 0.042953,
+      "delta_clr": {
+        "H2CO3": -0.015305,
+        "HCO3_minus": -0.003407,
+        "CO3_2minus": -0.045714
+      }
+    },
+    {
+      "index": 57,
+      "year": 57,
+      "clr": {
+        "H2CO3": -2.780165610108471,
+        "HCO3_minus": 2.7612190750132943,
+        "CO3_2minus": -6.110377467635439
+      },
+      "aitchison_norm": 7.258813,
+      "phase_deg": 135.196,
+      "delta_norm": 0.039917,
+      "delta_clr": {
+        "H2CO3": -0.017385,
+        "HCO3_minus": -0.003388,
+        "CO3_2minus": -0.041074
+      }
+    },
+    {
+      "index": 58,
+      "year": 58,
+      "clr": {
+        "H2CO3": -2.7994428140658427,
+        "HCO3_minus": 2.7578770894498184,
+        "CO3_2minus": -6.146342512118822
+      },
+      "aitchison_norm": 7.295224,
+      "phase_deg": 135.429,
+      "delta_norm": 0.036411,
+      "delta_clr": {
+        "H2CO3": -0.019277,
+        "HCO3_minus": -0.003342,
+        "CO3_2minus": -0.035965
+      }
+    },
+    {
+      "index": 59,
+      "year": 59,
+      "clr": {
+        "H2CO3": -2.820421178651564,
+        "HCO3_minus": 2.7546078108086807,
+        "CO3_2minus": -6.176753491086919
+      },
+      "aitchison_norm": 7.327682,
+      "phase_deg": 135.676,
+      "delta_norm": 0.032458,
+      "delta_clr": {
+        "H2CO3": -0.020978,
+        "HCO3_minus": -0.003269,
+        "CO3_2minus": -0.030411
+      }
+    },
+    {
+      "index": 60,
+      "year": 60,
+      "clr": {
+        "H2CO3": -2.8429054404373177,
+        "HCO3_minus": 2.7514376026678886,
+        "CO3_2minus": -6.201189326955834
+      },
+      "aitchison_norm": 7.355764,
+      "phase_deg": 135.937,
+      "delta_norm": 0.028082,
+      "delta_clr": {
+        "H2CO3": -0.022484,
+        "HCO3_minus": -0.00317,
+        "CO3_2minus": -0.024436
+      }
+    },
+    {
+      "index": 61,
+      "year": 61,
+      "clr": {
+        "H2CO3": -2.866696958845588,
+        "HCO3_minus": 2.7483925086967487,
+        "CO3_2minus": -6.2192552013342945
+      },
+      "aitchison_norm": 7.379075,
+      "phase_deg": 136.207,
+      "delta_norm": 0.023311,
+      "delta_clr": {
+        "H2CO3": -0.023792,
+        "HCO3_minus": -0.003045,
+        "CO3_2minus": -0.018066
+      }
+    },
+    {
+      "index": 62,
+      "year": 62,
+      "clr": {
+        "H2CO3": -2.891594161624195,
+        "HCO3_minus": 2.7454981685582176,
+        "CO3_2minus": -6.230584290147324
+      },
+      "aitchison_norm": 7.397247,
+      "phase_deg": 136.485,
+      "delta_norm": 0.018172,
+      "delta_clr": {
+        "H2CO3": -0.024897,
+        "HCO3_minus": -0.002894,
+        "CO3_2minus": -0.011329
+      }
+    },
+    {
+      "index": 63,
+      "year": 63,
+      "clr": {
+        "H2CO3": -2.917392996895468,
+        "HCO3_minus": 2.742779735115827,
+        "CO3_2minus": -6.234839375732203
+      },
+      "aitchison_norm": 7.409942,
+      "phase_deg": 136.767,
+      "delta_norm": 0.012696,
+      "delta_clr": {
+        "H2CO3": -0.025799,
+        "HCO3_minus": -0.002718,
+        "CO3_2minus": -0.004255
+      }
+    },
+    {
+      "index": 64,
+      "year": 64,
+      "clr": {
+        "H2CO3": -2.943887390766255,
+        "HCO3_minus": 2.740261793212534,
+        "CO3_2minus": -6.231714328821971
+      },
+      "aitchison_norm": 7.416857,
+      "phase_deg": 137.052,
+      "delta_norm": 0.006915,
+      "delta_clr": {
+        "H2CO3": -0.026494,
+        "HCO3_minus": -0.002518,
+        "CO3_2minus": 0.003125
+      }
+    },
+    {
+      "index": 65,
+      "year": 65,
+      "clr": {
+        "H2CO3": -2.9708697094725363,
+        "HCO3_minus": 2.73796828028377,
+        "CO3_2minus": -6.220935453903579
+      },
+      "aitchison_norm": 7.41772,
+      "phase_deg": 137.336,
+      "delta_norm": 0.000863,
+      "delta_clr": {
+        "H2CO3": -0.026982,
+        "HCO3_minus": -0.002294,
+        "CO3_2minus": 0.010779
+      }
+    },
+    {
+      "index": 66,
+      "year": 66,
+      "clr": {
+        "H2CO3": -2.998131225022234,
+        "HCO3_minus": 2.73592240906103,
+        "CO3_2minus": -6.2022626920381425
+      },
+      "aitchison_norm": 7.412296,
+      "phase_deg": 137.618,
+      "delta_norm": -0.005425,
+      "delta_clr": {
+        "H2CO3": -0.027262,
+        "HCO3_minus": -0.002046,
+        "CO3_2minus": 0.018673
+      }
+    },
+    {
+      "index": 67,
+      "year": 67,
+      "clr": {
+        "H2CO3": -3.0254625832919557,
+        "HCO3_minus": 2.73414659261561,
+        "CO3_2minus": -6.175490675857254
+      },
+      "aitchison_norm": 7.400383,
+      "phase_deg": 137.896,
+      "delta_norm": -0.011913,
+      "delta_clr": {
+        "H2CO3": -0.027331,
+        "HCO3_minus": -0.001776,
+        "CO3_2minus": 0.026772
+      }
+    },
+    {
+      "index": 68,
+      "year": 68,
+      "clr": {
+        "H2CO3": -3.0526542735278994,
+        "HCO3_minus": 2.732662371984521,
+        "CO3_2minus": -6.140449632098908
+      },
+      "aitchison_norm": 7.38182,
+      "phase_deg": 138.166,
+      "delta_norm": -0.018563,
+      "delta_clr": {
+        "H2CO3": -0.027192,
+        "HCO3_minus": -0.001484,
+        "CO3_2minus": 0.035041
+      }
+    },
+    {
+      "index": 69,
+      "year": 69,
+      "clr": {
+        "H2CO3": -3.0794970981980443,
+        "HCO3_minus": 2.7314903466122993,
+        "CO3_2minus": -6.097006127716622
+      },
+      "aitchison_norm": 7.356482,
+      "phase_deg": 138.427,
+      "delta_norm": -0.025338,
+      "delta_clr": {
+        "H2CO3": -0.026843,
+        "HCO3_minus": -0.001172,
+        "CO3_2minus": 0.043444
+      }
+    },
+    {
+      "index": 70,
+      "year": 70,
+      "clr": {
+        "H2CO3": -3.105782642141871,
+        "HCO3_minus": 2.730650107833305,
+        "CO3_2minus": -6.04506365628281
+      },
+      "aitchison_norm": 7.324284,
+      "phase_deg": 138.678,
+      "delta_norm": -0.032198,
+      "delta_clr": {
+        "H2CO3": -0.026286,
+        "HCO3_minus": -0.00084,
+        "CO3_2minus": 0.051942
+      }
+    },
+    {
+      "index": 71,
+      "year": 71,
+      "clr": {
+        "H2CO3": -3.1313037399655568,
+        "HCO3_minus": 2.730160175609319,
+        "CO3_2minus": -5.9845630621093235
+      },
+      "aitchison_norm": 7.285179,
+      "phase_deg": 138.915,
+      "delta_norm": -0.039105,
+      "delta_clr": {
+        "H2CO3": -0.025521,
+        "HCO3_minus": -0.00049,
+        "CO3_2minus": 0.060501
+      }
+    },
+    {
+      "index": 72,
+      "year": 72,
+      "clr": {
+        "H2CO3": -3.1558549406344,
+        "HCO3_minus": 2.7300379387267033,
+        "CO3_2minus": -5.915482800221229
+      },
+      "aitchison_norm": 7.239162,
+      "phase_deg": 139.138,
+      "delta_norm": -0.046017,
+      "delta_clr": {
+        "H2CO3": -0.024551,
+        "HCO3_minus": -0.000122,
+        "CO3_2minus": 0.06908
+      }
+    },
+    {
+      "index": 73,
+      "year": 73,
+      "clr": {
+        "H2CO3": -3.1792329682206053,
+        "HCO3_minus": 2.7302995986462477,
+        "CO3_2minus": -5.837839031041355
+      },
+      "aitchison_norm": 7.186266,
+      "phase_deg": 139.344,
+      "delta_norm": -0.052896,
+      "delta_clr": {
+        "H2CO3": -0.023378,
+        "HCO3_minus": 0.000262,
+        "CO3_2minus": 0.077644
+      }
+    },
+    {
+      "index": 74,
+      "year": 74,
+      "clr": {
+        "H2CO3": -3.201237177773146,
+        "HCO3_minus": 2.7309601171870077,
+        "CO3_2minus": -5.75168554936945
+      },
+      "aitchison_norm": 7.126566,
+      "phase_deg": 139.533,
+      "delta_norm": -0.0597,
+      "delta_clr": {
+        "H2CO3": -0.022004,
+        "HCO3_minus": 0.000661,
+        "CO3_2minus": 0.086153
+      }
+    },
+    {
+      "index": 75,
+      "year": 75,
+      "clr": {
+        "H2CO3": -3.221670005287335,
+        "HCO3_minus": 2.7320331682130727,
+        "CO3_2minus": -5.6571135479681
+      },
+      "aitchison_norm": 7.060177,
+      "phase_deg": 139.701,
+      "delta_norm": -0.06639,
+      "delta_clr": {
+        "H2CO3": -0.020433,
+        "HCO3_minus": 0.001073,
+        "CO3_2minus": 0.094572
+      }
+    },
+    {
+      "index": 76,
+      "year": 76,
+      "clr": {
+        "H2CO3": -3.2403374107650382,
+        "HCO3_minus": 2.733531093479271,
+        "CO3_2minus": -5.554251216794359
+      },
+      "aitchison_norm": 6.987252,
+      "phase_deg": 139.849,
+      "delta_norm": -0.072925,
+      "delta_clr": {
+        "H2CO3": -0.018667,
+        "HCO3_minus": 0.001498,
+        "CO3_2minus": 0.102862
+      }
+    },
+    {
+      "index": 77,
+      "year": 77,
+      "clr": {
+        "H2CO3": -3.2570493133718825,
+        "HCO3_minus": 2.735464862778391,
+        "CO3_2minus": -5.443263179638386
+      },
+      "aitchison_norm": 6.907985,
+      "phase_deg": 139.974,
+      "delta_norm": -0.079267,
+      "delta_clr": {
+        "H2CO3": -0.016712,
+        "HCO3_minus": 0.001934,
+        "CO3_2minus": 0.110988
+      }
+    },
+    {
+      "index": 78,
+      "year": 78,
+      "clr": {
+        "H2CO3": -3.271620017715583,
+        "HCO3_minus": 2.7378440385186056,
+        "CO3_2minus": -5.324349770644905
+      },
+      "aitchison_norm": 6.822609,
+      "phase_deg": 140.076,
+      "delta_norm": -0.085376,
+      "delta_clr": {
+        "H2CO3": -0.014571,
+        "HCO3_minus": 0.002379,
+        "CO3_2minus": 0.118913
+      }
+    },
+    {
+      "index": 79,
+      "year": 79,
+      "clr": {
+        "H2CO3": -3.2838686302894025,
+        "HCO3_minus": 2.74067674484549,
+        "CO3_2minus": -5.197746153896983
+      },
+      "aitchison_norm": 6.731394,
+      "phase_deg": 140.152,
+      "delta_norm": -0.091214,
+      "delta_clr": {
+        "H2CO3": -0.012249,
+        "HCO3_minus": 0.002833,
+        "CO3_2minus": 0.126604
+      }
+    },
+    {
+      "index": 80,
+      "year": 80,
+      "clr": {
+        "H2CO3": -3.293619465146832,
+        "HCO3_minus": 2.7439696414083246,
+        "CO3_2minus": -5.063721289931334
+      },
+      "aitchison_norm": 6.634649,
+      "phase_deg": 140.202,
+      "delta_norm": -0.096745,
+      "delta_clr": {
+        "H2CO3": -0.009751,
+        "HCO3_minus": 0.003293,
+        "CO3_2minus": 0.134025
+      }
+    },
+    {
+      "index": 81,
+      "year": 81,
+      "clr": {
+        "H2CO3": -3.300702437897717,
+        "HCO3_minus": 2.7477279018554177,
+        "CO3_2minus": -4.922576753727041
+      },
+      "aitchison_norm": 6.532718,
+      "phase_deg": 140.224,
+      "delta_norm": -0.101931,
+      "delta_clr": {
+        "H2CO3": -0.007083,
+        "HCO3_minus": 0.003758,
+        "CO3_2minus": 0.141145
+      }
+    },
+    {
+      "index": 82,
+      "year": 82,
+      "clr": {
+        "H2CO3": -3.3049534471422266,
+        "HCO3_minus": 2.7519551971278675,
+        "CO3_2minus": -4.774645409362318
+      },
+      "aitchison_norm": 6.42598,
+      "phase_deg": 140.217,
+      "delta_norm": -0.106739,
+      "delta_clr": {
+        "H2CO3": -0.004251,
+        "HCO3_minus": 0.004227,
+        "CO3_2minus": 0.147931
+      }
+    },
+    {
+      "index": 83,
+      "year": 83,
+      "clr": {
+        "H2CO3": -3.3062147424872905,
+        "HCO3_minus": 2.7566536836057205,
+        "CO3_2minus": -4.620289947163869
+      },
+      "aitchison_norm": 6.314846,
+      "phase_deg": 140.179,
+      "delta_norm": -0.111134,
+      "delta_clr": {
+        "H2CO3": -0.001261,
+        "HCO3_minus": 0.004698,
+        "CO3_2minus": 0.154355
+      }
+    },
+    {
+      "index": 84,
+      "year": 84,
+      "clr": {
+        "H2CO3": -3.3043352783201594,
+        "HCO3_minus": 2.761823996144801,
+        "CO3_2minus": -4.459901289777669
+      },
+      "aitchison_norm": 6.19976,
+      "phase_deg": 140.111,
+      "delta_norm": -0.115086,
+      "delta_clr": {
+        "H2CO3": 0.001879,
+        "HCO3_minus": 0.00517,
+        "CO3_2minus": 0.160389
+      }
+    },
+    {
+      "index": 85,
+      "year": 85,
+      "clr": {
+        "H2CO3": -3.2991710525457125,
+        "HCO3_minus": 2.7674652460267,
+        "CO3_2minus": -4.293896874166083
+      },
+      "aitchison_norm": 6.081196,
+      "phase_deg": 140.009,
+      "delta_norm": -0.118564,
+      "delta_clr": {
+        "H2CO3": 0.005164,
+        "HCO3_minus": 0.005641,
+        "CO3_2minus": 0.166004
+      }
+    },
+    {
+      "index": 86,
+      "year": 86,
+      "clr": {
+        "H2CO3": -3.2905854295278707,
+        "HCO3_minus": 2.7735750238285335,
+        "CO3_2minus": -4.122718817081492
+      },
+      "aitchison_norm": 5.959654,
+      "phase_deg": 139.873,
+      "delta_norm": -0.121541,
+      "delta_clr": {
+        "H2CO3": 0.008586,
+        "HCO3_minus": 0.00611,
+        "CO3_2minus": 0.171178
+      }
+    },
+    {
+      "index": 87,
+      "year": 87,
+      "clr": {
+        "H2CO3": -3.278449446510861,
+        "HCO3_minus": 2.780149407203216,
+        "CO3_2minus": -3.946831972078689
+      },
+      "aitchison_norm": 5.835661,
+      "phase_deg": 139.702,
+      "delta_norm": -0.123993,
+      "delta_clr": {
+        "H2CO3": 0.012136,
+        "HCO3_minus": 0.006574,
+        "CO3_2minus": 0.175887
+      }
+    },
+    {
+      "index": 88,
+      "year": 88,
+      "clr": {
+        "H2CO3": -3.262642102833161,
+        "HCO3_minus": 2.787182973545116,
+        "CO3_2minus": -3.7667218866049716
+      },
+      "aitchison_norm": 5.709765,
+      "phase_deg": 139.494,
+      "delta_norm": -0.125896,
+      "delta_clr": {
+        "H2CO3": 0.015807,
+        "HCO3_minus": 0.007034,
+        "CO3_2minus": 0.18011
+      }
+    },
+    {
+      "index": 89,
+      "year": 89,
+      "clr": {
+        "H2CO3": -3.2430506312855214,
+        "HCO3_minus": 2.7946688175002015,
+        "CO3_2minus": -3.5828926681459903
+      },
+      "aitchison_norm": 5.582533,
+      "phase_deg": 139.247,
+      "delta_norm": -0.127232,
+      "delta_clr": {
+        "H2CO3": 0.019591,
+        "HCO3_minus": 0.007486,
+        "CO3_2minus": 0.183829
+      }
+    },
+    {
+      "index": 90,
+      "year": 90,
+      "clr": {
+        "H2CO3": -3.2195707510045173,
+        "HCO3_minus": 2.8025985732641265,
+        "CO3_2minus": -3.395864768805052
+      },
+      "aitchison_norm": 5.454548,
+      "phase_deg": 138.961,
+      "delta_norm": -0.127985,
+      "delta_clr": {
+        "H2CO3": 0.02348,
+        "HCO3_minus": 0.00793,
+        "CO3_2minus": 0.187028
+      }
+    },
+    {
+      "index": 91,
+      "year": 91,
+      "clr": {
+        "H2CO3": -3.192106901334487,
+        "HCO3_minus": 2.810962441596265,
+        "CO3_2minus": -3.206172698052147
+      },
+      "aitchison_norm": 5.326406,
+      "phase_deg": 138.633,
+      "delta_norm": -0.128142,
+      "delta_clr": {
+        "H2CO3": 0.027464,
+        "HCO3_minus": 0.008364,
+        "CO3_2minus": 0.189692
+      }
+    },
+    {
+      "index": 92,
+      "year": 92,
+      "clr": {
+        "H2CO3": -3.1605724561333846,
+        "HCO3_minus": 2.8197492214624504,
+        "CO3_2minus": -3.014362673694466
+      },
+      "aitchison_norm": 5.19871,
+      "phase_deg": 138.262,
+      "delta_norm": -0.127696,
+      "delta_clr": {
+        "H2CO3": 0.031534,
+        "HCO3_minus": 0.008787,
+        "CO3_2minus": 0.19181
+      }
+    },
+    {
+      "index": 93,
+      "year": 93,
+      "clr": {
+        "H2CO3": -3.124889918041962,
+        "HCO3_minus": 2.8289463462042557,
+        "CO3_2minus": -2.8209902213918814
+      },
+      "aitchison_norm": 5.072067,
+      "phase_deg": 137.846,
+      "delta_norm": -0.126643,
+      "delta_clr": {
+        "H2CO3": 0.035683,
+        "HCO3_minus": 0.009197,
+        "CO3_2minus": 0.193372
+      }
+    },
+    {
+      "index": 94,
+      "year": 94,
+      "clr": {
+        "H2CO3": -3.084991092280583,
+        "HCO3_minus": 2.838539924118004,
+        "CO3_2minus": -2.6266177332668312
+      },
+      "aitchison_norm": 4.94708,
+      "phase_deg": 137.382,
+      "delta_norm": -0.124987,
+      "delta_clr": {
+        "H2CO3": 0.039899,
+        "HCO3_minus": 0.009594,
+        "CO3_2minus": 0.194372
+      }
+    },
+    {
+      "index": 95,
+      "year": 95,
+      "clr": {
+        "H2CO3": -3.0408172395839337,
+        "HCO3_minus": 2.8485147833124933,
+        "CO3_2minus": -2.431811996337871
+      },
+      "aitchison_norm": 4.824346,
+      "phase_deg": 136.87,
+      "delta_norm": -0.122734,
+      "delta_clr": {
+        "H2CO3": 0.044174,
+        "HCO3_minus": 0.009975,
+        "CO3_2minus": 0.194806
+      }
+    },
+    {
+      "index": 96,
+      "year": 96,
+      "clr": {
+        "H2CO3": -2.9923192079306364,
+        "HCO3_minus": 2.8588545207005716,
+        "CO3_2minus": -2.2371417016388584
+      },
+      "aitchison_norm": 4.704448,
+      "phase_deg": 136.307,
+      "delta_norm": -0.119899,
+      "delta_clr": {
+        "H2CO3": 0.048498,
+        "HCO3_minus": 0.01034,
+        "CO3_2minus": 0.19467
+      }
+    },
+    {
+      "index": 97,
+      "year": 97,
+      "clr": {
+        "H2CO3": -2.939457542772364,
+        "HCO3_minus": 2.869541554966369,
+        "CO3_2minus": -2.043174944970431
+      },
+      "aitchison_norm": 4.587945,
+      "phase_deg": 135.69,
+      "delta_norm": -0.116502,
+      "delta_clr": {
+        "H2CO3": 0.052862,
+        "HCO3_minus": 0.010687,
+        "CO3_2minus": 0.193967
+      }
+    },
+    {
+      "index": 98,
+      "year": 98,
+      "clr": {
+        "H2CO3": -2.882202575515243,
+        "HCO3_minus": 2.880557183337153,
+        "CO3_2minus": -1.850476730267416
+      },
+      "aitchison_norm": 4.475373,
+      "phase_deg": 135.016,
+      "delta_norm": -0.112572,
+      "delta_clr": {
+        "H2CO3": 0.057255,
+        "HCO3_minus": 0.011016,
+        "CO3_2minus": 0.192698
+      }
+    },
+    {
+      "index": 99,
+      "year": 99,
+      "clr": {
+        "H2CO3": -2.8205344900551146,
+        "HCO3_minus": 2.891881641976478,
+        "CO3_2minus": -1.659606486554181
+      },
+      "aitchison_norm": 4.367229,
+      "phase_deg": 134.284,
+      "delta_norm": -0.108144,
+      "delta_clr": {
+        "H2CO3": 0.061668,
+        "HCO3_minus": 0.011324,
+        "CO3_2minus": 0.19087
+      }
+    },
+    {
+      "index": 100,
+      "year": 100,
+      "clr": {
+        "H2CO3": -2.75444336721745,
+        "HCO3_minus": 2.903494169803619,
+        "CO3_2minus": -1.471115609400219
+      },
+      "aitchison_norm": 4.263967,
+      "phase_deg": 133.491,
+      "delta_norm": -0.103261,
+      "delta_clr": {
+        "H2CO3": 0.066091,
+        "HCO3_minus": 0.011613,
+        "CO3_2minus": 0.188491
+      }
+    },
+    {
+      "index": 101,
+      "year": 101,
+      "clr": {
+        "H2CO3": -2.683929207002248,
+        "HCO3_minus": 2.9153730755332097,
+        "CO3_2minus": -1.2855450376807298
+      },
+      "aitchison_norm": 4.165994,
+      "phase_deg": 132.633,
+      "delta_norm": -0.097974,
+      "delta_clr": {
+        "H2CO3": 0.070514,
+        "HCO3_minus": 0.011879,
+        "CO3_2minus": 0.185571
+      }
+    },
+    {
+      "index": 102,
+      "year": 102,
+      "clr": {
+        "H2CO3": -2.609001928584038,
+        "HCO3_minus": 2.9274958077186026,
+        "CO3_2minus": -1.1034228762915959
+      },
+      "aitchison_norm": 4.073655,
+      "phase_deg": 131.708,
+      "delta_norm": -0.092339,
+      "delta_clr": {
+        "H2CO3": 0.074927,
+        "HCO3_minus": 0.012123,
+        "CO3_2minus": 0.182122
+      }
+    },
+    {
+      "index": 103,
+      "year": 103,
+      "clr": {
+        "H2CO3": -2.5296813480669793,
+        "HCO3_minus": 2.9398390275727793,
+        "CO3_2minus": -0.9252620752663638
+      },
+      "aitchison_norm": 3.987236,
+      "phase_deg": 130.711,
+      "delta_norm": -0.086419,
+      "delta_clr": {
+        "H2CO3": 0.079321,
+        "HCO3_minus": 0.012343,
+        "CO3_2minus": 0.178161
+      }
+    },
+    {
+      "index": 104,
+      "year": 104,
+      "clr": {
+        "H2CO3": -2.4459971340449456,
+        "HCO3_minus": 2.9523786843316633,
+        "CO3_2minus": -0.7515581754948677
+      },
+      "aitchison_norm": 3.906953,
+      "phase_deg": 129.641,
+      "delta_norm": -0.080283,
+      "delta_clr": {
+        "H2CO3": 0.083684,
+        "HCO3_minus": 0.01254,
+        "CO3_2minus": 0.173704
+      }
+    },
+    {
+      "index": 105,
+      "year": 105,
+      "clr": {
+        "H2CO3": -2.3579887410662668,
+        "HCO3_minus": 2.965090092916477,
+        "CO3_2minus": -0.5827871309505186
+      },
+      "aitchison_norm": 3.832951,
+      "phase_deg": 128.493,
+      "delta_norm": -0.074002,
+      "delta_clr": {
+        "H2CO3": 0.088008,
+        "HCO3_minus": 0.012711,
+        "CO3_2minus": 0.168771
+      }
+    },
+    {
+      "index": 106,
+      "year": 106,
+      "clr": {
+        "H2CO3": -2.2657053211523146,
+        "HCO3_minus": 2.977948013644367,
+        "CO3_2minus": -0.4194032169969373
+      },
+      "aitchison_norm": 3.765301,
+      "phase_deg": 127.265,
+      "delta_norm": -0.067649,
+      "delta_clr": {
+        "H2CO3": 0.092283,
+        "HCO3_minus": 0.012858,
+        "CO3_2minus": 0.163384
+      }
+    },
+    {
+      "index": 107,
+      "year": 107,
+      "clr": {
+        "H2CO3": -2.169205613568406,
+        "HCO3_minus": 2.9909267337299,
+        "CO3_2minus": -0.261837033966448
+      },
+      "aitchison_norm": 3.704005,
+      "phase_deg": 125.952,
+      "delta_norm": -0.061296,
+      "delta_clr": {
+        "H2CO3": 0.0965,
+        "HCO3_minus": 0.012979,
+        "CO3_2minus": 0.157566
+      }
+    },
+    {
+      "index": 108,
+      "year": 108,
+      "clr": {
+        "H2CO3": -2.068557813094177,
+        "HCO3_minus": 3.0040001503142584,
+        "CO3_2minus": -0.11049361478413178
+      },
+      "aitchison_norm": 3.648994,
+      "phase_deg": 124.551,
+      "delta_norm": -0.055011,
+      "delta_clr": {
+        "H2CO3": 0.100648,
+        "HCO3_minus": 0.013073,
+        "CO3_2minus": 0.151343
+      }
+    },
+    {
+      "index": 109,
+      "year": 109,
+      "clr": {
+        "H2CO3": -1.9638394170888773,
+        "HCO3_minus": 3.017141854754019,
+        "CO3_2minus": 0.03424935504605364
+      },
+      "aitchison_norm": 3.600137,
+      "phase_deg": 123.06,
+      "delta_norm": -0.048857,
+      "delta_clr": {
+        "H2CO3": 0.104718,
+        "HCO3_minus": 0.013142,
+        "CO3_2minus": 0.144743
+      }
+    },
+    {
+      "index": 110,
+      "year": 110,
+      "clr": {
+        "H2CO3": -1.8551370516945518,
+        "HCO3_minus": 3.030325217897344,
+        "CO3_2minus": 0.17204319727036532
+      },
+      "aitchison_norm": 3.557247,
+      "phase_deg": 121.475,
+      "delta_norm": -0.04289,
+      "delta_clr": {
+        "H2CO3": 0.108702,
+        "HCO3_minus": 0.013183,
+        "CO3_2minus": 0.137794
+      }
+    },
+    {
+      "index": 111,
+      "year": 111,
+      "clr": {
+        "H2CO3": -1.7425462775668614,
+        "HCO3_minus": 3.0435234760722136,
+        "CO3_2minus": 0.3025697732351067
+      },
+      "aitchison_norm": 3.520092,
+      "phase_deg": 119.793,
+      "delta_norm": -0.037154,
+      "delta_clr": {
+        "H2CO3": 0.112591,
+        "HCO3_minus": 0.013198,
+        "CO3_2minus": 0.130527
+      }
+    },
+    {
+      "index": 112,
+      "year": 112,
+      "clr": {
+        "H2CO3": -1.62617137556923,
+        "HCO3_minus": 3.056709817509039,
+        "CO3_2minus": 0.4255428820228637
+      },
+      "aitchison_norm": 3.488409,
+      "phase_deg": 118.013,
+      "delta_norm": -0.031684,
+      "delta_clr": {
+        "H2CO3": 0.116375,
+        "HCO3_minus": 0.013186,
+        "CO3_2minus": 0.122973
+      }
+    },
+    {
+      "index": 113,
+      "year": 113,
+      "clr": {
+        "H2CO3": -1.5061251129109086,
+        "HCO3_minus": 3.0698574689185882,
+        "CO3_2minus": 0.5407095182307617
+      },
+      "aitchison_norm": 3.461908,
+      "phase_deg": 116.133,
+      "delta_norm": -0.026501,
+      "delta_clr": {
+        "H2CO3": 0.120046,
+        "HCO3_minus": 0.013148,
+        "CO3_2minus": 0.115167
+      }
+    },
+    {
+      "index": 114,
+      "year": 114,
+      "clr": {
+        "H2CO3": -1.382528490253419,
+        "HCO3_minus": 3.0829397819456545,
+        "CO3_2minus": 0.647850983863105
+      },
+      "aitchison_norm": 3.440293,
+      "phase_deg": 114.154,
+      "delta_norm": -0.021615,
+      "delta_clr": {
+        "H2CO3": 0.123597,
+        "HCO3_minus": 0.013082,
+        "CO3_2minus": 0.107141
+      }
+    },
+    {
+      "index": 115,
+      "year": 115,
+      "clr": {
+        "H2CO3": -1.2555104703525375,
+        "HCO3_minus": 3.0959303192192986,
+        "CO3_2minus": 0.746783849451913
+      },
+      "aitchison_norm": 3.42327,
+      "phase_deg": 112.074,
+      "delta_norm": -0.017023,
+      "delta_clr": {
+        "H2CO3": 0.127018,
+        "HCO3_minus": 0.012991,
+        "CO3_2minus": 0.098933
+      }
+    },
+    {
+      "index": 116,
+      "year": 116,
+      "clr": {
+        "H2CO3": -1.125207688844338,
+        "HCO3_minus": 3.1088029397218024,
+        "CO3_2minus": 0.837360760181515
+      },
+      "aitchison_norm": 3.41056,
+      "phase_deg": 109.897,
+      "delta_norm": -0.01271,
+      "delta_clr": {
+        "H2CO3": 0.130303,
+        "HCO3_minus": 0.012873,
+        "CO3_2minus": 0.090577
+      }
+    },
+    {
+      "index": 117,
+      "year": 117,
+      "clr": {
+        "H2CO3": -0.9917641478239431,
+        "HCO3_minus": 3.12153188320067,
+        "CO3_2minus": 0.9194710834744488
+      },
+      "aitchison_norm": 3.401909,
+      "phase_deg": 107.626,
+      "delta_norm": -0.008651,
+      "delta_clr": {
+        "H2CO3": 0.133444,
+        "HCO3_minus": 0.012729,
+        "CO3_2minus": 0.08211
+      }
+    },
+    {
+      "index": 118,
+      "year": 118,
+      "clr": {
+        "H2CO3": -0.8553308929041027,
+        "HCO3_minus": 3.1340918533510944,
+        "CO3_2minus": 0.9930413951927379
+      },
+      "aitchison_norm": 3.397095,
+      "phase_deg": 105.265,
+      "delta_norm": -0.004814,
+      "delta_clr": {
+        "H2CO3": 0.136433,
+        "HCO3_minus": 0.01256,
+        "CO3_2minus": 0.07357
+      }
+    },
+    {
+      "index": 119,
+      "year": 119,
+      "clr": {
+        "H2CO3": -0.7160656744778858,
+        "HCO3_minus": 3.146458099500296,
+        "CO3_2minus": 1.0580358023177912
+      },
+      "aitchison_norm": 3.395937,
+      "phase_deg": 102.821,
+      "delta_norm": -0.001158,
+      "delta_clr": {
+        "H2CO3": 0.139265,
+        "HCO3_minus": 0.012366,
+        "CO3_2minus": 0.064994
+      }
+    },
+    {
+      "index": 120,
+      "year": 120,
+      "clr": {
+        "H2CO3": -0.5741325939451286,
+        "HCO3_minus": 3.1586064965299534,
+        "CO3_2minus": 1.1144561006908384
+      },
+      "aitchison_norm": 3.398299,
+      "phase_deg": 100.302,
+      "delta_norm": 0.002362,
+      "delta_clr": {
+        "H2CO3": 0.141933,
+        "HCO3_minus": 0.012148,
+        "CO3_2minus": 0.05642
+      }
+    },
+    {
+      "index": 121,
+      "year": 121,
+      "clr": {
+        "H2CO3": -0.429701735695979,
+        "HCO3_minus": 3.1705136227786626,
+        "CO3_2minus": 1.1623417671206837
+      },
+      "aitchison_norm": 3.404091,
+      "phase_deg": 97.718,
+      "delta_norm": 0.005793,
+      "delta_clr": {
+        "H2CO3": 0.144431,
+        "HCO3_minus": 0.011907,
+        "CO3_2minus": 0.047886
+      }
+    },
+    {
+      "index": 122,
+      "year": 122,
+      "clr": {
+        "H2CO3": -0.2829487856769467,
+        "HCO3_minus": 3.1821568356728567,
+        "CO3_2minus": 1.2017697858934369
+      },
+      "aitchison_norm": 3.413273,
+      "phase_deg": 95.081,
+      "delta_norm": 0.009182,
+      "delta_clr": {
+        "H2CO3": 0.146753,
+        "HCO3_minus": 0.011643,
+        "CO3_2minus": 0.039428
+      }
+    },
+    {
+      "index": 123,
+      "year": 123,
+      "clr": {
+        "H2CO3": -0.1340546373947724,
+        "HCO3_minus": 3.193514344841972,
+        "CO3_2minus": 1.232854310446698
+      },
+      "aitchison_norm": 3.425848,
+      "phase_deg": 92.404,
+      "delta_norm": 0.012575,
+      "delta_clr": {
+        "H2CO3": 0.148894,
+        "HCO3_minus": 0.011358,
+        "CO3_2minus": 0.031085
+      }
+    },
+    {
+      "index": 124,
+      "year": 124,
+      "clr": {
+        "H2CO3": 0.016795013758263977,
+        "HCO3_minus": 3.204565282481769,
+        "CO3_2minus": 1.2557461616950278
+      },
+      "aitchison_norm": 3.441863,
+      "phase_deg": 89.7,
+      "delta_norm": 0.016015,
+      "delta_clr": {
+        "H2CO3": 0.15085,
+        "HCO3_minus": 0.011051,
+        "CO3_2minus": 0.022892
+      }
+    },
+    {
+      "index": 125,
+      "year": 125,
+      "clr": {
+        "H2CO3": 0.16941008694778426,
+        "HCO3_minus": 3.2152897707385906,
+        "CO3_2minus": 1.270632165211431
+      },
+      "aitchison_norm": 3.461401,
+      "phase_deg": 86.984,
+      "delta_norm": 0.019538,
+      "delta_clr": {
+        "H2CO3": 0.152615,
+        "HCO3_minus": 0.010724,
+        "CO3_2minus": 0.014886
+      }
+    },
+    {
+      "index": 126,
+      "year": 126,
+      "clr": {
+        "H2CO3": 0.3235965421756519,
+        "HCO3_minus": 3.2256689858969643,
+        "CO3_2minus": 1.2777343301777881
+      },
+      "aitchison_norm": 3.484575,
+      "phase_deg": 84.271,
+      "delta_norm": 0.023174,
+      "delta_clr": {
+        "H2CO3": 0.154186,
+        "HCO3_minus": 0.010379,
+        "CO3_2minus": 0.007102
+      }
+    },
+    {
+      "index": 127,
+      "year": 127,
+      "clr": {
+        "H2CO3": 0.47915681543718947,
+        "HCO3_minus": 3.2356852191632948,
+        "CO3_2minus": 1.2773088737125076
+      },
+      "aitchison_norm": 3.511519,
+      "phase_deg": 81.577,
+      "delta_norm": 0.026945,
+      "delta_clr": {
+        "H2CO3": 0.15556,
+        "HCO3_minus": 0.010016,
+        "CO3_2minus": -0.000425
+      }
+    },
+    {
+      "index": 128,
+      "year": 128,
+      "clr": {
+        "H2CO3": 0.6358902617813629,
+        "HCO3_minus": 3.245321933849353,
+        "CO3_2minus": 1.2696450948632352
+      },
+      "aitchison_norm": 3.542382,
+      "phase_deg": 78.914,
+      "delta_norm": 0.030863,
+      "delta_clr": {
+        "H2CO3": 0.156733,
+        "HCO3_minus": 0.009637,
+        "CO3_2minus": -0.007664
+      }
+    },
+    {
+      "index": 129,
+      "year": 129,
+      "clr": {
+        "H2CO3": 0.7935936052803789,
+        "HCO3_minus": 3.254563818770921,
+        "CO3_2minus": 1.255064103213141
+      },
+      "aitchison_norm": 3.577312,
+      "phase_deg": 76.296,
+      "delta_norm": 0.03493,
+      "delta_clr": {
+        "H2CO3": 0.157703,
+        "HCO3_minus": 0.009242,
+        "CO3_2minus": -0.014581
+      }
+    },
+    {
+      "index": 130,
+      "year": 130,
+      "clr": {
+        "H2CO3": 0.9520613948995376,
+        "HCO3_minus": 3.263396837689159,
+        "CO3_2minus": 1.2339174076882053
+      },
+      "aitchison_norm": 3.616453,
+      "phase_deg": 73.736,
+      "delta_norm": 0.039141,
+      "delta_clr": {
+        "H2CO3": 0.158468,
+        "HCO3_minus": 0.008833,
+        "CO3_2minus": -0.021147
+      }
+    },
+    {
+      "index": 131,
+      "year": 131,
+      "clr": {
+        "H2CO3": 1.1110864652450072,
+        "HCO3_minus": 3.2718082746350485,
+        "CO3_2minus": 1.206585371767327
+      },
+      "aitchison_norm": 3.65993,
+      "phase_deg": 71.243,
+      "delta_norm": 0.043477,
+      "delta_clr": {
+        "H2CO3": 0.159025,
+        "HCO3_minus": 0.008411,
+        "CO3_2minus": -0.027332
+      }
+    },
+    {
+      "index": 132,
+      "year": 132,
+      "clr": {
+        "H2CO3": 1.270460401156286,
+        "HCO3_minus": 3.2797867749705416,
+        "CO3_2minus": 1.1734755418842346
+      },
+      "aitchison_norm": 3.707845,
+      "phase_deg": 68.826,
+      "delta_norm": 0.047915,
+      "delta_clr": {
+        "H2CO3": 0.159374,
+        "HCO3_minus": 0.007979,
+        "CO3_2minus": -0.03311
+      }
+    },
+    {
+      "index": 133,
+      "year": 133,
+      "clr": {
+        "H2CO3": 1.429974005101339,
+        "HCO3_minus": 3.287322382053844,
+        "CO3_2minus": 1.1350208563673962
+      },
+      "aitchison_norm": 3.760264,
+      "phase_deg": 66.491,
+      "delta_norm": 0.052419,
+      "delta_clr": {
+        "H2CO3": 0.159514,
+        "HCO3_minus": 0.007536,
+        "CO3_2minus": -0.038455
+      }
+    },
+    {
+      "index": 134,
+      "year": 134,
+      "clr": {
+        "H2CO3": 1.589417766326368,
+        "HCO3_minus": 3.294406569390418,
+        "CO3_2minus": 1.091677742789191
+      },
+      "aitchison_norm": 3.817214,
+      "phase_deg": 64.245,
+      "delta_norm": 0.05695,
+      "delta_clr": {
+        "H2CO3": 0.159444,
+        "HCO3_minus": 0.007084,
+        "CO3_2minus": -0.043343
+      }
+    },
+    {
+      "index": 135,
+      "year": 135,
+      "clr": {
+        "H2CO3": 1.7485823307079782,
+        "HCO3_minus": 3.3010322681659026,
+        "CO3_2minus": 1.0439241120859957
+      },
+      "aitchison_norm": 3.878677,
+      "phase_deg": 62.089,
+      "delta_norm": 0.061462,
+      "delta_clr": {
+        "H2CO3": 0.159165,
+        "HCO3_minus": 0.006626,
+        "CO3_2minus": -0.047754
+      }
+    },
+    {
+      "index": 136,
+      "year": 136,
+      "clr": {
+        "H2CO3": 1.9072589702540932,
+        "HCO3_minus": 3.3071938900720292,
+        "CO3_2minus": 0.992257258264486
+      },
+      "aitchison_norm": 3.944584,
+      "phase_deg": 60.028,
+      "delta_norm": 0.065907,
+      "delta_clr": {
+        "H2CO3": 0.158677,
+        "HCO3_minus": 0.006162,
+        "CO3_2minus": -0.051667
+      }
+    },
+    {
+      "index": 137,
+      "year": 137,
+      "clr": {
+        "H2CO3": 2.065240051200698,
+        "HCO3_minus": 3.3128873453518386,
+        "CO3_2minus": 0.9371916729244295
+      },
+      "aitchison_norm": 4.014818,
+      "phase_deg": 58.061,
+      "delta_norm": 0.070234,
+      "delta_clr": {
+        "H2CO3": 0.157981,
+        "HCO3_minus": 0.005693,
+        "CO3_2minus": -0.055066
+      }
+    },
+    {
+      "index": 138,
+      "year": 138,
+      "clr": {
+        "H2CO3": 2.222319499654638,
+        "HCO3_minus": 3.318110056005919,
+        "CO3_2minus": 0.8792567842025397
+      },
+      "aitchison_norm": 4.089212,
+      "phase_deg": 56.188,
+      "delta_norm": 0.074393,
+      "delta_clr": {
+        "H2CO3": 0.157079,
+        "HCO3_minus": 0.005223,
+        "CO3_2minus": -0.057935
+      }
+    },
+    {
+      "index": 139,
+      "year": 139,
+      "clr": {
+        "H2CO3": 2.3782932637382395,
+        "HCO3_minus": 3.3228609641170297,
+        "CO3_2minus": 0.8189946300741524
+      },
+      "aitchison_norm": 4.167546,
+      "phase_deg": 54.407,
+      "delta_norm": 0.078334,
+      "delta_clr": {
+        "H2CO3": 0.155974,
+        "HCO3_minus": 0.004751,
+        "CO3_2minus": -0.060262
+      }
+    },
+    {
+      "index": 140,
+      "year": 140,
+      "clr": {
+        "H2CO3": 2.5329597711993213,
+        "HCO3_minus": 3.3271405352662216,
+        "CO3_2minus": 0.756957476237949
+      },
+      "aitchison_norm": 4.249557,
+      "phase_deg": 52.718,
+      "delta_norm": 0.082011,
+      "delta_clr": {
+        "H2CO3": 0.154667,
+        "HCO3_minus": 0.00428,
+        "CO3_2minus": -0.062037
+      }
+    },
+    {
+      "index": 141,
+      "year": 141,
+      "clr": {
+        "H2CO3": 2.6861203814603725,
+        "HCO3_minus": 3.33095075702943,
+        "CO3_2minus": 0.6937053890525252
+      },
+      "aitchison_norm": 4.33494,
+      "phase_deg": 51.117,
+      "delta_norm": 0.085383,
+      "delta_clr": {
+        "H2CO3": 0.153161,
+        "HCO3_minus": 0.00381,
+        "CO3_2minus": -0.063252
+      }
+    },
+    {
+      "index": 142,
+      "year": 142,
+      "clr": {
+        "H2CO3": 2.837579831093075,
+        "HCO3_minus": 3.3342951325593897,
+        "CO3_2minus": 0.6298037741910879
+      },
+      "aitchison_norm": 4.423351,
+      "phase_deg": 49.601,
+      "delta_norm": 0.088411,
+      "delta_clr": {
+        "H2CO3": 0.151459,
+        "HCO3_minus": 0.003344,
+        "CO3_2minus": -0.063902
+      }
+    },
+    {
+      "index": 143,
+      "year": 143,
+      "clr": {
+        "H2CO3": 2.987146671719208,
+        "HCO3_minus": 3.3371786692736,
+        "CO3_2minus": 0.5658208918312628
+      },
+      "aitchison_norm": 4.514417,
+      "phase_deg": 48.168,
+      "delta_norm": 0.091066,
+      "delta_clr": {
+        "H2CO3": 0.149567,
+        "HCO3_minus": 0.002884,
+        "CO3_2minus": -0.063983
+      }
+    },
+    {
+      "index": 144,
+      "year": 144,
+      "clr": {
+        "H2CO3": 3.134633699355852,
+        "HCO3_minus": 3.339607862684862,
+        "CO3_2minus": 0.502325359300094
+      },
+      "aitchison_norm": 4.607737,
+      "phase_deg": 46.813,
+      "delta_norm": 0.09332,
+      "delta_clr": {
+        "H2CO3": 0.147487,
+        "HCO3_minus": 0.002429,
+        "CO3_2minus": -0.063496
+      }
+    },
+    {
+      "index": 145,
+      "year": 145,
+      "clr": {
+        "H2CO3": 3.2798583742420333,
+        "HCO3_minus": 3.3415906754266147,
+        "CO3_2minus": 0.4398836521494753
+      },
+      "aitchison_norm": 4.702892,
+      "phase_deg": 45.534,
+      "delta_norm": 0.095155,
+      "delta_clr": {
+        "H2CO3": 0.145225,
+        "HCO3_minus": 0.001983,
+        "CO3_2minus": -0.062442
+      }
+    },
+    {
+      "index": 146,
+      "year": 146,
+      "clr": {
+        "H2CO3": 3.4226432302053302,
+        "HCO3_minus": 3.3431365115407785,
+        "CO3_2minus": 0.3790576146441071
+      },
+      "aitchison_norm": 4.799451,
+      "phase_deg": 44.327,
+      "delta_norm": 0.096559,
+      "delta_clr": {
+        "H2CO3": 0.142785,
+        "HCO3_minus": 0.001546,
+        "CO3_2minus": -0.060826
+      }
+    },
+    {
+      "index": 147,
+      "year": 147,
+      "clr": {
+        "H2CO3": 3.5628162726503563,
+        "HCO3_minus": 3.3442561861111506,
+        "CO3_2minus": 0.32040199060277375
+      },
+      "aitchison_norm": 4.896975,
+      "phase_deg": 43.188,
+      "delta_norm": 0.097524,
+      "delta_clr": {
+        "H2CO3": 0.140173,
+        "HCO3_minus": 0.00112,
+        "CO3_2minus": -0.058656
+      }
+    },
+    {
+      "index": 148,
+      "year": 148,
+      "clr": {
+        "H2CO3": 3.7002113642765773,
+        "HCO3_minus": 3.3449618903404037,
+        "CO3_2minus": 0.2644619854442122
+      },
+      "aitchison_norm": 4.995025,
+      "phase_deg": 42.113,
+      "delta_norm": 0.09805,
+      "delta_clr": {
+        "H2CO3": 0.137395,
+        "HCO3_minus": 0.000706,
+        "CO3_2minus": -0.05594
+      }
+    },
+    {
+      "index": 149,
+      "year": 149,
+      "clr": {
+        "H2CO3": 3.834668597660508,
+        "HCO3_minus": 3.345267152183453,
+        "CO3_2minus": 0.21177087015175244
+      },
+      "aitchison_norm": 5.093166,
+      "phase_deg": 41.101,
+      "delta_norm": 0.098141,
+      "delta_clr": {
+        "H2CO3": 0.134457,
+        "HCO3_minus": 0.000305,
+        "CO3_2minus": -0.052691
+      }
+    },
+    {
+      "index": 150,
+      "year": 150,
+      "clr": {
+        "H2CO3": 3.966034653866653,
+        "HCO3_minus": 3.345186792664318,
+        "CO3_2minus": 0.16284763768669364
+      },
+      "aitchison_norm": 5.190975,
+      "phase_deg": 40.146,
+      "delta_norm": 0.097809,
+      "delta_clr": {
+        "H2CO3": 0.131366,
+        "HCO3_minus": -8e-05,
+        "CO3_2minus": -0.048923
+      }
+    },
+    {
+      "index": 151,
+      "year": 151,
+      "clr": {
+        "H2CO3": 4.094163146283005,
+        "HCO3_minus": 3.344736878017532,
+        "CO3_2minus": 0.11819472214984028
+      },
+      "aitchison_norm": 5.288044,
+      "phase_deg": 39.247,
+      "delta_norm": 0.097068,
+      "delta_clr": {
+        "H2CO3": 0.128128,
+        "HCO3_minus": -0.00045,
+        "CO3_2minus": -0.044653
+      }
+    },
+    {
+      "index": 152,
+      "year": 152,
+      "clr": {
+        "H2CO3": 4.2189149489100295,
+        "HCO3_minus": 3.343934667808639,
+        "CO3_2minus": 0.07829579071492532
+      },
+      "aitchison_norm": 5.383983,
+      "phase_deg": 38.401,
+      "delta_norm": 0.095939,
+      "delta_clr": {
+        "H2CO3": 0.124752,
+        "HCO3_minus": -0.000802,
+        "CO3_2minus": -0.039899
+      }
+    },
+    {
+      "index": 153,
+      "year": 153,
+      "clr": {
+        "H2CO3": 4.340158508366828,
+        "HCO3_minus": 3.342798559201308,
+        "CO3_2minus": 0.04361361803776442
+      },
+      "aitchison_norm": 5.478429,
+      "phase_deg": 37.604,
+      "delta_norm": 0.094446,
+      "delta_clr": {
+        "H2CO3": 0.121244,
+        "HCO3_minus": -0.001136,
+        "CO3_2minus": -0.034682
+      }
+    },
+    {
+      "index": 154,
+      "year": 154,
+      "clr": {
+        "H2CO3": 4.457770138914883,
+        "HCO3_minus": 3.34134802755102,
+        "CO3_2minus": 0.014588052482552127
+      },
+      "aitchison_norm": 5.571044,
+      "phase_deg": 36.854,
+      "delta_norm": 0.092616,
+      "delta_clr": {
+        "H2CO3": 0.117612,
+        "HCO3_minus": -0.001451,
+        "CO3_2minus": -0.029026
+      }
+    },
+    {
+      "index": 155,
+      "year": 155,
+      "clr": {
+        "H2CO3": 4.571634299837676,
+        "HCO3_minus": 3.3396035635171724,
+        "CO3_2minus": -0.008365916896758696
+      },
+      "aitchison_norm": 5.661525,
+      "phase_deg": 36.148,
+      "delta_norm": 0.09048,
+      "delta_clr": {
+        "H2CO3": 0.113864,
+        "HCO3_minus": -0.001744,
+        "CO3_2minus": -0.022954
+      }
+    },
+    {
+      "index": 156,
+      "year": 156,
+      "clr": {
+        "H2CO3": 4.681643854554136,
+        "HCO3_minus": 3.337586606896659,
+        "CO3_2minus": -0.02485998412490731
+      },
+      "aitchison_norm": 5.749599,
+      "phase_deg": 35.485,
+      "delta_norm": 0.088075,
+      "delta_clr": {
+        "H2CO3": 0.11001,
+        "HCO3_minus": -0.002017,
+        "CO3_2minus": -0.016494
+      }
+    },
+    {
+      "index": 157,
+      "year": 157,
+      "clr": {
+        "H2CO3": 4.787700310884878,
+        "HCO3_minus": 3.3353194773925896,
+        "CO3_2minus": -0.03453423280863599
+      },
+      "aitchison_norm": 5.835034,
+      "phase_deg": 34.863,
+      "delta_norm": 0.085435,
+      "delta_clr": {
+        "H2CO3": 0.106056,
+        "HCO3_minus": -0.002267,
+        "CO3_2minus": -0.009674
+      }
+    },
+    {
+      "index": 158,
+      "year": 158,
+      "clr": {
+        "H2CO3": 4.889714041932317,
+        "HCO3_minus": 3.332825302541704,
+        "CO3_2minus": -0.03705871787518311
+      },
+      "aitchison_norm": 5.917635,
+      "phase_deg": 34.278,
+      "delta_norm": 0.082601,
+      "delta_clr": {
+        "H2CO3": 0.102014,
+        "HCO3_minus": -0.002494,
+        "CO3_2minus": -0.002524
+      }
+    },
+    {
+      "index": 159,
+      "year": 159,
+      "clr": {
+        "H2CO3": 4.987604487079403,
+        "HCO3_minus": 3.330127943033209,
+        "CO3_2minus": -0.0321349155946673
+      },
+      "aitchison_norm": 5.997248,
+      "phase_deg": 33.73,
+      "delta_norm": 0.079613,
+      "delta_clr": {
+        "H2CO3": 0.09789,
+        "HCO3_minus": -0.002697,
+        "CO3_2minus": 0.004924
+      }
+    },
+    {
+      "index": 160,
+      "year": 160,
+      "clr": {
+        "H2CO3": 5.081300332656147,
+        "HCO3_minus": 3.327251915660191,
+        "CO3_2minus": -0.01949703551388171
+      },
+      "aitchison_norm": 6.073763,
+      "phase_deg": 33.217,
+      "delta_norm": 0.076515,
+      "delta_clr": {
+        "H2CO3": 0.093696,
+        "HCO3_minus": -0.002876,
+        "CO3_2minus": 0.012638
+      }
+    },
+    {
+      "index": 161,
+      "year": 161,
+      "clr": {
+        "H2CO3": 5.170739671868798,
+        "HCO3_minus": 3.3242223141524034,
+        "CO3_2minus": 0.001086811464125148
+      },
+      "aitchison_norm": 6.147113,
+      "phase_deg": 32.737,
+      "delta_norm": 0.07335,
+      "delta_clr": {
+        "H2CO3": 0.089439,
+        "HCO3_minus": -0.00303,
+        "CO3_2minus": 0.020584
+      }
+    },
+    {
+      "index": 162,
+      "year": 162,
+      "clr": {
+        "H2CO3": 5.255870143633018,
+        "HCO3_minus": 3.321064728146065,
+        "CO3_2minus": 0.029813593988051057
+      },
+      "aitchison_norm": 6.217277,
+      "phase_deg": 32.288,
+      "delta_norm": 0.070163,
+      "delta_clr": {
+        "H2CO3": 0.08513,
+        "HCO3_minus": -0.003158,
+        "CO3_2minus": 0.028727
+      }
+    },
+    {
+      "index": 163,
+      "year": 163,
+      "clr": {
+        "H2CO3": 5.336649049999683,
+        "HCO3_minus": 3.317805160552331,
+        "CO3_2minus": 0.06684449463260189
+      },
+      "aitchison_norm": 6.284276,
+      "phase_deg": 31.869,
+      "delta_norm": 0.066999,
+      "delta_clr": {
+        "H2CO3": 0.080779,
+        "HCO3_minus": -0.00326,
+        "CO3_2minus": 0.037031
+      }
+    },
+    {
+      "index": 164,
+      "year": 164,
+      "clr": {
+        "H2CO3": 5.413043451909987,
+        "HCO3_minus": 3.314469943591251,
+        "CO3_2minus": 0.11230420154319032
+      },
+      "aitchison_norm": 6.348178,
+      "phase_deg": 31.48,
+      "delta_norm": 0.063902,
+      "delta_clr": {
+        "H2CO3": 0.076394,
+        "HCO3_minus": -0.003335,
+        "CO3_2minus": 0.04546
+      }
+    },
+    {
+      "index": 165,
+      "year": 165,
+      "clr": {
+        "H2CO3": 5.4850302430651094,
+        "HCO3_minus": 3.3110856537623574,
+        "CO3_2minus": 0.16628036046411632
+      },
+      "aitchison_norm": 6.409095,
+      "phase_deg": 31.118,
+      "delta_norm": 0.060917,
+      "delta_clr": {
+        "H2CO3": 0.071987,
+        "HCO3_minus": -0.003384,
+        "CO3_2minus": 0.053976
+      }
+    },
+    {
+      "index": 166,
+      "year": 166,
+      "clr": {
+        "H2CO3": 5.552596201744767,
+        "HCO3_minus": 3.307679026026456,
+        "CO3_2minus": 0.2288231895584243
+      },
+      "aitchison_norm": 6.467181,
+      "phase_deg": 30.782,
+      "delta_norm": 0.058086,
+      "delta_clr": {
+        "H2CO3": 0.067566,
+        "HCO3_minus": -0.003407,
+        "CO3_2minus": 0.062543
+      }
+    },
+    {
+      "index": 167,
+      "year": 167,
+      "clr": {
+        "H2CO3": 5.615738020458458,
+        "HCO3_minus": 3.3042768674757195,
+        "CO3_2minus": 0.29994525871220157
+      },
+      "aitchison_norm": 6.522632,
+      "phase_deg": 30.472,
+      "delta_norm": 0.055451,
+      "delta_clr": {
+        "H2CO3": 0.063142,
+        "HCO3_minus": -0.003402,
+        "CO3_2minus": 0.071122
+      }
+    },
+    {
+      "index": 168,
+      "year": 168,
+      "clr": {
+        "H2CO3": 5.674462313362891,
+        "HCO3_minus": 3.300905970770869,
+        "CO3_2minus": 0.37962143429320605
+      },
+      "aitchison_norm": 6.575684,
+      "phase_deg": 30.187,
+      "delta_norm": 0.053052,
+      "delta_clr": {
+        "H2CO3": 0.058724,
+        "HCO3_minus": -0.003371,
+        "CO3_2minus": 0.079676
+      }
+    },
+    {
+      "index": 169,
+      "year": 169,
+      "clr": {
+        "H2CO3": 5.728785601428974,
+        "HCO3_minus": 3.297593027624951,
+        "CO3_2minus": 0.46778898960661786
+      },
+      "aitchison_norm": 6.626608,
+      "phase_deg": 29.926,
+      "delta_norm": 0.050924,
+      "delta_clr": {
+        "H2CO3": 0.054323,
+        "HCO3_minus": -0.003313,
+        "CO3_2minus": 0.088168
+      }
+    },
+    {
+      "index": 170,
+      "year": 170,
+      "clr": {
+        "H2CO3": 5.778734275391615,
+        "HCO3_minus": 3.2943645426130908,
+        "CO3_2minus": 0.5643478805624722
+      },
+      "aitchison_norm": 6.675709,
+      "phase_deg": 29.687,
+      "delta_norm": 0.049102,
+      "delta_clr": {
+        "H2CO3": 0.049949,
+        "HCO3_minus": -0.003228,
+        "CO3_2minus": 0.096559
+      }
+    },
+    {
+      "index": 171,
+      "year": 171,
+      "clr": {
+        "H2CO3": 5.824344536565445,
+        "HCO3_minus": 3.2912467475865266,
+        "CO3_2minus": 0.6691611853432902
+      },
+      "aitchison_norm": 6.723323,
+      "phase_deg": 29.47,
+      "delta_norm": 0.047614,
+      "delta_clr": {
+        "H2CO3": 0.04561,
+        "HCO3_minus": -0.003118,
+        "CO3_2minus": 0.104813
+      }
+    },
+    {
+      "index": 172,
+      "year": 172,
+      "clr": {
+        "H2CO3": 5.865662315659161,
+        "HCO3_minus": 3.2882655169673,
+        "CO3_2minus": 0.7820557061396973
+      },
+      "aitchison_norm": 6.769808,
+      "phase_deg": 29.275,
+      "delta_norm": 0.046485,
+      "delta_clr": {
+        "H2CO3": 0.041318,
+        "HCO3_minus": -0.002981,
+        "CO3_2minus": 0.112895
+      }
+    },
+    {
+      "index": 173,
+      "year": 173,
+      "clr": {
+        "H2CO3": 5.902743169770585,
+        "HCO3_minus": 3.2854462841971235,
+        "CO3_2minus": 0.9028227303095284
+      },
+      "aitchison_norm": 6.815543,
+      "phase_deg": 29.1,
+      "delta_norm": 0.045735,
+      "delta_clr": {
+        "H2CO3": 0.037081,
+        "HCO3_minus": -0.002819,
+        "CO3_2minus": 0.120767
+      }
+    },
+    {
+      "index": 174,
+      "year": 174,
+      "clr": {
+        "H2CO3": 5.935652157793436,
+        "HCO3_minus": 3.2828139596102135,
+        "CO3_2minus": 1.0312189476153601
+      },
+      "aitchison_norm": 6.860922,
+      "phase_deg": 28.946,
+      "delta_norm": 0.045379,
+      "delta_clr": {
+        "H2CO3": 0.032909,
+        "HCO3_minus": -0.002632,
+        "CO3_2minus": 0.128396
+      }
+    },
+    {
+      "index": 175,
+      "year": 175,
+      "clr": {
+        "H2CO3": 5.964463694515189,
+        "HCO3_minus": 3.2803928499952946,
+        "CO3_2minus": 1.1669675195094313
+      },
+      "aitchison_norm": 6.906346,
+      "phase_deg": 28.81,
+      "delta_norm": 0.045424,
+      "delta_clr": {
+        "H2CO3": 0.028812,
+        "HCO3_minus": -0.002421,
+        "CO3_2minus": 0.135749
+      }
+    },
+    {
+      "index": 176,
+      "year": 176,
+      "clr": {
+        "H2CO3": 5.989261383733305,
+        "HCO3_minus": 3.2782065801065103,
+        "CO3_2minus": 1.3097592957667155
+      },
+      "aitchison_norm": 6.95222,
+      "phase_deg": 28.694,
+      "delta_norm": 0.045874,
+      "delta_clr": {
+        "H2CO3": 0.024798,
+        "HCO3_minus": -0.002186,
+        "CO3_2minus": 0.142792
+      }
+    },
+    {
+      "index": 177,
+      "year": 177,
+      "clr": {
+        "H2CO3": 6.010137830763997,
+        "HCO3_minus": 3.2762780163766982,
+        "CO3_2minus": 1.4592541731193793
+      },
+      "aitchison_norm": 6.998941,
+      "phase_deg": 28.596,
+      "delta_norm": 0.046721,
+      "delta_clr": {
+        "H2CO3": 0.020876,
+        "HCO3_minus": -0.001929,
+        "CO3_2minus": 0.149495
+      }
+    },
+    {
+      "index": 178,
+      "year": 178,
+      "clr": {
+        "H2CO3": 6.027194434764073,
+        "HCO3_minus": 3.2746291930793525,
+        "CO3_2minus": 1.6150825899217913
+      },
+      "aitchison_norm": 7.046897,
+      "phase_deg": 28.516,
+      "delta_norm": 0.047956,
+      "delta_clr": {
+        "H2CO3": 0.017057,
+        "HCO3_minus": -0.001649,
+        "CO3_2minus": 0.155828
+      }
+    },
+    {
+      "index": 179,
+      "year": 179,
+      "clr": {
+        "H2CO3": 6.040541161331555,
+        "HCO3_minus": 3.273281241177723,
+        "CO3_2minus": 1.776847150277372
+      },
+      "aitchison_norm": 7.096456,
+      "phase_deg": 28.453,
+      "delta_norm": 0.049559,
+      "delta_clr": {
+        "H2CO3": 0.013347,
+        "HCO3_minus": -0.001348,
+        "CO3_2minus": 0.161765
+      }
+    },
+    {
+      "index": 180,
+      "year": 180,
+      "clr": {
+        "H2CO3": 6.050296295895071,
+        "HCO3_minus": 3.272254320090788,
+        "CO3_2minus": 1.9441243704897238
+      },
+      "aitchison_norm": 7.147961,
+      "phase_deg": 28.406,
+      "delta_norm": 0.051505,
+      "delta_clr": {
+        "H2CO3": 0.009755,
+        "HCO3_minus": -0.001027,
+        "CO3_2minus": 0.167277
+      }
+    },
+    {
+      "index": 181,
+      "year": 181,
+      "clr": {
+        "H2CO3": 6.056586178445048,
+        "HCO3_minus": 3.271567552596445,
+        "CO3_2minus": 2.1164665401628273
+      },
+      "aitchison_norm": 7.201723,
+      "phase_deg": 28.376,
+      "delta_norm": 0.053762,
+      "delta_clr": {
+        "H2CO3": 0.00629,
+        "HCO3_minus": -0.000687,
+        "CO3_2minus": 0.172342
+      }
+    },
+    {
+      "index": 182,
+      "year": 182,
+      "clr": {
+        "H2CO3": 6.059544920201645,
+        "HCO3_minus": 3.271238963082121,
+        "CO3_2minus": 2.2934036897712344
+      },
+      "aitchison_norm": 7.258016,
+      "phase_deg": 28.362,
+      "delta_norm": 0.056292,
+      "delta_clr": {
+        "H2CO3": 0.002959,
+        "HCO3_minus": -0.000329,
+        "CO3_2minus": 0.176937
+      }
+    },
+    {
+      "index": 183,
+      "year": 183,
+      "clr": {
+        "H2CO3": 6.059314102854753,
+        "HCO3_minus": 3.2712854193421954,
+        "CO3_2minus": 2.4744456560533576
+      },
+      "aitchison_norm": 7.317068,
+      "phase_deg": 28.364,
+      "delta_norm": 0.059052,
+      "delta_clr": {
+        "H2CO3": -0.000231,
+        "HCO3_minus": 4.6e-05,
+        "CO3_2minus": 0.181042
+      }
+    },
+    {
+      "index": 184,
+      "year": 184,
+      "clr": {
+        "H2CO3": 6.056042461050637,
+        "HCO3_minus": 3.2717225781101806,
+        "CO3_2minus": 2.6590842361508975
+      },
+      "aitchison_norm": 7.379061,
+      "phase_deg": 28.38,
+      "delta_norm": 0.061994,
+      "delta_clr": {
+        "H2CO3": -0.003272,
+        "HCO3_minus": 0.000437,
+        "CO3_2minus": 0.184639
+      }
+    },
+    {
+      "index": 185,
+      "year": 185,
+      "clr": {
+        "H2CO3": 6.049885548837254,
+        "HCO3_minus": 3.2725648345015386,
+        "CO3_2minus": 2.8467954210276183
+      },
+      "aitchison_norm": 7.444128,
+      "phase_deg": 28.41,
+      "delta_norm": 0.065066,
+      "delta_clr": {
+        "H2CO3": -0.006157,
+        "HCO3_minus": 0.000842,
+        "CO3_2minus": 0.187711
+      }
+    },
+    {
+      "index": 186,
+      "year": 186,
+      "clr": {
+        "H2CO3": 6.041005390816222,
+        "HCO3_minus": 3.2738252755303963,
+        "CO3_2minus": 3.0370416983521493
+      },
+      "aitchison_norm": 7.512343,
+      "phase_deg": 28.455,
+      "delta_norm": 0.068215,
+      "delta_clr": {
+        "H2CO3": -0.00888,
+        "HCO3_minus": 0.00126,
+        "CO3_2minus": 0.190246
+      }
+    },
+    {
+      "index": 187,
+      "year": 187,
+      "clr": {
+        "H2CO3": 6.029570118783869,
+        "HCO3_minus": 3.2755156378502455,
+        "CO3_2minus": 3.2292744147242196
+      },
+      "aitchison_norm": 7.583728,
+      "phase_deg": 28.513,
+      "delta_norm": 0.071385,
+      "delta_clr": {
+        "H2CO3": -0.011435,
+        "HCO3_minus": 0.00169,
+        "CO3_2minus": 0.192233
+      }
+    },
+    {
+      "index": 188,
+      "year": 188,
+      "clr": {
+        "H2CO3": 6.015753594676167,
+        "HCO3_minus": 3.277646269855098,
+        "CO3_2minus": 3.422936186863008
+      },
+      "aitchison_norm": 7.658247,
+      "phase_deg": 28.583,
+      "delta_norm": 0.074519,
+      "delta_clr": {
+        "H2CO3": -0.013817,
+        "HCO3_minus": 0.002131,
+        "CO3_2minus": 0.193662
+      }
+    },
+    {
+      "index": 189,
+      "year": 189,
+      "clr": {
+        "H2CO3": 5.9997350206631594,
+        "HCO3_minus": 3.2802260982634723,
+        "CO3_2minus": 3.617463351161004
+      },
+      "aitchison_norm": 7.735809,
+      "phase_deg": 28.667,
+      "delta_norm": 0.077562,
+      "delta_clr": {
+        "H2CO3": -0.016019,
+        "HCO3_minus": 0.00258,
+        "CO3_2minus": 0.194527
+      }
+    },
+    {
+      "index": 190,
+      "year": 190,
+      "clr": {
+        "H2CO3": 5.981698537267312,
+        "HCO3_minus": 3.283262599293114,
+        "CO3_2minus": 3.812288440838276
+      },
+      "aitchison_norm": 7.81627,
+      "phase_deg": 28.762,
+      "delta_norm": 0.080461,
+      "delta_clr": {
+        "H2CO3": -0.018036,
+        "HCO3_minus": 0.003037,
+        "CO3_2minus": 0.194825
+      }
+    },
+    {
+      "index": 191,
+      "year": 191,
+      "clr": {
+        "H2CO3": 5.961832810407031,
+        "HCO3_minus": 3.2867617745195266,
+        "CO3_2minus": 4.0068426798107
+      },
+      "aitchison_norm": 7.899433,
+      "phase_deg": 28.868,
+      "delta_norm": 0.083163,
+      "delta_clr": {
+        "H2CO3": -0.019866,
+        "HCO3_minus": 0.003499,
+        "CO3_2minus": 0.194554
+      }
+    },
+    {
+      "index": 192,
+      "year": 192,
+      "clr": {
+        "H2CO3": 5.940330608291426,
+        "HCO3_minus": 3.2907281314962797,
+        "CO3_2minus": 4.200558482312226
+      },
+      "aitchison_norm": 7.985055,
+      "phase_deg": 28.985,
+      "delta_norm": 0.085622,
+      "delta_clr": {
+        "H2CO3": -0.021502,
+        "HCO3_minus": 0.003966,
+        "CO3_2minus": 0.193716
+      }
+    },
+    {
+      "index": 193,
+      "year": 193,
+      "clr": {
+        "H2CO3": 5.917388369115264,
+        "HCO3_minus": 3.295164669199658,
+        "CO3_2minus": 4.392871947286019
+      },
+      "aitchison_norm": 8.072851,
+      "phase_deg": 29.112,
+      "delta_norm": 0.087795,
+      "delta_clr": {
+        "H2CO3": -0.022942,
+        "HCO3_minus": 0.004437,
+        "CO3_2minus": 0.192313
+      }
+    },
+    {
+      "index": 194,
+      "year": 194,
+      "clr": {
+        "H2CO3": 5.893205760523491,
+        "HCO3_minus": 3.300072868344663,
+        "CO3_2minus": 4.58322533658225
+      },
+      "aitchison_norm": 8.162494,
+      "phase_deg": 29.248,
+      "delta_norm": 0.089643,
+      "delta_clr": {
+        "H2CO3": -0.024183,
+        "HCO3_minus": 0.004908,
+        "CO3_2minus": 0.190353
+      }
+    },
+    {
+      "index": 195,
+      "year": 195,
+      "clr": {
+        "H2CO3": 5.867985231833405,
+        "HCO3_minus": 3.3054526866036356,
+        "CO3_2minus": 4.77106952607152
+      },
+      "aitchison_norm": 8.253628,
+      "phase_deg": 29.393,
+      "delta_norm": 0.091134,
+      "delta_clr": {
+        "H2CO3": -0.025221,
+        "HCO3_minus": 0.00538,
+        "CO3_2minus": 0.187844
+      }
+    },
+    {
+      "index": 196,
+      "year": 196,
+      "clr": {
+        "H2CO3": 5.841931560018544,
+        "HCO3_minus": 3.311302558742933,
+        "CO3_2minus": 4.955866418901941
+      },
+      "aitchison_norm": 8.345867,
+      "phase_deg": 29.545,
+      "delta_norm": 0.092239,
+      "delta_clr": {
+        "H2CO3": -0.026054,
+        "HCO3_minus": 0.00585,
+        "CO3_2minus": 0.184797
+      }
+    },
+    {
+      "index": 197,
+      "year": 197,
+      "clr": {
+        "H2CO3": 5.815251390472589,
+        "HCO3_minus": 3.3176194016772316,
+        "CO3_2minus": 5.1370913102941795
+      },
+      "aitchison_norm": 8.438806,
+      "phase_deg": 29.705,
+      "delta_norm": 0.092939,
+      "delta_clr": {
+        "H2CO3": -0.02668,
+        "HCO3_minus": 0.006317,
+        "CO3_2minus": 0.181225
+      }
+    },
+    {
+      "index": 198,
+      "year": 198,
+      "clr": {
+        "H2CO3": 5.78815277358306,
+        "HCO3_minus": 3.3243986244251182,
+        "CO3_2minus": 5.3142351934818866
+      },
+      "aitchison_norm": 8.532024,
+      "phase_deg": 29.871,
+      "delta_norm": 0.093218,
+      "delta_clr": {
+        "H2CO3": -0.027099,
+        "HCO3_minus": 0.006779,
+        "CO3_2minus": 0.177144
+      }
+    },
+    {
+      "index": 199,
+      "year": 199,
+      "clr": {
+        "H2CO3": 5.760844698154204,
+        "HCO3_minus": 3.331634142933838,
+        "CO3_2minus": 5.486806996663401
+      },
+      "aitchison_norm": 8.625089,
+      "phase_deg": 30.042,
+      "delta_norm": 0.093065,
+      "delta_clr": {
+        "H2CO3": -0.027308,
+        "HCO3_minus": 0.007236,
+        "CO3_2minus": 0.172572
+      }
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "_meta": {
+    "type": "COMMUNITY_TEST_PACKET",
+    "version": "1.0",
+    "created": "2026-05-20",
+    "author": "Peter Higgins + Claude (Cowork session)",
+    "purpose": "User-acceptance test packet for the Hs repository. Where CLAIM_TEST_PACKET validates that the scientific claims numerically hold (MC-4.C1 Aitchison-native, etc.), this packet validates whether a stranger arriving at the repo can find their way, run an analysis on their own data, verify a published number, and report back. This is the apparatus test, not the science test.",
+    "sibling_packets": {
+      "claim_test": "ai-refresh/CLAIM_TEST_PACKET.json — validates scientific claims (MC-4 conjuncts, IEEE-floor confirmations)",
+      "cross_ai_coordination": "ai-refresh/CROSS_AI_COORDINATION.md — multi-platform handoff conventions",
+      "treasure_map": "ai-refresh/HS_REPO_STRUCTURE_TREASURE_MAP.json — limited-AI navigation aid"
+    },
+    "execution_modes": [
+      "human — community member walks the phases manually with the .md companion",
+      "ai_assistant — Claude/ChatGPT/Grok/Gemini executes against a live repo connection",
+      "automated — a shell script in the future could check the deterministic phases"
+    ],
+    "feedback_destination": "ai-refresh/cross_check_archive/community_test_<YYYY-MM-DD>_<source>.md",
+    "promotion_rule": "STAGED on first arrival. Promoted to CANONICAL after at least two independent testers (different ENV classes per CROSS_AI_COORDINATION.md §2) complete all seven phases without blocking issues.",
+    "scope_note": "This packet tests the repo as it ships to outsiders. It does NOT test the conference-internal materials (talk delivery, speaker prep, lockdown discipline) — those have their own SPEAKER_BRIEF.md governance."
+  },
+
+  "testers": {
+    "S-A": {
+      "title": "First-time CoDa researcher",
+      "background": "Knows Aitchison geometry, CLR, ILR. Has never heard of Higgins Decomposition. Arrived from a CoDaWork 2026 abstract or a colleague's mention.",
+      "starting_url": "https://github.com/PeterHiggins19/higgins-decomposition",
+      "tools_assumed": ["browser", "git clone", "python 3.10+", "ability to read English mathematical prose"],
+      "success_criteria": "Within 15 minutes, can articulate what CNT computes, what CNQ adds, and where to find a worked example."
+    },
+    "S-B": {
+      "title": "AI assistant cold-read",
+      "background": "ChatGPT / Claude / Grok / Gemini given the repo URL with no prior context. Asked to summarise the project for the user.",
+      "starting_url": "https://github.com/PeterHiggins19/higgins-decomposition",
+      "tools_assumed": ["GitHub connector or equivalent", "file fetch", "no execution environment"],
+      "success_criteria": "Within five fetches, has loaded HS_FAST_REFRESH.json + AI_AGENTS.md + treasure map + at least one engine README, and can answer the grounding-test challenge in AI_AGENTS.md §3 correctly."
+    },
+    "S-C": {
+      "title": "Conference attendee with phone open",
+      "background": "Sitting in the CoDaWork 2026 audience. Opens the QR code on the printed handout during the talk.",
+      "starting_url": "https://github.com/PeterHiggins19/higgins-decomposition/tree/main/CODA-Association",
+      "tools_assumed": ["mobile browser", "no install capacity"],
+      "success_criteria": "Can follow CONFERENCE_ATTENDEES.md slide-by-slide and open the interactive projector in the browser without leaving the page."
+    },
+    "S-D": {
+      "title": "Researcher with their own dataset",
+      "background": "Has a CSV — e.g., a 10-column budget allocation over 25 timesteps, a 6-component industrial yield series, or a 9-column geochemical assay through time. Wants to know what Hs would say about it.",
+      "starting_url": "QUICKSTART.md at repo root",
+      "tools_assumed": ["git clone", "python 3.10+", "their own CSV", "willingness to confirm a carrier-meaning mapping"],
+      "success_criteria": "Within one CCTT run, has produced a hash-verifiable CNT JSON + Stage 1 plate + journal entry on their own data, and can articulate what Power Share and Activation Coefficient say about that data."
+    }
+  },
+
+  "phases": [
+
+    {
+      "id": "P1",
+      "title": "Discovery and entry",
+      "objective": "Within 60 seconds of landing on the repo, the tester knows what Hs is, what it computes, and where to read next.",
+      "applies_to": ["S-A", "S-B", "S-C"],
+      "steps": [
+        {"action": "Open repo root", "path": "/README.md", "looking_for": "tagline, what-is-this paragraph, AI-loader badge, conference-status callout pointing to CODA-Association/"},
+        {"action": "Open the AI loader", "path": "HS_FAST_REFRESH.json", "looking_for": "current_commit_sha, last_push, engine versions (CNT v3.1.0 / CNQ v2.0.0), conference window dates"},
+        {"action": "Open the community front door", "path": "CODA-Association/README.md", "looking_for": "CONFERENCE_ATTENDEES.md callout, handout PDF link"},
+        {"action": "Open the discovery channel for AI", "path": ".well-known/ai-context.json", "looking_for": "grounding-test reference, current SHA"}
+      ],
+      "feedback_questions": [
+        "Did the README tell you what Hs is within 30 seconds of reading?",
+        "Was the AI-loader badge visible and did it explain itself?",
+        "Was the path from repo root → CONFERENCE_ATTENDEES.md → projector navigable without backtracking?",
+        "Any dead links, stale dates, or wrong slide counts?"
+      ],
+      "failure_modes": [
+        "README tagline is too abstract or doesn't say 'compositional'",
+        "Engine versions in README disagree with HS_FAST_REFRESH.json",
+        "Handout PDF link 404s",
+        "Slide-count drift across surfaces (the push #55 fix should have closed this — verify it stuck)"
+      ]
+    },
+
+    {
+      "id": "P2",
+      "title": "Refresh validation",
+      "objective": "Confirm HS_FAST_REFRESH.json is consistent with the live HEAD of main.",
+      "applies_to": ["S-B", "S-A"],
+      "steps": [
+        {"action": "Read current_commit_sha from HS_FAST_REFRESH.json", "expected": "matches git rev-parse HEAD on main (or the API equivalent)"},
+        {"action": "Read last_push field", "expected": "describes the most recent commit narratively + cites SHA + CI run number + duration"},
+        {"action": "Compare against PUSHES_INDEX.md tail", "expected": "the most recent push entry there matches HS_FAST_REFRESH"},
+        {"action": "Run consistency checker (if local clone)", "path": "tools/checker/check_consistency.py", "expected": "exit 0; all green per DCP-001 verified status"},
+        {"action": "Read AI_AGENTS.md grounding-test", "path": "AI_AGENTS.md §3", "expected": "the grounding-test SHA matches current_commit_sha"}
+      ],
+      "feedback_questions": [
+        "Did current_commit_sha match the live HEAD?",
+        "If not, was the cache-lag note in AI_AGENTS.md §2.1 visible enough to prevent panic?",
+        "Did the consistency checker (if you ran it) report any drift?",
+        "Was the push number sequence in PUSHES_INDEX.md continuous (no missing entries)?"
+      ],
+      "failure_modes": [
+        "current_commit_sha lags the actual HEAD (cache lag — known issue, expected to clear)",
+        "AI connector reports a SHA different from what HS_FAST_REFRESH says (genuine drift — file a DCP)",
+        "Consistency checker reports errors (genuine drift — review the DCP-001 evidence pattern)",
+        "PUSHES_INDEX has a gap (admin sync missed a push)"
+      ]
+    },
+
+    {
+      "id": "P3",
+      "title": "CoDaWork 2026 package usability",
+      "objective": "From a phone or laptop, the tester can attend the talk virtually using just the CODA-Association folder.",
+      "applies_to": ["S-A", "S-C"],
+      "steps": [
+        {"action": "Open the attendee page", "path": "CODA-Association/CONFERENCE_ATTENDEES.md", "looking_for": "slide-by-slide layout, every slide links to its supporting evidence"},
+        {"action": "Open the handout", "path": "CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.pdf", "looking_for": "single page, QR code present, USA Solar 760× headline, 5-of-9 signature, contact line"},
+        {"action": "Open the projector", "path": "CODA-Association/CODAwork2026/data_outputs/codawork2026_projector.html", "looking_for": "loads offline; RADAR / BARY / ALIGN modes all functional; SHOCK overlay highlights Japan 2011→2012 and Germany 2013–2014 reorganisation"},
+        {"action": "Open the cinema scroll", "path": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_PremierDataOutput_2026-05-13.pdf", "looking_for": "325 pages; 9 country sections × 6 plates each; hash-chain present on the cover"},
+        {"action": "Open the manuscript", "path": "papers/codawork2026/manuscript/output/Compositional_Monitoring_2026.pdf", "looking_for": "Nature-structure with cover + TOC; six figures present including Fig 6 navigation chart; Supplementary Information accessible"}
+      ],
+      "feedback_questions": [
+        "Could you follow the talk slide-by-slide from CONFERENCE_ATTENDEES.md alone?",
+        "Did the projector load in your browser without any network call? (Disconnect from Wi-Fi to verify.)",
+        "Were all three projection modes responsive (RADAR / BARY / ALIGN), and did SHOCK highlight Japan 2011 → 2012?",
+        "Did the handout fit on one A4 page when you printed it?",
+        "Did the manuscript render cleanly, including Figure 6?"
+      ],
+      "failure_modes": [
+        "Projector tries to fetch external resources (would fail offline)",
+        "Manuscript Figure 6 fails to render (caption-table overlap fixed in push #52 — verify it stuck)",
+        "Handout overflows to page 2 (line-spacing tune in v8 should have closed this)",
+        "Slide count in attendee page disagrees with deck"
+      ]
+    },
+
+    {
+      "id": "P4",
+      "title": "Handbook and vocabulary lookup",
+      "objective": "When the tester encounters an unfamiliar term, the path to its definition is obvious and the definition is correct.",
+      "applies_to": ["S-A", "S-B", "S-D"],
+      "steps": [
+        {"action": "Open the canonical glossary", "path": "HCI-CNT/handbook/GLOSSARY.md", "looking_for": "v3.0 header; ~220 entries; 30 sections; merge note (push #54, 2026-05-19)"},
+        {"action": "Look up a foundational term", "expected": "PCA, SVD, eigenvalue, Spectral Theorem all have standalone entries in §1"},
+        {"action": "Look up a CoDa-native term", "expected": "CLR, ILR, Helmert basis, Aitchison geometry all have entries in §3"},
+        {"action": "Look up an Hs-specific term", "expected": "Helmsman, Power Share, Activation Coefficient, yeast factor, MC-1 through MC-4 all defined"},
+        {"action": "Verify the redirect stub", "path": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md", "expected": "81-line stub pointing to GLOSSARY.md v3.0; no v2.0 content lingering"},
+        {"action": "Open the abbreviations A-Z", "expected": "§28 of GLOSSARY contains CHSH, EITT, MORB, OIB, BTL, RWA, DADC, …"}
+      ],
+      "feedback_questions": [
+        "If you encountered 'Activation Coefficient' in the manuscript with no prior context, could you find its definition in under 30 seconds?",
+        "Are there any terms in the talk, projector, or handout that are NOT in the glossary? (List them — that's the priority gap.)",
+        "Does any glossary entry contradict the manuscript or speaker brief?",
+        "Did you find the redirect stub or did you end up reading the legacy v2.0 content by mistake?"
+      ],
+      "failure_modes": [
+        "Term used in manuscript but missing from glossary (file a gap for the next merge)",
+        "Glossary entry contradicts the engine's actual computation (file a high-priority DCP)",
+        "Notation stub still has v2.0 content (push #54 was supposed to fix; verify)"
+      ]
+    },
+
+    {
+      "id": "P5",
+      "title": "User data pipeline — the CCTT 7-phase walk-through",
+      "objective": "Researcher S-D arrives with their own CSV. Within one CCTT run, they have a hash-verifiable CNT JSON + Stage 1 plate + journal on that CSV.",
+      "applies_to": ["S-D"],
+      "prerequisites": [
+        "Python 3.10+ installed",
+        "Repo cloned: git clone https://github.com/PeterHiggins19/higgins-decomposition",
+        "pip install -r requirements.txt (or pip install . per pyproject.toml)",
+        "A CSV with: a time column (year, date, or ordered index) + 3–16 carrier columns that sum to a constant per row, OR raw counts that can be normalised to a composition"
+      ],
+      "steps": [
+        {"phase": "1 — Diagnose", "action": "Inspect the CSV", "expected": "User identifies: time column, carrier columns, units (percent / fraction / count / mass), expected closure"},
+        {"phase": "2 — Adapter (gate)", "action": "Match against the 13-adapter registry or build a one-file adapter", "looking_for": "ai-refresh/CCTT_QUICKSTART.md examples; experiments/2026-05-10_full-corpus-validation/ has 101 worked datasets", "user_confirms": "carrier-meaning mapping (column X means carrier Y)"},
+        {"phase": "3 — Run engine", "action": "python HCI-CNT/engine/cnt.py user_data.csv -o user_cnt.json", "expected": "schema 3.1.0 output with cnt_content_sha256; finishes in seconds for small CSV"},
+        {"phase": "4 — Choose outputs", "action": "Select Stage 1 (always) + any of Stage 2 / 3 / 4 / spectrum / projector based on data shape", "looking_for": "tools/MissionCommand or run_experiments.py for the multi-plate driver"},
+        {"phase": "5 — Render plates", "action": "Plate generator produces deterministic PDF/PNG/SVG", "expected": "vector output with embedded hash"},
+        {"phase": "6 — Self-verify (gate)", "action": "Re-run the engine; SHAs must match bit-for-bit", "looking_for": "REPRODUCIBILITY_CHECKLIST.md", "user_confirms": "ship / no-ship decision based on whether the result looks meaningful"},
+        {"phase": "7 — Present + journal", "action": "Write a JOURNAL.md describing the dataset, the carrier mapping, the headline finding, and any caveats", "expected": "the JOURNAL.md is what a reviewer would read first"}
+      ],
+      "feedback_questions": [
+        "How long did Phase 1 take (diagnosing the CSV)?",
+        "Did the 13-adapter registry have a near-match for your data, or did you need to build a new adapter?",
+        "Did cnt.py run without errors on first try? If not, what was the error message and was it actionable?",
+        "Was the Stage 1 plate readable to someone who hadn't seen it before?",
+        "Did the second engine run produce identical SHA-256 hashes?",
+        "If you wrote a JOURNAL.md, did the template/example you used come from inside the repo or did you have to invent it?",
+        "What was the single biggest friction point in the 7 phases?"
+      ],
+      "failure_modes": [
+        "Adapter registry doesn't cover an obvious common domain (file as a deferred adapter request)",
+        "cnt.py errors on edge cases (zeros, missing values, single-row, ragged time)",
+        "Stage 1 plate fails to render or is illegible at default size",
+        "SHA mismatch on second run (this would be a major issue — engine determinism is a doctrine)",
+        "User has no idea what to put in JOURNAL.md (missing template)"
+      ]
+    },
+
+    {
+      "id": "P6",
+      "title": "Reproducibility verification",
+      "objective": "Tester picks one published number from the manuscript or speaker brief and re-derives it from the repo.",
+      "applies_to": ["S-A", "S-D"],
+      "steps": [
+        {"action": "Choose a target number", "examples": ["USA Solar 2012→2013 Activation Coefficient ≈ 760×", "Germany monthly deceptive-drift p = 0.0016", "China PC1+PC2 variance captured = 99.0%"]},
+        {"action": "Locate the source CSV", "path": "data/ember/ or DATA/* per the input doctrine"},
+        {"action": "Locate the engine that produced it", "path": "HCI-CNT/engine/cnt.py v3.1.0 (conference corpus locked version)"},
+        {"action": "Re-run", "expected": "the exact same number emerges (within IEEE machine floor)"},
+        {"action": "Check the hash chain", "path": "REPRODUCIBILITY_CHECKLIST.md", "expected": "the chain from raw CSV → CNT JSON → plate → manuscript figure resolves end-to-end"}
+      ],
+      "feedback_questions": [
+        "Which number did you target?",
+        "Did your re-run produce the same number to IEEE-floor precision?",
+        "If not, what was the discrepancy magnitude and was it explainable (e.g., engine version drift, locale, BLAS)?",
+        "Could you trace every artefact in the chain back to a SHA-256?"
+      ],
+      "failure_modes": [
+        "Source CSV is referenced but not present in the repo (data licensing — should be documented)",
+        "Engine version used for publication ≠ engine version currently shipping (engine_version_policy in data_outputs/README addresses this; verify it's findable)",
+        "Re-run produces a meaningfully different number (genuine reproducibility failure — file as a DCP)"
+      ]
+    },
+
+    {
+      "id": "P7",
+      "title": "Feedback loop",
+      "objective": "Tester knows exactly how to report a confusion, bug, or suggestion back to the project.",
+      "applies_to": ["S-A", "S-B", "S-C", "S-D"],
+      "steps": [
+        {"action": "Find the contributing path", "path": "CONTRIBUTING.md, CODE_OF_CONDUCT.md"},
+        {"action": "Find the investigation catalog entry workflow", "path": "Hs/INVESTIGATION_CATALOG.md", "expected": "describes how a new INV entry is proposed; references CCTT and OPERATIONS_PROTOCOL"},
+        {"action": "Find the GitHub Issues route", "path": "github.com/PeterHiggins19/higgins-decomposition/issues", "expected": "issue templates or at least a README pointer"},
+        {"action": "Find the AI-assistant feedback route", "path": "ai-refresh/CROSS_AI_COORDINATION.md", "expected": "cross_check_archive append rule for AI-generated reviews"}
+      ],
+      "feedback_questions": [
+        "If you found a confusing passage in the manuscript, where would you report it?",
+        "If you found an engine bug, what's the right channel — GitHub Issue, INV catalog entry, or direct email?",
+        "If you're an AI assistant that produced a useful review, where does that review get archived?",
+        "Is the path from 'I spotted something' to 'it's now tracked' under three clicks?"
+      ],
+      "failure_modes": [
+        "No clear contribution path documented (community uptake will stall)",
+        "Investigation Catalog has high barrier to new entries (good — preserves rigor — but should be documented)",
+        "AI-assistant archive folder is hidden / undiscoverable"
+      ]
+    }
+  ],
+
+  "result_envelope": {
+    "_instructions": "Fill this in after completing as many phases as you can. Save as ai-refresh/cross_check_archive/community_test_<YYYY-MM-DD>_<your_id>.md",
+    "tester_id": "<name or platform identifier, e.g., 'gpt-5-thinking-github-connector' or 'community_member_A'>",
+    "tester_scenario": "<S-A | S-B | S-C | S-D | other>",
+    "test_date": "<YYYY-MM-DD>",
+    "execution_environment": "<ENV-0 sandboxed | ENV-1 local clone with python | ENV-2 local clone executing engine | ENV-3 web fetch only | ENV-4 AI connector | ENV-5 mobile browser>  — see CROSS_AI_COORDINATION.md §2",
+    "current_commit_sha_observed": "<the SHA you saw in HS_FAST_REFRESH.json at test time>",
+    "phase_results": {
+      "P1": {"status": "<pass | partial | fail>", "time_to_first_understanding_seconds": null, "notes": ""},
+      "P2": {"status": "", "sha_match": null, "checker_exit_code": null, "notes": ""},
+      "P3": {"status": "", "projector_loaded_offline": null, "handout_one_page": null, "notes": ""},
+      "P4": {"status": "", "terms_missing_from_glossary": [], "contradictions_found": [], "notes": ""},
+      "P5": {"status": "", "first_engine_run_succeeded": null, "shas_match_on_rerun": null, "biggest_friction": "", "notes": ""},
+      "P6": {"status": "", "target_number": "", "reproduced": null, "discrepancy": "", "notes": ""},
+      "P7": {"status": "", "feedback_route_clear": null, "notes": ""}
+    },
+    "overall_verdict": "<would recommend to a colleague | recommend with caveats | not yet ready>",
+    "blocking_issues": [
+      {"severity": "<high | medium | low>", "phase": "P<n>", "description": "", "suggested_fix": ""}
+    ],
+    "suggestions": [
+      ""
+    ],
+    "would_run_again": null
+  },
+
+  "promotion_targets": {
+    "p1_target": "<60 seconds to first understanding for S-A tester",
+    "p2_target": "0 SHA drift; consistency checker green",
+    "p3_target": "projector loads fully offline; handout fits 1 A4 page",
+    "p4_target": "0 manuscript-vs-glossary contradictions",
+    "p5_target": "first-run engine success rate >95% on well-formed compositional CSV",
+    "p6_target": "IEEE-floor reproducibility on at least one published number per tester",
+    "p7_target": "feedback route discoverable in <3 clicks"
+  },
+
+  "history": [
+    {
+      "date": "2026-05-20",
+      "event": "Packet v1.0 drafted by Claude (Cowork session) at Peter's request. Sibling to CLAIM_TEST_PACKET v0.x. STAGED — awaiting first two independent tester completions before promotion to CANONICAL."
+    }
+  ]
+}

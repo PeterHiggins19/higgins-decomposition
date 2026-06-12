@@ -1,0 +1,59 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  NUCLEAR_SEMF_COMPOSI
+  System:      Nuclear SEMF Binding
+  Domain:      NUCLEAR
+  Carriers:    B_volume, B_surface, B_coulomb, B_asymmetry, B_pairing
+  N=118, D=5
+  Source:      LOCAL FILE
+  Description: Ingested from nuclear_semf_composition.csv
+  Pipeline:    1.0 Extended
+  Data hash:   8f2f5fd2126ab09e
+  Timestamp:   2026-04-30T20:19:42.580852Z
+
+
+Total codes: 57
+  Errors:       0
+  Warnings:     1
+  Discoveries: 20
+  Calibration signals: 1
+  Structural modes:  4
+  Information:  31
+
+── WARNINGS ──
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000041)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000041)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (102)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (9)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (93)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.324401, drift_direction=decreasing, max_shift_carrier=B_surface)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=B_surface->B_coulomb, te=0.620323)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(B_volume/B_coulomb), cv=66.041663)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(B_surface/B_coulomb), cv=376.423867)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(B_surface/B_asymmetry), cv=74.230907)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(B_coulomb/B_asymmetry), cv=87.940760)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(B_asymmetry/B_pairing), cv=56.749603)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=118, near_zero_carriers=['B_coulomb', 'B_asymmetry', 'B_pairing'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=1055.077459)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.987556, alpha=-0.540680)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=1, best={'ratio': 'λ2/λ1', 'value': 0.1547500687683451, 'constant': '1/(2pi)', 'delta': 0.004404874323550245})
+  [MX-QHI-DIS] MX-QHI-DIS (Q=17.565776)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

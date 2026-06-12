@@ -1,0 +1,315 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "HS-23_DECAY_COMPOSIT",
+  "name": "Nuclear Decay Chains",
+  "domain": "NUCLEAR",
+  "carriers": [
+    "Particle_KE",
+    "Gamma",
+    "Recoil",
+    "Neutrino"
+  ],
+  "D": 4,
+  "N": 39,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from Hs-23_decay_compositions.csv"
+  },
+  "data_hash_sha256_16": "376978271edd5633",
+  "run_timestamp": "2026-04-30T21:13:52.957940Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "HS-23_DECAY_COMPOSIT: Nuclear Decay Chains: 4-part simplex, carriers=['Particle_KE', 'Gamma', 'Recoil', 'Neutrino']",
+    "step2_n_samples": 39,
+    "step2_D": 4,
+    "step2_carriers": [
+      "Particle_KE",
+      "Gamma",
+      "Recoil",
+      "Neutrino"
+    ],
+    "data_hash_sha256_16": "376978271edd5633",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      4.385405926126884,
+      0.7885033529505358,
+      -1.6801919594824029,
+      -3.4937173195950173
+    ],
+    "step4_clr_std_per_part": [
+      2.165297313853684,
+      1.9946134432734683,
+      4.198642895916414,
+      5.218967875912951
+    ],
+    "step5_sigma2_range": [
+      28.217570203731718,
+      58.4058840195479
+    ],
+    "step5_sigma2_final": 53.53322310270993,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.8632686181130379,
+      "eigenvalues_final": [
+        47.42969762393476,
+        5.135745229973229,
+        2.3765492778206205,
+        1.8301978098994057e-15
+      ],
+      "eigenvector_overlap": 0.9143754543323396,
+      "condition_number": 2.5915066320914056e+16,
+      "von_neumann_entropy": 0.48431817269350685,
+      "von_neumann_ratio": 0.3493617129786635,
+      "commutator_norm": 0.463187213976401,
+      "det_V": -2.056652223122619e-12,
+      "det_amgm_ratio": -5.77807553781795e-17,
+      "cholesky_last_diag": 1.997422704710488e-06,
+      "eigenvalue_power_law_alpha": 0.0854795494578856,
+      "eigenvalue_power_law_R2": 0.2749115249102472,
+      "eigenvalue_ratio_matches": 2,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb3/\u03bb1",
+        "value": 0.050106776911462474,
+        "constant": "1/(pi^e)",
+        "delta": 0.005581509644539559
+      },
+      "gamma": 0.36977206747801017,
+      "VSWR": 2.173455026019838,
+      "Q_factor": 4.48864018003466,
+      "trace_final": 54.94199213172861,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      -0.053066480892152296,
+      2.654378063930184,
+      23.076721568983427
+    ],
+    "step6_pll_R2": 0.778855292792712,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      25.00993112134863,
+      56.269627843439736
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 5,
+    "step7_squeeze_closest": {
+      "time_index": 7,
+      "sigma2_A": 28.217570203731718,
+      "constant": "1/(e^pi)",
+      "constant_value": 0.04321391826377226,
+      "test_type": "reciprocal",
+      "test_value": 0.03543891244993702,
+      "delta": 0.007775005813835237
+    },
+    "step7_squeeze_mean": 48.88811166902083,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.06645725254311749,
+      0.8499402536090762
+    ],
+    "step8_entropy_mean": 0.33661865696509047,
+    "step8_entropy_cv": 86.95492681637182,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.34366829709019975,
+        "H_mean_decimated": 0.23174205723976596,
+        "variation_pct": 32.568101508955145,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.3289784635747856,
+        "H_mean_decimated": 0.1677769907762952,
+        "variation_pct": 49.00061573843571,
+        "pass": false
+      },
+      "compression_8x": {
+        "H_mean_original": 0.32867614220839203,
+        "H_mean_decimated": 0.1266298666119432,
+        "variation_pct": 61.47275376876746,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 38,
+      "stalls": 6,
+      "spikes": 0,
+      "reversals": 32
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.20870452979468576,
+      0.6774771281902807
+    ],
+    "step11_complex_range_im": [
+      -0.009196964099135898,
+      0.06282081067151035
+    ],
+    "step12_radius_range": [
+      0.08805575415870379,
+      0.6775395500948379
+    ],
+    "step12_theta_range": [
+      -3.1410556716844558,
+      3.127606239887679
+    ],
+    "step9_angular_velocity_std": 2.121458149633212
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          4.68851245738198,
+          3.9784827880872413,
+          17.628602167429374,
+          27.23762568981134
+        ],
+        "carrier_pct": [
+          8.758135949308533,
+          7.431801332891993,
+          32.93020884172578,
+          50.879853876073696
+        ],
+        "dominant_carrier": "Neutrino",
+        "dominant_pct": 50.879853876073696
+      },
+      "match_density": {
+        "density": 0.08892694961731094,
+        "concentration": 0.52,
+        "total_matches": 5,
+        "n_constants_hit": 2,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 56.2259250038042
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            12.144268091375144,
+            9.912951162521907,
+            50.23005367834081
+          ],
+          [
+            12.144268091375144,
+            0.0,
+            29.59194729498742,
+            27.710938868696342
+          ],
+          [
+            9.912951162521907,
+            29.59194729498742,
+            0.0,
+            84.54273331491814
+          ],
+          [
+            50.23005367834081,
+            27.710938868696342,
+            84.54273331491814,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          4.385405926126884,
+          0.7885033529505358,
+          -1.6801919594824029,
+          -3.4937173195950173
+        ],
+        "clr_stds": [
+          2.165297313853684,
+          1.9946134432734683,
+          4.198642895916414,
+          5.218967875912951
+        ],
+        "aitchison_distance_mean": 8.768063820672523
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.8773966948864554,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Gamma",
+        "max_shift_magnitude": 0.027099172211650785
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.778855292792712,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Recoil",
+        "sources": [
+          "Particle_KE",
+          "Gamma"
+        ],
+        "I_source1_target": 1.9093087818226488,
+        "I_source2_target": 1.8508896891248952,
+        "redundancy": 1.8508896891248952,
+        "unique_source1": 0.058419092697753694,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 53.53322310270993,
+        "shuffled_sigma2": 53.53322310270994,
+        "order_matters": false,
+        "relative_difference": 1.327293023991547e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 38,
+        "near_zero_carriers": [
+          "Gamma",
+          "Recoil",
+          "Neutrino"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Particle_KE/Gamma)": {
+            "mean": 3.5969025731763486,
+            "std": 3.4848627076794783,
+            "cv": 96.88510146667858
+          },
+          "ln(Particle_KE/Recoil)": {
+            "mean": 6.065597885609286,
+            "std": 3.1484839466832137,
+            "cv": 51.90723167048438
+          },
+          "ln(Particle_KE/Neutrino)": {
+            "mean": 7.879123245721903,
+            "std": 7.087316394682885,
+            "cv": 89.95057157572776
+          },
+          "ln(Gamma/Recoil)": {
+            "mean": 2.468695312432939,
+            "std": 5.4398480948448755,
+            "cv": 220.35315850637792
+          },
+          "ln(Gamma/Neutrino)": {
+            "mean": 4.282220672545553,
+            "std": 5.26411805231383,
+            "cv": 122.92963055508746
+          },
+          "ln(Recoil/Neutrino)": {
+            "mean": 1.8135253601126151,
+            "std": 9.194712247532173,
+            "cv": 507.00764653002733
+          }
+        },
+        "most_stable": "ln(Particle_KE/Recoil)",
+        "least_stable": "ln(Recoil/Neutrino)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

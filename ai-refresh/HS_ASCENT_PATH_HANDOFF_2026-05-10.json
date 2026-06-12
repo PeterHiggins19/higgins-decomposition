@@ -1,0 +1,428 @@
+{
+  "_meta": {
+    "type": "claude_handoff_packet",
+    "status": "STAGED for post-conference adoption (per the doctrine's own Phase 5 + Phase 6 staging rule)",
+    "promotion_window": "post-conference 2026-06-06 onward",
+    "filed_in_push": "#41 (HOLD)",
+    "filed_2026-05-10": "Saved verbatim per Peter's request: 'please prepare a complete json for Claude that encompasses the conversations and detail the Hs Ascent Path, suggested trajectory.'",
+    "originator": "ChatGPT session 2 (2026-05-10) using the narrowed re-prompt template from push #40 INDEX",
+    "catalog_entry": "INV-054 (CANONICAL doctrine; STAGED adoption)",
+    "do_not_ripple_yet": "Per the JSON's own Phase 5 ('Use the ascent architecture to keep the conference front door clean. Avoid overloading the talk with full governance or AI-refresh internals'). No new files like HS_ASCENT_PATH.md, CLAIMS_REGISTER.md, PROMOTION_LOG.md should be created before 2026-06-06."
+  },
+  "handoff_type": "claude_context_packet",
+  "title": "Hˢ Ascent Path and Controlled Growth Trajectory",
+  "date_prepared": "2026-05-11",
+  "prepared_for": "Claude",
+  "prepared_from": "Conversation with Peter about staged repo depth, controlled revision, learning path, governance, compositional analysis, and future trajectory",
+  "primary_goal": "Help Peter develop a coherent staged-ascent architecture for the Hˢ repository, so user learning, engine capabilities, documentation depth, governance, and project revision all advance together in controlled stages.",
+  "tone_to_preserve": {
+    "address_user_as": "Peter",
+    "preferred_style": "strategic, constructive, systems-level, clear, practical, affirming",
+    "avoid": [
+      "Treating the repo as merely a codebase",
+      "Flattening governance and compositional analysis into separate unrelated topics",
+      "Overloading first-time users with the full conceptual stack",
+      "Using dungeon or descent metaphors",
+      "Making the project feel obscure, ominous, or inaccessible"
+    ],
+    "preferred_metaphor": "ascent",
+    "key_phrase": "Start at the ground. Ascend as needed.",
+    "alternate_key_phrase": "Use the surface. Ascend when the question requires more structure."
+  },
+  "conversation_summary": {
+    "prior_review_topics": [
+      "Review of a 15-minute CoDaWork 2026 conference talk based only on three specified planning files",
+      "Review of the AI refresh chain as a governance and continuity system",
+      "Assessment of the project arc, upcoming conference, and future value for science and industry",
+      "Proposal for controlled growth and revision through staged authority, promotion packets, and claim registers",
+      "Revision of the metaphor from descend-only-as-needed to ascend-as-needed",
+      "Development of the Hˢ Ascent Path as a staged learning and capability model"
+    ],
+    "important_user_preferences": [
+      "Peter likes staged depth in the repo",
+      "Peter wants positive upward language rather than descent or dungeon imagery",
+      "Peter sees governance and compositional analysis as interwoven because they spawned from the same roots",
+      "Peter wants simultaneous growth and revision controlled without freezing discovery",
+      "Peter wants user learning, engine capabilities, and documentation to advance together",
+      "Peter sees the engine itself as already somewhat progressive or staged",
+      "Peter wants the repo to be literally staged from the ground up"
+    ],
+    "major_strategic_conclusion": "The project should not separate governance from compositional analysis. Instead, it should stage them together through an ascent model where users begin with practical use and climb toward method, evidence, provenance, AI assistance, integration, and canon stewardship only when their work requires it."
+  },
+  "core_thesis": {
+    "short_form": "Hˢ should be staged for ascent.",
+    "long_form": "The repository should guide users from ground-level recognition of compositional data to progressively higher capabilities: running an analysis, interpreting results, understanding simplex movement, comparing evidence, governing reproducibility, using AI safely, extending domains, integrating into larger systems, and contributing to canon.",
+    "why_it_matters": "The repo has grown through continuous discovery. Without staged ascent, every refinement ripples through README, glossary, appendix, conference framing, AI refresh, governance protocol, and user docs. The ascent model allows discovery to continue while revision is promoted through deliberate gates."
+  },
+  "project_identity": {
+    "short_description": "Hˢ is a compositional analysis and governance project that makes finite-system change operational, reproducible, and auditable.",
+    "science_value": "It provides reproducible compositional instrumentation for systems where internal proportions matter more than totals.",
+    "industry_value": "It turns mix change into a measurable and auditable event across finite-share systems such as energy portfolios, budgets, supplier allocations, product mix, defect categories, materials fractions, and case mix.",
+    "governance_value": "It gives users, reviewers, and AI assistants controlled gates for authority, provenance, reproducibility, claim strength, and revision.",
+    "unifying_root": "Finite constrained change requires accountable attribution."
+  },
+  "ascent_metaphor": {
+    "rejected_language": [
+      "descend only as needed",
+      "deep dive into a dungeon",
+      "hidden complexity below the surface"
+    ],
+    "preferred_language": [
+      "ascend as needed",
+      "staged ascent",
+      "ground-up learning",
+      "climb toward method, evidence, governance, and roots",
+      "the front door is practical; higher layers explain why it holds"
+    ],
+    "suggested_repo_sentence": "This repository is staged for ascent: start with use, climb toward method, evidence, governance, and roots only as your question demands.",
+    "suggested_short_slogan": "Start at the ground. Ascend as needed.",
+    "suggested_subtitle": "From first composition to governed instrument."
+  },
+  "ascent_path": {
+    "recommended_file_name": "docs/HS_ASCENT_PATH.md",
+    "recommended_title": "Hˢ Ascent Path",
+    "recommended_subtitle": "From First Composition to Governed Instrument",
+    "opening_text": "Hˢ is staged for ascent. Begin at the ground layer: recognize a composition and run one dataset. Ascend only when your question requires more power: interpretation, geometry, reference comparison, provenance, AI assistance, integration, or canon revision. Each ascent level gives three things: a user ability, an engine capability, and a documentation depth. You do not need the summit to use the instrument. You climb when the work asks for it.",
+    "levels": [
+      {
+        "level": 0,
+        "name": "Ground",
+        "theme": "Recognize a composition",
+        "user_ability": "The user can identify whether their dataset is compositional.",
+        "engine_capability_exposed": "Data diagnosis only.",
+        "documentation_depth": "A short page explaining rows, carriers, labels, closure, percentages, fractions, shares, and finite wholes.",
+        "gate": "The user can distinguish carriers from labels and confirm that the data describes parts of a whole.",
+        "claim_discipline": "No advanced claims. Only determine whether the data belongs in the instrument."
+      },
+      {
+        "level": 1,
+        "name": "First Ascent",
+        "theme": "Run and receive",
+        "user_ability": "The user can get a valid first result from a dataset.",
+        "engine_capability_exposed": "CCTT phases for diagnosing data, selecting or generating an adapter, and running the engine.",
+        "documentation_depth": "CCTT Quickstart and first-run instructions.",
+        "gate": "Carrier mapping is confirmed by the user before analysis is accepted.",
+        "claim_discipline": "The result is a first valid compositional read, not a broad scientific claim."
+      },
+      {
+        "level": 2,
+        "name": "Report Reading",
+        "theme": "Read the first page",
+        "user_ability": "The user can interpret the basic report without understanding the full method stack.",
+        "engine_capability_exposed": "Stage 1 output.",
+        "documentation_depth": "A guide titled something like Reading a Stage 1 Report.",
+        "gate": "The user can summarize what changed without inventing claims beyond the report.",
+        "claim_discipline": "Interpretation must remain inside what the engine output supports."
+      },
+      {
+        "level": 3,
+        "name": "Simplex Movement",
+        "theme": "Understand movement on the simplex",
+        "user_ability": "The user understands why raw differences are not enough for closed compositions.",
+        "engine_capability_exposed": "Stage 2 and Stage 3 outputs when the data supports temporal or structural interpretation.",
+        "documentation_depth": "Closure, Aitchison geometry, carrier redistribution, trajectory shape, and why gains imply losses elsewhere.",
+        "gate": "The user can distinguish raw magnitude change from compositional redistribution.",
+        "claim_discipline": "Geometry enters only when needed; it should not burden first-time users."
+      },
+      {
+        "level": 4,
+        "name": "Evidence Comparison",
+        "theme": "Compare against known structure",
+        "user_ability": "The user can compare their result to reference examples, known patterns, prior runs, or named findings.",
+        "engine_capability_exposed": "Reference comparisons, fingerprints, corpus matching, or replay against known examples.",
+        "documentation_depth": "Experiments journal, reference corpus guide, worked examples, and named findings.",
+        "gate": "The user can classify the result as known, new, similar, unstable, or out of scope.",
+        "claim_discipline": "Comparison does not automatically promote a result to canon."
+      },
+      {
+        "level": 5,
+        "name": "Governed Result",
+        "theme": "Make the result auditable",
+        "user_ability": "The user can explain what was run, on what data, with what adapter, under what version, and with what reproducibility evidence.",
+        "engine_capability_exposed": "Schema validation, source hash, rerun hash, output hash, journal, and verification checks.",
+        "documentation_depth": "Operations Protocol, CCTT Runbook, hash-manifest rules, and reproducibility notes.",
+        "gate": "The user can prove or document reproducibility and provenance.",
+        "claim_discipline": "A governed result is stronger than a run result because it has receipts."
+      },
+      {
+        "level": 6,
+        "name": "AI-Assisted Operation",
+        "theme": "Use AI safely",
+        "user_ability": "The user can use an AI assistant while preserving human authority.",
+        "engine_capability_exposed": "Same protocol, same gates, same hashes; AI may execute but not govern.",
+        "documentation_depth": "AI-assisted CCTT guide, AI refresh rules, grounding tests, and human-confirmation doctrine.",
+        "gate": "The user can identify which decisions must not be outsourced to the AI.",
+        "claim_discipline": "AI fluency is not authority. The AI must pass grounding and operate inside the same gates."
+      },
+      {
+        "level": 7,
+        "name": "Domain Extension",
+        "theme": "Bring a new domain into the instrument",
+        "user_ability": "The user can adapt Hˢ to a new compositional domain.",
+        "engine_capability_exposed": "Adapter generation, corpus comparison, staged reporting, and result packaging.",
+        "documentation_depth": "Adapter guide, domain-example guide, promotion packet template, and claims register.",
+        "gate": "The user decides whether the result remains a one-off example or deserves promotion into references, examples, or public claims.",
+        "claim_discipline": "New domain use does not automatically become a general method claim."
+      },
+      {
+        "level": 8,
+        "name": "System Integration",
+        "theme": "Build with the instrument",
+        "user_ability": "The user can embed Hˢ as a component in a larger workflow, research process, governance system, or industrial monitor.",
+        "engine_capability_exposed": "Controller, events, audit trail, monitoring outputs, and governed operation.",
+        "documentation_depth": "Architecture overview, platform guide, applications guide, and integration patterns.",
+        "gate": "The user can define whether Hˢ is acting as monitor, classifier, early-warning instrument, audit layer, governance layer, or analysis engine.",
+        "claim_discipline": "Integration should preserve the instrument boundary and not blur evidence, governance, and automation."
+      },
+      {
+        "level": 9,
+        "name": "Canon Stewardship",
+        "theme": "Contribute to canon",
+        "user_ability": "The user can propose changes without destabilizing the project.",
+        "engine_capability_exposed": "Regression checks, reference corpus, authority stack, reproducibility tests, and canon-update workflow.",
+        "documentation_depth": "Claims Register, Glossary Canon, Promotion Log, Operations Protocol, and Root Change Note template.",
+        "gate": "The contribution is classified as leaf, branch, trunk, or root before it alters canonical files.",
+        "claim_discipline": "Canon changes require promotion, not ripple."
+      }
+    ]
+  },
+  "ascent_table_summary": [
+    {"ascent": "Ground", "user_can_now": "Recognize a composition", "engine_exposes": "Data diagnosis", "docs_give": "Is my data compositional?", "gate": "Carriers versus labels confirmed"},
+    {"ascent": "1", "user_can_now": "Run first analysis", "engine_exposes": "CCTT phases 1 to 3", "docs_give": "Quickstart", "gate": "Carrier mapping confirmed"},
+    {"ascent": "2", "user_can_now": "Read basic result", "engine_exposes": "Stage 1", "docs_give": "Report reading guide", "gate": "No overclaim"},
+    {"ascent": "3", "user_can_now": "Understand movement", "engine_exposes": "Stage 2 and Stage 3", "docs_give": "Simplex and trajectory guide", "gate": "Raw versus compositional change distinguished"},
+    {"ascent": "4", "user_can_now": "Compare structure", "engine_exposes": "Fingerprints and reference corpus", "docs_give": "Examples and experiments journal", "gate": "Known, new, similar, or out-of-scope classified"},
+    {"ascent": "5", "user_can_now": "Govern result", "engine_exposes": "Hashes, schema, rerun, journal", "docs_give": "Operations Protocol", "gate": "Reproducibility proof"},
+    {"ascent": "6", "user_can_now": "Use AI safely", "engine_exposes": "Same protocol with AI as executor", "docs_give": "AI-mode guide", "gate": "User authority preserved"},
+    {"ascent": "7", "user_can_now": "Extend domain", "engine_exposes": "Adapters and corpus comparison", "docs_give": "Adapter and promotion docs", "gate": "One-off versus promoted classified"},
+    {"ascent": "8", "user_can_now": "Integrate system", "engine_exposes": "Controller and governance layer", "docs_give": "Architecture and platform guides", "gate": "Role in larger system declared"},
+    {"ascent": "9", "user_can_now": "Change canon", "engine_exposes": "Regression and authority stack", "docs_give": "Claims, glossary, promotion log", "gate": "Leaf, branch, trunk, or root classification"}
+  ],
+  "controlled_growth_model": {
+    "central_rule": "Discovery may be simultaneous. Revision must be staged.",
+    "supporting_rule": "No ripple without a packet.",
+    "tree_layers": {
+      "leaf": {
+        "meaning": "Examples, slides, notes, named findings, dated refreshes, discussion drafts, appendix expansions.",
+        "change_policy": "May grow freely. Does not automatically alter public canon."
+      },
+      "branch": {
+        "meaning": "Applications, venue-specific work, conference materials, industry examples, domain adapters, case studies.",
+        "change_policy": "May consolidate from leaves. Should not casually rewrite trunk."
+      },
+      "trunk": {
+        "meaning": "Canonical instruments and doctrines such as Hˢ identity, CNT and CNQ distinction, CCTT workflow, operations protocol, claim-strength rules, canonical glossary, AI refresh authority stack.",
+        "change_policy": "Requires deliberate promotion and downstream review."
+      },
+      "root": {
+        "meaning": "Foundational concepts generating the project, such as finite systems, closure, compositional change, carrier-level attribution, governance as controlled transformation, human authority over AI assistance, and reproducibility.",
+        "change_policy": "Changes rarely and requires doctrine review."
+      }
+    },
+    "promotion_packet_template": {
+      "discovery": "What changed?",
+      "origin": "Where did this arise: talk prep, experiment, reviewer comment, AI refresh, appendix, user run, or other source?",
+      "affected_layer": "Leaf, branch, trunk, or root",
+      "claim_strength": "Observation, working claim, conference claim, public claim, or canon claim",
+      "downstream_targets": "Which files should eventually be updated?",
+      "do_not_update": "Which files should not change yet?",
+      "decision": "Promote, hold, archive, or reject"
+    },
+    "root_change_note_template": {
+      "old_root": "Prior root concept or doctrine",
+      "new_root": "Proposed replacement or expansion",
+      "reason": "Why the change is needed",
+      "evidence": "What supports the change",
+      "branches_affected": "Which branches must adapt",
+      "files_requiring_revision": "Which canonical files must change",
+      "files_explicitly_not_revised_yet": "Which files remain stable for now",
+      "migration_wording": "How to explain the change without confusing users"
+    }
+  },
+  "recommended_canonical_files_post_conference": [
+    {"file": "STAGED_ASCENT_MAP.md", "purpose": "Explains the repo layers, user entrances, and ascent paths without explaining the entire project."},
+    {"file": "docs/HS_ASCENT_PATH.md", "purpose": "Primary user-facing staged learning path from first composition to governed instrument."},
+    {"file": "CLAIMS_REGISTER.md", "purpose": "Controls claim status, wording, scope, dependencies, and allowed or forbidden phrasing."},
+    {"file": "GLOSSARY_CANON.md", "purpose": "Controls canonical vocabulary and prevents terminology drift."},
+    {"file": "PROMOTION_LOG.md", "purpose": "Records discoveries promoted from leaf to branch, trunk, or root."},
+    {"file": "PROMOTION_PACKET_TEMPLATE.md", "purpose": "Gives a standard form for evaluating whether a discovery should ripple into canon."},
+    {"file": "OPERATIONS_PROTOCOL.md", "purpose": "Already exists; preserved as-is."},
+    {"file": "HS_FAST_REFRESH.json", "purpose": "Already exists; preserved as-is."}
+  ],
+  "claims_register_example": [
+    {
+      "claim_id": "CLAIM-CODA-001",
+      "name": "TV and Aitchison verdict agreement",
+      "status": "Conference finding",
+      "scope": "9-country EMBER annual corpus under the current verdict rule",
+      "allowed_wording": "Agreement across the tested TV/Aitchison pair",
+      "forbidden_wording": "Metric invariant across all valid simplex distances",
+      "depends_on": "Named finding and relevant investigation record",
+      "public_facing": true
+    },
+    {
+      "claim_id": "CLAIM-GOV-001",
+      "name": "Human confirmation gate",
+      "status": "Governance canon",
+      "scope": "AI-assisted operations and release flow",
+      "allowed_wording": "AI may assist execution; user confirms authority gates",
+      "forbidden_wording": "AI autonomously governs the workflow",
+      "depends_on": "Operations Protocol",
+      "public_facing": true
+    }
+  ],
+  "documentation_faces": {
+    "public_face": {
+      "audience": "Visitors, first-time users, reviewers, non-specialists, industry evaluators",
+      "purpose": "What is this and why should I care?",
+      "style": "Practical, low-friction, minimal terminology",
+      "avoid": "AI refresh internals, excessive root doctrine, full project mythology"
+    },
+    "expert_face": {
+      "audience": "CoDa users, scientific reviewers, technical users, domain experts",
+      "purpose": "How does the method work, what are the claims, and how can I reproduce or challenge them?",
+      "style": "Precise, scoped, evidence-aware, citation-ready",
+      "include": "Method, evidence, named findings, defeat paths, reproducibility"
+    },
+    "machine_face": {
+      "audience": "AI assistants, reproducibility workflows, future automated helpers",
+      "purpose": "What must be loaded, what is canonical, what is forbidden, and what gates must be obeyed?",
+      "style": "Strict, explicit, machine-readable, authority-aware",
+      "include": "Fast refresh, manifests, canonical terms, grounding tests, hashes, gates"
+    }
+  },
+  "suggested_repo_trajectory": {
+    "phase_1": {
+      "name": "Stabilize the metaphor",
+      "goal": "Adopt ascent language across the repo without restructuring everything at once.",
+      "actions": [
+        "Replace descent or depth-only phrasing with ascent phrasing where user-facing",
+        "Introduce the phrase Start at the ground. Ascend as needed.",
+        "Keep depth as structure but use ascent as movement"
+      ],
+      "risk_to_avoid": "Cosmetic renaming without changing user navigation"
+    },
+    "phase_2": {
+      "name": "Create the Ascent Path front door",
+      "goal": "Give users a clear staged capability ladder.",
+      "actions": [
+        "Create docs/HS_ASCENT_PATH.md",
+        "Preserve the older learning path as historical or legacy if needed",
+        "Add a short README pointer for new users, dataset users, reviewers, AI users, and contributors"
+      ],
+      "risk_to_avoid": "Making the new path too long or too theoretical"
+    },
+    "phase_3": {
+      "name": "Align engine stages with documentation stages",
+      "goal": "Make the engine's progressive outputs correspond to user learning levels.",
+      "actions": [
+        "Map Stage 1 output to Ascent 2",
+        "Map temporal and structural outputs to Ascent 3",
+        "Map reference comparison to Ascent 4",
+        "Map hashes and self-verification to Ascent 5",
+        "Map AI-assisted operation to Ascent 6"
+      ],
+      "risk_to_avoid": "Showing deeper outputs before the user has the interpretive ability to read them"
+    },
+    "phase_4": {
+      "name": "Install controlled revision flow",
+      "goal": "Prevent every discovery from rippling through all documents immediately.",
+      "actions": [
+        "Create a promotion packet template",
+        "Create or formalize a claims register",
+        "Create a promotion log",
+        "Classify changes as leaf, branch, trunk, or root"
+      ],
+      "risk_to_avoid": "Letting promotion bureaucracy slow discovery itself"
+    },
+    "phase_5": {
+      "name": "Prepare the CoDaWork bridge",
+      "goal": "Use the ascent architecture to keep the conference front door clean.",
+      "actions": [
+        "Keep CoDaWork talk at the method and evidence layers",
+        "Avoid overloading the talk with full governance or AI-refresh internals",
+        "Use named findings, caveats, and defeat paths as the evidence layer",
+        "Let deeper governance appear only if asked"
+      ],
+      "risk_to_avoid": "Trying to present the entire repo arc in a 15-minute talk"
+    },
+    "phase_6": {
+      "name": "Post-conference adoption layer",
+      "goal": "Make the repo useful for future scientific and industry users.",
+      "actions": [
+        "Provide a dataset-user path",
+        "Provide a reviewer path",
+        "Provide an industry-monitor path",
+        "Provide an AI-assisted path",
+        "Provide a contributor or canon-stewardship path"
+      ],
+      "risk_to_avoid": "Assuming all future users are CoDa specialists"
+    }
+  },
+  "conference_context": {
+    "conference": "CoDaWork 2026",
+    "recommended_posture": "Enter through the accepted abstract and standard CoDa framing, not through the entire Hˢ mythology.",
+    "talk_strategy": "Present the energy-mix drift result, name the empirical findings, visibly caveat null-model limits, and invite defeat paths from the CoDa audience.",
+    "what_to_avoid": [
+      "Trying to prove the whole framework",
+      "Overclaiming metric invariance",
+      "Presenting governance as the lead claim",
+      "Overloading a 15-minute talk with repo architecture"
+    ],
+    "bridge_sentence": "The conference talk is an ascent waypoint, not the summit."
+  },
+  "future_user_value": {
+    "science": [
+      "Reproducible compositional instrumentation",
+      "Named and scoped findings",
+      "Auditable outputs",
+      "Defeat paths and claim discipline",
+      "A way to reproduce and challenge proportional-change claims"
+    ],
+    "industry": [
+      "Practical monitoring of finite-share systems",
+      "Mix-change detection",
+      "Carrier-level attribution",
+      "Governed AI-assisted workflows",
+      "Hash-backed reproducibility and audit trails"
+    ],
+    "shared_value": "Bring a compositional dataset. Confirm the carrier mapping. Run the instrument. Keep the receipts."
+  },
+  "principles_to_preserve": [
+    "Capabilities ascend together.",
+    "The user should not be shown more math than their current action requires.",
+    "The engine should not expose deeper interpretation until the data supports it.",
+    "Documentation should not force canon, history, and governance into the first encounter.",
+    "AI assistants should not skip the ascent just because they can read fast.",
+    "Revisions should promote upward only through gates.",
+    "Historical files explain how the project got here. Canon files say where the project is now.",
+    "Discovery grows outward. Canon changes inward. Publication flows downward. History flows backward.",
+    "Not all discoveries are claims. Not all claims are public. Not all public claims are root doctrine."
+  ],
+  "recommended_response_from_claude": {
+    "task": "Continue developing the Hˢ Ascent Path and controlled-growth architecture.",
+    "should_do": [
+      "Affirm the ascent metaphor",
+      "Refine the staged capability ladder",
+      "Suggest concrete file structures and front-door wording",
+      "Keep governance and compositional analysis interwoven but typed",
+      "Help Peter control simultaneous growth without suppressing discovery",
+      "Use Peter's preferred positive upward framing"
+    ],
+    "should_not_do": [
+      "Suggest repository code changes unless explicitly asked",
+      "Audit unrelated repository internals",
+      "Treat the project as only a software package",
+      "Collapse the governance layer into generic project management",
+      "Use descent, dungeon, buried, or hidden-depth metaphors as the primary framing"
+    ]
+  },
+  "possible_next_artifact": {
+    "filename": "docs/HS_ASCENT_PATH.md",
+    "type": "markdown",
+    "purpose": "A user-facing staged ascent guide aligning user ability, engine capability, and documentation depth.",
+    "opening_heading": "Hˢ Ascent Path",
+    "opening_subheading": "From First Composition to Governed Instrument",
+    "first_sentence": "Hˢ is staged for ascent: start at the ground, run what you need, and climb toward method, evidence, provenance, AI assistance, integration, and canon only as your question requires."
+  }
+}

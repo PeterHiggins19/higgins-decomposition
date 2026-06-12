@@ -1,0 +1,267 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-07",
+    "name": "QCD Quark Compositions",
+    "domain": "QCD",
+    "legacy": "EXP-07",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "PDG values (derived)",
+    "data_file": "",
+    "data_hash": "b97ef3c24224e6bd",
+    "N": 20,
+    "D": 3,
+    "carriers": [
+      "u-type",
+      "d-type",
+      "s/heavy"
+    ],
+    "elapsed_seconds": 0.0026,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-07",
+    "name": "QCD Quark Compositions",
+    "domain": "QCD",
+    "carriers": [
+      "u-type",
+      "d-type",
+      "s/heavy"
+    ],
+    "D": 3,
+    "N": 20,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "b97ef3c24224e6bd",
+    "run_timestamp": "2026-04-28T21:15:17.984911Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-07: QCD Quark Compositions: 3-part simplex, carriers=['u-type', 'd-type', 's/heavy']",
+      "step2_n_samples": 20,
+      "step2_D": 3,
+      "step2_carriers": [
+        "u-type",
+        "d-type",
+        "s/heavy"
+      ],
+      "data_hash_sha256_16": "b97ef3c24224e6bd",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        -0.0917355782242221,
+        -0.19945055485518143,
+        0.29118613307940355
+      ],
+      "step4_clr_std_per_part": [
+        1.5604958540870646,
+        1.5441612233264235,
+        1.8106674157091929
+      ],
+      "step5_sigma2_range": [
+        8.098097684558882,
+        14.580713874765788
+      ],
+      "step5_sigma2_final": 8.098097684558882,
+      "step6_pll_coeffs": [
+        -0.04643002257608781,
+        0.730067678365918,
+        10.12544441474008
+      ],
+      "step6_pll_R2": 0.8072730923668285,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        7.862021574181985,
+        12.995348333702982
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 0,
+      "step7_squeeze_closest": null,
+      "step7_squeeze_mean": 11.42250360756218,
+      "step7_cancellation": false,
+      "step8_entropy_range": [
+        0.05728409085678709,
+        0.9999092749840701
+      ],
+      "step8_entropy_mean": 0.7284325103337127,
+      "step8_entropy_cv": 38.91562380349912,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.7284325103337127,
+          "H_mean_decimated": 0.7605664578747862,
+          "variation_pct": 4.411382946973648,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.7284325103337127,
+          "H_mean_decimated": 0.8219537518250624,
+          "variation_pct": 12.838696813312916,
+          "pass": false
+        },
+        "compression_8x": {
+          "H_mean_original": 0.6668576716338515,
+          "H_mean_decimated": 0.8587038717531452,
+          "variation_pct": 28.768687574554875,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 23,
+        "stalls": 7,
+        "spikes": 1,
+        "reversals": 15
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.3115957711442786,
+        0.3500957711442786
+      ],
+      "step11_complex_range_im": [
+        -0.32348203123397995,
+        0.5295745344141842
+      ],
+      "step12_radius_range": [
+        0.038499999999999944,
+        0.529924287044857
+      ],
+      "step12_theta_range": [
+        -3.003124218238256,
+        2.715412471369516
+      ],
+      "step9_angular_velocity_std": 1.7985471034564628
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            2.4351473106229173,
+            2.384433883624957,
+            3.278516490311007
+          ],
+          "carrier_pct": [
+            30.070609240317708,
+            29.444370474457195,
+            40.4850202852251
+          ],
+          "dominant_carrier": "s/heavy",
+          "dominant_pct": 40.4850202852251
+        },
+        "match_density": {
+          "density": 0.0,
+          "concentration": 0.0,
+          "total_matches": 0,
+          "n_constants_hit": 0,
+          "dominant_constant": null,
+          "trajectory_length": 15.548819206912265
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              6.360645898184742,
+              9.042893718242894
+            ],
+            [
+              6.360645898184741,
+              0.0,
+              8.890753437249012
+            ],
+            [
+              9.042893718242894,
+              8.890753437249014,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            -0.0917355782242221,
+            -0.19945055485518143,
+            0.29118613307940355
+          ],
+          "clr_stds": [
+            1.5604958540870646,
+            1.5441612233264235,
+            1.8106674157091929
+          ],
+          "aitchison_distance_mean": 3.5373094145793607
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.23647840333929168,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "s/heavy",
+          "max_shift_magnitude": 0.024333333333333262
+        },
+        "claim_status": {
+          "htp_classification": "INVESTIGATE",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.8072730923668285,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "s/heavy",
+          "sources": [
+            "u-type",
+            "d-type"
+          ],
+          "I_source1_target": 1.224068338005115,
+          "I_source2_target": 1.1929946555279336,
+          "redundancy": 1.1929946555279336,
+          "unique_source1": 0.03107368247718134,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 8.098097684558882,
+          "shuffled_sigma2": 8.098097684558882,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 11,
+          "near_zero_carriers": [
+            "u-type",
+            "d-type",
+            "s/heavy"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(u-type/d-type)": {
+              "mean": 0.1077149766309593,
+              "std": 2.522032096977503,
+              "cv": 2341.3940900885123
+            },
+            "ln(u-type/s/heavy)": {
+              "mean": -0.38292171130362573,
+              "std": 3.0071404553566987,
+              "cv": 785.3146913814666
+            },
+            "ln(d-type/s/heavy)": {
+              "mean": -0.49063668793458504,
+              "std": 2.9817366478696625,
+              "cv": 607.72802385035
+            }
+          },
+          "most_stable": "ln(d-type/s/heavy)",
+          "least_stable": "ln(u-type/d-type)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

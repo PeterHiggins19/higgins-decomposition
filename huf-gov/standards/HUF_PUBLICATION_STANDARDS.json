@@ -1,0 +1,286 @@
+{
+  "document_id": "HUF-STD-001",
+  "title": "HUF Publication Standards — Scientific Media Generation Conventions",
+  "version": "1.1",
+  "date_created": "2026-05-13",
+  "date_revised": "2026-05-14 (v1.1 — person_noun_convention added)",
+  "authority_level": "FOUNDATIONAL — applies to all HUF, Hs, and derivative repository media intended for external audiences",
+  "supersedes": null,
+  "parent_doctrine": "huf-gov/HUF_GOVERNANCE_CHARTER.md Article V (Integrity of Purpose) + Article VI (Accountable Data) + Article VII (Accountable Resolution)",
+  "citation": "Peter Higgins / Rogue Wave Audio. HUF Publication Standards v1.0 (HUF-STD-001). 2026-05-13. Operated under the HUF AI Collective cross-check protocol.",
+
+  "why_this_document_exists": {
+    "trigger": "Peter directive 2026-05-13 — 'place ai assistance at a proper scientific community location at the end of the media as part of the ai use declarations that meet general world standards for such declarations, i want the scientific community methods to be followed at all levels.'",
+    "purpose": "Establishes the authoritative HUF standards for scientific media generation. Adopts the best of established scientific community publication conventions and binds them as HUF doctrine. Becomes the JSON-database reference for any HUF or derivative-repository task that must meet an established publication standard.",
+    "principle": "The HUF + Hs work is offered to scientific peer review under the same standards the peer community uses among itself. AI assistance is disclosed transparently and at proper location; authorship remains human-only; falsifiability is published; provenance is hash-chained; versioning is visible."
+  },
+
+  "scope": {
+    "applies_to": [
+      "All published documents in HUF, Hs, HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND, CODA-Association folders",
+      "All slide decks, abstracts, papers, posters, journal submissions, conference talks",
+      "All Q&A bench cards, speaker briefs, study guides, cheat sheets, pedagogical material",
+      "All cross-check archive entries published externally",
+      "All Discovery Change Packets (DCPs) at released status",
+      "Any AI-generated artifact intended for external audiences (community, reviewers, partners, public)",
+      "All future derivative repositories or media artifacts from the HUF + Hs program"
+    ],
+    "does_not_apply_to": [
+      "Internal working notes / scratchpad material kept in working repository only",
+      "Code comments (covered by source-license headers and Apache-2.0 / CC BY 4.0 conventions)",
+      "Repository-internal admin JSONs (HS_ADMIN, HS_FAST_REFRESH, INVESTIGATION_CATALOG — though their published derivatives must comply)",
+      "Conversational drafts pre-publication"
+    ]
+  },
+
+  "standards_adopted": {
+
+    "ai_use_disclosure": {
+      "principle": "AI tools cannot be listed as authors. AI use must be disclosed clearly in a dedicated section at the proper scientific-community location (end of document, before final acknowledgments / signature lines).",
+      "primary_references": [
+        "ICMJE (International Committee of Medical Journal Editors) 2023+ AI authorship and disclosure recommendations",
+        "COPE (Committee on Publication Ethics) 2023+ guidance on AI tools in publication",
+        "Nature/Springer Nature 2023+ authorship and AI policy",
+        "Science / AAAS 2023+ AI use policy",
+        "WAME (World Association of Medical Editors) 2023+ Chatbots Recommendations",
+        "EU AI Act 2024 — disclosure of general-purpose AI use",
+        "arXiv 2023+ AI use disclosure policy",
+        "ACM 2023+ AI authorship policy",
+        "IEEE 2023+ AI authorship and disclosure"
+      ],
+      "core_requirement": "Authors must disclose AI use; AI tools are not authors; authors retain full responsibility for content.",
+      "required_disclosure_fields": [
+        "AI tools used (specific name + vendor, version where known)",
+        "Tasks performed by AI (drafting, editing, code review, cross-check, etc.)",
+        "Author responsibility statement (explicit acceptance of responsibility for AI-generated content)",
+        "AI use governance description (cross-check protocol, human-in-loop discipline)",
+        "Dates / time-range of AI assistance"
+      ],
+      "location_in_document": "At the end of the document, BEFORE the final liturgies / signature lines / repository pointers. Use a dedicated section heading.",
+      "section_title_convention": "## AI Use Declaration",
+      "forbidden_placements": [
+        "In the byline (author position)",
+        "Immediately under the author name in a way that suggests collaboration",
+        "In the title or subtitle",
+        "Anywhere that could be read as joint authorship",
+        "Inside the abstract (proper place is END of document)"
+      ]
+    },
+
+    "authorship_attribution": {
+      "principle": "Authorship is human-only. AI tools are tools, not authors. This is non-negotiable under all listed primary references.",
+      "primary_author_format": "[Author Name], [Affiliation]",
+      "byline_example_correct": "P. Higgins, Rogue Wave Audio",
+      "byline_examples_forbidden": [
+        "P. Higgins with the HUF AI Collective",
+        "P. Higgins and Claude",
+        "P. Higgins / AI co-author",
+        "[Author] + [AI tool name]"
+      ],
+      "huf_ai_collective_reference_format": "Operated under the HUF AI Collective cross-check protocol — to be cited in the AI Use Declaration section, NOT in the byline.",
+      "huf_ai_collective_member_disclosure": [
+        "Claude (Anthropic)",
+        "ChatGPT (OpenAI)",
+        "Copilot (Microsoft)",
+        "Gemini (Google)",
+        "Grok (xAI)"
+      ]
+    },
+
+    "falsifiability_disclosure": {
+      "principle": "Published scientific claims should reference their kill conditions where applicable. A framework that cannot name its own failures is not science.",
+      "huf_specific_reference": "KILL-001 (huf-gov/governance/KILL-001-kill-test.json) — 19 named failure modes",
+      "required_in": ["Papers", "Abstracts where main claim is presented", "Major claim disclosures", "Anti-Specification documents (SEA)"],
+      "recommended_location": "Methods section or dedicated 'Falsifiability' / 'Kill Conditions' subsection"
+    },
+
+    "provenance_and_hash_chain": {
+      "principle": "Computational artifacts should be reproducible and hash-verified. Anyone with the raw input should be able to verify the output.",
+      "huf_specific_reference": "content_sha256 and engine_signature on every page (CNT v3.1.0 / CNQ v2.0.0 convention)",
+      "required_in": [
+        "Engine output PDFs and HTML",
+        "CNQ Vector PDFs (per INV-062 STAGED spec)",
+        "Reference experiments published with expected_results.json"
+      ],
+      "verification_recipe_reference": "REPRODUCIBILITY_CHECKLIST.md at repo root"
+    },
+
+    "versioning_convention": {
+      "principle": "All publicly-shared documents carry visible version numbers. Filename stability + header-versioning + folder-level changelog.",
+      "format_in_header": "**Document version:** X.Y  (X.Y.Z for patch)",
+      "format_in_filename": "Stable filename for markdown / docx; date stamp permitted for slide decks and dated artifacts",
+      "history_log_required": "Folder-level VERSION_HISTORY.md or equivalent CHANGELOG.md tracking all bumps",
+      "semantic_versioning": {
+        "major": "Substantive content change (new beats, new claims, retracted material, structural reorganization)",
+        "minor": "Clarifications, additions, repository-state updates, doc-only enrichment",
+        "patch": "Typo and link fixes only"
+      }
+    },
+
+    "locale_support": {
+      "principle": "Major published documents should be made available in UN-6 locales when feasible, following the wrapper_*.json convention.",
+      "supported_locales": ["en", "fr", "es", "ru", "zh", "ar"],
+      "primary_locale": "en",
+      "huf_specific_reference": "HCI-CNQ/wrappers/wrapper_schema.json — bilingual and multi-locale facade convention"
+    },
+
+    "lockdown_discipline": {
+      "principle": "Documents written during pre-conference / pre-release lockdown windows preserve a frozen state for audit purposes. Edits during lockdown are limited to S1–S2 doc-only changes per the published lockdown protocol.",
+      "huf_specific_reference": "PRE_CONFERENCE_LOCKDOWN.md when active",
+      "severity_taxonomy_reference": "Hs Change Control v1.0 — S0..S5 severity classes (ai-refresh/CHANGE_CONTROL_README.md)"
+    },
+
+    "licensing": {
+      "principle": "Code under Apache-2.0; documents under CC BY 4.0. License headers required on first-page or repository LICENSE files.",
+      "code_license": "Apache-2.0",
+      "doc_license": "CC BY 4.0",
+      "huf_specific_reference": "LICENSING.md at repo root"
+    },
+
+    "open_loop_doctrine_disclosure": {
+      "principle": "When the framework is used in deployments that could affect real-world decisions, the open-loop discipline (LOOP-001 / Skydiver Principle) should be visible to the audience.",
+      "core_statement": "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.",
+      "huf_specific_reference": "huf-gov/governance/LOOP-001-open-loop-doctrine.json"
+    }
+  },
+
+  "ai_use_declaration_template": {
+    "section_heading": "## AI Use Declaration",
+    "minimum_required_elements": [
+      "Statement of standards compliance (cite ICMJE + COPE + EU AI Act 2024 + relevant venue policy)",
+      "List of AI tools used with vendor",
+      "Tasks performed by AI (specific to this document)",
+      "Author responsibility statement",
+      "AI use governance (HUF AI Collective cross-check protocol reference)",
+      "Dates / time-range of AI use"
+    ],
+    "canonical_template_markdown": [
+      "## AI Use Declaration",
+      "",
+      "In accordance with established scientific community standards for transparency in AI-assisted research — ICMJE, COPE, Nature/Springer, Science/AAAS, WAME, EU AI Act (2024), arXiv, ACM, and IEEE — this work discloses the following AI assistance.",
+      "",
+      "**AI tools used:** Claude (Anthropic), ChatGPT (OpenAI), Copilot (Microsoft), Gemini (Google), Grok (xAI). Collectively referred to in HUF documentation as the HUF AI Collective.",
+      "",
+      "**Tasks performed by AI:** [adapt per document — drafting, editing, code review, falsifiability-condition enumeration, cross-check, literature search, slide-deck generation, consistency checking, adversarial review for overclaim and drift].",
+      "",
+      "**Author responsibility:** The author retains full responsibility for all scientific claims, data interpretation, methodological choices, and conclusions presented in this work. All AI-generated content has been reviewed, verified, and where necessary corrected by the author. AI tools are not listed as authors and do not meet authorship criteria under ICMJE, COPE, Nature/Springer, Science/AAAS, WAME, ACM, or IEEE standards.",
+      "",
+      "**AI use governance:** AI assistance is operated under the HUF AI Collective cross-check protocol — a multi-AI methodology in which any single AI's finding is subjected to adversarial review by the other AIs in the Collective before being adopted by the author. Final binding decisions route through the human author. The protocol is documented in the HUF Governance Charter (Articles II–IV) and in the SAFE-001 cognitive-agent safety doctrine (huf-gov/governance/SAFE-001.json).",
+      "",
+      "**Dates of use:** [date range — e.g., March 2026 – May 2026 for the CoDaWork 2026 conference-preparation arc]."
+    ]
+  },
+
+  "ai_use_declaration_template_short_for_slides_and_one_pagers": {
+    "section_heading": "AI Use Declaration",
+    "canonical_text_short": "This work was prepared with AI assistance (Claude, ChatGPT, Copilot, Gemini, Grok — collectively the HUF AI Collective) operated under a multi-AI cross-check protocol. The author retains full responsibility for all claims and conclusions; AI tools are not listed as authors. Disclosure conforms to ICMJE, COPE, Nature, Science, WAME, EU AI Act (2024), arXiv, ACM, IEEE."
+  },
+
+  "authority_chain": {
+    "this_document_id": "HUF-STD-001",
+    "this_document_path": "huf-gov/standards/HUF_PUBLICATION_STANDARDS.json",
+    "this_document_version": "1.0",
+    "parent": "HUF Governance Charter (huf-gov/HUF_GOVERNANCE_CHARTER.md)",
+    "doctrine_siblings": [
+      "KILL-001 (falsifiability) — huf-gov/governance/KILL-001-kill-test.json",
+      "LOOP-001 (open-loop doctrine) — huf-gov/governance/LOOP-001-open-loop-doctrine.json",
+      "SAFE-001 (cognitive-agent safety) — huf-gov/governance/SAFE-001.json",
+      "HAGF-001 (applied governance framework) — huf-gov/governance/HAGF-001.json",
+      "GOV-003 (pure HUF-GOV standalone) — huf-gov/governance/GOV-003-standalone.json"
+    ],
+    "consumers": [
+      "Hs (Higgins Decomposition repository)",
+      "HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND engine tiers",
+      "CODA-Association folder (conference media)",
+      "papers/ folder content intended for external audiences",
+      "Any future derivative repository, partnership artifact, or external-facing media"
+    ],
+    "referenced_by_admin_jsons": [
+      "HS_ADMIN.json (in _meta section as authoritative reference)",
+      "HS_FAST_REFRESH.json (in _meta section as authoritative reference)",
+      "Any future admin JSON requiring publication-standards conformance"
+    ]
+  },
+
+  "person_noun_convention": {
+    "version": "1.1 (2026-05-14)",
+    "trigger": "Peter directive 2026-05-14 — 'change human to Researcher, the word itself draws attention as humans never refer to people as humans, only systems level and machine levels make this distinction for safety reasons or studies that are specific to the studies of anthropology, for general public facing documents however it sticks out... it just needs to be part of the standards.'",
+    "history_pointer": "Convention first established at push #25 (2026-05-08) and re-locked at push #36 (2026-05-10). Until 2026-05-14 it lived only in HS_FAST_REFRESH.json `common_drift_errors.human_vs_user_or_researcher`. This entry promotes it to a standards-level requirement.",
+    "principle": "In general public-facing output (slide decks, reports, READMEs, study deliverables, community materials), the word 'human' as a person noun reads as systems-level or anthropological framing and sticks out to readers who are themselves people. Replace it with 'researcher', 'user', or 'reader' as the context calls for. The technical adjective 'human-readable' is replaced with 'user-readable'.",
+    "general_output_replacements": {
+      "human reader": "reader",
+      "human author": "the author (or researcher / scientist where appropriate)",
+      "human researcher": "researcher",
+      "human user": "user",
+      "human entry point": "entry point",
+      "human-readable": "user-readable",
+      "for human consumption": "for the reader (or for direct use)",
+      "AI or human": "AI or researcher"
+    },
+    "exceptions_where_human_is_retained": {
+      "description": "The word 'human' is retained in the following narrow technical / standards contexts where its specific meaning (Homo sapiens as opposed to machine or AI) is load-bearing and the standards-community uses the exact term.",
+      "retained_contexts": [
+        "Authorship rules — 'authorship is human-only' is the exact ICMJE/COPE/Nature/Science/WAME convention and must not be reworded",
+        "AI safety vocabulary — 'human-in-the-loop' is the canonical AI safety term and is the precise concept",
+        "Anthropology / demographic-context studies — when the subject matter is literally the study of humans as a species (e.g. demographic compositions, religion-population studies), 'human population' is the appropriate technical phrase",
+        "Legal disclosures requiring explicit AI-vs-human distinction (EU AI Act 2024, FDA Section 524B, etc.)"
+      ],
+      "rationale": "These contexts are systems-level by construction — the word's stand-out quality IS the intent (to distinguish from machine or AI). Replacing them would either misuse a peer-community term or weaken a regulatory disclosure."
+    },
+    "applies_to": [
+      "All slide decks, reports, study PDFs, presentation materials",
+      "All README files and folder orientation documents",
+      "Community-outreach materials (the original trigger context)",
+      "Demographic and survey-context studies (with the anthropology exception above)",
+      "The Hs Standard Stamp page (`hs_standard_stamp.py`)"
+    ],
+    "consistency_check_proposal": "A new CHK-PERSON-NOUN-001 rule for `scripts/check_ai_refresh_consistency.py` would flag 'human' usages in non-exception contexts. Filed as a post-conference target — see CHK rule queue."
+  },
+
+  "reference_implementations_compliant_with_HUF_STD_001": {
+    "description": "Documents that have been brought into compliance with HUF-STD-001 v1.0 as of the standard's creation. Future-compliant documents are added here when revised.",
+    "as_of_2026-05-13": [
+      "Hs/CODA-Association/README.md v1.2",
+      "Hs/CODA-Association/CODAwork2026/README.md v1.2",
+      "Hs/CODA-Association/CODAwork2026/SPEAKER_BRIEF.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/STUDY_PAGE.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/CHEAT_SHEET.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/PEDAGOGICAL_TABLES.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/BACKUP_PRESENTATION.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/QA_BENCH.md v1.1",
+      "Hs/CODA-Association/CODAwork2026/ABSTRACT.md v1.2",
+      "Hs/CODA-Association/CODAwork2026/CodaWork2026_Talk_2026-05-13.pptx v1.1 (corrected title slide + new declaration slide)"
+    ]
+  },
+
+  "lockdown_compatibility": {
+    "creation_date": "2026-05-13",
+    "lockdown_active": "2026-05-12 to 2026-06-06",
+    "severity": "S2 (linked doc addition + terminology correction for reader-confusion bug)",
+    "lockdown_allowed_action_invoked": "S2 terminology corrections for real reader-confusion bugs (per PRE_CONFERENCE_LOCKDOWN.md ALLOWED list)",
+    "engine_touched": false,
+    "schema_touched": false,
+    "inv_catalog_disposition_touched": false,
+    "no_create_files_touched": false,
+    "lockdown_protected_papers_touched": false
+  },
+
+  "future_revisions_log": [
+    {
+      "version": "1.0",
+      "date": "2026-05-13",
+      "change_summary": "Baseline document. Adopts ICMJE / COPE / Nature / Science / WAME / EU AI Act / arXiv / ACM / IEEE as primary references. Establishes AI Use Declaration template, authorship attribution rules, falsifiability disclosure requirements, provenance and hash-chain requirements, versioning conventions, locale support, lockdown discipline, licensing, and open-loop doctrine disclosure as HUF standards."
+    },
+    {
+      "version": "1.1",
+      "date": "2026-05-14",
+      "change_summary": "Adds person_noun_convention section codifying the 'human' → 'researcher/user/reader' rule for general public-facing output. The convention had existed since push #25 (2026-05-08) and was re-locked at push #36 (2026-05-10), but lived only in HS_FAST_REFRESH.json common_drift_errors. This revision promotes it to a standards-level requirement with explicit replacement table and a narrow list of retained-context exceptions (authorship rules, AI-safety vocabulary, anthropology, regulatory disclosure). Lockdown-compliant — S2 doc-only addition. Trigger: Peter directive 2026-05-14."
+    }
+  ],
+
+  "doctrine_lines": [
+    "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.",
+    "Authorship is human-only. AI assistance is disclosed transparently and at proper location.",
+    "Published standards from the peer community are adopted as HUF doctrine wherever they exist; HUF specializes only where the peer community has not yet ruled."
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "CARBONIC_ACID_TITRAT",
+  "name": "Carbonic Acid Titration",
+  "domain": "CHEMISTRY",
+  "carriers": [
+    "H2CO3",
+    "HCO3_minus",
+    "CO3_2minus"
+  ],
+  "D": 3,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from carbonic_acid_titration.csv"
+  },
+  "data_hash_sha256_16": "77ec106b581f0275",
+  "run_timestamp": "2026-05-01T03:51:39.721570Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "CARBONIC_ACID_TITRAT: Carbonic Acid Titration: 3-part simplex, carriers=['H2CO3', 'HCO3_minus', 'CO3_2minus']",
+    "step2_n_samples": 200,
+    "step2_D": 3,
+    "step2_carriers": [
+      "H2CO3",
+      "HCO3_minus",
+      "CO3_2minus"
+    ],
+    "data_hash_sha256_16": "77ec106b581f0275",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -0.8152220241934899,
+      2.983539510856906,
+      -2.1683174866634145
+    ],
+    "step4_clr_std_per_part": [
+      6.576066722347694,
+      0.4870615505124331,
+      6.5076026276356265
+    ],
+    "step5_sigma2_range": [
+      0.005947360559077571,
+      85.83077444996641
+    ],
+    "step5_sigma2_final": 85.83077444996641,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9959364921914962,
+      "eigenvalues_final": [
+        85.91155821887342,
+        0.3505266554646948,
+        -2.9322613919868722e-15
+      ],
+      "eigenvector_overlap": 0.009547725975456278,
+      "condition_number": 245.09279645218442,
+      "von_neumann_entropy": 0.026427730792562967,
+      "von_neumann_ratio": 0.024055557238124768,
+      "commutator_norm": 0.013446707221268502,
+      "det_V": 3.566248472024033e-13,
+      "det_amgm_ratio": 1.5000837671674003e-17,
+      "cholesky_last_diag": 1.7438815639409772e-06,
+      "eigenvalue_power_law_alpha": 1.8775557738587851,
+      "eigenvalue_power_law_R2": 0.954846794892723,
+      "eigenvalue_ratio_matches": 0,
+      "eigenvalue_ratio_best_match": null,
+      "gamma": 0.06374564933000401,
+      "VSWR": 1.136171648835355,
+      "Q_factor": 0,
+      "trace_final": 86.26208487433811,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.0028739566808212427,
+      -0.18293412666800551,
+      9.9866041047718
+    ],
+    "step6_pll_R2": 0.995080597097556,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      31.826180242864947,
+      7.075556860818285
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 59,
+    "step7_squeeze_closest": {
+      "time_index": 104,
+      "sigma2_A": 22.513195096457604,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.04441839533284849,
+      "delta": 0.00010687193407442341
+    },
+    "step7_squeeze_mean": 30.018382319954917,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.0035548690471679137,
+      0.6313771939534453
+    ],
+    "step8_entropy_mean": 0.2576084321323058,
+    "step8_entropy_cv": 81.15688345493699,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.2576084321323058,
+        "H_mean_decimated": 0.2576094671824741,
+        "variation_pct": 0.00040179203752341893,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.2576084321323058,
+        "H_mean_decimated": 0.2576135908924512,
+        "variation_pct": 0.0020025587294449235,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.2576084321323058,
+        "H_mean_decimated": 0.25762956296361395,
+        "variation_pct": 0.00820269396201932,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 2,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.5296392253877195,
+      0.4557403380087648
+    ],
+    "step11_complex_range_im": [
+      -0.2322811100534463,
+      0.6318967137491027
+    ],
+    "step12_radius_range": [
+      0.23237788182156688,
+      0.6325627152648267
+    ],
+    "step12_theta_range": [
+      -2.7282902162634293,
+      1.6166885316289077
+    ],
+    "step9_angular_velocity_std": 0.031531558231132385
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          43.24465353676874,
+          0.23722895398757543,
+          42.34889195921011
+        ],
+        "carrier_pct": [
+          50.38362267368037,
+          0.2763914872116924,
+          49.33998583910794
+        ],
+        "dominant_carrier": "H2CO3",
+        "dominant_pct": 50.38362267368037
+      },
+      "match_density": {
+        "density": 0.5652667526033686,
+        "concentration": 0.35880494110887684,
+        "total_matches": 59,
+        "n_constants_hit": 3,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 104.37550011259658
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            44.61487302230249,
+            170.9498620379701
+          ],
+          [
+            44.61487302230249,
+            0.0,
+            41.92758828962664
+          ],
+          [
+            170.9498620379701,
+            41.92758828962664,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -0.8152220241934899,
+          2.983539510856906,
+          -2.1683174866634145
+        ],
+        "clr_stds": [
+          6.576066722347694,
+          0.4870615505124331,
+          6.5076026276356265
+        ],
+        "aitchison_distance_mean": 11.179460526342636
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0951391800803039,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "H2CO3",
+        "max_shift_magnitude": 0.6678840113114752
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.995080597097556,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "CO3_2minus",
+        "sources": [
+          "H2CO3",
+          "HCO3_minus"
+        ],
+        "I_source1_target": 2.866922643852,
+        "I_source2_target": 0.08405272560215271,
+        "redundancy": 0.08405272560215271,
+        "unique_source1": 2.782869918249847,
+        "unique_source2": 0.0,
+        "dominant": "unique"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "H2CO3->HCO3_minus": 0.0,
+          "H2CO3->CO3_2minus": 0.025974551220439235,
+          "HCO3_minus->H2CO3": 0.0,
+          "HCO3_minus->CO3_2minus": 0.0,
+          "CO3_2minus->H2CO3": 0.0,
+          "CO3_2minus->HCO3_minus": 0.0
+        },
+        "dominant_flow": "H2CO3->CO3_2minus",
+        "dominant_te": 0.025974551220439235
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 85.83077444996641,
+        "shuffled_sigma2": 85.8307744499664,
+        "order_matters": false,
+        "relative_difference": 1.6556829186582699e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 200,
+        "near_zero_carriers": [
+          "H2CO3",
+          "HCO3_minus",
+          "CO3_2minus"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(H2CO3/HCO3_minus)": {
+            "mean": -3.798761535050395,
+            "std": 6.6794365797050945,
+            "cv": 175.8319525475685
+          },
+          "ln(H2CO3/CO3_2minus)": {
+            "mean": 1.3530954624699267,
+            "std": 13.074779617185525,
+            "cv": 966.2865614314421
+          },
+          "ln(HCO3_minus/CO3_2minus)": {
+            "mean": 5.151856997520322,
+            "std": 6.475151603601775,
+            "cv": 125.68577906410015
+          }
+        },
+        "most_stable": "ln(HCO3_minus/CO3_2minus)",
+        "least_stable": "ln(H2CO3/CO3_2minus)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

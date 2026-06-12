@@ -1,0 +1,41 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-18
+  System:      Markham Budget
+  Domain:      URBAN
+  Carriers:    Operating, Capital_Dev, Planning
+  N=31, D=3
+  Source:      REAL
+  Description: City of Markham 2018 Budget Allocation by Fund (Open Data)
+  Pipeline:    1.0 Extended
+  Data hash:   256af378c8cd09ae
+  Timestamp:   2026-04-25T06:24:46.579000Z
+
+
+Codici totali: 36
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 9
+  Segnali di calibrazione: 1
+  Informazioni:  25
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=ln_phi, delta=0.000050)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (33)
+  [S9-STL-DIS] S9-STL-DIS (8)
+  [S9-SPK-DIS] S9-SPK-DIS (3)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (22)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Operating/Planning), cv=65.511746)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Capital_Dev/Planning), cv=141.370090)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=29, near_zero_carriers=['Capital_Dev', 'Planning'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

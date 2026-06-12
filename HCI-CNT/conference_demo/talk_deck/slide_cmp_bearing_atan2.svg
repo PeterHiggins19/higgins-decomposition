@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>Math step 4 — Pairwise bearing  θ_i,j  (numerical comparison)</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 26px; font-weight: 700; fill: #ffffff; }
+    .h2 { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 19px; font-family: 'Georgia', serif; font-style: italic; fill: #e8e8e8; }
+    .label { font-size: 17px; fill: #cccccc; }
+    .label-bold { font-size: 17px; font-weight: 700; fill: #ffffff; }
+    .small { font-size: 14px; fill: #aaaaaa; }
+    .ok { font-size: 17px; fill: #80d050; font-weight: 700; }
+    .accent { font-size: 17px; fill: #66aaff; font-weight: 700; }
+    .num { font-size: 22px; font-weight: 700; fill: #f0c020; font-family: 'Georgia', serif; }
+    .box { fill: #2a2a2a; stroke: #555; stroke-width: 2; }
+    .box-cnt { fill: #2a2a3a; stroke: #66aaff; stroke-width: 2; }
+    .divider { stroke: #555; stroke-width: 2; stroke-dasharray: 4,4; }
+  </style>
+  <text x="500" y="38" text-anchor="middle" class="title">Math step 4 — Pairwise bearing  θ_i,j</text>
+  <text x="500" y="62" text-anchor="middle" class="small">Both formulae compute the same angle. atan2 keeps better numerical headroom near the axes.</text>
+
+  <line x1="500" y1="90" x2="500" y2="430" class="divider"/>
+
+  <text x="250" y="110" text-anchor="middle" class="h2">arccos formulation</text>
+  <rect x="60" y="130" width="380" height="100" class="box"/>
+  <text x="250" y="170" text-anchor="middle" class="math">θ = arccos( ⟨u,v⟩ / (|u|·|v|) )</text>
+  <text x="250" y="200" text-anchor="middle" class="small">range: [0, π]   (sign restored via sign-test)</text>
+
+  <rect x="60" y="248" width="380" height="160" class="box"/>
+  <text x="250" y="275" text-anchor="middle" class="label-bold">characteristics</text>
+  <text x="80" y="305" class="label">• ~12 float ops per pair</text>
+  <text x="80" y="330" class="label">• noise floor √ε near 0 and π</text>
+  <text x="80" y="355" class="label">• two ‖·‖ + dot product</text>
+  <text x="80" y="380" class="label">• well-established formulation</text>
+
+  <text x="750" y="110" text-anchor="middle" class="h2">atan2 formulation  (CNT)</text>
+  <rect x="560" y="130" width="380" height="100" class="box-cnt"/>
+  <text x="750" y="170" text-anchor="middle" class="math">θ = atan2( y_i,j , x_i,j )</text>
+  <text x="750" y="200" text-anchor="middle" class="small">range: [-π, π]   (full quadrant)</text>
+
+  <rect x="560" y="248" width="380" height="160" class="box-cnt"/>
+  <text x="750" y="275" text-anchor="middle" class="label-bold">characteristics</text>
+  <text x="580" y="305" class="label">• ~4 float ops per pair</text>
+  <text x="580" y="330" class="label">• machine precision everywhere</text>
+  <text x="580" y="355" class="label">• quadrant implicit</text>
+  <text x="580" y="380" class="label">• single CPU instruction (IEEE 754)</text>
+
+  <text x="500" y="468" text-anchor="middle" class="num">3× fewer ops    ·    ~10⁷ better headroom near 0/π</text>
+  <text x="500" y="498" text-anchor="middle" class="ok">Lock-detection stable to IEEE floor</text>
+  <text x="500" y="540" text-anchor="middle" class="small">arccos remains correct; atan2 gives extra numerical room for trajectory locks.</text>
+</svg>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs-M01 Manifold Calibration — CLR Space Projection</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+.subtitle {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 16px;
+}
+.main-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+canvas {
+  background: #0f0f23;
+  border: 1px solid #333;
+  border-radius: 6px;
+  cursor: crosshair;
+}
+.controls {
+  background: #16213e;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 16px;
+  min-width: 200px;
+}
+.controls h3 {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 6px;
+}
+.controls label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 4px;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+.controls label:hover {
+  background: rgba(255,255,255,0.05);
+}
+.controls input[type="checkbox"] {
+  accent-color: #4ecdc4;
+  width: 15px;
+  height: 15px;
+}
+.color-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.btn-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 6px;
+}
+.btn-row button {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 12px;
+  background: #1a1a2e;
+  color: #ccc;
+  border: 1px solid #444;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-row button:hover { background: #2a2a4e; }
+#tooltip {
+  position: fixed;
+  display: none;
+  background: rgba(10,10,30,0.95);
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  pointer-events: none;
+  z-index: 100;
+  max-width: 320px;
+  color: #ddd;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+#tooltip .tt-name { font-weight: 700; font-size: 13px; }
+#tooltip .tt-row { color: #aaa; }
+#tooltip .tt-val { color: #fff; }
+.diag-table {
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 12px;
+  width: 100%;
+  max-width: 960px;
+}
+.diag-table th {
+  background: #16213e;
+  color: #aaa;
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 2px solid #333;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.diag-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #222;
+  color: #ccc;
+}
+.diag-table tr:hover td { background: rgba(255,255,255,0.03); }
+.diag-table tr.hidden-row td { opacity: 0.3; }
+.diag-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+}
+footer {
+  margin-top: 20px;
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1>Hs-M01 Manifold Calibration — CLR Space Projection</h1>
+<p class="subtitle">10 known geometric test objects | Interactive CLR&#x2081; vs CLR&#x2082; view</p>
+
+<div class="main-container">
+  <canvas id="canvas" width="750" height="620"></canvas>
+  <div class="controls">
+    <h3>Objects</h3>
+    <div id="checkboxes"></div>
+    <div class="btn-row">
+      <button onclick="toggleAll(true)">All</button>
+      <button onclick="toggleAll(false)">None</button>
+    </div>
+  </div>
+</div>
+
+<div id="tooltip"></div>
+
+<table class="diag-table" id="diagTable">
+  <thead>
+    <tr>
+      <th>Object</th><th>N</th><th>D</th><th>Total Variance</th>
+      <th>V(t) Shape</th><th>Path Efficiency</th><th>Locks</th><th>Diagnosis</th>
+    </tr>
+  </thead>
+  <tbody id="diagBody"></tbody>
+</table>
+
+<footer>10 known geometric objects projected through the Higgins Decomposition | Peter Higgins | CC BY 4.0</footer>
+
+<script>
+// ─── Object definitions ───
+const OBJECTS = [];
+
+const COLORS = {
+  'Point': '#ffffff',
+  'Point+time': '#888888',
+  'Line': '#ff6b6b',
+  'Circle': '#4ecdc4',
+  'Sphere': '#45b7d1',
+  'Cube': '#96ceb4',
+  'Rhomboid': '#ffeaa7',
+  'Torus': '#dfe6e9',
+  'Spiral': '#fd79a8',
+  'Saddle': '#6c5ce7'
+};
+
+const DIAG = [
+  { name:'Point', N:1, D:3, TV:'N/A', shape:'N/A', pathEff:'N/A', locks:'N/A', diag:'POINT', diagColor:'#ffffff' },
+  { name:'Point+time', N:20, D:3, TV:'0.000', shape:'FLAT', pathEff:'stationary', locks:'3', diag:'STATIONARY', diagColor:'#888888' },
+  { name:'Line', N:20, D:3, TV:'0.657', shape:'CONVEX', pathEff:'0.961', locks:'0', diag:'ACCELERATING DRIFT', diagColor:'#ff6b6b' },
+  { name:'Circle', N:40, D:3, TV:'0.500', shape:'CONCAVE', pathEff:'0.027', locks:'0', diag:'PERIODIC (DECELERATING)', diagColor:'#4ecdc4' },
+  { name:'Sphere', N:60, D:4, TV:'1.282', shape:'CONCAVE', pathEff:'0.025', locks:'0', diag:'FULL COVERAGE (DECELERATING)', diagColor:'#45b7d1' },
+  { name:'Cube', N:9, D:3, TV:'0.667', shape:'CONCAVE', pathEff:'0.366', locks:'0', diag:'STRUCTURED GRID', diagColor:'#96ceb4' },
+  { name:'Rhomboid', N:25, D:3, TV:'0.860', shape:'CONVEX', pathEff:'0.240', locks:'0', diag:'ACCELERATING DRIFT', diagColor:'#ffeaa7' },
+  { name:'Torus', N:80, D:4, TV:'1.655', shape:'CONCAVE', pathEff:'0.018', locks:'0', diag:'DOUBLY PERIODIC', diagColor:'#dfe6e9' },
+  { name:'Spiral', N:50, D:3, TV:'0.429', shape:'CONVEX', pathEff:'0.139', locks:'0', diag:'ACCELERATING DRIFT', diagColor:'#fd79a8' },
+  { name:'Saddle', N:49, D:4, TV:'0.691', shape:'CONVEX', pathEff:'0.130', locks:'0', diag:'MIXED CURVATURE', diagColor:'#6c5ce7' },
+];
+
+function linspace(a, b, n) {
+  const r = [];
+  for (let i = 0; i < n; i++) r.push(a + (b - a) * i / (n - 1));
+  return r;
+}
+
+function clrFromComp(p) {
+  const g = Math.pow(p.reduce((a,v) => a*v, 1), 1/p.length);
+  return p.map(v => Math.log(v / g));
+}
+
+function compFromClr(c) {
+  const ex = c.map(v => Math.exp(v));
+  const s = ex.reduce((a,v) => a+v, 0);
+  return ex.map(v => v / s);
+}
+
+// 1. Point (no time)
+(function() {
+  const clr = [0, 0];
+  OBJECTS.push({ name: 'Point', points: [{ c1: 0, c2: 0, comp: [1/3, 1/3, 1/3], idx: 0 }] });
+})();
+
+// 2. Point+time
+(function() {
+  const pts = [];
+  for (let i = 0; i < 20; i++) pts.push({ c1: 0, c2: 0, comp: [1/3, 1/3, 1/3], idx: i });
+  OBJECTS.push({ name: 'Point+time', points: pts });
+})();
+
+// 3. Line
+(function() {
+  const pts = [];
+  for (let i = 0; i < 20; i++) {
+    const t = i / 19;
+    const p = [0.8*(1-t)+0.1*t, 0.1, 0.1*(1-t)+0.8*t];
+    const c = clrFromComp(p);
+    pts.push({ c1: c[0], c2: c[1], comp: p, idx: i });
+  }
+  OBJECTS.push({ name: 'Line', points: pts });
+})();
+
+// 4. Circle
+(function() {
+  const pts = [];
+  for (let i = 0; i < 40; i++) {
+    const theta = 2 * Math.PI * i / 40;
+    const c1 = 0.5 * Math.cos(theta), c2 = 0.5 * Math.sin(theta);
+    const comp = compFromClr([c1, c2, -(c1+c2)]);
+    pts.push({ c1, c2, comp, idx: i });
+  }
+  OBJECTS.push({ name: 'Circle', points: pts });
+})();
+
+// 5. Sphere (Fibonacci, 4-part, project first 2 CLR coords)
+(function() {
+  const N = 60, pts = [];
+  const golden = (1 + Math.sqrt(5)) / 2;
+  for (let i = 0; i < N; i++) {
+    const theta = 2 * Math.PI * i / golden;
+    const phi = Math.acos(1 - 2*(i+0.5)/N);
+    const r = 0.6;
+    const x = r * Math.sin(phi) * Math.cos(theta);
+    const y = r * Math.sin(phi) * Math.sin(theta);
+    const z = r * Math.cos(phi);
+    // 4-part CLR: c1=x, c2=y, c3=z, c4=-(x+y+z)
+    const clr4 = [x, y, z, -(x+y+z)];
+    const comp = compFromClr(clr4);
+    pts.push({ c1: x, c2: y, comp, idx: i });
+  }
+  OBJECTS.push({ name: 'Sphere', points: pts });
+})();
+
+// 6. Cube (3x3 grid)
+(function() {
+  const vals = [-0.5, 0, 0.5], pts = [];
+  let idx = 0;
+  for (const c1 of vals) for (const c2 of vals) {
+    const comp = compFromClr([c1, c2, -(c1+c2)]);
+    pts.push({ c1, c2, comp, idx: idx++ });
+  }
+  OBJECTS.push({ name: 'Cube', points: pts });
+})();
+
+// 7. Rhomboid (5x5 sheared grid)
+(function() {
+  const v = linspace(-0.5, 0.5, 5), pts = [];
+  let idx = 0;
+  for (const c2 of v) for (let c1 of v) {
+    const sc1 = c1 + 0.3 * c2;
+    const comp = compFromClr([sc1, c2, -(sc1+c2)]);
+    pts.push({ c1: sc1, c2, comp, idx: idx++ });
+  }
+  OBJECTS.push({ name: 'Rhomboid', points: pts });
+})();
+
+// 8. Torus (4-part, project to 2D)
+(function() {
+  const N = 80, R = 0.8, r = 0.3, pts = [];
+  for (let i = 0; i < N; i++) {
+    const u = 2 * Math.PI * i / N;
+    const vv = 2 * Math.PI * (i * 7) / N; // spread v to cover surface
+    const x = (R + r * Math.cos(vv)) * Math.cos(u);
+    const y = (R + r * Math.cos(vv)) * Math.sin(u);
+    const z = r * Math.sin(vv);
+    const clr4 = [x, y, z, -(x+y+z)];
+    const comp = compFromClr(clr4);
+    pts.push({ c1: x, c2: y, comp, idx: i });
+  }
+  OBJECTS.push({ name: 'Torus', points: pts });
+})();
+
+// 9. Spiral
+(function() {
+  const N = 50, pts = [];
+  for (let i = 0; i < N; i++) {
+    const t = i / (N - 1);
+    const theta = 4 * Math.PI * t;
+    const r = 0.05 + 0.75 * t;
+    const c1 = r * Math.cos(theta), c2 = r * Math.sin(theta);
+    const comp = compFromClr([c1, c2, -(c1+c2)]);
+    pts.push({ c1, c2, comp, idx: i });
+  }
+  OBJECTS.push({ name: 'Spiral', points: pts });
+})();
+
+// 10. Saddle (7x7 hyperbolic paraboloid, 4-part)
+(function() {
+  const v = linspace(-0.5, 0.5, 7), pts = [];
+  let idx = 0;
+  for (const x of v) for (const y of v) {
+    const z = x * y;
+    const clr4 = [x, y, z, -(x+y+z)];
+    const comp = compFromClr(clr4);
+    pts.push({ c1: x, c2: y, comp, idx: idx++ });
+  }
+  OBJECTS.push({ name: 'Saddle', points: pts });
+})();
+
+// ─── State ───
+const visible = {};
+OBJECTS.forEach(o => visible[o.name] = true);
+
+// ─── Canvas setup ───
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+const margin = { top: 30, right: 30, bottom: 50, left: 60 };
+const pw = W - margin.left - margin.right;
+const ph = H - margin.top - margin.bottom;
+
+// CLR range
+const clrMin = -1.3, clrMax = 1.3;
+function toX(c1) { return margin.left + (c1 - clrMin) / (clrMax - clrMin) * pw; }
+function toY(c2) { return margin.top + ph - (c2 - clrMin) / (clrMax - clrMin) * ph; }
+function fromX(px) { return clrMin + (px - margin.left) / pw * (clrMax - clrMin); }
+function fromY(py) { return clrMin + (margin.top + ph - py) / ph * (clrMax - clrMin); }
+
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  for (let v = -1; v <= 1; v += 0.5) {
+    const x = toX(v), y = toY(v);
+    ctx.beginPath(); ctx.moveTo(x, margin.top); ctx.lineTo(x, margin.top + ph); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(margin.left, y); ctx.lineTo(margin.left + pw, y); ctx.stroke();
+  }
+  ctx.setLineDash([]);
+
+  // Axes
+  ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+  ctx.lineWidth = 1;
+  // x-axis at c2=0
+  let y0 = toY(0);
+  ctx.beginPath(); ctx.moveTo(margin.left, y0); ctx.lineTo(margin.left + pw, y0); ctx.stroke();
+  // y-axis at c1=0
+  let x0 = toX(0);
+  ctx.beginPath(); ctx.moveTo(x0, margin.top); ctx.lineTo(x0, margin.top + ph); ctx.stroke();
+
+  // Axis labels
+  ctx.fillStyle = '#888';
+  ctx.font = '13px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('CLR₁', margin.left + pw / 2, H - 8);
+  ctx.save();
+  ctx.translate(14, margin.top + ph / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('CLR₂', 0, 0);
+  ctx.restore();
+
+  // Tick labels
+  ctx.fillStyle = '#555';
+  ctx.font = '10px sans-serif';
+  ctx.textAlign = 'center';
+  for (let v = -1; v <= 1; v += 0.5) {
+    ctx.fillText(v.toFixed(1), toX(v), margin.top + ph + 16);
+  }
+  ctx.textAlign = 'right';
+  for (let v = -1; v <= 1; v += 0.5) {
+    ctx.fillText(v.toFixed(1), margin.left - 8, toY(v) + 4);
+  }
+
+  // Draw objects
+  for (const obj of OBJECTS) {
+    if (!visible[obj.name]) continue;
+    const col = COLORS[obj.name];
+    const pts = obj.points;
+
+    // Connecting lines
+    if (pts.length > 1) {
+      ctx.strokeStyle = col + '66';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(toX(pts[0].c1), toY(pts[0].c2));
+      for (let i = 1; i < pts.length; i++) {
+        ctx.lineTo(toX(pts[i].c1), toY(pts[i].c2));
+      }
+      ctx.stroke();
+    }
+
+    // Points
+    for (const p of pts) {
+      const px = toX(p.c1), py = toY(p.c2);
+      ctx.beginPath();
+      ctx.arc(px, py, 3.5, 0, 2 * Math.PI);
+      ctx.fillStyle = col;
+      ctx.fill();
+
+      // Index number (faint)
+      if (pts.length > 1 && pts.length <= 80) {
+        ctx.fillStyle = col + '55';
+        ctx.font = '8px sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText(p.idx, px + 5, py - 3);
+      }
+    }
+  }
+}
+
+// ─── Checkboxes ───
+const cbDiv = document.getElementById('checkboxes');
+OBJECTS.forEach(obj => {
+  const label = document.createElement('label');
+  const cb = document.createElement('input');
+  cb.type = 'checkbox';
+  cb.checked = true;
+  cb.dataset.name = obj.name;
+  cb.addEventListener('change', () => {
+    visible[obj.name] = cb.checked;
+    draw();
+    buildDiagTable();
+  });
+  const dot = document.createElement('span');
+  dot.className = 'color-dot';
+  dot.style.background = COLORS[obj.name];
+  label.appendChild(cb);
+  label.appendChild(dot);
+  label.appendChild(document.createTextNode(obj.name));
+  cbDiv.appendChild(label);
+});
+
+function toggleAll(state) {
+  document.querySelectorAll('.controls input[type=checkbox]').forEach(cb => {
+    cb.checked = state;
+    visible[cb.dataset.name] = state;
+  });
+  draw();
+  buildDiagTable();
+}
+
+// ─── Tooltip ───
+const tooltip = document.getElementById('tooltip');
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left, my = e.clientY - rect.top;
+  let hit = null, hitDist = 12;
+
+  for (const obj of OBJECTS) {
+    if (!visible[obj.name]) continue;
+    for (const p of obj.points) {
+      const dx = toX(p.c1) - mx, dy = toY(p.c2) - my;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      if (d < hitDist) { hitDist = d; hit = { obj: obj.name, p }; }
+    }
+  }
+
+  if (hit) {
+    const p = hit.p;
+    const compStr = p.comp.map(v => v.toFixed(4)).join(', ');
+    tooltip.innerHTML =
+      `<div class="tt-name" style="color:${COLORS[hit.obj]}">${hit.obj}</div>` +
+      `<div class="tt-row">Index: <span class="tt-val">${p.idx}</span></div>` +
+      `<div class="tt-row">CLR: <span class="tt-val">(${p.c1.toFixed(4)}, ${p.c2.toFixed(4)})</span></div>` +
+      `<div class="tt-row">Composition: <span class="tt-val">(${compStr})</span></div>`;
+    tooltip.style.display = 'block';
+    tooltip.style.left = (e.clientX + 16) + 'px';
+    tooltip.style.top = (e.clientY - 10) + 'px';
+    // keep on screen
+    const tr = tooltip.getBoundingClientRect();
+    if (tr.right > window.innerWidth) tooltip.style.left = (e.clientX - tr.width - 10) + 'px';
+    if (tr.bottom > window.innerHeight) tooltip.style.top = (e.clientY - tr.height - 10) + 'px';
+  } else {
+    tooltip.style.display = 'none';
+  }
+});
+canvas.addEventListener('mouseleave', () => { tooltip.style.display = 'none'; });
+
+// ─── Diagnostic table ───
+function diagTagColor(diag) {
+  if (diag.includes('STATIONARY')) return '#888';
+  if (diag.includes('DRIFT') || diag.includes('ACCELERATING')) return '#ff6b6b';
+  if (diag.includes('PERIODIC')) return '#4ecdc4';
+  if (diag.includes('COVERAGE')) return '#45b7d1';
+  if (diag.includes('GRID')) return '#96ceb4';
+  if (diag.includes('DOUBLY')) return '#dfe6e9';
+  if (diag.includes('MIXED')) return '#6c5ce7';
+  if (diag === 'POINT') return '#ffffff';
+  return '#aaa';
+}
+
+function buildDiagTable() {
+  const tbody = document.getElementById('diagBody');
+  tbody.innerHTML = '';
+  DIAG.forEach(d => {
+    const tr = document.createElement('tr');
+    if (!visible[d.name]) tr.className = 'hidden-row';
+    const tc = diagTagColor(d.diag);
+    tr.innerHTML =
+      `<td style="color:${d.diagColor};font-weight:600">${d.name}</td>` +
+      `<td>${d.N}</td><td>${d.D}</td><td>${d.TV}</td>` +
+      `<td>${d.shape}</td><td>${d.pathEff}</td><td>${d.locks}</td>` +
+      `<td><span class="diag-tag" style="background:${tc}22;color:${tc};border:1px solid ${tc}44">${d.diag}</span></td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// ─── Init ───
+draw();
+buildDiagTable();
+</script>
+</body>
+</html>

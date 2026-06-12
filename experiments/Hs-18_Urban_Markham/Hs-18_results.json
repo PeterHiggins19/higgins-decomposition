@@ -1,0 +1,251 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-18",
+  "name": "Markham Budget",
+  "domain": "URBAN",
+  "carriers": [
+    "Operating",
+    "Capital_Dev",
+    "Planning"
+  ],
+  "D": 3,
+  "N": 31,
+  "data_source": {
+    "type": "REAL",
+    "url": null,
+    "description": "City of Markham 2018 Budget Allocation by Fund (Open Data)"
+  },
+  "data_hash_sha256_16": "256af378c8cd09ae",
+  "run_timestamp": "2026-04-25T06:24:46.579000Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-18: Markham Budget: 3-part simplex, carriers=['Operating', 'Capital_Dev', 'Planning']",
+    "step2_n_samples": 31,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Operating",
+      "Capital_Dev",
+      "Planning"
+    ],
+    "data_hash_sha256_16": "256af378c8cd09ae",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      11.69157631408976,
+      -9.089738808416254,
+      -2.6018375056735032
+    ],
+    "step4_clr_std_per_part": [
+      4.064296820919634,
+      3.915706021252876,
+      5.91513750445395
+    ],
+    "step5_sigma2_range": [
+      1.6264000636225246,
+      68.85967319625277
+    ],
+    "step5_sigma2_final": 66.84011399001119,
+    "step6_pll_coeffs": [
+      -0.20332512848857842,
+      8.66957996570896,
+      -22.493088104627116
+    ],
+    "step6_pll_R2": 0.8732419793017644,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      21.31949953789397,
+      69.92246493170639
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 4,
+    "step7_squeeze_closest": {
+      "time_index": 4,
+      "sigma2_A": 2.077870661966614,
+      "constant": "ln_phi",
+      "constant_value": 0.48121182505960347,
+      "test_type": "reciprocal",
+      "test_value": 0.48126190831028126,
+      "delta": 5.00832506777904e-05
+    },
+    "step7_squeeze_mean": 49.93619945943973,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      3.142759701607226e-10,
+      0.6400738619157867
+    ],
+    "step8_entropy_mean": 0.10912509053332861,
+    "step8_entropy_cv": 182.4822631910597,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.09142679815391334,
+        "H_mean_decimated": 0.04099874574905694,
+        "variation_pct": 55.156752093585084,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.09354512242233982,
+        "H_mean_decimated": 0.0004473757523802135,
+        "variation_pct": 99.52175405751207,
+        "pass": false
+      },
+      "compression_8x": {
+        "H_mean_original": 0.10207393048867032,
+        "H_mean_decimated": 2.481963911083604e-05,
+        "variation_pct": 99.97568464446111,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 33,
+      "stalls": 8,
+      "spikes": 3,
+      "reversals": 22
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.031407529360696775,
+      0.23894863000736155
+    ],
+    "step11_complex_range_im": [
+      -0.026064995619827173,
+      0.2673415837013253
+    ],
+    "step12_radius_range": [
+      0.014273041931039036,
+      0.3008537747947846
+    ],
+    "step12_theta_range": [
+      -2.590954897716673,
+      3.131725979425269
+    ],
+    "step9_angular_velocity_std": 1.3451896434581307
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          16.518508648537445,
+          15.33275364487603,
+          34.988851696597706
+        ],
+        "carrier_pct": [
+          24.713465705647998,
+          22.93944867773177,
+          52.34708561662021
+        ],
+        "dominant_carrier": "Planning",
+        "dominant_pct": 52.34708561662021
+      },
+      "match_density": {
+        "density": 0.034755860775499345,
+        "concentration": 0.25,
+        "total_matches": 4,
+        "n_constants_hit": 4,
+        "dominant_constant": "1/pi",
+        "trajectory_length": 115.08850337033643
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            28.713672890229237,
+            87.68196704539427
+          ],
+          [
+            28.713672890229237,
+            0.0,
+            84.12470203441005
+          ],
+          [
+            87.68196704539427,
+            84.12470203441005,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          11.69157631408976,
+          -9.089738808416254,
+          -2.6018375056735032
+        ],
+        "clr_stds": [
+          4.064296820919634,
+          3.915706021252876,
+          5.91513750445395
+        ],
+        "aitchison_distance_mean": 9.287656168024922
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.9960375264899729,
+        "drift_direction": "stable",
+        "max_shift_carrier": "Operating",
+        "max_shift_magnitude": 0.00839716593676132
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.8732419793017644,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Planning",
+        "sources": [
+          "Operating",
+          "Capital_Dev"
+        ],
+        "I_source1_target": 1.546337600795074,
+        "I_source2_target": 1.3854100095456052,
+        "redundancy": 1.3854100095456052,
+        "unique_source1": 0.16092759124946876,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 66.84011399001119,
+        "shuffled_sigma2": 66.84011399001118,
+        "order_matters": false,
+        "relative_difference": 2.1260967205001656e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 29,
+        "near_zero_carriers": [
+          "Capital_Dev",
+          "Planning"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Operating/Capital_Dev)": {
+            "mean": 20.781315122506015,
+            "std": 5.358514056175391,
+            "cv": 25.785249993019733
+          },
+          "ln(Operating/Planning)": {
+            "mean": 14.293413819763261,
+            "std": 9.363864963005089,
+            "cv": 65.51174604668502
+          },
+          "ln(Capital_Dev/Planning)": {
+            "mean": -6.4879013027427535,
+            "std": 9.171951920633363,
+            "cv": 141.37009015158614
+          }
+        },
+        "most_stable": "ln(Operating/Capital_Dev)",
+        "least_stable": "ln(Capital_Dev/Planning)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

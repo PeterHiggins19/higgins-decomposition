@@ -1,0 +1,51 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-23-Combined
+  System:      Radionuclide Decay Chains (U-238 + Th-232 + U-235)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=39, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   a58d8f5fb34c6113
+  Timestamp:   2026-04-26T04:43:04.058160Z
+
+
+Codici totali: 42
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 13
+  Segnali di calibrazione: 1
+  Modi strutturali:  4
+  Informazioni:  23
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.007775)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (38)
+  [S9-STL-DIS] S9-STL-DIS (6)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (32)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.877424, drift_direction=decreasing, max_shift_carrier=Gamma)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=96.895113)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=51.906056)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Neutrino), cv=89.949085)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=220.352875)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Neutrino), cv=122.922308)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=506.962740)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-BPO-DIS] Popolazione bimodale rilevata. Indagare: decomporre per sottopopolazione o aggiungere un portante differenziante.
+  [SM-TNT-DIS] Turbolento ma naturale — complessità reale che la decimazione distrugge. Il pattern di oscillazione è diagnostico.
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+  [SM-DMR-DIS] Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

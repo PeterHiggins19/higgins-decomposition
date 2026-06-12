@@ -1,0 +1,44 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  PAIR-2B
+  System:      Spring-Mass (ζ=0.5)
+  Domain:      FORCE
+  Carriers:    KE, PE, Damping
+  N=200, D=3
+  Source:      DERIVED
+  Description: Heavily damped harmonic oscillator
+  Pipeline:    1.0 Extended
+  Data hash:   9ae5b58dde15a7d2
+  Timestamp:   2026-04-25T10:54:39.832501Z
+
+
+Total de códigos: 39
+  Erros:       0
+  Avisos:     1
+  Descobertas: 11
+  Sinais de calibração: 2
+  Informação:  25
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(2pi), delta=0.000503)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(2pi), delta=0.000503)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (134)
+  [S9-STL-DIS] S9-STL-DIS (15)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (119)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.734554, drift_direction=decreasing, max_shift_carrier=Damping)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(KE/PE), cv=6304.295236)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(KE/Damping), cv=130.613413)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(PE/Damping), cv=190.085462)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=50, near_zero_carriers=['KE', 'PE', 'Damping'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+  [XC-TEZ-CAL] Entropia de transferência é zero — sistema composicionalmente sem memória.
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>CNT Pipeline Part 1 -- Raw Data to CLR Transform</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 20px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 18px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cccccc"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">CNT Pipeline -- Stage 1: Raw Data to CLR Coordinate</text>
+
+  <!-- RAW DATA box -->
+  <rect x="200" y="70" width="600" height="100" class="box"/>
+  <text x="500" y="100" text-anchor="middle" class="label-bold">RAW DATA</text>
+  <text x="500" y="130" text-anchor="middle" class="math">Y = { Y_j(t) }   j = 1..D,  t = 1..N</text>
+  <text x="500" y="158" text-anchor="middle" class="dim">Absolute values (TWh, counts, mass) -- D carriers x N time steps</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="170" x2="500" y2="210" stroke="#cccccc" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="530" y="198" class="dim">closure</text>
+
+  <!-- CLOSURE box -->
+  <rect x="200" y="220" width="600" height="110" class="box"/>
+  <text x="500" y="255" text-anchor="middle" class="label-bold">CLOSURE -- Composition x(t)</text>
+  <text x="500" y="290" text-anchor="middle" class="math">x_j(t) = Y_j(t) / Sum_k Y_k(t)</text>
+  <text x="500" y="320" text-anchor="middle" class="dim">x in S^D (open simplex) -- Sum x_j = 1 -- x_j > 0</text>
+
+  <!-- Arrow -->
+  <line x1="500" y1="330" x2="500" y2="370" stroke="#cccccc" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="530" y="358" class="dim">log-ratio</text>
+
+  <!-- CLR box -->
+  <rect x="100" y="380" width="800" height="140" class="box" stroke="#888888" stroke-width="3"/>
+  <text x="500" y="415" text-anchor="middle" class="label-bold">CLR TRANSFORM -- Higgins Coordinate h(t)</text>
+  <text x="500" y="450" text-anchor="middle" class="math">h_j(t) = ln(x_j(t)) - (1/D) Sum_k ln(x_k(t))</text>
+  <text x="500" y="480" text-anchor="middle" class="math">= ln( x_j / g(x) )    where g(x) = geometric mean</text>
+  <text x="500" y="510" text-anchor="middle" class="dim">h in R^D | Sum h_j = 0 | Unit: HLR (Higgins Log-Ratio Level) | D-1 degrees of freedom</text>
+
+  <!-- Footer -->
+  <text x="500" y="550" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

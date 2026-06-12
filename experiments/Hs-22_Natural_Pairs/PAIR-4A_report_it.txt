@@ -1,0 +1,43 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  PAIR-4A
+  System:      GW150914
+  Domain:      GRAVITY
+  Carriers:    h+, hx, noise
+  N=40, D=3
+  Source:      DERIVED
+  Description: Binary black hole merger
+  Pipeline:    1.0 Extended
+  Data hash:   4f37f92c65d2808c
+  Timestamp:   2026-04-25T10:54:39.882490Z
+
+
+Codici totali: 36
+  Errori:       0
+  Avvisi:     2
+  Scoperte: 10
+  Segnali di calibrazione: 1
+  Informazioni:  23
+
+── AVVISI ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — scarso adattamento. La traiettoria potrebbe essere non polinomiale.
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/phi, delta=0.000908)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (25)
+  [S9-STL-DIS] S9-STL-DIS (3)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (22)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.804053, drift_direction=decreasing, max_shift_carrier=h+)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(h+/hx), cv=1252.978251)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(h+/noise), cv=69.877064)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(hx/noise), cv=78.865060)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=1, near_zero_carriers=['hx'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

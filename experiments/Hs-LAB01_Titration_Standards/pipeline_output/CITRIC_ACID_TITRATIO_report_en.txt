@@ -1,0 +1,56 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  CITRIC_ACID_TITRATIO
+  System:      Citric Acid Titration
+  Domain:      CHEMISTRY
+  Carriers:    H3Cit, H2Cit_minus, HCit_2minus, Cit_3minus
+  N=200, D=4
+  Source:      LOCAL FILE
+  Description: Ingested from citric_acid_titration.csv
+  Pipeline:    1.0 Extended
+  Data hash:   9d443ef0afc83f2a
+  Timestamp:   2026-05-01T03:51:38.396097Z
+
+
+Total codes: 55
+  Errors:       0
+  Warnings:     1
+  Discoveries: 16
+  Calibration signals: 2
+  Structural modes:  4
+  Information:  32
+
+── WARNINGS ──
+  [MX-SCR-WRN] MX-SCR-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000362)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000362)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (3)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.779212, drift_direction=decreasing, max_shift_carrier=Cit_3minus)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3Cit/H2Cit_minus), cv=227.676742)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3Cit/HCit_2minus), cv=225.540295)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3Cit/Cit_3minus), cv=593.501599)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H2Cit_minus/HCit_2minus), cv=352.831201)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H2Cit_minus/Cit_3minus), cv=14493.623882)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(HCit_2minus/Cit_3minus), cv=347.798980)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=198, near_zero_carriers=['H3Cit', 'H2Cit_minus', 'HCit_2minus', 'Cit_3minus'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=158.763177)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.951939, alpha=1.733819)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

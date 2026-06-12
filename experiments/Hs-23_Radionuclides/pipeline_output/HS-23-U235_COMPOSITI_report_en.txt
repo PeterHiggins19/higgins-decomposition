@@ -1,0 +1,53 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-23-U235_COMPOSITI
+  System:      U-235 Decay Chain
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=15, D=4
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-23-U235_compositions.csv
+  Pipeline:    1.0 Extended
+  Data hash:   e6bf5c61cf0fe207
+  Timestamp:   2026-04-30T21:13:52.156314Z
+
+
+Total codes: 47
+  Errors:       0
+  Warnings:     3
+  Discoveries: 14
+  Calibration signals: 1
+  Structural modes:  2
+  Information:  27
+
+── WARNINGS ──
+  [S8-FLG-WRN] Classification: FLAG — no match within 5%.
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (12)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (10)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=1.978419, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Gamma), cv=89.193629)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Recoil), cv=50.573848)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Neutrino), cv=87.918798)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gamma/Recoil), cv=226.403627)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gamma/Neutrino), cv=131.220352)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Recoil/Neutrino), cv=388.557450)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=0.000000)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=2, best={'ratio': 'λ3/λ1', 'value': 0.03994518817010224, 'constant': '1/(e^pi)', 'delta': 0.0032687300936700206})
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-MXR-DIS] SM-MXR-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

@@ -1,0 +1,3828 @@
+{
+  "experiment": "PLANCK_COSMIC_BUDGET",
+  "test_object": "Planck Cosmic Budget",
+  "carriers": [
+    "scale_factor",
+    "Omega_radiation",
+    "Omega_matter",
+    "Omega_dark_energy"
+  ],
+  "D": 4,
+  "N": 200,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 5.817885,
+    "norm_max": 10.799243,
+    "norm_mean": 7.511236,
+    "norm_range": 4.981358,
+    "phase_range_deg": 141.025,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 95,
+      "type": "DOM_SHIFT",
+      "label": "Omeg->Omeg"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "scale_factor": 0.49408815308618026,
+        "Omega_radiation": -3.8150405567220163,
+        "Omega_matter": 2.881989310266597,
+        "Omega_dark_energy": -9.670528740135069
+      },
+      "aitchison_norm": 10.799243,
+      "phase_deg": -82.621
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "scale_factor": 0.5079460303650357,
+        "Omega_radiation": -3.719549950424084,
+        "Omega_matter": 2.927513185141447,
+        "Omega_dark_energy": -9.523359131879861
+      },
+      "aitchison_norm": 10.64696,
+      "phase_deg": -82.224,
+      "delta_norm": -0.152283,
+      "delta_clr": {
+        "scale_factor": 0.013858,
+        "Omega_radiation": 0.095491,
+        "Omega_matter": 0.045524,
+        "Omega_dark_energy": 0.14717
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "scale_factor": 0.521785708102296,
+        "Omega_radiation": -3.6242533010387814,
+        "Omega_matter": 2.9729041812168098,
+        "Omega_dark_energy": -9.37677507418015
+      },
+      "aitchison_norm": 10.496168,
+      "phase_deg": -81.807,
+      "delta_norm": -0.150792,
+      "delta_clr": {
+        "scale_factor": 0.01384,
+        "Omega_radiation": 0.095297,
+        "Omega_matter": 0.045391,
+        "Omega_dark_energy": 0.146584
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "scale_factor": 0.5355890275709493,
+        "Omega_radiation": -3.5293439391721817,
+        "Omega_matter": 3.0180300036608005,
+        "Omega_dark_energy": -9.231358756869039
+      },
+      "aitchison_norm": 10.347445,
+      "phase_deg": -81.371,
+      "delta_norm": -0.148723,
+      "delta_clr": {
+        "scale_factor": 0.013803,
+        "Omega_radiation": 0.094909,
+        "Omega_matter": 0.045126,
+        "Omega_dark_energy": 0.145416
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "scale_factor": 0.5493379115816203,
+        "Omega_radiation": -3.4350139448396573,
+        "Omega_matter": 3.062759523010355,
+        "Omega_dark_energy": -9.087685667623482
+      },
+      "aitchison_norm": 10.201354,
+      "phase_deg": -80.914,
+      "delta_norm": -0.146091,
+      "delta_clr": {
+        "scale_factor": 0.013749,
+        "Omega_radiation": 0.09433,
+        "Omega_matter": 0.04473,
+        "Omega_dark_energy": 0.143673
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "scale_factor": 0.5630144050227641,
+        "Omega_radiation": -3.3414535272200148,
+        "Omega_matter": 3.106963351450957,
+        "Omega_dark_energy": -8.946321288997
+      },
+      "aitchison_norm": 10.058438,
+      "phase_deg": -80.436,
+      "delta_norm": -0.142915,
+      "delta_clr": {
+        "scale_factor": 0.013676,
+        "Omega_radiation": 0.09356,
+        "Omega_matter": 0.044204,
+        "Omega_dark_energy": 0.141364
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "scale_factor": 0.5766007151270879,
+        "Omega_radiation": -3.248850410450755,
+        "Omega_matter": 3.1505144114422725,
+        "Omega_dark_energy": -8.807817852876054
+      },
+      "aitchison_norm": 9.919218,
+      "phase_deg": -79.936,
+      "delta_norm": -0.13922,
+      "delta_clr": {
+        "scale_factor": 0.013586,
+        "Omega_radiation": 0.092603,
+        "Omega_matter": 0.043551,
+        "Omega_dark_energy": 0.138503
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "scale_factor": 0.590079251373895,
+        "Omega_radiation": -3.1573892274477817,
+        "Omega_matter": 3.1932884941907345,
+        "Omega_dark_energy": -8.672711170987613
+      },
+      "aitchison_norm": 9.784187,
+      "phase_deg": -79.414,
+      "delta_norm": -0.135032,
+      "delta_clr": {
+        "scale_factor": 0.013479,
+        "Omega_radiation": 0.091461,
+        "Omega_matter": 0.042774,
+        "Omega_dark_energy": 0.135107
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "scale_factor": 0.6034326649378705,
+        "Omega_radiation": -3.067250923706974,
+        "Omega_matter": 3.2351648055147377,
+        "Omega_dark_energy": -8.541517559648925
+      },
+      "aitchison_norm": 9.653806,
+      "phase_deg": -78.87,
+      "delta_norm": -0.130381,
+      "delta_clr": {
+        "scale_factor": 0.013353,
+        "Omega_radiation": 0.090138,
+        "Omega_matter": 0.041876,
+        "Omega_dark_energy": 0.131194
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "scale_factor": 0.6166438875958327,
+        "Omega_radiation": -2.978612173012824,
+        "Omega_matter": 3.2760264967034995,
+        "Omega_dark_energy": -8.414730876409752
+      },
+      "aitchison_norm": 9.528506,
+      "phase_deg": -78.304,
+      "delta_norm": -0.1253,
+      "delta_clr": {
+        "scale_factor": 0.013211,
+        "Omega_radiation": 0.088639,
+        "Omega_matter": 0.040862,
+        "Omega_dark_energy": 0.126787
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "scale_factor": 0.6296961700042061,
+        "Omega_radiation": -2.891644806940851,
+        "Omega_matter": 3.315761178036616,
+        "Omega_dark_energy": -8.292819685594907
+      },
+      "aitchison_norm": 9.40868,
+      "phase_deg": -77.715,
+      "delta_norm": -0.119826,
+      "delta_clr": {
+        "scale_factor": 0.013052,
+        "Omega_radiation": 0.086967,
+        "Omega_matter": 0.039735,
+        "Omega_dark_energy": 0.121911
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "scale_factor": 0.6425731192613662,
+        "Omega_radiation": -2.8065152599960093,
+        "Omega_matter": 3.354261412707512,
+        "Omega_dark_energy": -8.176224569015375
+      },
+      "aitchison_norm": 9.294684,
+      "phase_deg": -77.104,
+      "delta_norm": -0.113996,
+      "delta_clr": {
+        "scale_factor": 0.012877,
+        "Omega_radiation": 0.08513,
+        "Omega_matter": 0.0385,
+        "Omega_dark_energy": 0.116595
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "scale_factor": 0.6552587356706245,
+        "Omega_radiation": -2.723384032178779,
+        "Omega_matter": 3.3914251889801346,
+        "Omega_dark_energy": -8.065355597282867
+      },
+      "aitchison_norm": 9.186834,
+      "phase_deg": -76.472,
+      "delta_norm": -0.10785,
+      "delta_clr": {
+        "scale_factor": 0.012686,
+        "Omega_radiation": 0.083131,
+        "Omega_matter": 0.037164,
+        "Omega_dark_energy": 0.110869
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "scale_factor": 0.667737448621405,
+        "Omega_radiation": -2.6424051707143765,
+        "Omega_matter": 3.427156368503879,
+        "Omega_dark_energy": -7.960589976241094
+      },
+      "aitchison_norm": 9.085404,
+      "phase_deg": -75.818,
+      "delta_norm": -0.101429,
+      "delta_clr": {
+        "scale_factor": 0.012479,
+        "Omega_radiation": 0.080979,
+        "Omega_matter": 0.035731,
+        "Omega_dark_energy": 0.104766
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "scale_factor": 0.6799941515081437,
+        "Omega_radiation": -2.5637257726186315,
+        "Omega_matter": 3.461365108816518,
+        "Omega_dark_energy": -7.862269882021822
+      },
+      "aitchison_norm": 8.990629,
+      "phase_deg": -75.145,
+      "delta_norm": -0.094775,
+      "delta_clr": {
+        "scale_factor": 0.012257,
+        "Omega_radiation": 0.078679,
+        "Omega_matter": 0.034209,
+        "Omega_dark_energy": 0.09832
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "scale_factor": 0.6920142356086058,
+        "Omega_radiation": -2.4874855097067936,
+        "Omega_matter": 3.4939682581783447,
+        "Omega_dark_energy": -7.7707004971512905
+      },
+      "aitchison_norm": 8.9027,
+      "phase_deg": -74.454,
+      "delta_norm": -0.087929,
+      "delta_clr": {
+        "scale_factor": 0.01202,
+        "Omega_radiation": 0.07624,
+        "Omega_matter": 0.032603,
+        "Omega_dark_energy": 0.091569
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "scale_factor": 0.7037836228456396,
+        "Omega_radiation": -2.413816177579067,
+        "Omega_matter": 3.5248897210023458,
+        "Omega_dark_energy": -7.686148258978558
+      },
+      "aitchison_norm": 8.821765,
+      "phase_deg": -73.745,
+      "delta_norm": -0.080935,
+      "delta_clr": {
+        "scale_factor": 0.011769,
+        "Omega_radiation": 0.073669,
+        "Omega_matter": 0.030921,
+        "Omega_dark_energy": 0.084552
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "scale_factor": 0.7152887973588984,
+        "Omega_radiation": -2.3428412700392416,
+        "Omega_matter": 3.554060792274419,
+        "Omega_dark_energy": -7.608839330478835
+      },
+      "aitchison_norm": 8.747933,
+      "phase_deg": -73.022,
+      "delta_norm": -0.073833,
+      "delta_clr": {
+        "scale_factor": 0.011505,
+        "Omega_radiation": 0.070975,
+        "Omega_matter": 0.029171,
+        "Omega_dark_energy": 0.077309
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "scale_factor": 0.7265168358157257,
+        "Omega_radiation": -2.2746755803206673,
+        "Omega_matter": 3.5814204594939634,
+        "Omega_dark_energy": -7.538958302208483
+      },
+      "aitchison_norm": 8.68127,
+      "phase_deg": -72.287,
+      "delta_norm": -0.066663,
+      "delta_clr": {
+        "scale_factor": 0.011228,
+        "Omega_radiation": 0.068166,
+        "Omega_matter": 0.02736,
+        "Omega_dark_energy": 0.069881
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "scale_factor": 0.7374554363932276,
+        "Omega_radiation": -2.209424830407256,
+        "Omega_matter": 3.6069156708078673,
+        "Omega_dark_energy": -7.4766471328617
+      },
+      "aitchison_norm": 8.621803,
+      "phase_deg": -71.542,
+      "delta_norm": -0.059466,
+      "delta_clr": {
+        "scale_factor": 0.010939,
+        "Omega_radiation": 0.065251,
+        "Omega_matter": 0.025495,
+        "Omega_dark_energy": 0.062311
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "scale_factor": 0.7480929463665386,
+        "Omega_radiation": -2.1471853296464625,
+        "Omega_matter": 3.630501568159552,
+        "Omega_dark_energy": -7.422004334509519
+      },
+      "aitchison_norm": 8.569524,
+      "phase_deg": -70.791,
+      "delta_norm": -0.052279,
+      "delta_clr": {
+        "scale_factor": 0.010638,
+        "Omega_radiation": 0.06224,
+        "Omega_matter": 0.023586,
+        "Omega_dark_energy": 0.054643
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "scale_factor": 0.7584183882414086,
+        "Omega_radiation": -2.08804366375663,
+        "Omega_matter": 3.6521416844283987,
+        "Omega_dark_energy": -7.3750844071973525
+      },
+      "aitchison_norm": 8.524385,
+      "phase_deg": -70.038,
+      "delta_norm": -0.045139,
+      "delta_clr": {
+        "scale_factor": 0.010325,
+        "Omega_radiation": 0.059142,
+        "Omega_matter": 0.02164,
+        "Omega_dark_energy": 0.04692
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "scale_factor": 0.7684214843725087,
+        "Omega_radiation": -2.0320764152329187,
+        "Omega_matter": 3.6718081036932224,
+        "Omega_dark_energy": -7.33589752614617
+      },
+      "aitchison_norm": 8.486305,
+      "phase_deg": -69.286,
+      "delta_norm": -0.03808,
+      "delta_clr": {
+        "scale_factor": 0.010003,
+        "Omega_radiation": 0.055967,
+        "Omega_matter": 0.019666,
+        "Omega_dark_energy": 0.039187
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "scale_factor": 0.7780926800122414,
+        "Omega_radiation": -1.979349916054657,
+        "Omega_matter": 3.689481583915447,
+        "Omega_dark_energy": -7.304409483352602
+      },
+      "aitchison_norm": 8.455172,
+      "phase_deg": -68.54,
+      "delta_norm": -0.031133,
+      "delta_clr": {
+        "scale_factor": 0.009671,
+        "Omega_radiation": 0.052726,
+        "Omega_matter": 0.017673,
+        "Omega_dark_energy": 0.031488
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "scale_factor": 0.7874231647383728,
+        "Omega_radiation": -1.9299200334926456,
+        "Omega_matter": 3.7051516415028383,
+        "Omega_dark_energy": -7.280541883923144
+      },
+      "aitchison_norm": 8.43084,
+      "phase_deg": -67.804,
+      "delta_norm": -0.024331,
+      "delta_clr": {
+        "scale_factor": 0.00933,
+        "Omega_radiation": 0.04943,
+        "Omega_matter": 0.01567,
+        "Omega_dark_energy": 0.023868
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "scale_factor": 0.7964048922124255,
+        "Omega_radiation": -1.883831989708074,
+        "Omega_matter": 3.718816597382153,
+        "Omega_dark_energy": -7.2641725960156185
+      },
+      "aitchison_norm": 8.413138,
+      "phase_deg": -67.083,
+      "delta_norm": -0.017703,
+      "delta_clr": {
+        "scale_factor": 0.008982,
+        "Omega_radiation": 0.046088,
+        "Omega_matter": 0.013665,
+        "Omega_dark_energy": 0.016369
+      }
+    },
+    {
+      "index": 26,
+      "year": 26,
+      "clr": {
+        "scale_factor": 0.8050305982245265,
+        "Omega_radiation": -1.8411202157255697,
+        "Omega_matter": 3.7304835843782254,
+        "Omega_dark_energy": -7.255136451805489
+      },
+      "aitchison_norm": 8.401864,
+      "phase_deg": -66.383,
+      "delta_norm": -0.011274,
+      "delta_clr": {
+        "scale_factor": 0.008626,
+        "Omega_radiation": 0.042712,
+        "Omega_matter": 0.011667,
+        "Omega_dark_energy": 0.009036
+      }
+    },
+    {
+      "index": 27,
+      "year": 27,
+      "clr": {
+        "scale_factor": 0.8132938169842409,
+        "Omega_radiation": -1.8018082402519287,
+        "Omega_matter": 3.740168515867067,
+        "Omega_dark_energy": -7.253226195453896
+      },
+      "aitchison_norm": 8.396792,
+      "phase_deg": -65.707,
+      "delta_norm": -0.005072,
+      "delta_clr": {
+        "scale_factor": 0.008263,
+        "Omega_radiation": 0.039312,
+        "Omega_matter": 0.009685,
+        "Omega_dark_energy": 0.00191
+      }
+    },
+    {
+      "index": 28,
+      "year": 28,
+      "clr": {
+        "scale_factor": 0.8211888956208568,
+        "Omega_radiation": -1.7659086136995303,
+        "Omega_matter": 3.7478960158407384,
+        "Omega_dark_energy": -7.258193672636597
+      },
+      "aitchison_norm": 8.397671,
+      "phase_deg": -65.06,
+      "delta_norm": 0.00088,
+      "delta_clr": {
+        "scale_factor": 0.007895,
+        "Omega_radiation": 0.0359,
+        "Omega_matter": 0.007727,
+        "Omega_dark_energy": -0.004967
+      }
+    },
+    {
+      "index": 29,
+      "year": 29,
+      "clr": {
+        "scale_factor": 0.8287110068606045,
+        "Omega_radiation": -1.7334228676597836,
+        "Omega_matter": 3.753699310691335,
+        "Omega_dark_energy": -7.26975125480663
+      },
+      "aitchison_norm": 8.404229,
+      "phase_deg": -64.449,
+      "delta_norm": 0.006557,
+      "delta_clr": {
+        "scale_factor": 0.007522,
+        "Omega_radiation": 0.032486,
+        "Omega_matter": 0.005803,
+        "Omega_dark_energy": -0.011558
+      }
+    },
+    {
+      "index": 30,
+      "year": 30,
+      "clr": {
+        "scale_factor": 0.8358561598523776,
+        "Omega_radiation": -1.7043415099574624,
+        "Omega_matter": 3.7576200831896784,
+        "Omega_dark_energy": -7.287573490016239
+      },
+      "aitchison_norm": 8.416167,
+      "phase_deg": -63.875,
+      "delta_norm": 0.011939,
+      "delta_clr": {
+        "scale_factor": 0.007145,
+        "Omega_radiation": 0.029081,
+        "Omega_matter": 0.003921,
+        "Omega_dark_energy": -0.017822
+      }
+    },
+    {
+      "index": 31,
+      "year": 31,
+      "clr": {
+        "scale_factor": 0.842621209117679,
+        "Omega_radiation": -1.6786440553019026,
+        "Omega_matter": 3.7597082893004306,
+        "Omega_dark_energy": -7.311298970823306
+      },
+      "aitchison_norm": 8.43317,
+      "phase_deg": -63.345,
+      "delta_norm": 0.017003,
+      "delta_clr": {
+        "scale_factor": 0.006765,
+        "Omega_radiation": 0.025697,
+        "Omega_matter": 0.002088,
+        "Omega_dark_energy": -0.023725
+      }
+    },
+    {
+      "index": 32,
+      "year": 32,
+      "clr": {
+        "scale_factor": 0.8490038616047229,
+        "Omega_radiation": -1.6562990914360862,
+        "Omega_matter": 3.7600219386386797,
+        "Omega_dark_energy": -7.3405324085615655
+      },
+      "aitchison_norm": 8.454899,
+      "phase_deg": -62.861,
+      "delta_norm": 0.021729,
+      "delta_clr": {
+        "scale_factor": 0.006383,
+        "Omega_radiation": 0.022345,
+        "Omega_matter": 0.000314,
+        "Omega_dark_energy": -0.029233
+      }
+    },
+    {
+      "index": 33,
+      "year": 33,
+      "clr": {
+        "scale_factor": 0.855002681830868,
+        "Omega_radiation": -1.6372643805700051,
+        "Omega_matter": 3.7586268395328424,
+        "Omega_dark_energy": -7.3748469020695095
+      },
+      "aitchison_norm": 8.480997,
+      "phase_deg": -62.426,
+      "delta_norm": 0.026098,
+      "delta_clr": {
+        "scale_factor": 0.005999,
+        "Omega_radiation": 0.019035,
+        "Omega_matter": -0.001395,
+        "Omega_dark_energy": -0.034314
+      }
+    },
+    {
+      "index": 34,
+      "year": 34,
+      "clr": {
+        "scale_factor": 0.8606170951018552,
+        "Omega_radiation": -1.621486995770773,
+        "Omega_matter": 3.7555963098142553,
+        "Omega_dark_energy": -7.413786387856784
+      },
+      "aitchison_norm": 8.511088,
+      "phase_deg": -62.043,
+      "delta_norm": 0.030091,
+      "delta_clr": {
+        "scale_factor": 0.005614,
+        "Omega_radiation": 0.015777,
+        "Omega_matter": -0.003031,
+        "Omega_dark_energy": -0.038939
+      }
+    },
+    {
+      "index": 35,
+      "year": 35,
+      "clr": {
+        "scale_factor": 0.8658473888006248,
+        "Omega_radiation": -1.6089034918690595,
+        "Omega_matter": 3.751010854604463,
+        "Omega_dark_energy": -7.456868257645498
+      },
+      "aitchison_norm": 8.544778,
+      "phase_deg": -61.713,
+      "delta_norm": 0.03369,
+      "delta_clr": {
+        "scale_factor": 0.00523,
+        "Omega_radiation": 0.012584,
+        "Omega_matter": -0.004585,
+        "Omega_dark_energy": -0.043082
+      }
+    },
+    {
+      "index": 36,
+      "year": 36,
+      "clr": {
+        "scale_factor": 0.8706947117428282,
+        "Omega_radiation": -1.599440110329987,
+        "Omega_matter": 3.744957812516246,
+        "Omega_dark_energy": -7.503586128263348
+      },
+      "aitchison_norm": 8.581657,
+      "phase_deg": -61.437,
+      "delta_norm": 0.036879,
+      "delta_clr": {
+        "scale_factor": 0.004847,
+        "Omega_radiation": 0.009463,
+        "Omega_matter": -0.006053,
+        "Omega_dark_energy": -0.046718
+      }
+    },
+    {
+      "index": 37,
+      "year": 37,
+      "clr": {
+        "scale_factor": 0.8751610716004746,
+        "Omega_radiation": -1.5930130174269197,
+        "Omega_matter": 3.7375309718232383,
+        "Omega_dark_energy": -7.5534127479908735
+      },
+      "aitchison_norm": 8.621298,
+      "phase_deg": -61.217,
+      "delta_norm": 0.039641,
+      "delta_clr": {
+        "scale_factor": 0.004466,
+        "Omega_radiation": 0.006427,
+        "Omega_matter": -0.007427,
+        "Omega_dark_energy": -0.049827
+      }
+    },
+    {
+      "index": 38,
+      "year": 38,
+      "clr": {
+        "scale_factor": 0.8792493303994939,
+        "Omega_radiation": -1.5895285749490788,
+        "Omega_matter": 3.7288301582849703,
+        "Omega_dark_energy": -7.605803022682168
+      },
+      "aitchison_norm": 8.663261,
+      "phase_deg": -61.051,
+      "delta_norm": 0.041963,
+      "delta_clr": {
+        "scale_factor": 0.004088,
+        "Omega_radiation": 0.003484,
+        "Omega_matter": -0.008701,
+        "Omega_dark_energy": -0.05239
+      }
+    },
+    {
+      "index": 39,
+      "year": 39,
+      "clr": {
+        "scale_factor": 0.8829631981013117,
+        "Omega_radiation": -1.5888836425688229,
+        "Omega_matter": 3.7189607964387434,
+        "Omega_dark_energy": -7.660197144290806
+      },
+      "aitchison_norm": 8.707093,
+      "phase_deg": -60.939,
+      "delta_norm": 0.043832,
+      "delta_clr": {
+        "scale_factor": 0.003714,
+        "Omega_radiation": 0.000645,
+        "Omega_matter": -0.009869,
+        "Omega_dark_energy": -0.054394
+      }
+    },
+    {
+      "index": 40,
+      "year": 40,
+      "clr": {
+        "scale_factor": 0.88630722428283,
+        "Omega_radiation": -1.5909659108922385,
+        "Omega_matter": 3.708033446286332,
+        "Omega_dark_energy": -7.716023803845076
+      },
+      "aitchison_norm": 8.752328,
+      "phase_deg": -60.878,
+      "delta_norm": 0.045235,
+      "delta_clr": {
+        "scale_factor": 0.003344,
+        "Omega_radiation": -0.002082,
+        "Omega_matter": -0.010927,
+        "Omega_dark_energy": -0.055827
+      }
+    },
+    {
+      "index": 41,
+      "year": 41,
+      "clr": {
+        "scale_factor": 0.8892867879334732,
+        "Omega_radiation": -1.5956542641175675,
+        "Omega_matter": 3.6961633174116657,
+        "Omega_dark_energy": -7.772703470431888
+      },
+      "aitchison_norm": 8.798493,
+      "phase_deg": -60.868,
+      "delta_norm": 0.046165,
+      "delta_clr": {
+        "scale_factor": 0.00298,
+        "Omega_radiation": -0.004688,
+        "Omega_matter": -0.01187,
+        "Omega_dark_energy": -0.05668
+      }
+    },
+    {
+      "index": 42,
+      "year": 42,
+      "clr": {
+        "scale_factor": 0.8919080853921795,
+        "Omega_radiation": -1.6028191711304265,
+        "Omega_matter": 3.683469762664814,
+        "Omega_dark_energy": -7.829651717369891
+      },
+      "aitchison_norm": 8.845107,
+      "phase_deg": -60.906,
+      "delta_norm": 0.046614,
+      "delta_clr": {
+        "scale_factor": 0.002621,
+        "Omega_radiation": -0.007165,
+        "Omega_matter": -0.012694,
+        "Omega_dark_energy": -0.056948
+      }
+    },
+    {
+      "index": 43,
+      "year": 43,
+      "clr": {
+        "scale_factor": 0.8941781164513938,
+        "Omega_radiation": -1.6123231037729129,
+        "Omega_matter": 3.6700757536373945,
+        "Omega_dark_energy": -7.886282576481456
+      },
+      "aitchison_norm": 8.891684,
+      "phase_deg": -60.988,
+      "delta_norm": 0.046577,
+      "delta_clr": {
+        "scale_factor": 0.00227,
+        "Omega_radiation": -0.009504,
+        "Omega_matter": -0.013394,
+        "Omega_dark_energy": -0.056631
+      }
+    },
+    {
+      "index": 44,
+      "year": 44,
+      "clr": {
+        "scale_factor": 0.8961046686592187,
+        "Omega_radiation": -1.6240209809359927,
+        "Omega_matter": 3.656107340234559,
+        "Omega_dark_energy": -7.942011901211984
+      },
+      "aitchison_norm": 8.937736,
+      "phase_deg": -61.111,
+      "delta_norm": 0.046052,
+      "delta_clr": {
+        "scale_factor": 0.001927,
+        "Omega_radiation": -0.011698,
+        "Omega_matter": -0.013968,
+        "Omega_dark_energy": -0.055729
+      }
+    },
+    {
+      "index": 45,
+      "year": 45,
+      "clr": {
+        "scale_factor": 0.8976962998549358,
+        "Omega_radiation": -1.6377606370411195,
+        "Omega_matter": 3.6416930967186034,
+        "Omega_dark_energy": -7.996260719294121
+      },
+      "aitchison_norm": 8.982774,
+      "phase_deg": -61.272,
+      "delta_norm": 0.045038,
+      "delta_clr": {
+        "scale_factor": 0.001592,
+        "Omega_radiation": -0.01374,
+        "Omega_matter": -0.014414,
+        "Omega_dark_energy": -0.054249
+      }
+    },
+    {
+      "index": 46,
+      "year": 46,
+      "clr": {
+        "scale_factor": 0.8989623189770573,
+        "Omega_radiation": -1.6533833133983329,
+        "Omega_matter": 3.626963556658672,
+        "Omega_dark_energy": -8.04845855571457
+      },
+      "aitchison_norm": 9.026315,
+      "phase_deg": -61.467,
+      "delta_norm": 0.043541,
+      "delta_clr": {
+        "scale_factor": 0.001266,
+        "Omega_radiation": -0.015623,
+        "Omega_matter": -0.01473,
+        "Omega_dark_energy": -0.052198
+      }
+    },
+    {
+      "index": 47,
+      "year": 47,
+      "clr": {
+        "scale_factor": 0.899912765186952,
+        "Omega_radiation": -1.6707241708541787,
+        "Omega_matter": 3.6120506392698344,
+        "Omega_dark_energy": -8.098046706911564
+      },
+      "aitchison_norm": 9.067879,
+      "phase_deg": -61.691,
+      "delta_norm": 0.041564,
+      "delta_clr": {
+        "scale_factor": 0.00095,
+        "Omega_radiation": -0.017341,
+        "Omega_matter": -0.014913,
+        "Omega_dark_energy": -0.049588
+      }
+    },
+    {
+      "index": 48,
+      "year": 48,
+      "clr": {
+        "scale_factor": 0.9005583853548598,
+        "Omega_radiation": -1.6896128220740658,
+        "Omega_matter": 3.597087069662606,
+        "Omega_dark_energy": -8.144481447410989
+      },
+      "aitchison_norm": 9.106998,
+      "phase_deg": -61.943,
+      "delta_norm": 0.039119,
+      "delta_clr": {
+        "scale_factor": 0.000646,
+        "Omega_radiation": -0.018889,
+        "Omega_matter": -0.014964,
+        "Omega_dark_energy": -0.046435
+      }
+    },
+    {
+      "index": 49,
+      "year": 49,
+      "clr": {
+        "scale_factor": 0.90091060995879,
+        "Omega_radiation": -1.7098738817402583,
+        "Omega_matter": 3.5822057955507667,
+        "Omega_dark_energy": -8.187237150496927
+      },
+      "aitchison_norm": 9.143214,
+      "phase_deg": -62.216,
+      "delta_norm": 0.036216,
+      "delta_clr": {
+        "scale_factor": 0.000352,
+        "Omega_radiation": -0.020261,
+        "Omega_matter": -0.014881,
+        "Omega_dark_energy": -0.042756
+      }
+    },
+    {
+      "index": 50,
+      "year": 50,
+      "clr": {
+        "scale_factor": 0.9009815274503468,
+        "Omega_radiation": -1.7313275328888684,
+        "Omega_matter": 3.5675394029808962,
+        "Omega_dark_energy": -8.225809305005779
+      },
+      "aitchison_norm": 9.176085,
+      "phase_deg": -62.508,
+      "delta_norm": 0.032871,
+      "delta_clr": {
+        "scale_factor": 7.1e-05,
+        "Omega_radiation": -0.021454,
+        "Omega_matter": -0.014666,
+        "Omega_dark_energy": -0.038572
+      }
+    },
+    {
+      "index": 51,
+      "year": 51,
+      "clr": {
+        "scale_factor": 0.9007838571449739,
+        "Omega_radiation": -1.7537901075570825,
+        "Omega_matter": 3.5532195336513466,
+        "Omega_dark_energy": -8.259717410929284
+      },
+      "aitchison_norm": 9.205188,
+      "phase_deg": -62.814,
+      "delta_norm": 0.029103,
+      "delta_clr": {
+        "scale_factor": -0.000198,
+        "Omega_radiation": -0.022463,
+        "Omega_matter": -0.01432,
+        "Omega_dark_energy": -0.033908
+      }
+    },
+    {
+      "index": 52,
+      "year": 52,
+      "clr": {
+        "scale_factor": 0.9003309206974146,
+        "Omega_radiation": -1.7770746798656494,
+        "Omega_matter": 3.5393763063813743,
+        "Omega_dark_energy": -8.288507737207375
+      },
+      "aitchison_norm": 9.230121,
+      "phase_deg": -63.132,
+      "delta_norm": 0.024933,
+      "delta_clr": {
+        "scale_factor": -0.000453,
+        "Omega_radiation": -0.023285,
+        "Omega_matter": -0.013843,
+        "Omega_dark_energy": -0.02879
+      }
+    },
+    {
+      "index": 53,
+      "year": 53,
+      "clr": {
+        "scale_factor": 0.8996366122263548,
+        "Omega_radiation": -1.8009916696215154,
+        "Omega_matter": 3.526137745272929,
+        "Omega_dark_energy": -8.311755925882691
+      },
+      "aitchison_norm": 9.250505,
+      "phase_deg": -63.457,
+      "delta_norm": 0.020384,
+      "delta_clr": {
+        "scale_factor": -0.000694,
+        "Omega_radiation": -0.023917,
+        "Omega_matter": -0.013239,
+        "Omega_dark_energy": -0.023248
+      }
+    },
+    {
+      "index": 54,
+      "year": 54,
+      "clr": {
+        "scale_factor": 0.8987153671552497,
+        "Omega_radiation": -1.8253494544915112,
+        "Omega_matter": 3.513629217078179,
+        "Omega_dark_energy": -8.329069427670458
+      },
+      "aitchison_norm": 9.26599,
+      "phase_deg": -63.787,
+      "delta_norm": 0.015485,
+      "delta_clr": {
+        "scale_factor": -0.000921,
+        "Omega_radiation": -0.024358,
+        "Omega_matter": -0.012509,
+        "Omega_dark_energy": -0.017314
+      }
+    },
+    {
+      "index": 55,
+      "year": 55,
+      "clr": {
+        "scale_factor": 0.8975821298392117,
+        "Omega_radiation": -1.8499549887703068,
+        "Omega_matter": 3.5019728802453916,
+        "Omega_dark_energy": -8.340089754964907
+      },
+      "aitchison_norm": 9.276255,
+      "phase_deg": -64.118,
+      "delta_norm": 0.010264,
+      "delta_clr": {
+        "scale_factor": -0.001133,
+        "Omega_radiation": -0.024606,
+        "Omega_matter": -0.011656,
+        "Omega_dark_energy": -0.01102
+      }
+    },
+    {
+      "index": 56,
+      "year": 56,
+      "clr": {
+        "scale_factor": 0.8962523200505603,
+        "Omega_radiation": -1.8746144267445901,
+        "Omega_matter": 3.491287148064475,
+        "Omega_dark_energy": -8.344494539351329
+      },
+      "aitchison_norm": 9.281009,
+      "phase_deg": -64.448,
+      "delta_norm": 0.004754,
+      "delta_clr": {
+        "scale_factor": -0.00133,
+        "Omega_radiation": -0.024659,
+        "Omega_matter": -0.010686,
+        "Omega_dark_energy": -0.004405
+      }
+    },
+    {
+      "index": 57,
+      "year": 57,
+      "clr": {
+        "scale_factor": 0.8947417983981933,
+        "Omega_radiation": -1.8991337486405446,
+        "Omega_matter": 3.481686168271511,
+        "Omega_dark_energy": -8.34199938181479
+      },
+      "aitchison_norm": 9.279998,
+      "phase_deg": -64.773,
+      "delta_norm": -0.001011,
+      "delta_clr": {
+        "scale_factor": -0.001511,
+        "Omega_radiation": -0.024519,
+        "Omega_matter": -0.009601,
+        "Omega_dark_energy": 0.002495
+      }
+    },
+    {
+      "index": 58,
+      "year": 58,
+      "clr": {
+        "scale_factor": 0.8930668307583314,
+        "Omega_radiation": -1.923319387133391,
+        "Omega_matter": 3.473279321399275,
+        "Omega_dark_energy": -8.332359485026426
+      },
+      "aitchison_norm": 9.273004,
+      "phase_deg": -65.093,
+      "delta_norm": -0.006994,
+      "delta_clr": {
+        "scale_factor": -0.001675,
+        "Omega_radiation": -0.024186,
+        "Omega_matter": -0.008407,
+        "Omega_dark_energy": 0.00964
+      }
+    },
+    {
+      "index": 59,
+      "year": 59,
+      "clr": {
+        "scale_factor": 0.8912440517964023,
+        "Omega_radiation": -1.9469788523959228,
+        "Omega_matter": 3.466170740078384,
+        "Omega_dark_energy": -8.315371058338865
+      },
+      "aitchison_norm": 9.259848,
+      "phase_deg": -65.404,
+      "delta_norm": -0.013157,
+      "delta_clr": {
+        "scale_factor": -0.001823,
+        "Omega_radiation": -0.023659,
+        "Omega_matter": -0.007109,
+        "Omega_dark_energy": 0.016988
+      }
+    },
+    {
+      "index": 60,
+      "year": 60,
+      "clr": {
+        "scale_factor": 0.889290427661875,
+        "Omega_radiation": -1.9699213536676932,
+        "Omega_matter": 3.460458851401589,
+        "Omega_dark_energy": -8.29087248742699
+      },
+      "aitchison_norm": 9.240388,
+      "phase_deg": -65.704,
+      "delta_norm": -0.01946,
+      "delta_clr": {
+        "scale_factor": -0.001954,
+        "Omega_radiation": -0.022943,
+        "Omega_matter": -0.005712,
+        "Omega_dark_energy": 0.024499
+      }
+    },
+    {
+      "index": 61,
+      "year": 61,
+      "clr": {
+        "scale_factor": 0.8872232179396997,
+        "Omega_radiation": -1.9919584153377423,
+        "Omega_matter": 3.4562359443624238,
+        "Omega_dark_energy": -8.25874526186092
+      },
+      "aitchison_norm": 9.214527,
+      "phase_deg": -65.992,
+      "delta_norm": -0.025861,
+      "delta_clr": {
+        "scale_factor": -0.002067,
+        "Omega_radiation": -0.022037,
+        "Omega_matter": -0.004223,
+        "Omega_dark_energy": 0.032127
+      }
+    },
+    {
+      "index": 62,
+      "year": 62,
+      "clr": {
+        "scale_factor": 0.8850599369436867,
+        "Omega_radiation": -2.0129044855514744,
+        "Omega_matter": 3.4535877642691917,
+        "Omega_dark_energy": -8.218914655287527
+      },
+      "aitchison_norm": 9.182208,
+      "phase_deg": -66.265,
+      "delta_norm": -0.032319,
+      "delta_clr": {
+        "scale_factor": -0.002163,
+        "Omega_radiation": -0.020946,
+        "Omega_matter": -0.002648,
+        "Omega_dark_energy": 0.039831
+      }
+    },
+    {
+      "index": 63,
+      "year": 63,
+      "clr": {
+        "scale_factor": 0.8828183144386246,
+        "Omega_radiation": -2.032577535376425,
+        "Omega_matter": 3.452593135916741,
+        "Omega_dark_energy": -8.171350154316569
+      },
+      "aitchison_norm": 9.143419,
+      "phase_deg": -66.523,
+      "delta_norm": -0.038789,
+      "delta_clr": {
+        "scale_factor": -0.002242,
+        "Omega_radiation": -0.019673,
+        "Omega_matter": -0.000995,
+        "Omega_dark_energy": 0.047565
+      }
+    },
+    {
+      "index": 64,
+      "year": 64,
+      "clr": {
+        "scale_factor": 0.8805162558792267,
+        "Omega_radiation": -2.050799646592158,
+        "Omega_matter": 3.4533236171720887,
+        "Omega_dark_energy": -8.116065633649962
+      },
+      "aitchison_norm": 9.09819,
+      "phase_deg": -66.764,
+      "delta_norm": -0.045229,
+      "delta_clr": {
+        "scale_factor": -0.002302,
+        "Omega_radiation": -0.018222,
+        "Omega_matter": 0.00073,
+        "Omega_dark_energy": 0.055285
+      }
+    },
+    {
+      "index": 65,
+      "year": 65,
+      "clr": {
+        "scale_factor": 0.8781718022550701,
+        "Omega_radiation": -2.0673975862062566,
+        "Omega_matter": 3.455843184496294,
+        "Omega_dark_energy": -8.053119276448994
+      },
+      "aitchison_norm": 9.046596,
+      "phase_deg": -66.986,
+      "delta_norm": -0.051593,
+      "delta_clr": {
+        "scale_factor": -0.002344,
+        "Omega_radiation": -0.016598,
+        "Omega_matter": 0.00252,
+        "Omega_dark_energy": 0.062946
+      }
+    },
+    {
+      "index": 66,
+      "year": 66,
+      "clr": {
+        "scale_factor": 0.875803089631584,
+        "Omega_radiation": -2.0822033658412358,
+        "Omega_matter": 3.4602079517846254,
+        "Omega_dark_energy": -7.982613240396542
+      },
+      "aitchison_norm": 8.988757,
+      "phase_deg": -67.188,
+      "delta_norm": -0.057839,
+      "delta_clr": {
+        "scale_factor": -0.002369,
+        "Omega_radiation": -0.014806,
+        "Omega_matter": 0.004365,
+        "Omega_dark_energy": 0.070506
+      }
+    },
+    {
+      "index": 67,
+      "year": 67,
+      "clr": {
+        "scale_factor": 0.8734283084778185,
+        "Omega_radiation": -2.0950547841860603,
+        "Omega_matter": 3.4664659237606568,
+        "Omega_dark_energy": -7.904693071370907
+      },
+      "aitchison_norm": 8.924836,
+      "phase_deg": -67.369,
+      "delta_norm": -0.063922,
+      "delta_clr": {
+        "scale_factor": -0.002375,
+        "Omega_radiation": -0.012851,
+        "Omega_matter": 0.006258,
+        "Omega_dark_energy": 0.07792
+      }
+    },
+    {
+      "index": 68,
+      "year": 68,
+      "clr": {
+        "scale_factor": 0.8710656628722071,
+        "Omega_radiation": -2.1057959507606405,
+        "Omega_matter": 3.474656785008051,
+        "Omega_dark_energy": -7.819546868096443
+      },
+      "aitchison_norm": 8.855037,
+      "phase_deg": -67.527,
+      "delta_norm": -0.069798,
+      "delta_clr": {
+        "scale_factor": -0.002363,
+        "Omega_radiation": -0.010741,
+        "Omega_matter": 0.008191,
+        "Omega_dark_energy": 0.085146
+      }
+    },
+    {
+      "index": 69,
+      "year": 69,
+      "clr": {
+        "scale_factor": 0.8687333296778077,
+        "Omega_radiation": -2.1142777893020135,
+        "Omega_matter": 3.48481172556718,
+        "Omega_dark_energy": -7.72740420256538
+      },
+      "aitchison_norm": 8.77961,
+      "phase_deg": -67.663,
+      "delta_norm": -0.075427,
+      "delta_clr": {
+        "scale_factor": -0.002332,
+        "Omega_radiation": -0.008482,
+        "Omega_matter": 0.010155,
+        "Omega_dark_energy": 0.092143
+      }
+    },
+    {
+      "index": 70,
+      "year": 70,
+      "clr": {
+        "scale_factor": 0.86644941777858,
+        "Omega_radiation": -2.1203585191467242,
+        "Omega_matter": 3.4969533038630525,
+        "Omega_dark_energy": -7.628534802427052
+      },
+      "aitchison_norm": 8.698844,
+      "phase_deg": -67.773,
+      "delta_norm": -0.080767,
+      "delta_clr": {
+        "scale_factor": -0.002284,
+        "Omega_radiation": -0.006081,
+        "Omega_matter": 0.012142,
+        "Omega_dark_energy": 0.098869
+      }
+    },
+    {
+      "index": 71,
+      "year": 71,
+      "clr": {
+        "scale_factor": 0.8642319274681098,
+        "Omega_radiation": -2.123904113054976,
+        "Omega_matter": 3.511095347566927,
+        "Omega_dark_energy": -7.523247002906771
+      },
+      "aitchison_norm": 8.613066,
+      "phase_deg": -67.858,
+      "delta_norm": -0.085778,
+      "delta_clr": {
+        "scale_factor": -0.002217,
+        "Omega_radiation": -0.003546,
+        "Omega_matter": 0.014142,
+        "Omega_dark_energy": 0.105288
+      }
+    },
+    {
+      "index": 72,
+      "year": 72,
+      "clr": {
+        "scale_factor": 0.862098710081864,
+        "Omega_radiation": -2.124788729998193,
+        "Omega_matter": 3.5272428928273114,
+        "Omega_dark_energy": -7.41188597713953
+      },
+      "aitchison_norm": 8.522643,
+      "phase_deg": -67.916,
+      "delta_norm": -0.090423,
+      "delta_clr": {
+        "scale_factor": -0.002133,
+        "Omega_radiation": -0.000885,
+        "Omega_matter": 0.016148,
+        "Omega_dark_energy": 0.111361
+      }
+    },
+    {
+      "index": 73,
+      "year": 73,
+      "clr": {
+        "scale_factor": 0.8600674279634983,
+        "Omega_radiation": -2.122895121512468,
+        "Omega_matter": 3.5453921621374054,
+        "Omega_dark_energy": -7.2948317550753305
+      },
+      "aitchison_norm": 8.427976,
+      "phase_deg": -67.945,
+      "delta_norm": -0.094667,
+      "delta_clr": {
+        "scale_factor": -0.002031,
+        "Omega_radiation": 0.001894,
+        "Omega_matter": 0.018149,
+        "Omega_dark_energy": 0.117054
+      }
+    },
+    {
+      "index": 74,
+      "year": 74,
+      "clr": {
+        "scale_factor": 0.8581555148550023,
+        "Omega_radiation": -2.1181150103057536,
+        "Omega_matter": 3.565530580936257,
+        "Omega_dark_energy": -7.1724970423265075
+      },
+      "aitchison_norm": 8.3295,
+      "phase_deg": -67.945,
+      "delta_norm": -0.098476,
+      "delta_clr": {
+        "scale_factor": -0.001912,
+        "Omega_radiation": 0.00478,
+        "Omega_matter": 0.020138,
+        "Omega_dark_energy": 0.122335
+      }
+    },
+    {
+      "index": 75,
+      "year": 75,
+      "clr": {
+        "scale_factor": 0.8563801367995109,
+        "Omega_radiation": -2.1103494398962273,
+        "Omega_matter": 3.58763683287067,
+        "Omega_dark_energy": -7.045324851475615
+      },
+      "aitchison_norm": 8.227679,
+      "phase_deg": -67.913,
+      "delta_norm": -0.101821,
+      "delta_clr": {
+        "scale_factor": -0.001775,
+        "Omega_radiation": 0.007766,
+        "Omega_matter": 0.022106,
+        "Omega_dark_energy": 0.127172
+      }
+    },
+    {
+      "index": 76,
+      "year": 76,
+      "clr": {
+        "scale_factor": 0.85475815364446,
+        "Omega_radiation": -2.0995090941528147,
+        "Omega_matter": 3.611680953475008,
+        "Omega_dark_energy": -6.913785959438766
+      },
+      "aitchison_norm": 8.123006,
+      "phase_deg": -67.848,
+      "delta_norm": -0.104673,
+      "delta_clr": {
+        "scale_factor": -0.001622,
+        "Omega_radiation": 0.01084,
+        "Omega_matter": 0.024044,
+        "Omega_dark_energy": 0.131539
+      }
+    },
+    {
+      "index": 77,
+      "year": 77,
+      "clr": {
+        "scale_factor": 0.8533060812314227,
+        "Omega_radiation": -2.0855145857060364,
+        "Omega_matter": 3.637624461857193,
+        "Omega_dark_energy": -6.778376205477725
+      },
+      "aitchison_norm": 8.015996,
+      "phase_deg": -67.748,
+      "delta_norm": -0.10701,
+      "delta_clr": {
+        "scale_factor": -0.001452,
+        "Omega_radiation": 0.013995,
+        "Omega_matter": 0.025944,
+        "Omega_dark_energy": 0.13541
+      }
+    },
+    {
+      "index": 78,
+      "year": 78,
+      "clr": {
+        "scale_factor": 0.8520400543574184,
+        "Omega_radiation": -2.0682967122978875,
+        "Omega_matter": 3.6654205298121663,
+        "Omega_dark_energy": -6.639613645368605
+      },
+      "aitchison_norm": 7.907187,
+      "phase_deg": -67.611,
+      "delta_norm": -0.10881,
+      "delta_clr": {
+        "scale_factor": -0.001266,
+        "Omega_radiation": 0.017218,
+        "Omega_matter": 0.027796,
+        "Omega_dark_energy": 0.138763
+      }
+    },
+    {
+      "index": 79,
+      "year": 79,
+      "clr": {
+        "scale_factor": 0.8509757905907579,
+        "Omega_radiation": -2.0477966802429455,
+        "Omega_matter": 3.695014187619618,
+        "Omega_dark_energy": -6.4980355780605725
+      },
+      "aitchison_norm": 7.797129,
+      "phase_deg": -67.434,
+      "delta_norm": -0.110057,
+      "delta_clr": {
+        "scale_factor": -0.001064,
+        "Omega_radiation": 0.0205,
+        "Omega_matter": 0.029594,
+        "Omega_dark_energy": 0.141578
+      }
+    },
+    {
+      "index": 80,
+      "year": 80,
+      "clr": {
+        "scale_factor": 0.8501285550225733,
+        "Omega_radiation": -2.0239662942791514,
+        "Omega_matter": 3.726342565621543,
+        "Omega_dark_energy": -6.354195461889845
+      },
+      "aitchison_norm": 7.68639,
+      "phase_deg": -67.216,
+      "delta_norm": -0.11074,
+      "delta_clr": {
+        "scale_factor": -0.000847,
+        "Omega_radiation": 0.02383,
+        "Omega_matter": 0.031328,
+        "Omega_dark_energy": 0.14384
+      }
+    },
+    {
+      "index": 81,
+      "year": 81,
+      "clr": {
+        "scale_factor": 0.8495131260330792,
+        "Omega_radiation": -1.9967681131952009,
+        "Omega_matter": 3.759335170517958,
+        "Omega_dark_energy": -6.20865973804814
+      },
+      "aitchison_norm": 7.57554,
+      "phase_deg": -66.953,
+      "delta_norm": -0.110849,
+      "delta_clr": {
+        "scale_factor": -0.000615,
+        "Omega_radiation": 0.027198,
+        "Omega_matter": 0.032993,
+        "Omega_dark_energy": 0.145536
+      }
+    },
+    {
+      "index": 82,
+      "year": 82,
+      "clr": {
+        "scale_factor": 0.8491437621493411,
+        "Omega_radiation": -1.9661755707320137,
+        "Omega_matter": 3.793914195166539,
+        "Omega_dark_energy": -6.0620045795370014
+      },
+      "aitchison_norm": 7.465157,
+      "phase_deg": -66.642,
+      "delta_norm": -0.110383,
+      "delta_clr": {
+        "scale_factor": -0.000369,
+        "Omega_radiation": 0.030593,
+        "Omega_matter": 0.034579,
+        "Omega_dark_energy": 0.146655
+      }
+    },
+    {
+      "index": 83,
+      "year": 83,
+      "clr": {
+        "scale_factor": 0.8490341700688732,
+        "Omega_radiation": -1.9321730613678831,
+        "Omega_matter": 3.8299948605246796,
+        "Omega_dark_energy": -5.9148125842671835
+      },
+      "aitchison_norm": 7.355815,
+      "phase_deg": -66.278,
+      "delta_norm": -0.109342,
+      "delta_clr": {
+        "scale_factor": -0.00011,
+        "Omega_radiation": 0.034003,
+        "Omega_matter": 0.036081,
+        "Omega_dark_energy": 0.147192
+      }
+    },
+    {
+      "index": 84,
+      "year": 84,
+      "clr": {
+        "scale_factor": 0.8491974739207797,
+        "Omega_radiation": -1.8947559907102867,
+        "Omega_matter": 3.8674857882312272,
+        "Omega_dark_energy": -5.767669431282723
+      },
+      "aitchison_norm": 7.248082,
+      "phase_deg": -65.859,
+      "delta_norm": -0.107733,
+      "delta_clr": {
+        "scale_factor": 0.000163,
+        "Omega_radiation": 0.037417,
+        "Omega_matter": 0.037491,
+        "Omega_dark_energy": 0.147143
+      }
+    },
+    {
+      "index": 85,
+      "year": 85,
+      "clr": {
+        "scale_factor": 0.8496461858333717,
+        "Omega_radiation": -1.8539307903316475,
+        "Omega_matter": 3.906289402190509,
+        "Omega_dark_energy": -5.621160519301128
+      },
+      "aitchison_norm": 7.142514,
+      "phase_deg": -65.378,
+      "delta_norm": -0.105568,
+      "delta_clr": {
+        "scale_factor": 0.000449,
+        "Omega_radiation": 0.040825,
+        "Omega_matter": 0.038804,
+        "Omega_dark_energy": 0.146509
+      }
+    },
+    {
+      "index": 86,
+      "year": 86,
+      "clr": {
+        "scale_factor": 0.8503921778742685,
+        "Omega_radiation": -1.8097148970011347,
+        "Omega_matter": 3.9463023573937743,
+        "Omega_dark_energy": -5.475867606862435
+      },
+      "aitchison_norm": 7.039649,
+      "phase_deg": -64.831,
+      "delta_norm": -0.102864,
+      "delta_clr": {
+        "scale_factor": 0.000746,
+        "Omega_radiation": 0.044216,
+        "Omega_matter": 0.040013,
+        "Omega_dark_energy": 0.145293
+      }
+    },
+    {
+      "index": 87,
+      "year": 87,
+      "clr": {
+        "scale_factor": 0.851446655425907,
+        "Omega_radiation": -1.7621366963795633,
+        "Omega_matter": 3.9874159940934986,
+        "Omega_dark_energy": -5.332365473370817
+      },
+      "aitchison_norm": 6.940007,
+      "phase_deg": -64.211,
+      "delta_norm": -0.099643,
+      "delta_clr": {
+        "scale_factor": 0.001054,
+        "Omega_radiation": 0.047578,
+        "Omega_matter": 0.041114,
+        "Omega_dark_energy": 0.143502
+      }
+    },
+    {
+      "index": 88,
+      "year": 88,
+      "clr": {
+        "scale_factor": 0.8528201320561731,
+        "Omega_radiation": -1.7112354313592182,
+        "Omega_matter": 4.029516815334592,
+        "Omega_dark_energy": -5.191218620192392
+      },
+      "aitchison_norm": 6.844077,
+      "phase_deg": -63.51,
+      "delta_norm": -0.09593,
+      "delta_clr": {
+        "scale_factor": 0.001373,
+        "Omega_radiation": 0.050901,
+        "Omega_matter": 0.042101,
+        "Omega_dark_energy": 0.141147
+      }
+    },
+    {
+      "index": 89,
+      "year": 89,
+      "clr": {
+        "scale_factor": 0.8545224059405052,
+        "Omega_radiation": -1.6570610753445711,
+        "Omega_matter": 4.072486985743849,
+        "Omega_dark_energy": -5.052978030743046
+      },
+      "aitchison_norm": 6.752318,
+      "phase_deg": -62.72,
+      "delta_norm": -0.091759,
+      "delta_clr": {
+        "scale_factor": 0.001702,
+        "Omega_radiation": 0.054174,
+        "Omega_matter": 0.04297,
+        "Omega_dark_energy": 0.138241
+      }
+    },
+    {
+      "index": 90,
+      "year": 90,
+      "clr": {
+        "scale_factor": 0.8565625378883481,
+        "Omega_radiation": -1.599674170883083,
+        "Omega_matter": 4.116204849385632,
+        "Omega_dark_energy": -4.918178008161479
+      },
+      "aitchison_norm": 6.665154,
+      "phase_deg": -61.833,
+      "delta_norm": -0.087164,
+      "delta_clr": {
+        "scale_factor": 0.00204,
+        "Omega_radiation": 0.057387,
+        "Omega_matter": 0.043718,
+        "Omega_dark_energy": 0.1348
+      }
+    },
+    {
+      "index": 91,
+      "year": 91,
+      "clr": {
+        "scale_factor": 0.8589488310232374,
+        "Omega_radiation": -1.539145634167181,
+        "Omega_matter": 4.160545464407916,
+        "Omega_dark_energy": -4.787333108717441
+      },
+      "aitchison_norm": 6.582967,
+      "phase_deg": -60.835,
+      "delta_norm": -0.082186,
+      "delta_clr": {
+        "scale_factor": 0.002386,
+        "Omega_radiation": 0.060529,
+        "Omega_matter": 0.044341,
+        "Omega_dark_energy": 0.130845
+      }
+    },
+    {
+      "index": 92,
+      "year": 92,
+      "clr": {
+        "scale_factor": 0.8616888121620816,
+        "Omega_radiation": -1.475556526038668,
+        "Omega_matter": 4.205381152129084,
+        "Omega_dark_energy": -4.66093518855558
+      },
+      "aitchison_norm": 6.506099,
+      "phase_deg": -59.716,
+      "delta_norm": -0.076869,
+      "delta_clr": {
+        "scale_factor": 0.00274,
+        "Omega_radiation": 0.063589,
+        "Omega_matter": 0.044836,
+        "Omega_dark_energy": 0.126398
+      }
+    },
+    {
+      "index": 93,
+      "year": 93,
+      "clr": {
+        "scale_factor": 0.864789214935401,
+        "Omega_radiation": -1.4089977902350443,
+        "Omega_matter": 4.250582058152366,
+        "Omega_dark_energy": -4.539450580724931
+      },
+      "aitchison_norm": 6.434842,
+      "phase_deg": -58.46,
+      "delta_norm": -0.071257,
+      "delta_clr": {
+        "scale_factor": 0.0031,
+        "Omega_radiation": 0.066559,
+        "Omega_matter": 0.045201,
+        "Omega_dark_energy": 0.121485
+      }
+    },
+    {
+      "index": 94,
+      "year": 94,
+      "clr": {
+        "scale_factor": 0.8682559646863809,
+        "Omega_radiation": -1.3395699597229478,
+        "Omega_matter": 4.296016723041987,
+        "Omega_dark_energy": -4.423317418696243
+      },
+      "aitchison_norm": 6.369444,
+      "phase_deg": -57.05,
+      "delta_norm": -0.065399,
+      "delta_clr": {
+        "scale_factor": 0.003467,
+        "Omega_radiation": 0.069428,
+        "Omega_matter": 0.045435,
+        "Omega_dark_energy": 0.116133
+      }
+    },
+    {
+      "index": 95,
+      "year": 95,
+      "clr": {
+        "scale_factor": 0.872094165182601,
+        "Omega_radiation": -1.2673828320669982,
+        "Omega_matter": 4.341552660053034,
+        "Omega_dark_energy": -4.312943121728607
+      },
+      "aitchison_norm": 6.3101,
+      "phase_deg": -55.468,
+      "delta_norm": -0.059343,
+      "delta_clr": {
+        "scale_factor": 0.003838,
+        "Omega_radiation": 0.072187,
+        "Omega_matter": 0.045536,
+        "Omega_dark_energy": 0.110374
+      }
+    },
+    {
+      "index": 96,
+      "year": 96,
+      "clr": {
+        "scale_factor": 0.8763080871702458,
+        "Omega_radiation": -1.192555114882326,
+        "Omega_matter": 4.387056937376082,
+        "Omega_dark_energy": -4.20870205651796
+      },
+      "aitchison_norm": 6.25696,
+      "phase_deg": -53.691,
+      "delta_norm": -0.053141,
+      "delta_clr": {
+        "scale_factor": 0.004214,
+        "Omega_radiation": 0.074828,
+        "Omega_matter": 0.045504,
+        "Omega_dark_energy": 0.104241
+      }
+    },
+    {
+      "index": 97,
+      "year": 97,
+      "clr": {
+        "scale_factor": 0.880901158796459,
+        "Omega_radiation": -1.1152140425156278,
+        "Omega_matter": 4.432396762337765,
+        "Omega_dark_energy": -4.110933388548218
+      },
+      "aitchison_norm": 6.210121,
+      "phase_deg": -51.695,
+      "delta_norm": -0.046839,
+      "delta_clr": {
+        "scale_factor": 0.004593,
+        "Omega_radiation": 0.077341,
+        "Omega_matter": 0.04534,
+        "Omega_dark_energy": 0.097769
+      }
+    },
+    {
+      "index": 98,
+      "year": 98,
+      "clr": {
+        "scale_factor": 0.8858759579213273,
+        "Omega_radiation": -1.035494965192553,
+        "Omega_matter": 4.477440064989871,
+        "Omega_dark_energy": -4.019939135477059
+      },
+      "aitchison_norm": 6.169636,
+      "phase_deg": -49.453,
+      "delta_norm": -0.040485,
+      "delta_clr": {
+        "scale_factor": 0.004975,
+        "Omega_radiation": 0.079719,
+        "Omega_matter": 0.045043,
+        "Omega_dark_energy": 0.090994
+      }
+    },
+    {
+      "index": 99,
+      "year": 99,
+      "clr": {
+        "scale_factor": 0.8912342063367291,
+        "Omega_radiation": -0.9535409119580918,
+        "Omega_matter": 4.522056078522258,
+        "Omega_dark_energy": -3.9359824337288147
+      },
+      "aitchison_norm": 6.13551,
+      "phase_deg": -46.934,
+      "delta_norm": -0.034125,
+      "delta_clr": {
+        "scale_factor": 0.005358,
+        "Omega_radiation": 0.081954,
+        "Omega_matter": 0.044616,
+        "Omega_dark_energy": 0.083957
+      }
+    },
+    {
+      "index": 100,
+      "year": 100,
+      "clr": {
+        "scale_factor": 0.896976765905017,
+        "Omega_radiation": -0.8695021288212643,
+        "Omega_matter": 4.566115913948819,
+        "Omega_dark_energy": -3.859286028243183
+      },
+      "aitchison_norm": 6.107709,
+      "phase_deg": -44.109,
+      "delta_norm": -0.027802,
+      "delta_clr": {
+        "scale_factor": 0.005743,
+        "Omega_radiation": 0.084039,
+        "Omega_matter": 0.04406,
+        "Omega_dark_energy": 0.076696
+      }
+    },
+    {
+      "index": 101,
+      "year": 101,
+      "clr": {
+        "scale_factor": 0.9031036366261904,
+        "Omega_radiation": -0.7835355935955177,
+        "Omega_matter": 4.60949312654089,
+        "Omega_dark_energy": -3.7900309940477848
+      },
+      "aitchison_norm": 6.086155,
+      "phase_deg": -40.945,
+      "delta_norm": -0.021553,
+      "delta_clr": {
+        "scale_factor": 0.006127,
+        "Omega_radiation": 0.085967,
+        "Omega_matter": 0.043377,
+        "Omega_dark_energy": 0.069255
+      }
+    },
+    {
+      "index": 102,
+      "year": 102,
+      "clr": {
+        "scale_factor": 0.9096139566378978,
+        "Omega_radiation": -0.6958045090014342,
+        "Omega_matter": 4.6520642715188,
+        "Omega_dark_energy": -3.7283556969919656
+      },
+      "aitchison_norm": 6.07074,
+      "phase_deg": -37.414,
+      "delta_norm": -0.015416,
+      "delta_clr": {
+        "scale_factor": 0.00651,
+        "Omega_radiation": 0.087731,
+        "Omega_matter": 0.042571,
+        "Omega_dark_energy": 0.061675
+      }
+    },
+    {
+      "index": 103,
+      "year": 103,
+      "clr": {
+        "scale_factor": 0.9165060041482598,
+        "Omega_radiation": -0.6064777756685827,
+        "Omega_matter": 4.693709446559416,
+        "Omega_dark_energy": -3.6743549996066456
+      },
+      "aitchison_norm": 6.061319,
+      "phase_deg": -33.494,
+      "delta_norm": -0.00942,
+      "delta_clr": {
+        "scale_factor": 0.006892,
+        "Omega_radiation": 0.089327,
+        "Omega_matter": 0.041645,
+        "Omega_dark_energy": 0.054001
+      }
+    },
+    {
+      "index": 104,
+      "year": 104,
+      "clr": {
+        "scale_factor": 0.9237772012971907,
+        "Omega_radiation": -0.5157294467382424,
+        "Omega_matter": 4.734312818735527,
+        "Omega_dark_energy": -3.6280797166481147
+      },
+      "aitchison_norm": 6.057724,
+      "phase_deg": -29.174,
+      "delta_norm": -0.003595,
+      "delta_clr": {
+        "scale_factor": 0.007271,
+        "Omega_radiation": 0.090748,
+        "Omega_matter": 0.040603,
+        "Omega_dark_energy": 0.046275
+      }
+    },
+    {
+      "index": 105,
+      "year": 105,
+      "clr": {
+        "scale_factor": 0.9314241199375457,
+        "Omega_radiation": -0.42373816582815205,
+        "Omega_matter": 4.773763133571289,
+        "Omega_dark_energy": -3.5895363234506483
+      },
+      "aitchison_norm": 6.05976,
+      "phase_deg": -24.462,
+      "delta_norm": 0.002036,
+      "delta_clr": {
+        "scale_factor": 0.007647,
+        "Omega_radiation": 0.091991,
+        "Omega_matter": 0.03945,
+        "Omega_dark_energy": 0.038543
+      }
+    },
+    {
+      "index": 106,
+      "year": 106,
+      "clr": {
+        "scale_factor": 0.9394424893231416,
+        "Omega_radiation": -0.33068659017413005,
+        "Omega_matter": 4.811954203976581,
+        "Omega_dark_energy": -3.558686918761825
+      },
+      "aitchison_norm": 6.067212,
+      "phase_deg": -19.392,
+      "delta_norm": 0.007452,
+      "delta_clr": {
+        "scale_factor": 0.008018,
+        "Omega_radiation": 0.093052,
+        "Omega_matter": 0.038191,
+        "Omega_dark_energy": 0.030849
+      }
+    },
+    {
+      "index": 107,
+      "year": 107,
+      "clr": {
+        "scale_factor": 0.9478272056863974,
+        "Omega_radiation": -0.23676080081132952,
+        "Omega_matter": 4.848785376911513,
+        "Omega_dark_energy": -3.535449442273849
+      },
+      "aitchison_norm": 6.079848,
+      "phase_deg": -14.025,
+      "delta_norm": 0.012636,
+      "delta_clr": {
+        "scale_factor": 0.008385,
+        "Omega_radiation": 0.093926,
+        "Omega_matter": 0.036831,
+        "Omega_dark_energy": 0.023237
+      }
+    },
+    {
+      "index": 108,
+      "year": 108,
+      "clr": {
+        "scale_factor": 0.9565723436841289,
+        "Omega_radiation": -0.1421497016996904,
+        "Omega_matter": 4.884161975730241,
+        "Omega_dark_energy": -3.5196981456023773
+      },
+      "aitchison_norm": 6.097422,
+      "phase_deg": -8.452,
+      "delta_norm": 0.017573,
+      "delta_clr": {
+        "scale_factor": 0.008745,
+        "Omega_radiation": 0.094611,
+        "Omega_matter": 0.035377,
+        "Omega_dark_energy": 0.015751
+      }
+    },
+    {
+      "index": 109,
+      "year": 109,
+      "clr": {
+        "scale_factor": 0.9656711696858151,
+        "Omega_radiation": -0.04704440973387983,
+        "Omega_matter": 4.917995716260084,
+        "Omega_dark_energy": -3.5112643140097006
+      },
+      "aitchison_norm": 6.119673,
+      "phase_deg": -2.789,
+      "delta_norm": 0.022251,
+      "delta_clr": {
+        "scale_factor": 0.009099,
+        "Omega_radiation": 0.095105,
+        "Omega_matter": 0.033834,
+        "Omega_dark_energy": 0.008434
+      }
+    },
+    {
+      "index": 110,
+      "year": 110,
+      "clr": {
+        "scale_factor": 0.9751161568745477,
+        "Omega_radiation": 0.04836236239255298,
+        "Omega_matter": 4.9502050947873935,
+        "Omega_dark_energy": -3.509937234730007
+      },
+      "aitchison_norm": 6.146331,
+      "phase_deg": 2.839,
+      "delta_norm": 0.026658,
+      "delta_clr": {
+        "scale_factor": 0.009445,
+        "Omega_radiation": 0.095407,
+        "Omega_matter": 0.032209,
+        "Omega_dark_energy": 0.001327
+      }
+    },
+    {
+      "index": 111,
+      "year": 111,
+      "clr": {
+        "scale_factor": 0.9848990021267909,
+        "Omega_radiation": 0.14387692847603126,
+        "Omega_matter": 4.980715746245084,
+        "Omega_dark_energy": -3.5154654063390938
+      },
+      "aitchison_norm": 6.177115,
+      "phase_deg": 8.311,
+      "delta_norm": 0.030785,
+      "delta_clr": {
+        "scale_factor": 0.009783,
+        "Omega_radiation": 0.095515,
+        "Omega_matter": 0.030511,
+        "Omega_dark_energy": -0.005528
+      }
+    },
+    {
+      "index": 112,
+      "year": 112,
+      "clr": {
+        "scale_factor": 0.9950106446331003,
+        "Omega_radiation": 0.23930525423534713,
+        "Omega_matter": 5.0094607710276655,
+        "Omega_dark_energy": -3.5275579822274605
+      },
+      "aitchison_norm": 6.211737,
+      "phase_deg": 13.523,
+      "delta_norm": 0.034622,
+      "delta_clr": {
+        "scale_factor": 0.010112,
+        "Omega_radiation": 0.095428,
+        "Omega_matter": 0.028745,
+        "Omega_dark_energy": -0.012093
+      }
+    },
+    {
+      "index": 113,
+      "year": 113,
+      "clr": {
+        "scale_factor": 1.0054412862180373,
+        "Omega_radiation": 0.3344535838680479,
+        "Omega_matter": 5.036381028997529,
+        "Omega_dark_energy": -3.545886439892045
+      },
+      "aitchison_norm": 6.249897,
+      "phase_deg": 18.399,
+      "delta_norm": 0.03816,
+      "delta_clr": {
+        "scale_factor": 0.010431,
+        "Omega_radiation": 0.095148,
+        "Omega_matter": 0.02692,
+        "Omega_dark_energy": -0.018328
+      }
+    },
+    {
+      "index": 114,
+      "year": 114,
+      "clr": {
+        "scale_factor": 1.016180413313716,
+        "Omega_radiation": 0.4291290657075957,
+        "Omega_matter": 5.061425399390404,
+        "Omega_dark_energy": -3.570086466465877
+      },
+      "aitchison_norm": 6.291289,
+      "phase_deg": 22.894,
+      "delta_norm": 0.041392,
+      "delta_clr": {
+        "scale_factor": 0.010739,
+        "Omega_radiation": 0.094675,
+        "Omega_matter": 0.025044,
+        "Omega_dark_energy": -0.0242
+      }
+    },
+    {
+      "index": 115,
+      "year": 115,
+      "clr": {
+        "scale_factor": 1.0272168205376992,
+        "Omega_radiation": 0.5231403749609582,
+        "Omega_matter": 5.08455100547775,
+        "Omega_dark_energy": -3.5997600496637547
+      },
+      "aitchison_norm": 6.335596,
+      "phase_deg": 26.989,
+      "delta_norm": 0.044307,
+      "delta_clr": {
+        "scale_factor": 0.011036,
+        "Omega_radiation": 0.094011,
+        "Omega_matter": 0.023126,
+        "Omega_dark_energy": -0.029674
+      }
+    },
+    {
+      "index": 116,
+      "year": 116,
+      "clr": {
+        "scale_factor": 1.0385386358223685,
+        "Omega_radiation": 0.6162983315157935,
+        "Omega_matter": 5.105723402998787,
+        "Omega_dark_energy": -3.634477762143158
+      },
+      "aitchison_norm": 6.382494,
+      "phase_deg": 30.686,
+      "delta_norm": 0.046897,
+      "delta_clr": {
+        "scale_factor": 0.011322,
+        "Omega_radiation": 0.093158,
+        "Omega_matter": 0.021172,
+        "Omega_dark_energy": -0.034718
+      }
+    },
+    {
+      "index": 117,
+      "year": 117,
+      "clr": {
+        "scale_factor": 1.0501333470394119,
+        "Omega_radiation": 0.7084165108222235,
+        "Omega_matter": 5.12491673153401,
+        "Omega_dark_energy": -3.673781226169443
+      },
+      "aitchison_norm": 6.431646,
+      "phase_deg": 34.003,
+      "delta_norm": 0.049153,
+      "delta_clr": {
+        "scale_factor": 0.011595,
+        "Omega_radiation": 0.092118,
+        "Omega_matter": 0.019193,
+        "Omega_dark_energy": -0.039303
+      }
+    },
+    {
+      "index": 118,
+      "year": 118,
+      "clr": {
+        "scale_factor": 1.0619878300597254,
+        "Omega_radiation": 0.7993118458766253,
+        "Omega_matter": 5.142113828154982,
+        "Omega_dark_energy": -3.7171857444396172
+      },
+      "aitchison_norm": 6.482709,
+      "phase_deg": 36.967,
+      "delta_norm": 0.051063,
+      "delta_clr": {
+        "scale_factor": 0.011854,
+        "Omega_radiation": 0.090895,
+        "Omega_matter": 0.017197,
+        "Omega_dark_energy": -0.043405
+      }
+    },
+    {
+      "index": 119,
+      "year": 119,
+      "clr": {
+        "scale_factor": 1.074088378185795,
+        "Omega_radiation": 0.888805218363572,
+        "Omega_matter": 5.15730630285092,
+        "Omega_dark_energy": -3.7641830819652213
+      },
+      "aitchison_norm": 6.535329,
+      "phase_deg": 39.608,
+      "delta_norm": 0.052619,
+      "delta_clr": {
+        "scale_factor": 0.012101,
+        "Omega_radiation": 0.089493,
+        "Omega_matter": 0.015192,
+        "Omega_dark_energy": -0.046997
+      }
+    },
+    {
+      "index": 120,
+      "year": 120,
+      "clr": {
+        "scale_factor": 1.0864207328905549,
+        "Omega_radiation": 0.9767220370470373,
+        "Omega_matter": 5.170494575400596,
+        "Omega_dark_energy": -3.8142443830479746
+      },
+      "aitchison_norm": 6.58914,
+      "phase_deg": 41.956,
+      "delta_norm": 0.053811,
+      "delta_clr": {
+        "scale_factor": 0.012332,
+        "Omega_radiation": 0.087917,
+        "Omega_matter": 0.013188,
+        "Omega_dark_energy": -0.050061
+      }
+    },
+    {
+      "index": 121,
+      "year": 121,
+      "clr": {
+        "scale_factor": 1.098970115793791,
+        "Omega_radiation": 1.0628928015432346,
+        "Omega_matter": 5.1816878735275225,
+        "Omega_dark_energy": -3.866823206606375
+      },
+      "aitchison_norm": 6.643771,
+      "phase_deg": 44.044,
+      "delta_norm": 0.05463,
+      "delta_clr": {
+        "scale_factor": 0.012549,
+        "Omega_radiation": 0.086171,
+        "Omega_matter": 0.011193,
+        "Omega_dark_energy": -0.052579
+      }
+    },
+    {
+      "index": 122,
+      "year": 122,
+      "clr": {
+        "scale_factor": 1.1117212618043708,
+        "Omega_radiation": 1.1471536496545407,
+        "Omega_matter": 5.190904192346517,
+        "Omega_dark_energy": -3.921358662432278
+      },
+      "aitchison_norm": 6.698838,
+      "phase_deg": 45.899,
+      "delta_norm": 0.055067,
+      "delta_clr": {
+        "scale_factor": 0.012751,
+        "Omega_radiation": 0.084261,
+        "Omega_matter": 0.009216,
+        "Omega_dark_energy": -0.054535
+      }
+    },
+    {
+      "index": 123,
+      "year": 123,
+      "clr": {
+        "scale_factor": 1.1246584533539834,
+        "Omega_radiation": 1.2293468864971686,
+        "Omega_matter": 5.198170215279876,
+        "Omega_dark_energy": -3.9772786303770946
+      },
+      "aitchison_norm": 6.753952,
+      "phase_deg": 47.546,
+      "delta_norm": 0.055114,
+      "delta_clr": {
+        "scale_factor": 0.012937,
+        "Omega_radiation": 0.082193,
+        "Omega_matter": 0.007266,
+        "Omega_dark_energy": -0.05592
+      }
+    },
+    {
+      "index": 124,
+      "year": 124,
+      "clr": {
+        "scale_factor": 1.13776555564561,
+        "Omega_radiation": 1.3093214937139508,
+        "Omega_matter": 5.203521196790704,
+        "Omega_dark_energy": -4.034003043991412
+      },
+      "aitchison_norm": 6.808718,
+      "phase_deg": 49.01,
+      "delta_norm": 0.054766,
+      "delta_clr": {
+        "scale_factor": 0.013107,
+        "Omega_radiation": 0.079975,
+        "Omega_matter": 0.005351,
+        "Omega_dark_energy": -0.056724
+      }
+    },
+    {
+      "index": 125,
+      "year": 125,
+      "clr": {
+        "scale_factor": 1.151026052837677,
+        "Omega_radiation": 1.3869336171279403,
+        "Omega_matter": 5.207000807448765,
+        "Omega_dark_energy": -4.090947219771746
+      },
+      "aitchison_norm": 6.862737,
+      "phase_deg": 50.31,
+      "delta_norm": 0.054018,
+      "delta_clr": {
+        "scale_factor": 0.01326,
+        "Omega_radiation": 0.077612,
+        "Omega_matter": 0.00348,
+        "Omega_dark_energy": -0.056944
+      }
+    },
+    {
+      "index": 126,
+      "year": 126,
+      "clr": {
+        "scale_factor": 1.1644230850827482,
+        "Omega_radiation": 1.462047031262148,
+        "Omega_matter": 5.20866094200973,
+        "Omega_dark_energy": -4.147525212906571
+      },
+      "aitchison_norm": 6.915604,
+      "phase_deg": 51.465,
+      "delta_norm": 0.052867,
+      "delta_clr": {
+        "scale_factor": 0.013397,
+        "Omega_radiation": 0.075113,
+        "Omega_matter": 0.00166,
+        "Omega_dark_energy": -0.056578
+      }
+    },
+    {
+      "index": 127,
+      "year": 127,
+      "clr": {
+        "scale_factor": 1.1779394863376895,
+        "Omega_radiation": 1.5345335792254327,
+        "Omega_matter": 5.208561491351297,
+        "Omega_dark_energy": -4.2031531802614905
+      },
+      "aitchison_norm": 6.966918,
+      "phase_deg": 52.489,
+      "delta_norm": 0.051314,
+      "delta_clr": {
+        "scale_factor": 0.013516,
+        "Omega_radiation": 0.072487,
+        "Omega_matter": -9.9e-05,
+        "Omega_dark_energy": -0.055628
+      }
+    },
+    {
+      "index": 128,
+      "year": 128,
+      "clr": {
+        "scale_factor": 1.1915578228605108,
+        "Omega_radiation": 1.6042735865441067,
+        "Omega_matter": 5.206770079268426,
+        "Omega_dark_energy": -4.257252731302019
+      },
+      "aitchison_norm": 7.016278,
+      "phase_deg": 53.397,
+      "delta_norm": 0.04936,
+      "delta_clr": {
+        "scale_factor": 0.013618,
+        "Omega_radiation": 0.06974,
+        "Omega_matter": -0.001791,
+        "Omega_dark_energy": -0.0541
+      }
+    },
+    {
+      "index": 129,
+      "year": 129,
+      "clr": {
+        "scale_factor": 1.2052604323075564,
+        "Omega_radiation": 1.6711562476029578,
+        "Omega_matter": 5.203361765284432,
+        "Omega_dark_energy": -4.309254247721565
+      },
+      "aitchison_norm": 7.06329,
+      "phase_deg": 54.2,
+      "delta_norm": 0.047012,
+      "delta_clr": {
+        "scale_factor": 0.013703,
+        "Omega_radiation": 0.066883,
+        "Omega_matter": -0.003408,
+        "Omega_dark_energy": -0.052002
+      }
+    },
+    {
+      "index": 130,
+      "year": 130,
+      "clr": {
+        "scale_factor": 1.2190294633433598,
+        "Omega_radiation": 1.7350799834478257,
+        "Omega_matter": 5.198418714783992,
+        "Omega_dark_energy": -4.358600152721904
+      },
+      "aitchison_norm": 7.107566,
+      "phase_deg": 54.909,
+      "delta_norm": 0.044276,
+      "delta_clr": {
+        "scale_factor": 0.013769,
+        "Omega_radiation": 0.063924,
+        "Omega_matter": -0.004943,
+        "Omega_dark_energy": -0.049346
+      }
+    },
+    {
+      "index": 131,
+      "year": 131,
+      "clr": {
+        "scale_factor": 1.232846915674334,
+        "Omega_radiation": 1.7959527697943543,
+        "Omega_matter": 5.192029837917749,
+        "Omega_dark_energy": -4.404748111182344
+      },
+      "aitchison_norm": 7.14873,
+      "phase_deg": 55.532,
+      "delta_norm": 0.041164,
+      "delta_clr": {
+        "scale_factor": 0.013817,
+        "Omega_radiation": 0.060873,
+        "Omega_matter": -0.006389,
+        "Omega_dark_energy": -0.046148
+      }
+    },
+    {
+      "index": 132,
+      "year": 132,
+      "clr": {
+        "scale_factor": 1.2466946804165213,
+        "Omega_radiation": 1.853692434183748,
+        "Omega_matter": 5.184290398865435,
+        "Omega_dark_energy": -4.447174142350427
+      },
+      "aitchison_norm": 7.186421,
+      "phase_deg": 56.077,
+      "delta_norm": 0.037691,
+      "delta_clr": {
+        "scale_factor": 0.013848,
+        "Omega_radiation": 0.05774,
+        "Omega_matter": -0.007739,
+        "Omega_dark_energy": -0.042426
+      }
+    },
+    {
+      "index": 133,
+      "year": 133,
+      "clr": {
+        "scale_factor": 1.2605545807068623,
+        "Omega_radiation": 1.9082269213259735,
+        "Omega_matter": 5.175301597174687,
+        "Omega_dark_energy": -4.485375627189171
+      },
+      "aitchison_norm": 7.220296,
+      "phase_deg": 56.552,
+      "delta_norm": 0.033875,
+      "delta_clr": {
+        "scale_factor": 0.01386,
+        "Omega_radiation": 0.054534,
+        "Omega_matter": -0.008989,
+        "Omega_dark_energy": -0.038201
+      }
+    },
+    {
+      "index": 134,
+      "year": 134,
+      "clr": {
+        "scale_factor": 1.274408412466924,
+        "Omega_radiation": 1.9594945257736078,
+        "Omega_matter": 5.1651701230154865,
+        "Omega_dark_energy": -4.518874193120386
+      },
+      "aitchison_norm": 7.25003,
+      "phase_deg": 56.961,
+      "delta_norm": 0.029735,
+      "delta_clr": {
+        "scale_factor": 0.013854,
+        "Omega_radiation": 0.051268,
+        "Omega_matter": -0.010131,
+        "Omega_dark_energy": -0.033499
+      }
+    },
+    {
+      "index": 135,
+      "year": 135,
+      "clr": {
+        "scale_factor": 1.2882379852276558,
+        "Omega_radiation": 2.0074440911749916,
+        "Omega_matter": 5.154007688304734,
+        "Omega_dark_energy": -4.547218459607291
+      },
+      "aitchison_norm": 7.275327,
+      "phase_deg": 57.31,
+      "delta_norm": 0.025296,
+      "delta_clr": {
+        "scale_factor": 0.01383,
+        "Omega_radiation": 0.04795,
+        "Omega_matter": -0.011162,
+        "Omega_dark_energy": -0.028344
+      }
+    },
+    {
+      "index": 136,
+      "year": 136,
+      "clr": {
+        "scale_factor": 1.3020251629236292,
+        "Omega_radiation": 2.0520351754632777,
+        "Omega_matter": 5.141930535761566,
+        "Omega_dark_energy": -4.569986628818398
+      },
+      "aitchison_norm": 7.295913,
+      "phase_deg": 57.605,
+      "delta_norm": 0.020586,
+      "delta_clr": {
+        "scale_factor": 0.013787,
+        "Omega_radiation": 0.044591,
+        "Omega_matter": -0.012077,
+        "Omega_dark_energy": -0.022768
+      }
+    },
+    {
+      "index": 137,
+      "year": 137,
+      "clr": {
+        "scale_factor": 1.3157519045652668,
+        "Omega_radiation": 2.093238181447972,
+        "Omega_matter": 5.129058928050979,
+        "Omega_dark_energy": -4.586788906503736
+      },
+      "aitchison_norm": 7.311548,
+      "phase_deg": 57.848,
+      "delta_norm": 0.015635,
+      "delta_clr": {
+        "scale_factor": 0.013727,
+        "Omega_radiation": 0.041203,
+        "Omega_matter": -0.012872,
+        "Omega_dark_energy": -0.016802
+      }
+    },
+    {
+      "index": 138,
+      "year": 138,
+      "clr": {
+        "scale_factor": 1.3294003046978555,
+        "Omega_radiation": 2.1310344523872624,
+        "Omega_matter": 5.115516619260844,
+        "Omega_dark_energy": -4.597269739188958
+      },
+      "aitchison_norm": 7.322022,
+      "phase_deg": 58.043,
+      "delta_norm": 0.010475,
+      "delta_clr": {
+        "scale_factor": 0.013648,
+        "Omega_radiation": 0.037796,
+        "Omega_matter": -0.013542,
+        "Omega_dark_energy": -0.010481
+      }
+    },
+    {
+      "index": 139,
+      "year": 139,
+      "clr": {
+        "scale_factor": 1.3429526335566064,
+        "Omega_radiation": 2.1654163322325326,
+        "Omega_matter": 5.101430311035019,
+        "Omega_dark_energy": -4.601109854847171
+      },
+      "aitchison_norm": 7.327165,
+      "phase_deg": 58.194,
+      "delta_norm": 0.005143,
+      "delta_clr": {
+        "scale_factor": 0.013552,
+        "Omega_radiation": 0.034382,
+        "Omega_matter": -0.014086,
+        "Omega_dark_energy": -0.00384
+      }
+    },
+    {
+      "index": 140,
+      "year": 140,
+      "clr": {
+        "scale_factor": 1.356391376827709,
+        "Omega_radiation": 2.19638719035052,
+        "Omega_matter": 5.0869290957527395,
+        "Omega_dark_energy": -4.598028095336192
+      },
+      "aitchison_norm": 7.326843,
+      "phase_deg": 58.302,
+      "delta_norm": -0.000323,
+      "delta_clr": {
+        "scale_factor": 0.013439,
+        "Omega_radiation": 0.030971,
+        "Omega_matter": -0.014501,
+        "Omega_dark_energy": 0.003082
+      }
+    },
+    {
+      "index": 141,
+      "year": 141,
+      "clr": {
+        "scale_factor": 1.3696992749262134,
+        "Omega_radiation": 2.223961410643289,
+        "Omega_matter": 5.072143889201337,
+        "Omega_dark_energy": -4.587783030084072
+      },
+      "aitchison_norm": 7.320961,
+      "phase_deg": 58.372,
+      "delta_norm": -0.005881,
+      "delta_clr": {
+        "scale_factor": 0.013308,
+        "Omega_radiation": 0.027574,
+        "Omega_matter": -0.014785,
+        "Omega_dark_energy": 0.010245
+      }
+    },
+    {
+      "index": 142,
+      "year": 142,
+      "clr": {
+        "scale_factor": 1.382859361702651,
+        "Omega_radiation": 2.248164345101152,
+        "Omega_matter": 5.057206855235568,
+        "Omega_dark_energy": -4.570174341761303
+      },
+      "aitchison_norm": 7.309472,
+      "phase_deg": 58.404,
+      "delta_norm": -0.01149,
+      "delta_clr": {
+        "scale_factor": 0.01316,
+        "Omega_radiation": 0.024203,
+        "Omega_matter": -0.014937,
+        "Omega_dark_energy": 0.017609
+      }
+    },
+    {
+      "index": 143,
+      "year": 143,
+      "clr": {
+        "scale_factor": 1.3958550024915932,
+        "Omega_radiation": 2.2690322319385174,
+        "Omega_matter": 5.042250824952,
+        "Omega_dark_energy": -4.545043975986723
+      },
+      "aitchison_norm": 7.292368,
+      "phase_deg": 58.401,
+      "delta_norm": -0.017103,
+      "delta_clr": {
+        "scale_factor": 0.012996,
+        "Omega_radiation": 0.020868,
+        "Omega_matter": -0.014956,
+        "Omega_dark_energy": 0.02513
+      }
+    },
+    {
+      "index": 144,
+      "year": 144,
+      "clr": {
+        "scale_factor": 1.4086699314168203,
+        "Omega_radiation": 2.286612078577021,
+        "Omega_matter": 5.027408712931056,
+        "Omega_dark_energy": -4.512277048468484
+      },
+      "aitchison_norm": 7.269692,
+      "phase_deg": 58.365,
+      "delta_norm": -0.022676,
+      "delta_clr": {
+        "scale_factor": 0.012815,
+        "Omega_radiation": 0.01758,
+        "Omega_matter": -0.014842,
+        "Omega_dark_energy": 0.032767
+      }
+    },
+    {
+      "index": 145,
+      "year": 145,
+      "clr": {
+        "scale_factor": 1.4212882878694337,
+        "Omega_radiation": 2.3009615098537877,
+        "Omega_matter": 5.012812933112161,
+        "Omega_dark_energy": -4.471802504373614
+      },
+      "aitchison_norm": 7.241533,
+      "phase_deg": 58.297,
+      "delta_norm": -0.02816,
+      "delta_clr": {
+        "scale_factor": 0.012618,
+        "Omega_radiation": 0.014349,
+        "Omega_matter": -0.014596,
+        "Omega_dark_energy": 0.040475
+      }
+    },
+    {
+      "index": 146,
+      "year": 146,
+      "clr": {
+        "scale_factor": 1.433694652077114,
+        "Omega_radiation": 2.312148581944986,
+        "Omega_matter": 4.998594816869074,
+        "Omega_dark_energy": -4.42359352614176
+      },
+      "aitchison_norm": 7.208026,
+      "phase_deg": 58.198,
+      "delta_norm": -0.033507,
+      "delta_clr": {
+        "scale_factor": 0.012406,
+        "Omega_radiation": 0.011187,
+        "Omega_matter": -0.014218,
+        "Omega_dark_energy": 0.048209
+      }
+    },
+    {
+      "index": 147,
+      "year": 147,
+      "clr": {
+        "scale_factor": 1.4458740796847496,
+        "Omega_radiation": 2.32025156260553,
+        "Omega_matter": 4.984884035842827,
+        "Omega_dark_energy": -4.367667687402515
+      },
+      "aitchison_norm": 7.169359,
+      "phase_deg": 58.071,
+      "delta_norm": -0.038667,
+      "delta_clr": {
+        "scale_factor": 0.012179,
+        "Omega_radiation": 0.008103,
+        "Omega_matter": -0.013711,
+        "Omega_dark_energy": 0.055926
+      }
+    },
+    {
+      "index": 148,
+      "year": 148,
+      "clr": {
+        "scale_factor": 1.4578121352688842,
+        "Omega_radiation": 2.3253586784345512,
+        "Omega_matter": 4.971808032068735,
+        "Omega_dark_energy": -4.304086852112927
+      },
+      "aitchison_norm": 7.125766,
+      "phase_deg": 57.916,
+      "delta_norm": -0.043593,
+      "delta_clr": {
+        "scale_factor": 0.011938,
+        "Omega_radiation": 0.005107,
+        "Omega_matter": -0.013076,
+        "Omega_dark_energy": 0.063581
+      }
+    },
+    {
+      "index": 149,
+      "year": 149,
+      "clr": {
+        "scale_factor": 1.4694949247108329,
+        "Omega_radiation": 2.327567829982762,
+        "Omega_matter": 4.959491457901956,
+        "Omega_dark_energy": -4.2329568194940705
+      },
+      "aitchison_norm": 7.077533,
+      "phase_deg": 57.734,
+      "delta_norm": -0.048234,
+      "delta_clr": {
+        "scale_factor": 0.011683,
+        "Omega_radiation": 0.002209,
+        "Omega_matter": -0.012317,
+        "Omega_dark_energy": 0.07113
+      }
+    },
+    {
+      "index": 150,
+      "year": 150,
+      "clr": {
+        "scale_factor": 1.4809091263558514,
+        "Omega_radiation": 2.3269862756216373,
+        "Omega_matter": 4.948055628202967,
+        "Omega_dark_energy": -4.154426716804555
+      },
+      "aitchison_norm": 7.024989,
+      "phase_deg": 57.527,
+      "delta_norm": -0.052543,
+      "delta_clr": {
+        "scale_factor": 0.011414,
+        "Omega_radiation": -0.000582,
+        "Omega_matter": -0.011436,
+        "Omega_dark_energy": 0.07853
+      }
+    },
+    {
+      "index": 151,
+      "year": 151,
+      "clr": {
+        "scale_factor": 1.4920420208884964,
+        "Omega_radiation": 2.323730285195248,
+        "Omega_matter": 4.937617987190437,
+        "Omega_dark_energy": -4.068688143436094
+      },
+      "aitchison_norm": 6.968515,
+      "phase_deg": 57.296,
+      "delta_norm": -0.056474,
+      "delta_clr": {
+        "scale_factor": 0.011133,
+        "Omega_radiation": -0.003256,
+        "Omega_matter": -0.010438,
+        "Omega_dark_energy": 0.085739
+      }
+    },
+    {
+      "index": 152,
+      "year": 152,
+      "clr": {
+        "scale_factor": 1.5028815198571641,
+        "Omega_radiation": 2.317924764573138,
+        "Omega_matter": 4.928291592304588,
+        "Omega_dark_energy": -3.975974071243518
+      },
+      "aitchison_norm": 6.908535,
+      "phase_deg": 57.042,
+      "delta_norm": -0.05998,
+      "delta_clr": {
+        "scale_factor": 0.010839,
+        "Omega_radiation": -0.005806,
+        "Omega_matter": -0.009326,
+        "Omega_dark_energy": 0.092714
+      }
+    },
+    {
+      "index": 153,
+      "year": 153,
+      "clr": {
+        "scale_factor": 1.5134161927838452,
+        "Omega_radiation": 2.3097028523165957,
+        "Omega_matter": 4.920184617349279,
+        "Omega_dark_energy": -3.876557507420751
+      },
+      "aitchison_norm": 6.845515,
+      "phase_deg": 56.765,
+      "delta_norm": -0.06302,
+      "delta_clr": {
+        "scale_factor": 0.010535,
+        "Omega_radiation": -0.008222,
+        "Omega_matter": -0.008107,
+        "Omega_dark_energy": 0.099417
+      }
+    },
+    {
+      "index": 154,
+      "year": 154,
+      "clr": {
+        "scale_factor": 1.523635292798299,
+        "Omega_radiation": 2.2992054897607233,
+        "Omega_matter": 4.913399877096409,
+        "Omega_dark_energy": -3.770749927597001
+      },
+      "aitchison_norm": 6.77996,
+      "phase_deg": 56.468,
+      "delta_norm": -0.065554,
+      "delta_clr": {
+        "scale_factor": 0.010219,
+        "Omega_radiation": -0.010497,
+        "Omega_matter": -0.006785,
+        "Omega_dark_energy": 0.105808
+      }
+    },
+    {
+      "index": 155,
+      "year": 155,
+      "clr": {
+        "scale_factor": 1.5335287807391575,
+        "Omega_radiation": 2.2865809659005634,
+        "Omega_matter": 4.90803437544185,
+        "Omega_dark_energy": -3.658899488146334
+      },
+      "aitchison_norm": 6.712415,
+      "phase_deg": 56.152,
+      "delta_norm": -0.067546,
+      "delta_clr": {
+        "scale_factor": 0.009893,
+        "Omega_radiation": -0.012625,
+        "Omega_matter": -0.005366,
+        "Omega_dark_energy": 0.11185
+      }
+    },
+    {
+      "index": 156,
+      "year": 156,
+      "clr": {
+        "scale_factor": 1.543087347667908,
+        "Omega_radiation": 2.2719844385508896,
+        "Omega_matter": 4.904178879098686,
+        "Omega_dark_energy": -3.541389027970957
+      },
+      "aitchison_norm": 6.643451,
+      "phase_deg": 55.816,
+      "delta_norm": -0.068964,
+      "delta_clr": {
+        "scale_factor": 0.009559,
+        "Omega_radiation": -0.014597,
+        "Omega_matter": -0.003855,
+        "Omega_dark_energy": 0.11751
+      }
+    },
+    {
+      "index": 157,
+      "year": 157,
+      "clr": {
+        "scale_factor": 1.5523024357452693,
+        "Omega_radiation": 2.2555774333258696,
+        "Omega_matter": 4.9019175187012145,
+        "Omega_dark_energy": -3.4186338712267554
+      },
+      "aitchison_norm": 6.573669,
+      "phase_deg": 55.464,
+      "delta_norm": -0.069782,
+      "delta_clr": {
+        "scale_factor": 0.009215,
+        "Omega_radiation": -0.016407,
+        "Omega_matter": -0.002261,
+        "Omega_dark_energy": 0.122755
+      }
+    },
+    {
+      "index": 158,
+      "year": 158,
+      "clr": {
+        "scale_factor": 1.5611662574231382,
+        "Omega_radiation": 2.23752732205647,
+        "Omega_matter": 4.901327419072795,
+        "Omega_dark_energy": -3.2910794436022655
+      },
+      "aitchison_norm": 6.50369,
+      "phase_deg": 55.096,
+      "delta_norm": -0.069979,
+      "delta_clr": {
+        "scale_factor": 0.008864,
+        "Omega_radiation": -0.01805,
+        "Omega_matter": -0.00059,
+        "Omega_dark_energy": 0.127554
+      }
+    },
+    {
+      "index": 159,
+      "year": 159,
+      "clr": {
+        "scale_factor": 1.5696718129090708,
+        "Omega_radiation": 2.218006782329827,
+        "Omega_matter": 4.902478360282407,
+        "Omega_dark_energy": -3.1591987158321646
+      },
+      "aitchison_norm": 6.434148,
+      "phase_deg": 54.713,
+      "delta_norm": -0.069542,
+      "delta_clr": {
+        "scale_factor": 0.008506,
+        "Omega_radiation": -0.019521,
+        "Omega_matter": 0.001151,
+        "Omega_dark_energy": 0.131881
+      }
+    },
+    {
+      "index": 160,
+      "year": 160,
+      "clr": {
+        "scale_factor": 1.5778129058641281,
+        "Omega_radiation": 2.1971932398957907,
+        "Omega_matter": 4.905432470979474,
+        "Omega_dark_energy": -3.023489489118123
+      },
+      "aitchison_norm": 6.365682,
+      "phase_deg": 54.318,
+      "delta_norm": -0.068465,
+      "delta_clr": {
+        "scale_factor": 0.008141,
+        "Omega_radiation": -0.020814,
+        "Omega_matter": 0.002954,
+        "Omega_dark_energy": 0.135709
+      }
+    },
+    {
+      "index": 161,
+      "year": 161,
+      "clr": {
+        "scale_factor": 1.5855841572988856,
+        "Omega_radiation": 2.175268295741175,
+        "Omega_matter": 4.910243955354687,
+        "Omega_dark_energy": -2.8844715380370953
+      },
+      "aitchison_norm": 6.298932,
+      "phase_deg": 53.911,
+      "delta_norm": -0.06675,
+      "delta_clr": {
+        "scale_factor": 0.007771,
+        "Omega_radiation": -0.021925,
+        "Omega_matter": 0.004811,
+        "Omega_dark_energy": 0.139018
+      }
+    },
+    {
+      "index": 162,
+      "year": 162,
+      "clr": {
+        "scale_factor": 1.5929810176364416,
+        "Omega_radiation": 2.1524171396817398,
+        "Omega_matter": 4.916958854926749,
+        "Omega_dark_energy": -2.742683627335079
+      },
+      "aitchison_norm": 6.234524,
+      "phase_deg": 53.495,
+      "delta_norm": -0.064408,
+      "delta_clr": {
+        "scale_factor": 0.007397,
+        "Omega_radiation": -0.022851,
+        "Omega_matter": 0.006715,
+        "Omega_dark_energy": 0.141788
+      }
+    },
+    {
+      "index": 163,
+      "year": 163,
+      "clr": {
+        "scale_factor": 1.5999997769153707,
+        "Omega_radiation": 2.128827952365484,
+        "Omega_matter": 4.925614846201933,
+        "Omega_dark_energy": -2.5986804197283226
+      },
+      "aitchison_norm": 6.173065,
+      "phase_deg": 53.072,
+      "delta_norm": -0.061459,
+      "delta_clr": {
+        "scale_factor": 0.007019,
+        "Omega_radiation": -0.023589,
+        "Omega_matter": 0.008656,
+        "Omega_dark_energy": 0.144003
+      }
+    },
+    {
+      "index": 164,
+      "year": 164,
+      "clr": {
+        "scale_factor": 1.6066375731097426,
+        "Omega_radiation": 2.1046912976182366,
+        "Omega_matter": 4.9362410750956744,
+        "Omega_dark_energy": -2.453029292459298
+      },
+      "aitchison_norm": 6.115132,
+      "phase_deg": 52.643,
+      "delta_norm": -0.057933,
+      "delta_clr": {
+        "scale_factor": 0.006638,
+        "Omega_radiation": -0.024137,
+        "Omega_matter": 0.010626,
+        "Omega_dark_energy": 0.145651
+      }
+    },
+    {
+      "index": 165,
+      "year": 165,
+      "clr": {
+        "scale_factor": 1.6128923985475487,
+        "Omega_radiation": 2.080199507093714,
+        "Omega_matter": 4.948858028843899,
+        "Omega_dark_energy": -2.3063070808786477
+      },
+      "aitchison_norm": 6.061262,
+      "phase_deg": 52.212,
+      "delta_norm": -0.05387,
+      "delta_clr": {
+        "scale_factor": 0.006255,
+        "Omega_radiation": -0.024492,
+        "Omega_matter": 0.012617,
+        "Omega_dark_energy": 0.146722
+      }
+    },
+    {
+      "index": 166,
+      "year": 166,
+      "clr": {
+        "scale_factor": 1.618763104413137,
+        "Omega_radiation": 2.0555460592151045,
+        "Omega_matter": 4.9634774459669675,
+        "Omega_dark_energy": -2.1590967677430584
+      },
+      "aitchison_norm": 6.011944,
+      "phase_deg": 51.779,
+      "delta_norm": -0.049318,
+      "delta_clr": {
+        "scale_factor": 0.005871,
+        "Omega_radiation": -0.024653,
+        "Omega_matter": 0.014619,
+        "Omega_dark_energy": 0.14721
+      }
+    },
+    {
+      "index": 167,
+      "year": 167,
+      "clr": {
+        "scale_factor": 1.6242494033235673,
+        "Omega_radiation": 2.030924954413598,
+        "Omega_matter": 4.980102264681946,
+        "Omega_dark_energy": -2.01198413723055
+      },
+      "aitchison_norm": 5.967608,
+      "phase_deg": 51.349,
+      "delta_norm": -0.044336,
+      "delta_clr": {
+        "scale_factor": 0.005486,
+        "Omega_radiation": -0.024621,
+        "Omega_matter": 0.016625,
+        "Omega_dark_energy": 0.147113
+      }
+    },
+    {
+      "index": 168,
+      "year": 168,
+      "clr": {
+        "scale_factor": 1.6293518699730989,
+        "Omega_radiation": 2.006530088681306,
+        "Omega_matter": 4.9987266099899115,
+        "Omega_dark_energy": -1.8655544128772472
+      },
+      "aitchison_norm": 5.928618,
+      "phase_deg": 50.923,
+      "delta_norm": -0.03899,
+      "delta_clr": {
+        "scale_factor": 0.005102,
+        "Omega_radiation": -0.024395,
+        "Omega_matter": 0.018624,
+        "Omega_dark_energy": 0.14643
+      }
+    },
+    {
+      "index": 169,
+      "year": 169,
+      "clr": {
+        "scale_factor": 1.6340719398443728,
+        "Omega_radiation": 1.9825546274614263,
+        "Omega_matter": 5.019335819495039,
+        "Omega_dark_energy": -1.7203888987318907
+      },
+      "aitchison_norm": 5.895268,
+      "phase_deg": 50.504,
+      "delta_norm": -0.03335,
+      "delta_clr": {
+        "scale_factor": 0.00472,
+        "Omega_radiation": -0.023975,
+        "Omega_matter": 0.020609,
+        "Omega_dark_energy": 0.145166
+      }
+    },
+    {
+      "index": 170,
+      "year": 170,
+      "clr": {
+        "scale_factor": 1.6384119059891755,
+        "Omega_radiation": 1.9591903818974168,
+        "Omega_matter": 5.0419065078419925,
+        "Omega_dark_energy": -1.577061643005937
+      },
+      "aitchison_norm": 5.867773,
+      "phase_deg": 50.095,
+      "delta_norm": -0.027494,
+      "delta_clr": {
+        "scale_factor": 0.00434,
+        "Omega_radiation": -0.023364,
+        "Omega_matter": 0.022571,
+        "Omega_dark_energy": 0.143327
+      }
+    },
+    {
+      "index": 171,
+      "year": 171,
+      "clr": {
+        "scale_factor": 1.642374913886003,
+        "Omega_radiation": 1.9366271894553608,
+        "Omega_matter": 5.066406669488462,
+        "Omega_dark_energy": -1.4361361433680258
+      },
+      "aitchison_norm": 5.846271,
+      "phase_deg": 49.7,
+      "delta_norm": -0.021503,
+      "delta_clr": {
+        "scale_factor": 0.003963,
+        "Omega_radiation": -0.022563,
+        "Omega_matter": 0.0245,
+        "Omega_dark_energy": 0.140925
+      }
+    },
+    {
+      "index": 172,
+      "year": 172,
+      "clr": {
+        "scale_factor": 1.6459649543859625,
+        "Omega_radiation": 1.9150523009195104,
+        "Omega_matter": 5.092795819361149,
+        "Omega_dark_energy": -1.2981621127924112
+      },
+      "aitchison_norm": 5.830816,
+      "phase_deg": 49.321,
+      "delta_norm": -0.015455,
+      "delta_clr": {
+        "scale_factor": 0.00359,
+        "Omega_radiation": -0.021575,
+        "Omega_matter": 0.026389,
+        "Omega_dark_energy": 0.137974
+      }
+    },
+    {
+      "index": 173,
+      "year": 173,
+      "clr": {
+        "scale_factor": 1.6491868547628237,
+        "Omega_radiation": 1.8946497757405085,
+        "Omega_matter": 5.12102517077709,
+        "Omega_dark_energy": -1.163672324523639
+      },
+      "aitchison_norm": 5.821387,
+      "phase_deg": 48.962,
+      "delta_norm": -0.009429,
+      "delta_clr": {
+        "scale_factor": 0.003222,
+        "Omega_radiation": -0.020403,
+        "Omega_matter": 0.028229,
+        "Omega_dark_energy": 0.13449
+      }
+    },
+    {
+      "index": 174,
+      "year": 174,
+      "clr": {
+        "scale_factor": 1.6520462678872985,
+        "Omega_radiation": 1.87559988768874,
+        "Omega_matter": 5.15103784984838,
+        "Omega_dark_energy": -1.033179554265479
+      },
+      "aitchison_norm": 5.817885,
+      "phase_deg": 48.626,
+      "delta_norm": -0.003502,
+      "delta_clr": {
+        "scale_factor": 0.002859,
+        "Omega_radiation": -0.01905,
+        "Omega_matter": 0.030013,
+        "Omega_dark_energy": 0.130493
+      }
+    },
+    {
+      "index": 175,
+      "year": 175,
+      "clr": {
+        "scale_factor": 1.6545496595498212,
+        "Omega_radiation": 1.858078542732033,
+        "Omega_matter": 5.18276914542805,
+        "Omega_dark_energy": -0.907173637144194
+      },
+      "aitchison_norm": 5.820142,
+      "phase_deg": 48.316,
+      "delta_norm": 0.002257,
+      "delta_clr": {
+        "scale_factor": 0.002503,
+        "Omega_radiation": -0.017521,
+        "Omega_matter": 0.031731,
+        "Omega_dark_energy": 0.126006
+      }
+    },
+    {
+      "index": 176,
+      "year": 176,
+      "clr": {
+        "scale_factor": 1.656704293960265,
+        "Omega_radiation": 1.8422567110174373,
+        "Omega_matter": 5.216146793498642,
+        "Omega_dark_energy": -0.7861186563375163
+      },
+      "aitchison_norm": 5.827928,
+      "phase_deg": 48.036,
+      "delta_norm": 0.007787,
+      "delta_clr": {
+        "scale_factor": 0.002155,
+        "Omega_radiation": -0.015822,
+        "Omega_matter": 0.033378,
+        "Omega_dark_energy": 0.121055
+      }
+    },
+    {
+      "index": 177,
+      "year": 177,
+      "clr": {
+        "scale_factor": 1.6585182174571078,
+        "Omega_radiation": 1.828299874791267,
+        "Omega_matter": 5.251091294753692,
+        "Omega_dark_energy": -0.6704502795049254
+      },
+      "aitchison_norm": 5.840961,
+      "phase_deg": 47.788,
+      "delta_norm": 0.013033,
+      "delta_clr": {
+        "scale_factor": 0.001814,
+        "Omega_radiation": -0.013957,
+        "Omega_matter": 0.034945,
+        "Omega_dark_energy": 0.115668
+      }
+    },
+    {
+      "index": 178,
+      "year": 178,
+      "clr": {
+        "scale_factor": 1.6600002404625833,
+        "Omega_radiation": 1.8163674940401355,
+        "Omega_matter": 5.287516263976409,
+        "Omega_dark_energy": -0.560573258306623
+      },
+      "aitchison_norm": 5.858913,
+      "phase_deg": 47.575,
+      "delta_norm": 0.017952,
+      "delta_clr": {
+        "scale_factor": 0.001482,
+        "Omega_radiation": -0.011932,
+        "Omega_matter": 0.036425,
+        "Omega_dark_energy": 0.109877
+      }
+    },
+    {
+      "index": 179,
+      "year": 179,
+      "clr": {
+        "scale_factor": 1.6611599177242888,
+        "Omega_radiation": 1.8066124915784698,
+        "Omega_matter": 5.325328809680119,
+        "Omega_dark_energy": -0.4568591053625084
+      },
+      "aitchison_norm": 5.881424,
+      "phase_deg": 47.402,
+      "delta_norm": 0.022511,
+      "delta_clr": {
+        "scale_factor": 0.00116,
+        "Omega_radiation": -0.009755,
+        "Omega_matter": 0.037813,
+        "Omega_dark_energy": 0.103714
+      }
+    },
+    {
+      "index": 180,
+      "year": 180,
+      "clr": {
+        "scale_factor": 1.6620075268875532,
+        "Omega_radiation": 1.7991807592452334,
+        "Omega_matter": 5.364429942342093,
+        "Omega_dark_energy": -0.35964396198406257
+      },
+      "aitchison_norm": 5.908111,
+      "phase_deg": 47.27,
+      "delta_norm": 0.026687,
+      "delta_clr": {
+        "scale_factor": 0.000848,
+        "Omega_radiation": -0.007432,
+        "Omega_matter": 0.039101,
+        "Omega_dark_energy": 0.097215
+      }
+    },
+    {
+      "index": 181,
+      "year": 181,
+      "clr": {
+        "scale_factor": 1.6625540454466268,
+        "Omega_radiation": 1.7942106868043635,
+        "Omega_matter": 5.404715009436618,
+        "Omega_dark_energy": -0.26922666891714164
+      },
+      "aitchison_norm": 5.938578,
+      "phase_deg": 47.181,
+      "delta_norm": 0.030467,
+      "delta_clr": {
+        "scale_factor": 0.000547,
+        "Omega_radiation": -0.00497,
+        "Omega_matter": 0.040285,
+        "Omega_dark_energy": 0.090417
+      }
+    },
+    {
+      "index": 182,
+      "year": 182,
+      "clr": {
+        "scale_factor": 1.662811126126375,
+        "Omega_radiation": 1.7918327150701858,
+        "Omega_matter": 5.446074155355513,
+        "Omega_dark_energy": -0.18586705116849922
+      },
+      "aitchison_norm": 5.972426,
+      "phase_deg": 47.139,
+      "delta_norm": 0.033849,
+      "delta_clr": {
+        "scale_factor": 0.000257,
+        "Omega_radiation": -0.002378,
+        "Omega_matter": 0.041359,
+        "Omega_dark_energy": 0.08336
+      }
+    },
+    {
+      "index": 183,
+      "year": 183,
+      "clr": {
+        "scale_factor": 1.6627910707496918,
+        "Omega_radiation": 1.7921689147007802,
+        "Omega_matter": 5.4883928041948185,
+        "Omega_dark_energy": -0.10978442676013356
+      },
+      "aitchison_norm": 6.009264,
+      "phase_deg": 47.145,
+      "delta_norm": 0.036838,
+      "delta_clr": {
+        "scale_factor": -2e-05,
+        "Omega_radiation": 0.000336,
+        "Omega_matter": 0.042319,
+        "Omega_dark_energy": 0.076083
+      }
+    },
+    {
+      "index": 184,
+      "year": 184,
+      "clr": {
+        "scale_factor": 1.6625068026492333,
+        "Omega_radiation": 1.7953325920194385,
+        "Omega_matter": 5.531552163285957,
+        "Omega_dark_energy": -0.0411563479703716
+      },
+      "aitchison_norm": 6.048712,
+      "phase_deg": 47.2,
+      "delta_norm": 0.039448,
+      "delta_clr": {
+        "scale_factor": -0.000284,
+        "Omega_radiation": 0.003164,
+        "Omega_matter": 0.043159,
+        "Omega_dark_energy": 0.068628
+      }
+    },
+    {
+      "index": 185,
+      "year": 185,
+      "clr": {
+        "scale_factor": 1.6619718376853467,
+        "Omega_radiation": 1.8014279231370547,
+        "Omega_matter": 5.575429745258466,
+        "Omega_dark_energy": 0.019882417713776412
+      },
+      "aitchison_norm": 6.090411,
+      "phase_deg": 47.306,
+      "delta_norm": 0.041699,
+      "delta_clr": {
+        "scale_factor": -0.000535,
+        "Omega_radiation": 0.006095,
+        "Omega_matter": 0.043878,
+        "Omega_dark_energy": 0.061039
+      }
+    },
+    {
+      "index": 186,
+      "year": 186,
+      "clr": {
+        "scale_factor": 1.6612002539351836,
+        "Omega_radiation": 1.8105496175568832,
+        "Omega_matter": 5.619899906339991,
+        "Omega_dark_energy": 0.07324066108424998
+      },
+      "aitchison_norm": 6.134029,
+      "phase_deg": 47.463,
+      "delta_norm": 0.043618,
+      "delta_clr": {
+        "scale_factor": -0.000772,
+        "Omega_radiation": 0.009122,
+        "Omega_matter": 0.04447,
+        "Omega_dark_energy": 0.053358
+      }
+    },
+    {
+      "index": 187,
+      "year": 187,
+      "clr": {
+        "scale_factor": 1.6602066601209786,
+        "Omega_radiation": 1.8227826123479427,
+        "Omega_matter": 5.664834398527833,
+        "Omega_dark_energy": 0.1188712547001709
+      },
+      "aitchison_norm": 6.179264,
+      "phase_deg": 47.672,
+      "delta_norm": 0.045235,
+      "delta_clr": {
+        "scale_factor": -0.000994,
+        "Omega_radiation": 0.012233,
+        "Omega_matter": 0.044934,
+        "Omega_dark_energy": 0.045631
+      }
+    },
+    {
+      "index": 188,
+      "year": 188,
+      "clr": {
+        "scale_factor": 1.6590061628482957,
+        "Omega_radiation": 1.8382017978746028,
+        "Omega_matter": 5.71010293320541,
+        "Omega_dark_energy": 0.15677142337217065
+      },
+      "aitchison_norm": 6.225845,
+      "phase_deg": 47.933,
+      "delta_norm": 0.046581,
+      "delta_clr": {
+        "scale_factor": -0.0012,
+        "Omega_radiation": 0.015419,
+        "Omega_matter": 0.045269,
+        "Omega_dark_energy": 0.0379
+      }
+    },
+    {
+      "index": 189,
+      "year": 189,
+      "clr": {
+        "scale_factor": 1.6576143327277109,
+        "Omega_radiation": 1.8568717759679945,
+        "Omega_matter": 5.755573753726684,
+        "Omega_dark_energy": 0.18698276009036974
+      },
+      "aitchison_norm": 6.273536,
+      "phase_deg": 48.245,
+      "delta_norm": 0.047691,
+      "delta_clr": {
+        "scale_factor": -0.001392,
+        "Omega_radiation": 0.01867,
+        "Omega_matter": 0.045471,
+        "Omega_dark_energy": 0.030211
+      }
+    },
+    {
+      "index": 190,
+      "year": 190,
+      "clr": {
+        "scale_factor": 1.656047169455913,
+        "Omega_radiation": 1.8788466513201436,
+        "Omega_matter": 5.801114214452186,
+        "Omega_dark_energy": 0.20959098730461223
+      },
+      "aitchison_norm": 6.322137,
+      "phase_deg": 48.607,
+      "delta_norm": 0.048601,
+      "delta_clr": {
+        "scale_factor": -0.001567,
+        "Omega_radiation": 0.021975,
+        "Omega_matter": 0.04554,
+        "Omega_dark_energy": 0.022608
+      }
+    },
+    {
+      "index": 191,
+      "year": 191,
+      "clr": {
+        "scale_factor": 1.6543210659345262,
+        "Omega_radiation": 1.9041698567744272,
+        "Omega_matter": 5.84659136369195,
+        "Omega_dark_energy": 0.2247254649270598
+      },
+      "aitchison_norm": 6.371481,
+      "phase_deg": 49.016,
+      "delta_norm": 0.049345,
+      "delta_clr": {
+        "scale_factor": -0.001726,
+        "Omega_radiation": 0.025323,
+        "Omega_matter": 0.045477,
+        "Omega_dark_energy": 0.015134
+      }
+    },
+    {
+      "index": 192,
+      "year": 192,
+      "clr": {
+        "scale_factor": 1.6524527715071262,
+        "Omega_radiation": 1.9328740130765147,
+        "Omega_matter": 5.891872527993445,
+        "Omega_dark_energy": 0.2325584478809184
+      },
+      "aitchison_norm": 6.421437,
+      "phase_deg": 49.472,
+      "delta_norm": 0.049955,
+      "delta_clr": {
+        "scale_factor": -0.001868,
+        "Omega_radiation": 0.028704,
+        "Omega_matter": 0.045281,
+        "Omega_dark_energy": 0.007833
+      }
+    },
+    {
+      "index": 193,
+      "year": 193,
+      "clr": {
+        "scale_factor": 1.6504593543968946,
+        "Omega_radiation": 1.9649808235386732,
+        "Omega_matter": 5.936825895206733,
+        "Omega_dark_energy": 0.23330409745656078
+      },
+      "aitchison_norm": 6.471901,
+      "phase_deg": 49.972,
+      "delta_norm": 0.050464,
+      "delta_clr": {
+        "scale_factor": -0.001993,
+        "Omega_radiation": 0.032107,
+        "Omega_matter": 0.044953,
+        "Omega_dark_energy": 0.000746
+      }
+    },
+    {
+      "index": 194,
+      "year": 194,
+      "clr": {
+        "scale_factor": 1.6483581634291464,
+        "Omega_radiation": 2.0005010039575644,
+        "Omega_matter": 5.98132109376443,
+        "Omega_dark_energy": 0.22721725214925748
+      },
+      "aitchison_norm": 6.5228,
+      "phase_deg": 50.512,
+      "delta_norm": 0.050899,
+      "delta_clr": {
+        "scale_factor": -0.002101,
+        "Omega_radiation": 0.03552,
+        "Omega_matter": 0.044495,
+        "Omega_dark_energy": -0.006087
+      }
+    },
+    {
+      "index": 195,
+      "year": 195,
+      "clr": {
+        "scale_factor": 1.6461667891245781,
+        "Omega_radiation": 2.0394342480118532,
+        "Omega_matter": 6.0252297656306695,
+        "Omega_dark_energy": 0.21459196503324196
+      },
+      "aitchison_norm": 6.574086,
+      "phase_deg": 51.091,
+      "delta_norm": 0.051286,
+      "delta_clr": {
+        "scale_factor": -0.002191,
+        "Omega_radiation": 0.038933,
+        "Omega_matter": 0.043909,
+        "Omega_dark_energy": -0.012625
+      }
+    },
+    {
+      "index": 196,
+      "year": 196,
+      "clr": {
+        "scale_factor": 1.6439030242504824,
+        "Omega_radiation": 2.0817692282513485,
+        "Omega_matter": 6.0684261304011375,
+        "Omega_dark_energy": 0.19575981606670045
+      },
+      "aitchison_norm": 6.62573,
+      "phase_deg": 51.703,
+      "delta_norm": 0.051644,
+      "delta_clr": {
+        "scale_factor": -0.002264,
+        "Omega_radiation": 0.042335,
+        "Omega_matter": 0.043196,
+        "Omega_dark_energy": -0.018832
+      }
+    },
+    {
+      "index": 197,
+      "year": 197,
+      "clr": {
+        "scale_factor": 1.6415848239184045,
+        "Omega_radiation": 2.1274836326744895,
+        "Omega_matter": 6.1107875380750825,
+        "Omega_dark_energy": 0.17108800901409882
+      },
+      "aitchison_norm": 6.677723,
+      "phase_deg": 52.346,
+      "delta_norm": 0.051993,
+      "delta_clr": {
+        "scale_factor": -0.002318,
+        "Omega_radiation": 0.045714,
+        "Omega_matter": 0.042361,
+        "Omega_dark_energy": -0.024672
+      }
+    },
+    {
+      "index": 198,
+      "year": 198,
+      "clr": {
+        "scale_factor": 1.6392302653177198,
+        "Omega_radiation": 2.1765442367760652,
+        "Omega_matter": 6.15219500807002,
+        "Omega_dark_energy": 0.14097726390841336
+      },
+      "aitchison_norm": 6.730067,
+      "phase_deg": 53.015,
+      "delta_norm": 0.052344,
+      "delta_clr": {
+        "scale_factor": -0.002355,
+        "Omega_radiation": 0.049061,
+        "Omega_matter": 0.041407,
+        "Omega_dark_energy": -0.030111
+      }
+    },
+    {
+      "index": 199,
+      "year": 199,
+      "clr": {
+        "scale_factor": 1.6368575071754399,
+        "Omega_radiation": 2.2289070108325144,
+        "Omega_matter": 6.192533752110305,
+        "Omega_dark_energy": 0.10585951714931674
+      },
+      "aitchison_norm": 6.782773,
+      "phase_deg": 53.707,
+      "delta_norm": 0.052706,
+      "delta_clr": {
+        "scale_factor": -0.002373,
+        "Omega_radiation": 0.052363,
+        "Omega_matter": 0.040339,
+        "Omega_dark_energy": -0.035118
+      }
+    }
+  ]
+}

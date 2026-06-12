@@ -1,0 +1,47 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>CNT Pipeline Part 4 -- Corollaries and Total Output</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 18px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 20px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+    .box-heavy { rx: 6; fill: #2a2a2a; stroke: #888888; stroke-width: 3; }
+  </style>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">CNT -- Corollaries and Total Output Summary</text>
+
+  <!-- Corollaries -->
+  <rect x="40" y="60" width="920" height="240" class="box"/>
+  <text x="500" y="95" text-anchor="middle" class="label-bold">Key Corollaries (proven invariants)</text>
+
+  <text x="60" y="130" class="math">C1 (Determinism): Same x --> same theta.</text>
+  <text x="60" y="155" class="dim">No parameters, no fitting, no model selection.</text>
+
+  <text x="60" y="190" class="math">C2 (Steering Asymmetry): max(kappa_jj)/min(kappa_jj) = R^2</text>
+  <text x="60" y="215" class="dim">where R = max(x)/min(x). Rare carriers dominate steering.</text>
+
+  <text x="60" y="250" class="math">C3 (Lock Detection): max_t(theta_ij) - min_t(theta_ij) &lt; epsilon</text>
+  <text x="60" y="275" class="dim">==> carriers i,j move as single mode (constant ratio).</text>
+
+  <!-- Output summary -->
+  <rect x="100" y="320" width="800" height="110" class="box-heavy"/>
+  <text x="500" y="358" text-anchor="middle" class="label-bold">Total CNT Output (D=8, per time step)</text>
+  <text x="500" y="392" text-anchor="middle" class="math">28 bearings + 1 scalar + 36 metric entries + 1 index = 66 measurements</text>
+  <text x="500" y="420" text-anchor="middle" class="dim">from 8 proportions at 2 time points (16 numbers input) -- dimensionality EXPANDER</text>
+
+  <!-- Properties row -->
+  <text x="500" y="468" text-anchor="middle" class="label-bold">Mathematical Properties (all channels)</text>
+  <text x="120" y="500" text-anchor="middle" class="label">DETERMINISTIC</text>
+  <text x="310" y="500" text-anchor="middle" class="label">CLOSED-FORM</text>
+  <text x="500" y="500" text-anchor="middle" class="label">PARAMETER-FREE</text>
+  <text x="690" y="500" text-anchor="middle" class="label">SCALE-INVARIANT</text>
+  <text x="880" y="500" text-anchor="middle" class="label">DOMAIN-AGNOSTIC</text>
+
+  <!-- Footer -->
+  <text x="500" y="550" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

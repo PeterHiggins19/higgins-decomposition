@@ -1,0 +1,164 @@
+{
+  "wrapper_id": "government_budget",
+  "wrapper_version": "0.1",
+  "engine_target": "cnq/2.0.0",
+  "supported_locales": [
+    "en",
+    "fr",
+    "es",
+    "ru",
+    "zh",
+    "ar"
+  ],
+  "default_locale": "en",
+  "domain_metadata": {
+    "name": {
+      "en": "Government budget composition analysis",
+      "fr": "Analyse de composition de budget gouvernemental",
+      "es": "Análisis de composición de presupuesto gubernamental",
+      "ru": "Анализ композиции государственного бюджета",
+      "zh": "政府预算构成分析",
+      "ar": "تحليل تركيب الميزانية الحكومية"
+    },
+    "description": {
+      "en": "Skeleton wrapper for analysing government budget compositions across fiscal periods. Carriers represent budget envelope categories; trajectory dimension is fiscal years. Supports Canadian bilingual reporting (English / French) by default; extend to additional locales as required by jurisdiction. Skeleton is provided as a starting point — domain experts must populate carrier_aliases for the specific jurisdiction's chart of accounts.",
+      "fr": "Wrapper-modèle pour l'analyse de compositions budgétaires gouvernementales sur des périodes fiscales. Les supports représentent les catégories d'enveloppes budgétaires ; la dimension trajectoire est l'année fiscale. Prend en charge la production de rapports bilingues canadiens (anglais / français) par défaut ; étendre à d'autres locales selon les exigences de la juridiction. Ce modèle est un point de départ — les experts du domaine doivent compléter carrier_aliases pour le plan comptable de la juridiction concernée.",
+      "es": "Wrapper-modelo para analizar composiciones presupuestarias gubernamentales a través de períodos fiscales. Los carriers representan categorías de envolventes presupuestarias; la dimensión trayectoria son años fiscales. Soporta informes bilingües canadienses (inglés / francés) por defecto; ampliable a otros locales según los requisitos jurisdiccionales. El esqueleto se proporciona como punto de partida — los expertos del dominio deben completar carrier_aliases para el plan de cuentas de la jurisdicción.",
+      "ru": "Wrapper-шаблон для анализа композиций государственного бюджета по фискальным периодам. Носители представляют категории бюджетных оболочек; измерение траектории — фискальные годы. По умолчанию поддерживает канадскую двуязычную (английский / французский) отчётность; расширяемо до других локалей в соответствии с требованиями юрисдикции. Шаблон предоставляется как отправная точка — эксперты предметной области должны заполнить carrier_aliases для плана счетов конкретной юрисдикции.",
+      "zh": "用于跨财政周期分析政府预算构成的骨架包装器。载体表示预算包络类别;轨迹维度为财政年度。默认支持加拿大双语(英语/法语)报告;可根据司法管辖要求扩展到其他语言环境。骨架作为起点提供——领域专家必须为特定司法管辖区的会计科目表填写 carrier_aliases。",
+      "ar": "غلاف هيكلي لتحليل تركيبات الميزانية الحكومية عبر الفترات المالية. تمثل الناقلات فئات أغلفة الميزانية؛ بُعد المسار هو السنوات المالية. يدعم بشكل افتراضي إعداد التقارير ثنائية اللغة الكندية (الإنجليزية / الفرنسية)؛ قابل للتوسع إلى لغات أخرى وفقًا لمتطلبات الولاية القضائية. يتم توفير الهيكل كنقطة انطلاق — يجب على خبراء المجال ملء carrier_aliases لمخطط حسابات الولاية القضائية المحددة."
+    },
+    "author": "HCI-CNQ wrapper convention authors (skeleton); domain users to extend",
+    "references": [
+      "ai-refresh/CNT_V3_CNQ_V2_DESIGN.md §11"
+    ]
+  },
+  "t_axis_label": {
+    "en": "Fiscal year",
+    "fr": "Année fiscale",
+    "es": "Año fiscal",
+    "ru": "Финансовый год",
+    "zh": "财政年度",
+    "ar": "السنة المالية"
+  },
+  "carrier_aliases": {
+    "OPS": {
+      "display_name": {
+        "en": "Operating expenditure",
+        "fr": "Dépenses de fonctionnement",
+        "es": "Gasto operativo",
+        "ru": "Операционные расходы",
+        "zh": "运营支出",
+        "ar": "النفقات التشغيلية"
+      },
+      "units": "CAD"
+    },
+    "CAP": {
+      "display_name": {
+        "en": "Capital expenditure",
+        "fr": "Dépenses en immobilisations",
+        "es": "Gasto de capital",
+        "ru": "Капитальные расходы",
+        "zh": "资本支出",
+        "ar": "النفقات الرأسمالية"
+      },
+      "units": "CAD"
+    },
+    "DEBT": {
+      "display_name": {
+        "en": "Debt servicing",
+        "fr": "Service de la dette",
+        "es": "Servicio de deuda",
+        "ru": "Обслуживание долга",
+        "zh": "债务偿付",
+        "ar": "خدمة الدين"
+      },
+      "units": "CAD"
+    },
+    "TRANSFER": {
+      "display_name": {
+        "en": "Intergovernmental transfers",
+        "fr": "Transferts intergouvernementaux",
+        "es": "Transferencias intergubernamentales",
+        "ru": "Межправительственные трансферты",
+        "zh": "政府间转移支付",
+        "ar": "التحويلات بين الحكومات"
+      },
+      "units": "CAD"
+    },
+    "RESERVE": {
+      "display_name": {
+        "en": "Reserve fund contributions",
+        "fr": "Contributions au fonds de réserve",
+        "es": "Contribuciones al fondo de reserva",
+        "ru": "Взносы в резервный фонд",
+        "zh": "储备基金缴款",
+        "ar": "مساهمات صندوق الاحتياطي"
+      },
+      "units": "CAD"
+    }
+  },
+  "field_aliases": {
+    "chsh_diagnostic.S_value": {
+      "display_name": {
+        "en": "Budget category coupling index",
+        "fr": "Indice de couplage des catégories budgétaires",
+        "es": "Índice de acoplamiento de categorías presupuestarias",
+        "ru": "Индекс связи бюджетных категорий",
+        "zh": "预算类别耦合指数",
+        "ar": "مؤشر اقتران فئات الميزانية"
+      },
+      "units": "dimensionless",
+      "description": {
+        "en": "How tightly budget categories move together across fiscal years. High values indicate categories rise and fall in lockstep (e.g., capital and operating both expand together); low values indicate independent trajectories.",
+        "fr": "À quel point les catégories budgétaires évoluent ensemble sur les années fiscales. Des valeurs élevées indiquent des catégories qui augmentent et diminuent en parallèle (par ex. immobilisations et fonctionnement augmentent ensemble) ; des valeurs faibles indiquent des trajectoires indépendantes.",
+        "es": "[es: pending expert metrology review — uses How tightly budget categories move together across fiscal years. High values indicate categories rise and fall in lockstep (e.g., capital and operating both expand together); low values indicate independent trajectories.]",
+        "ru": "[ru: pending expert metrology review — uses How tightly budget categories move together across fiscal years. High values indicate categories rise and fall in lockstep (e.g., capital and operating both expand together); low values indicate independent trajectories.]",
+        "zh": "[zh: pending expert metrology review — uses How tightly budget categories move together across fiscal years. High values indicate categories rise and fall in lockstep (e.g., capital and operating both expand together); low values indicate independent trajectories.]",
+        "ar": "[ar: pending expert metrology review — uses How tightly budget categories move together across fiscal years. High values indicate categories rise and fall in lockstep (e.g., capital and operating both expand together); low values indicate independent trajectories.]"
+      }
+    },
+    "helmsman_family.sigma[]": {
+      "display_name": {
+        "en": "Dominant budget category per fiscal year",
+        "fr": "Catégorie budgétaire dominante par année fiscale",
+        "es": "[es: pending expert metrology review — uses Dominant budget category per fiscal year]",
+        "ru": "[ru: pending expert metrology review — uses Dominant budget category per fiscal year]",
+        "zh": "[zh: pending expert metrology review — uses Dominant budget category per fiscal year]",
+        "ar": "[ar: pending expert metrology review — uses Dominant budget category per fiscal year]"
+      },
+      "units": "carrier_index"
+    },
+    "helmsman_family.flips.total": {
+      "display_name": {
+        "en": "Number of dominant-category transitions over the period",
+        "fr": "Nombre de transitions de catégorie dominante sur la période",
+        "es": "[es: pending expert metrology review — uses Number of dominant-category transitions over the period]",
+        "ru": "[ru: pending expert metrology review — uses Number of dominant-category transitions over the period]",
+        "zh": "[zh: pending expert metrology review — uses Number of dominant-category transitions over the period]",
+        "ar": "[ar: pending expert metrology review — uses Number of dominant-category transitions over the period]"
+      },
+      "units": "count"
+    },
+    "cnq_view.radial_trajectory.ilr_norms[]": {
+      "display_name": {
+        "en": "Total budget magnitude per year (ILR norm)",
+        "fr": "Amplitude budgétaire totale par année (norme ILR)",
+        "es": "[es: pending expert metrology review — uses Total budget magnitude per year (ILR norm)]",
+        "ru": "[ru: pending expert metrology review — uses Total budget magnitude per year (ILR norm)]",
+        "zh": "[zh: pending expert metrology review — uses Total budget magnitude per year (ILR norm)]",
+        "ar": "[ar: pending expert metrology review — uses Total budget magnitude per year (ILR norm)]"
+      },
+      "units": "ILR norm"
+    }
+  },
+  "calibration_profiles": {},
+  "locale_quality": {
+    "en": "canonical",
+    "fr": "canonical",
+    "es": "draft_pending_review",
+    "ru": "draft_pending_review",
+    "zh": "draft_pending_review",
+    "ar": "draft_pending_review"
+  }
+}

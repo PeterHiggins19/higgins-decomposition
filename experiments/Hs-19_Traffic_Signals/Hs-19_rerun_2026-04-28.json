@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-19",
+    "name": "Traffic Signal Composition",
+    "domain": "URBAN",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (24-hour cycle)",
+    "data_hash": "0d6350a23d5d5959",
+    "N": 60,
+    "D": 3,
+    "carriers": [
+      "Green",
+      "Amber",
+      "Red"
+    ],
+    "elapsed_seconds": 0.0091,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-19",
+    "name": "Traffic Signal Composition",
+    "domain": "URBAN",
+    "carriers": [
+      "Green",
+      "Amber",
+      "Red"
+    ],
+    "D": 3,
+    "N": 60,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "0d6350a23d5d5959",
+    "run_timestamp": "2026-04-28T21:19:28.385845Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-19: Traffic Signal Composition: 3-part simplex, carriers=['Green', 'Amber', 'Red']",
+      "step2_n_samples": 60,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Green",
+        "Amber",
+        "Red"
+      ],
+      "data_hash_sha256_16": "0d6350a23d5d5959",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.6132981876614746,
+        -0.9738201327211659,
+        0.36052194505969115
+      ],
+      "step4_clr_std_per_part": [
+        0.31905997376433776,
+        0.10626469024784435,
+        0.35451157366786484
+      ],
+      "step5_sigma2_range": [
+        0.0012113175625427762,
+        0.2587596191837306
+      ],
+      "step5_sigma2_final": 0.2387699071164362,
+      "step6_pll_coeffs": [
+        7.576245103212846e-05,
+        0.00041967583628780934,
+        0.013328845937518999
+      ],
+      "step6_pll_R2": 0.9181815802589106,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -2.769682280407204,
+        0.012747661573878289
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 36,
+      "step7_squeeze_closest": {
+        "time_index": 11,
+        "sigma2_A": 0.043878362608025245,
+        "constant": "1/(pi^e)",
+        "constant_value": 0.044525267266922915,
+        "test_type": "direct",
+        "test_value": 0.043878362608025245,
+        "delta": 0.0006469046588976693
+      },
+      "step7_squeeze_mean": 0.1178394059186887,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.6788657941308056,
+        0.8967422023809797
+      ],
+      "step8_entropy_mean": 0.8146765750732915,
+      "step8_entropy_cv": 6.871711268255688,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8146765750732915,
+          "H_mean_decimated": 0.8152054083499126,
+          "variation_pct": 0.0649132788154054,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8146765750732915,
+          "H_mean_decimated": 0.8157864587478005,
+          "variation_pct": 0.13623610994451246,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8095354131067632,
+          "H_mean_decimated": 0.8120059654256894,
+          "variation_pct": 0.30518150026875984,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 37,
+        "stalls": 2,
+        "spikes": 0,
+        "reversals": 35
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.12520075249511736,
+        0.0970576101893727
+      ],
+      "step11_complex_range_im": [
+        -0.1782342147336078,
+        0.2036535532172255
+      ],
+      "step12_radius_range": [
+        0.01541067348450552,
+        0.22559909005506543
+      ],
+      "step12_theta_range": [
+        -2.1950800332925233,
+        1.159173407001388
+      ],
+      "step9_angular_velocity_std": 0.40964765147121657
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.10179926685849991,
+            0.011292184393470307,
+            0.12567845586446597
+          ],
+          "carrier_pct": [
+            42.63488145885045,
+            4.729316407516828,
+            52.635802133632716
+          ],
+          "dominant_carrier": "Red",
+          "dominant_pct": 52.635802133632716
+        },
+        "match_density": {
+          "density": 121.86018683007435,
+          "concentration": 0.44907407407407407,
+          "total_matches": 36,
+          "n_constants_hit": 3,
+          "dominant_constant": "1/(e^pi)",
+          "trajectory_length": 0.29542052196423696
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.10050444663947444,
+              0.4436632610524616
+            ],
+            [
+              0.10050444663947444,
+              0.0,
+              0.17214201365737275
+            ],
+            [
+              0.4436632610524616,
+              0.17214201365737272,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.6132981876614746,
+            -0.9738201327211659,
+            0.36052194505969115
+          ],
+          "clr_stds": [
+            0.31905997376433776,
+            0.10626469024784435,
+            0.35451157366786484
+          ],
+          "aitchison_distance_mean": 0.5866708167724174
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 1.390810040444491,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "Red",
+          "max_shift_magnitude": 0.2494746033774995
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9181815802589106,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Red",
+          "sources": [
+            "Green",
+            "Amber"
+          ],
+          "I_source1_target": 2.0831774823463793,
+          "I_source2_target": 1.785902904772972,
+          "redundancy": 1.785902904772972,
+          "unique_source1": 0.29727457757340736,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Green->Amber": 0.07337851207032253,
+            "Green->Red": 0.08167241008860548,
+            "Amber->Green": 0.0,
+            "Amber->Red": 0.0,
+            "Red->Green": 0.0,
+            "Red->Amber": 0.0
+          },
+          "dominant_flow": "Green->Red",
+          "dominant_te": 0.08167241008860548
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.2387699071164362,
+          "shuffled_sigma2": 0.23876990711643625,
+          "order_matters": false,
+          "relative_difference": 2.3248805472034547e-16
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Green/Amber)": {
+              "mean": 1.5871183203826407,
+              "std": 0.3170243628484638,
+              "cv": 19.97484111783373
+            },
+            "ln(Green/Red)": {
+              "mean": 0.2527762426017836,
+              "std": 0.6660805214480165,
+              "cv": 263.5059824420844
+            },
+            "ln(Amber/Red)": {
+              "mean": -1.3343420777808572,
+              "std": 0.4149000044075352,
+              "cv": 31.09397592389164
+            }
+          },
+          "most_stable": "ln(Green/Amber)",
+          "least_stable": "ln(Green/Red)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

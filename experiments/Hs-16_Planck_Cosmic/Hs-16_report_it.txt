@@ -1,0 +1,38 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-16
+  System:      Planck Cosmic Budget
+  Domain:      COSMOLOGY
+  Carriers:    Radiation, Matter, Dark_Energy
+  N=200, D=3
+  Source:      DERIVED
+  Description: Friedmann evolution with Planck 2018 parameters: Omega_b=0.0493, Omega_cdm=0.265, Omega_Lambda=0.6857, Omega_r=9.1e-5
+  Pipeline:    1.0 Extended
+  Data hash:   4ef3dc1b6938376b
+  Timestamp:   2026-04-25T06:24:46.253462Z
+
+
+Codici totali: 38
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 9
+  Segnali di calibrazione: 1
+  Informazioni:  28
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.000038)
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(e^pi), delta=0.000038)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Dark_Energy, pct=62.820513)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Radiation->Dark_Energy, te=0.036206)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Radiation/Dark_Energy), cv=163.995184)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Matter/Dark_Energy), cv=62.748554)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=200, near_zero_carriers=['Radiation', 'Dark_Energy'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

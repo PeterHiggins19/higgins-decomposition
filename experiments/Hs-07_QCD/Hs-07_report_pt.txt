@@ -1,0 +1,40 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-07
+  System:      QCD Quarks
+  Domain:      QCD
+  Carriers:    u-type, d-type, s/heavy
+  N=20, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   5f06b71b7ca36aa9
+  Timestamp:   2026-04-25T06:03:01.890830Z
+
+
+Total de códigos: 35
+  Erros:       0
+  Avisos:     1
+  Descobertas: 9
+  Sinais de calibração: 1
+  Informação:  24
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (14)
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (13)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=s/heavy, pct=66.666667)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.924293, drift_direction=decreasing, max_shift_carrier=s/heavy)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(u-type/d-type), cv=inf)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(u-type/s/heavy), cv=961.722064)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(d-type/s/heavy), cv=961.722064)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

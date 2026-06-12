@@ -1,0 +1,51 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  GOLD_SILVER_SIMPLEX
+  System:      Gold Silver Ratio
+  Domain:      COMMODITIES
+  Carriers:    Gold, Silver
+  N=624, D=2
+  Source:      LOCAL FILE
+  Description: Ingested from gold_silver_simplex.csv
+  Pipeline:    1.0 Extended
+  Data hash:   5349a921c85695da
+  Timestamp:   2026-04-30T20:28:42.416250Z
+
+
+Total codes: 48
+  Errors:       0
+  Warnings:     0
+  Discoveries: 16
+  Calibration signals: 1
+  Structural modes:  3
+  Information:  28
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/pi, delta=0.000032)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (533)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (70)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (2)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (461)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.122010, drift_direction=decreasing, max_shift_carrier=Gold)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=36, near_zero_carriers=['Silver'], zero_threshold=0.010000)
+  [MX-RK1-DIS] MX-RK1-DIS (lambda1_fraction=1.000000)
+  [MX-LCK-DIS] MX-LCK-DIS (overlap=1.000000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=inf)
+  [MX-CMZ-DIS] MX-CMZ-DIS (norm=0.000000)
+  [MX-VNL-DIS] MX-VNL-DIS (S_ratio=-0.000000)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.824102, alpha=2.153892)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000001)
+  [MX-BAL-DIS] MX-BAL-DIS (gamma=0.000000, VSWR=1.000000)
+
+── CALIBRATION SIGNALS ──
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-FRZ-DIS] SM-FRZ-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

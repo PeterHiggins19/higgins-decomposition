@@ -1,0 +1,40 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-11
+  System:      AME2020 (500)
+  Domain:      NUCLEAR
+  Carriers:    Volume, Surf+Coulomb, Symmetry
+  N=500, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   0523ff5e868eb7b1
+  Timestamp:   2026-04-25T06:03:01.913593Z
+
+
+Codici totali: 39
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 11
+  Segnali di calibrazione: 2
+  Informazioni:  26
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(pi^e), delta=0.009880)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (529)
+  [S9-STL-DIS] S9-STL-DIS (32)
+  [S9-SPK-DIS] S9-SPK-DIS (2)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (495)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Symmetry, pct=66.634454)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.856890, drift_direction=decreasing, max_shift_carrier=Surf+Coulomb)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPS-DIS] Rapporto a coppie stabile — questi portanti sono composizionalmente bloccati. (pair=ln(Volume/Surf+Coulomb), cv=11.402572)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Surf+Coulomb/Symmetry), cv=53.686292)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=462, near_zero_carriers=['Symmetry'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+  [XC-TEZ-CAL] Entropia di trasferimento è zero — sistema composizionalmente senza memoria.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

@@ -1,0 +1,43 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-17
+  System:      Backblaze Fleet
+  Domain:      ENGINEERING
+  Carriers:    Healthy, Warning, Failed
+  N=34, D=3
+  Source:      REAL
+  Description: Backblaze Drive Stats, Q1-Q4 2024-2025
+  Pipeline:    1.0 Extended
+  Data hash:   2d47c924b131c246
+  Timestamp:   2026-04-25T06:24:46.439454Z
+
+
+Total codes: 35
+  Errors:       0
+  Warnings:     3
+  Discoveries: 9
+  Calibration signals: 1
+  Information:  22
+
+── WARNINGS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — poor fit, trajectory may be non-polynomial.
+  [S8-FLG-WRN] Classification: FLAG — no match within 5%.
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+
+── DISCOVERIES ──
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (32)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (4)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (28)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=1.063715, drift_direction=increasing, max_shift_carrier=Healthy)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Healthy/Warning), cv=85.912571)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Healthy/Failed), cv=16.930838)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Warning/Failed), cv=78.113450)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=34, near_zero_carriers=['Warning', 'Failed'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

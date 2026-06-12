@@ -1,0 +1,24 @@
+{
+  "dataset": "Standard Model 3-flavor numu oscillation (PDG 2024 / NuFit 5.2 NO)",
+  "pmns_parameters": {
+    "sin2_theta_12": 0.307,
+    "sin2_theta_13": 0.0218,
+    "sin2_theta_23": 0.546,
+    "delta_CP_pi_units": -0.5,
+    "Dm2_21_eV2": 7.53e-05,
+    "Dm2_31_eV2": 0.002453
+  },
+  "energy_MeV": 600.0,
+  "L_range_km": [
+    1.0,
+    4000.0
+  ],
+  "T": 1000,
+  "D": 3,
+  "cnt_termination": "LIMIT_CYCLE_P2",
+  "cnt_ir_class": "LIGHTLY_DAMPED",
+  "cnt_amplitude_A": 0.1114077556471954,
+  "cnt_damping_zeta": 0.056712808948377595,
+  "cnt_content_sha256": "60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952",
+  "verdict": "CONSISTENT - universal compositional invariance signature CONFIRMED"
+}

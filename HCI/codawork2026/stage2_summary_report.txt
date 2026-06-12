@@ -1,0 +1,40 @@
+========================================================================
+HCI STAGE 2 — METRIC CROSS-EXAMINATION ENGINE
+Summary Report
+========================================================================
+
+  Carriers (D):      8
+  Observations (N):  26
+  Groups:            26
+  Group pairs:       325
+  Carrier pairs:     28
+  Section view pairs:3
+
+------------------------------------------------------------------------
+TOP GROUP DIVERGENCES (by metric distance)
+------------------------------------------------------------------------
+  Rank   1:   2000 vs   2014  dist=39.1787  angle=103.1deg  carrier=Nuclear  [STRONG_DIVERGENCE]
+  Rank   2:   2001 vs   2014  dist=38.9623  angle=103.8deg  carrier=Nuclear  [STRONG_DIVERGENCE]
+  Rank   3:   2002 vs   2014  dist=38.7724  angle=103.8deg  carrier=Nuclear  [STRONG_DIVERGENCE]
+  Rank   4:   2004 vs   2014  dist=38.3284  angle=103.6deg  carrier=Nuclear  [STRONG_DIVERGENCE]
+  Rank   5:   2003 vs   2014  dist=38.2521  angle=101.3deg  carrier=Nuclear  [STRONG_DIVERGENCE]
+
+------------------------------------------------------------------------
+TOP CARRIER PAIR FINDINGS (by opposition score)
+------------------------------------------------------------------------
+  Rank   1: Coal-Nuclear  oppose=0.999  co_move=0.000  coupling=14367915549027.5  [STRONG_OPPOSITION]
+  Rank   2:  Gas-Nuclear  oppose=0.998  co_move=0.000  coupling=11331686411538.4  [STRONG_OPPOSITION]
+  Rank   3: Bioenergy-Nuclear  oppose=0.997  co_move=0.000  coupling=216217975845694.4  [STRONG_OPPOSITION]
+  Rank   4: Hydro-Nuclear  oppose=0.997  co_move=0.000  coupling=62528830855881.8  [STRONG_OPPOSITION]
+  Rank   5: Nuclear-Solar  oppose=0.996  co_move=0.000  coupling=216952474277664.5  [STRONG_OPPOSITION]
+
+------------------------------------------------------------------------
+SECTION VIEW COMPARISONS
+------------------------------------------------------------------------
+     XY-YZ  agree=0.805  diverge=0.195  [CONSISTENT_VIEWS]
+     XZ-YZ  agree=0.830  diverge=0.170  [CONSISTENT_VIEWS]
+     XY-XZ  agree=0.974  diverge=0.026  [CONSISTENT_VIEWS]
+
+------------------------------------------------------------------------
+The instrument reads. The expert decides. The loop stays open.
+------------------------------------------------------------------------

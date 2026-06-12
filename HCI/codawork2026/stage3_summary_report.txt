@@ -1,0 +1,39 @@
+========================================================================
+HCI STAGE 3 — HIGHER-DEGREE STRUCTURAL ANALYSIS ENGINE
+Summary Report
+========================================================================
+
+  Carriers (D):         8
+  Observations (N):     26
+  Day triads:           2600
+  Carrier triads:       56
+  Subcomposition sets:  238
+  Detected regimes:     2
+
+------------------------------------------------------------------------
+TOP DAY TRIADS (by metric triangle area)
+------------------------------------------------------------------------
+  Rank   1: Days 2000-2014-2025  area=126.165386  imbal=5.42  carrier=Nuclear  [LARGE_TRIADIC_STRUCTURE]
+  Rank   2: Days 2000-2014-2024  area=124.397296  imbal=5.47  carrier=Nuclear  [LARGE_TRIADIC_STRUCTURE]
+  Rank   3: Days 2000-2014-2023  area=120.592269  imbal=5.58  carrier=Nuclear  [LARGE_TRIADIC_STRUCTURE]
+  Rank   4: Days 2000-2014-2021  area=117.859874  imbal=5.60  carrier=Nuclear  [LARGE_TRIADIC_STRUCTURE]
+  Rank   5: Days 2000-2014-2020  area=117.155302  imbal=5.52  carrier=Nuclear  [LARGE_TRIADIC_STRUCTURE]
+
+------------------------------------------------------------------------
+TOP CARRIER TRIADS (by coupling score)
+------------------------------------------------------------------------
+  Rank   1:     Coal-Gas-Nuclear  coupling=0.999  opposition=0.666  [STRONG_TRIADIC_COUPLING]
+  Rank   2: Bioenergy-Coal-Nuclear  coupling=0.998  opposition=0.665  [STRONG_TRIADIC_COUPLING]
+  Rank   3:   Coal-Hydro-Nuclear  coupling=0.998  opposition=0.665  [STRONG_TRIADIC_COUPLING]
+  Rank   4:    Gas-Hydro-Nuclear  coupling=0.997  opposition=0.665  [STRONG_TRIADIC_COUPLING]
+  Rank   5:       Coal-Gas-Hydro  coupling=0.997  opposition=0.000  [STRONG_TRIADIC_COUPLING]
+
+------------------------------------------------------------------------
+METRIC REGIMES
+------------------------------------------------------------------------
+  R01: 2000_pt0 to 2013_pt0  pts=14  within_var=217.393242  between_dist=4.2722  [VOLATILE_REGIME]
+  R02: 2015_pt0 to 2025_pt0  pts=11  within_var=10.365619  between_dist=0.0000  [VOLATILE_REGIME]
+
+------------------------------------------------------------------------
+The instrument reads. The expert decides. The loop stays open.
+------------------------------------------------------------------------

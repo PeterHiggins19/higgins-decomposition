@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "project_id": "ember_jpn",
+    "generated": "2026-05-06T00:56:26.312785+00:00",
+    "experiments": [
+      "ember_jpn"
+    ],
+    "modules": [
+      "stage1",
+      "stage2"
+    ]
+  },
+  "per_experiment": {
+    "ember_jpn": [
+      {
+        "kind": "stage1",
+        "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/02_per_country/ember_jpn/stage1_ember_jpn.pdf",
+        "sha256": "adea9bf392637bcb0eb598eb4ff52c373385dc335647eedb8cf08d27b7c8bd90",
+        "bytes": 275282
+      },
+      {
+        "kind": "stage2",
+        "path": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/HUF-CNT-System/codawork2026_conference/cnt_demo/02_per_country/ember_jpn/stage2_ember_jpn.pdf",
+        "sha256": "d7fc2ffffca2edcd94d185077ff8d7df840f10c3a2438ceff49c0daa98009de8",
+        "bytes": 192351
+      }
+    ]
+  },
+  "group": {}
+}

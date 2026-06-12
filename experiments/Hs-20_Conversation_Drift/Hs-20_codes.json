@@ -1,0 +1,337 @@
+[
+  {
+    "code": "GD-ALL-INF",
+    "short": "All guards pass",
+    "verbose": "All 4 input guards passed. Data is valid for H\u02e2 pipeline processing.",
+    "value": null
+  },
+  {
+    "code": "S4-ZRN-INF",
+    "short": "No zeros",
+    "verbose": "No zero replacement needed. All input values are positive.",
+    "value": null
+  },
+  {
+    "code": "S4-CLO-INF",
+    "short": "Closure OK",
+    "verbose": "Simplex closure successful. All rows sum to 1.0 within tolerance 1e-12.",
+    "value": true
+  },
+  {
+    "code": "S5-CLR-INF",
+    "short": "CLR complete",
+    "verbose": "Centred log-ratio transform applied. All rows sum to zero in CLR space.",
+    "value": null
+  },
+  {
+    "code": "S6-VAR-INF",
+    "short": "Variance computed",
+    "verbose": "Cumulative Aitchison variance trajectory \u03c3\u00b2_A(t) computed for all time indices.",
+    "value": 0.6699632390821587
+  },
+  {
+    "code": "S6-RNG-INF",
+    "short": "Variance range",
+    "verbose": "Variance trajectory range and final value recorded.",
+    "value": [
+      0.08007550231970023,
+      0.7419715691124424
+    ]
+  },
+  {
+    "code": "S7-HIL-INF",
+    "short": "HVLD hill",
+    "verbose": "HVLD vertex lock: hill shape (a < 0). Variance is decelerating \u2014 system segregating.",
+    "value": 0.9319140727147254
+  },
+  {
+    "code": "S7-HRQ-INF",
+    "short": "HVLD R\u00b2 high",
+    "verbose": "HVLD R\u00b2 > 0.8. Quadratic fit describes the trajectory well.",
+    "value": 0.9319140727147254
+  },
+  {
+    "code": "S7-VTX-INF",
+    "short": "Vertex location",
+    "verbose": "HVLD vertex (lock point) location recorded.",
+    "value": [
+      34.94988675077869,
+      1.0776088867932443
+    ]
+  },
+  {
+    "code": "S8-NAT-INF",
+    "short": "NATURAL",
+    "verbose": "HTP classification: NATURAL. At least one transcendental match within \u03b4 < 1%.",
+    "value": {
+      "constant": "1/(2pi)",
+      "delta": 0.00019675677098573985
+    }
+  },
+  {
+    "code": "S8-EUL-DIS",
+    "short": "Euler-family match",
+    "verbose": "Nearest constant is from the Euler family (2\u03c0, e^\u03c0, \u03c0^e, or their reciprocals). Pipeline geometry resonates with system structure.",
+    "value": {
+      "constant": "1/(2pi)",
+      "delta": 0.00019675677098573985
+    }
+  },
+  {
+    "code": "S8-TGT-DIS",
+    "short": "Tight match",
+    "verbose": "Transcendental match tighter than \u03b4 < 0.001. Precision-level structural resonance.",
+    "value": {
+      "constant": "1/(2pi)",
+      "delta": 0.00019675677098573985
+    }
+  },
+  {
+    "code": "S8-SQZ-INF",
+    "short": "Squeeze count",
+    "verbose": "Number of transcendental proximity matches recorded.",
+    "value": 8
+  },
+  {
+    "code": "S9-ENT-INF",
+    "short": "Entropy computed",
+    "verbose": "Shannon entropy H(t) computed for all observations. Normalised by H_max = ln(D).",
+    "value": 0.9284273203650635
+  },
+  {
+    "code": "S9-EIF-WRN",
+    "short": "EITT fail",
+    "verbose": "EITT invariance test failed at one or more compression ratios.",
+    "value": null
+  },
+  {
+    "code": "S9-CHH-DIS",
+    "short": "Chaos high",
+    "verbose": "Chaos detection: many deviations. System exhibits compositional turbulence \u2014 stalls, spikes, or reversals.",
+    "value": 15
+  },
+  {
+    "code": "S9-STL-DIS",
+    "short": "Stalls detected",
+    "verbose": "Angular velocity stalls detected \u2014 entropy rate dropped below 15% of running mean.",
+    "value": 2
+  },
+  {
+    "code": "S9-REV-DIS",
+    "short": "Reversals detected",
+    "verbose": "Entropy reversals detected \u2014 \u22652 sign changes in 5 consecutive samples.",
+    "value": 13
+  },
+  {
+    "code": "SA-TRN-INF",
+    "short": "Ternary OK",
+    "verbose": "Ternary projection computed. Type: ternary (D=3), 1-simplex (D=2), or projected (D>3).",
+    "value": null
+  },
+  {
+    "code": "SB-CPX-INF",
+    "short": "Complex plane OK",
+    "verbose": "Complex plane mapping computed. Centroid-relative coordinates.",
+    "value": null
+  },
+  {
+    "code": "SC-HLX-INF",
+    "short": "Helix OK",
+    "verbose": "3D helix/polar embedding computed. Radius, angle, angular velocity.",
+    "value": null
+  },
+  {
+    "code": "XU-PCC-INF",
+    "short": "Carrier decomposition",
+    "verbose": "Per-carrier contribution computed. Shows which carrier drives the variance.",
+    "value": {
+      "carrier_variance": [
+        0.1971752636946267,
+        0.17140448352973134,
+        0.11566956242952481,
+        0.18571392942827586
+      ],
+      "carrier_pct": [
+        29.43075861367474,
+        25.584162463085786,
+        17.26506107827508,
+        27.720017844964396
+      ],
+      "dominant_carrier": "Theory",
+      "dominant_pct": 29.43075861367474
+    }
+  },
+  {
+    "code": "XU-MDN-INF",
+    "short": "Match density natural",
+    "verbose": "Match density consistent with natural system (density >> synthetic baseline).",
+    "value": {
+      "density": 10.387410832412229,
+      "concentration": 0.15625,
+      "total_matches": 8,
+      "n_constants_hit": 7,
+      "dominant_constant": "dottie",
+      "trajectory_length": 0.770163049201568
+    }
+  },
+  {
+    "code": "XU-DRU-DIS",
+    "short": "Drift increasing",
+    "verbose": "Carrier drift trend: increasing. System is evolving \u2014 second half more dispersed.",
+    "value": {
+      "variance_ratio_2nd_to_1st": 2.3331446505391393,
+      "drift_direction": "increasing",
+      "max_shift_carrier": "Engineering",
+      "max_shift_magnitude": 0.07943121693121694
+    }
+  },
+  {
+    "code": "XU-CDA-INF",
+    "short": "CoDa panel OK",
+    "verbose": "CoDa structural panel computed: variation matrix, CLR summary, Aitchison distance.",
+    "value": null
+  },
+  {
+    "code": "XU-CLM-INF",
+    "short": "Claim summary",
+    "verbose": "Claim-status and envelope summary generated.",
+    "value": null
+  },
+  {
+    "code": "XC-PID-INF",
+    "short": "PID computed",
+    "verbose": "Partial Information Decomposition computed. Redundant, unique, and synergistic carrier interactions quantified.",
+    "value": {
+      "target": "Documentation",
+      "sources": [
+        "Theory",
+        "Engineering"
+      ],
+      "I_source1_target": 1.644072795833167,
+      "I_source2_target": 1.7501584905489693,
+      "redundancy": 1.644072795833167,
+      "unique_source1": 0.0,
+      "unique_source2": 0.10608569471580243,
+      "dominant": "redundancy"
+    }
+  },
+  {
+    "code": "XC-PIR-DIS",
+    "short": "PID redundancy",
+    "verbose": "PID dominant mode: redundancy. Carriers share information \u2014 coupled dynamics.",
+    "value": null
+  },
+  {
+    "code": "XC-RPL-INF",
+    "short": "Ratio-pair lattice",
+    "verbose": "Ratio-pair lattice computed. All pairwise log-ratios ranked by stability (CV).",
+    "value": {
+      "pairs": {
+        "ln(Theory/Engineering)": {
+          "mean": -0.09010335735736988,
+          "std": 0.7196800583183187,
+          "cv": 798.7272388351836
+        },
+        "ln(Theory/Documentation)": {
+          "mean": -0.5159611896173506,
+          "std": 0.6605201946740117,
+          "cv": 128.01741835735157
+        },
+        "ln(Theory/Discovery)": {
+          "mean": -0.3767884475559329,
+          "std": 0.7102379741659922,
+          "cv": 188.49781058124398
+        },
+        "ln(Engineering/Documentation)": {
+          "mean": -0.42585783225998075,
+          "std": 0.5592921290525371,
+          "cv": 131.3330615723175
+        },
+        "ln(Engineering/Discovery)": {
+          "mean": -0.286685090198563,
+          "std": 0.7244543472434308,
+          "cv": 252.7003921765382
+        },
+        "ln(Documentation/Discovery)": {
+          "mean": 0.13917274206141778,
+          "std": 0.6193116143008653,
+          "cv": 444.99490714033595
+        }
+      },
+      "most_stable": "ln(Theory/Documentation)",
+      "least_stable": "ln(Theory/Engineering)"
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Theory/Engineering)",
+      "cv": 798.7272388351836
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Theory/Documentation)",
+      "cv": 128.01741835735157
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Theory/Discovery)",
+      "cv": 188.49781058124398
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Engineering/Documentation)",
+      "cv": 131.3330615723175
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Engineering/Discovery)",
+      "cv": 252.7003921765382
+    }
+  },
+  {
+    "code": "XC-RPV-DIS",
+    "short": "Volatile ratio",
+    "verbose": "A highly volatile pairwise ratio detected (CV > 50%). These carriers are compositionally independent.",
+    "value": {
+      "pair": "ln(Documentation/Discovery)",
+      "cv": 444.99490714033595
+    }
+  },
+  {
+    "code": "RP-CMP-INF",
+    "short": "Run complete",
+    "verbose": "H\u02e2 extended pipeline run completed successfully. All results available for reporting.",
+    "value": null
+  },
+  {
+    "code": "RP-DTM-INF",
+    "short": "Deterministic",
+    "verbose": "Pipeline is deterministic. Repeated runs on identical data produce bit-identical results.",
+    "value": null
+  },
+  {
+    "code": "RP-VER-INF",
+    "short": "Version",
+    "verbose": "Pipeline version and configuration recorded.",
+    "value": "1.0 Extended"
+  }
+]

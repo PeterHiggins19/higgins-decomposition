@@ -1,0 +1,59 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  PHOSPHORIC_ACID_TITR
+  System:      Phosphoric Acid Titration
+  Domain:      CHEMISTRY
+  Carriers:    H3PO4, H2PO4_minus, HPO4_2minus, PO4_3minus
+  N=200, D=4
+  Source:      LOCAL FILE
+  Description: Ingested from phosphoric_acid_titration.csv
+  Pipeline:    1.0 Extended
+  Data hash:   ba3349752b312208
+  Timestamp:   2026-05-01T03:51:36.984472Z
+
+
+Total codes: 59
+  Errors:       0
+  Warnings:     3
+  Discoveries: 16
+  Calibration signals: 2
+  Structural modes:  5
+  Information:  33
+
+── WARNINGS ──
+  [MX-ROT-WRN] MX-ROT-WRN
+  [MX-CMN-WRN] MX-CMN-WRN
+  [MX-REF-WRN] MX-REF-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(pi^e), delta=0.000272)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(pi^e), delta=0.000272)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (3)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3PO4/H2PO4_minus), cv=112.109527)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3PO4/HPO4_2minus), cv=208.642937)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H3PO4/PO4_3minus), cv=33528.902280)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H2PO4_minus/HPO4_2minus), cv=7539.317746)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(H2PO4_minus/PO4_3minus), cv=213.611242)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(HPO4_2minus/PO4_3minus), cv=109.644586)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=200, near_zero_carriers=['H3PO4', 'H2PO4_minus', 'HPO4_2minus', 'PO4_3minus'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=4913551857795771.000000)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.996417, alpha=1.644945)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=1, best={'ratio': 'λ3/λ1', 'value': 0.033311609506521775, 'constant': '1/(e^pi)', 'delta': 0.009902308757250483})
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

@@ -1,0 +1,86 @@
+{
+  "_meta": {
+    "schema": "cnq_expected_results/1.0",
+    "purpose": "Locked expected residuals and termination labels for the three IEEE-floor confirmation experiments. The verifier (verify_publication_results.py) compares observed vs expected and exits non-zero on mismatch.",
+    "generated_in_push": "#26",
+    "generated": "2026-05-08",
+    "engine": "cnq.py v1.0.0",
+    "tolerance_policy": "max_residual is checked with strict equality to the published constant (4.440892098500626e-16) on platforms where float64 follows IEEE 754. Mean residual is checked with a small relative tolerance (1e-12) because mean accumulation depends on the order of operations across BLAS implementations."
+  },
+  "experiments": {
+    "backblaze_fleet_quaternion": {
+      "dataset": "backblaze_fleet",
+      "D": 4,
+      "T": 731,
+      "n_pairs_tested": 730,
+      "expected": {
+        "max_residual": 4.440892098500626e-16,
+        "gate_threshold": 1e-12,
+        "gate_pass": true,
+        "dimension_label": "native_quaternion",
+        "captured_step_fraction": 1.0
+      },
+      "publication_role": "Primary D=4 engineered/macroscopic demonstration",
+      "claim_strength": "confirmed (load-bearing case)"
+    },
+    "planck_cmb_quaternion": {
+      "dataset": "planck_cmb_boson",
+      "D": 4,
+      "T": 2499,
+      "n_pairs_tested": 2498,
+      "expected": {
+        "max_residual": 4.440892098500626e-16,
+        "gate_threshold": 1e-12,
+        "gate_pass": true,
+        "dimension_label": "native_quaternion",
+        "captured_step_fraction": 1.0,
+        "parent_cnt_termination": "LIMIT_CYCLE_P2",
+        "parent_cnt_ir_class": "OVERDAMPED_EXTREME",
+        "parent_cnt_content_sha256": "3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4"
+      },
+      "publication_role": "Primary D=4 cosmological demonstration; falsifier of the boson/fermion overreach",
+      "claim_strength": "confirmed (load-bearing case)"
+    },
+    "sm_neutrino_quaternion": {
+      "dataset": "sm_numu_oscillation",
+      "D": 3,
+      "T": 1000,
+      "expected": {
+        "dimension_label": "boundary_or_degenerate_support",
+        "captured_step_fraction": 1.0,
+        "parent_cnt_termination": "LIMIT_CYCLE_P2",
+        "parent_cnt_ir_class": "LIGHTLY_DAMPED",
+        "parent_cnt_amplitude_A": 0.1114077556471954,
+        "parent_cnt_damping_zeta": 0.056712808948377595,
+        "parent_cnt_content_sha256": "60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952"
+      },
+      "publication_role": "D=3 boundary/consistency support, NOT native quaternion proof",
+      "claim_strength": "consistency support",
+      "note": "D=3 is embedded in R^3 with z=0; quaternion sandwich residuals are computed but the result is a consistency channel, not the load-bearing case."
+    }
+  },
+  "cross_platform_reproduction_challenge": {
+    "purpose": "cnq.py is shipped to invite ChatGPT, Grok, and any other AI platform or third-party reviewer to run it against the same CNT JSON on a clean clone and produce their own cnq_content_sha256.",
+    "what_to_match": "cnq_content_sha256 — bit-identical across platforms.",
+    "what_can_drift": "metadata.generated (stripped from hash), absolute paths in provenance.cnt_json_path / provenance.input_csv_path (informational only).",
+    "what_is_expected": "On Linux / macOS / Windows, Python 3.9-3.13, numpy >= 1.20, the cnq_content_sha256 should be identical for each experiment.",
+    "if_hashes_differ": "File an issue on the higgins-decomposition GitHub repo with the platform details + observed hash. Hash drift is a finding, not a failure.",
+    "reference_observations": {
+      "_note": "These are LOCAL-PLATFORM observations recorded during push #26 pre-flight on Linux x86_64 / Python 3.x / numpy. They are NOT enforced by verify_publication_results.py — the cross-platform challenge is to reproduce them, not to gate on them. If your platform produces different hashes but identical max_residual + parent_cnt_content_sha256, file an issue.",
+      "_recorded": "2026-05-08 (push #26 pre-flight)",
+      "planck_cmb_quaternion": {
+        "cnq_content_sha256": "927af6a381f425945475a914d72c0c63812ee571701079b66a642bd114075b64",
+        "max_residual_observed": 4.440892098500626e-16,
+        "determinism_check": "two consecutive runs produced identical cnq_content_sha256"
+      },
+      "sm_neutrino_quaternion": {
+        "cnq_content_sha256": "f64741cb76eef302699c17adebf5fbd1fb4dc1e73b4cf9562997a7afc5154183",
+        "max_residual_observed": 3.3306690738754696e-16,
+        "dimension_label_observed": "boundary_or_degenerate_support"
+      },
+      "backblaze_fleet_quaternion": {
+        "_note": "Pending — requires CSV access that may need --input-csv flag with the backblaze data path. Will be recorded after push #26 lands and CI runs run_all_confirmations.py."
+      }
+    }
+  }
+}

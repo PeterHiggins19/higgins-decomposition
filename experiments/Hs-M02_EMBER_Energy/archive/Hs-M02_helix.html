@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs-M02 EMBER — Helical Decomposition</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1b2a;color:#e0e0e0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:20px 30px 60px}
+h1{font-size:1.8em;color:#ffffff;margin-bottom:4px;letter-spacing:-0.5px}
+h2{font-size:1.3em;color:#88c0d0;margin:30px 0 12px;border-bottom:1px solid #1b3a5c;padding-bottom:6px}
+h3{font-size:1.1em;color:#a0b8d0;margin:20px 0 8px}
+p.subtitle{color:#8899aa;font-size:0.95em;margin-bottom:4px}
+p.tagline{color:#667788;font-size:0.85em;font-style:italic;margin-bottom:20px}
+canvas{display:block;margin:10px auto;border:1px solid #1b3a5c;border-radius:4px;background:#0a1628}
+.controls{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0;align-items:center}
+.controls label{color:#8899aa;font-size:0.85em}
+.controls select{background:#152238;color:#e0e0e0;border:1px solid #2a4a6a;padding:4px 8px;border-radius:3px;font-size:0.85em}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.85em}
+th{background:#152238;color:#88c0d0;padding:6px 10px;text-align:left;border:1px solid #1b3a5c;font-weight:600}
+td{padding:6px 10px;border:1px solid #1b3a5c}
+tr:nth-child(even){background:#0e1e33}
+td.num{text-align:right;font-family:'Consolas','SF Mono',monospace;font-size:0.9em}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:8px 0;font-size:0.82em}
+.legend-item{display:flex;align-items:center;gap:4px}
+.legend-swatch{width:14px;height:14px;border-radius:2px;display:inline-block}
+.slider-group{display:flex;align-items:center;gap:8px;margin:6px 0}
+.slider-group label{color:#8899aa;font-size:0.82em;min-width:100px}
+.slider-group input[type=range]{width:200px;accent-color:#88c0d0}
+.slider-group .val{color:#e0e0e0;font-family:monospace;font-size:0.82em;min-width:50px}
+footer{text-align:center;color:#445566;font-size:0.75em;margin-top:40px;padding-top:16px;border-top:1px solid #1b3a5c}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- Section 1: Title -->
+<h1>Hs-M02 EMBER — Helical Decomposition</h1>
+<p class="subtitle">Separating drift from oscillation in the global energy transition</p>
+<p class="tagline">Every real trajectory is a helix: secular trend + cyclical variation</p>
+
+<!-- Section 2: Trajectory + Decomposition -->
+<h2>Trajectory + Decomposition</h2>
+<div class="controls">
+  <label>Country:</label>
+  <select id="selCountry"></select>
+  <label>X-axis:</label>
+  <select id="selX"></select>
+  <label>Y-axis:</label>
+  <select id="selY"></select>
+</div>
+<canvas id="cvMain" width="750" height="550"></canvas>
+
+<!-- Section 3: Helical Metrics -->
+<h2>Helical Metrics</h2>
+<table id="tblMetrics">
+<thead><tr><th style="width:45%">Metric</th><th>Value</th></tr></thead>
+<tbody id="tbMetrics"></tbody>
+</table>
+
+<!-- Section 4: All Countries Comparison -->
+<h2>All Countries Comparison</h2>
+<canvas id="cvAll" width="750" height="400"></canvas>
+<div class="legend" id="legendAll"></div>
+
+<!-- Section 5: Helix Ratio Bar Chart -->
+<h2>Helix Ratio Bar Chart</h2>
+<canvas id="cvBars" width="750" height="300"></canvas>
+
+<!-- Section 6: Country Summary Table -->
+<h2>Country Summary Table</h2>
+<table>
+<thead><tr><th>Country</th><th>Drift Mag</th><th>Osc RMS</th><th>Helix Ratio</th><th>Path Eff</th><th>Shape</th><th>Diagnosis</th></tr></thead>
+<tbody id="tbSummary"></tbody>
+</table>
+
+<!-- Section 7: Reference Overlay -->
+<h2>Reference Overlay</h2>
+<p class="subtitle" style="margin-bottom:8px">Does this country's trajectory match a standard helix?</p>
+<div class="slider-group">
+  <label>Ref drift rate:</label>
+  <input type="range" id="slDrift" min="0.01" max="2" step="0.01" value="0.5">
+  <span class="val" id="valDrift">0.50</span>
+</div>
+<div class="slider-group">
+  <label>Ref radius:</label>
+  <input type="range" id="slRadius" min="0.01" max="2" step="0.01" value="0.3">
+  <span class="val" id="valRadius">0.30</span>
+</div>
+<div class="slider-group">
+  <label>Ref turns:</label>
+  <input type="range" id="slTurns" min="0.5" max="5" step="0.1" value="2">
+  <span class="val" id="valTurns">2.0</span>
+</div>
+<canvas id="cvRef" width="500" height="400"></canvas>
+
+<footer>Data: EMBER Global Electricity Review 2025 | Hs-M02 | Peter Higgins | CC BY 4.0</footer>
+</div>
+
+<script>
+// ===== EMBEDDED DATA =====
+const DATA = {
+DEU: {
+  name:"Germany", color:"#ffd700", pathEff:0.424355,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Other Renewables","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[3.871886,8.098973,6.302212,5.485013,7.53982,5.299464,-20.619532,-20.619532,4.641695],
+[1.576038,5.734853,4.068541,3.175843,5.195574,3.073558,-22.973693,-2.250428,2.399716],
+[1.592224,5.62508,3.953327,3.06333,5.027607,2.842023,-23.103219,-1.686806,2.686432],
+[1.974681,5.502125,3.919633,2.69102,4.889336,2.921993,-23.242824,-1.388156,2.732192],
+[2.01495,5.350004,3.788213,2.682876,4.768743,2.791028,-23.375521,-0.929489,2.909195],
+[2.183049,5.157968,3.773823,2.472089,4.588578,2.772797,-23.53133,-0.235452,2.818477],
+[2.323342,5.04825,3.695948,2.379297,4.501675,2.667104,-23.643785,0.201846,2.826323],
+[2.498521,4.98903,3.644594,2.347547,4.240383,2.575121,-23.730889,0.439184,2.99651],
+[0.442212,2.726828,1.59207,0.126787,2.109811,0.35734,-6.80273,-1.384409,0.832091],
+[0.539927,2.644661,1.49489,0.055511,2.01425,0.254939,-6.802529,-0.985417,0.783768],
+[0.47101,2.518741,1.432942,-0.010856,1.89264,0.227541,-6.559552,-0.571427,0.598962],
+[0.566592,2.52875,1.409154,-0.169481,1.640505,0.156099,-6.953372,-0.046117,0.86787],
+[0.617971,2.473364,1.182206,-0.068256,1.451886,0.061764,-6.654427,0.138291,0.797201],
+[0.54131,2.387033,0.928071,-0.141127,1.301075,-0.047795,-5.80235,0.145032,0.688753],
+[0.57861,2.316009,0.805845,-0.323595,1.277436,-0.093027,-5.6012,0.269509,0.770412],
+[0.5478,2.235736,0.747748,-0.427416,1.148702,-0.129382,-5.411022,0.268888,1.018945],
+[0.506218,2.143156,0.965513,-0.401373,1.014055,-0.189878,-5.19619,0.201706,0.956792],
+[0.494738,2.050358,1.019295,-0.432313,0.899418,-0.210262,-5.268099,0.221871,1.224993],
+[0.494144,1.996492,0.967784,-0.560556,0.897178,-0.271038,-5.148354,0.357881,1.26647],
+[0.469525,1.699197,1.054715,-0.462954,0.873326,-0.336034,-5.054533,0.366445,1.390314],
+[0.502149,1.474004,1.125573,-0.498711,0.7365,-0.370536,-4.897979,0.473669,1.455331],
+[0.446457,1.65642,1.055846,-0.468816,0.788587,-0.345509,-4.874518,0.451333,1.290199],
+[0.516644,1.825588,1.003101,-0.497945,0.180048,-0.291974,-4.927627,0.732352,1.459813],
+[0.756932,1.646573,1.159401,-0.124093,-1.203124,-0.137363,-4.84071,0.976871,1.765513],
+[3.503756,4.236911,3.932315,2.741309,-23.455488,2.585408,-1.943764,3.876184,4.52337],
+[5.895507,6.609124,6.387797,4.946427,-21.052911,4.912631,-21.052911,6.468519,6.885816]
+]},
+GBR: {
+  name:"United Kingdom", color:"#ff6b6b", pathEff:0.380081,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Other Renewables","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[4.273496,7.704736,7.915413,4.544938,7.361018,5.560995,-20.10819,-20.10819,2.855785],
+[4.442147,7.810128,7.886618,4.330142,7.432234,5.396979,-20.094426,-20.094426,2.890603],
+[4.497798,7.695024,7.898208,4.439018,7.348118,5.33293,-20.153364,-20.153364,3.095631],
+[4.702425,7.813307,7.885866,4.055208,7.367873,5.324203,-20.143125,-20.143125,3.137368],
+[4.785467,7.670617,7.846035,4.366322,7.171434,5.180918,-20.236444,-20.236444,3.452095],
+[2.864345,5.558676,5.684153,2.24938,5.058145,3.183398,-22.36978,-3.949099,1.720782],
+[2.841592,5.616669,5.561284,2.13761,4.9372,3.255641,-22.412121,-3.99144,2.053565],
+[2.835462,5.515513,5.714022,2.228611,4.74691,3.118574,-22.422551,-4.001871,2.26533],
+[2.764715,5.321098,5.66949,2.13481,4.458379,3.131801,-22.528094,-3.414266,2.462068],
+[2.83152,5.09546,5.575338,2.114754,4.695897,3.016018,-22.565509,-3.451681,2.688204],
+[2.928728,5.100714,5.590879,1.700538,4.551776,2.773761,-22.603465,-2.79649,2.753559],
+[2.729427,4.827108,5.127936,1.879621,4.374728,2.321328,-22.88494,-1.286205,2.910997],
+[2.616077,4.886887,4.532381,1.595104,4.179847,2.151216,-23.100339,0.225616,2.913212],
+[2.754246,4.727867,4.421015,1.405897,4.115506,1.981793,-23.167517,0.556469,3.204724],
+[2.866849,4.355582,4.362045,1.521271,3.902984,1.910188,-23.277836,1.146731,3.212187],
+[3.005815,3.958747,4.233563,1.470143,3.882934,1.871366,-23.396257,1.648489,3.3252],
+[3.065631,3.085388,4.625856,1.342931,3.935012,2.026724,-23.363748,2.00487,3.277336],
+[3.116865,2.769106,4.572413,1.425815,3.907599,1.927415,-23.371592,2.093121,3.559257],
+[1.177207,0.441884,2.497652,-0.6875,1.794031,-0.054977,-6.986449,0.157958,1.660192],
+[1.319717,-0.371274,2.585336,-0.525666,1.722871,0.115567,-6.91086,0.213618,1.85069],
+[3.434398,1.52213,4.49918,1.710283,3.698476,1.960951,-23.244187,2.311385,4.107385],
+[3.483621,1.709943,4.605374,1.484588,3.625305,2.064554,-23.231359,2.290173,3.967802],
+[3.342,1.544365,4.591849,1.49608,3.621278,2.166895,-23.263195,2.353423,4.147304],
+[3.385857,1.186284,4.478194,1.568555,3.560328,2.237956,-23.169291,2.487009,4.265107],
+[3.605175,0.555902,4.371878,1.664985,3.61757,2.352038,-23.111803,2.607999,4.336256],
+[3.789505,-1.037838,4.580695,1.784622,3.664844,2.617923,-22.955026,3.031965,4.52331]
+]},
+JPN: {
+  name:"Japan", color:"#ff69b4", pathEff:0.118391,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[-0.462032,2.231806,2.313424,1.194924,2.524095,1.966811,-4.320282,-5.448747],
+[-0.598824,2.163694,2.173921,1.027808,2.396721,1.662692,-4.066433,-4.75958],
+[-0.666566,2.081295,2.036197,0.893255,2.253977,1.65699,-3.867307,-4.387842],
+[-0.756281,2.036995,1.969874,0.88692,1.798463,1.58158,-3.691257,-3.826294],
+[-0.862471,1.93268,1.796801,0.762579,1.899921,1.378062,-3.516599,-3.390973],
+[-0.768592,1.920375,1.688302,0.505609,1.834866,1.374643,-3.356863,-3.19834],
+[-0.822719,1.848719,1.742766,0.594333,1.825815,1.146149,-3.199019,-3.136044],
+[-0.845147,1.81464,1.747988,0.365694,1.686008,1.276089,-3.107992,-2.937281],
+[-0.901032,1.850973,1.824032,0.36035,1.569127,1.185022,-3.007612,-2.88086],
+[-0.914581,1.816581,1.856285,0.328509,1.688819,0.73004,-2.811537,-2.694118],
+[-0.937922,1.737221,1.765966,0.461795,1.656778,0.608655,-2.639926,-2.652568],
+[-1.004014,1.598974,1.885963,0.358917,1.03956,1.039192,-2.359981,-2.558612],
+[-0.791583,1.923521,2.187954,0.456586,-0.998701,1.447914,-1.8911,-2.334592],
+[-0.787687,1.962185,2.117765,0.442639,-1.249955,1.183898,-1.372975,-2.295871],
+[2.39974,5.111029,5.348424,3.640399,-23.788628,4.044027,2.396349,0.848659],
+[-0.530966,1.976385,2.153766,0.57115,-2.372007,0.768094,-0.338401,-2.228022],
+[-0.88395,1.776632,2.079649,0.326718,-1.175724,0.528921,-0.279313,-2.372933],
+[-0.931108,1.794903,2.039371,0.271688,-0.731087,-0.059674,-0.111069,-2.273024],
+[-0.950502,1.688999,1.900508,0.195513,-0.304874,-0.243662,-0.084463,-2.201519],
+[-0.8755,1.666815,1.83965,0.109667,-0.009131,-0.565514,0.017774,-2.183761],
+[-0.72034,1.695886,1.880996,0.227136,-0.372595,-0.902595,0.195885,-2.004373],
+[-0.698235,1.605384,1.707702,0.129826,-0.133091,-0.804906,0.185392,-1.992072],
+[-0.650879,1.576777,1.653133,0.031772,-0.33717,-0.460134,0.227647,-2.041146],
+[-0.560316,1.491522,1.551043,0.012978,0.051538,-0.816984,0.269867,-1.999647],
+[-0.497356,1.477049,1.533823,0.061819,0.128283,-1.094433,0.258305,-1.86749],
+[-0.353793,1.439665,1.462102,-0.056958,0.184581,-1.125315,0.256044,-1.806327]
+]},
+FRA: {
+  name:"France", color:"#4169e1", pathEff:0.557876,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Other Renewables","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[-0.311304,2.076275,1.223654,2.951435,4.809102,1.183773,-1.892907,-5.824732,-4.215295],
+[-0.287776,1.684354,1.382906,2.950146,4.707728,0.947288,-2.069064,-5.940265,-3.375316],
+[-0.331663,1.720265,1.467198,2.631981,4.635863,0.834772,-2.156871,-6.048691,-2.752854],
+[-0.347157,1.748407,1.444086,2.529533,4.569564,0.874613,-2.232989,-6.12481,-2.461248],
+[-0.363072,1.633332,1.48688,2.501112,4.545308,0.764326,-2.315043,-6.165191,-2.087653],
+[-0.424779,1.668941,1.492925,2.269211,4.467033,0.843456,-2.379578,-6.250779,-1.686431],
+[-0.491878,1.420947,1.37032,2.295396,4.399916,0.736932,-2.486282,-6.314923,-0.930428],
+[-0.554676,1.320199,1.214156,2.148742,4.209729,0.554547,-2.631454,-5.788455,-0.472789],
+[-0.611316,1.148017,1.095491,2.13963,4.095442,0.338171,-2.745105,-5.208958,-0.251372],
+[-0.717268,0.940384,0.88488,1.880658,3.879978,0.040342,-2.934053,-3.907502,-0.067417],
+[-0.88438,0.775991,0.792969,1.739113,3.685303,-0.068457,-3.109003,-2.85307,-0.078467],
+[-0.941698,0.296791,0.824947,1.263869,3.533087,-0.044639,-3.175291,-1.713236,-0.04383],
+[-1.007898,0.390586,0.44896,1.415902,3.377448,-0.133216,-3.34895,-1.187206,0.044374],
+[-0.964608,0.469806,0.210248,1.573995,3.347419,-0.267069,-3.394706,-1.054826,0.079741],
+[-0.830041,-0.198876,-0.04295,1.535151,3.45861,-0.188275,-3.199951,-0.765398,0.23173],
+[-0.850307,-0.251016,0.324453,1.290749,3.354203,-0.25523,-3.271441,-0.679021,0.337611],
+[-0.777159,-0.4694,0.759766,1.313523,3.204708,-0.357609,-3.30555,-0.63601,0.267731],
+[-0.799073,-0.300403,0.850673,1.061394,3.136727,-0.352477,-3.281412,-0.667954,0.352524],
+[-0.706653,-0.715042,0.586863,1.343577,3.190801,-0.472591,-3.326798,-0.421062,0.520905],
+[-0.628172,-1.492591,0.885122,1.256896,3.204411,-0.411531,-3.278871,-0.298003,0.762741],
+[-0.600958,-1.642983,0.791311,1.364332,3.097662,-0.463582,-3.265451,-0.199306,0.918974],
+[-0.583984,-1.149883,0.662196,1.242986,3.094824,-0.531126,-3.388389,-0.117117,0.770494],
+[-0.560238,-1.403751,0.993707,0.989764,2.856794,-0.482664,-3.340092,0.13291,0.81357],
+[-0.454557,-2.27489,0.650739,1.27244,3.072513,-0.507228,-3.295852,0.366383,1.170453],
+[-0.321963,-2.670533,0.205576,1.574033,3.251019,-0.434842,-3.252455,0.523327,1.125837],
+[-0.433217,-2.208559,0.085368,1.322019,3.208997,-0.424491,-3.324563,0.697651,1.076794]
+]},
+CHN: {
+  name:"China", color:"#ff4500", pathEff:0.657057,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[-1.229042,4.805063,-0.408534,3.243316,0.656595,1.69467,-6.073229,-2.688839],
+[-1.325608,4.76751,-0.666362,3.363867,0.598784,1.620275,-5.768259,-2.590206],
+[-1.459953,4.760575,-0.963346,3.26681,0.828016,1.530077,-5.391779,-2.5704],
+[-1.631248,4.763034,-0.922475,3.084435,1.205664,1.440825,-5.376823,-2.563412],
+[-1.832065,4.691201,-0.750729,3.107712,1.161095,1.422224,-5.286013,-2.513424],
+[-1.300921,4.618534,-0.475888,3.011592,0.999594,0.949777,-5.498123,-2.304565],
+[-1.222776,4.554629,-0.016562,2.890073,0.817333,0.448391,-5.595033,-1.876055],
+[-1.066538,4.529816,0.168686,2.829661,0.774205,-0.019611,-5.562299,-1.653919],
+[-0.85546,4.349496,-0.01182,2.901901,0.670421,-0.620417,-5.451926,-0.982194],
+[-0.744855,4.193742,0.252614,2.639974,0.466521,-1.287831,-5.055654,-0.46451],
+[-0.987755,3.878728,0.150618,2.364584,0.111392,-0.655595,-4.559298,-0.302673],
+[-1.182227,3.712488,0.188106,2.032718,-0.032925,-0.980668,-3.541779,-0.195714],
+[-1.224494,3.599013,0.072735,2.130156,-0.041788,-1.188957,-3.351863,0.005199],
+[-1.230814,3.467968,-0.088293,1.967776,-0.131215,-1.348732,-2.720586,0.083896],
+[-1.257178,3.251896,-0.19922,1.87406,-0.19967,-1.517642,-1.934246,-0.017999],
+[-1.26833,3.046917,-0.141154,1.75757,-0.114726,-1.662393,-1.582815,-0.035069],
+[-1.340255,2.862909,-0.231553,1.580873,-0.107347,-1.507528,-1.271831,0.014732],
+[-1.269981,2.749167,-0.332804,1.413533,-0.133163,-1.620751,-0.878006,0.072005],
+[-1.242486,2.685161,-0.41069,1.305501,-0.096675,-1.751181,-0.608066,0.118436],
+[-1.154608,2.607565,-0.431334,1.268546,-0.026012,-1.919983,-0.468578,0.124403],
+[-1.05486,2.536142,-0.433895,1.221375,-0.062127,-1.986185,-0.400403,0.179952],
+[-0.994727,2.475105,-0.446884,1.063405,-0.096674,-2.062611,-0.316755,0.379141],
+[-0.988772,2.400806,-0.577047,0.972602,-0.161115,-1.948575,-0.138654,0.440755],
+[-1.001909,2.366246,-0.594764,0.820326,-0.216484,-1.94777,0.078972,0.495384],
+[-1.063479,2.266943,-0.632849,0.807585,-0.292283,-1.916131,0.328841,0.501373],
+[-1.121213,2.174674,-0.670902,0.759573,-0.293036,-1.987755,0.586437,0.552223]
+]},
+IND: {
+  name:"India", color:"#32cd32", pathEff:0.647137,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[-1.580639,3.861369,1.91927,2.238308,0.652742,1.26743,-6.710538,-1.647943],
+[-1.447355,3.837074,1.849198,2.102041,0.763729,1.113125,-6.780073,-1.437739],
+[-1.440434,3.854841,1.939988,2.026177,0.761452,1.128461,-6.80641,-1.464076],
+[-1.377016,3.716146,1.913752,1.864481,0.524155,1.062922,-6.285987,-1.418453],
+[-1.356252,3.584549,1.785136,2.05835,0.503627,0.788601,-6.465223,-0.898789],
+[-1.16082,3.613549,1.76667,2.021967,0.318193,0.676502,-6.469088,-0.766974],
+[-0.832937,3.671553,1.759564,2.170104,0.315686,0.394725,-7.159086,-0.31961],
+[-0.836957,3.440591,1.661928,1.970572,0.042445,-0.246172,-5.651848,-0.380559],
+[-0.655242,3.465838,1.567694,1.861152,-0.16199,-0.159367,-5.698668,-0.219418],
+[-0.610949,3.447254,1.67992,1.698619,-0.145454,-0.396938,-5.493751,-0.1787],
+[-0.516453,3.367914,1.672755,1.590776,0.040782,-0.720492,-5.305459,-0.129823],
+[-0.716269,3.09834,1.312424,1.426002,0.018063,-1.219148,-3.640854,-0.278556],
+[-0.777364,3.086458,0.985014,1.169757,-0.081194,-1.272375,-2.839998,-0.270298],
+[-0.782749,3.093903,0.545398,1.233708,-0.143085,-1.283382,-2.416382,-0.247412],
+[-0.710774,3.094447,0.397098,1.172533,-0.21549,-1.315256,-2.170667,-0.25189],
+[-0.865819,3.13829,0.394849,1.117958,-0.130283,-1.55029,-1.817308,-0.287396],
+[-1.044467,3.089396,0.395864,0.966942,-0.254425,-1.647603,-1.38794,-0.117766],
+[-1.27014,3.039302,0.339832,0.934985,-0.355585,-1.803908,-0.870249,-0.014237],
+[-1.144215,3.03256,0.209769,0.884505,-0.391723,-2.200268,-0.433559,0.042932],
+[-1.068744,3.076387,0.263315,1.076728,-0.202445,-2.890979,-0.38965,0.135387],
+[-1.065561,2.986819,0.259409,1.044226,-0.257317,-2.927104,-0.086683,0.046211],
+[-1.043063,3.038273,0.003925,0.981666,-0.314694,-2.876234,0.086359,0.123767],
+[-1.007212,3.048481,-0.322906,1.010064,-0.322473,-2.908204,0.408278,0.093973],
+[-1.079933,3.060308,-0.287965,0.790967,-0.340502,-2.867788,0.532716,0.192198],
+[-1.183744,3.038997,-0.252908,0.767162,-0.284222,-2.877541,0.677248,0.115008],
+[-1.214787,2.943818,-0.469631,0.829596,-0.366188,-2.941032,0.926045,0.29218]
+]},
+WLD: {
+  name:"World", color:"#ffffff", pathEff:0.952921,
+  carriers:["Bioenergy","Coal","Gas","Hydro","Nuclear","Other Fossil","Other Renewables","Solar","Wind"],
+  years:[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+  clr:[
+[-0.71341,2.915924,2.166537,2.123407,2.088894,1.437448,-1.975003,-5.731404,-2.312392],
+[-0.801279,2.872215,2.168639,2.040304,2.059409,1.349791,-2.021317,-5.501425,-2.166336],
+[-0.805121,2.825575,2.143002,1.970005,1.986412,1.250515,-2.072766,-5.355381,-1.94224],
+[-0.792447,2.825992,2.12307,1.902829,1.89864,1.2022,-2.123216,-5.218343,-1.818726],
+[-0.804915,2.759738,2.096855,1.873763,1.843627,1.077224,-2.18794,-5.042092,-1.616261],
+[-0.794729,2.722378,2.055921,1.821623,1.756053,0.998072,-2.271476,-4.781178,-1.506664],
+[-0.814363,2.693955,2.03129,1.77478,1.685969,0.832094,-2.310485,-4.547497,-1.345742],
+[-0.81156,2.663478,2.017241,1.696902,1.572122,0.756603,-2.363476,-4.343673,-1.187636],
+[-0.850377,2.561127,1.945154,1.649678,1.463749,0.630927,-2.399468,-3.962973,-1.037817],
+[-0.858938,2.464487,1.868803,1.567183,1.368325,0.45996,-2.444779,-3.529846,-0.895195],
+[-0.848747,2.40358,1.838719,1.500505,1.271269,0.344186,-2.549621,-3.167011,-0.792879],
+[-0.920518,2.330201,1.725168,1.392259,1.102391,0.314137,-2.652661,-2.612861,-0.678116],
+[-0.929395,2.246852,1.695249,1.351561,0.942855,0.268033,-2.713112,-2.279818,-0.582224],
+[-0.916418,2.227071,1.604869,1.316402,0.879311,0.163503,-2.760058,-2.043022,-0.471658],
+[-0.911272,2.1658,1.555007,1.257064,0.819419,0.03787,-2.76236,-1.717166,-0.444362],
+[-0.910596,2.068876,1.552598,1.197009,0.770002,-0.03425,-2.775575,-1.521914,-0.34615],
+[-0.94633,2.016331,1.549743,1.17329,0.727629,-0.135004,-2.795419,-1.333044,-0.257195],
+[-0.956547,1.989409,1.509278,1.121639,0.675218,-0.284261,-2.818661,-1.08854,-0.147535],
+[-0.954328,1.971934,1.494554,1.095607,0.643889,-0.429799,-2.838405,-0.887055,-0.096397],
+[-0.94391,1.910322,1.481753,1.066923,0.638334,-0.531368,-2.864267,-0.734371,-0.023417],
+[-0.912562,1.840959,1.449944,1.065806,0.570244,-0.657442,-2.855698,-0.562223,0.060973],
+[-0.900249,1.840526,1.40289,0.978397,0.538527,-0.649265,-2.927165,-0.425004,0.141343],
+[-0.927608,1.800409,1.365408,0.938262,0.444707,-0.645372,-2.957036,-0.238413,0.219643],
+[-0.946268,1.7755,1.336106,0.878674,0.426499,-0.697403,-2.991799,-0.056607,0.275298],
+[-0.967599,1.73935,1.313289,0.873497,0.405684,-0.773738,-3.041157,0.146317,0.304357],
+[-0.997115,1.693458,1.279379,0.834319,0.378541,-0.827628,-3.07062,0.36676,0.342905]
+]}
+};
+
+const COUNTRY_ORDER = ["DEU","GBR","JPN","FRA","CHN","IND","WLD"];
+
+// ===== HELICAL DECOMPOSITION =====
+function getProjection(iso, xCarrier, yCarrier) {
+  const d = DATA[iso];
+  const xi = d.carriers.indexOf(xCarrier);
+  const yi = d.carriers.indexOf(yCarrier);
+  if (xi < 0 || yi < 0) return null;
+  return d.clr.map((r, i) => ({ x: r[xi], y: r[yi], year: d.years[i] }));
+}
+
+function linearFit(pts) {
+  const n = pts.length;
+  let sx=0,sy=0,sxx=0,sxy=0;
+  // parameterize by index t=0..n-1
+  for (let i=0; i<n; i++) {
+    sx += i; sy += pts[i].x; sxx += i*i; sxy += i*pts[i].x;
+  }
+  const mx = (n*sxy - sx*sy) / (n*sxx - sx*sx);
+  const bx = (sy - mx*sx) / n;
+  sx=0; sy=0; sxy=0;
+  for (let i=0; i<n; i++) {
+    sx += i; sy += pts[i].y; sxy += i*pts[i].y;
+  }
+  const my = (n*sxy - sx*sy) / (n*sxx - sx*sx);
+  const by = (sy - my*sx) / n;
+  return { mx, bx, my, by }; // fitted point at t: (bx+mx*t, by+my*t)
+}
+
+function decompose(pts) {
+  const fit = linearFit(pts);
+  const n = pts.length;
+  const fitted = [];
+  const residuals = [];
+  let sumSqRes = 0;
+  let maxRes = 0, maxResYear = pts[0].year;
+  for (let i=0; i<n; i++) {
+    const fx = fit.bx + fit.mx * i;
+    const fy = fit.by + fit.my * i;
+    fitted.push({ x: fx, y: fy });
+    const dx = pts[i].x - fx;
+    const dy = pts[i].y - fy;
+    const r = Math.sqrt(dx*dx + dy*dy);
+    residuals.push({ dx, dy, r });
+    sumSqRes += r*r;
+    if (r > maxRes) { maxRes = r; maxResYear = pts[i].year; }
+  }
+  const driftMag = Math.sqrt(fit.mx*fit.mx + fit.my*fit.my) * (n-1);
+  const driftAngle = Math.atan2(fit.my, fit.mx) * 180 / Math.PI;
+  const oscRMS = Math.sqrt(sumSqRes / n);
+  const helixRatio = driftMag > 0 ? oscRMS / driftMag : Infinity;
+  let shape, diagnosis;
+  if (helixRatio < 0.1) { shape = "Line-like"; diagnosis = "Strong secular trend, minimal oscillation"; }
+  else if (helixRatio < 0.5) { shape = "Helix"; diagnosis = "Balanced drift and oscillation"; }
+  else if (helixRatio < 1.0) { shape = "Wide helix"; diagnosis = "Significant oscillation around trend"; }
+  else { shape = "Circle-like"; diagnosis = "Oscillation dominates over drift"; }
+  return { fit, fitted, residuals, driftMag, driftAngle, oscRMS, helixRatio, maxResYear, shape, diagnosis };
+}
+
+// ===== CANVAS DRAWING =====
+function getDataBounds(allPts) {
+  let xmin=Infinity,xmax=-Infinity,ymin=Infinity,ymax=-Infinity;
+  for (const pts of allPts) {
+    for (const p of pts) {
+      if (p.x < xmin) xmin = p.x;
+      if (p.x > xmax) xmax = p.x;
+      if (p.y < ymin) ymin = p.y;
+      if (p.y > ymax) ymax = p.y;
+    }
+  }
+  const pad = 0.1;
+  const dx = (xmax-xmin)*pad || 1;
+  const dy = (ymax-ymin)*pad || 1;
+  return { xmin: xmin-dx, xmax: xmax+dx, ymin: ymin-dy, ymax: ymax+dy };
+}
+
+function makeTransform(bounds, w, h, margin) {
+  const m = margin || 50;
+  const pw = w - 2*m, ph = h - 2*m;
+  const sx = pw / (bounds.xmax - bounds.xmin);
+  const sy = ph / (bounds.ymax - bounds.ymin);
+  return {
+    tx: p => m + (p - bounds.xmin) * sx,
+    ty: p => h - m - (p - bounds.ymin) * sy
+  };
+}
+
+function drawAxes(ctx, w, h, bounds, xLabel, yLabel, margin) {
+  const m = margin || 50;
+  const tr = makeTransform(bounds, w, h, m);
+  ctx.strokeStyle = "#1b3a5c";
+  ctx.lineWidth = 1;
+  // grid
+  const nTicks = 5;
+  ctx.font = "11px 'Segoe UI', system-ui, sans-serif";
+  ctx.fillStyle = "#556677";
+  for (let i=0; i<=nTicks; i++) {
+    const v = bounds.xmin + (bounds.xmax-bounds.xmin)*i/nTicks;
+    const x = tr.tx(v);
+    ctx.beginPath(); ctx.moveTo(x, m); ctx.lineTo(x, h-m); ctx.stroke();
+    ctx.textAlign = "center";
+    ctx.fillText(v.toFixed(1), x, h-m+14);
+  }
+  for (let i=0; i<=nTicks; i++) {
+    const v = bounds.ymin + (bounds.ymax-bounds.ymin)*i/nTicks;
+    const y = tr.ty(v);
+    ctx.beginPath(); ctx.moveTo(m, y); ctx.lineTo(w-m, y); ctx.stroke();
+    ctx.textAlign = "right";
+    ctx.fillText(v.toFixed(1), m-6, y+4);
+  }
+  // labels
+  ctx.fillStyle = "#8899aa";
+  ctx.font = "12px 'Segoe UI', system-ui, sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(xLabel, w/2, h-6);
+  ctx.save();
+  ctx.translate(14, h/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText(yLabel, 0, 0);
+  ctx.restore();
+  return tr;
+}
+
+function drawTrajectory(ctx, pts, tr, color, lineWidth, showYears) {
+  ctx.strokeStyle = color;
+  ctx.lineWidth = lineWidth || 2;
+  ctx.beginPath();
+  for (let i=0; i<pts.length; i++) {
+    const x = tr.tx(pts[i].x), y = tr.ty(pts[i].y);
+    if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  // dots
+  for (let i=0; i<pts.length; i++) {
+    const x = tr.tx(pts[i].x), y = tr.ty(pts[i].y);
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI*2);
+    ctx.fillStyle = color;
+    ctx.fill();
+  }
+  // year labels
+  if (showYears) {
+    ctx.font = "10px 'Segoe UI', system-ui, sans-serif";
+    ctx.fillStyle = "#aabbcc";
+    const labelYears = [2000,2005,2010,2015,2020,2025];
+    for (let i=0; i<pts.length; i++) {
+      if (labelYears.includes(pts[i].year)) {
+        const x = tr.tx(pts[i].x), y = tr.ty(pts[i].y);
+        ctx.fillText(pts[i].year, x+6, y-6);
+      }
+    }
+  }
+}
+
+function drawDriftLine(ctx, fitted, tr, color) {
+  ctx.strokeStyle = color || "#ffffff";
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([6,4]);
+  ctx.beginPath();
+  const p0 = fitted[0], p1 = fitted[fitted.length-1];
+  // extend slightly
+  const dx = p1.x-p0.x, dy = p1.y-p0.y;
+  ctx.moveTo(tr.tx(p0.x-dx*0.05), tr.ty(p0.y-dy*0.05));
+  ctx.lineTo(tr.tx(p1.x+dx*0.05), tr.ty(p1.y+dy*0.05));
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
+function drawResiduals(ctx, pts, fitted, tr) {
+  ctx.strokeStyle = "rgba(150,150,150,0.4)";
+  ctx.lineWidth = 0.8;
+  for (let i=0; i<pts.length; i++) {
+    ctx.beginPath();
+    ctx.moveTo(tr.tx(pts[i].x), tr.ty(pts[i].y));
+    ctx.lineTo(tr.tx(fitted[i].x), tr.ty(fitted[i].y));
+    ctx.stroke();
+  }
+}
+
+// ===== FIND COMMON CARRIERS =====
+function getCommonCarriers() {
+  // All countries have at least these
+  let common = null;
+  for (const iso of COUNTRY_ORDER) {
+    const s = new Set(DATA[iso].carriers);
+    if (!common) common = s;
+    else common = new Set([...common].filter(c => s.has(c)));
+  }
+  return [...common].sort();
+}
+
+// ===== INIT UI =====
+const selCountry = document.getElementById("selCountry");
+const selX = document.getElementById("selX");
+const selY = document.getElementById("selY");
+
+COUNTRY_ORDER.forEach(iso => {
+  const o = document.createElement("option");
+  o.value = iso; o.textContent = DATA[iso].name;
+  selCountry.appendChild(o);
+});
+
+function populateCarrierSelects(iso) {
+  const carriers = DATA[iso].carriers;
+  const prevX = selX.value, prevY = selY.value;
+  selX.innerHTML = ""; selY.innerHTML = "";
+  carriers.forEach(c => {
+    const ox = document.createElement("option");
+    ox.value = c; ox.textContent = c;
+    selX.appendChild(ox);
+    const oy = document.createElement("option");
+    oy.value = c; oy.textContent = c;
+    selY.appendChild(oy);
+  });
+  // try to restore or default
+  if (carriers.includes(prevX)) selX.value = prevX;
+  else if (carriers.includes("Coal")) selX.value = "Coal";
+  if (carriers.includes(prevY)) selY.value = prevY;
+  else if (carriers.includes("Wind")) selY.value = "Wind";
+  if (selX.value === selY.value) {
+    // pick different
+    for (const c of carriers) {
+      if (c !== selX.value) { selY.value = c; break; }
+    }
+  }
+}
+
+populateCarrierSelects("DEU");
+selX.value = "Coal";
+selY.value = "Wind";
+
+// ===== RENDER ALL =====
+function renderAll() {
+  const iso = selCountry.value;
+  const xC = selX.value, yC = selY.value;
+
+  // Section 2: Main decomposition
+  renderMain(iso, xC, yC);
+  // Section 3: Metrics table
+  renderMetrics(iso, xC, yC);
+  // Section 4: All countries
+  renderAllCountries(xC, yC);
+  // Section 5: Bar chart
+  renderBars(xC, yC);
+  // Section 6: Summary table
+  renderSummary(xC, yC);
+  // Section 7: Reference overlay
+  renderReference(iso, xC, yC);
+}
+
+function renderMain(iso, xC, yC) {
+  const cv = document.getElementById("cvMain");
+  const ctx = cv.getContext("2d");
+  const w = cv.width, h = cv.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = "#0a1628";
+  ctx.fillRect(0,0,w,h);
+
+  const pts = getProjection(iso, xC, yC);
+  if (!pts) return;
+  const dec = decompose(pts);
+  const bounds = getDataBounds([pts]);
+  const tr = drawAxes(ctx, w, h, bounds, xC + " (CLR)", yC + " (CLR)");
+
+  // residual lines
+  drawResiduals(ctx, pts, dec.fitted, tr);
+  // drift line
+  drawDriftLine(ctx, dec.fitted, tr, "#ffffff");
+  // trajectory
+  drawTrajectory(ctx, pts, tr, DATA[iso].color, 2.5, true);
+
+  // title
+  ctx.fillStyle = "#8899aa";
+  ctx.font = "12px 'Segoe UI', system-ui, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText(DATA[iso].name + " — " + xC + " vs " + yC, 60, 26);
+  ctx.fillStyle = "#556677";
+  ctx.font = "10px 'Segoe UI', system-ui, sans-serif";
+  ctx.fillText("Dashed: drift axis | Gray lines: residuals (oscillation)", 60, 42);
+}
+
+function renderMetrics(iso, xC, yC) {
+  const pts = getProjection(iso, xC, yC);
+  if (!pts) return;
+  const dec = decompose(pts);
+  const d = DATA[iso];
+  const tb = document.getElementById("tbMetrics");
+  tb.innerHTML = "";
+  const rows = [
+    ["Drift magnitude", dec.driftMag.toFixed(4)],
+    ["Drift angle", dec.driftAngle.toFixed(1) + "°"],
+    ["Oscillation RMS", dec.oscRMS.toFixed(4)],
+    ["Helix ratio (osc/drift)", dec.helixRatio === Infinity ? "∞" : dec.helixRatio.toFixed(4)],
+    ["Max residual year", dec.maxResYear],
+    ["Path efficiency", d.pathEff.toFixed(6)],
+    ["Diagnosis", dec.shape + " — " + dec.diagnosis]
+  ];
+  rows.forEach(([label, val]) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + label + "</td><td class='num'>" + val + "</td>";
+    tb.appendChild(tr);
+  });
+}
+
+function renderAllCountries(xC, yC) {
+  const cv = document.getElementById("cvAll");
+  const ctx = cv.getContext("2d");
+  const w = cv.width, h = cv.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = "#0a1628";
+  ctx.fillRect(0,0,w,h);
+
+  // collect all points for bounds
+  const allPts = [];
+  const projections = {};
+  for (const iso of COUNTRY_ORDER) {
+    const pts = getProjection(iso, xC, yC);
+    if (pts) { allPts.push(pts); projections[iso] = pts; }
+  }
+  if (allPts.length === 0) return;
+  const bounds = getDataBounds(allPts);
+  const tr = drawAxes(ctx, w, h, bounds, xC + " (CLR)", yC + " (CLR)");
+
+  for (const iso of COUNTRY_ORDER) {
+    if (!projections[iso]) continue;
+    const pts = projections[iso];
+    const dec = decompose(pts);
+    drawDriftLine(ctx, dec.fitted, tr, DATA[iso].color + "88");
+    drawTrajectory(ctx, pts, tr, DATA[iso].color, 1.5, false);
+  }
+
+  // legend
+  const leg = document.getElementById("legendAll");
+  leg.innerHTML = "";
+  COUNTRY_ORDER.forEach(iso => {
+    if (!projections[iso]) return;
+    const d = DATA[iso];
+    const item = document.createElement("span");
+    item.className = "legend-item";
+    item.innerHTML = "<span class='legend-swatch' style='background:" + d.color + "'></span>" + d.name;
+    leg.appendChild(item);
+  });
+}
+
+function renderBars(xC, yC) {
+  const cv = document.getElementById("cvBars");
+  const ctx = cv.getContext("2d");
+  const w = cv.width, h = cv.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = "#0a1628";
+  ctx.fillRect(0,0,w,h);
+
+  // compute helix ratios
+  const items = [];
+  for (const iso of COUNTRY_ORDER) {
+    const pts = getProjection(iso, xC, yC);
+    if (!pts) continue;
+    const dec = decompose(pts);
+    items.push({ iso, name: DATA[iso].name, color: DATA[iso].color, hr: dec.helixRatio, pe: DATA[iso].pathEff });
+  }
+  items.sort((a,b) => b.hr - a.hr);
+
+  const margin = { left: 120, right: 100, top: 30, bottom: 30 };
+  const barH = Math.min(30, (h - margin.top - margin.bottom) / items.length - 6);
+  const maxHR = Math.max(...items.map(i => i.hr), 1);
+  const barAreaW = w - margin.left - margin.right;
+
+  ctx.font = "11px 'Segoe UI', system-ui, sans-serif";
+  items.forEach((item, idx) => {
+    const y = margin.top + idx * (barH + 6);
+    const bw = (item.hr / maxHR) * barAreaW;
+
+    // color by ratio: green=low, yellow=mid, red=high
+    let barColor;
+    if (item.hr < 0.2) barColor = "#32cd32";
+    else if (item.hr < 0.5) barColor = "#7bc74d";
+    else if (item.hr < 1.0) barColor = "#ffd700";
+    else barColor = "#ff4500";
+
+    ctx.fillStyle = barColor;
+    ctx.fillRect(margin.left, y, bw, barH);
+
+    // label
+    ctx.fillStyle = "#e0e0e0";
+    ctx.textAlign = "right";
+    ctx.fillText(item.name, margin.left - 8, y + barH/2 + 4);
+
+    // value
+    ctx.fillStyle = "#aabbcc";
+    ctx.textAlign = "left";
+    ctx.fillText(item.hr.toFixed(3) + "  (eff: " + item.pe.toFixed(3) + ")", margin.left + bw + 6, y + barH/2 + 4);
+  });
+
+  // title
+  ctx.fillStyle = "#8899aa";
+  ctx.textAlign = "left";
+  ctx.fillText("Helix Ratio (oscillation / drift) | green=line-like, yellow=balanced, red=circle-like", margin.left, margin.top - 10);
+}
+
+function renderSummary(xC, yC) {
+  const tb = document.getElementById("tbSummary");
+  tb.innerHTML = "";
+  for (const iso of COUNTRY_ORDER) {
+    const pts = getProjection(iso, xC, yC);
+    if (!pts) continue;
+    const dec = decompose(pts);
+    const d = DATA[iso];
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td style='color:" + d.color + "'>" + d.name + "</td>" +
+      "<td class='num'>" + dec.driftMag.toFixed(3) + "</td>" +
+      "<td class='num'>" + dec.oscRMS.toFixed(3) + "</td>" +
+      "<td class='num'>" + (dec.helixRatio === Infinity ? "∞" : dec.helixRatio.toFixed(3)) + "</td>" +
+      "<td class='num'>" + d.pathEff.toFixed(3) + "</td>" +
+      "<td>" + dec.shape + "</td>" +
+      "<td>" + dec.diagnosis + "</td>";
+    tb.appendChild(tr);
+  }
+}
+
+function renderReference(iso, xC, yC) {
+  const cv = document.getElementById("cvRef");
+  const ctx = cv.getContext("2d");
+  const w = cv.width, h = cv.height;
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = "#0a1628";
+  ctx.fillRect(0,0,w,h);
+
+  const pts = getProjection(iso, xC, yC);
+  if (!pts) return;
+
+  const driftRate = parseFloat(document.getElementById("slDrift").value);
+  const radius = parseFloat(document.getElementById("slRadius").value);
+  const turns = parseFloat(document.getElementById("slTurns").value);
+
+  // Generate reference helix
+  const n = pts.length;
+  const refPts = [];
+  // center the reference on the data's mean
+  let mx=0, my=0;
+  pts.forEach(p => { mx += p.x; my += p.y; });
+  mx /= n; my /= n;
+
+  // data range
+  const dec = decompose(pts);
+  const angle = Math.atan2(dec.fit.my, dec.fit.mx);
+
+  for (let i=0; i<n; i++) {
+    const t = i / (n-1);
+    const along = (t - 0.5) * driftRate * (n-1);
+    const theta = t * turns * 2 * Math.PI;
+    const rx = mx + along * Math.cos(angle) - radius * Math.sin(theta) * Math.sin(angle) + radius * Math.cos(theta) * Math.cos(angle + Math.PI/2);
+    const ry = my + along * Math.sin(angle) + radius * Math.sin(theta) * Math.cos(angle) + radius * Math.cos(theta) * Math.sin(angle + Math.PI/2);
+    refPts.push({ x: rx, y: ry, year: pts[i].year });
+  }
+
+  const bounds = getDataBounds([pts, refPts]);
+  const tr = drawAxes(ctx, w, h, bounds, xC + " (CLR)", yC + " (CLR)", 45);
+
+  // Reference helix
+  ctx.strokeStyle = "#88c0d0";
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([4,3]);
+  ctx.beginPath();
+  for (let i=0; i<refPts.length; i++) {
+    const x = tr.tx(refPts[i].x), y = tr.ty(refPts[i].y);
+    if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Real trajectory
+  drawTrajectory(ctx, pts, tr, DATA[iso].color, 2, true);
+
+  // labels
+  ctx.fillStyle = "#88c0d0";
+  ctx.font = "10px 'Segoe UI', system-ui, sans-serif";
+  ctx.textAlign = "left";
+  ctx.fillText("Dashed cyan: synthetic reference helix", 50, 20);
+  ctx.fillStyle = DATA[iso].color;
+  ctx.fillText("Solid: " + DATA[iso].name + " trajectory", 50, 34);
+}
+
+// ===== EVENT LISTENERS =====
+selCountry.addEventListener("change", () => { populateCarrierSelects(selCountry.value); renderAll(); });
+selX.addEventListener("change", renderAll);
+selY.addEventListener("change", renderAll);
+
+["slDrift","slRadius","slTurns"].forEach(id => {
+  const sl = document.getElementById(id);
+  const vl = document.getElementById("val" + id.charAt(2).toUpperCase() + id.slice(3));
+  sl.addEventListener("input", () => {
+    const dec = (sl.step.split(".")[1] || "").length;
+    vl.textContent = parseFloat(sl.value).toFixed(dec);
+    renderReference(selCountry.value, selX.value, selY.value);
+  });
+});
+
+// Initial render
+renderAll();
+</script>
+</body>
+</html>

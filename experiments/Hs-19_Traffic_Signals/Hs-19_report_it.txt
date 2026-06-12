@@ -1,0 +1,42 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-19
+  System:      Traffic Signals
+  Domain:      URBAN
+  Carriers:    Green, Yellow, Red
+  N=831, D=3
+  Source:      REAL
+  Description: City of Toronto Traffic Signal Timing (Open Data)
+  Pipeline:    1.0 Extended
+  Data hash:   34152dc3739fe105
+  Timestamp:   2026-04-25T06:24:46.613310Z
+
+
+Codici totali: 37
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 10
+  Segnali di calibrazione: 1
+  Informazioni:  25
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (884)
+  [S9-STL-DIS] S9-STL-DIS (127)
+  [S9-SPK-DIS] S9-SPK-DIS (4)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (753)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Green->Yellow, te=0.001224)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Green/Yellow), cv=16723.325158)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Green/Red), cv=3315.733336)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Yellow/Red), cv=4482.830339)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=498, near_zero_carriers=['Green', 'Yellow', 'Red'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

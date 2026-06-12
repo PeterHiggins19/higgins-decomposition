@@ -1,0 +1,43 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  Hs-17
+  System:      Backblaze Fleet
+  Domain:      ENGINEERING
+  Carriers:    Healthy, Warning, Failed
+  N=34, D=3
+  Source:      REAL
+  Description: Backblaze Drive Stats, Q1-Q4 2024-2025
+  Pipeline:    1.0 Extended
+  Data hash:   2d47c924b131c246
+  Timestamp:   2026-04-25T06:24:46.439454Z
+
+
+कुल कोड: 35
+  त्रुटियाँ:       0
+  चेतावनियाँ:     3
+  खोजें: 9
+  अंशांकन संकेत: 1
+  सूचना:  22
+
+── चेतावनियाँ ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — खराब फिट, प्रक्षेपवक्र बहुपदीय नहीं हो सकता।
+  [S8-FLG-WRN] वर्गीकरण: चिह्नित — 5% के भीतर कोई मिलान नहीं।
+  [S9-EIF-WRN] EITT अपरिवर्तनशीलता: एक या अधिक संपीड़न अनुपातों पर विफल।
+
+── खोजें ──
+  [S9-CHH-DIS] उच्च अराजकता: संघटन अशांति का पता चला। (32)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (4)
+  [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (28)
+  [XU-DRU-DIS] बहाव बढ़ रहा है — प्रणाली विकसित हो रही है। (variance_ratio_2nd_to_1st=1.063715, drift_direction=increasing, max_shift_carrier=Healthy)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Healthy/Warning), cv=85.912571)
+  [XC-RPS-DIS] स्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से तालाबद्ध हैं। (pair=ln(Healthy/Failed), cv=16.930838)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Warning/Failed), cv=78.113450)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=34, near_zero_carriers=['Warning', 'Failed'], zero_threshold=0.010000)
+
+── अंशांकन संकेत ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

@@ -1,0 +1,328 @@
+{
+  "experiment": "HS-23-U235_COMPOSITI",
+  "test_object": "U-235 Decay Chain",
+  "carriers": [
+    "Particle_KE",
+    "Gamma",
+    "Recoil",
+    "Neutrino"
+  ],
+  "D": 4,
+  "N": 15,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 4.433241,
+    "norm_max": 10.800757,
+    "norm_mean": 7.257114,
+    "norm_range": 6.367516,
+    "phase_range_deg": 47.304,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 7,
+      "type": "DOM_SHIFT",
+      "label": "Neut->Part"
+    },
+    {
+      "t": 7,
+      "type": "NORM_TROUGH",
+      "label": "||x||=4.4"
+    },
+    {
+      "t": 1,
+      "type": "BIG_DELTA",
+      "label": "delta=-2.4"
+    },
+    {
+      "t": 6,
+      "type": "BIG_DELTA",
+      "label": "delta=-2.2"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "Particle_KE": 2.2938546657418493,
+        "Gamma": -1.1498184339707964,
+        "Recoil": -5.278515084933781,
+        "Neutrino": -9.066960566928751
+      },
+      "aitchison_norm": 10.800757,
+      "phase_deg": -26.623
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "Particle_KE": 2.965556148828621,
+        "Gamma": -0.47814611786977207,
+        "Recoil": -3.762646299720955,
+        "Neutrino": -6.882613817927038
+      },
+      "aitchison_norm": 8.399466,
+      "phase_deg": -9.159,
+      "delta_norm": -2.401291,
+      "delta_clr": {
+        "Particle_KE": 0.671701,
+        "Gamma": 0.671672,
+        "Recoil": 1.515869,
+        "Neutrino": 2.184347
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "Particle_KE": 3.471084310152338,
+        "Gamma": -0.05665752272116309,
+        "Recoil": -3.033460096184596,
+        "Neutrino": -6.190067978441379
+      },
+      "aitchison_norm": 7.71819,
+      "phase_deg": -0.935,
+      "delta_norm": -0.681276,
+      "delta_clr": {
+        "Particle_KE": 0.505528,
+        "Gamma": 0.421489,
+        "Recoil": 0.729186,
+        "Neutrino": 0.692546
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "Particle_KE": 3.7167734024747636,
+        "Gamma": 0.019045822557911485,
+        "Recoil": -3.2290747321378306,
+        "Neutrino": -6.911357542292469
+      },
+      "aitchison_norm": 8.485785,
+      "phase_deg": 0.294,
+      "delta_norm": 0.767595,
+      "delta_clr": {
+        "Particle_KE": 0.245689,
+        "Gamma": 0.075703,
+        "Recoil": -0.195615,
+        "Neutrino": -0.72129
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "Particle_KE": 3.722335087519458,
+        "Gamma": -0.13298565272144863,
+        "Recoil": -3.72517537593396,
+        "Neutrino": -7.480790779699827
+      },
+      "aitchison_norm": 9.14946,
+      "phase_deg": -2.046,
+      "delta_norm": 0.663675,
+      "delta_clr": {
+        "Particle_KE": 0.005562,
+        "Gamma": -0.152031,
+        "Recoil": -0.496101,
+        "Neutrino": -0.569433
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "Particle_KE": 3.6122575079391397,
+        "Gamma": -0.2539899348545943,
+        "Recoil": -3.6497176681010846,
+        "Neutrino": -6.492468705170518
+      },
+      "aitchison_norm": 8.281637,
+      "phase_deg": -4.022,
+      "delta_norm": -0.867824,
+      "delta_clr": {
+        "Particle_KE": -0.110078,
+        "Gamma": -0.121004,
+        "Recoil": 0.075458,
+        "Neutrino": 0.988322
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "Particle_KE": 3.5614865002499774,
+        "Gamma": -0.10437592785680622,
+        "Recoil": -2.6018668126010667,
+        "Neutrino": -4.179660104829675
+      },
+      "aitchison_norm": 6.077364,
+      "phase_deg": -1.679,
+      "delta_norm": -2.204273,
+      "delta_clr": {
+        "Particle_KE": -0.050771,
+        "Gamma": 0.149614,
+        "Recoil": 1.047851,
+        "Neutrino": 2.312809
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "Particle_KE": 3.719090247229349,
+        "Gamma": 0.38823926949700116,
+        "Recoil": -0.9824576054720431,
+        "Neutrino": -2.169341499525852
+      },
+      "aitchison_norm": 4.433241,
+      "phase_deg": 5.96,
+      "delta_norm": -1.644123,
+      "delta_clr": {
+        "Particle_KE": 0.157604,
+        "Gamma": 0.492615,
+        "Recoil": 1.619409,
+        "Neutrino": 2.010319
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "Particle_KE": 4.143215309020385,
+        "Gamma": 1.084306800146031,
+        "Recoil": 0.3364655938140848,
+        "Neutrino": -1.7701904787528813
+      },
+      "aitchison_norm": 4.646368,
+      "phase_deg": 14.666,
+      "delta_norm": 0.213127,
+      "delta_clr": {
+        "Particle_KE": 0.424125,
+        "Gamma": 0.696068,
+        "Recoil": 1.318923,
+        "Neutrino": 0.399151
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "Particle_KE": 4.775715125479955,
+        "Gamma": 1.7185697572181522,
+        "Recoil": 0.730587953610621,
+        "Neutrino": -2.59551311954586
+      },
+      "aitchison_norm": 5.747294,
+      "phase_deg": 19.792,
+      "delta_norm": 1.100925,
+      "delta_clr": {
+        "Particle_KE": 0.6325,
+        "Gamma": 0.634263,
+        "Recoil": 0.394122,
+        "Neutrino": -0.825323
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "Particle_KE": 5.4675215138306825,
+        "Gamma": 2.063958716323926,
+        "Recoil": 0.338027731730689,
+        "Neutrino": -2.970147568287334
+      },
+      "aitchison_norm": 6.564279,
+      "phase_deg": 20.681,
+      "delta_norm": 0.816985,
+      "delta_clr": {
+        "Particle_KE": 0.691806,
+        "Gamma": 0.345389,
+        "Recoil": -0.39256,
+        "Neutrino": -0.374634
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "Particle_KE": 6.043688637556396,
+        "Gamma": 2.071892188490508,
+        "Recoil": -0.05453249014924344,
+        "Neutrino": -1.6931743339432153
+      },
+      "aitchison_norm": 6.609745,
+      "phase_deg": 18.923,
+      "delta_norm": 0.045466,
+      "delta_clr": {
+        "Particle_KE": 0.576167,
+        "Gamma": 0.007933,
+        "Recoil": -0.39256,
+        "Neutrino": 1.276973
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "Particle_KE": 6.379728354004378,
+        "Gamma": 1.9022938931847382,
+        "Recoil": 0.339589869647291,
+        "Neutrino": 0.6984009557771946
+      },
+      "aitchison_norm": 6.702443,
+      "phase_deg": 16.603,
+      "delta_norm": 0.092698,
+      "delta_clr": {
+        "Particle_KE": 0.33604,
+        "Gamma": -0.169598,
+        "Recoil": 0.394122,
+        "Neutrino": 2.391575
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "Particle_KE": 6.455929001451069,
+        "Gamma": 1.8247799378006324,
+        "Recoil": 1.6585130689334193,
+        "Neutrino": 2.4947185327536494
+      },
+      "aitchison_norm": 7.347321,
+      "phase_deg": 15.783,
+      "delta_norm": 0.644878,
+      "delta_clr": {
+        "Particle_KE": 0.076201,
+        "Gamma": -0.077514,
+        "Recoil": 1.318923,
+        "Neutrino": 1.796318
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "Particle_KE": 6.365956327134706,
+        "Gamma": 2.0520698456418214,
+        "Recoil": 3.277922276062442,
+        "Neutrino": 2.6122861020243806
+      },
+      "aitchison_norm": 7.893365,
+      "phase_deg": 17.867,
+      "delta_norm": 0.546043,
+      "delta_clr": {
+        "Particle_KE": -0.089973,
+        "Gamma": 0.22729,
+        "Recoil": 1.619409,
+        "Neutrino": 0.117568
+      }
+    }
+  ]
+}

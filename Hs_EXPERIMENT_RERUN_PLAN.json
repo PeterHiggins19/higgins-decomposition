@@ -1,0 +1,487 @@
+{
+  "_meta": {
+    "type": "Hs_EXPERIMENT_RERUN_PLAN",
+    "version": "1.0",
+    "created": "2026-04-25",
+    "author": "Peter Higgins / Claude",
+    "purpose": "Complete rerun plan for all experiments using the extended Hˢ pipeline. Each experiment gets a self-contained folder with: pipeline code, data, journal, results JSON, diagnostic plots. Old experiments remain on HUF site for history."
+  },
+  "pipeline_spec": {
+    "version": "Hˢ v1.0 Extended",
+    "constants": 35,
+    "conjugate_pairs": 13,
+    "input_guards": 4,
+    "universal_panel": [
+      "12-step core pipeline",
+      "HTP pretest (35 constants)",
+      "Match density + concentration",
+      "Per-carrier contribution decomposition",
+      "EITT invariance (2x, 4x, 8x)",
+      "Chaos detection (stalls, spikes, reversals)",
+      "CoDa structural panel (variation matrix, CLR summary)",
+      "Claim-status and envelope summary"
+    ],
+    "conditional_panel_triggers": {
+      "order_sensitivity": "N >= 20 and ordered series",
+      "ratio_pair_lattice": "D >= 3 with interpretable pairs",
+      "zero_crossing_detector": "oscillatory carriers detected",
+      "transfer_entropy": "N >= 50 and true time series",
+      "cross_simplex_bridge": "dual decomposition available",
+      "anchor_sweep": "alternative anchors identifiable",
+      "PID": "D >= 3"
+    }
+  },
+  "experiments": [
+    {
+      "id": "Hs-01",
+      "legacy": "EXP-01",
+      "name": "Gold/Silver Price Ratio",
+      "domain": "COMMODITIES",
+      "data_source": "REAL (338yr CSV)",
+      "data_file": "gold_silver_ratio_enriched.csv",
+      "carriers": [
+        "Gold",
+        "Silver"
+      ],
+      "D": 2,
+      "N": "~1338",
+      "conditional_tests": [
+        "order_sensitivity",
+        "transfer_entropy"
+      ],
+      "journal_requirements": [
+        "Full 12-step output table",
+        "HVLD vertex analysis",
+        "Match density and clustering pattern",
+        "EITT invariance at 3 scales",
+        "Comparison to legacy EXP-01 results",
+        "Euler-family anchor discussion"
+      ],
+      "rigor_notes": "Real market data. Cite original source. Report data hash for reproducibility."
+    },
+    {
+      "id": "Hs-02",
+      "legacy": "EXP-02",
+      "name": "US Electricity Generation",
+      "domain": "ENERGY",
+      "data_source": "REAL (EMBER, CC BY 4.0)",
+      "data_file": "yearly_full_release_long_format.csv",
+      "carriers": [
+        "Fossil",
+        "Nuclear",
+        "Renewable"
+      ],
+      "D": 3,
+      "N": "~25-55",
+      "conditional_tests": [
+        "order_sensitivity",
+        "transfer_entropy",
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "PID between fossil/nuclear/renewable",
+        "Transfer entropy: does fossil drive renewable transition?",
+        "EITT at multiple compression ratios",
+        "Comparison to legacy"
+      ],
+      "rigor_notes": "Open data with CC BY 4.0 license. Cite EMBER. Data provenance documented."
+    },
+    {
+      "id": "Hs-03",
+      "legacy": "EXP-03",
+      "name": "Nuclear Binding Energy (SEMF)",
+      "domain": "NUCLEAR",
+      "data_source": "DERIVED (Weizsacker-Bethe-Bacher)",
+      "data_file": "raymond_semf_ratios.csv + _generate_semf_ratios()",
+      "carriers": [
+        "Volume",
+        "Surf+Coulomb",
+        "Sym+Pairing"
+      ],
+      "D": 3,
+      "N": 92,
+      "conditional_tests": [
+        "order_sensitivity",
+        "ratio_pair_lattice",
+        "PID",
+        "anchor_sweep"
+      ],
+      "journal_requirements": [
+        "FLAGSHIP: 1/(pi^e) at delta=5.87e-6",
+        "Full trajectory table around Z=38",
+        "PID decomposition of carrier interactions",
+        "Transfer entropy between SEMF terms",
+        "Gelfond conjugate mathematical context (Nesterenko reference)",
+        "Statistical significance under uniform null",
+        "Comparison to legacy EXP-03"
+      ],
+      "rigor_notes": "SEMF coefficients cited. Derived data — state all physics assumptions. Flagship precision result."
+    },
+    {
+      "id": "Hs-04",
+      "legacy": "EXP-04",
+      "name": "Circular Piston Directivity (Bessel J1)",
+      "domain": "ACOUSTICS",
+      "data_source": "DERIVED (Bouwkamp 1941)",
+      "data_file": "EXP04_acoustics_bessel_results.json",
+      "carriers": [
+        "Low",
+        "Mid",
+        "High"
+      ],
+      "D": 3,
+      "N": 200,
+      "conditional_tests": [
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Fourier pair watchpoint discussion (rect vs J1)",
+        "EITT invariance",
+        "Comparison to legacy sinc→J1 fix"
+      ],
+      "rigor_notes": "Bessel function implementation verified to 1e-15. Fourier pair contamination risk documented."
+    },
+    {
+      "id": "Hs-05",
+      "legacy": "EXP-05",
+      "name": "Igneous Rock Differentiation",
+      "domain": "GEOCHEMISTRY",
+      "data_source": "SIMULATED (Le Maitre 2002 trends)",
+      "data_file": "generated in code",
+      "carriers": [
+        "SiO2",
+        "Al2O3",
+        "CaO+MgO"
+      ],
+      "D": 3,
+      "N": 150,
+      "conditional_tests": [
+        "order_sensitivity",
+        "transfer_entropy",
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Transfer entropy: SiO2 drives Al2O3?",
+        "PID showing unique SiO2 information",
+        "EITT invariance",
+        "Comparison to real geochemistry (Ball 2022, AGDB3)"
+      ],
+      "rigor_notes": "Simulated — state clearly. Cite Le Maitre 2002 for fractionation trends."
+    },
+    {
+      "id": "Hs-06",
+      "legacy": "EXP-06",
+      "name": "DT Fusion Energy Budget",
+      "domain": "NUCLEAR",
+      "data_source": "DERIVED (Lawson criterion physics)",
+      "carriers": [
+        "Fusion",
+        "Radiation",
+        "Loss"
+      ],
+      "D": 3,
+      "N": 100,
+      "conditional_tests": [
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "EITT invariance",
+        "PID"
+      ]
+    },
+    {
+      "id": "Hs-07",
+      "legacy": "EXP-07",
+      "name": "QCD Quark Compositions",
+      "domain": "QCD",
+      "data_source": "DERIVED (flavor fractions)",
+      "carriers": [
+        "u-type",
+        "d-type",
+        "s/heavy"
+      ],
+      "D": 3,
+      "N": 20,
+      "conditional_tests": [
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Lambda W match discussion",
+        "PID"
+      ]
+    },
+    {
+      "id": "Hs-08",
+      "legacy": "EXP-10",
+      "name": "CKM + PMNS Mixing Matrices",
+      "domain": "PARTICLE",
+      "data_source": "DERIVED (PDG values)",
+      "carriers": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "D": 3,
+      "N": 11,
+      "conditional_tests": [
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Small-N caveats"
+      ]
+    },
+    {
+      "id": "Hs-09",
+      "legacy": "EXP-11",
+      "name": "Stellar Nucleosynthesis",
+      "domain": "ASTROPHYSICS",
+      "data_source": "SIMULATED (pp-chain evolution)",
+      "carriers": [
+        "H",
+        "He",
+        "Metals"
+      ],
+      "D": 3,
+      "N": 30,
+      "conditional_tests": [
+        "order_sensitivity",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Dottie constant match discussion"
+      ]
+    },
+    {
+      "id": "Hs-10",
+      "legacy": "EXP-12",
+      "name": "GW150914 Gravitational Wave",
+      "domain": "GRAVITY",
+      "data_source": "SIMULATED (chirp model)",
+      "carriers": [
+        "h+",
+        "hx",
+        "noise"
+      ],
+      "D": 3,
+      "N": 40,
+      "conditional_tests": [
+        "zero_crossing_detector",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Chaos at merger",
+        "1/phi match"
+      ]
+    },
+    {
+      "id": "Hs-11",
+      "legacy": "EXP-14",
+      "name": "AME2020 Nuclear Mass Table",
+      "domain": "NUCLEAR",
+      "data_source": "DERIVED (SEMF for 500 nuclides)",
+      "carriers": [
+        "Volume",
+        "Surf+Coulomb",
+        "Symmetry"
+      ],
+      "D": 3,
+      "N": 500,
+      "conditional_tests": [
+        "order_sensitivity",
+        "ratio_pair_lattice",
+        "transfer_entropy",
+        "PID",
+        "anchor_sweep"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "2pi direct match",
+        "Large-N trajectory analysis"
+      ]
+    },
+    {
+      "id": "Hs-12",
+      "legacy": "EXP-16",
+      "name": "Spring-Mass Force Composition",
+      "domain": "FORCE",
+      "data_source": "SIMULATED (damped oscillator RK4)",
+      "carriers": [
+        "KE",
+        "PE",
+        "Damping"
+      ],
+      "D": 3,
+      "N": 200,
+      "conditional_tests": [
+        "zero_crossing_detector",
+        "transfer_entropy",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Zero-crossing chaos events",
+        "Constant-driver fraction (gravity)",
+        "Bridge to force-matter"
+      ]
+    },
+    {
+      "id": "Hs-13",
+      "legacy": "EXP-18",
+      "name": "Steel Stress-Strain",
+      "domain": "MATTER",
+      "data_source": "SIMULATED (AISI 1020)",
+      "carriers": [
+        "Elastic",
+        "Plastic",
+        "Thermal"
+      ],
+      "D": 3,
+      "N": 80,
+      "conditional_tests": [
+        "order_sensitivity",
+        "PID",
+        "cross_simplex_bridge"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "Yield transition detection",
+        "Force-matter asymmetry"
+      ]
+    },
+    {
+      "id": "Hs-14",
+      "legacy": "EXP-19",
+      "name": "Fourier Conjugate Pair Study",
+      "domain": "SIGNAL THEORY",
+      "data_source": "SYNTHETIC (12 known FT pairs)",
+      "carriers": [
+        "varies by pair"
+      ],
+      "D": 3,
+      "N": 200,
+      "conditional_tests": [],
+      "journal_requirements": [
+        "Full pipeline on all 12 pairs (24 runs)",
+        "Self-conjugate identity proof",
+        "HVLD preservation 12/12",
+        "Swap commutativity",
+        "Chaos symmetry"
+      ],
+      "rigor_notes": "Mathematical proof document. Cite Fourier Conjugate Preservation Theorem."
+    },
+    {
+      "id": "Hs-15",
+      "legacy": "EXP-20",
+      "name": "hBN Dielectric Function",
+      "domain": "MATERIALS",
+      "data_source": "DERIVED (Choi et al. Nature Comms 2026)",
+      "carriers": [
+        "eps1_par",
+        "eps1_perp",
+        "eps2"
+      ],
+      "D": 3,
+      "N": 200,
+      "conditional_tests": [
+        "ratio_pair_lattice",
+        "PID"
+      ],
+      "journal_requirements": [
+        "Full pipeline",
+        "4 decomposition variants",
+        "Hyperbolic window analysis",
+        "ln(phi) and 1/(2pi) matches",
+        "Cite Choi et al. 2026"
+      ]
+    }
+  ],
+  "site_structure": {
+    "Hs/": [
+      "README.md",
+      "CITATION.cff",
+      "LICENSE",
+      "ai-refresh/",
+      "ai-refresh/HS_FAST_REFRESH.json",
+      "ai-refresh/HS_ADMIN.json",
+      "ai-refresh/CLAIM_CLASSIFICATION.json",
+      "ai-refresh/EITT_Component_Registry_for_Claude.json",
+      "ai-refresh/EITT_Extended_Testing_Registry_for_Claude.json",
+      "docs/reference/",
+      "docs/theory/",
+      "docs/proofs/",
+      "docs/operating-envelope/",
+      "docs/lineage/",
+      "papers/flagship/",
+      "papers/codawork2026/",
+      "papers/validation/",
+      "experiments/Hs-01_Gold_Silver/",
+      "experiments/Hs-02_US_Energy/",
+      "experiments/Hs-03_Nuclear_SEMF/",
+      "experiments/Hs-04_Bessel_Acoustics/",
+      "experiments/Hs-05_Geochemistry/",
+      "experiments/Hs-06_Fusion/",
+      "experiments/Hs-07_QCD/",
+      "experiments/Hs-08_CKM_PMNS/",
+      "experiments/Hs-09_Stellar/",
+      "experiments/Hs-10_GW150914/",
+      "experiments/Hs-11_AME2020/",
+      "experiments/Hs-12_Spring_Mass/",
+      "experiments/Hs-13_Steel/",
+      "experiments/Hs-14_Conjugate_Pairs/",
+      "experiments/Hs-15_hBN_Dielectric/",
+      "experiments/release-validation/",
+      "tools/pipeline/higgins_decomposition_12step.py",
+      "tools/pipeline/higgins_transcendental_pretest.py",
+      "tools/interactive/",
+      "tools/diagnostics/",
+      "constants/",
+      "data/"
+    ],
+    "each_experiment_folder_contains": [
+      "README.md (experiment summary)",
+      "data/ (input data or generation script)",
+      "Hs-XX_journal.docx (full scientific journal)",
+      "Hs-XX_results.json (complete pipeline output)",
+      "Hs-XX_diagnostic.png (6-panel plot)",
+      "Hs-XX_extended.json (extended testing results)",
+      "run_experiment.py (self-contained runner)"
+    ]
+  },
+  "journal_standard": {
+    "sections": [
+      "1. Abstract (100-200 words)",
+      "2. Data Source and Provenance (cite, hash, license)",
+      "3. Carrier Definition and Justification",
+      "4. Pipeline Configuration (version, constants, guards)",
+      "5. Core Results (12-step output table)",
+      "6. Extended Testing Results (universal + conditional)",
+      "7. Transcendental Proximity Analysis",
+      "8. Comparison to Legacy Result (cite EXP-XX)",
+      "9. Discussion (what Hs reveals about this system)",
+      "10. Limitations and Open Questions",
+      "11. References"
+    ],
+    "rigor_requirements": [
+      "Data hash (SHA-256 first 16 chars) for every input",
+      "Pipeline version and constant count stated",
+      "All guard checks reported (pass/fail)",
+      "Gauge R&R: state deterministic",
+      "Statistical significance for any transcendental match",
+      "IVT caveat stated for any squeeze result",
+      "Explicit claim tier for each finding"
+    ]
+  }
+}

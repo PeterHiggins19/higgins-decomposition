@@ -1,0 +1,335 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PHOSPHORIC_ACID_TITR",
+  "name": "Phosphoric Acid Titration",
+  "domain": "CHEMISTRY",
+  "carriers": [
+    "H3PO4",
+    "H2PO4_minus",
+    "HPO4_2minus",
+    "PO4_3minus"
+  ],
+  "D": 4,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from phosphoric_acid_titration.csv"
+  },
+  "data_hash_sha256_16": "ba3349752b312208",
+  "run_timestamp": "2026-05-01T03:51:36.984472Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PHOSPHORIC_ACID_TITR: Phosphoric Acid Titration: 4-part simplex, carriers=['H3PO4', 'H2PO4_minus', 'HPO4_2minus', 'PO4_3minus']",
+    "step2_n_samples": 200,
+    "step2_D": 4,
+    "step2_carriers": [
+      "H3PO4",
+      "H2PO4_minus",
+      "HPO4_2minus",
+      "PO4_3minus"
+    ],
+    "data_hash_sha256_16": "ba3349752b312208",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -2.7119189512776334,
+      2.6691771995878275,
+      2.7887927962778862,
+      -2.746051044588076
+    ],
+    "step4_clr_std_per_part": [
+      6.350561849605427,
+      5.333117445595377,
+      5.294184113475031,
+      6.400064410442117
+    ],
+    "step5_sigma2_range": [
+      0.044862179729794005,
+      137.7609873793569
+    ],
+    "step5_sigma2_final": 137.7609873793569,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.7457095839907711,
+      "eigenvalues_final": [
+        103.24591817971668,
+        31.768047758333132,
+        3.43928770954502,
+        2.101248163605075e-14
+      ],
+      "eigenvector_overlap": 0.26745516516215423,
+      "condition_number": 4913551857795771.0,
+      "von_neumann_entropy": 0.648365089942574,
+      "von_neumann_ratio": 0.46769654997283916,
+      "commutator_norm": 0.27808131103183664,
+      "det_V": 2.2042194139273024e-10,
+      "det_amgm_ratio": 1.535614216301796e-16,
+      "cholesky_last_diag": 2.0177734946978994e-06,
+      "eigenvalue_power_law_alpha": 1.6449446481408605,
+      "eigenvalue_power_law_R2": 0.9964165384889945,
+      "eigenvalue_ratio_matches": 1,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb3/\u03bb1",
+        "value": 0.033311609506521775,
+        "constant": "1/(e^pi)",
+        "delta": 0.009902308757250483
+      },
+      "gamma": 0.5042721646186996,
+      "VSWR": 3.0344718558352777,
+      "Q_factor": 1.6820122621469953,
+      "trace_final": 138.45325364759486,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.0014366616564754546,
+      0.4975151754334416,
+      -10.628797006717056
+    ],
+    "step6_pll_R2": 0.9863029199887033,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -173.14973681903288,
+      -53.70110785160475
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 35,
+    "step7_squeeze_closest": {
+      "time_index": 64,
+      "sigma2_A": 22.5972909395339,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.04425309222578105,
+      "delta": 0.0002721750411418672
+    },
+    "step7_squeeze_mean": 58.57557393006062,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.025779257964972758,
+      0.5000367852018303
+    ],
+    "step8_entropy_mean": 0.22212504302136388,
+    "step8_entropy_cv": 73.29844280983531,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.22212504302136388,
+        "H_mean_decimated": 0.22213607160291332,
+        "variation_pct": 0.004965032937948841,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.22212504302136388,
+        "H_mean_decimated": 0.22218010720192627,
+        "variation_pct": 0.024789721957238244,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.22212504302136388,
+        "H_mean_decimated": 0.22235321130770963,
+        "variation_pct": 0.10272064925331645,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 3,
+      "stalls": 3,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.6014694759995498,
+      0.37233598549783076
+    ],
+    "step11_complex_range_im": [
+      -0.43632766780970705,
+      0.42969239813015286
+    ],
+    "step12_radius_range": [
+      0.10922780826899431,
+      0.7430661910324214
+    ],
+    "step12_theta_range": [
+      -2.513998673895931,
+      1.8506591245963027
+    ],
+    "step9_angular_velocity_std": 0.051579284543262695
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          40.329635805663905,
+          28.442141688513765,
+          28.0283854273714,
+          40.96082445780781
+        ],
+        "carrier_pct": [
+          29.275077489541275,
+          20.646005977143382,
+          20.345662411803662,
+          29.733254121511678
+        ],
+        "dominant_carrier": "PO4_3minus",
+        "dominant_pct": 29.733254121511678
+      },
+      "match_density": {
+        "density": 0.2541459828997191,
+        "concentration": 0.1673469387755102,
+        "total_matches": 35,
+        "n_constants_hit": 15,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 137.71612519962707
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            36.39372809842271,
+            131.71800662477736,
+            130.96779587881224
+          ],
+          [
+            36.39372809842271,
+            0.0,
+            81.32792958363912,
+            133.80789645135
+          ],
+          [
+            131.71800662477736,
+            81.32792958363912,
+            0.0,
+            36.828592880425816
+          ],
+          [
+            130.96779587881224,
+            133.80789645135,
+            36.828592880425816,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -2.7119189512776334,
+          2.6691771995878275,
+          2.7887927962778862,
+          -2.746051044588076
+        ],
+        "clr_stds": [
+          6.350561849605427,
+          5.333117445595377,
+          5.294184113475031,
+          6.400064410442117
+        ],
+        "aitchison_distance_mean": 14.622232295007171
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.993258650038577,
+        "drift_direction": "stable",
+        "max_shift_carrier": "HPO4_2minus",
+        "max_shift_magnitude": 0.6651454050834127
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9863029199887033,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "HPO4_2minus",
+        "sources": [
+          "H3PO4",
+          "H2PO4_minus"
+        ],
+        "I_source1_target": 2.071595889915736,
+        "I_source2_target": 1.580867897821495,
+        "redundancy": 1.580867897821495,
+        "unique_source1": 0.4907279920942411,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "H3PO4->H2PO4_minus": 0.0,
+          "H3PO4->HPO4_2minus": 0.0,
+          "H3PO4->PO4_3minus": 0.0,
+          "H2PO4_minus->H3PO4": 0.0,
+          "H2PO4_minus->HPO4_2minus": 0.0,
+          "H2PO4_minus->PO4_3minus": 0.0,
+          "HPO4_2minus->H3PO4": 0.0,
+          "HPO4_2minus->H2PO4_minus": 0.0,
+          "HPO4_2minus->PO4_3minus": 0.0,
+          "PO4_3minus->H3PO4": 0.0,
+          "PO4_3minus->H2PO4_minus": 0.0,
+          "PO4_3minus->HPO4_2minus": 0.0
+        },
+        "dominant_flow": "H3PO4->H2PO4_minus",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 137.7609873793569,
+        "shuffled_sigma2": 137.7609873793568,
+        "order_matters": false,
+        "relative_difference": 6.189352291473832e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 200,
+        "near_zero_carriers": [
+          "H3PO4",
+          "H2PO4_minus",
+          "HPO4_2minus",
+          "PO4_3minus"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(H3PO4/H2PO4_minus)": {
+            "mean": -5.38109615086546,
+            "std": 6.032721450425398,
+            "cv": 112.10952715377766
+          },
+          "ln(H3PO4/HPO4_2minus)": {
+            "mean": -5.5007117475555205,
+            "std": 11.476846545317985,
+            "cv": 208.64293698753107
+          },
+          "ln(H3PO4/PO4_3minus)": {
+            "mean": 0.03413209331044413,
+            "std": 11.444116212220681,
+            "cv": 33528.90228012731
+          },
+          "ln(H2PO4_minus/HPO4_2minus)": {
+            "mean": -0.11961559669006078,
+            "std": 9.01819990816566,
+            "cv": 7539.317745939906
+          },
+          "ln(H2PO4_minus/PO4_3minus)": {
+            "mean": 5.415228244175904,
+            "std": 11.56753631726955,
+            "cv": 213.61124214312616
+          },
+          "ln(HPO4_2minus/PO4_3minus)": {
+            "mean": 5.534843840865965,
+            "std": 6.068656596020722,
+            "cv": 109.64458565593856
+          }
+        },
+        "most_stable": "ln(HPO4_2minus/PO4_3minus)",
+        "least_stable": "ln(H3PO4/PO4_3minus)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

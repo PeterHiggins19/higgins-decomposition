@@ -1,0 +1,49 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>Math step 5 — Metric tensor and dual involution  M² = I  (CNT addition)</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 26px; font-weight: 700; fill: #ffffff; }
+    .h2 { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 19px; font-family: 'Georgia', serif; font-style: italic; fill: #e8e8e8; }
+    .label { font-size: 17px; fill: #cccccc; }
+    .label-bold { font-size: 17px; font-weight: 700; fill: #ffffff; }
+    .small { font-size: 14px; fill: #aaaaaa; }
+    .ok { font-size: 17px; fill: #80d050; font-weight: 700; }
+    .accent { font-size: 17px; fill: #66aaff; font-weight: 700; }
+    .box { fill: #2a2a2a; stroke: #555; stroke-width: 2; }
+    .box-cnt { fill: #2a2a3a; stroke: #66aaff; stroke-width: 2; }
+    .divider { stroke: #555; stroke-width: 2; stroke-dasharray: 4,4; }
+  </style>
+  <text x="500" y="38" text-anchor="middle" class="title">Math step 5 — Metric tensor and dual involution  M² = I</text>
+  <text x="500" y="62" text-anchor="middle" class="small">A new addition CNT introduces. It licences the recursive depth tower (steps 6–7).</text>
+
+  <line x1="500" y1="90" x2="500" y2="430" class="divider"/>
+
+  <text x="250" y="110" text-anchor="middle" class="h2">Classical CoDa</text>
+  <rect x="60" y="135" width="380" height="280" class="box"/>
+  <text x="250" y="170" text-anchor="middle" class="label-bold">variation matrix is the local equivalent</text>
+  <text x="250" y="210" text-anchor="middle" class="small">log-ratio variance per carrier pair —</text>
+  <text x="250" y="232" text-anchor="middle" class="small">the established structural diagnostic.</text>
+  <text x="250" y="270" text-anchor="middle" class="small">Excellent for pairwise CoDa structure;</text>
+  <text x="250" y="292" text-anchor="middle" class="small">CNT's M² = I is the additional</text>
+  <text x="250" y="314" text-anchor="middle" class="small">contraction certificate that licences</text>
+  <text x="250" y="336" text-anchor="middle" class="small">the recursive depth tower.</text>
+  <text x="250" y="380" text-anchor="middle" class="accent">The variation matrix ships in Stage 2.</text>
+
+  <text x="750" y="110" text-anchor="middle" class="h2">CNT addition</text>
+  <rect x="560" y="135" width="380" height="100" class="box-cnt"/>
+  <text x="750" y="172" text-anchor="middle" class="label-bold">build metric tensor M(x)</text>
+  <text x="750" y="205" text-anchor="middle" class="math">M ∈ ℝ^(D × D)</text>
+
+  <rect x="560" y="248" width="380" height="100" class="box-cnt"/>
+  <text x="750" y="285" text-anchor="middle" class="label-bold">verify involution per timestep</text>
+  <text x="750" y="318" text-anchor="middle" class="math">M² = I</text>
+
+  <rect x="560" y="362" width="380" height="60" class="box-cnt"/>
+  <text x="750" y="397" text-anchor="middle" class="ok">mean residual ~ 1e-15  (IEEE floor)</text>
+
+  <text x="500" y="465" text-anchor="middle" class="label">M² = I gives the Banach-contraction certificate.</text>
+  <text x="500" y="488" text-anchor="middle" class="label">Required for the recursive depth tower to provably converge.</text>
+  <text x="500" y="540" text-anchor="middle" class="small">Recorded in diagnostics.higgins_extensions.involution_proof on every CNT JSON.</text>
+</svg>

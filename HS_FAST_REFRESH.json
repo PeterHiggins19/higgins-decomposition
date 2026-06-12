@@ -1,0 +1,645 @@
+{
+  "_meta": {
+    "type": "HS_FAST_REFRESH",
+    "version": "1.0",
+    "created": "2026-05-08",
+    "author": "Peter Higgins / Claude (Cowork session)",
+    "purpose": "Single-file AI context loader for the Hs (Higgins Decomposition) repository. Load this FIRST in any new session. Contains all canonical names, numbers, formulas, dimension policy, engine pointers, raw URLs, claim-strength rules, and structure. Every value here is the source of truth — if a document disagrees with this file, this file wins.",
+    "companion_md": "HS_FAST_REFRESH.md (one-page narrative for AI assistants who prefer Markdown)",
+    "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",
+    "refresh_protocol": "When new canonical results are produced, update this file FIRST, then rebuild documents FROM this file. Never the reverse.",
+    "mirrors_pattern_of": "HUF_FAST_REFRESH.json in the Higgins-Unity-Framework repo",
+    "last_updated": "2026-06-11 — PUSHED as #73 (commit 0e202f7, CI #69 'industrial compositions', Validate Repository green 52s); the post-#73 §6 admin sync rides as the next 'Hs Admin' commit. WAS working-tree: The 2026-06-10/11 arc: CN-TT v4 is the CURRENT engine (old CNT v3.2.0 / CNQ v2.0.0 ARCHIVED as the frozen oracle); HS_GUIDE.md = single comprehension front door; SPACE_READINESS_AND_CHALLENGE.md (deterministic Earth/space twin study; sand-grain talk cited = Silva-Solar/Amann/Knittel, MPI Marine Microbiology Bremen, confirmed from the CoDaWork 2026 Book of Abstracts); collaborations/codawork-2026/ (5 strongest-fit folders + HS_LETTER_OF_INTENT.md 'One Instrument, Many Hands' + DRAFT unsent notes); industrial-instruments/gas-composition-study/ (engine RAN: lossless 8.9e-16; CO2 helmsman; MC-4 ratio-blindness 40/60 single-channel-alarms-green) -- EXPANDED to a 4-study gas/fluid collection (Study 2 oil&gas produced water CoDaWork/Engle+USGS D=7 lossless 3.6e-15; Study 3 blood/alveolar gas D=4 CNQ-native EXACT 4.7e-16; Study 4 spacecraft cabin atmosphere ISS-style D=5 VOC-event-caught) + UN-6 summary set (en canonical; fr/es/ru/zh/ar draft); experiments+science only, no letters in repo. FIRST REAL-DATA RUNS 2026-06-11 on Peter-supplied data: VitalDB 8-case anaesthesia cohort (expired {O2,CO2,agent,N2}; ALL lossless at IEEE floor; O2 dominant driver 8/8; 6-21 regimes/case) -> blood-gas/results_real_vitaldb/; real Frielingen-9 mudstone (PANGAEA 897615; grain-size D=11; lossless 3.6e-15; coarse-fraction helmsman; 7 facies) -> collaborations/geology-wehner/realdata_frielingen9/. Instrument-not-data (derived comps off-repo in DATA/_derived). Honest engine edge-case found (all-zero carrier -> log(0) -> eigh non-convergence) flagged E-21 (guard+drop+CAL code; not patched, Peter's gate). + REAL USGS Produced Waters DB (Williston Basin, D=7 major ions, 683 samples down-depth, lossless 3.1e-15, 38 regimes; KEY MC-4 finding: minor ions SO4/HCO3 drive the read, NOT the Na-Cl bulk brine) -> produced-water-codawork/results_real_usgs/. + UQ Vital Signs Dataset (independent 2nd anaesthesia source, 5 usable cases all lossless O2-dominant -> O2 dominant 13/13 across VitalDB+UQ) -> blood-gas/results_real_uq/. + REAL SPACE-BIOLOGY: NASA GeneLab GLDS-1 Drosophila spaceflight transcriptome (uninfected GC->FLT, D=18,952 probesets) -> LOSSLESS high-D read 1.2e-13 (real ~19k-dim) + HONEST GLOBAL NULL (ground-vs-flight 0.95x within-group; signal gene-specific, use DE; same lesson as Crohn/MC-4 null) -> collaborations/spaceflight-glds1/ (SR-4) + HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md (MC-4 = the 4th of 4 monitoring categories => cost ~1/4; 'see or remain blind'); AI-ASSIST PATH = distributed AI_ASSIST.json knowledge nodes (11 seeded across the folders that matter) per ai-refresh/AI_ASSIST_PATH_PROTOCOL.md (bring-your-own-AI; nodes link up, centre stays small). Granular status: ai-refresh/HS_TRACKING_LOG.json (SP-4/5, SR-1/2/3, II-1/3, G-5/G-6). Pre-push inventory: ai-refresh/PUSH_READY_2026-06-11.md. Session record: ai-refresh/AI_REFRESH_2026-06-11_industrial_space_aiassist.md. Engine/schemas(HUF-STD-001/002/003)/frozen-oracle/INV catalog UNCHANGED (additive only). Off-repo (NOT pushed): Pipeline-Projects/Hs-Industrial-Instruments/ (Southmedic) + microbiome_coda4microbiome. Nothing sent; all outreach DRAFT. PRIOR (2026-06-09T00:00Z): in-session Cowork refresh (refresh-first per protocol; HS_ADMIN.json rolled to match). Geology-Wehner collaboration built out as the primary workhorse under collaborations/geology-wehner/ (cited reproducible Frielingen-9 mudstone demo PANGAEA 897615; single-screen 16:9 dashboard + field-by-field guide; HS_PRIMER; 00_EXECUTIVE_OVERVIEW.md front door covering Tensor Train HUF-STD-002 + HUF-Gov carrier filter + HUF-STD-001 AI Use Declaration + HUF AI Collective ack). New tested concept: CNQ tiling / faceted read — overlapping exact D=4 charts glued on shared parts reconstruct the full higher-D compositional move losslessly (alignment 9e-16, reconstruction 4e-14; overlap proven necessary). Off-repo staged USGS/NASA/Matthew proposal package at Pipeline-Projects/P2. Engine, schemas, INV catalog, all canonical numbers, and the push/audit chain UNCHANGED. WORKING-TREE STATE: this 2026-06-09 work lives on the Cowork mirror and is now COMMITTED + PUSHED as push #72 = commit 336a6e9 / CI #68 'CoDawork2026 Post Projection' green 56s; current_commit_sha below reflects #72 (nothing SENT — Matthew outreach remains Peter's). active_priority_pointer rolled forward to match. SAME-SESSION FOLLOW-ONS: (a) zero-treatment adapter (HCI-CNT/adapters/zero_treatment.py) built + validated across all 10 EMBER countries (safe on zero-free data; removes the 1e-15-floor norm artifact; rounded-zero navigation unchanged = prior results robust; structural-zero corrected); (b) national-Canada CNT anchor via canonical engine v3.2.0 at true D=8; (c) GEOSENSING multi-sensor field-tool concept + simulation (one CNT per sensor + calibration-weighted fusion; elemental sensor leads, calibration recovers); (d) geology-wehner README rewritten with the executive summary as the key. Engine/schemas/canonical numbers UNCHANGED. Pushed as #72 (336a6e9); the post-#72 §6 admin sync rides as the next Hs Admin commit.",
+    "previous_last_updated": "2026-06-07T14:00Z (active_priority_pointer rolled forward to post-conference; engine, results, and all canonical numbers unchanged)",
+    "framework_partnership_framing": "Hˢ is the formalisation of a body of working practice spanning seven domains in continuous integration: acoustics (BTL/DADC/ADAC), governance (HUF-STD-001/002/003, HUF-GOV/CLS fork), electronics + DSP (Lab.gruppen + Lake MESA + B&K + Smaart), robotics (closed-loop control reserved per the observe-or-control fork), X-ray procedural (non-contact / inert-measurement doctrine, generalising to HCI-ULTRASOUND), mass production automation (asymmetric allocation per closure constraint), and man-machine interface engineering (the BTL listening position is the canonical instance). The framework is an extension of that partnership. The HUF AI Collective protocol is the operational form. See papers/flagship/GROUND_STATE_AND_TRACTION.md v2.2 + AI_AGENTS.md §1.5.",
+    "trust_path_pointer": "TRUST_AND_VERIFICATION.md at the repository root carries the seven-step verification protocol for skeptical users. Every algorithm is published in four forms (Python + R + language-agnostic pseudocode + HUF-STD-002 specification) so independent re-implementation against the three IEEE-floor reference inputs (Backblaze, Planck CMB, SM neutrino) verifies the published code at per-field IEEE-floor numerical agreement; byte-identical content_sha256 is the additional Layer-1 (intra-language) / Layer-4 (third-language conditional on canonicalization-profile adoption) contract per the layered parity contract at TRUST_AND_VERIFICATION.md §1.5 (added push #63, 2026-05-24). The standing push protocol at PUSH_PROTOCOL.md formalises the discipline every push follows. Established push #62 (2026-05-24); layered-parity precision pass added push #63 (2026-05-24).",
+    "last_push": "#71 PUSHED 6b76cf1 CI #67 \"Hs Admin\" green 53s (2026-05-29) — POST-#70 §6 ADMIN CHAIN LANDED. The 5-step post-commit sync after push #70 (5ab59c9 CI #66 'Presentation tuning' green 53s) becomes its own commit per PUSH_PROTOCOL §6 standard rhythm. CHANGELOG.md #70 row filled in. HS_FAST_REFRESH.json + HS_ADMIN.json carry push_70_completed full narratives, current/previous pointers advance, last_push rewritten. PUSHES_INDEX.md gains 'Push #70 — Presentation tuning' deep-detail section. CODA-Association/CODAwork2026/VERSION_HISTORY.md — main 16:9 rebuild entry + four sub-entries annotated 'Landed in push #70 — commit 5ab59c9, CI #66 Presentation tuning green 53s'. S2 doc/media only — admin / audit-trail files only. Engine, schemas (HUF-STD-001/002/003), INV catalog, NO-CREATE, manuscript, Presentation PDF, companion PDF, CN-TT Output, projector v2.2, per-country plates all untouched. Previous: #70 PUSHED 5ab59c9 CI #66 \"Presentation tuning\" green 53s (2026-05-29).",
+    "previous_pushed_70_was_last_push": "#70 PUSHED 5ab59c9 CI #66 \"Presentation tuning\" green 53s (2026-05-29) — PRESENTATION SWITCHES TO EXACT 16:9 WIDESCREEN + ASPECT-RATIO DOCTRINE CODIFIED INTO HUF-STD-002 COMPANION + SPEECH COMPANION ADJUSTED FOR PODIUM USE. Four days before CoDaWork 2026. S2 doc/media only on post-#69 working tree. (A) CodaWork2026_Presentation_2026-05-28.pdf rebuilt at 13.333 x 7.5 in (PowerPoint widescreen, 959.981 x 540 pts, exact 16:9) so the PDF maps 1:1 onto any 16:9 projector/monitor with no letterboxing. Same 21-slide arc and content as 057177e; only the canvas aspect changed. Two-column layouts on nav-chart slides 7/11/13, Germany plate slides 8/9, cross-country slide 14, world plates 15-20 — chart on left + side reading panel (country code 44pt, descriptor 22pt, metrics 18pt) on right; no black bars. (B) huf-gov/standards/TENSOR_TRAIN.md gains a new section 'Presentation rendering — aspect-ratio guidance' codifying the doctrine: 16:9 widescreen is the general-purpose presentation format; display-fit loss table; when-to-use-what table; layout consequences; distance-reading font ranges; worked example. Cross-referenced POST_CONFERENCE_ROADMAP §5.10. The HUF-STD-002 JSON schema itself remains untouched (locked). (C) SPEAKING_SCRIPT_QA_companion four adjustments: page-break CSS for one-slide-per-page-side podium use · per-slide Terms used italic blocks in Q&A bench as fill-in glossary cues · slide 14 PRESENT/ABSENT reference tables in slide-show order · slide 20 World uniformity observation appended. (D) Doc chain swept across 8 active surfaces (Letter landscape -> 16:9 widescreen). (E) Prior 2026-05-27 PPTX + PDF archived in talk_decks_pre_pdfonly_2026-05-28/. Lockdown: engine code, schemas (HUF-STD-001/002/003 JSONs), INV catalog, NO-CREATE files, manuscript, CN-TT Output + Premier PPTX, projector v2.2, per-country plates all untouched. Previous: #69 PUSHED 76d2eb2 CI #65 \"CodaWork2026_CN-TT_Output\" green 49s (2026-05-28).",
+    "previous_pushed_69_was_last_push": "#69 PUSHED 76d2eb2 CI #65 \"CodaWork2026_CN-TT_Output\" green 49s (2026-05-28) — CN-TT OUTPUT PROMOTED TO PUBLIC FACE + NEW 30s+30s CLOSE. Five days before CoDaWork 2026. S2 doc/media only on post-#68 working tree. (A) The 325-page full-corpus PDF (formerly CodaWork2026_PremierDataOutput_2026-05-13.pdf) added back to the public face under a new framework-aligned name: CodaWork2026_CN-TT_Output_2026-05-28.pdf — CN-TT = CNT / Tensor Train per HUF-STD-002, aligning the public-face artifact's name with the standard that defines the pipeline structure. Content byte-identical to the prior-name PDF (which stays in place, marked superseded for the public face); PPTX editing source kept under original PremierDataOutput name. (B) Role: raw-data provenance for every claim in the talk — master cover + 9 country sections × 6 plates each (Stage 0 · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ). Manual plate-by-plate verification is a HUF-system requirement; this is the artifact where a reviewer performs it. (C) New 30s+30s close: the prior '~1 min live HTML close' becomes 30 sec CN-TT Output PDF flash-through of the Stage 1 plates at ~1 sec/page (data points move on the simplex frame-by-frame, movie-like, showing raw provenance) → 30 sec live HTML projector (DEU → BARY, JPN → BARY). Total talk time unchanged at ~15 min + 5 min Q&A. (D) Doc chain swept across six active surfaces (root README, CODA-Association/README, CODAwork2026/README, data_outputs/README, CONFERENCE_ATTENDEES.md, SPEAKING_SCRIPT_QA_companion.md including its rebuilt PDF). The slide-21 speech now writes the two-step close: 'Open `CodaWork2026_CN-TT_Output_2026-05-28.pdf` and flash through the Stage 1 plates — one page per second. The data points move on the simplex like frames of a film — the raw provenance of every claim in the talk, played at speed. This is the artifact a reviewer opens to verify any plate by hand. (30 sec.) Now open `codawork2026_projector.html`. ... DEU → BARY ... JPN → BARY ... (30 sec.) Thank you. Questions.' (E) Naming rationale: the framework now documents its own pipeline using its own standard on its own world-facing artifact — the same meta-pattern that drove the UN-6 handout v11 Tensor Train block in push #65; the CI name 'CodaWork2026_CN-TT_Output' is the meta-statement. Lockdown discipline: engine code, schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files, manuscript, projector v2.2, per-country plates untouched. The CN-TT Output content is byte-identical to the prior PremierDataOutput PDF; the rename is a public-face name change + doc-chain alignment. Previous: #68 PUSHED dc0b4dc CI #64 \"coda updates\" green 50s (2026-05-28).",
+    "previous_pushed_68_was_last_push": "#68 PUSHED dc0b4dc CI #64 \"coda updates\" green 50s (2026-05-28) — CHATGPT CONSISTENCY-FIX PASS post-#67 (slide-19→21 / SHOCK panel / ALIGN-mode wording). Five days before CoDaWork 2026. S2 doc-only on post-#67 working tree. (A) AI-Use-Declaration slide number swept slide 19 → slide 21 across CODAwork2026/README.md + data_outputs/README.md + VERSION_HISTORY.md look-summary, matching the active 21-slide deck and the script close. Historical journal entries describing past 19-slide state and the Premier-deck slide-19 plate reference are left as records. (B) data_outputs/README.md SHOCK math-panel wording 'stroke→red as ‖Δclr(t)‖/max → 1' → 'year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5' matching the v2.2 live behaviour; the projector HTML itself was already correct, only the README panel was stale. (C) SPEAKING_SCRIPT_QA_companion.md + source qa_companion_21.md + rebuilt PDF: 'ALIGN, the helmsman' / 'ALIGN (the Helmsman / largest-motion carrier)' → 'ALIGN, the centred view' / 'ALIGN (the centred / barycenter-aligned shape view)'. ALIGN is the barycenter-aligned shape view, distinct from the Helmsman family. Other Helmsman method references in the script (correct method usages) kept intact. Lockdown discipline: engine code (cnt.py 2026-05-19, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference, projector v2.2, per-country plates untouched. Previous: #67 PUSHED 057177e CI #63 \"Presentation refinements\" green 50s (2026-05-27).",
+    "previous_pushed_67_was_last_push": "#67 PUSHED 057177e CI #63 \"Presentation refinements\" green 50s (2026-05-27) — GERMANY COMPLETE PLATE SET -> 21-SLIDE DECK; COMPANION RENAMED COUNT-FREE; LEGEND WRAPPED TO TWO ROWS. Five days before CoDaWork 2026. S2 doc/media only; post-#66 working tree. (A) Two Premier-deck plates for Germany — Premier slide 19 (Stage-1 Section view: XY CLR plan / XZ carrier-pair bearings / YZ per-carrier CLR for a representative year) + Premier slide 22 (ILR-Helmert orthogonal triplet) — grayscaled and inserted into the Germany section as slides 8 and 9 of CodaWork2026_Presentation_2026-05-27.pptx. Germany is now the one country shown with the COMPLETE PLATE SET (share-and-structural-work -> trajectory -> orthogonal projections -> ILR-Helmert triplet); the other countries keep the headline views. Both plates clean engine output. Downstream renumbered: Japan 10-11, UK 12-13, cross-country 14, rest-of-world finale 15-20, close 21; every footer N/21. (B) Companion SPEAKING_SCRIPT_QA_companion.md/.pdf gains two Germany sections (8-9) naming Germany the worked exemplar carried in full; masthead/timing/narrative/voice/apparatus renumbered to 21. (C) Companion RENAMED count-free: SPEAKING_SCRIPT_19slide_QA_companion -> SPEAKING_SCRIPT_QA_companion (matches the deck's count-free name); all references updated across README chain + CONFERENCE_ATTENDEES (slide-by-slide rewritten to 21 with the two Germany slides) + archive index; 19/N19/slide-19 -> 21/N21/slide-21 throughout active docs. (D) Legend fix: the three hatched share-and-work figures (Germany 6 / Japan 10 / UK 12) had a single nine-item carrier key overrunning the figure margins; re-rendered as two rows (ncol=5, larger bottom margin) inside the page, font kept large. Lockdown: engine code (cnt.py 2026-05-19, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference, projector v2.2, per-country plates untouched. Known residual (post-lockdown): trajectory plate PNGs still carry the engine-internal course_directness label; slide captions already use 'trajectory directness'. Previous: #66 PUSHED ee20706 CI #62 \"course directness\" green 49s (2026-05-27) — SINGLE GRAYSCALE 19-SLIDE PRESENTATION PROMOTED; 13-SLIDE DECK ARCHIVED; CODAwork2026 FOLDER STREAMLINED + DOCS IN AGREEMENT. Five days before CoDaWork 2026. S2 doc/media only. (A) New active deliverable CodaWork2026_Presentation_2026-05-27.pptx/.pdf — one grayscale 19-slide file (talk 1-12 + rest-of-world finale 13-18 + live-projector close 19), numbered N/19, white bg + black text + hatched value+pattern size-view/Power-Share figures re-plotted from EMBER CSVs via standard CLR, bigger fonts, rebuilt method diagram. Pure-science terminology: the talk is named on its subject DECEPTIVE DRIFT, defined on the slide where it first appears; metaphors (fires/quiet, course, at-the-wheel, yeast factor) replaced with correct terms; bread analogy kept and marked as analogy. Power-share computation validated against canonical Germany Solar 2005-06 = 71.1%. (B) Companion SPEAKING_SCRIPT_19slide_QA_companion.md/.pdf rewritten to the 19-slide arc + deceptive-drift terms (~13 min + ~1 min live close = ~14 min, then 5 min Q&A). (C) 13-slide colour deck + 2 builders + 2 script files + stale README snapshot archived to archive/talk_decks_pre_presentation_2026-05-27/ with folder README. (D) data_outputs streamlined — junk removed (.~lock + 2MB .tmp); critical files now front-and-center. (E) Docs in agreement: README chain (CODAwork2026 README v2.6, data_outputs README v7.1, CODA-Association, root, papers), CONFERENCE_ATTENDEES slide-by-slide rewritten to 19-slide arc, archive index; AI-Use-Declaration slide 13->19; projector SHOCK descriptions -> v2.2 year-label chromatic-opposite. (F) Carry-along post-#65 working notes: papers/in_progress/ATTRACTOR_MORPHOLOGY_AND_TRANSCENDENTAL_BASINS.md + WETLAND_COMPOSITIONAL_ANALYSIS_RAMSAR.md (new) + POST_CONFERENCE_ROADMAP §4.12 (attractor morphology) + §5.9 (Ramsar wetlands). Lockdown discipline: engine code (cnt.py 2026-05-19, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, full-corpus reference (Premier 66-slide), projector v2.2, per-country plates all untouched. Known residual (post-lockdown): trajectory plate PNGs still carry the engine's internal course_directness/System Course Plot labels; slide captions already use the science term. Previous: #65 PUSHED 1b48894 CI #61 \"Tensor Train Handout\" green 51s (2026-05-27) — UN-6 HANDOUT v11 TENSOR TRAIN BLOCK ADDED TO SIDE-2 EMPTY QUARTER + POST-#64 ADMIN SYNC. Six days before CoDaWork 2026. One substantive S2 doc-only change group + post-#64 admin chain sync carry-along. (A) UN-6 HANDOUT v11 — TENSOR TRAIN BLOCK ON SIDE-2. A community reviewer noted ~1/3 of side-2 was still available after push #60+#61 shipped the operations reference. Peter approved adding a tensor-train representation of the full CNT + CNQ pipeline drawn directly from huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json the_tensor_train_v1_0.links[] — the order / link / mode / rank quadruplet across the chain. New 6-row 4-column table slots between the Apparatus map (which answers 'who reads what') and the Symbols legend, completing the apparatus story by answering 'what flows from where to where'. Rows: Order 0 (Adapter, raw → CSV (T × D), D = 2…9+) · Order 1 (CNT closure + Helmert-ILR, (T, D) → (T, D−1), D−1) · Order 2 (CNT per-step viewpoints, (T, D−1) → (T, K), K=5 metrics: Helmsman · Aitchison-step · Power Share · Activation Coefficient · navigation_2D) · Order 3 (CNT depth tower + IR class, scalar block, regime label) · Order 2-3 (CNQ quaternion path, CNT JSON → (T, 4) at D=2/3/4, 4 components (S³ ≅ SU(2))) · Order 4 (Vector render, JSON → plate tensor, PDF · PNG · SVG). One-line flow chart underneath: raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG. Hash-chain footnote (localized): 'Each link emits SHA-256; chain reproducible from raw input to final artifact in one command.' Implementation: outputs/build_handout_v11.py (new ROWS_TT data + h_tt/c_order/c_link/c_mode/c_rank/flow_label/hash_note per-locale strings in P2 dict for all six locales + new table4() 4-column builder + new TT-specific CSS classes .tt/.ord/.tt-flow/.tt-flow-line/.tt-footnote tuned to 6.7-7.0pt baseline). All 6 markdown sources (EN canonical + FR/ES/RU/ZH/AR locale drafts) carry the new section between Apparatus and Symbols legend; all 6 PDFs rebuilt 2pp letter (sizes 73-158 KB depending on CJK/Cyrillic/Arabic embed). Section heading + column headers localized per locale; mathematical content stays in English per the existing handout convention. Visual QA pass on EN (default LTR) + AR (RTL stress test) + ZH (CJK font test). The TT block applies the channel-discipline doctrine recorded in POST_CONFERENCE_ROADMAP_2026-06.md §4.11: each visual channel owns one job; adding a diagnostic = find a clean channel, not stack onto a busy one. The page's empty quarter was the clean channel; existing five tables each owned their job. Recursion-test pattern continues at the print-layout level (BTL acoustic 2024 → projector 2026 → handout 2026). The framework documents its own pipeline using its own standard — meta-statement consistent with the conference's CI-name tradition. (B) POST-#64 ADMIN CHAIN SYNC per PUSH_PROTOCOL §6 (HS_FAST_REFRESH + HS_ADMIN + PUSHES_INDEX + CHANGELOG updated 2026-05-26 right after push #64 (ef3fbc5 CI #60 'Slide update') landed; ride along here so the audit chain stays consistent across the post-#64 → post-#65 boundary). Lockdown discipline: engine code untouched (cnt.py 2026-05-19 from #52, cnt.R 2026-05-10, cnq.py 2026-05-09, cnq.R 2026-05-10), schemas (HUF-STD-001/002/003 — the TT block READS from HUF-STD-002, does not modify it), INV catalog dispositions (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, 13-slide deck, projector v2.2, cinema scroll, per-country plates all untouched. Previous: #64 PUSHED ef3fbc5 CI #60 \"Slide update\" green 53s.",
+    "push_71_completed": "2026-05-29 PUSHED 6b76cf1 CI #67 \"Hs Admin\" green 53s — POST-#70 §6 ADMIN CHAIN LANDED. The 5-step post-commit sync that fired after push #70 (5ab59c9 CI #66 \"Presentation tuning\" green 53s) becomes its own commit per PUSH_PROTOCOL §6 standard rhythm. Files updated in this push: (a) CHANGELOG.md row #70 filled with SHA / CI / duration; (b) HS_FAST_REFRESH.json — last_updated advance, current_commit_sha 76d2eb2 → 5ab59c9 / full SHA / current_ci_run 65 → 66 / name → 'Presentation tuning' / duration 49 → 53, previous_* carries the prior #69 values, new push_70_completed key with full multi-section narrative, last_push rewritten with the #70 #69 chain, prior #69 last_push value demoted to previous_pushed_69_was_last_push; (c) ai-refresh/HS_ADMIN.json — last_updated advance, new push_70_completed entry with the full A/B/C/D/E/F multi-paragraph structure (rebuild rationale, doctrine codification, four speech-companion refinements, doc-chain sweep, archive, journal); (d) ai-refresh/PUSHES_INDEX.md — new 'Push #70 — Presentation tuning' deep-detail section above the #69 deep-detail block with the change-group narrative + four-row table for the speech-companion refinements + lockdown statement; (e) CODA-Association/CODAwork2026/VERSION_HISTORY.md — main 16:9 rebuild entry header gained 'pushed 5ab59c9, CI #66 Presentation tuning green 53s'; all five staging-flag lines (main entry + two companion sub-entries + two superseded-rebuild closing notes) now read 'Landed in push #70 — commit 5ab59c9, CI #66 Presentation tuning green 53s, 2026-05-29'. Lockdown discipline: S2 doc/media only — admin / audit-trail files only. Engine code (cnt.py, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003 JSONs), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, Presentation PDF, companion PDF, CN-TT Output, Premier PPTX editing source, projector v2.2, per-country plates all untouched. CI name 'Hs Admin' marks this as the standard §6 audit-chain advance.",
+    "push_70_completed": "2026-05-29 PUSHED 5ab59c9 CI #66 \"Presentation tuning\" green 53s — PRESENTATION SWITCHES TO EXACT 16:9 WIDESCREEN + ASPECT-RATIO DOCTRINE CODIFIED INTO HUF-STD-002 COMPANION + SPEECH COMPANION ADJUSTED FOR PODIUM USE. Four days before CoDaWork 2026. S2 doc/media only on post-#69 working tree. (A) PRESENTATION AT EXACT 16:9. CodaWork2026_Presentation_2026-05-28.pdf rebuilt at 13.333 x 7.5 in (PowerPoint widescreen standard, 959.981 x 540 pts, exact 1.7777...) so the PDF maps 1:1 onto any 16:9 projector or monitor with no letterboxing. The earlier Letter-landscape canvas (1.294 aspect) was letterboxed on 16:9 screens — that was the visible issue Peter was diagnosing through three earlier 2026-05-28 rebuild attempts. Same 21-slide arc and content as the pushed 057177e deck (deceptive drift defined on first appearance, Germany complete plate set on slides 8-9, world finale, CN-TT + projector close); only the canvas aspect changed. Two-column layouts on nav-chart slides (7/11/13), Germany plate slides (8/9), cross-country slide (14), and world plates (15-20) — chart on left + side reading panel with country code at 44pt, descriptor at 22pt, key metrics at 18pt on the right; no black bars on any slide. (B) ASPECT-RATIO DOCTRINE CODIFIED INTO STANDARDS COMPANION. huf-gov/standards/TENSOR_TRAIN.md (the HUF-STD-002 companion .md) gains a new section 'Presentation rendering — aspect-ratio guidance' recording the recommendation (16:9 widescreen as general-purpose presentation format), a display-fit loss table for the common alternatives (16:9 = 0% · 16:10 = ~6% · A4 landscape = ~26% · 4:3 = ~33% · Letter landscape = ~37%), a when-to-use-what table separating presentation decks / engine-output decks / manuscripts / projector HTML, layout consequences for the wider canvas, distance-reading font ranges, and the worked example. Cross-referenced as POST_CONFERENCE_ROADMAP_2026-06.md §5.10. The HUF-STD-002 JSON schema itself remains untouched (locked); only the companion .md gets the doc-only addition. (C) SPEECH COMPANION ADJUSTMENTS. SPEAKING_SCRIPT_QA_companion.md + rebuilt .pdf (75 KB, 13 pages Letter landscape). Four refinements per Peter's podium-use directive: one-slide-per-page-side CSS (h2 + table page-break controls) so Peter can double-side print and hold without flipping mid-talk · per-slide 'Terms used' italic blocks in the Q&A bench column as fill-in glossary cues for clarification (PCA / CLR / κ_HS / HLR / ILR-Helmert / etc.; ~15 terms per slide average) · slide 14 PRESENT (5 of 9) + ABSENT (4 of 9) reference tables in slide-show order with one-line classification reasons per country · slide 20 closes with the observation that the World shows a uniform Helmsman across 2000-2025 — the global system absorbs country-level perturbations. (D) DOC CHAIN SWEEP across 8 active surfaces — root README · CODA-Association/README · CODAwork2026/README · data_outputs/README · CONFERENCE_ATTENDEES · papers/README · SPEAKING_SCRIPT_QA_companion masthead · PUSH_PROTOCOL.md worked-example. 'Letter landscape' -> '16:9 widescreen' throughout the active tree; historical references in archives and dated journal entries left as records. (E) ARCHIVE — new talk_decks_pre_pdfonly_2026-05-28/ folder with folder-level README, holding the prior CodaWork2026_Presentation_2026-05-27.pptx + .pdf (last PPTX shipped as a public artifact). Lockdown discipline: S2 doc/media only — engine code (cnt.py 2026-05-19, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003 JSONs), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, CN-TT Output + Premier PPTX editing source, projector v2.2, per-country plates all untouched. CI name 'Presentation tuning' is the meta-statement — the canvas, the standards companion, and the speech all tuned together for podium use.",
+    "push_69_completed": "2026-05-28 PUSHED 76d2eb2 CI #65 \"CodaWork2026_CN-TT_Output\" green 49s — CN-TT OUTPUT PROMOTED TO PUBLIC FACE + NEW 30s+30s CLOSE. Five days before CoDaWork 2026. S2 doc/media only; post-#68 working tree. (A) PUBLIC-FACE RENAME. The full-corpus 325-page PDF (formerly CodaWork2026_PremierDataOutput_2026-05-13.pdf) added back to the public face under a new framework-aligned name: CodaWork2026_CN-TT_Output_2026-05-28.pdf (3.7 MB). CN-TT = CNT / Tensor Train per HUF-STD-002 Tensor Train I/O Standard — the rename aligns the public-face artifact's name with the standard that defines the pipeline structure (raw → [Adapter] → CSV → [CNT v3.1.0] → cnt_*.json → [CNQ v2.0.0] → cnq_*.json → [Render] → PDF · PNG · SVG). Content byte-identical to the prior-name PDF (which stays in place, marked superseded for the public face). PPTX editing source kept under original CodaWork2026_PremierDataOutput_2026-05-13.pptx name. (B) ROLE. Raw-data provenance artifact for every claim in the talk — master cover + 9 country sections × 6 plates each (Stage 0 Foundations · Stage 1 Section · Stage 1 ILR-Helmert Triplet · Stage 2/3 · CNQ). Manual plate-by-plate verification is a HUF-system requirement; this is the artifact where a reviewer performs it. (C) NEW 30s+30s CLOSE. The prior '~1 min live HTML close' becomes two steps: 30 sec CN-TT Output PDF flash-through of the Stage 1 plates at ~1 sec/page (the data points move on the simplex frame-by-frame, movie-like, showing the raw provenance) → 30 sec live HTML projector (DEU → BARY, JPN → BARY, audience-driven last click). Total talk time unchanged at ~14 min spoken + ~1 min live close = ~15 min, then 5 min Q&A. (D) DOC CHAIN SWEPT across six active surfaces: root README, CODA-Association/README, CODAwork2026/README, data_outputs/README, CONFERENCE_ATTENDEES.md, SPEAKING_SCRIPT_QA_companion.md (masthead timing + voice notes + slide-21 header timing + slide-21 narrative now writes the two-step close into the speech + Q&A timing answer + 'where are the other countries' full plates' answer + voice-and-posture Close (21) line + Apparatus block). Source qa_companion_21.md synced; SPEAKING_SCRIPT_QA_companion.pdf rebuilt via pandoc → HTML → weasyprint (68 KB landscape Letter), placed in the repo. (E) NAMING RATIONALE. The framework now documents its own pipeline using its own standard on its own world-facing artifact — the same meta-pattern that drove the UN-6 handout v11 Tensor Train block in push #65 (the CI name is the meta-statement). Remaining PremierDataOutput references in active surfaces are all intentional: (a) explicit kept-under-original-name PPTX editing source + prior-name PDF references; (b) dated historical push-admin docs in ai-refresh/ (PUSH50/63/64/65/66_READY_FOR_COMMIT etc — point-in-time records); (c) POINT_OF_RESTORE_2026-05-19.md (dated milestone); (d) huf-gov/standards/TENSOR_TRAIN.md (cites file path that still exists; inside lockdown surface, left alone). LOCKDOWN: engine code (cnt.py 2026-05-19, cnt.R, cnq.py, cnq.R), schemas (HUF-STD-001/002/003), INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, projector v2.2, per-country plates untouched. The CN-TT Output content is byte-identical to the prior PremierDataOutput; only the public-face name changed and the documentation chain updated.",
+    "push_68_completed": "2026-05-28 PUSHED dc0b4dc CI #64 \"coda updates\" green 50s — CHATGPT CONSISTENCY-FIX PASS post-#67 (slide-19→21 / SHOCK panel / ALIGN-mode wording). (A) AI-Use-Declaration slide number swept slide 19 → slide 21 across CODAwork2026/README.md + data_outputs/README.md + VERSION_HISTORY.md look-summary, matching the active 21-slide deck and the script close (historical journal entries describing past 19-slide state and the Premier slide-19 plate reference left as records). (B) data_outputs/README.md SHOCK math-panel wording 'stroke→red as ‖Δclr(t)‖/max → 1' → 'year label → chromatic opposite of plate when ‖Δclr(t)‖/max > 0.5' matching the v2.2 live behaviour; projector HTML itself already correct, only the README panel was stale. (C) SPEAKING_SCRIPT_QA_companion.md (+ source qa_companion_21.md + rebuilt PDF) ALIGN-mode description 'ALIGN, the helmsman' / 'ALIGN (the Helmsman / largest-motion carrier)' → 'ALIGN, the centred view' / 'ALIGN (the centred / barycenter-aligned shape view)'; other Helmsman method references kept intact. S2 doc-only; engine, schemas, INV catalog (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files, manuscript, full-corpus reference, projector v2.2, per-country plates untouched.",
+    "push_67_completed": "2026-05-27 PUSHED 057177e CI #63 \"Presentation refinements\" green 50s — GERMANY COMPLETE PLATE SET -> 21-SLIDE DECK + COMPANION RENAMED COUNT-FREE + LEGEND TWO-ROW FIX. Premier slides 19 (Section view: orthogonal projections) + 22 (ILR-Helmert triplet) grayscaled and added to the Germany section as slides 8-9, making Germany the one country shown with the complete plate set; downstream renumbered (Japan 10-11, UK 12-13, cross-country 14, finale 15-20, close 21; N/21 footers). Companion gains two Germany sections + renamed SPEAKING_SCRIPT_19slide_QA_companion -> SPEAKING_SCRIPT_QA_companion (count-free); README chain + CONFERENCE_ATTENDEES (slide-by-slide rewritten to 21) + archive index swept 19->21. Hatched share-and-work figures (slides 6/10/12) legend re-rendered as two rows so it fits the page with large font. S2 doc/media; engine, schemas, INV, NO-CREATE, manuscript, full-corpus reference, projector, plates untouched.",
+    "push_66_completed": "2026-05-27 PUSHED ee20706 CI #62 \"course directness\" green 49s — SINGLE GRAYSCALE 19-SLIDE PRESENTATION PROMOTED + 13-SLIDE DECK ARCHIVED + FOLDER STREAMLINED + DOCS IN AGREEMENT. New active deliverable CodaWork2026_Presentation_2026-05-27.pptx/.pdf (one grayscale 19-slide file: talk + rest-of-world finale + live-projector close; hatched value+pattern figures; deceptive-drift terminology defined on first appearance; bread analogy kept as analogy). Companion SPEAKING_SCRIPT_19slide_QA_companion.md/.pdf rewritten. 13-slide colour deck + builders + scripts archived to archive/talk_decks_pre_presentation_2026-05-27/. data_outputs junk removed. README chain + CONFERENCE_ATTENDEES + archive index brought into agreement; AI-Use-Declaration slide 13->19; projector SHOCK -> v2.2 chromatic-opposite. Carry-along working notes (attractor morphology + Ramsar wetlands) + POST_CONFERENCE_ROADMAP §4.12/§5.9. S2 doc/media; engine, schemas, INV, NO-CREATE, manuscript, full-corpus reference, projector, plates untouched.",
+    "push_65_completed": "2026-05-27 PUSHED 1b48894 CI #61 \"Tensor Train Handout\" green 51s — UN-6 HANDOUT v11 TENSOR TRAIN BLOCK ADDED TO SIDE-2 EMPTY QUARTER + POST-#64 ADMIN SYNC. One substantive S2 doc-only change group: tensor-train representation of CNT + CNQ pipeline (order/link/mode/rank, 6 rows) drawn from HUF_TENSOR_TRAIN_IO_STANDARD.json added to side 2 of UN-6 handout in all six locales between Apparatus map and Symbols legend; one-line flow chart underneath; K=5 metric expansion + hash-chain note as localized footnote. Channel-discipline doctrine applied at the print-layout level — the page's empty quarter (~1/3 page) was the clean channel; existing five tables each owned their job. Plus post-#64 admin chain sync carry-along. Engine code, schemas, INV catalog, NO-CREATE files, manuscript, deck, projector, cinema scroll all untouched.",
+    "previous_pushed_65_was_last_push": "#64 PUSHED ef3fbc5 CI #60 \"Slide update\" green 53s (2026-05-26) — FINAL SLIDE POLISH + SHOCK SIMPLIFY + Q&A COMPANION + POST-#63 ADMIN SYNC. Seven days before CoDaWork 2026. Six S2 doc-only change groups land together. (A) Post-#63 admin chain sync per PUSH_PROTOCOL §6 (HS_FAST_REFRESH + HS_ADMIN + PUSHES_INDEX + CHANGELOG updated 2026-05-25 right after push #63 landed; ride along here). (B) Projector v2.0 → v2.2 SHOCK simplification — moved the SHOCK indicator off the perimeter stroke (which fights carrier-identity color and base line-width encoding) onto the previously-unused year-label text. When SHOCK on and smag > 0.5, the year label flips to the chromatic opposite of the plate's base color (255-cr, 255-cg, 255-cb) with a small alpha bump. Five-line implementation, no interference with carrier encoding, high contrast against any palette by RGB-complement math. Briefly implemented as v2.1 stroke-width dual-encoding; v2.2 superseded that with the cleaner channel-discipline design. (C) 13-slide deck content edits — slide 1 adds two italic lines (follow-along + Hˢ-runs-any-CoDa-describable-dataset), timing 25→30s; slide 2 replaced World electricity + USA Solar 760× hook with Germany electricity + Germany Solar 2005-06 / 0.21% / 71.1% / α≈333× hook (keeps talk specific to Germany/Japan/UK throughout); slide 3 bumped header fonts 15→18pt + descriptions 12→13pt + redistributed vertical spacing; slide 4 replaced USA Solar worked example with Germany Solar 2005-06. (D) SPEAKING_SCRIPT_13slide.md content match — slides 1/2/4 speech rewritten + slide-1 timing 30s. (E) SPEAKING_SCRIPT_13slide_QA_companion.md + .pdf NEW reading aid for the podium — dual-column document with speech (read this) left, Q&A bench (likely questions + ready responses) right per slide. Asymmetric font sizing per Peter's low-light spec: 13pt speech column matches slide-header h2; 10pt Q&A column for at-a-glance reference. Per-slide Q&A bench cards updated for slide 1/2/4 changes; 'Any compositional dataset — what does that include?' on slide 1 lists the cross-domain CoDa-describable set + three IEEE-floor reference datasets. Rendered via pandoc → HTML → weasyprint; 16 pages letter landscape, 88 KB. General Q&A bench + voice-and-posture reminders + apparatus-during-Q&A block carry forward. (F) POST_CONFERENCE_ROADMAP §4.11 supersession + channel-discipline doctrine — item 2 (v2.1 dual-encoding stroke-width) marked superseded by v2.2 year-label chromatic-opposite design. New channel-discipline doctrine subsection records the principle: 'Each visual channel owns one job. Adding a diagnostic = find a clean channel, not stack onto a busy one. If no clean channel exists, the diagnostic isn't ready yet — refine the diagnostic until it fits a single channel.' Explicitly tied to the BTL constant-power Butterworth crossover precedent (flagship §4.2) — acoustic engineering taught the discipline in 2024; the projector inherited it in 2026; the framework's recursion-test pattern in action. Plus README chain sweep + CONFERENCE_ATTENDEES sweep — CODA-Association/README + CODAwork2026/README folder layouts gain Q&A-companion pointer; CONFERENCE_ATTENDEES.md slide 1/2/4 entries refreshed for new content; CODAwork2026/README + data_outputs/README story arcs swap USA Solar → Germany Solar hook. Plus transitional artifact build_final_talk_13slide_v2.py — byte-identical content copy of canonical builder created 2026-05-25 to bypass a Linux-side cross-mount cache lag where the build sandbox served a truncated view missing the prs.save() call; documented evidence of the workaround pattern; can be deleted in a future push. Lockdown discipline: engine code (cnt.py 2026-05-19 from #52, cnt.R 2026-05-10, cnq.py 2026-05-09, cnq.R 2026-05-10), schemas (HUF-STD-001/002/003), INV catalog dispositions (63: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six absent), manuscript, cinema scroll, per-country plates all untouched. 13-slide deck content edits + projector v2.2 = presentation-layer; engine outputs unchanged. Previous: #63 PUSHED 5d0119f CI #59 \"13 slide codawork2026\" green 50s.",
+    "push_64_completed": "2026-05-26 PUSHED ef3fbc5 CI #60 \"Slide update\" green 53s — FINAL SLIDE POLISH + SHOCK SIMPLIFY + Q&A COMPANION + POST-#63 ADMIN SYNC. Six S2 doc-only change groups: (A) post-#63 admin chain sync; (B) projector v2.2 SHOCK year-label chromatic-opposite (replaces v2.1 dual-encoding stroke-width); (C) 13-slide deck edits — slide 1 follow-along + CoDa-tools framing, slide 2/4 USA Solar → Germany Solar 2005-06 hook (0.21%/71.1%/333×) keeping the talk specific to Germany/Japan/UK throughout, slide 3 bigger headers + spacing; (D) SPEAKING_SCRIPT_13slide.md content match; (E) NEW SPEAKING_SCRIPT_13slide_QA_companion.md + .pdf — 16-page dual-column reading aid (13pt speech / 10pt Q&A) for podium low-light reading; (F) POST_CONFERENCE_ROADMAP §4.11 supersession + channel-discipline doctrine subsection tying the v2.1→v2.2 design lesson to the BTL constant-power Butterworth crossover precedent. Plus README chain sweep + CONFERENCE_ATTENDEES sweep + transitional v2 builder artifact. Engine code, schemas, INV catalog, NO-CREATE files, manuscript, cinema scroll all untouched.",
+    "previous_pushed_64_was_last_push": "#63 PUSHED 5d0119f CI #59 \"13 slide codawork2026\" green 50s (2026-05-24) — LAYERED PARITY PRECISION + 13-SLIDE DECK EXPANSION + POST-CONFERENCE ROADMAP NOTES. Three coordinated S2 doc-only change groups land together eight days before CoDaWork 2026, each with its own external trigger. (A) Layered parity precision pass — TRUST_AND_VERIFICATION.md v1.0 → v1.1. ChatGPT's repo review flagged that the document asserted cross-language byte-identical content_sha256 while cnt.R lines 9-12 explicitly document per-field numerical parity (NOT byte-identical hash) and HS_FAST_REFRESH.json canonical_engines._warning confirms per-field-at-IEEE-floor as the cross-language CNT contract. New §1.5 'The layered parity contract' defines four explicit layers (Layer 1 intra-language byte-identical unconditional; Layer 2 cross-language CNT per-field at IEEE floor NOT byte-identical hash by design; Layer 3 cross-language CNQ per-field ≤1 ULP, byte-identical hash conditional on identical float-formatting profile; Layer 4 third-language re-implementation per-field at IEEE floor, hash conditional on canonicalization-profile adoption). Revisions to §1 four-forms table row 2, §2 discipline bullets, §3 Step 6 (split into Numerical vs Hash comparison with the Python canonicalization profile named explicitly), §3 Step 7 outcome table (split into Numerical vs Hash outcomes), §4 CCTT pilot statement, §6.3 v3.0.0 R port note, §7 reporting-discrepancies opening (adds layer-disambiguation triage step). (B) 13-slide deck expansion + full README chain sweep. CodaWork2026_FinalTalk_13Slide_2026-05-24.{pptx,pdf} promoted as active conference deck. Splits each country case-study (Germany / Japan / UK) into a paired sequence: share-and-work view (the 4-panel figure at 9″ wide) then dedicated navigation chart at 6.5″×5.0″ centered — finally legible from the back of the room. Total under 15-slide conference recommendation; ~8 min 50 sec spoken. New SPEAKING_SCRIPT_13slide.md with explicit pairing rhythm. 10-slide compressed deck archived to archive/talk_decks_pre_13slide_2026-05-24/ with folder-level README mirroring push #58's archival pattern. README chain sweep across 10 surfaces (root README, CODA-Association/README, CODAwork2026/README v2.4→v2.5, data_outputs/README v6.0→v7.0, archive/README, the older archive/talk_decks_pre_10slide_2026-05-20/README 2026-05-24 banner, CONFERENCE_ATTENDEES.md slide-by-slide rewritten 10→13 with comparison thread across the three navigation slides, VERSION_HISTORY.md new 2026-05-24 entry, papers/README, PUSH_PROTOCOL §2.2 example). AI Use Declaration reference updated slide 10 → slide 13. Visual QA via fresh-eyes subagent — first pass caught bottom-third crowding on all six new slides and two-line italic wraps on slides 9 and 11; layout fixed (figures shrunk, nav charts pinned to 6.5″×5.0″ box, callouts moved up to y=6.55/6.65, italics shortened to one line); re-QA confirmed clean. (C) Post-conference roadmap notes — three companion working notes filed in papers/in_progress/. (1) MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md — layered answer to 'TOP / DIFF / PL / synthetic?' with explicit field-by-field mapping of every CNT/CNQ output. (2) GAUGE_THEORY_AND_Hs.md — consolidates four prior pieces already in the system (QIT Primer item I CLR-as-gauge-freedom; HUF Topography Conjecture §6 data-induced manifold; V∞Core RWA Yang-Mills reference archive; Hˢ measurement-systems 'Gauge R&R' discipline) into a single gauge-theoretic reading: closure as Ward identity, CLR as gauge fixing, CNQ's S³≅SU(2) as non-abelian gauge group, group-delay as Wilson-line holonomy, closure-failure flag as anomaly indicator; plus three new points (data-driven; inert-and-universal; manifold diagnostic/classifier). (3) AUDIENCES_AT_THE_FRONTIER.md — identifies a second audience class orthogonal to the seven application domains (theoretical-mathematics frontier researchers); Lisa Piccirillo (MIT) as worked outreach example; articulates the non-contact / ghost-tool outreach doctrine. POST_CONFERENCE_ROADMAP_2026-06.md gains §4.9 (manifold-category), §4.10 (gauge-theoretic reading), §5.8 (theoretical-frontier audience class). Lockdown discipline: S2 doc-only; engine code (cnt.py 2026-05-19, cnt.R 2026-05-10, cnq.py 2026-05-09, cnq.R 2026-05-10), schemas (HUF-STD-001/002/003), INV catalog dispositions (63 entries unchanged: 33C/8S/12D/8O/1F/1C), NO-CREATE files (all six remain absent), manuscript, cinema scroll, projector, per-country plates all untouched. Previous: #62 PUSHED 99103ce CI #58 \"Trust infrastructure\" green 49s.",
+    "push_63_completed": "2026-05-24 PUSHED 5d0119f CI #59 \"13 slide codawork2026\" green 50s — LAYERED PARITY PRECISION + 13-SLIDE DECK EXPANSION + POST-CONFERENCE ROADMAP NOTES. Three S2 doc-only change groups. (A) TRUST_AND_VERIFICATION.md v1.0 → v1.1: new §1.5 four-layer parity contract per ChatGPT review; revisions in §§1, 2, 3 Step 6, 3 Step 7, 4, 6.3, 7. (B) 13-slide deck promoted: per-country navigation chart on its own slide at 6.5″×5.0″ centered (finally legible from back of room); 10-slide deck + builder + script archived to talk_decks_pre_13slide_2026-05-24/; SPEAKING_SCRIPT_13slide.md new; README chain sweep across 10 surfaces; AI Use Declaration reference slide 10 → 13. (C) Three new working notes in papers/in_progress/: MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md (TOP/DIFF/PL/synthetic layering), GAUGE_THEORY_AND_Hs.md (consolidates QIT Primer + Topography Conjecture + V∞Core + Gauge R&R into gauge-theoretic reading), AUDIENCES_AT_THE_FRONTIER.md (theoretical-frontier audience class + Piccirillo worked example + non-contact / ghost-tool outreach doctrine). POST_CONFERENCE_ROADMAP §§4.9, 4.10, 5.8 added. Engine code, schemas, INV catalog dispositions, NO-CREATE files, manuscript, cinema scroll, projector all untouched.",
+    "push_62_completed": "2026-05-24 PUSHED 99103ce CI #58 \"Trust infrastructure\" green 49s — Four-form code discipline closed; trust path reachable from 13 surfaces; standing PUSH_PROTOCOL.md formalised. New: CNT_PSEUDOCODE.md v3.1.0, TRUST_AND_VERIFICATION.md, HCI-CNQ/engine/README.md, PUSH_PROTOCOL.md. README sweep across 9 README files. S2 doc-only.",
+    "previous_last_push": "#62 PUSHED 99103ce CI #58 \"Trust infrastructure\" green 49s (2026-05-24) — TRUST INFRASTRUCTURE + README SWEEP + STANDING PUSH PROTOCOL. Four-form code discipline closed (every algorithm in Python + R + pseudocode + HUF-STD-002 spec). NEW: CNT_PSEUDOCODE.md v3.1.0, TRUST_AND_VERIFICATION.md, HCI-CNQ/engine/README.md, PUSH_PROTOCOL.md. README sweep across 13 surfaces. Lockdown-compliant S2 doc-only. Previous: #60+#61 PUSHED 781770a CI #57 \"Closure on the Simplex\" green 50s.",
+    "previous_previous_last_push": "#60+#61 PUSHED 781770a CI #57 \"Closure on the Simplex\" green 50s (2026-05-22) — COMBINED. Two refinements landed atomically: (#60) UN-6 community handout v11 — 2-side ambassador, all 6 UN-6 locales (EN/FR/ES/RU/ZH/AR) now carry side 2 operations reference (CoDa core + Hˢ supplementary + CNQ quaternion + closure across 5 domains + apparatus map + symbols legend); side 1 unchanged from v10. (#61) Flagship v2.2 consolidation against the Rogue-Wave-Audio archive — eight gaps folded into GROUND_STATE_AND_TRACTION.md: §3.2 HUF-GOV/CLS fork at ADAC (observe-or-control), §3.3 DADI as failure-direction diagnostic (inverse-map triage), §4.3 Paired Measurement Doctrine ('one curve lies'), §12.1 date precision + non-monotonic H₁ abstraction path (DADC formal paper 2024-12-05; H₁ paper 2026-02; November 2025 Grok-generalization moment where MC-4 was born), §12.2 concept-folder anticipations (entropix→EITT, regimes, V∞Core, ai-reports→HUF briefings), §17 expansion (Grok November 2025 + AI-reports methodology), §18 The recursion test (what v2.2 closes). v2.2 flagship: 969 lines / 14,232 words / 31 pages PDF. AI_AGENTS.md gains §1.5 cross-domain partnership context (seven domains: acoustics + governance + electronics + robotics + X-ray procedural + mass production + man-machine interface). .well-known/ai-context.json gains framework_context top-level field so AI auto-discovery surfaces the partnership framing immediately. README chain refreshed across root + papers/ + papers/flagship/ to feature v2.2 as canonical. CI name 'Closure on the Simplex' is the meta-statement: the simplex closure constraint Σ pᵢ = 1 applied to the framework's own documentation. Push class: S2 doc-only, lockdown-compliant — engine code (cnt.py 2026-05-19, cnq.py 2026-05-09), schemas, INV catalog, NO-CREATE files, manuscript, talk deck, cinema scroll, projector, per-country plates all untouched. Previous: #59 PUSHED 326b0e0 CI #56 \"Ground State and Traction Engine\".",
+    "push_61_completed": "2026-05-22 PUSHED 781770a CI #57 \"Closure on the Simplex\" green 50s (combined with #60) — Flagship v2.2 consolidation + AI_AGENTS §1.5 partnership context + admin chain sweep. The system sums to one.",
+    "push_60_completed": "2026-05-22 PUSHED 781770a CI #57 \"Closure on the Simplex\" green 50s (combined with #61) — UN-6 handout v11: 2-side community ambassador, all 6 locales, side 2 carries CoDa + Hˢ + CNQ operations + closure across 5 domains + apparatus map. Markdown sources synced.",
+    "previous_last_push": "#59 PUSHED 326b0e0 CI #56 \"Ground State and Traction Engine\" green 51s (2026-05-21) — FLAGSHIP MASTER STANDARD. New flagship paper at papers/flagship/GROUND_STATE_AND_TRACTION.md (v2.1). 40-page master standard linking thirty years of measured BTL/RWA acoustic work to the present-day Hˢ simplex framework, with full lemma chain (Banach contraction → DADI convergence; Helmholtz reciprocity → forward/inverse consistency; Rayleigh-Sommerfeld → rigorous diffraction basis; Gershgorin invertibility → SEA positive-definiteness; group-delay-as-rotation → time on S³; closure invariance under CLR → ILR isometric mapping) plus two master theorems (unified-formula closure; compositional traction generalization). Unified formula equation (13) carries budget + partition + log-frequency carrier + S³ phase trajectory in a single expression — six measurable quantities, one equation. Constant-power objective and 4th-order Butterworth crossover documented as simultaneous co-discoveries with the 6.02 dB ground state. References limited to 16 externally peer-reviewed works; repository materials separated and clearly marked as self-hosted. AI Use Declaration names HUF AI Collective contributions (Claude, ChatGPT, Grok). README sweep: root README, QUICKSTART, AI_AGENTS, papers/README, papers/flagship/README, CODA-Association/README, CODAwork2026/README, ORIGIN_DADC_LINEAGE all updated to feature the flagship paper. Lockdown-compliant S2 doc-only — lives at papers/flagship/, outside CODAwork2026/. Engine code, schemas, INV catalog, manuscript, talk deck, cinema scroll, projector, per-country plates untouched. Previous: #58 PUSHED ec9a3c6 CI #55 \"Validate Repository\" green 50s.",
+    "push_59_completed": "2026-05-21 PUSHED 326b0e0 CI #56 \"Ground State and Traction Engine\" green 51s — Flagship master-standard paper GROUND_STATE_AND_TRACTION.md (v2.1, 40 pages) with full lemma chain + two master theorems + 38-entry glossary + peer-reviewed-only citation policy + AI Use Declaration. README chain sweep features the paper from the front door. Outside CODAwork2026/ lockdown surface; S2 doc-only.",
+    "push_58_completed": "2026-05-20 PUSHED ec9a3c6 CI #55 \"Validate Repository\" green 50s — Refinement-trail archive. 22-slide + 12-slide decks + their builders + compression-plan JSON + 22-slide speaking script moved into CODAwork2026/archive/talk_decks_pre_10slide_2026-05-20/. README chain refreshed; ChatGPT-flagged 'slide 18/19/20' stale references closed. Single deck at the active surface. Lockdown-compliant S2 doc-only.",
+    "push_57_completed": "2026-05-20 PUSHED 09696d5 CI #54 \"10-slide deck\" green 56s — 10-slide compressed final-talk deck promoted to primary; 12-slide + 22-slide variants preserved as siblings (now archived in push #58); full README chain + CONFERENCE_ATTENDEES + VERSION_HISTORY + speaking script updated.",
+    "push_56_completed": "2026-05-20 PUSHED 4e0e1a9 CI #53 \"UN-6 Ambassador\" green 52s",
+    "push_55_completed": "2026-05-20 PUSHED a647c55 CI #52 \"Operationalization\" green 55s — see last_push above for full bundle inventory.",
+    "push_55_prepared_archived": "2026-05-20 HOLD — EXPANDED. (a) CODA-Association/README.md slide-count sweep (20→22, two FinalTalk lines); (b) community handout PDF added at CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.pdf (v10 — operationalization pitch with UN-6 locale strip in header, technical advantages block, atan2/Helmert-ILR/hash-chain/IEEE-floor/CRD/schema-versioning advantages, bidirectional-training claim, 5-line doctrine, single A4 page); (c) Markdown handout shipped in UN-6 locales (EN canonical + FR/ES/RU/ZH/AR drafts pending native review) at CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.{fr,es,ru,zh,ar}.md per WRAPPER_SCHEMA §11.1 discipline; (d) ai-refresh/COMMUNITY_TEST_PACKET.{json,md} v1.0 STAGED — user-acceptance test packet, sibling to CLAIM_TEST_PACKET; (e) SPEAKER_BRIEF.md gains optional locomotive-metaphor closing-line section; (f) Hs/README.md + CODA-Association/README.md updated with UN-6 support callouts.",
+    "push_52_completed": "2026-05-17 PUSHED 98ea1dd6 CI #49 \"Conference-ready milestone\" — final-talk deck (22 slides) + cinema scroll (66 slides) + projector v2.0 (RADAR/BARY/ALIGN + SHOCK) + engine v3.2.0 navigation_2d + manuscript Fig 1-6 + Studies/Energy_HiddenDirections + CONFERENCE_ATTENDEES.md",
+    "push_53_completed": "2026-05-19 PUSHED bfb1c41 CI #50 \"README polish\" — removed restore-point callouts + slide-by-slide follow-along + 22-slide deck references throughout README chain",
+    "push_54_completed": "2026-05-19 PUSHED 396688b CI #51 \"Glossary\" green 49s — Glossary merge (GLOSSARY v3.0 + NOTATION redirect stub) + admin catch-up #52/#53",
+    "version_correctness_note": "Engine versions reflect push #32 ground-up rebuild (CNT v3.0.0 schema 3.0.0; CNQ v2.0.0 schema cnq/2.0.0). The engine-independence policy is in force: cnt_content_sha256 and cnq_content_sha256 are unrelated by design.",
+    "push_44_completed": "2026-05-12 PUSHED 8acadfb CI #42 \"Coordination\" green 49s",
+    "push_45_completed": "2026-05-12 PUSHED 32e4018 CI #43 \"CNQ Vector PDF\" green 44s",
+    "push_46_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #47)",
+    "push_47_completed": "2026-05-12 PUSHED 7f996e7 CI #44 \"Document Control Protocol (DCP-001)\" green 51s (combined with #46)",
+    "current_commit_sha": "0e202f7",
+    "current_commit_sha_full": "0e202f7ba5869b544d3171c91d1fc12667e77154",
+    "current_ci_run": 69,
+    "current_ci_run_name": "industrial compositions",
+    "current_ci_duration_seconds": 52,
+    "previous_commit_sha": "336a6e9",
+    "previous_ci_run": 68,
+    "previous_ci_run_name": "CoDawork2026 Post Projection",
+    "push_73_completed": "2026-06-11 PUSHED 0e202f7 (full 0e202f7ba5869b544d3171c91d1fc12667e77154) CI #69 \"industrial compositions\" Validate Repository green 52s -- Industrial instruments (4-study gas/fluid collection: closed-loop O2/CO2/N2 life-support, oil&gas produced water, blood/alveolar gas, spacecraft cabin) + MC-4/Ratio-Blindness doctrine + UN-6 summaries. REAL-DATA runs: VitalDB+UQ anaesthesia gas (O2 the dominant compositional driver 13/13 across two independent datasets), USGS Produced Waters Williston (minor ions SO4/HCO3 drive, not Na-Cl bulk brine), Frielingen-9 mudstone (PANGAEA, lossless 3.6e-15), NASA GeneLab GLDS-1 spaceflight transcriptome (lossless at D=18,952 + honest global null -> use DE). Space-readiness challenge + CoDaWork-2026 collaboration web (Letter of Intent, DRAFT unsent) + spaceflight-glds1 + collaborations/README index. Engine consolidation (CN-TT v4 front door; CNT v3.2.0/CNQ v2.0.0 ARCHIVED frozen oracle) + HS_GUIDE.md. AI-assist path (AI_ASSIST_PATH_PROTOCOL.md + 11 distributed AI_ASSIST.json nodes; bring-your-own-AI) + DATA_SOURCES.md (per-study/per-case links). Pre-push: engine self-test PASS (66c969f2); 12 AI nodes valid. ADDITIVE: engine code (cnt.py/cnq.py), schemas (HUF-STD-001/002/003), INV catalog untouched; raw data NOT in repo (off-repo DATA/_derived). Open engine item E-21 (all-zero-carrier guard; flagged, not patched). HUF repo (RATIO_BLINDNESS_DOCTRINE.md + huf-gov/AI_ASSIST.json) pushed separately. Post-#73 §6 admin sync rides as the next 'Hs Admin' commit.",
+    "cache_lag_check_url": "https://api.github.com/repos/PeterHiggins19/higgins-decomposition/commits/main",
+    "cache_lag_note": "If current_commit_sha here differs from the SHA returned by cache_lag_check_url, your AI connector cache is behind the repo. See AI_AGENTS.md §2.1.",
+    "push_48_completed": "2026-05-12 PUSHED eca9604 CI #45 \"Cache-lag mitigation\" green 44s",
+    "conference_window_lockdown": "2026-05-12 → 2026-06-06",
+    "conference_window_lockdown_doc": "PRE_CONFERENCE_LOCKDOWN.md",
+    "push_49_completed": "2026-05-12 PUSHED 67e2456 CI #46 \"lectern\" green 48s",
+    "publication_standards": {
+      "authority": "HUF-STD-001",
+      "path": "huf-gov/standards/HUF_PUBLICATION_STANDARDS.json",
+      "version": "1.0",
+      "established": "2026-05-13",
+      "principle": "All HUF and derivative-repository publicly-published media conform to HUF-STD-001. AI use is disclosed per ICMJE/COPE/Nature/Science/WAME/EU-AI-Act/arXiv/ACM/IEEE conventions. Authorship is human-only."
+    },
+    "tensor_train_io_standard": {
+      "authority": "HUF-STD-002",
+      "path": "huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json",
+      "companion_md": "huf-gov/standards/TENSOR_TRAIN.md",
+      "version": "1.0",
+      "established": "2026-05-13",
+      "principle": "data CSV → CNT (metric tensor, schema 3.1.0) → CNQ (metric quaternion, schema cnq/2.0.0) → vector output (PDF / PNG / SVG). PPTX excluded from standard package — conference-only.",
+      "draws_from": [
+        "HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md (Output Doctrine v1.0)",
+        "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json (INV-062 STAGED)"
+      ]
+    },
+    "hs_linear_algebra_foundations": {
+      "authority": "HUF-STD-003",
+      "path": "huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json",
+      "companion_md": "huf-gov/standards/FOUNDATIONS.md",
+      "traceability_audit": "huf-gov/standards/FOUNDATIONS_TRACEABILITY.md",
+      "version": "1.0",
+      "established": "2026-05-14",
+      "principle": "Names the seven linear-algebra components on which every Hs engine and plate generator rests: (1) Symmetric Matrix, (2) Property of Transpose, (3) Matrix Decomposition, (4) Eigenvectors/Eigenvalues, (5) Strong Property of Symmetric Matrices (Spectral Theorem), (6) Spectral Decomposition, (7) Visualization. Establishes Stage-0 (Foundations Plate) as the dedicated foundations-visualization tier underneath Stages 1–4.",
+      "stage_0_generator": "HCI/codawork2026/stage0_foundations/foundations_plate.py",
+      "stage_0_outputs_pdf": "CODA-Association/CODAwork2026/data_outputs/CodaWork2026_FoundationsPlates_2026-05-14.pdf (19 pages, master PDF)",
+      "stage_0_outputs_per_country": "CODA-Association/CODAwork2026/data_outputs/per_country_pdfs/{ISO}_stage0.pdf × 9"
+    },
+    "push_50_completed": "2026-05-14 PUSHED 47cecc9 CI #47 \"Foundations\" green 48s — conference-prep arc package: huf-gov circuit breakers + CODA-Association folder authority + Premier Data Outputs (master PDF 325pp + master PPTX 66 slides) + HUF-STD-001/002/003 standards + dual-view Triplet Plates (503pp) + Stage-0 Foundations Plates (19pp). All lockdown-compliant (S2 doc + additive plate modules). Engine code, schemas, INV dispositions, NO-CREATE files, papers/codawork2026/talk/ all untouched. Checker green 23/0/0."
+  },
+  "identity": {
+    "framework_name": "Higgins Decomposition",
+    "acronym": "Hs",
+    "author": "Peter Higgins",
+    "affiliation": "Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada",
+    "contact": "PeterHiggins@RogueWaveAudio.com",
+    "repo": "github.com/PeterHiggins19/higgins-decomposition",
+    "raw_base": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/",
+    "license": "Per LICENSE file at repository root.",
+    "doctrine": "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line.",
+    "principle": "CNT measures invariance. CNQ names the algebra it lives in.",
+    "public_use_status": "fully_public (as of push #26+#27, 2026-05-08). All subcomponents (HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND, RWA mirror) are publicly usable. Engines (cnt.py, cnq.py) are deterministic and freely runnable under the repo licence."
+  },
+  "canonical_names": {
+    "_warning": "These are EXACT. Do not paraphrase, abbreviate differently, or expand differently.",
+    "Hs": {
+      "full": "Higgins Decomposition",
+      "NOT": [
+        "Higgins Decomp",
+        "Hs Engine",
+        "HD"
+      ]
+    },
+    "HCI": {
+      "full": "Higgins Compositional Instrument family",
+      "tier_siblings": [
+        "HCI-CNT",
+        "HCI-CNQ",
+        "HCI-AUDIO",
+        "HCI-ULTRASOUND"
+      ]
+    },
+    "CNT": {
+      "full": "Compositional Navigation Tensor",
+      "engine": "cnt.py / cnt.R",
+      "schema": "2.1.0",
+      "engine_version": "2.0.4",
+      "role": "Canonical measurement engine on the simplex"
+    },
+    "CNQ": {
+      "full": "Compositional Navigation Quaternion",
+      "engine": "cnq.py / cnq.R",
+      "schema": "cnq/1.0.0",
+      "engine_version": "1.0.0",
+      "role": "Quaternion-native view of CNT trajectories; algebraic naming layer",
+      "shipped_in_push": "#26 (2026-05-08)",
+      "NOT": [
+        "CNQ replaces CNT",
+        "CNQ is a finished general theory at all D"
+      ]
+    },
+    "CCTT": {
+      "full": "CNT Compositional Tensor Train",
+      "version": "1.0",
+      "role": "7-phase reproduction protocol for CNT-grade analysis"
+    },
+    "EITT": {
+      "full": "Entropy-Invariant Time Transformer",
+      "NOT": [
+        "Ternary Transform",
+        "Temporal Transform",
+        "Time Transfer"
+      ],
+      "role": "One step inside the Hs pipeline; entropy-invariance under geometric-mean decimation"
+    },
+    "DADC": {
+      "full": "Dimension-Apportioned Diffraction Correction",
+      "origin": "Loudspeaker work at Binaural Test Lab (BTL); see HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md"
+    },
+    "BTL": {
+      "full": "Binaural Test Lab",
+      "NOT_dual_gloss": "Single canonical identity; not 'Below Threshold Loudspeaker'",
+      "framing": "Sound-controlled professional laboratory; research deployment in Markham + four-laboratory institutional deployment (2 Ottawa, 2 Monaco) operated by a private Canadian industrial sponsor",
+      "identity_card": "RWA/RWA-001.json"
+    },
+    "LIMIT_CYCLE_P2": {
+      "role": "Period-2 attractor termination of the CNT depth-tower return map",
+      "interpretation": "Universal compositional invariance signature for flow-directional compositional dynamics carrying the structural preconditions",
+      "publication_target": "Paper 1 (INV-026)"
+    }
+  },
+  "canonical_engines": {
+    "_warning": "Both engines are public, deterministic, and shipped under the repo licence. Engine independence (push #32): cnt and cnq engines have separate hash chains by design. Per-language parity: cnt.py and cnt.R agree per-field at IEEE floor; same for cnq.py vs cnq.R.",
+    "cnt_python": {
+      "path": "HCI-CNT/engine/cnt.py",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.py",
+      "version": "3.1.0",
+      "schema": "3.1.0",
+      "lang": "Python 3.9+",
+      "deps": "stdlib + numpy",
+      "release_push": "#37"
+    },
+    "cnt_r": {
+      "path": "HCI-CNT/engine/cnt.R",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNT/engine/cnt.R",
+      "version": "3.0.0",
+      "schema": "3.0.0",
+      "lang": "R 4.0+",
+      "deps": "jsonlite, digest",
+      "release_push": "#32",
+      "schema_parity_note": "R port at v3.0.0 schema 3.0.0; Python at v3.1.0. v3.1.0 navigation_concentration_family additions queued in EngPromo-2."
+    },
+    "cnt_pseudocode": {
+      "path": "HCI-CNT/cnt_v2/CNT_PSEUDOCODE.md (legacy reference)"
+    },
+    "cnt_schema": {
+      "path": "HCI-CNT/cnt_v2/CNT_JSON_SCHEMA.md"
+    },
+    "cnq_python": {
+      "path": "HCI-CNQ/engine/cnq.py",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.py",
+      "version": "2.0.0",
+      "schema": "cnq/2.0.0",
+      "lang": "Python 3.9+",
+      "deps": "stdlib + numpy",
+      "support_modules": [
+        "hci_shared/ (validation, hashing, geometry, helmsman, attractors, factoring)",
+        "HCI-CNQ/engine/cnt_adapter.py"
+      ],
+      "release_push": "#32"
+    },
+    "cnq_r": {
+      "path": "HCI-CNQ/engine/cnq.R",
+      "raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/engine/cnq.R",
+      "version": "2.0.0",
+      "schema": "cnq/2.0.0",
+      "lang": "R 4.0+",
+      "deps": "jsonlite, digest",
+      "parity_contract": "Numerical max_residual agrees with cnq.py to <= 1 ULP; cnq_content_sha256 matches to byte-level given identical float-formatting policy",
+      "release_push": "#32"
+    },
+    "cnq_pseudocode": {
+      "path": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+      "role": "Language-agnostic algorithm reference; both cnq.py and cnq.R are faithful translations"
+    },
+    "cnq_schema": {
+      "path": "HCI-CNQ/engine/CNQ_SCHEMA.md"
+    },
+    "cnq_tests": {
+      "path": "HCI-CNQ/engine/tests/",
+      "files": [
+        "test_first_principles.py (15 tests — geometry, quaternion algebra, atan2 rotation)",
+        "test_dimension_policy.py (19 tests — D=2,3,4,5,7,8,9,10 labels and behaviour)",
+        "test_determinism.py (9 tests — canonical-JSON, hashing, end-to-end Planck)"
+      ],
+      "total_tests": 43,
+      "all_passing": true
+    }
+  },
+  "canonical_numbers": {
+    "_warning": "These are EXACT empirical results. Do not round or restate.",
+    "three_ieee_floor_confirmations": {
+      "_principle": "Three physically unrelated datasets reproduce LIMIT_CYCLE_P2 + IEEE-floor residuals. Bit-identical residual across systems => the residual is hardware float64 representation, not algorithmic noise.",
+      "backblaze_fleet": {
+        "domain": "Hard-drive failure compositions (engineering)",
+        "D": 4,
+        "T": 731,
+        "n_pairs": 730,
+        "max_residual": 4.440892098500626e-16,
+        "gate_threshold": 1e-12,
+        "gate_pass": true
+      },
+      "planck_cmb_boson": {
+        "domain": "Planck 2018 best-fit CMB power spectrum (cosmology)",
+        "D": 4,
+        "T": 2499,
+        "n_pairs": 2498,
+        "max_residual": 4.440892098500626e-16,
+        "parent_cnt_content_sha256": "3de7d4007866dc11c64d5342974d6c9d2dfc1906166627999194df3fe6a400c4",
+        "cnt_termination": "LIMIT_CYCLE_P2",
+        "ir_class": "OVERDAMPED_EXTREME",
+        "gate_pass": true,
+        "publication_role": "Falsifies prior boson/fermion overreach; supports universality framing"
+      },
+      "sm_neutrino_oscillation": {
+        "domain": "Standard-Model 3-flavour numu oscillation (particle physics)",
+        "D": 3,
+        "T": 1000,
+        "max_residual": 3.3306690738754696e-16,
+        "parent_cnt_content_sha256": "60d733d2219fbe3cf6ea5647d0f17139923d578ffee0d16a124fbe4eac526952",
+        "cnt_termination": "LIMIT_CYCLE_P2",
+        "ir_class": "LIGHTLY_DAMPED",
+        "amplitude_A": 0.1114077556471954,
+        "damping_zeta": 0.056712808948377595,
+        "publication_role": "Boundary/consistency support — D=3 is consistency channel, NOT native D=4 quaternion proof"
+      }
+    },
+    "metric_involution_residuals": {
+      "planck_M2_eq_I": 7.63e-17,
+      "neutrino_M2_eq_I": 7.4e-17,
+      "framing": "M^2=I is one of three structural-invariance pillars (alongside SO(D-1) simplex rotation and SU(2) handedness). The D=4 quaternion sandwich is the stronger independent test."
+    },
+    "reference_cnq_observations_local_platform": {
+      "_note": "Linux x86_64 / Python 3.10 / numpy. Not enforced expectations — these are reference observations for the cross-platform reproduction challenge.",
+      "planck_cmb_quaternion_cnq_content_sha256": "927af6a381f425945475a914d72c0c63812ee571701079b66a642bd114075b64",
+      "sm_neutrino_quaternion_cnq_content_sha256": "f64741cb76eef302699c17adebf5fbd1fb4dc1e73b4cf9562997a7afc5154183"
+    }
+  },
+  "canonical_formulas": {
+    "_notation_reference": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "closure": "C(x) = x / sum_i(x_i)",
+    "clr": "clr(x)_i = log(x_i) - (1/D) * sum_j(log(x_j))",
+    "ilr_via_helmert": "ilr(x) = clr(x) @ H.T  where H is the (D-1) x D Helmert orthonormal contrast matrix",
+    "helmert_basis_row_k": "row k (zero-indexed): n=k+1, norm=1/sqrt(n*(n+1)); first n entries = +norm, entry n = -n*norm, rest = 0",
+    "kappa_HS_tensor": "kappa^HS_ij(x) = (delta_ij - 1/D) / (x_i * x_j)  (order-2 Aitchison pullback metric)",
+    "s_j_sensitivity_vector": "s_j(x) = 1/x_j  (order-1 carrier steering sensitivity; DISTINCT from kappa^HS)",
+    "metric_involution": "M(x) = C(1/x)  ;  M(M(x)) = x  (algebraic identity; data must respect it at IEEE floor)",
+    "rotation_quaternion_atan2_stable": "given unit u1, u2 in R^3:  cross = u1 x u2,  dot = clip(u1.u2, -1, 1),  angle = atan2(||cross||, dot),  q = quat_from_axis_angle(cross/||cross||, angle)",
+    "sandwich_product": "rotate(q, v) = (q . [0;v] . q*).xyz  where q* = quat_conj(q)",
+    "hamilton_product_noncommutative": "i*j = k, j*i = -k (right-hand convention; matches cnq.py and cnq.R)",
+    "cnq_content_sha256": "SHA-256 of canonical-JSON encoding of payload (sort_keys=True, separators=',:', ensure_ascii=True, allow_nan=False) AFTER stripping clock-dependent fields {generated, timestamp, wall_clock, _run_clock}"
+  },
+  "dimension_policy": {
+    "_authoritative_doc": "HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md",
+    "D_4": {
+      "label": "native_quaternion",
+      "claim_strength": "confirmed (load-bearing case)",
+      "processing": "Helmert -> R^3 -> unit-quaternion sandwich"
+    },
+    "D_3": {
+      "label": "boundary_or_degenerate_support",
+      "claim_strength": "consistency support, not native D=4 quaternion proof",
+      "processing": "Helmert -> R^2 -> embed in R^3 with z=0 -> sandwich"
+    },
+    "D_2": {
+      "label": "degenerate_below_quaternion",
+      "claim_strength": "boundary diagnostic; quaternion view does not apply",
+      "processing": "bearing computation only"
+    },
+    "D_8": {
+      "label": "bi_quaternion_factoring_candidate",
+      "claim_strength": "experimental (INV-029); legacy name retained as dimension-policy label",
+      "formal_name": "twin-quaternion factoring (per NOTATION_AND_TERMINOLOGY.md sect 7)",
+      "processing": "Helmert -> R^7; reduced view = first 3 axes; twin-quaternion factoring scaffolded but DEFERRED"
+    },
+    "D_geq_5_not_8": {
+      "label": "reduced_or_projected",
+      "claim_strength": "projection diagnostic only; Cl(D-1) Clifford extension is DEFERRED",
+      "processing": "Helmert -> R^(D-1) -> first 3 axes -> sandwich (lossy)"
+    }
+  },
+  "claim_strength_table": {
+    "_authoritative_doc": "HCI-CNQ/CLAIM_STRENGTH_TABLE.md",
+    "confirmed": [
+      "D=4 Aitchison direction changes are reproduced by unit-quaternion sandwich rotations to IEEE floor in tested datasets (Backblaze + Planck)",
+      "M^2=I residual sits at 7.4e-17 to 7.6e-17 across all three confirmation datasets",
+      "CNT remains canonical and unchanged",
+      "CNQ engine determinism: two runs on same CNT JSON produce identical cnq_content_sha256",
+      "All 43 CNQ engine tests pass"
+    ],
+    "candidate": [
+      "Central tagline: 'CNT measures invariance. CNQ names the algebra it lives in.'",
+      "LIMIT_CYCLE_P2 as universal compositional invariance signature (gated on Round 3 INV-022)",
+      "Hamilton-product cross-dataset comparison",
+      "Spinor / vector branch diagnostic"
+    ],
+    "experimental_deferred": [
+      "INV-028 HCI Dyadic Coupling Ladder (order-2 / 4 / 8 tensor diagnostic)",
+      "INV-029 CNQ Twin-Quaternion Factoring (D=8 SU(2) x SU(2))",
+      "D >= 9 Cl(D-1) Clifford extension"
+    ],
+    "future_out_of_scope_for_paper_1": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "cnq.R parity to corpus-wide level (Python and R already pass first-principles + dimension-policy + Planck end-to-end)",
+      "CNQ-HCI-VR course-attitude integration",
+      "Paper 3 — CNQ parallel verification methodology"
+    ],
+    "avoid_phrases": {
+      "universally_across_all_compositional_data": "use 'across the tested demonstrations so far, with full-corpus validation pending'",
+      "M2_proves_time_reversal": "use 'M^2=I is one of three structural-invariance pillars; the D=4 quaternion sandwich is the stronger independent test'",
+      "D3_native_quaternion_proof": "use 'D=3 is consistency support, not native D=4 quaternion proof'",
+      "rank_for_index_count": "use 'order' (matrix rank and CP-decomposition rank are reserved technical terms)"
+    }
+  },
+  "investigation_catalog_pointer": {
+    "_description": "Canonical research-methodology layer. Single record of every speculative branch / hypothesis classified by disposition.",
+    "json_path": "ai-refresh/INVESTIGATION_CATALOG.json",
+    "md_path": "ai-refresh/INVESTIGATION_CATALOG.md",
+    "current_total": 63,
+    "by_disposition": {
+      "CANONICAL": 33,
+      "DEFERRED": 12,
+      "FALSIFIED": 1,
+      "OPEN": 8,
+      "CLOSED": 1,
+      "STAGED": 8
+    },
+    "by_source": {
+      "CLAUDE": 8,
+      "CHATGPT": 10,
+      "GROK": 18,
+      "USER": 25,
+      "PILOT": 0
+    },
+    "named_findings_for_codawork_2026": [
+      "INV-049 — navigation_concentration_family engine-native (CNT v3.1.0)",
+      "INV-050 — metric-invariance of the qualitative compositional verdict",
+      "INV-051 — deceptive-drift signature reproduced across 5 of 9 EMBER countries",
+      "INV-053 - Prior-art Area 4 partially executed (Morais et al. 2017/2018 + Arata & Onozaki 2017); MC-4 survives narrowed",
+      "INV-054 STAGED - Hˢ Ascent Path doctrine (post-conference promotion 2026-06-06+)",
+      "INV-055 - Talk delivery infrastructure (papers/codawork2026/talk/ phone-readable repo-as-presentation)",
+      "INV-060 STAGED - Yeast Factor diagnostic (4-phase classifier; post-conference research thread)",
+      "INV-061 STAGED - System Terms Catalog (domain-to-engine mapping; prevents engine bloat)"
+    ]
+  },
+  "notation_and_terminology_pointer": {
+    "_description": "Canonical vocabulary reference; every doc using a defined term should cite this.",
+    "path": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "key_locks": [
+      "Tensor 'order' (index count) vs 'rank' (matrix rank or CP-decomposition rank) — distinct",
+      "kappa^HS_ij is order-2 metric tensor; s_j = 1/x_j is order-1 sensitivity vector — distinct",
+      "twin-quaternion factoring (formal) vs bi-quaternion factoring (legacy filename only)",
+      "Frame / dimension / coordinate / axis — distinct",
+      "Tier / Stage / Order / Level / Regime / Degree — distinct"
+    ]
+  },
+  "experiments": {
+    "_description": "The three IEEE-floor confirmation experiments. All inputs + expected outputs + cnq_run reference outputs are shipped in the repo.",
+    "backblaze_fleet_quaternion": {
+      "folder": "HCI-CNQ/experiments/backblaze_fleet_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI/experiments_v2/codawork2026/backblaze_fleet/backblaze_fleet_input.csv",
+      "legacy_script": "QD_round_2.py",
+      "legacy_results": "QD_round_2_results.json"
+    },
+    "planck_cmb_quaternion": {
+      "folder": "HCI-CNQ/experiments/planck_cmb_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/planck_cmb_boson_input.csv",
+      "cnt_json_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/planck_cmb_boson_cnt.json",
+      "cnq_run_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/planck_cmb_quaternion/cnq_run.json",
+      "legacy_script": "QD_round_2_5_planck.py",
+      "legacy_results": "QD_round_2_5_results.json"
+    },
+    "sm_neutrino_quaternion": {
+      "folder": "HCI-CNQ/experiments/sm_neutrino_quaternion/",
+      "input_csv_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/sm_numu_oscillation_input.csv",
+      "cnt_json_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/sm_numu_oscillation_cnt.json",
+      "cnq_run_raw_url": "https://raw.githubusercontent.com/PeterHiggins19/higgins-decomposition/main/HCI-CNQ/experiments/sm_neutrino_quaternion/cnq_run.json",
+      "legacy_script": "QD_round_2_6_neutrino.py",
+      "legacy_results": "QD_round_2_6_results.json"
+    },
+    "one_command_reproduction": {
+      "command": "python HCI-CNQ/scripts/run_all_confirmations.py --repo-root .",
+      "verifier": "python HCI-CNQ/scripts/verify_publication_results.py --repo-root .",
+      "expected_results_lock_file": "HCI-CNQ/results/expected_results.json"
+    },
+    "full_corpus_validation_2026_05_10": {
+      "_summary": "Citation-grade reference suite. Phase 1: 18 datasets across 10 domains. Phase 2: 101 datasets across 11 domains; 100 ran end-to-end through CNT v3 + CNQ v2.",
+      "folder": "experiments/2026-05-10_full-corpus-validation/",
+      "readme": "experiments/2026-05-10_full-corpus-validation/README.md",
+      "master_findings": "experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md",
+      "manifest": "experiments/2026-05-10_full-corpus-validation/MANIFEST.json",
+      "deferred": "experiments/2026-05-10_full-corpus-validation/DEFERRED_ADAPTERS.md",
+      "introduced": "push #34",
+      "catalog_entry": "INV-048"
+    },
+    "codawork2026_conference": {
+      "_summary": "EMBER 8-country corpus on CNT v3 + CNQ v2 with CRD-1.0 coherent-range manifest. Production-ready for June 2026.",
+      "folder": "papers/codawork2026/conference_2026_06/",
+      "comparison": "papers/codawork2026/conference_2026_06/COMPARISON_v2_0_4_vs_v3_0_0.md",
+      "introduced": "push #32",
+      "crd_codified_at": "push #33"
+    }
+  },
+  "cross_platform_reproduction_challenge": {
+    "purpose": "Open invitation to ChatGPT, Grok, Gemini, and any third-party reviewer: clone the repo, run cnq.py (or cnq.R) against the shipped CNT JSONs, produce your own cnq_content_sha256. Bit-identical hashes across platforms = fourth independent confirmation channel beyond the three load-bearing datasets.",
+    "expected_behaviour": "On Linux / macOS / Windows, Python 3.9-3.13, numpy >= 1.20, the cnq_content_sha256 should be identical for each experiment.",
+    "if_hashes_differ": "File a GitHub issue with platform details + observed hash. Hash drift is a finding, not a failure — likely a float-formatting difference, not a math difference. The max_residual must still equal the published value."
+  },
+  "paper_pipeline": {
+    "paper_1": {
+      "investigation_id": "INV-026",
+      "title": "A Universal Compositional Invariance Signature: Period-2 Termination at IEEE-Floor Precision Across Drive Failures, CMB Photon Power, and Standard-Model Neutrino Oscillation",
+      "draft": "papers/in_progress/PAPER_1_UNIVERSAL_INVARIANCE_DRAFT.md",
+      "status": "draft 3 (push #26+#27); claim-strength block, M^2=I framing tightened, Appendix A one-command reproduction path",
+      "target_venue": "arXiv physics.data-an (primary), cross-list stat.AP",
+      "release_tag_planned": "v3.0.0-paper1 (after Round 3 lands)"
+    },
+    "paper_2": {
+      "investigation_id": "INV-027",
+      "title": "DADC Origin and Independent Discovery of Compositional Data Analysis",
+      "status": "outline drafted",
+      "target_venue": "CoDaWork 2026 + Math. Geosci. journal version"
+    }
+  },
+  "file_map": {
+    "_note": "Authoritative source files. If content disagrees, these win.",
+    "fast_refresh": "HS_FAST_REFRESH.json (THIS FILE)",
+    "fast_refresh_md": "HS_FAST_REFRESH.md",
+    "publication_ready": "PUBLICATION_READY.md",
+    "ops_protocol": "OPERATIONS_PROTOCOL.md",
+    "cctt_runbook": "ai-refresh/CCTT_RUNBOOK.md",
+    "investigation_catalog": "ai-refresh/INVESTIGATION_CATALOG.json + .md",
+    "notation_terminology": "HCI-CNT/handbook/NOTATION_AND_TERMINOLOGY.md",
+    "glossary": "HCI-CNT/handbook/GLOSSARY.md",
+    "handbook_volumes": [
+      "HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
+      "HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md",
+      "HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md",
+      "HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md"
+    ],
+    "origin_lineage": "HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md",
+    "cnq_engine_python": "HCI-CNQ/engine/cnq.py",
+    "cnq_engine_r": "HCI-CNQ/engine/cnq.R",
+    "cnq_pseudocode": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+    "cnq_schema": "HCI-CNQ/engine/CNQ_SCHEMA.md",
+    "cnq_tests": "HCI-CNQ/engine/tests/",
+    "cnq_status": "HCI-CNQ/STATUS_AND_MATURITY.md",
+    "cnq_claim_strength": "HCI-CNQ/CLAIM_STRENGTH_TABLE.md",
+    "cnq_scope": "HCI-CNQ/CNQ_SCOPE_AND_LIMITS.md",
+    "cnq_round3_plan": "HCI-CNQ/ROUND3_VALIDATION_PLAN.md",
+    "cnq_dyadic": "HCI-CNQ/HCI_DYADIC_COUPLING_LADDER.md",
+    "cnq_twin_quaternion": "HCI-CNQ/CNQ_BIQUATERNION_FACTORING.md",
+    "cnt_engine_python": "HCI-CNT/engine/cnt.py",
+    "cnt_engine_r": "HCI-CNT/engine/cnt.R",
+    "EXPERIMENTS_JOURNAL": "EXPERIMENTS_JOURNAL.md",
+    "COHERENT_RANGE_DOCTRINE": "docs/COHERENT_RANGE_DOCTRINE.md",
+    "FULL_CORPUS_VALIDATION_README": "experiments/2026-05-10_full-corpus-validation/README.md",
+    "FULL_CORPUS_MASTER_FINDINGS": "experiments/2026-05-10_full-corpus-validation/MASTER_FINDINGS.md",
+    "FULL_CORPUS_MANIFEST": "experiments/2026-05-10_full-corpus-validation/MANIFEST.json",
+    "reproducibility_checklist": "REPRODUCIBILITY_CHECKLIST.md",
+    "ascent_path_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json",
+    "talk_folder_readme": "papers/codawork2026/talk/README.md",
+    "talk_folder_cheat_sheet": "papers/codawork2026/talk/CHEAT_SHEET.md"
+  },
+  "common_drift_errors": {
+    "_note": "Errors that have actually occurred in cross-AI sessions. Check for these during refresh.",
+    "rank_vs_order": "tensor 'rank-N' used for index count instead of 'order-N'. Reserve 'rank' for matrix rank or CP-decomposition rank. Caught 2026-05-08, push #27.",
+    "kappa_HS_conflated_with_sj": "kappa^HS_ij (order-2 metric tensor) conflated with s_j = 1/x_j (order-1 sensitivity vector). Two distinct objects. Caught 2026-05-07, push #23.",
+    "bi_quaternion_strict_misuse": "'Bi-quaternion factoring' used informally for the SU(2) x SU(2) factoring, which is formally 'twin-quaternion'. Strict mathematical bi-quaternion = H tensor C. Caught 2026-05-08, push #27.",
+    "btl_dual_gloss": "BTL framed as both 'Binaural Test Lab' and 'Below Threshold Loudspeaker'. Single canonical identity: Binaural Test Lab. Caught 2026-05-08, push #24.",
+    "btl_basement_framing": "BTL described as 'basement lab', which is unprofessional. Correct framing: sound-controlled professional laboratory; Markham research deployment + 4-lab institutional network. Caught 2026-05-08, push #24.",
+    "experimental_not_for_repo_use_legacy": "Legacy 'EXPERIMENTAL — NOT FOR REPO USE' / 'do_not_push' guards from pre-promotion QD era used as live state. RETIRED in push #27. System is fully public.",
+    "h1_paper_misciting": "H_1 (Higgins Operator) paper miscited as 'published' when it's a self-hosted working paper. Caught 2026-05-08, push #24.",
+    "d3_neutrino_native_quaternion": "D=3 neutrino result claimed as native D=4 quaternion proof. Correct: D=3 is consistency support / boundary case. Caught 2026-05-08, push #26.",
+    "human_vs_user_or_researcher": "Word 'human' as a person noun (e.g., 'human entry point', 'human reader', 'for human consumption') has been replaced project-wide with 'user' or 'researcher' since push #25. The technical adjective 'human-readable' is also replaced with 'user-readable'. Re-introducing 'human' is a regression. Caught and re-locked at push #36 (2026-05-10).",
+    "author_name_in_user_facing_readmes": "Author personal name (Peter Higgins, Peter) is REMOVED from README.md files across the repo. Formal copyright attribution remains in LICENSE, NOTICE, and LICENSING.md. The grounding-test answer in llms.txt, AI_AGENTS.md, and .well-known/ai-context.json deliberately includes the author name as the verification target for AI hallucination — that is intentional and should NOT be removed. Locked at push #36.",
+    "ai_presence_balance": "AI-discovery surfaces (llms.txt, AI_AGENTS.md, .well-known/ai-context.json) are intentionally robot-prominent. The user-facing README.md is intentionally robot-light: a small HTML comment at the bottom points to the discovery files. Re-injecting 'AI assistants — fetch this first' banners into README.md is a regression. Locked at push #36."
+  },
+  "ai_discovery_channels": {
+    "llms_txt": "/llms.txt (https://llmstxt.org/ convention)",
+    "well_known": "/.well-known/ai-context.json (RFC 8615)",
+    "ai_agents_md": "/AI_AGENTS.md (full operating manual)",
+    "fast_refresh_json": "/HS_FAST_REFRESH.json (this file)",
+    "fast_refresh_md": "/HS_FAST_REFRESH.md (companion narrative)",
+    "shipped_in_push": "#29"
+  },
+  "grounding_test": {
+    "_purpose": "Three quick questions to verify whether an AI's view of the repo is grounded vs stale/hallucinated",
+    "_recommended_use": "Run before trusting any AI-generated summary of the repo",
+    "questions": [
+      {
+        "question": "What is the latest release tag, and the most recent commit message on main?",
+        "current_answer": "Latest tag v0.29.0 (dated 2026-05-08, 'AI visibility infrastructure + Grok R3 catalog absorption'). Patch pushes after the tag may move the SHA forward without bumping the tag; the tag is the durable anchor.",
+        "answer_changes_with_pushes": true
+      },
+      {
+        "question": "Does HCI-CNQ/engine/cnq.py exist? What is its size?",
+        "current_answer": "Yes; ~19 KB; 520 lines. Shipped in push #26 (commit aef4992, 2026-05-08).",
+        "common_failure": "Grok round 2 (2026-05-08) claimed 'cnq.py does not exist' from stale cache. Re-fetch the engine folder."
+      },
+      {
+        "question": "Who is the author of this repository?",
+        "current_answer": "Peter Higgins, audio/electronics engineer, Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada.",
+        "common_failure": "Gemini hallucinated 'Peter Higgins, 1950s chemist' from training data. If an AI describes Peter as anything other than the audio/electronics engineer at Rogue Wave Audio, its summary is fabricated."
+      }
+    ]
+  },
+  "priority_lock": {
+    "_principle": "Basics-first. Commercialisation pathways stay deferred until external verification.",
+    "verified_required_before_applied_work": [
+      "Round 3 full-corpus quaternion validation (INV-022)",
+      "arXiv submission of Paper 1 (INV-026)",
+      "Cross-platform reproduction confirmation",
+      "First applied pilots (INV-024 + INV-025)"
+    ],
+    "deferred_until_above_complete": [
+      "Electronics manufacturing (Fuji SMT + Nordson Dage X-ray) — see applications/ELECTRONICS_MANUFACTURING_DEPLOYMENT_DEFERRED.md"
+    ],
+    "rationale": "Machine automation is too risky until basics verified. Discipline preserves credibility."
+  },
+  "doctrine_pointers": {
+    "_warning": "Four binding doctrines as of push #33. All are model-agnostic and apply to every engine, wrapper, paper, and applied tier.",
+    "SEA_1_0": {
+      "name": "Suspicion of Every Assumption",
+      "doc": "docs/SUSPICION_OF_EVERY_ASSUMPTION.md",
+      "introduced": "push #32",
+      "catalog_entry": "INV-045"
+    },
+    "STP_1_0": {
+      "name": "Self-Test Protocol (BIST)",
+      "doc": "docs/SELF_TEST_PROTOCOL.md",
+      "introduced": "push #32",
+      "catalog_entry": "INV-046"
+    },
+    "CRD_1_0": {
+      "name": "Coherent Range Doctrine",
+      "doc": "docs/COHERENT_RANGE_DOCTRINE.md",
+      "introduced": "push #33",
+      "catalog_entry": "INV-047"
+    },
+    "engine_independence": {
+      "name": "Engine independence policy",
+      "doc": "ai-refresh/CNT_V3_CNQ_V2_DESIGN.md",
+      "introduced": "push #32",
+      "summary": "No cross-engine hash chain; each engine deterministic on its own; cnt_content_sha256 and cnq_content_sha256 are unrelated by design"
+    }
+  },
+  "experiments_journal_pointer": {
+    "doc": "EXPERIMENTS_JOURNAL.md",
+    "purpose": "Single citation-grade markdown documenting every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0",
+    "introduced": "push #35",
+    "linked_from_landing": true
+  },
+  "active_priority_pointer": {
+    "_warning": "POST-CONFERENCE roll-forward applied 2026-06-07, rolled forward again 2026-06-09 (in-session Cowork edits; pushed 2026-06-09 as push #72, commit 336a6e9). The CoDaWork 2026 prep window (2026-05-10..2026-06-05) and the talk-folder lockdown (until 2026-06-06) have both passed. As of 2026-06-09 the geology-wehner collaboration is the primary workhorse (active_workstreams[0]). The conference pointers below are retained as history; the live priority is in active_workstreams.",
+    "topic": "Post-conference: Canada energy study (national EMBER + provinces/territories StatCan/CER) + four research-only feasibility domains",
+    "conference_status": "CoDaWork 2026 talk DELIVERED at Coimbra, Portugal, 1-5 June 2026. Well-received; audience read it as 'evolving dynamical systems analysis'; few questions because it was clear; handouts taken; interest expressed (a Japanese researcher noted Japanese-government energy-analysis interest); certificate of participation received. Keep ALL pitch language at 'interest expressed', never 'acquired/implemented'; verify any named contact independently before outreach.",
+    "active_workstreams": [
+      "GEOLOGY COLLABORATION (Matthew Wehner) — PRIMARY WORKHORSE as of 2026-06-09. Hs/CNT/CNQ applied to mudstone chemostratigraphy as a compositional time-series down-section. collaborations/geology-wehner/ built out: cited reproducible Frielingen-9 demo (PANGAEA 897615; cnt_cnq_analysis.py -> build_dashboard.py; REPRODUCE.md), single-screen 16:9 dashboard + field-by-field guide, HS_PRIMER, 00_EXECUTIVE_OVERVIEW.md front door (Tensor Train HUF-STD-002, HUF-Gov carrier filter, HUF-STD-001 AI Use Declaration, HUF AI Collective ack). NEW TESTED CONCEPT — CNQ tiling / faceted read: overlapping exact D=4 charts glued on shared parts reconstruct the full higher-D compositional move losslessly (alignment 9e-16, reconstruction 4e-14, overlap proven necessary); CNQ_TILING_CONCEPT + FACETED_READ + HS_FRONTEND_POSITION docs. Staged USGS/NASA/Matthew proposal package off-repo at Pipeline-Projects/P2_Matthew-Wehner-Geology-Collab/proposal_USGS_NASA_2026-06-09/. Gluing maths CONFIRMED; scientific value of the per-chart CNQ ensemble on real multi-element core-scan data TO TEST; next run on 1cm core-scan (PANGAEA 897630/632/634/636) with Matthew. Pushed as #72 (336a6e9); not yet SENT — Matthew outreach remains Peter's.",
+      "Canada energy study: national Canada drops into the existing EMBER pipeline (D~6-9); provinces/territories need a SEPARATE StatCan/CER loader (EMBER is country-level only). Provinces are the strong multi-archetype corpus (ON coal-exit 2014 regime-change; AB coal-to-gas; QC/BC/MB hydro-stable; SK/NS transitioning; NB mixed; NL hydro-vertex + Muskrat Falls; PEI wind-vertex). Run the sensitivity suite (working-notes §17); expect grain-dependence and report it.",
+      "Four feasibility studies, research-only, firmest validation bar: microbiome navigation demo (PhILR/SBP — a navigation layer, NOT a differential-abundance test); forensic soil (provenance + mandatory calibration); neuroimaging ADNI GM/WM/CSF (D=3); blood-gas co-oximetry O2Hb/HHb/COHb/MetHb (D=4 = CNQ-native; SpO2-masks-dyshemoglobin is the deceptive-drift analog).",
+      "Two engine code fixes required before any D>=30 run: patch compute_stage3 subcomposition ladder (itertools.islice instead of list(combinations)); build the upstream Bayesian-multiplicative zero-treatment module to replace the 1e-15 floor.",
+      "Pin down the deceptive-drift present/absent classification rule (the WLD 513x-but-ABSENT paradox: the three highest-peak-AC cases USA/FRA/WLD are all ABSENT, so the rule is demonstrably not a peak-AC threshold)."
+    ],
+    "conference_authority_folder": "CODA-Association/CODAwork2026/ — versioned speaker materials + Premier Data Output package (master PDF 325pp + master PPTX 66 slides + Dual-View 503pp + Foundations Plates 19pp + per-country PDFs + hash-chained JSON). Established push #50 (2026-05-14).",
+    "speaker_prep_snapshot": "papers/codawork2026/talk/ — historical source; lockdown lifted 2026-06-06, now editable.",
+    "redirect_doc": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_redirect.md",
+    "push_38_addendum": "ai-refresh/AI_REFRESH_2026-05-10_codawork2026_v3_1_0_findings_and_external_review.md",
+    "external_review_invite": "papers/codawork2026/planning/EXTERNAL_REVIEW_INVITE.md",
+    "named_findings_doc": "papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md",
+    "three_open_questions_doc": "papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md",
+    "prior_art_search_targets_doc": "papers/codawork2026/planning/PRIOR_ART_SEARCH_TARGETS.md",
+    "mc4_claim_sharpened_push39": "no monitoring framework in the energy / market-share literature operates natively in Aitchison geometry with formal change detection at the carrier level - three conjuncts combined into one observable stack",
+    "master_plan": "papers/codawork2026/planning/CONFERENCE_2026_06_PLAN.md",
+    "binding_abstract": "External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf (page 25)",
+    "do_not_pivot_to_broader_instrument_paper": "Was true for the conference (Egozcue advised keeping the energy-mix-drift scope). Post-conference the broader instrument paper is a journal-track item, not forbidden.",
+    "review_window_closed": "2026-05-10 through 2026-06-01 (closed)",
+    "push_41_addendum": "ai-refresh/PUSH41_READY_FOR_COMMIT.md",
+    "ascent_path_doctrine_handoff": "ai-refresh/HS_ASCENT_PATH_HANDOFF_2026-05-10.json (was STAGED for post-conference; now ACTIVE as of 2026-06-06)",
+    "prior_art_search_status": "Area 4 partially executed (INV-053); 3 areas pending",
+    "talk_folder": "papers/codawork2026/talk/ (oratory + slides + Q&A + study + backup)",
+    "push_43_addendum": "ai-refresh/PUSH43_PRE_PUSH_SUMMARY.md (six new INV entries)",
+    "post_conference_research_roadmap": "INV-060 Yeast Factor + INV-061 Terms Catalog + INV-058 Power Spectrum + INV-056 fit_fixed_point + INV-057 Householder formalisation",
+    "push_50_addendum": "ai-refresh/PUSH50_PRE_PUSH_SUMMARY.md (Conference-prep monster: huf-gov + CODA-Association + HUF-STD-001/002/003 + Dual-View + Stage-0 Foundations)"
+  }
+}

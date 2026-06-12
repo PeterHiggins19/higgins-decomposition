@@ -1,0 +1,160 @@
+{
+  "corpus_id": "cnq_corpus/1.0",
+  "description": "CNQ v2.0.0 standard self-test corpus. Frozen reference inputs covering the full diagnostic surface: D=8 twin-quaternion native (load-bearing), D=16 quad-quaternion (schema-locked, v2.1 implementation), pairwise coverage, period-2 / period-4 alternation, coupled vs decoupled stereo, monotonic drift, crossover misalignment, and edge cases. See STANDARD_TEST_MATRICES.md for human-readable per-test descriptions.",
+  "doctrine_reference": "STP-1.0 (docs/SELF_TEST_PROTOCOL.md)",
+  "engine_target": "cnq/2.0.0",
+  "frozen_at": "2026-05-09",
+  "matrices": [
+    {
+      "test_id": "uniform_centroid_d8",
+      "description": "All carriers equal at every step. Centroid case: Hs near 0, ring class Hs-1, kappa_HS singular off the simplex interior. Exercises closure, CLR=0, ILR=0, attractor near fixed-point, helmsman flips=0.",
+      "n_carriers": 8,
+      "n_records": 20,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "uniform",
+        "value_per_carrier": 1.0
+      }
+    },
+    {
+      "test_id": "dominant_d8",
+      "description": "Carrier 0 dominant at constant 10x baseline. Hs near 1, ring class Hs-6. Exercises the high-Higgins-scale path; helmsman should consistently flag carrier 0.",
+      "n_carriers": 8,
+      "n_records": 20,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "single_dominant",
+        "dominant_index": 0,
+        "dominant_value": 10.0,
+        "background_value": 1.0
+      }
+    },
+    {
+      "test_id": "period_2_d8",
+      "description": "Two-state alternation between [3,1,1,1,1,1,1,1] and [1,3,1,1,1,1,1,1]. Period-2 limit cycle in 1-D ILR axis. Attractor fitter should detect period=2 with stability > 0.9; helmsman.chaos_indicator should detect period-doubling depth 1.",
+      "n_carriers": 8,
+      "n_records": 50,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "period_2_alternation",
+        "state_a": [3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+        "state_b": [1.0, 3.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      }
+    },
+    {
+      "test_id": "random_dirichlet_d8_t64",
+      "description": "Random Dirichlet-distributed compositions with concentration alpha=1.0 (uniform on simplex). Frozen seed for reproducibility. Exercises typical-case throughput and statistical robustness; expect helmsman.flips count in a known range, no period structure detected.",
+      "n_carriers": 8,
+      "n_records": 64,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "dirichlet",
+        "alpha": 1.0,
+        "seed": 42
+      }
+    },
+    {
+      "test_id": "stereo_coupled_d8",
+      "description": "D=8 split as factor_A = axes [0,1,2] and factor_B = axes [3,4,5] in ILR space, where the underlying compositional changes drive both halves through a shared rotation. Twin-quaternion factoring should give small rho_AB (tightly coupled). CHSH S-value expected high.",
+      "n_carriers": 8,
+      "n_records": 50,
+      "carriers": ["L_HF", "L_HMF", "L_LMF", "L_LF", "R_HF", "R_HMF", "R_LMF", "R_LF"],
+      "generation": {
+        "method": "stereo_coupled",
+        "seed": 7,
+        "coupling_strength": 0.95
+      }
+    },
+    {
+      "test_id": "stereo_decoupled_d8",
+      "description": "D=8 same partition as stereo_coupled but factors A and B driven by independent rotations. Twin-quaternion factoring should give large rho_AB (decoupled). CHSH S-value expected low.",
+      "n_carriers": 8,
+      "n_records": 50,
+      "carriers": ["L_HF", "L_HMF", "L_LMF", "L_LF", "R_HF", "R_HMF", "R_LMF", "R_LF"],
+      "generation": {
+        "method": "stereo_decoupled",
+        "seed_A": 11,
+        "seed_B": 23
+      }
+    },
+    {
+      "test_id": "monotonic_drift_d8",
+      "description": "Smooth monotonic trend, no period structure. Carrier 0 grows, carrier D-1 shrinks, others slowly drift. Attractor fitter should NOT fit period-2 (fitted=False). Helmsman flips low.",
+      "n_carriers": 8,
+      "n_records": 30,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "monotonic_drift",
+        "growth_carrier": 0,
+        "decay_carrier": 7,
+        "growth_rate": 0.05
+      }
+    },
+    {
+      "test_id": "pairwise_coverage_d8",
+      "description": "Designed to exercise all C(8,2)=28 pairwise diagnostics. Each pair of carriers shares a known correlation pattern at a different segment of the trajectory; the engine's stage2.carrier_pair_examination should report each pattern in its expected range.",
+      "n_carriers": 8,
+      "n_records": 56,
+      "carriers": ["c0", "c1", "c2", "c3", "c4", "c5", "c6", "c7"],
+      "generation": {
+        "method": "pairwise_coverage",
+        "seed": 99
+      }
+    },
+    {
+      "test_id": "uniform_centroid_d16",
+      "description": "D=16 uniform centroid. Schema-locked test for v2.1 quad-quaternion implementation. Currently exercises only the D>=5 reduced-projection branch (first 3 ILR axes).",
+      "n_carriers": 16,
+      "n_records": 20,
+      "carriers": ["FL_HF", "FL_HMF", "FL_LMF", "FL_LF", "FR_HF", "FR_HMF", "FR_LMF", "FR_LF", "RL_HF", "RL_HMF", "RL_LMF", "RL_LF", "RR_HF", "RR_HMF", "RR_LMF", "RR_LF"],
+      "generation": {
+        "method": "uniform",
+        "value_per_carrier": 1.0
+      }
+    },
+    {
+      "test_id": "random_dirichlet_d16_t128",
+      "description": "D=16 random Dirichlet, T=128, frozen seed. Typical-case stress for the 15-dim ILR space.",
+      "n_carriers": 16,
+      "n_records": 128,
+      "carriers": ["FL_HF", "FL_HMF", "FL_LMF", "FL_LF", "FR_HF", "FR_HMF", "FR_LMF", "FR_LF", "RL_HF", "RL_HMF", "RL_LMF", "RL_LF", "RR_HF", "RR_HMF", "RR_LMF", "RR_LF"],
+      "generation": {
+        "method": "dirichlet",
+        "alpha": 1.0,
+        "seed": 314
+      }
+    },
+    {
+      "test_id": "edge_T1_d4",
+      "description": "Single-row trajectory at D=4. Exercises T=1 graceful-degenerate path: no quaternion sandwich pairs, no attractor fit, schema-consistent null residuals.",
+      "n_carriers": 4,
+      "n_records": 1,
+      "carriers": ["c0", "c1", "c2", "c3"],
+      "rows_provided": [[1.0, 2.0, 3.0, 4.0]]
+    },
+    {
+      "test_id": "edge_T2_d4",
+      "description": "Minimum two-row trajectory at D=4. Exactly one quaternion sandwich pair; attractor fit unfit (T < T_min); schema fully populated.",
+      "n_carriers": 4,
+      "n_records": 2,
+      "carriers": ["c0", "c1", "c2", "c3"],
+      "rows_provided": [
+        [1.0, 2.0, 3.0, 4.0],
+        [4.0, 3.0, 2.0, 1.0]
+      ]
+    },
+    {
+      "test_id": "edge_D2_T20",
+      "description": "D=2 minimum-carrier trajectory. Tests degenerate_2part_bearing_only path: no quaternion path, bearing_only block populated, schema consistent.",
+      "n_carriers": 2,
+      "n_records": 20,
+      "carriers": ["A", "B"],
+      "generation": {
+        "method": "monotonic_drift",
+        "growth_carrier": 0,
+        "decay_carrier": 1,
+        "growth_rate": 0.05
+      }
+    }
+  ]
+}

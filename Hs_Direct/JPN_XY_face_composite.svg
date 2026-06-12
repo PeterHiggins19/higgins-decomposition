@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700">
+<style>
+  text { font-family: Arial, sans-serif; }
+  .title { font-size: 14px; font-weight: bold; fill: #1A1A2E; }
+  .subtitle { font-size: 11px; fill: #555; }
+  .label { font-size: 9px; fill: #333; }
+  .axis-label { font-size: 10px; fill: #666; }
+  .ring-label { font-size: 8px; font-style: italic; }
+  .value { font-size: 8px; fill: #444; font-family: Consolas, monospace; }
+  .carrier-label { font-size: 8px; }
+</style>
+<rect width="700" height="700" fill="white"/>
+<text x="350.0" y="25" class="title" text-anchor="middle">XY Face — Compositional Plane (Plan View)</text>
+<text x="350.0" y="42" class="subtitle" text-anchor="middle">Japan EMBER 2000–2025 | D=8 carriers | Axes: CLR₁ (Bioenergy) vs CLR₂ (Coal)</text>
+<line x1="80" y1="350.0" x2="620" y2="350.0" stroke="#ddd" stroke-width="0.5"/>
+<line x1="350.0" y1="80" x2="350.0" y2="620" stroke="#ddd" stroke-width="0.5"/>
+<circle cx="350.0" cy="350.0" r="4" fill="#E53935" stroke="white" stroke-width="1"/>
+<text x="358.0" y="342.0" class="label" fill="#E53935">Barycentre</text>
+<circle cx="350.0" cy="350.0" r="57.8" fill="none" stroke="#1565C0" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="410.7613883026904" y="347.0" class="ring-label" fill="#1565C0">Hs-1</text>
+<circle cx="350.0" cy="350.0" r="94.2" fill="none" stroke="#6A1B9A" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="447.24939052308594" y="347.0" class="ring-label" fill="#6A1B9A">Hs-2</text>
+<circle cx="350.0" cy="350.0" r="129.0" fill="none" stroke="#E65100" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="481.9722865663523" y="347.0" class="ring-label" fill="#E65100">Hs-3</text>
+<circle cx="350.0" cy="350.0" r="168.8" fill="none" stroke="#B71C1C" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="521.7697249461334" y="347.0" class="ring-label" fill="#B71C1C">Hs-4</text>
+<circle cx="350.0" cy="350.0" r="214.0" fill="none" stroke="#4A148C" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="567.0236259366952" y="347.0" class="ring-label" fill="#4A148C">Hs-5</text>
+<circle cx="350.0" cy="350.0" r="265.3" fill="none" stroke="#1A1A1A" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+<text x="618.3236644362437" y="347.0" class="ring-label" fill="#1A1A1A">Hs-6</text><text x="625" y="345.0" class="axis-label">CLR₁ (Bioenergy)</text>
+<text x="355.0" y="75" class="axis-label">CLR₂ (Coal)</text>
+<line x1="231.41504761409607" y1="347.0" x2="231.41504761409607" y2="353.0" stroke="#aaa" stroke-width="0.5"/>
+<text x="231.41504761409607" y="365.0" class="value" text-anchor="middle">-2</text>
+<line x1="347.0" y1="468.58495238590393" x2="353.0" y2="468.58495238590393" stroke="#aaa" stroke-width="0.5"/>
+<text x="335.0" y="471.58495238590393" class="value" text-anchor="end">-2</text>
+<line x1="290.707523807048" y1="347.0" x2="290.707523807048" y2="353.0" stroke="#aaa" stroke-width="0.5"/>
+<text x="290.707523807048" y="365.0" class="value" text-anchor="middle">-1</text>
+<line x1="347.0" y1="409.292476192952" x2="353.0" y2="409.292476192952" stroke="#aaa" stroke-width="0.5"/>
+<text x="335.0" y="412.292476192952" class="value" text-anchor="end">-1</text>
+<line x1="409.292476192952" y1="347.0" x2="409.292476192952" y2="353.0" stroke="#aaa" stroke-width="0.5"/>
+<text x="409.292476192952" y="365.0" class="value" text-anchor="middle">1</text>
+<line x1="347.0" y1="290.707523807048" x2="353.0" y2="290.707523807048" stroke="#aaa" stroke-width="0.5"/>
+<text x="335.0" y="293.707523807048" class="value" text-anchor="end">1</text>
+<line x1="468.58495238590393" y1="347.0" x2="468.58495238590393" y2="353.0" stroke="#aaa" stroke-width="0.5"/>
+<text x="468.58495238590393" y="365.0" class="value" text-anchor="middle">2</text>
+<line x1="347.0" y1="231.41504761409607" x2="353.0" y2="231.41504761409607" stroke="#aaa" stroke-width="0.5"/>
+<text x="335.0" y="234.41504761409607" class="value" text-anchor="end">2</text>
+<line x1="350.0" y1="350.0" x2="322.6049845601128" y2="217.6706679154286" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="322.6049845601128" cy="217.6706679154286" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<text x="327.6049845601128" y="212.6706679154286" class="value" fill="#6A1B9A">2000</text>
+<line x1="350.0" y1="350.0" x2="314.494256522049" y2="221.70921625057076" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="314.494256522049" cy="221.70921625057076" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="310.4776613019444" y2="226.59485228417532" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="310.4776613019444" cy="226.59485228417532" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="305.15820696297794" y2="229.22151320196056" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="305.15820696297794" cy="229.22151320196056" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="298.8619853112386" y2="235.4066005064216" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="298.8619853112386" cy="235.4066005064216" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="304.42829587136214" y2="236.13621952835257" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="304.42829587136214" cy="236.13621952835257" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<text x="309.42829587136214" y="231.13621952835257" class="value" fill="#6A1B9A">2005</text>
+<line x1="350.0" y1="350.0" x2="301.21895510551496" y2="240.38485598240413" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="301.21895510551496" cy="240.38485598240413" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="299.8891498455669" y2="242.40549721784726" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="299.8891498455669" cy="242.40549721784726" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="296.5755732799346" y2="240.25124129765973" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="296.5755732799346" cy="240.25124129765973" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="295.7722545789908" y2="242.29039125924626" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="295.7722545789908" cy="242.29039125924626" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="294.38826573419317" y2="246.995863529046" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="294.38826573419317" cy="246.995863529046" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<text x="299.38826573419317" y="241.995863529046" class="value" fill="#6A1B9A">2010</text>
+<line x1="350.0" y1="350.0" x2="290.46955038993104" y2="255.19285138327461" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="290.46955038993104" cy="255.19285138327461" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="303.06507281310604" y2="235.94964999608425" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="303.06507281310604" cy="235.94964999608425" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="303.2960808506409" y2="233.6571659760658" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="303.2960808506409" cy="233.6571659760658" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="424.02354575629545" y2="115.21739130434781" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="424.02354575629545" cy="115.21739130434781" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="318.5177254217277" y2="232.8152307241783" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="318.5177254217277" cy="232.8152307241783" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<text x="323.5177254217277" y="227.8152307241783" class="value" fill="#E65100">2015</text>
+<line x1="350.0" y1="350.0" x2="297.5884233632226" y2="244.65911065550824" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="297.5884233632226" cy="244.65911065550824" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="294.7922987179635" y2="243.57574817506867" stroke="#E65100" stroke-width="0.8" opacity="0.4"/>
+<circle cx="294.7922987179635" cy="243.57574817506867" r="3.5" fill="#E65100" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="293.6423905877284" y2="249.85505570019959" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="293.6423905877284" cy="249.85505570019959" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="298.0894194934254" y2="251.17043095131106" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="298.0894194934254" cy="251.17043095131106" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="307.2892869714515" y2="249.44672824725697" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="307.2892869714515" cy="249.44672824725697" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<text x="312.2892869714515" y="244.44672824725697" class="value" fill="#6A1B9A">2020</text>
+<line x1="350.0" y1="350.0" x2="308.59990660532173" y2="254.81279863350812" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="308.59990660532173" cy="254.81279863350812" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="311.40779042237983" y2="256.50901106909987" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="311.40779042237983" cy="256.50901106909987" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="316.777453433418" y2="261.5639673483088" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="316.777453433418" cy="261.5639673483088" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="320.5105140284473" y2="262.42211806674675" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="320.5105140284473" cy="262.42211806674675" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<line x1="350.0" y1="350.0" x2="329.0227437508581" y2="264.6387219995891" stroke="#6A1B9A" stroke-width="0.8" opacity="0.4"/>
+<circle cx="329.0227437508581" cy="264.6387219995891" r="3.5" fill="#6A1B9A" stroke="white" stroke-width="0.5"/>
+<text x="334.0227437508581" y="259.6387219995891" class="value" fill="#6A1B9A">2025</text>
+<text x="80" y="645" class="label">Higgins Scale: H_s = 1 − H/ln(D) | Ring classification by colour</text>
+<rect x="80" y="650" width="10" height="10" fill="#2E7D32" opacity="0.7"/>
+<text x="94" y="659" class="value">Hs-0</text>
+<rect x="160" y="650" width="10" height="10" fill="#1565C0" opacity="0.7"/>
+<text x="174" y="659" class="value">Hs-1</text>
+<rect x="240" y="650" width="10" height="10" fill="#6A1B9A" opacity="0.7"/>
+<text x="254" y="659" class="value">Hs-2</text>
+<rect x="320" y="650" width="10" height="10" fill="#E65100" opacity="0.7"/>
+<text x="334" y="659" class="value">Hs-3</text>
+<rect x="400" y="650" width="10" height="10" fill="#B71C1C" opacity="0.7"/>
+<text x="414" y="659" class="value">Hs-4</text>
+<rect x="480" y="650" width="10" height="10" fill="#4A148C" opacity="0.7"/>
+<text x="494" y="659" class="value">Hs-5</text>
+<rect x="560" y="650" width="10" height="10" fill="#1A1A1A" opacity="0.7"/>
+<text x="574" y="659" class="value">Hs-6</text>
+</svg>

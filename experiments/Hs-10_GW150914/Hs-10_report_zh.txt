@@ -1,0 +1,42 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  Hs-10
+  System:      GW150914
+  Domain:      GRAVITY
+  Carriers:    h+, hx, noise
+  N=40, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   4f37f92c65d2808c
+  Timestamp:   2026-04-25T06:03:01.906957Z
+
+
+代码总数: 36
+  错误:       0
+  警告:     2
+  发现: 10
+  校准信号: 1
+  信息:  23
+
+── 警告 ──
+  [S7-LRQ-WRN] HVLD R² < 0.5——拟合较差，轨迹可能非多项式。
+  [S9-EIF-WRN] EITT不变性：在一个或多个压缩比下失败。
+
+── 发现 ──
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=1/phi, delta=0.000908)
+  [S9-CHH-DIS] 高混沌：检测到成分湍流。 (25)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (3)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (22)
+  [XU-DRD-DIS] 漂移减少——系统正在收敛。 (variance_ratio_2nd_to_1st=0.804053, drift_direction=decreasing, max_shift_carrier=h+)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(h+/hx), cv=1252.978251)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(h+/noise), cv=69.877064)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(hx/noise), cv=78.865060)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=1, near_zero_carriers=['hx'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

@@ -1,0 +1,45 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17b
+  System:      Backblaze Per-Model
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=51, D=4
+  Source:      REAL
+  Description: Backblaze 2024-07-27, per-model mean SMART scores
+  Pipeline:    1.0 Extended
+  Data hash:   369e5361952ad1ca
+  Timestamp:   2026-04-25T06:45:53.976012Z
+
+
+Codici totali: 40
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 13
+  Segnali di calibrazione: 1
+  Informazioni:  25
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (41)
+  [S9-STL-DIS] S9-STL-DIS (7)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (34)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.836681, drift_direction=decreasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Age->Mechanical, te=0.097032)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Mechanical/Thermal), cv=78.289521)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Mechanical/Age), cv=79.446737)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Mechanical/Errors), cv=515.487239)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Thermal/Age), cv=359.659493)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Thermal/Errors), cv=108.928841)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Age/Errors), cv=112.109225)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=42, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

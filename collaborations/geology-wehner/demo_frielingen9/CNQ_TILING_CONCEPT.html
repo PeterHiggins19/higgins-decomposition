@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>CNQ tiling — reconstructing higher dimensions from overlapping D=4 charts</title>
+<style>
+:root{--ink:#3a372f;--acc:#6b1f2a;--bg:#efe9df;--paper:#fff;--mut:#8a857c;--line:#e3ddd0;
+ --si:#2a6b9a;--al:#3a8a3a;--rb:#caa000;--zr:#6b1f2a}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.62 Helvetica,Arial,sans-serif}
+.wrap{max-width:940px;margin:0 auto;padding:0 22px 90px}
+header.top{padding:34px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+h1{font-size:25px;margin:0 0 4px} .sub{color:var(--acc);font-size:13.5px}
+.tag{display:inline-block;background:#fff0d6;color:#8a6d00;border-radius:12px;padding:2px 11px;font-size:12px;font-weight:bold;margin-top:8px}
+.banner{background:var(--ink);color:#f3eee4;border-radius:8px;padding:12px 16px;margin:16px 0;font-size:13.5px}
+h2{font-size:19px;margin:32px 0 6px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:15.5px;margin:18px 0 4px;color:var(--acc)}
+p{margin:8px 0} small{color:var(--mut)} b{color:var(--ink)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:12px 0}
+.f{font-family:"DejaVu Sans Mono",Consolas,monospace;background:#f6f2ea;border:1px solid var(--line);
+ border-left:3px solid var(--acc);border-radius:5px;padding:9px 12px;margin:8px 0;font-size:13px;overflow-x:auto;white-space:pre}
+.why{color:#5b564c;font-size:13.5px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:#efe7d8;font-size:12px}
+.tier{display:inline-block;font-size:11px;font-weight:bold;padding:1px 7px;border-radius:10px;margin-left:4px}
+.tc{background:#dff0df;color:#256b25} .te{background:#fff0d6;color:#8a6d00} .tn{background:#f3dada;color:#8a2020}
+.res{background:#f3f7f1;border:1px solid #cfe3cf;border-radius:8px;padding:12px 16px;margin:12px 0}
+.res b{font-variant-numeric:tabular-nums}
+img{max-width:100%;border:1px solid var(--line);border-radius:8px;margin:10px 0;background:#fff}
+.foot{margin-top:32px;border-top:2px solid var(--ink);padding-top:12px;color:var(--mut);font-size:12.5px}
+a{color:var(--acc)} figcaption{font-size:12px;color:var(--mut);margin-top:-4px}
+ul{margin:8px 0 8px 0;padding-left:22px} li{margin:4px 0}
+</style></head><body><div class=wrap>
+
+<header class=top>
+  <h1>CNQ tiling — higher dimensions from overlapping D=4 charts</h1>
+  <div class=sub>A working concept, tested on the Frielingen-9 mudstone &middot; for Matthew Wehner</div>
+  <div class=tag>STATUS: concept · gluing maths proven on real data · scientific value still to be tested</div>
+</header>
+
+<div class=banner><b>One sentence.</b> CNQ is exact only at four parts; for a richer composition you can take an <i>atlas</i> of overlapping exact 4-part charts that deliberately <b>share parts</b>, and the shared (duplicated) parts are exactly what let the charts be glued back into the full higher-dimensional navigation — losslessly, as the test below shows.</div>
+
+<h2>1 · The problem this addresses</h2>
+<p>In the Hs engine, the quaternion reading <b>CNQ is native/exact only at D = 4</b> — four parts give three ILR balances, which map onto a quaternion with no loss <span class=tier tc>confirmed</span>. Above four parts the current options are a declared lossy projection or experimental twins <span class=tier te>experimental</span>. A real mudstone core-scan has many elements (Si, Al, Ti, K, Ca, Mn, Fe, Rb, Zr, Sr…) — so the question is: <b>how do you get exact rotational structure for a high-dimensional composition without throwing information away?</b></p>
+
+<h2>2 · The idea — tile with overlap, glue on duplicates</h2>
+<p>Instead of one lossy high-D reading, cover the composition with many <b>exact D = 4 charts</b> that overlap on shared parts:</p>
+<ul>
+<li>Each chart is a 4-part subcomposition → <b>CNQ-exact</b>.</li>
+<li>Charts <b>share parts</b> (here a fixed anchor pair). Those shared parts are the <b>duplicate boundary data</b>.</li>
+<li><b>Subcompositional coherence</b> — a core property of compositional data — forces every chart to agree on its shared parts: the log-ratio between two parts is identical no matter which chart you compute it in. That agreement is the gluing rule (the "transition map"); it is what makes the duplicates land exactly on top of each other.</li>
+<li>With enough overlap to connect every part, the charts solve uniquely for the full-D move. <b>The redundancy is not waste — it is the registration signal.</b></li>
+</ul>
+<div class=why>Mathematically this is a manifold atlas with transition functions: local exact pieces + agreement on overlaps = the global object. The overlap carries the higher-dimensional information.</div>
+
+<h2>3 · Where the intuition comes from — the sphere, corrected</h2>
+<p>The seed image (Peter's): you cannot capture a sphere with one flat projection; you need several, and they must <b>overlap</b> so that, mapped back, the duplicated boundary points coincide and collapse the flat pieces into the single round object. That instinct is right — with two precise corrections worth stating for the record:</p>
+<table>
+<tr><th>Claim</th><th>Status</th></tr>
+<tr><td>Overlap/duplication is mandatory to glue lower-D pieces into a higher-D whole.</td><td><b>Correct.</b> It is the heart of the atlas / sheaf picture.</td></tr>
+<tr><td>Three mutually orthogonal projections are maximally independent → no shared region to align by.</td><td><b>Correct, and key.</b> Independence and alignment trade off: to register, you must give up some independence and reintroduce shared data.</td></tr>
+<tr><td>Two projections leave the sphere "assumed, not proven."</td><td><b>Half.</b> For topological <i>reconstruction</i>, two stereographic charts already glue into a sphere (they overlap on a ring). For <i>proving sphericity from shadows</i>, two is indeed not enough.</td></tr>
+<tr><td>Three orthogonal silhouettes don't prove a sphere; you need a fourth.</td><td><b>Right that 3 fail</b> — the <i>Steinmetz tricylinder</i> (three perpendicular cylinders intersected) casts a perfect circle on all three axes and is <b>not</b> a sphere. But the deeper truth: <b>no finite number of silhouettes proves an exact sphere</b> — you can always hide a bump between sampled directions. Finiteness <i>bounds</i> the deviation; density <i>proves</i> it.</td></tr>
+</table>
+<p>So "four" is best read not as a completeness proof but as the <b>practical floor</b>: three to span/constrain independently, plus at least one more — deliberately non-orthogonal — to supply the overlap that ties the independent three together. That extra chart is the <b>registration chart</b>.</p>
+<div class=card><b>Why this maps onto CNQ exactly.</b> A D = 4 chart has precisely <b>three orthonormal ILR balances</b> — Peter's "three orthogonal, independent" axes. The <b>parts shared between charts</b> are the fourth-projection overlap that aligns them. The sphere argument and the compositional algebra are the same structure.</div>
+
+<h2>4 · The test on real mudstone</h2>
+<p>The working Frielingen-9 example extended to a <b>D = 6</b> bulk subcomposition <b>[SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>, Rb, Zr, CaCO<sub>3</sub>, TOC]</b>, tiled into <b>six overlapping D = 4 charts</b>, all sharing the anchor pair <b>{SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>}</b> and each adding one pair from {Rb, Zr, CaCO<sub>3</sub>, TOC}:</p>
+<div class=f>chart 1  SiO2 Al2O3 | Rb  Zr        chart 4  SiO2 Al2O3 | Zr   CaCO3
+chart 2  SiO2 Al2O3 | Rb  CaCO3     chart 5  SiO2 Al2O3 | Zr   TOC
+chart 3  SiO2 Al2O3 | Rb  TOC       chart 6  SiO2 Al2O3 | CaCO3 TOC
+                       anchor = the duplicated boundary data on every chart</div>
+<p class=why>Note: with six parts you <i>cannot</i> tile into 4-charts without duplication — overlap is forced by the geometry, which is the thesis in miniature. For this concept test CaCO<sub>3</sub> and TOC are folded into the composition (so there is no held-out calibration target here); the proper test uses the high-resolution multi-element core-scan.</p>
+
+<figure>
+<img src="cnq_multimap.png" alt="CNQ multi-map: six overlapping D=4 charts, alignment panel, reconstruction panel">
+<figcaption>The multi-map. Six chart panels (CNQ radial vs depth); panel 7 — every chart's shared-anchor balance overlaid (they collapse to one line); panel 8 — the full D=6 radial reconstructed by gluing the six charts (gold) sitting exactly on the directly-computed truth (black).</figcaption>
+</figure>
+
+<h2>5 · What the test shows</h2>
+<div class=res>
+<b>Alignment (duplicates coincide):</b> the shared anchor balance ln(SiO<sub>2</sub>/Al<sub>2</sub>O<sub>3</sub>) is identical across all six charts to <b>8.9 × 10⁻¹⁶</b> (machine precision) — the duplicated data lands exactly on itself.<br><br>
+<b>Reconstruction (gluing is lossless):</b> the full D = 6 centred-log-ratio move, rebuilt from only the six overlapping D = 4 charts, matches the directly-computed truth to <b>3.9 × 10⁻¹⁴</b>; reconstructed vs true radial correlation = <b>1.000000</b>; the gluing system has <b>full column rank (12/12)</b>, so the solution is unique.<br><br>
+<b>Overlap is provably necessary:</b> a disjoint atlas whose charts share no parts is <b>rank-deficient (7/8)</b> and fails to reconstruct (error <b>2.55</b>) — exactly Peter's point that without duplication there is nothing to align by.
+</div>
+
+<h2>6 · What is proven vs what still needs testing</h2>
+<table>
+<tr><th>Element</th><th>Tier</th><th>Note</th></tr>
+<tr><td>Each 4-part chart's CNQ is exact</td><td><span class=tier tc>confirmed</span></td><td>D = 4 is native quaternion.</td></tr>
+<tr><td>Shared parts align charts (subcompositional coherence)</td><td><span class=tier tc>confirmed</span></td><td>Identity to machine precision.</td></tr>
+<tr><td>Overlapping charts reconstruct the full-D log-ratio move losslessly</td><td><span class=tier tc>confirmed</span></td><td>Linear, exact; demonstrated here on real data.</td></tr>
+<tr><td>Overlap is required for reconstruction</td><td><span class=tier tc>confirmed</span></td><td>Disjoint atlas is singular.</td></tr>
+<tr><td>The per-chart CNQ <i>ensemble</i> (rotation, helmsman, regime) carries interpretive value</td><td><span class=tier te>to test</span></td><td>The open scientific question — does the atlas tell a geologist something a single high-D projection wouldn't?</td></tr>
+<tr><td>Behaviour on genuine high-D multi-element core-scan data</td><td><span class=tier te>to test</span></td><td>Needs the 1 cm Ca/Ti/K/Mn/Fe/Sr… datasets.</td></tr>
+<tr><td>Optimal atlas design (which parts to anchor, how much overlap)</td><td><span class=tier te>to test</span></td><td>Diversity-vs-overlap trade-off; an over-complete-frame optimisation.</td></tr>
+<tr><td>Recovering higher-<i>order</i> coupling (not just the linear move)</td><td><span class=tier tn>open limit</span></td><td>The marginal problem: some joint structure is invisible to any set of low-D charts unless the overlaps are placed where that coupling lives.</td></tr>
+</table>
+
+<h2>7 · Why mudstone is the right proving ground</h2>
+<p>A mudstone core-scan is naturally high-dimensional (many elements) yet comes with <b>independent ground truth</b> — carbonate, TOC, δ¹³C excursions, biostratigraphy, picked surfaces — so the atlas's reconstructions and the per-chart dynamics can be checked against answers that are known by other means. That combination (genuine high D + outside calibration) is exactly what a method like this needs to be tested honestly. The instrument reports; <b>you</b> judge whether the multi-map tells you anything geological.</p>
+
+<h2>8 · What we'd value from you</h2>
+<ul>
+<li>A sanity check on the geological framing of the bulk composition and which parts make natural <b>anchors</b> (the duplicated data) vs which carry the diversity.</li>
+<li>A pointer to the multi-element core-scan data you'd consider the fair high-D test.</li>
+<li>Your read on whether a per-chart CNQ ensemble could expose structure (provenance vs redox vs dilution acting on different sub-systems) that a single composite misses.</li>
+</ul>
+
+<div class=foot>
+<b>Reproduce:</b> <code>python cnq_multimap.py</code> → <code>cnq_multimap.png</code> + <code>cnq_multimap_data.json</code>. &nbsp;
+<b>Method primer:</b> <code>../HS_PRIMER.md</code>. &nbsp; <b>Dashboard guide:</b> <code>frielingen9_dashboard_guide.html</code>.<br>
+<b>Data:</b> Thöle et al. 2019, PANGAEA 897615 (CC-BY 4.0); paper 10.1002/dep2.83.<br>
+<i>A working concept. The maths of the gluing is proven; the science of the multi-map is the part to test together. The instrument reads — the expert decides.</i>
+</div>
+
+</div></body></html>

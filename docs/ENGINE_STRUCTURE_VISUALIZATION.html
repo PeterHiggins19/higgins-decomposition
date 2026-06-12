@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hs Engine Structure — CNT v3 + CNQ v2 (push #32)</title>
+<style>
+  :root {
+    --bg: #0f1419;
+    --panel: #161b22;
+    --panel-2: #1c2230;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --rule: #30363d;
+    --coda: #3b82f6;
+    --hs-ext: #f59e0b;
+    --shared: #a78bfa;
+    --hash: #10b981;
+    --error: #ef4444;
+    --ok: #10b981;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  h2 { font-size: 17px; font-weight: 600; margin: 24px 0 12px; color: var(--text); }
+  h3 { font-size: 14px; font-weight: 600; margin: 14px 0 8px; color: var(--text); }
+  .subtitle { color: var(--muted); margin-bottom: 24px; font-size: 13px; }
+  .legend {
+    display: flex; gap: 18px; padding: 12px 16px; background: var(--panel);
+    border: 1px solid var(--rule); border-radius: 8px; margin-bottom: 24px;
+    font-size: 12px; flex-wrap: wrap;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+  .swatch { width: 12px; height: 12px; border-radius: 2px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .engine-panel {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 10px; padding: 18px;
+  }
+  .engine-header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 14px;
+  }
+  .engine-title { font-size: 16px; font-weight: 700; }
+  .engine-tag { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 11px; color: var(--muted); }
+  .stage {
+    border: 1px solid var(--rule); border-radius: 6px;
+    padding: 10px 12px; margin-bottom: 10px;
+    background: var(--panel-2);
+  }
+  .stage-coda { border-left: 4px solid var(--coda); }
+  .stage-hs   { border-left: 4px solid var(--hs-ext); }
+  .stage-shared { border-left: 4px solid var(--shared); }
+  .stage-hash { border-left: 4px solid var(--hash); }
+  .stage-name {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 4px;
+  }
+  .stage-fn { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--text); }
+  .stage-tag { font-size: 10px; color: var(--muted); }
+  .stage-formula {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 11px; color: var(--muted); padding: 4px 0; line-height: 1.3;
+  }
+  .stage-io {
+    display: flex; gap: 8px; font-size: 10px; color: var(--muted);
+    margin-top: 4px;
+  }
+  .stage-io span { font-family: ui-monospace, "SF Mono", Menlo, monospace; }
+  .arrow {
+    text-align: center; color: var(--muted); margin: -2px 0; font-size: 14px; line-height: 1;
+  }
+  .branch {
+    border: 1px dashed var(--rule); border-radius: 6px;
+    padding: 8px 10px; margin: 6px 0;
+  }
+  .branch-title {
+    font-size: 11px; color: var(--muted); margin-bottom: 6px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  table {
+    width: 100%; border-collapse: collapse; margin: 12px 0;
+    font-size: 12px;
+  }
+  th, td { border: 1px solid var(--rule); padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: var(--panel-2); font-weight: 600; color: var(--text); }
+  td { color: var(--muted); }
+  td code { color: var(--text); font-size: 11px; }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    background: rgba(255,255,255,0.04); padding: 1px 4px;
+    border-radius: 3px;
+  }
+  .section { margin-top: 28px; }
+  .footer { color: var(--muted); font-size: 11px; margin-top: 24px;
+    border-top: 1px solid var(--rule); padding-top: 12px; }
+  .pill {
+    display: inline-block; padding: 1px 6px; border-radius: 8px;
+    font-size: 10px; font-weight: 600; margin-left: 4px;
+  }
+  .pill-load { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+  .pill-future { background: rgba(167, 139, 250, 0.2); color: #c4b5fd; }
+  .pill-fixed { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+</style>
+</head>
+<body>
+
+<h1>Hs Engine Structure — CNT v3 + CNQ v2</h1>
+<p class="subtitle">
+  Push #32 architecture · CoDa-community-vocabulary engines on shared compositional algebra ·
+  Domain-neutral output, wrappers translate · Independent canonical hashes · Self-test receipts chained
+</p>
+
+<div class="legend">
+  <div class="legend-item"><span class="swatch" style="background:var(--coda)"></span> CoDa-standard operator (closure, CLR, ILR, Helmert)</div>
+  <div class="legend-item"><span class="swatch" style="background:var(--hs-ext)"></span> Higgins extension (κ<sup>HS</sup>, s<sub>j</sub>, helmsman, attractor, twin-quaternion, CHSH)</div>
+  <div class="legend-item"><span class="swatch" style="background:var(--shared)"></span> hci_shared module (used by both engines)</div>
+  <div class="legend-item"><span class="swatch" style="background:var(--hash)"></span> Determinism artifact (hash, version triple, content fingerprint)</div>
+</div>
+
+<div class="grid">
+
+  <!-- ====================== CNT v3 LEFT COLUMN ====================== -->
+  <div class="engine-panel">
+    <div class="engine-header">
+      <div class="engine-title">CNT v3.0.0 — Compositional Navigation Tensor</div>
+      <div class="engine-tag">schema 3.0.0</div>
+    </div>
+
+    <div class="stage stage-coda">
+      <div class="stage-name"><span class="stage-fn">ingest_csv → validate_rows</span><span class="stage-tag">I/O</span></div>
+      <div class="stage-formula">strict UTF-8 · zero-replace · positivity check · reject NaN/Inf</div>
+      <div class="stage-io"><span>in:  CSV file (T+1 rows × D+1 cols)</span></div>
+      <div class="stage-io"><span>out: rows ∈ ℝ<sub>+</sub><sup>T×D</sup>, labels[], carriers[]</span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">closure(rows)</span><span class="stage-tag">hci_shared.geometry</span></div>
+      <div class="stage-formula">x<sub>i</sub> ↦ x<sub>i</sub> / Σ x<sub>j</sub>   (project onto S<sup>D-1</sup>)</div>
+      <div class="stage-io"><span>out: rows_closed ∈ Δ<sup>D-1</sup></span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">clr(rows_closed)</span><span class="stage-tag">hci_shared.geometry</span></div>
+      <div class="stage-formula">h<sub>i</sub> = log(x<sub>i</sub>) − ⟨log x⟩   (closure-invariant; sum=0)</div>
+      <div class="stage-io"><span>out: clr_matrix ∈ ℝ<sup>T×D</sup>, row sums = 0</span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">helmert_basis(D) → ILR</span><span class="stage-tag">hci_shared.geometry</span></div>
+      <div class="stage-formula">H ∈ ℝ<sup>(D-1)×D</sup>, H H<sup>T</sup> = I<sub>D-1</sub>;  ILR = clr · H<sup>T</sup></div>
+      <div class="stage-io"><span>out: ilr_matrix ∈ ℝ<sup>T×(D-1)</sup>, radii ∈ ℝ<sup>T</sup></span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hs">
+      <div class="stage-name"><span class="stage-fn">compute_tensor_block</span><span class="stage-tag">per-timestep</span></div>
+      <div class="stage-formula">κ<sup>HS</sup><sub>ij</sub> = (δ<sub>ij</sub> − 1/D) / (x<sub>i</sub>x<sub>j</sub>)   <em>(order-2 metric)</em></div>
+      <div class="stage-formula">s<sub>j</sub> = (1/x<sub>j</sub>) / Σ(1/x<sub>k</sub>)   <em>(order-1 sensitivity)</em></div>
+      <div class="stage-formula">σ<sub>t</sub> = argmax<sub>j</sub> |Δh<sub>j</sub>|   <em>(helmsman_local)</em></div>
+      <div class="stage-io"><span>out: timesteps[].coda_standard ⊕ .higgins_extensions</span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="branch">
+      <div class="branch-title">stages 1 / 2 / 3 — analytic projections</div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">stage1.section_atlas</span></div>
+        <div class="stage-formula">CLR-space (i,j) min/max ranges, all C(D,2) pairs</div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">stage2.variation_matrix + carrier_pair_examination</span></div>
+        <div class="stage-formula">τ<sub>ij</sub> = var(log x<sub>i</sub>/x<sub>j</sub>);  Pearson r;  bearing spread;  locked_pair flag</div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">stage3.triadic_area + ladder + regimes</span></div>
+        <div class="stage-formula">top-K triadic areas;  C(D,k) subcomposition correlations;  step-distance regime boundaries</div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="branch">
+      <div class="branch-title">depth_tower — load-bearing diagnostics</div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">energy_levels[ ] / curvature_levels[ ]</span></div>
+        <div class="stage-formula">level<sub>ℓ+1</sub> = closure(squared step deltas) · CLR · Helmert</div>
+      </div>
+      <div class="stage stage-shared">
+        <div class="stage-name"><span class="stage-fn">fit_attractor</span><span class="stage-tag">hci_shared.attractors</span></div>
+        <div class="stage-formula">period · stability · dominant_pair · contraction λ · amplitude A · damping ζ</div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">involution_M_squared</span></div>
+        <div class="stage-formula">M(p)<sub>j</sub> = (1/p<sub>j</sub>)/Σ(1/p<sub>k</sub>);   ||M²(p) − p||<sub>∞</sub> ≤ 1e-10</div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">compute_helmsman_family</span><span class="stage-tag">hci_shared.helmsman</span></div>
+      <div class="stage-formula">σ · sign · flips · stability_S_σ · chaos_indicator · torque_proxy</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hs">
+      <div class="stage-name"><span class="stage-fn">diagnostics: eitt + lock_events + degeneracy_flags</span></div>
+      <div class="stage-formula">EITT M-sweep · CLR &lt; threshold lock detection · degeneracy heuristics</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hash">
+      <div class="stage-name"><span class="stage-fn">cnt_content_sha256</span><span class="stage-tag">determinism</span></div>
+      <div class="stage-formula">SHA-256(canonical-JSON(payload − {generated, wall_clock_ms, environment, content_sha256}))</div>
+      <div class="stage-io"><span>independent of CNQ hash · within-Python byte-identical</span></div>
+    </div>
+  </div>
+
+  <!-- ====================== CNQ v2 RIGHT COLUMN ====================== -->
+  <div class="engine-panel">
+    <div class="engine-header">
+      <div class="engine-title">CNQ v2.0.0 — Compositional Navigation Quaternion</div>
+      <div class="engine-tag">schema cnq/2.0.0</div>
+    </div>
+
+    <div class="stage stage-coda">
+      <div class="stage-name"><span class="stage-fn">ingest_csv → validate_rows</span><span class="stage-tag">I/O</span></div>
+      <div class="stage-formula">same strict ingest as CNT; native CSV producer (no CNT JSON required)</div>
+      <div class="stage-io"><span>out: rows ∈ ℝ<sub>+</sub><sup>T×D</sup></span></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">closure → clr → ilr</span><span class="stage-tag">hci_shared (same as CNT)</span></div>
+      <div class="stage-formula">identical pipeline to CNT — same Helmert, same orthonormality, same machine-floor</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hs">
+      <div class="stage-name"><span class="stage-fn">classify_dimension(D)</span><span class="stage-tag">policy classifier</span></div>
+      <div class="stage-formula">D=8 → twin_quaternion_native <span class="pill pill-load">load-bearing</span></div>
+      <div class="stage-formula">D=16 → quad_quaternion_native_future <span class="pill pill-future">v2.1</span></div>
+      <div class="stage-formula">D=4 → single_quaternion_native &nbsp; D=3/2 → boundary &nbsp; D=5..15(≠8) → reduced</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="branch">
+      <div class="branch-title">bearing trajectory — branch by D</div>
+      <div class="stage stage-shared">
+        <div class="stage-name"><span class="stage-fn">D=4: quaternion_sandwich_residuals</span></div>
+        <div class="stage-formula">u<sub>t</sub> ∈ S<sup>2</sup>;  q<sub>t</sub> = rotation_quaternion_between(u<sub>t</sub>, u<sub>t+1</sub>)</div>
+        <div class="stage-formula">residual = ||q v q* − v_next||<sub>∞</sub> ≈ 4.44 × 10<sup>-16</sup></div>
+      </div>
+      <div class="stage stage-shared">
+        <div class="stage-name"><span class="stage-fn">D=8: twin_quaternion_factor</span><span class="stage-tag">load-bearing</span></div>
+        <div class="stage-formula">factor_A: ILR axes [0,1,2] → q<sub>A</sub>(t)</div>
+        <div class="stage-formula">factor_B: ILR axes [3,4,5] → q<sub>B</sub>(t)</div>
+        <div class="stage-formula">ρ<sub>AB</sub>(t) = 2·arccos(|q<sub>A</sub>·q<sub>B</sub>|)   <em>(coupling angle)</em></div>
+        <div class="stage-formula">residual_axis = ILR axis 6   <em>(common-mode)</em></div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">D=3: zero-pad-z embed</span></div>
+        <div class="stage-formula">ILR ∈ ℝ² → ℝ³ with z=0 → sandwich</div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">D=5..15(≠8): reduced projection</span></div>
+        <div class="stage-formula">first 3 ILR axes;  captured_step_fraction (mean &amp; global)</div>
+      </div>
+      <div class="stage stage-hs">
+        <div class="stage-name"><span class="stage-fn">D=2: bearing_only path</span></div>
+        <div class="stage-formula">scalar log-ratio · no rotation degree of freedom</div>
+      </div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hs">
+      <div class="stage-name"><span class="stage-fn">build_radial_trajectory</span><span class="stage-tag">first-class output</span></div>
+      <div class="stage-formula">||ILR<sub>t</sub>||<sub>2</sub> per step + min/max/mean/median/std</div>
+      <div class="stage-formula"><em>(v1 discarded this; v2 emits as first-class — intensity coherence proxy)</em></div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">compute_helmsman_family</span><span class="stage-tag">hci_shared (same as CNT)</span></div>
+      <div class="stage-formula">σ · sign · flips · stability_S_σ · chaos_indicator · torque_proxy</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-shared">
+      <div class="stage-name"><span class="stage-fn">fit_attractor</span><span class="stage-tag">hci_shared (same as CNT)</span></div>
+      <div class="stage-formula">period · stability · dominant_pair · λ · A · ζ</div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="branch">
+      <div class="branch-title">CHSH joint coherence (D=8 only)</div>
+      <div class="stage stage-shared">
+        <div class="stage-name"><span class="stage-fn">chsh_S_value(q<sub>A</sub>, q<sub>B</sub>)</span><span class="stage-tag">hci_shared.factoring</span></div>
+        <div class="stage-formula">analyzers: a, a' = 0, π/2; b, b' = π/4, 3π/4 (Tsirelson alignment)</div>
+        <div class="stage-formula">S = |E(a,b) + E(a,b') + E(a',b) − E(a',b')|</div>
+        <div class="stage-formula">classical_bound = 2.0   ·   tsirelson_bound = 2√2 ≈ 2.828</div>
+      </div>
+    </div>
+    <div class="arrow">↓</div>
+
+    <div class="stage stage-hash">
+      <div class="stage-name"><span class="stage-fn">cnq_content_sha256</span><span class="stage-tag">determinism</span></div>
+      <div class="stage-formula">SHA-256(canonical-JSON(payload − {volatile fields}))</div>
+      <div class="stage-io"><span>independent of CNT hash · cnt_reference is metadata only</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============== INPUT / OUTPUT TABLES ============== -->
+
+<div class="section">
+  <h2>Input schema (both engines)</h2>
+  <table>
+    <thead><tr><th>Field</th><th>Type</th><th>Constraint</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>label column</td><td>string per row</td><td>any UTF-8</td><td>Preserved through to per-step ledger entries</td></tr>
+      <tr><td>carrier columns</td><td>float per cell</td><td>strictly positive (zeros replaced)</td><td>Validate gate; <code>InvalidInputError</code> on negative or non-finite</td></tr>
+      <tr><td>header row</td><td>strings</td><td>≥ 2 columns</td><td>First column is label; remaining are carriers</td></tr>
+      <tr><td>encoding</td><td>UTF-8 strict</td><td>no <code>errors='replace'</code></td><td>Bad bytes raise <code>UnicodeDecodeError</code>; no silent corruption</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Output schemas — top-level structure</h2>
+  <div class="grid">
+    <div>
+      <h3>CNT v3 output</h3>
+      <table>
+        <thead><tr><th>Top-level key</th><th>Contains</th></tr></thead>
+        <tbody>
+          <tr><td><code>metadata</code></td><td>engine triple, principle, engine_config, environment (volatile)</td></tr>
+          <tr><td><code>input</code></td><td>source_file_sha256, closed_data_sha256, n_records, n_carriers, carriers[], labels[], rows_closed[][]</td></tr>
+          <tr><td><code>tensor</code></td><td>helmert_basis, n_timesteps, timesteps[].{coda_standard, higgins_extensions}</td></tr>
+          <tr><td><code>stages</code></td><td>stage1 / stage2 / stage3 (atlas, variation, triadic, ladder, regimes)</td></tr>
+          <tr><td><code>depth_tower</code></td><td>energy_levels, curvature_levels, termination, attractor, involution_M_squared, ir_class</td></tr>
+          <tr><td><code>helmsman_family</code></td><td>sigma[], sign[], flips, stability_S_sigma, chaos_indicator, torque_proxy[]</td></tr>
+          <tr><td><code>diagnostics</code></td><td>eitt, lock_events, degeneracy_flags, <strong>cnt_content_sha256</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3>CNQ v2 output</h3>
+      <table>
+        <thead><tr><th>Top-level key</th><th>Contains</th></tr></thead>
+        <tbody>
+          <tr><td><code>metadata</code></td><td>engine triple, principle, engine_config, environment</td></tr>
+          <tr><td><code>input</code></td><td>source_file_sha256, n_records, n_carriers, carriers[], labels[], zero_replacement_count</td></tr>
+          <tr><td><code>cnt_reference</code></td><td><em>null OR</em> {cnt_engine_version, cnt_schema_version, cnt_content_sha256, cnt_json_path} — informational only</td></tr>
+          <tr><td><code>cnq_view</code></td><td>dimension_policy, frame, bearing_trajectory, radial_trajectory, bearing_only</td></tr>
+          <tr><td><code>helmsman_family</code></td><td>same as CNT (shared module)</td></tr>
+          <tr><td><code>attractor_fit</code></td><td>same as CNT (shared module)</td></tr>
+          <tr><td><code>twin_quaternion_factoring</code></td><td><em>null OR</em> {partition, factor_A, factor_B, coupling.{rho_AB_per_step, rho_AB_summary, coherence_class}, residual} — D=8</td></tr>
+          <tr><td><code>quad_quaternion_factoring</code></td><td><em>null OR</em> scaffold — D=16, v2.1</td></tr>
+          <tr><td><code>chsh_diagnostic</code></td><td><em>null OR</em> {S_value, classical_bound, tsirelson_bound, coherence_score, coherence_verdict, correlations}</td></tr>
+          <tr><td><code>bundle_view</code></td><td><em>null OR</em> multi-trajectory analysis (future)</td></tr>
+          <tr><td><code>diagnostics</code></td><td>warnings, <strong>cnq_content_sha256</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============== DIMENSION POLICY TABLE ============== -->
+
+<div class="section">
+  <h2>Dimension policy (CNQ v2)</h2>
+  <table>
+    <thead><tr><th>D</th><th>Label</th><th>Algebra</th><th>Processing</th><th>Claim strength</th></tr></thead>
+    <tbody>
+      <tr><td><strong>8</strong></td><td><code>twin_quaternion_native</code> <span class="pill pill-load">load-bearing</span></td><td>Two coupled SU(2) on disjoint 3-dim ILR subspaces; ρ<sub>AB</sub>(t) is the joint diagnostic</td><td>Helmert → ℝ⁷ → twin sandwich on (axes [0,1,2], [3,4,5]) + residual axis 6 → CHSH</td><td>Smallest case where full algebraic structure becomes simultaneously non-trivial and necessary</td></tr>
+      <tr><td><strong>16</strong></td><td><code>quad_quaternion_native_future</code> <span class="pill pill-future">v2.1</span></td><td>Four coupled SU(2); 6 pairwise coupling angles + 4-way joint correlation</td><td>Helmert → ℝ¹⁵ → four 3-dim subspaces → CHSH-4</td><td>Schema locked; full implementation v2.1</td></tr>
+      <tr><td>4</td><td><code>single_quaternion_native</code></td><td>SU(2) double cover of SO(3); single-quaternion sandwich</td><td>Helmert → ℝ³ → unit-quaternion sandwich</td><td>Simplest closed-form; cross-domain validation (Backblaze, Planck, neutrinos)</td></tr>
+      <tr><td>3</td><td><code>boundary_3part_planar_embed</code></td><td>SO(2) in ℝ²; embedded in SO(3) via z=0 padding</td><td>Helmert → ℝ² → embed → sandwich</td><td>Degenerate boundary; planar consistency support</td></tr>
+      <tr><td>2</td><td><code>degenerate_2part_bearing_only</code></td><td>Scalar log-ratio; no rotation</td><td>bearing_only path; quaternion_path null</td><td>Degenerate boundary; bearing diagnostic only</td></tr>
+      <tr><td>5,6,7,9..15</td><td><code>reduced_or_projected</code></td><td>SO(D-1); first 3 ILR axes (lossy)</td><td>Helmert → ℝ<sup>D-1</sup> → first 3 → sandwich; captured_step_fraction reported</td><td>Projection diagnostic</td></tr>
+      <tr><td>17+</td><td><code>reduced_or_projected_high_D</code></td><td>SO(D-1); future Cl(D-1) extension</td><td>Same as 5..15 path</td><td>Projection diagnostic; INV-044 open</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============== ANTI-SPEC + SELF-TEST INTEGRATION ============== -->
+
+<div class="section">
+  <h2>Discipline layer (push #32)</h2>
+  <table>
+    <thead><tr><th>Layer</th><th>What it does</th><th>Where it lives</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Anti-specification (SEA)</td>
+        <td>Each engine ships a failure-mode catalogue with mitigation evidence and residual-risk classification. CNT v3 = 31 entries, CNQ v2 = 33 entries, both <code>release_gate_pass: true</code>.</td>
+        <td><code>HCI-CNT/engine/ANTI_SPECIFICATION.md</code><br><code>HCI-CNQ/engine/ANTI_SPECIFICATION.md</code></td>
+      </tr>
+      <tr>
+        <td>BIST self-test (STP-1.0)</td>
+        <td>Frozen reference corpus + runner produces hash-chained dated receipts. Each run extends the audit chain. Receipts independently verifiable via <code>canonical_sha256(body − {hash field})</code>.</td>
+        <td><code>HCI-CNQ/engine/self_test/</code> (CNQ corpus shipped, 13 tests)<br>CNT corpus follows same pattern (Phase C cleanup)</td>
+      </tr>
+      <tr>
+        <td>Domain wrappers</td>
+        <td>JSON-data translation files (no engine code) mapping engine output paths to localised display names + calibration thresholds. Multilingual built-in. User-authored.</td>
+        <td><code>HCI-CNQ/wrappers/wrapper_audio.json</code> (en/fr)<br><code>HCI-CNQ/wrappers/wrapper_government_budget.json</code> (en/fr)<br><code>HCI-CNQ/wrappers/wrapper_blank_template.json</code></td>
+      </tr>
+      <tr>
+        <td>Engine independence</td>
+        <td>CNT and CNQ produce different hashes by design. <code>cnt_reference</code> in CNQ output is informational only — no hash chain.</td>
+        <td>Locked in <code>ai-refresh/CNT_V3_CNQ_V2_DESIGN.md</code> §3</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer">
+  <p>Hs framework · push #32 · 2026-05-09 · Apache-2.0 (code) + CC BY 4.0 (docs) · Catalog: INV-036, INV-037, INV-038, INV-045, INV-046</p>
+  <p>Source: <code>github.com/PeterHiggins19/higgins-decomposition</code> · Built for CodaWork 2026 presentation</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+{
+  "document_id": "HUF-STD-002",
+  "title": "HUF Tensor Train I/O Standard — Data In → Metric Tensor → Metric Quaternion → Vector Diagrammatic Output",
+  "version": "1.0",
+  "date_created": "2026-05-13",
+  "authority_level": "FOUNDATIONAL — applies to all HUF, Hs, and derivative-repository compositional-analysis pipelines",
+  "supersedes": null,
+  "parent_doctrine": "huf-gov/HUF_GOVERNANCE_CHARTER.md Article VI (Accountable Data) + Article VII (Accountable Resolution)",
+  "sibling_standard": "huf-gov/standards/HUF_PUBLICATION_STANDARDS.json (HUF-STD-001)",
+  "citation": "Peter Higgins / Rogue Wave Audio. HUF Tensor Train I/O Standard v1.0 (HUF-STD-002). 2026-05-13. Operated under the HUF AI Collective cross-check protocol.",
+
+  "why_this_document_exists": {
+    "trigger": "Peter directive 2026-05-13 — 'the vector pdf and png generator method, can this be made as part of the tensor train that moves data from metric tensor to metric quaternion and then to vector diagrammatic output tensor type system, this is how it was meant to be developed but may not have been specified as so... check the past to make the future.'",
+    "the_past_that_was_checked": {
+      "doctrine_already_existed": [
+        "HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md (Output Doctrine v1.0, locked 2026-05-05) — defines Order classification (Order 0 raw → Order 1 first-principles → Order 2 inter-timestep → Order 3 recursive → Order 4+ inferential) and the Stage Tower (Stage 1 → Stage 2 → Stage 3 → Stage 4)",
+        "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json (INV-062 STAGED) — defines the hs_cnq_pdf_exporter.py module specification with hash-coded fraud prevention, PDF/A-3 archival compliance, veraPDF validation",
+        "HCI/cnt_v2/CNT_JSON_SCHEMA.md — CNT canonical JSON schema 2.0.0+",
+        "HCI-CNQ/engine/CNQ_SCHEMA.md — CNQ canonical JSON schema cnq/2.0.0",
+        "HCI/cnt_v2/CNT_PSEUDOCODE.md — algorithm reference for CNT",
+        "HCI-CNQ/engine/CNQ_PSEUDOCODE.md — algorithm reference for CNQ",
+        "Stage 1 / Stage 2/3 plate generators producing vector PDFs from canonical JSON"
+      ],
+      "the_gap": "No single document declared the four pieces above as constituting one named train: data CSV → CNT (metric tensor) → CNQ (metric quaternion) → vector diagrammatic output (PDF / PNG / SVG). The Output Doctrine described stages classifying derivational order; INV-062 specified one PDF exporter; the engine schemas defined the I/O of each engine. The chain was implicit. This standard makes it explicit and names it the Tensor Train.",
+      "the_future_made": "PPTX is hereby declared CONFERENCE-ONLY and OUT of the standard tensor-train package. The standard outputs are PDF (preferred, archival via PDF/A-3), PNG (raster fallback for embedding), and SVG (vector for further editing). PPTX may be derived from these standard outputs for conference delivery; it is not produced by the engine pipeline."
+    },
+    "purpose": "Codify the data→CNT→CNQ→vector-output chain as a named, versioned, hash-chained Tensor Train. Establish the canonical input and output formats at each stage. Set the post-conference implementation target for hs_cnq_pdf_exporter.py to close the final link in the chain."
+  },
+
+  "the_tensor_train_v1_0": {
+    "name": "HUF Tensor Train v1.0",
+    "principle": "Each link in the chain has a single canonical input format and a single canonical output format. Each link emits hash-chained provenance. The chain is reproducible from raw input to final artifact in one command.",
+    "the_chain_in_one_line": "raw CSV  →  CNT (Order-1/2/3 metric tensor)  →  CNQ (D=2/D=3/D=4 metric quaternion)  →  vector diagrammatic output (PDF / PNG / SVG)",
+
+    "links": [
+      {
+        "link": 1,
+        "name": "Adapter (Order-0)",
+        "purpose": "Convert raw domain data into a clean, deterministic compositional CSV ready for the engine.",
+        "input": "Domain-specific raw data (EMBER electricity TWh, Backblaze drive counts, GDP sector values, etc.)",
+        "output": "Compositional CSV with columns [time_index, carrier_1, carrier_2, ..., carrier_D]. Values may be absolute or proportional; the engine will close them.",
+        "implementation": "adapters/ folder; per-domain modules; one ADAPTERS_DISCLOSURE.md narrating Order-0 transformation",
+        "hash_disclosed": "source_file_sha256 in the disclosure document"
+      },
+      {
+        "link": 2,
+        "name": "CNT — Compositional Navigation Tensor (Order 1 → Order 3)",
+        "purpose": "The metric-tensor engine. Reads compositional CSV and produces the canonical JSON output with bearing tensor, angular velocity, steering metric, helmsman index, Higgins scale, depth tower, attractor fit, IR class, and stage-1/2/3 derived blocks.",
+        "input_format": "Compositional CSV (from link 1) OR direct in-memory composition list",
+        "output_format": "Canonical CNT JSON, schema 3.1.0",
+        "output_path_convention": "cnt_{dataset}.json or {dataset}_cnt_v3.json",
+        "implementation": "HCI-CNT/engine/cnt.py (Python), HCI-CNT/engine/cnt.R (R port)",
+        "entry_point": "cnt.cnt_run(csv_path, out_path=...)",
+        "schema_reference": "HCI/cnt_v2/CNT_JSON_SCHEMA.md",
+        "pseudocode_reference": "HCI/cnt_v2/CNT_PSEUDOCODE.md",
+        "order_classification_reference": "HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md (Output Doctrine v1.0)",
+        "hash_emitted": "metadata.content_sha256 + metadata.engine_signature",
+        "stages_emitted_inline": ["stages.stage_1", "stages.stage_2", "stages.stage_3", "depth_tower", "helmsman_family", "attractor_fit", "diagnostics"]
+      },
+      {
+        "link": 3,
+        "name": "CNQ — Compositional Navigation Quaternion (Order 2-3 algebraic view)",
+        "purpose": "The metric-quaternion engine. Reads the canonical CNT JSON (and original CSV for source verification) and produces the canonical CNQ JSON output: quaternion view at D=2/D=3/D=4 twin-factor, CHSH joint-coherence diagnostic, twin-quaternion sandwich residuals.",
+        "input_format": "Canonical CNT JSON (from link 2) + optional original CSV for cross-verification",
+        "output_format": "Canonical CNQ JSON, schema cnq/2.0.0",
+        "output_path_convention": "cnq_{dataset}.json or {dataset}_cnq_v2.json",
+        "implementation": "HCI-CNQ/engine/cnq.py (Python), HCI-CNQ/engine/cnq.R (R port)",
+        "entry_point": "cnq.cnq_run(input_csv=..., cnt_json_path=..., out_path=...)",
+        "schema_reference": "HCI-CNQ/engine/CNQ_SCHEMA.md",
+        "pseudocode_reference": "HCI-CNQ/engine/CNQ_PSEUDOCODE.md",
+        "hash_emitted": "metadata.content_sha256 (CNQ) + metadata.cnt_reference_sha256 (chain back to CNT)",
+        "subblocks_emitted": ["cnq_view.bearing_trajectory_d2", "cnq_view.bearing_trajectory_d3", "cnq_view.bearing_trajectory_d4", "cnq_view.chsh_diagnostic", "cnq_view.twin_quaternion_factor", "helmsman_family", "attractor_fit"]
+      },
+      {
+        "link": 4,
+        "name": "Vector Diagrammatic Output Tensor (the standard output package)",
+        "purpose": "Render the canonical JSON outputs from CNT and CNQ as deterministic vector graphics. The output IS a tensor of plates — one Stage-1 plate per timestep, one Stage-2/3 summary per dataset, one CNQ dashboard per dataset — with the same hash-chained provenance flowing forward into the rendered artifact.",
+        "input_formats_accepted": ["Canonical CNT JSON (link 2 output)", "Canonical CNQ JSON (link 3 output)"],
+        "standard_output_formats": {
+          "primary": "PDF (vector, multi-page, hash-coded metadata, PDF/A-3 archival compliance)",
+          "raster_fallback": "PNG (one per plate, for embedding in HTML / wikis / markdown when vector not supported)",
+          "vector_editable": "SVG (one per plate, for further editing in Inkscape / Illustrator if needed)"
+        },
+        "explicitly_out_of_standard": {
+          "PPTX": "PowerPoint is a CONFERENCE-DELIVERY format, NOT a tensor-train output format. The engine pipeline does not produce PPTX. PPTX is built downstream of the standard outputs by curating selected pages into a slide deck. The build_deck.js and python-pptx tooling used for CoDaWork 2026 are conference-specific helpers; they consume PDF/PNG, they do not extend the train.",
+          "rationale": "PPTX is a binary multimedia container, not a reproducible vector artifact. Embedding hashes in PPTX is non-standard; the format permits free-form reordering that breaks hash-chain integrity. The hashes live in the PDF; the PPTX is a downstream re-presentation, not an authority."
+        },
+        "implementation_status": {
+          "currently_implemented": [
+            "stage1_plates_raw.py — Stage 1 multi-page PDF generator (Higgins Tensor Data Field Layout v1.0; XY/XZ/YZ orthogonal projections; one plate per year + course plot)",
+            "stage23_plates.py — Stage 2/3 navigation pages (7-page navigation document: distance matrix, helmsman frequency, pairwise divergence, triadic area ranking, carrier interaction matrix, summary table)",
+            "atlas/stage1_v4.py — Order-1 reference plate (locked, ILR-Helmert orthogonal triplet)",
+            "atlas/stage2_locked.py — Order-2 reference plate (locked, 19 plates)"
+          ],
+          "specified_but_not_implemented": [
+            "tools/pipeline/hs_cnq_pdf_exporter.py — CNQ Vector PDF Spec INV-062 STAGED; full specification at papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json; implementation queued for first post-conference push (2026-06-06+)"
+          ],
+          "future_extensions": [
+            "PNG export sibling for every plate (already in v1.1-C task list, may be partially implemented in v1.1)",
+            "SVG export sibling for every plate (already in v1.1-C task list)",
+            "Stage 3 / Stage 4 plate modules (partial; Stage 3 depth-tower / IR / attractor plates listed in OUTPUT_DOCTRINE.md table as planned)"
+          ]
+        },
+        "hash_chain_from_input_to_artifact": "Each output artifact embeds metadata.content_sha256 of the source JSON (CNT or CNQ) and engine_signature in its header / footer. Per the CNQ Vector PDF Spec, the PDF/A-3 attachment carries the full source JSON inside the PDF, making the artifact self-verifying."
+      }
+    ],
+
+    "the_two_critical_observations": [
+      "The train is currently three links (Adapter → CNT → CNQ) plus the rendering link (link 4) which is partially implemented. The standard formalizes that link 4 produces PDF / PNG / SVG and NOT PPTX.",
+      "The order classification in the Output Doctrine v1.0 and the algebraic layer in CNQ are orthogonal axes: Order is depth of derivation from input; Quaternion view is the algebraic name for what's measured. A Stage-1 plate is Order-1 derived (closure + ILR-Helmert) and shows the data in its own simplex coordinates. A Stage-2 plate is Order-2 (multi-timestep) and shows bearings + helmsman + variation matrix. A CNQ dashboard is Order-2 + Order-3 named in the algebra of SU(2) / twin-quaternion."
+    ]
+  },
+
+  "io_contract": {
+    "raw_input": {
+      "format": "Compositional CSV — columns [time_index, carrier_1, carrier_2, ..., carrier_D]",
+      "encoding": "UTF-8",
+      "delimiter": "comma",
+      "header_row": "required (carrier names)",
+      "time_index_column": "first column; integer year OR ISO date OR any monotonic ordinal",
+      "value_columns": "absolute proportional or already-closed; engine will apply closure either way",
+      "constraints": ["D ≥ 3 (per KILL-1.2 — 3-carrier minimum for meaningful K_eff)", "N ≥ 2 (per KILL-1.4 — single timestep produces K_eff but no dynamics)", "no NaN in value columns (engine refuses NaN)"]
+    },
+    "cnt_canonical_output": {
+      "format": "Hash-chained JSON conforming to CNT schema 3.1.0",
+      "top_level_keys": ["metadata", "input", "tensor", "stages", "depth_tower", "helmsman_family", "attractor_fit", "diagnostics"],
+      "metadata_block_must_include": ["content_sha256", "engine_signature", "engine_version", "schema_version", "generated_at_utc"],
+      "input_block_must_include": ["source_file", "source_file_sha256", "n_records", "n_carriers", "carriers", "rows_closed"]
+    },
+    "cnq_canonical_output": {
+      "format": "Hash-chained JSON conforming to CNQ schema cnq/2.0.0",
+      "top_level_keys": ["metadata", "input", "cnt_reference", "cnq_view", "helmsman_family", "attractor_fit"],
+      "metadata_block_must_include": ["content_sha256 (CNQ)", "cnt_reference_sha256 (chain back to CNT)", "engine_version", "schema_version", "generated_at_utc"]
+    },
+    "vector_output_artifact": {
+      "formats_standard": ["PDF (primary, PDF/A-3 archival)", "PNG (raster fallback, one file per plate)", "SVG (editable vector, one file per plate)"],
+      "formats_excluded_from_standard": ["PPTX (conference-only; downstream re-presentation)"],
+      "metadata_embedding_required_for_pdf": ["Hs_Content_SHA256 (CNT)", "Hs_CNQ_Content_SHA256 (CNQ if CNQ output is rendered)", "Hs_Generated_At (ISO 8601 UTC)", "Hs_Dataset_Name", "Hs_Engine_Version", "Hs_Provenance_JSON (minified)"],
+      "pdf_a3_attachment_required": "Source CNT JSON and CNQ JSON (when applicable) attached as PDF/A-3 file attachments via pypdf",
+      "validation_required_for_archival_pdf": "veraPDF --flavour pdfa-3b — must validate as compliant or the PDF is deleted and a RuntimeError is raised per CNQ Vector PDF Spec"
+    }
+  },
+
+  "why_pptx_is_excluded": {
+    "primary_reasons": [
+      "PPTX is a binary multimedia container with no standard hash-embedding mechanism",
+      "PPTX permits arbitrary post-creation reordering that breaks any embedded hash chain",
+      "PPTX rendering is not deterministic — different versions of PowerPoint render the same file differently",
+      "PPTX has no archival ISO format equivalent to PDF/A-3",
+      "The conference-room use case (PPTX projection) is a separate concern from the analytical-output use case (PDF / PNG / SVG)"
+    ],
+    "what_pptx_is_for": "Conference delivery. The CoDaWork 2026 deck at CODA-Association/CODAwork2026/CodaWork2026_Talk_2026-05-13.pptx is a downstream curation of selected pages from the standard PDF outputs, plus narrative slides. It is built from the standard outputs; it is not itself part of the standard.",
+    "how_pptx_is_built_when_needed": "Conference-delivery tooling (build_deck.js with pptxgenjs, python-pptx scripts, etc.) consumes PDF page exports + JSON data summaries and assembles a slide deck. This tooling lives outside the engine pipeline and is governed by HUF-STD-001 (publication standards) for AI-use disclosure and authorship attribution, but is NOT covered by this standard (HUF-STD-002)."
+  },
+
+  "post_conference_implementation_targets": {
+    "trigger_date": "2026-06-06 (PRE_CONFERENCE_LOCKDOWN clears)",
+    "_order_revised_2026-05-14": "Power Share / Yeast Factor diagnostic (INV-060) moved to Order 1 per Peter directive 2026-05-14 after the religion-study demonstration showed yeast factors up to 148× — i.e. small-share carriers doing 100× the directional work of their size. Promoted because the diagnostic produces structural readings that the existing plate suite materially misses, and because Peter has declared it a standard inclusion in all future Hs outputs.",
+    "ordered_targets": [
+      {
+        "order": 1,
+        "target": "Power Share / Yeast Factor diagnostic — engine output + plate module (INV-060 promotion: STAGED → CANONICAL)",
+        "rationale": "Per-carrier directional work decomposition: power_share_j(t) = (ΔCLR_j)² / Σ_k (ΔCLR_k)², sums to 100% per step; yeast_j(t) = power_share_j(t) / composition_share_j(t-1) names structural leverage beyond size. Religion-study demonstration (Studies/Religion_2026-05-14, slide 8) showed yeast factors up to 148× for USA Hindus at 2030→2040. The diagnostic is mathematically clean (Aitchison-squared-distance decomposition), small to implement (~50 lines), and reads a structural fact existing plates miss completely.",
+        "spec": "Two pieces — (a) new engine output block `tensor.timesteps[t].power_share[]` and `yeast_factor[]` in CNT canonical JSON (schema bump 3.1.0 → 3.2.0); (b) new plate `HCI/codawork2026/stage1_plates/power_share_plate.py` rendering the stacked-bar-by-transition + yeast-cases-callout view demonstrated in the religion deck.",
+        "promotion_target": "Standard inclusion in every Hs-produced data deliverable going forward — sibling to the Section Plate and Triplet Plate at Stage 1.",
+        "estimated_effort": "1-2 days (engine block 0.5d, plate generator 0.5d, schema doc 0.25d, INV-060 promotion + doctrine update 0.5d)",
+        "demonstration_artifact": "CODA-Association/Studies/Religion_2026-05-14/Religion_HiddenDirections_2026-05-14.pdf slide 8/12",
+        "trigger_quote": "Peter 2026-05-14: 'the power share per composition per time slice is awesome as a general inclusion in all outputs, put it on top of todo list.'"
+      },
+      {
+        "order": 2,
+        "target": "hs_cnq_pdf_exporter.py implementation (INV-062 promotion: STAGED → CANONICAL)",
+        "spec": "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json",
+        "estimated_effort": "2-3 days; phases 1-3 of the spec's implementation_priority",
+        "completes_link": "link 4 — closes the final gap in the tensor train"
+      },
+      {
+        "order": 3,
+        "target": "PNG / SVG export siblings for stage1_plates_raw.py + stage23_plates.py + power_share_plate.py + foundations_plate.py + ilr_triplet_plate.py",
+        "rationale": "Matplotlib backend already supports both; mostly a CLI flag",
+        "estimated_effort": "0.5 days",
+        "completes_link": "link 4 alternate formats"
+      },
+      {
+        "order": 4,
+        "target": "Stage 3 plate module (atlas/stage3.py) per Output Doctrine v1.0 §4 (currently 'planned')",
+        "rationale": "Depth tower, IR class, attractor visualization — currently text-only output from CNT; needs visual surface",
+        "estimated_effort": "1-2 days",
+        "completes_link": "link 4 Stage 3 visual surface"
+      },
+      {
+        "order": 5,
+        "target": "Stage 4 plate module (atlas/stage4.py) per Output Doctrine v1.0 §4 — EITT bench, cross-dataset comparison, schema-validator surface",
+        "rationale": "Cross-dataset is the natural Stage 4 use case; EITT is a HUF-side scientific contribution that benefits from a dedicated visual",
+        "estimated_effort": "2-3 days",
+        "completes_link": "link 4 Stage 4 visual surface"
+      }
+    ],
+    "doctrine_compatibility": "All five targets implement existing Output Doctrine v1.0 specifications. Targets 2-5 extend link 4 only and introduce no engine changes. Target 1 (power share / yeast factor) DOES add a small block to CNT canonical JSON — a schema bump from 3.1.0 to 3.2.0 — which routes through the standard Discovery Change Packet protocol (HCC-R001..R008) once the lockdown clears. Lockdown-compatible filing format: each becomes a DCP at proposed status during the lockdown window, executes after 2026-06-06."
+  },
+
+  "authority_chain": {
+    "this_document_id": "HUF-STD-002",
+    "this_document_path": "huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json",
+    "this_document_version": "1.0",
+    "parent": "HUF Governance Charter (huf-gov/HUF_GOVERNANCE_CHARTER.md)",
+    "sibling_standard": "HUF-STD-001 (huf-gov/standards/HUF_PUBLICATION_STANDARDS.json)",
+    "draws_from": [
+      "HCI-CNT/conference_demo/cnt_demo/05_doctrine/OUTPUT_DOCTRINE.md (Output Doctrine v1.0)",
+      "papers/codawork2026/planning/CNQ_VECTOR_PDF_SPEC.json (INV-062 STAGED)",
+      "HCI/cnt_v2/CNT_JSON_SCHEMA.md",
+      "HCI-CNQ/engine/CNQ_SCHEMA.md",
+      "HCI/cnt_v2/CNT_PSEUDOCODE.md",
+      "HCI-CNQ/engine/CNQ_PSEUDOCODE.md"
+    ],
+    "consumers": [
+      "All future engine output rendering (Stage 1/2/3/4 plate generators)",
+      "All future CNT/CNQ data publications",
+      "tools/pipeline/hs_cnq_pdf_exporter.py when implemented (post-conference)",
+      "Any derivative repository that wants the same tensor-train I/O contract"
+    ],
+    "referenced_by_admin_jsons": [
+      "HS_FAST_REFRESH.json (in _meta.publication_standards section — add cross-reference)",
+      "HS_ADMIN.json (in next post-push admin sync)",
+      "INV-062 entry in INVESTIGATION_CATALOG.json (link from INV-062 to this standard)"
+    ]
+  },
+
+  "lockdown_compatibility": {
+    "creation_date": "2026-05-13",
+    "lockdown_active": "2026-05-12 to 2026-06-06",
+    "severity": "S2 (linked doc addition — codifies existing implicit doctrine, no engine touches, no claim promotions)",
+    "engine_touched": false,
+    "schema_touched": false,
+    "inv_catalog_disposition_touched": false,
+    "no_create_files_touched": false,
+    "lockdown_protected_papers_touched": false,
+    "lockdown_allowed_action_invoked": "S2 linked doc addition; cross-check archive entry equivalent"
+  },
+
+  "the_summary": {
+    "what_was_already_there": "Output Doctrine v1.0 (Order + Stage classification); CNQ Vector PDF Spec INV-062 (PDF exporter design); CNT/CNQ schemas; plate generators for Stage 1/2/3. The pieces of the train existed.",
+    "what_was_missing": "A single document declaring those pieces as the named Tensor Train v1.0 with explicit I/O contracts and explicit exclusion of PPTX from the standard package.",
+    "what_this_document_adds": "The naming. The I/O contract per link. The PDF/PNG/SVG-in / PPTX-out boundary. The post-conference implementation targets that close the final gap in link 4 (hs_cnq_pdf_exporter.py). The cross-references back to the existing doctrine.",
+    "the_doctrine_line": "Each link of the train hash-chains forward. The data enters once, becomes a metric tensor, becomes a metric quaternion, becomes a vector diagrammatic output. The output carries every hash in its metadata and its PDF/A-3 attachment. Anyone who has the artifact can re-derive every step."
+  },
+
+  "future_revisions_log": [
+    {
+      "version": "1.0",
+      "date": "2026-05-13",
+      "change_summary": "Baseline document. Names the data→CNT→CNQ→vector-output chain as the HUF Tensor Train v1.0. Codifies I/O contracts per link. Declares PPTX out of the standard package. Cross-references Output Doctrine v1.0, INV-062, CNT/CNQ schemas. Sets post-conference implementation targets ordered by priority."
+    }
+  ],
+
+  "doctrine_lines": [
+    "Each link of the train hash-chains forward.",
+    "The data enters once. The output carries every hash from the entry.",
+    "PDF is the archival format. PNG and SVG are rendering siblings. PPTX is conference delivery, not engine output.",
+    "The instrument reads. The expert decides. The hashes carry the receipts. The vocabulary holds the line."
+  ]
+}

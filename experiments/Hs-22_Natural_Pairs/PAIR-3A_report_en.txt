@@ -1,0 +1,37 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  PAIR-3A
+  System:      Basalt-Rhyolite Series
+  Domain:      MATTER
+  Carriers:    SiO2, Al2O3, CaO+MgO
+  N=150, D=3
+  Source:      DERIVED
+  Description: Igneous differentiation (Le Maitre 2002)
+  Pipeline:    1.0 Extended
+  Data hash:   8bf0db689b629d52
+  Timestamp:   2026-04-25T10:54:39.854085Z
+
+
+Total codes: 38
+  Errors:       0
+  Warnings:     0
+  Discoveries: 11
+  Calibration signals: 0
+  Information:  27
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000113)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000113)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (146)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (10)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (136)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=CaO+MgO, pct=60.646793)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=4.033175, drift_direction=increasing, max_shift_carrier=SiO2)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=CaO+MgO->Al2O3, te=0.189162)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(SiO2/Al2O3), cv=14.607161)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Al2O3/CaO+MgO), cv=187.125139)
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

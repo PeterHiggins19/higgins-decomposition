@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>CBS Cube -- Face Specifications</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 18px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 20px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .bound { font-size: 16px; font-family: 'Courier New', monospace; fill: #cccccc; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+  </style>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">CBS Display Standard -- Three Face Specifications</text>
+
+  <!-- XY Face -->
+  <rect x="30" y="65" width="300" height="250" class="box"/>
+  <text x="180" y="95" text-anchor="middle" class="label-bold">XY Face -- Plan View</text>
+  <text x="50" y="130" class="math">h_i(t) vs h_j(t)</text>
+  <text x="50" y="158" class="label">Shows: CLR displacement</text>
+  <text x="50" y="183" class="label">from barycentre</text>
+  <text x="50" y="218" class="bound">Scale: [CLR_min, CLR_max]</text>
+  <text x="50" y="243" class="bound">FIXED both axes</text>
+  <text x="50" y="278" class="label">Unit: HLR</text>
+  <text x="50" y="303" class="dim">Origin = geometric mean</text>
+
+  <!-- XZ Face -->
+  <rect x="350" y="65" width="300" height="250" class="box"/>
+  <text x="500" y="95" text-anchor="middle" class="label-bold">XZ Face -- Bearing View</text>
+  <text x="370" y="130" class="math">theta_ij for all pairs</text>
+  <text x="370" y="158" class="label">Shows: directional state</text>
+  <text x="370" y="183" class="label">(pairwise angles)</text>
+  <text x="370" y="218" class="bound">Scale: [-180, +180] deg</text>
+  <text x="370" y="243" class="bound">FIXED exact</text>
+  <text x="370" y="278" class="label">D(D-1)/2 bars total</text>
+  <text x="370" y="303" class="dim">Each bar = one pair bearing</text>
+
+  <!-- YZ Face -->
+  <rect x="670" y="65" width="300" height="250" class="box"/>
+  <text x="820" y="95" text-anchor="middle" class="label-bold">YZ Face -- Profile View</text>
+  <text x="690" y="130" class="math">h_j(t) per carrier</text>
+  <text x="690" y="158" class="label">Shows: each carrier</text>
+  <text x="690" y="183" class="label">CLR level (D bars)</text>
+  <text x="690" y="218" class="bound">Scale: [CLR_min, CLR_max]</text>
+  <text x="690" y="243" class="bound">FIXED</text>
+  <text x="690" y="278" class="label">Positive = above mean</text>
+  <text x="690" y="303" class="dim">Negative = below mean</text>
+
+  <!-- Info panel spec -->
+  <rect x="30" y="340" width="940" height="160" class="box"/>
+  <text x="500" y="375" text-anchor="middle" class="label-bold">Info Panel (per plate)</text>
+  <text x="50" y="410" class="label">Hs (Higgins Scale) | Ring | omega | sigma | d_A (Aitchison distance)</text>
+  <text x="50" y="440" class="label">kappa_HS (condition) | E_metric (energy) | DR (dynamic range)</text>
+  <text x="50" y="470" class="label">Scale provenance: Y_j(t) --> x_j = Y_j/T --> h_j = CLR --> section</text>
+  <text x="50" y="495" class="dim">DUT native unit displayed with k-factor conversion to HLR</text>
+
+  <!-- Footer -->
+  <text x="500" y="545" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

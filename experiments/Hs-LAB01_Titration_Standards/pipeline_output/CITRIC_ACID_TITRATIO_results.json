@@ -1,0 +1,330 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "CITRIC_ACID_TITRATIO",
+  "name": "Citric Acid Titration",
+  "domain": "CHEMISTRY",
+  "carriers": [
+    "H3Cit",
+    "H2Cit_minus",
+    "HCit_2minus",
+    "Cit_3minus"
+  ],
+  "D": 4,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from citric_acid_titration.csv"
+  },
+  "data_hash_sha256_16": "9d443ef0afc83f2a",
+  "run_timestamp": "2026-05-01T03:51:38.396097Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "CITRIC_ACID_TITRATIO: Citric Acid Titration: 4-part simplex, carriers=['H3Cit', 'H2Cit_minus', 'HCit_2minus', 'Cit_3minus']",
+    "step2_n_samples": 200,
+    "step2_D": 4,
+    "step2_carriers": [
+      "H3Cit",
+      "H2Cit_minus",
+      "HCit_2minus",
+      "Cit_3minus"
+    ],
+    "data_hash_sha256_16": "9d443ef0afc83f2a",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -2.096582902012401,
+      0.10446138131072942,
+      1.8085590590154603,
+      0.1835624616862097
+    ],
+    "step4_clr_std_per_part": [
+      6.412559722944573,
+      4.223839628504919,
+      2.4662791126701062,
+      7.502919180054884
+    ],
+    "step5_sigma2_range": [
+      0.019789851762952546,
+      121.33807229168787
+    ],
+    "step5_sigma2_final": 121.33807229168787,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.9019286048702848,
+      "eigenvalues_final": [
+        109.98821935647419,
+        11.26681031967682,
+        0.6927816722790281,
+        -5.888066311851201e-15
+      ],
+      "eigenvector_overlap": 0.04974580699636444,
+      "condition_number": 158.76317714157832,
+      "von_neumann_entropy": 0.3425204269808612,
+      "von_neumann_ratio": 0.2470762607042294,
+      "commutator_norm": 0.09431029417184669,
+      "det_V": -1.9062671736551684e-12,
+      "det_amgm_ratio": -2.2066207290063723e-18,
+      "cholesky_last_diag": 1.998311831264521e-06,
+      "eigenvalue_power_law_alpha": 1.733818863370821,
+      "eigenvalue_power_law_R2": 0.9519391436414215,
+      "eigenvalue_ratio_matches": 0,
+      "eigenvalue_ratio_best_match": null,
+      "gamma": 0.313163527776967,
+      "VSWR": 1.9119012761898728,
+      "Q_factor": 0,
+      "trace_final": 121.94781134843004,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.0028446921240808856,
+      0.11023051336942911,
+      3.8691259417745645
+    ],
+    "step6_pll_R2": 0.9731864062924197,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      -19.374770372566132,
+      2.8012804994831795
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 40,
+    "step7_squeeze_closest": {
+      "time_index": 75,
+      "sigma2_A": 22.278226973534604,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.0448868754765785,
+      "delta": 0.00036160820965558393
+    },
+    "step7_squeeze_mean": 52.972766273345385,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.0016934767331431475,
+      0.5780374779333122
+    ],
+    "step8_entropy_mean": 0.3095658324651856,
+    "step8_entropy_cv": 71.8828759141962,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.3095658324651856,
+        "H_mean_decimated": 0.3095675405007452,
+        "variation_pct": 0.0005517519637093875,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.3095658324651856,
+        "H_mean_decimated": 0.30957435403562,
+        "variation_pct": 0.002752749024834271,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.3095658324651856,
+        "H_mean_decimated": 0.30960131166086063,
+        "variation_pct": 0.011460953359258962,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 3,
+      "stalls": 3,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.468297158409904,
+      0.36146359708546943
+    ],
+    "step11_complex_range_im": [
+      -0.5008151872032538,
+      0.36494594043828665
+    ],
+    "step12_radius_range": [
+      0.200971598689208,
+      0.6856515735475424
+    ],
+    "step12_theta_range": [
+      -2.3226526277322197,
+      1.5090584234683644
+    ],
+    "step9_angular_velocity_std": 0.026655879814013097
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          41.12092220033099,
+          17.840821207328574,
+          6.082532661592848,
+          56.29379622243546
+        ],
+        "carrier_pct": [
+          33.88954630948751,
+          14.70339924672657,
+          5.012880579617981,
+          46.394173864167946
+        ],
+        "dominant_carrier": "Cit_3minus",
+        "dominant_pct": 46.394173864167946
+      },
+      "match_density": {
+        "density": 0.29876282730610837,
+        "concentration": 0.47624999999999995,
+        "total_matches": 40,
+        "n_constants_hit": 3,
+        "dominant_constant": "1/(e^pi)",
+        "trajectory_length": 133.88546480388118
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            25.112786075508602,
+            77.5750278562986,
+            183.13394716120473
+          ],
+          [
+            25.112786075508602,
+            0.0,
+            36.15121805351464,
+            131.437352991979
+          ],
+          [
+            77.5750278562986,
+            36.15121805351464,
+            0.0,
+            31.941957028246083
+          ],
+          [
+            183.13394716120473,
+            131.437352991979,
+            31.941957028246083,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -2.096582902012401,
+          0.10446138131072942,
+          1.8085590590154603,
+          0.1835624616862097
+        ],
+        "clr_stds": [
+          6.412559722944573,
+          4.223839628504919,
+          2.4662791126701062,
+          7.502919180054884
+        ],
+        "aitchison_distance_mean": 13.374135375088057
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.7792115998034366,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Cit_3minus",
+        "max_shift_magnitude": 0.779420872222008
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.9731864062924197,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "HCit_2minus",
+        "sources": [
+          "H3Cit",
+          "H2Cit_minus"
+        ],
+        "I_source1_target": 2.2420969359958973,
+        "I_source2_target": 2.0045813083152026,
+        "redundancy": 2.0045813083152026,
+        "unique_source1": 0.23751562768069467,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "H3Cit->H2Cit_minus": 0.0,
+          "H3Cit->HCit_2minus": 0.0,
+          "H3Cit->Cit_3minus": 0.0,
+          "H2Cit_minus->H3Cit": 0.0,
+          "H2Cit_minus->HCit_2minus": 0.0,
+          "H2Cit_minus->Cit_3minus": 0.0,
+          "HCit_2minus->H3Cit": 0.0,
+          "HCit_2minus->H2Cit_minus": 0.0,
+          "HCit_2minus->Cit_3minus": 0.0,
+          "Cit_3minus->H3Cit": 0.0,
+          "Cit_3minus->H2Cit_minus": 0.0,
+          "Cit_3minus->HCit_2minus": 0.0
+        },
+        "dominant_flow": "H3Cit->H2Cit_minus",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 121.33807229168787,
+        "shuffled_sigma2": 121.3380722916879,
+        "order_matters": false,
+        "relative_difference": 2.3423570931702535e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 198,
+        "near_zero_carriers": [
+          "H3Cit",
+          "H2Cit_minus",
+          "HCit_2minus",
+          "Cit_3minus"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(H3Cit/H2Cit_minus)": {
+            "mean": -2.201044283323131,
+            "std": 5.011265915465732,
+            "cv": 227.67674205535454
+          },
+          "ln(H3Cit/HCit_2minus)": {
+            "mean": -3.9051419610278617,
+            "std": 8.807668695875124,
+            "cv": 225.54029491816175
+          },
+          "ln(H3Cit/Cit_3minus)": {
+            "mean": -2.2801453636986118,
+            "std": 13.532699182395385,
+            "cv": 593.5015985315982
+          },
+          "ln(H2Cit_minus/HCit_2minus)": {
+            "mean": -1.7040976777047296,
+            "std": 6.0125882990202015,
+            "cv": 352.83120079822135
+          },
+          "ln(H2Cit_minus/Cit_3minus)": {
+            "mean": -0.0791010803754807,
+            "std": 11.464613076418193,
+            "cv": 14493.623882249687
+          },
+          "ln(HCit_2minus/Cit_3minus)": {
+            "mean": 1.624996597329249,
+            "std": 5.6517215986145395,
+            "cv": 347.7989804965367
+          }
+        },
+        "most_stable": "ln(H3Cit/HCit_2minus)",
+        "least_stable": "ln(H2Cit_minus/Cit_3minus)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

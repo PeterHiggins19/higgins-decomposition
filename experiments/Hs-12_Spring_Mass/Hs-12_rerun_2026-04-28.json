@@ -1,0 +1,287 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-12",
+    "name": "Spring-Mass Force Composition",
+    "domain": "FORCE",
+    "legacy": "EXP-16",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Simulated (damped oscillator RK4)",
+    "data_hash": "4a96e8eb42b035f3",
+    "N": 200,
+    "D": 3,
+    "carriers": [
+      "KE",
+      "PE",
+      "Damping"
+    ],
+    "elapsed_seconds": 0.0245,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-12",
+    "name": "Spring-Mass Force Composition",
+    "domain": "FORCE",
+    "carriers": [
+      "KE",
+      "PE",
+      "Damping"
+    ],
+    "D": 3,
+    "N": 200,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "4a96e8eb42b035f3",
+    "run_timestamp": "2026-04-28T21:16:19.635060Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-12: Spring-Mass Force Composition: 3-part simplex, carriers=['KE', 'PE', 'Damping']",
+      "step2_n_samples": 200,
+      "step2_D": 3,
+      "step2_carriers": [
+        "KE",
+        "PE",
+        "Damping"
+      ],
+      "data_hash_sha256_16": "4a96e8eb42b035f3",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.2812736128634755,
+        0.4023838994767256,
+        -0.6836575123402007
+      ],
+      "step4_clr_std_per_part": [
+        1.7239154275332809,
+        1.6147388378073724,
+        0.25741252902469314
+      ],
+      "step5_sigma2_range": [
+        0.3012221817070239,
+        7.055457923630731
+      ],
+      "step5_sigma2_final": 5.645527125709647,
+      "step6_pll_coeffs": [
+        -0.00021392399069079538,
+        0.05248086323743981,
+        2.8399232738221234
+      ],
+      "step6_pll_R2": 0.5641554273591747,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        122.66240702590338,
+        6.05863777757293
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 41,
+      "step7_squeeze_closest": {
+        "time_index": 81,
+        "sigma2_A": 6.307509471280368,
+        "constant": "1/(2pi)",
+        "constant_value": 0.15915494309189535,
+        "test_type": "reciprocal",
+        "test_value": 0.1585411808818115,
+        "delta": 0.0006137622100838569
+      },
+      "step7_squeeze_mean": 5.254692391622513,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.00657256257897186,
+        0.9268006101624034
+      ],
+      "step8_entropy_mean": 0.5816307978023736,
+      "step8_entropy_cv": 47.53586289079732,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.5816307978023736,
+          "H_mean_decimated": 0.5744259798722056,
+          "variation_pct": 1.2387270339518852,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.5816307978023736,
+          "H_mean_decimated": 0.5674022031866682,
+          "variation_pct": 2.4463275791905277,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.5816307978023736,
+          "H_mean_decimated": 0.5881772580308464,
+          "variation_pct": 1.1255353487483624,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 12,
+        "stalls": 12,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.5023518131300115,
+        0.4947750755532855
+      ],
+      "step11_complex_range_im": [
+        -0.08082756505112557,
+        0.05411020141195719
+      ],
+      "step12_radius_range": [
+        0.037650212174680606,
+        0.5083288477244209
+      ],
+      "step12_theta_range": [
+        -3.140532872755674,
+        3.138252756726387
+      ],
+      "step9_angular_velocity_std": 0.658130464886057
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            2.9718844012872547,
+            2.607381514323504,
+            0.06626121009888848
+          ],
+          "carrier_pct": [
+            52.64139796181897,
+            46.18490809209874,
+            1.173693946082305
+          ],
+          "dominant_carrier": "KE",
+          "dominant_pct": 52.64139796181897
+        },
+        "match_density": {
+          "density": 1.867045619139696,
+          "concentration": 0.7334919690660321,
+          "total_matches": 41,
+          "n_constants_hit": 6,
+          "dominant_constant": "1/(2pi)",
+          "trajectory_length": 21.959827644110874
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              11.09227062112263,
+              3.4689097084487814
+            ],
+            [
+              11.09227062112263,
+              0.0,
+              2.375401047557532
+            ],
+            [
+              3.4689097084487814,
+              2.375401047557532,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.2812736128634755,
+            0.4023838994767256,
+            -0.6836575123402007
+          ],
+          "clr_stds": [
+            1.7239154275332809,
+            1.6147388378073724,
+            0.25741252902469314
+          ],
+          "aitchison_distance_mean": 2.2226421528295046
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.899039851730966,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Damping",
+          "max_shift_magnitude": 0.008256840696782675
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.5641554273591747,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Damping",
+          "sources": [
+            "KE",
+            "PE"
+          ],
+          "I_source1_target": 0.2781770739797397,
+          "I_source2_target": 0.2542574700365812,
+          "redundancy": 0.2542574700365812,
+          "unique_source1": 0.02391960394315845,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "KE->PE": 0.0,
+            "KE->Damping": 0.024719217154195894,
+            "PE->KE": 0.01731737258892707,
+            "PE->Damping": 0.019381321346648273,
+            "Damping->KE": 0.0,
+            "Damping->PE": 0.0
+          },
+          "dominant_flow": "KE->Damping",
+          "dominant_te": 0.024719217154195894
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 5.645527125709647,
+          "shuffled_sigma2": 5.645527125709647,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 25,
+          "near_zero_carriers": [
+            "KE",
+            "PE",
+            "Damping"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(KE/PE)": {
+              "mean": -0.12111028661324973,
+              "std": 3.3305060608145767,
+              "cv": 2749.977854028307
+            },
+            "ln(KE/Damping)": {
+              "mean": 0.9649311252036764,
+              "std": 1.8625009284423946,
+              "cv": 193.01905387799158
+            },
+            "ln(PE/Damping)": {
+              "mean": 1.0860414118169261,
+              "std": 1.5412336122591968,
+              "cv": 141.91296901659973
+            }
+          },
+          "most_stable": "ln(PE/Damping)",
+          "least_stable": "ln(KE/PE)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

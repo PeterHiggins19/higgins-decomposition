@@ -1,0 +1,265 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-2B",
+  "name": "Spring-Mass (\u03b6=0.5)",
+  "domain": "FORCE",
+  "carriers": [
+    "KE",
+    "PE",
+    "Damping"
+  ],
+  "D": 3,
+  "N": 200,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Heavily damped harmonic oscillator"
+  },
+  "data_hash_sha256_16": "9ae5b58dde15a7d2",
+  "run_timestamp": "2026-04-25T10:54:39.832501Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-2B: Spring-Mass (\u03b6=0.5): 3-part simplex, carriers=['KE', 'PE', 'Damping']",
+    "step2_n_samples": 200,
+    "step2_D": 3,
+    "step2_carriers": [
+      "KE",
+      "PE",
+      "Damping"
+    ],
+    "data_hash_sha256_16": "9ae5b58dde15a7d2",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -0.4978506570604165,
+      -0.45157186282469874,
+      0.9494225198851154
+    ],
+    "step4_clr_std_per_part": [
+      1.3775543414724862,
+      1.7522975304538218,
+      1.193438968970974
+    ],
+    "step5_sigma2_range": [
+      5.607719799593483,
+      25.35042350559074
+    ],
+    "step5_sigma2_final": 6.392499171602759,
+    "step6_pll_coeffs": [
+      0.0006044772235882641,
+      -0.16427432095454134,
+      16.278256782347782
+    ],
+    "step6_pll_R2": 0.8720589057938254,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      135.8813157420434,
+      5.117351345380879
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 67,
+    "step7_squeeze_closest": {
+      "time_index": 194,
+      "sigma2_A": 6.30310975750829,
+      "constant": "1/(2pi)",
+      "constant_value": 0.15915494309189535,
+      "test_type": "reciprocal",
+      "test_value": 0.15865184622698278,
+      "delta": 0.0005030968649125667
+    },
+    "step7_squeeze_mean": 7.8488353203246355,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.013135274136414406,
+      0.9999748822706863
+    ],
+    "step8_entropy_mean": 0.623121690888526,
+    "step8_entropy_cv": 45.433856472832,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.623121690888526,
+        "H_mean_decimated": 0.6111239548843478,
+        "variation_pct": 1.9254242276609403,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.623121690888526,
+        "H_mean_decimated": 0.6160772437702071,
+        "variation_pct": 1.1305090516547414,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.623121690888526,
+        "H_mean_decimated": 0.7213472348336398,
+        "variation_pct": 15.76346087472118,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 134,
+      "stalls": 15,
+      "spikes": 0,
+      "reversals": 119
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.2818161843525092,
+      0.4671604524501686
+    ],
+    "step11_complex_range_im": [
+      -0.440898929183194,
+      0.40334828751796775
+    ],
+    "step12_radius_range": [
+      0.029098400390417705,
+      0.6423634127877562
+    ],
+    "step12_theta_range": [
+      -3.119488225999857,
+      3.12259958915265
+    ],
+    "step9_angular_velocity_std": 0.5641635157567622
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          1.8976559637096952,
+          3.0705466352345625,
+          1.424296572658501
+        ],
+        "carrier_pct": [
+          29.685666165427214,
+          48.033586752342124,
+          22.280747082230665
+        ],
+        "dominant_carrier": "PE",
+        "dominant_pct": 48.033586752342124
+      },
+      "match_density": {
+        "density": 1.509561414701587,
+        "concentration": 0.8329249276008018,
+        "total_matches": 67,
+        "n_constants_hit": 3,
+        "dominant_constant": "1/(2pi)",
+        "trajectory_length": 44.38375235845882
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            8.512108625230018,
+            3.57335843750183
+          ],
+          [
+            8.512108625230018,
+            0.0,
+            7.092030452076427
+          ],
+          [
+            3.5733584375018306,
+            7.092030452076427,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -0.4978506570604165,
+          -0.45157186282469874,
+          0.9494225198851154
+        ],
+        "clr_stds": [
+          1.3775543414724862,
+          1.7522975304538218,
+          1.193438968970974
+        ],
+        "aitchison_distance_mean": 3.079684719422436
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.734553794806942,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Damping",
+        "max_shift_magnitude": 0.42349210806950965
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.8720589057938254,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Damping",
+        "sources": [
+          "KE",
+          "PE"
+        ],
+        "I_source1_target": 1.1118112206209838,
+        "I_source2_target": 1.0334743435958647,
+        "redundancy": 1.0334743435958647,
+        "unique_source1": 0.07833687702511916,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "KE->PE": 0.0,
+          "KE->Damping": 0.0,
+          "PE->KE": 0.0,
+          "PE->Damping": 0.0,
+          "Damping->KE": 0.0,
+          "Damping->PE": 0.0
+        },
+        "dominant_flow": "KE->PE",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 6.392499171602759,
+        "shuffled_sigma2": 6.392499171602756,
+        "order_matters": false,
+        "relative_difference": 4.16822151645631e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 50,
+        "near_zero_carriers": [
+          "KE",
+          "PE",
+          "Damping"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(KE/PE)": {
+            "mean": -0.04627879423571782,
+            "std": 2.917551820487516,
+            "cv": 6304.295236447106
+          },
+          "ln(KE/Damping)": {
+            "mean": -1.4472731769455314,
+            "std": 1.8903328906575767,
+            "cv": 130.61341291815566
+          },
+          "ln(PE/Damping)": {
+            "mean": -1.4009943827098135,
+            "std": 2.6630866399868456,
+            "cv": 190.08546164445602
+          }
+        },
+        "most_stable": "ln(KE/Damping)",
+        "least_stable": "ln(KE/PE)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

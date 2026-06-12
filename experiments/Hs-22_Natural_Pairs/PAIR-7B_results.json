@@ -1,0 +1,242 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "PAIR-7B",
+  "name": "QCD Quarks",
+  "domain": "QCD",
+  "carriers": [
+    "u-type",
+    "d-type",
+    "s/heavy"
+  ],
+  "D": 3,
+  "N": 20,
+  "data_source": {
+    "type": "DERIVED",
+    "url": null,
+    "description": "Quark flavor fractions"
+  },
+  "data_hash_sha256_16": "5f06b71b7ca36aa9",
+  "run_timestamp": "2026-04-25T10:54:40.481416Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "PAIR-7B: QCD Quarks: 3-part simplex, carriers=['u-type', 'd-type', 's/heavy']",
+    "step2_n_samples": 20,
+    "step2_D": 3,
+    "step2_carriers": [
+      "u-type",
+      "d-type",
+      "s/heavy"
+    ],
+    "data_hash_sha256_16": "5f06b71b7ca36aa9",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -0.028804415529388082,
+      -0.028804415529388082,
+      0.05760883105877623
+    ],
+    "step4_clr_std_per_part": [
+      0.27701841945734884,
+      0.27701841945734884,
+      0.5540368389146976
+    ],
+    "step5_sigma2_range": [
+      0.10724143943348843,
+      0.5583142171989883
+    ],
+    "step5_sigma2_final": 0.4604352283118859,
+    "step6_pll_coeffs": [
+      -0.002998494315847993,
+      0.07801316553631538,
+      0.009531504622077632
+    ],
+    "step6_pll_R2": 0.8117978199077815,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      13.008723265538817,
+      0.5169573453873761
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 7,
+    "step7_squeeze_closest": {
+      "time_index": 9,
+      "sigma2_A": 0.4772885982859588,
+      "constant": "ln_phi",
+      "constant_value": 0.48121182505960347,
+      "test_type": "direct",
+      "test_value": 0.4772885982859588,
+      "delta": 0.00392322677364465
+    },
+    "step7_squeeze_mean": 0.4173762724295728,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.7453115759478262,
+      0.9999092749840701
+    ],
+    "step8_entropy_mean": 0.9357612221978039,
+    "step8_entropy_cv": 7.202354701355437,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.9357612221978039,
+        "H_mean_decimated": 0.9625583895584751,
+        "variation_pct": 2.8636757673857436,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.9357612221978039,
+        "H_mean_decimated": 0.9920884848629614,
+        "variation_pct": 6.019405520231198,
+        "pass": false
+      },
+      "compression_8x": {
+        "H_mean_original": 0.9333191231490812,
+        "H_mean_decimated": 0.9962132113764811,
+        "variation_pct": 6.738754908952373,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 14,
+      "stalls": 1,
+      "spikes": 0,
+      "reversals": 13
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      0.0,
+      0.0
+    ],
+    "step11_complex_range_im": [
+      -0.2364249352331518,
+      0.2831903070375113
+    ],
+    "step12_radius_range": [
+      0.011258330249197812,
+      0.2831903070375113
+    ],
+    "step12_theta_range": [
+      -1.5707963267948966,
+      1.5707963267948966
+    ],
+    "step9_angular_velocity_std": 2.4966846734385086
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.07673920471864766,
+          0.07673920471864766,
+          0.3069568188745906
+        ],
+        "carrier_pct": [
+          16.666666666666668,
+          16.666666666666668,
+          66.66666666666666
+        ],
+        "dominant_carrier": "s/heavy",
+        "dominant_pct": 66.66666666666666
+      },
+      "match_density": {
+        "density": 8.229201595805636,
+        "concentration": 0.2653061224489796,
+        "total_matches": 7,
+        "n_constants_hit": 5,
+        "dominant_constant": "ln_phi",
+        "trajectory_length": 0.8506293008507471
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.0,
+            0.6906528424678288
+          ],
+          [
+            0.0,
+            0.0,
+            0.6906528424678288
+          ],
+          [
+            0.6906528424678288,
+            0.6906528424678288,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -0.028804415529388082,
+          -0.028804415529388082,
+          0.05760883105877623
+        ],
+        "clr_stds": [
+          0.27701841945734884,
+          0.27701841945734884,
+          0.5540368389146976
+        ],
+        "aitchison_distance_mean": 0.8179106052251685
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.9242927579299721,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "s/heavy",
+        "max_shift_magnitude": 0.018000000000000016
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.8117978199077815,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "s/heavy",
+        "sources": [
+          "u-type",
+          "d-type"
+        ],
+        "I_source1_target": 2.7184734013300127,
+        "I_source2_target": 2.7184734013300127,
+        "redundancy": 2.7184734013300127,
+        "unique_source1": 0.0,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 0.4604352283118859,
+        "shuffled_sigma2": 0.46043522831188577,
+        "order_matters": false,
+        "relative_difference": 2.411246916739226e-16
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(u-type/d-type)": {
+            "mean": 0.0,
+            "std": 0.0,
+            "cv": Infinity
+          },
+          "ln(u-type/s/heavy)": {
+            "mean": -0.08641324658816425,
+            "std": 0.8310552583720464,
+            "cv": 961.7220636701243
+          },
+          "ln(d-type/s/heavy)": {
+            "mean": -0.08641324658816425,
+            "std": 0.8310552583720464,
+            "cv": 961.7220636701243
+          }
+        },
+        "most_stable": "ln(u-type/s/heavy)",
+        "least_stable": "ln(u-type/d-type)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "ratio_pair_lattice"
+    ]
+  }
+}

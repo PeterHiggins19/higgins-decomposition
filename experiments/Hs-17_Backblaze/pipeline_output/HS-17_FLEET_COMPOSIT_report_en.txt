@@ -1,0 +1,59 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-17_FLEET_COMPOSIT
+  System:      Backblaze Fleet Composition
+  Domain:      STORAGE
+  Carriers:    index, Mechanical, Thermal, Age, Errors
+  N=108, D=5
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-17_fleet_composition.csv
+  Pipeline:    1.0 Extended
+  Data hash:   051cca62652b01a6
+  Timestamp:   2026-04-30T21:13:50.123136Z
+
+
+Total codes: 60
+  Errors:       0
+  Warnings:     1
+  Discoveries: 23
+  Calibration signals: 0
+  Structural modes:  4
+  Information:  32
+
+── WARNINGS ──
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/e, delta=0.000258)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (66)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (14)
+  [S9-SPK-DIS] Spikes detected — entropy rate exceeded threshold. (3)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (49)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=index, pct=66.349353)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.027689, drift_direction=decreasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Thermal->Age, te=0.066477)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Mechanical), cv=234.228061)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Thermal), cv=1148.164568)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Age), cv=559.811330)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(index/Errors), cv=64.494516)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Mechanical/Thermal), cv=53.011859)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Thermal/Errors), cv=18.295102)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Age/Errors), cv=18.069942)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=12, near_zero_carriers=['index', 'Age'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=2738.424033)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=0.000000)
+  [MX-PWR-DIS] MX-PWR-DIS (R2=0.995446, alpha=-0.444152)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=3, best={'ratio': 'λ3/λ2', 'value': 0.5658511276647067, 'constant': 'omega_lambert', 'delta': 0.0012921627450771522})
+  [MX-QHI-DIS] MX-QHI-DIS (Q=218.955054)
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-CPL-DIS] Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.
+  [SM-MXR-DIS] SM-MXR-DIS
+  [SM-EDP-DIS] SM-EDP-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.
