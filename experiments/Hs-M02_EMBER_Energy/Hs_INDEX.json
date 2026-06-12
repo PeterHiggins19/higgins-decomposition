@@ -1,0 +1,369 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-M02",
+  "name": "EMBER Electricity Generation",
+  "domain": "ENERGY",
+  "series": "M-series (Manifold Projection Systems)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "CoDaWork 2026 reference experiment: validate Hs decomposition on 7 national electricity generation mixes from EMBER 2025.",
+  "data_source": {
+    "origin": "EMBER Global Electricity Review 2025",
+    "origin_url": "https://ember-climate.org/data/",
+    "raw_data_path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\Energy\\",
+    "time_axis": "Annual (2000-2025)",
+    "license": "CC BY 4.0"
+  },
+  "runs": [
+    {
+      "run_id": "CHN",
+      "name": "China",
+      "N": 26,
+      "D": 9,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_CHN_China_generation_TWh.csv",
+      "data_hash_sha256_16": "7b80499453d67569",
+      "run_timestamp": "2026-04-30T21:14:06.736112Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_CHN_China_generation_TWh.csv --exp-id \"Hs-M02-CHN\" --name \"China\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 12.571786,
+        "variance_shape": "bowl",
+        "variance_R2": 0.985529,
+        "entropy_mean": 0.572573,
+        "entropy_cv": 16.993677,
+        "closure_verified": true,
+        "zero_replacement_applied": false
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_CHN_CHINA_GENE_results.json",
+        "report_en": "pipeline_output/EMBER_CHN_CHINA_GENE_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-CHN_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-CHN_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-CHN_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-CHN_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-CHN_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-CHN_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "DEU",
+      "name": "Germany",
+      "N": 26,
+      "D": 10,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Other Renewables",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_DEU_Germany_generation_TWh.csv",
+      "data_hash_sha256_16": "fec346c75ee80b7d",
+      "run_timestamp": "2026-04-30T21:14:07.629136Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_DEU_Germany_generation_TWh.csv --exp-id \"Hs-M02-DEU\" --name \"Germany\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 16.660038,
+        "variance_shape": "bowl",
+        "variance_R2": 0.852145,
+        "entropy_mean": 0.395094,
+        "entropy_cv": 5.776051,
+        "closure_verified": true,
+        "zero_replacement_applied": true
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_DEU_GERMANY_GE_results.json",
+        "report_en": "pipeline_output/EMBER_DEU_GERMANY_GE_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-DEU_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-DEU_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-DEU_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-DEU_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-DEU_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-DEU_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "FRA",
+      "name": "France",
+      "N": 26,
+      "D": 10,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Other Renewables",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_FRA_France_generation_TWh.csv",
+      "data_hash_sha256_16": "7e5b384121730d4d",
+      "run_timestamp": "2026-04-30T21:14:08.534010Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_FRA_France_generation_TWh.csv --exp-id \"Hs-M02-FRA\" --name \"France\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 12.920906,
+        "variance_shape": "hill",
+        "variance_R2": 0.969389,
+        "entropy_mean": 0.31711,
+        "entropy_cv": 3.931014,
+        "closure_verified": true,
+        "zero_replacement_applied": false
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_FRA_FRANCE_GEN_results.json",
+        "report_en": "pipeline_output/EMBER_FRA_FRANCE_GEN_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-FRA_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-FRA_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-FRA_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-FRA_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-FRA_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-FRA_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "GBR",
+      "name": "United Kingdom",
+      "N": 26,
+      "D": 10,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Other Renewables",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_GBR_United_Kingdom_generation_TWh.csv",
+      "data_hash_sha256_16": "40ebb46469ebc33e",
+      "run_timestamp": "2026-04-30T21:14:09.432709Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_GBR_United_Kingdom_generation_TWh.csv --exp-id \"Hs-M02-GBR\" --name \"United Kingdom\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 16.860777,
+        "variance_shape": "bowl",
+        "variance_R2": 0.969886,
+        "entropy_mean": 0.279444,
+        "entropy_cv": 4.104673,
+        "closure_verified": true,
+        "zero_replacement_applied": true
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_GBR_UNITED_KIN_results.json",
+        "report_en": "pipeline_output/EMBER_GBR_UNITED_KIN_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-GBR_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-GBR_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-GBR_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-GBR_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-GBR_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-GBR_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "IND",
+      "name": "India",
+      "N": 26,
+      "D": 9,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_IND_India_generation_TWh.csv",
+      "data_hash_sha256_16": "fe4b5646db11f109",
+      "run_timestamp": "2026-04-30T21:14:10.330100Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_IND_India_generation_TWh.csv --exp-id \"Hs-M02-IND\" --name \"India\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 12.439954,
+        "variance_shape": "bowl",
+        "variance_R2": 0.987582,
+        "entropy_mean": 0.451333,
+        "entropy_cv": 13.887351,
+        "closure_verified": true,
+        "zero_replacement_applied": false
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_IND_INDIA_GENE_results.json",
+        "report_en": "pipeline_output/EMBER_IND_INDIA_GENE_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-IND_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-IND_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-IND_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-IND_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-IND_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-IND_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "JPN",
+      "name": "Japan",
+      "N": 26,
+      "D": 9,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_JPN_Japan_generation_TWh.csv",
+      "data_hash_sha256_16": "6bd4dbf8c481faf8",
+      "run_timestamp": "2026-04-30T21:14:11.212738Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_JPN_Japan_generation_TWh.csv --exp-id \"Hs-M02-JPN\" --name \"Japan\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 10.161304,
+        "variance_shape": "hill",
+        "variance_R2": 0.794401,
+        "entropy_mean": 0.542128,
+        "entropy_cv": 3.369969,
+        "closure_verified": true,
+        "zero_replacement_applied": true
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_JPN_JAPAN_GENE_results.json",
+        "report_en": "pipeline_output/EMBER_JPN_JAPAN_GENE_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-JPN_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-JPN_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-JPN_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-JPN_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-JPN_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-JPN_manifold_paper.pdf"
+      }
+    },
+    {
+      "run_id": "WLD",
+      "name": "World",
+      "N": 26,
+      "D": 10,
+      "carriers": [
+        "Year",
+        "Bioenergy",
+        "Coal",
+        "Gas",
+        "Hydro",
+        "Nuclear",
+        "Other Fossil",
+        "Other Renewables",
+        "Solar",
+        "Wind"
+      ],
+      "data_source_csv": "data/Energy/EMBER_pipeline_ready/ember_WLD_World_generation_TWh.csv",
+      "data_hash_sha256_16": "8644e6e0079364fa",
+      "run_timestamp": "2026-04-30T21:14:12.082799Z",
+      "run_command": "python hs_run.py ../../data/Energy/EMBER_pipeline_ready/ember_WLD_World_generation_TWh.csv --exp-id \"Hs-M02-WLD\" --name \"World\" --domain ENERGY",
+      "results_summary": {
+        "total_variance": 6.280046,
+        "variance_shape": "bowl",
+        "variance_R2": 0.989125,
+        "entropy_mean": 0.77411,
+        "entropy_cv": 3.690694,
+        "closure_verified": true,
+        "zero_replacement_applied": false
+      },
+      "classification": {
+        "auto_detected_features": [
+          "PID",
+          "order_sensitivity",
+          "zero_crossing_detector",
+          "ratio_pair_lattice"
+        ]
+      },
+      "outputs": {
+        "results_json": "pipeline_output/EMBER_WLD_WORLD_GENE_results.json",
+        "report_en": "pipeline_output/EMBER_WLD_WORLD_GENE_report_en.txt",
+        "helix_exploded": "pipeline_output/Hs-M02-WLD_helix_exploded.pdf",
+        "manifold_helix": "pipeline_output/Hs-M02-WLD_manifold_helix.pdf",
+        "projections": "pipeline_output/Hs-M02-WLD_projections.pdf",
+        "polar_stack": "pipeline_output/Hs-M02-WLD_polar_stack.pdf",
+        "polar_stack_json": "pipeline_output/Hs-M02-WLD_polar_stack.json",
+        "manifold_paper": "pipeline_output/Hs-M02-WLD_manifold_paper.pdf"
+      }
+    }
+  ],
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Pipeline is fully deterministic. No stochastic elements. Bit-identical output on repeated runs with identical input and pipeline version."
+  }
+}

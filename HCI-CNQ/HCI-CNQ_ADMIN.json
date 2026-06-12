@@ -1,0 +1,182 @@
+{
+  "_meta": {
+    "schema": "qd_project_admin/1.0",
+    "name": "Quaternion Decomposition — Project Admin",
+    "version": "0.0.1-experimental",
+    "generated": "2026-05-07T07:30:00Z",
+    "session": "Round 2 PASSED at IEEE floor on backblaze_fleet (4.4e-16). Concept 10 revised with cleaner truth (cumulative angle = integer × π). Status promoted to 0.1.0-candidate. Hs-CNQ tier built as next-tier proposal.",
+    "owner": "Peter Higgins (Rogue Wave Audio)",
+    "exploration_collaborator": "Claude (Cowork session, opus-tier)",
+    "central_claim_promoted": "2026-05-07T08:30:00Z"
+  },
+  "status": {
+    "_model": "four-field-status (push #26+#27, 2026-05-08)",
+    "_rationale": "Push #23 promoted HCI-CNQ to canonical sibling tier and moved the folder into Current-Repo/Hs/. The legacy single-field 'current: 0.1.0-candidate' + 'do_not_push: true' guards were the original QD-experimental state and do not describe the post-promotion reality. Per ChatGPT round-2 audit (push #26), status is now split into four orthogonal fields so the audit trail and the live state are both visible.",
+    "current_repo_status": "canonical_public_tier",
+    "engine_status": "cnq.py shipped in push #26 — full Hamilton-product engine; cross-platform reproduction challenge open",
+    "validation_status": "three IEEE-floor confirmations (Backblaze D=4, Planck CMB D=4, SM neutrino D=3 boundary support); Round 3 full-corpus validation pending (INV-022)",
+    "archive_status": "historical candidate state preserved for audit (see legacy block below)",
+    "_legacy_single_field_status_for_audit": {
+      "_status": "RETIRED in push #27 (2026-05-08)",
+      "_what_used_to_be_here": "Pre-promotion QD-era status flags: current=0.1.0-candidate, do_not_push=true, do_not_modify_canonical_repo=true, isolation_enforced_by='workspace root'. These were the original experimental guards before QD was promoted to canonical sibling tier in push #23 and before cnq.py engine was shipped in push #26.",
+      "_why_retired": "All guards are obsolete. The Hs system and every subcomponent are fully public. CNQ engine is live, deterministic, and hash-chained to the canonical CNT engine. There is no 'do_not_push' state — this folder IS in the public canonical repo and has been since push #23.",
+      "_audit_record_preserved_at": "ARCHIVE_README.json — the historical QD project README preserved verbatim with retirement overlay. Use that file for full historical context.",
+      "_current_state_pointer": "See current_repo_status / engine_status / validation_status / archive_status above (the four-field model)."
+    },
+    "promotion_history": [
+      {
+        "date": "2026-05-07T06:30Z",
+        "from": "(new)",
+        "to": "0.0.1-experimental",
+        "note": "Project standup"
+      },
+      {
+        "date": "2026-05-07T07:30Z",
+        "from": "0.0.1-experimental",
+        "to": "0.1.0-candidate",
+        "note": "Round 2 PASS: Concept 1 at IEEE floor on backblaze_fleet, Concept 10 revised with cleaner truth"
+      },
+      {
+        "date": "2026-05-07T08:30Z",
+        "from": "0.1.0-candidate",
+        "to": "0.1.0-candidate (with central claim)",
+        "note": "Central claim 'CNT measures invariance, CNQ names the algebra it lives in' identified by Peter and written into project documents. Status unchanged; the central claim is documentation of what the data has already shown, not a new assertion."
+      }
+    ],
+    "public_use": "fully_public",
+    "public_use_note": "All subcomponents (HCI-CNT, HCI-CNQ, HCI-AUDIO, HCI-ULTRASOUND, RWA mirror) are fully public and usable. License: per repository LICENSE file. Engines are deterministic and freely runnable."
+  },
+  "what_is_being_investigated": {
+    "central_question": "Does CNT, viewed as compositional analysis with time, fit naturally into quaternion algebra such that the four CNT channels (theta, omega, kappa, sigma) become components of a single quaternion-valued trajectory rather than four independent scalar streams?",
+    "secondary_questions": [
+      "Is the period-2 attractor in CNT (LIMIT_CYCLE_P2) a literal spinor signature — i.e., is it the sign of a trajectory that lifts to the SU(2) double cover of SO(3) but not to SO(3) directly?",
+      "Is CNT's atan2 step (the bearing computation that replaced arccos) literally the quaternion log map?",
+      "Is M^2 = I (the Banach contraction certificate) literally quaternion conjugation, and therefore equivalent to time-reversal symmetry?",
+      "Does the 8-class IR taxonomy correspond to the 8 elements of the quaternion group Q_8 (plus or minus 1, i, j, k)?",
+      "Is the CBS cube the Cayley diagram of Q_8?",
+      "For D=4 carriers specifically, is the Aitchison rotation group SO(D-1)=SO(3) literally the same group whose universal cover is unit quaternions?"
+    ]
+  },
+  "concepts_under_test": {
+    "_pointer": "QD_CONCEPTS_FOR_TEST.md",
+    "_count": 10,
+    "_strength_legend": {
+      "ISOMORPHISM": "Mathematical isomorphism. Provable.",
+      "EQUIVALENCE": "Algebraic equivalence under explicit transform. Provable.",
+      "ANALOGY": "Strong structural similarity but not yet shown to be exact.",
+      "CONJECTURE": "Suspected but needs corpus evidence to validate or falsify."
+    }
+  },
+  "corpus_comparison_method": {
+    "_pointer": "QD_CORPUS_COMPARISON_PLAN.md",
+    "_principle": "Every existing CNT run is the reference. QD does not 'analyze' new data — it RE-ANALYZES corpus runs as a quaternion view, then asks: (1) does the quaternion view reproduce the canonical content_sha256 (must), (2) does it expose at least one new structural fact CNT alone cannot, (3) does it stay deterministic and hash-chained.",
+    "primary_test_dataset": "backblaze_fleet — D=4 carriers, T=731. Critical because D=4 is the unique simplex dimension where Aitchison's SO(D-1)=SO(3) is exactly the group quaternions cover. If QD doesn't fit cleanly here, the whole exercise is over.",
+    "secondary_test_datasets": [
+      "ember_jpn (D=8, T=26) — twice the quaternion dimension, tests bi-quaternion factoring",
+      "geochem_tappe_kim1 (D=10, T=8) — high-D, short-T; tests dimension-reduction adequacy",
+      "commodities_gold_silver (D=2, T=1338) — degenerate case, IR=D2_DEGENERATE; tests the boundary of when quaternions are even applicable",
+      "esa_planck_cosmic (D=5, T=17) — D=5 is the smallest D > 4; first dataset where quaternions stop being a clean fit"
+    ]
+  },
+  "deliverables_round_0": {
+    "_round": "Documents-only standup. Round 0 of N.",
+    "files": [
+      "README.json — experimental status flag (PRESENT)",
+      "HCI-CNQ_ADMIN.json — this file (PRESENT, canonical promotion 2026-05-07)",
+      "QD_CONCEPTS_FOR_TEST.md — concepts catalogue with claim-strength labels and corpus tests (TO WRITE)",
+      "QD_BENEFITS_POST_CODA.md — what QD enables for system analysis if validated (TO WRITE)",
+      "QD_CORPUS_COMPARISON_PLAN.md — corpus comparison method, dataset selection, gate criteria (TO WRITE)",
+      "QD_DEEPER_CONNECTIONS.md — the deeper structural correspondences with rigour, more than the conversational sketch (TO WRITE)"
+    ],
+    "_completion_target": "All 6 files present and internally consistent before Round 1 begins."
+  },
+  "round_sequence": {
+    "round_0_documents": "Standup + concept inventory + comparison plan. CURRENT.",
+    "round_1_paper_proof": "For the strongest 3 ISOMORPHISM claims, write the paper-proof: explicit math chain showing the equivalence. No code execution.",
+    "round_2_first_corpus_test": "Run the smallest single test against backblaze_fleet (D=4) — does the quaternion view reproduce that experiment's content_sha256? Manual computation, isolated script in this folder, no engine modification.",
+    "round_3_full_corpus_view": "If round 2 succeeds: extend to all 25 experiments. Produce a side-by-side report (CNT canonical vs quaternion view) for every experiment.",
+    "round_4_new_diagnostic": "If round 3 shows full reproduction: prove at least one new diagnostic that quaternion view exposes (suggested: trajectory parity-class as a per-experiment scalar).",
+    "round_5_promotion_proposal": "Write the integration proposal as a draft Volume IV of the handbook. Hand to Peter for promotion decision.",
+    "round_6_volume_iv_or_archive": "Either Peter promotes (start integration) or QD becomes a documented exploration archive — useful as a citation, not active development."
+  },
+  "guard_rails": {
+    "engine_source_immutable": "cnt.py and cnt.R are not edited from this project. Period.",
+    "schema_immutable": "Schema 2.1.0 is not bumped from this project. A QD-promoted change would bump schema separately, with full handbook update.",
+    "corpus_INDEX_immutable": "experiments/INDEX.json is not edited from this project. Determinism gate stands as is.",
+    "no_admin_registration": "QD is not registered in HS_ADMIN.json or HS_MACHINE_MANIFEST.json until status promotion. Future Cowork sessions reading those admin files do not auto-discover QD; they must navigate to the workspace root.",
+    "no_OPERATIONS_PROTOCOL_addition": "QD is not added as a new transition to OPERATIONS_PROTOCOL.md until status promotion."
+  },
+  "history": {
+    "2026-05-07T06:00Z": "Project conceived during conversation between Peter and Claude after CCTT + OPERATIONS_PROTOCOL push #21 verified green.",
+    "2026-05-07T06:30Z": "Project standup: README.json + HCI-CNQ_ADMIN.json written. Folder isolated at workspace root."
+  },
+  "principle": "The instrument reads. The expert decides. The hashes carry the receipts. QD investigates whether quaternions are a coordinate system the existing instrument is already operating in without having said so. The investigation is exploration, not modification — until evidence and Peter's approval move it to the canon.",
+  "round_sequence_status": {
+    "round_0_documents": "COMPLETE (5 docs at folder root)",
+    "round_1_paper_proof": "SKIPPED (Round 2 directly validated foundation at IEEE floor)",
+    "round_2_first_corpus_test": "COMPLETE — PASS. See QD_ROUND_2_REPORT.md",
+    "round_3_full_corpus_view": "NEXT (when Peter authorizes). Validate concepts 2, 3, 4, 6, 7, 8, 9 across full 25-experiment corpus.",
+    "round_4_new_diagnostic": "pending Round 3",
+    "round_5_promotion_proposal": "partially complete — Hs-CNQ tier docs already drafted as the integration target",
+    "round_6_volume_iv_or_archive": "pending"
+  },
+  "files_present": {
+    "README.json": "experimental status flag",
+    "HCI-CNQ_ADMIN.json": "this file",
+    "QD_DEEPER_CONNECTIONS.md": "10 correspondences with claim-strength labels",
+    "QD_CONCEPTS_FOR_TEST.md": "operational test catalogue",
+    "QD_CORPUS_COMPARISON_PLAN.md": "how to test against CNT corpus",
+    "QD_BENEFITS_POST_CODA.md": "integration benefits",
+    "QD_round_2.py": "Round 2 test script",
+    "QD_round_2_results.json": "Round 2 raw results",
+    "QD_ROUND_2_REPORT.md": "Round 2 verdict report",
+    "tier_system/README.md": "CNQ tier introduction",
+    "tier_system/CNQ_TIERED_SYSTEM.md": "CoDa → CNT → CNQ tier explanation",
+    "tier_system/CNQ_VS_CODA_VS_CNT_COMPARE.md": "three-tier comparison table",
+    "tier_system/CNQ_ROI_AND_USE_CASES.md": "when does CNQ make sense",
+    "tier_system/CNQ_ENGINE_PROPOSAL.md": "cnq.py engine specification"
+  },
+  "central_claim": {
+    "tagline": "CNT measures invariance. CNQ names the algebra that invariance lives in.",
+    "standalone_doc": "QD_CENTRAL_CLAIM.md",
+    "origin": "Identified by Peter on 2026-05-07, in the Round 2.5 conversation. The general logic: 'proving invariance is proving a tensor; proving dynamics invariant under SO(3) + handedness + time reversal is proving a quaternion.' This crystallises what QD has been demonstrating from Round 2 forward.",
+    "general_principle": {
+      "tensor": "Quantity invariant under coordinate change.",
+      "SO3_matrix": "Quantity invariant under 3D rotation, no handedness.",
+      "quaternion": "Quantity invariant under 3D rotation + handedness + time reversal.",
+      "biquaternion": "Quantity invariant under Lorentz boosts + above.",
+      "clifford_cl_n": "Quantity invariant under arbitrary-D rotations + handedness + time reversal."
+    },
+    "empirical_status_2026_05_07": {
+      "foundation_concept_1": "ISOMORPHISM confirmed at IEEE floor on two independent datasets (backblaze_fleet T=731, Planck CMB T=2499). Max diff 4.441e-16 in both, bit-identical.",
+      "concept_3_M2_I": "EQUIVALENCE confirmed at IEEE floor on Planck (residual 7.63e-17).",
+      "concept_4_reformulated": "LIMIT_CYCLE_P2 reframed from 'fermion sector' (falsified) to 'universal experimental signature of quaternion-natured compositional dynamics' (consistent with all data including the CMB falsification of the original wording)."
+    },
+    "why_central": "Every other QD document elaborates this one statement. QD_DEEPER_CONNECTIONS.md gives the 10 specific correspondences; QD_CONCEPTS_FOR_TEST.md gives the operational tests; tier_system/ gives the engineering form. The central claim is the unifying frame they all share."
+  },
+  "canonical_promotion": {
+    "date": "2026-05-07",
+    "push": "#23",
+    "old_workspace_path": "D:/HUF_Research/Claude CoWorker/Quaternion Decomposition/",
+    "new_canonical_path": "Current-Repo/Hs/HCI-CNQ/",
+    "rename_record": {
+      "QD_PROJECT_ADMIN.json": "HCI-CNQ_ADMIN.json",
+      "README.json": "ARCHIVE_README.json",
+      "QD_CENTRAL_CLAIM.md": "doctrine/CENTRAL_CLAIM.md",
+      "QD_DEEPER_CONNECTIONS.md": "doctrine/DEEPER_CONNECTIONS.md",
+      "QD_CONCEPTS_FOR_TEST.md": "doctrine/CONCEPTS_FOR_TEST.md",
+      "QD_CORPUS_COMPARISON_PLAN.md": "doctrine/CORPUS_COMPARISON_PLAN.md",
+      "QD_BENEFITS_POST_CODA.md": "doctrine/BENEFITS_POST_CODA.md",
+      "Hs-CNQ/*": "tier_system/*",
+      "QD_round_2.py": "experiments/backblaze_fleet_quaternion/QD_round_2.py",
+      "QD_ROUND_2_REPORT.md": "experiments/backblaze_fleet_quaternion/QD_ROUND_2_REPORT.md",
+      "QD_round_2_results.json": "experiments/backblaze_fleet_quaternion/QD_round_2_results.json",
+      "QD_round_2_5_planck.py": "experiments/planck_cmb_quaternion/QD_round_2_5_planck.py",
+      "Hs-CMB/*": "experiments/planck_cmb_quaternion/*",
+      "QD_round_2_6_neutrino.py": "experiments/sm_neutrino_quaternion/QD_round_2_6_neutrino.py",
+      "Hs-Neutrino/*": "experiments/sm_neutrino_quaternion/*",
+      "planck_theory.txt (root)": "(skipped: byte-identical duplicate of Hs-CMB/planck_theory_raw.txt; canonical copy is experiments/planck_cmb_quaternion/planck_theory_raw.txt)"
+    },
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md"
+  }
+}

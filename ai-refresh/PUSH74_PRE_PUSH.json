@@ -1,0 +1,56 @@
+{
+ "schema": "hs_pre_push/1.0",
+ "push_number": 74,
+ "date": "2026-06-11",
+ "repo": "PeterHiggins19/higgins-decomposition",
+ "status": "READY (combined S1+S2, E-21 folded in per Peter 'roll all in') — Peter commits via GitHub Desktop",
+ "prepared_by": "Claude Fable 5; AI-assisted per HUF-STD-001; Peter is the sole commit gate (nothing pushed)",
+ "baseline": {"current_commit_sha": "11a1e85", "current_ci_run": 71, "current_ci_run_name": "HCI-TT", "note": "per Peter's CI log; prior baseline was 0e202f7/CI69. The #70 'Clean Start' (1efcbc9) + #71 'HCI-TT' (11a1e85) commit contents are Peter's to narrate Windows-side."},
+ "suggested": {"ci_name": "stewardship + tools + E-21 guard", "next_ci_run": 72},
+ "push_class": "S1+S2 (combined; E-21 carrier guard is the S1 engine change, the rest is S2 doc/governance/tools)",
+ "class_rationale": "E-21 folded in per 'roll all in'; S1 carries a DCP rationale (E21_PATCH_READY_2026-06-11.md) + the self-test gate (PASS, determinism hash unchanged); the rest is additive/reversible doc/governance/tools",
+ "files": {
+  "created_S2": [
+   "stewardship/README.md", "stewardship/COMMITMENT_OF_PURPOSE.md",
+   "stewardship/iso-standards/README.md", "stewardship/ramsar-wetlands/README.md", "stewardship/AI_ASSIST.json",
+   "CODA-Association/AI_ASSIST.json", "HCI-CNQ/AI_ASSIST.json", "HCI-CNT/AI_ASSIST.json",
+   "HCI-AUDIO/AI_ASSIST.json", "HCI-ULTRASOUND/AI_ASSIST.json", "huf-gov/AI_ASSIST.json",
+   "huf-gov/standards/AI_ASSIST.json", "collaborations/AI_ASSIST.json", "docs/AI_ASSIST.json",
+   "applications/AI_ASSIST.json", "scripts/AI_ASSIST.json", "tools/AI_ASSIST.json",
+   "constants/AI_ASSIST.json", "Higgins_Coordinate_System/AI_ASSIST.json", "Hs_Direct/AI_ASSIST.json",
+   "hci_shared/AI_ASSIST.json",
+   "ai-refresh/RESTRUCTURE_JOURNAL_2026-06-11.md", "ai-refresh/ADMIN_DELTA_2026-06-11_restructure.json",
+   "ai-refresh/E21_PATCH_READY_2026-06-11.md",
+   "ai-refresh/PUSH74_READY_FOR_COMMIT.md", "ai-refresh/PUSH74_PRE_PUSH.json"
+  ],
+  "created_or_changed_S1_E21_folded_in": ["HCI-CNTT/engine/geometry.py (carrier_health)", "HCI-CNTT/engine/cntt.py (guard)",
+   "HCI-CNTT/engine/codes.py (GD-ZRC-CAL/GD-CNC-CAL + SM-SZC-CAL)", "HCI-CNTT/run_cntt.py (guard)"],
+  "tools_reset_S2": ["tools/cntt_report.py (new current general tool, verified)", "tools/README.md (current toolchain)",
+   "tools/AI_ASSIST.json (updated)", "MOVED: tools/{pipeline,interactive,diagnostics,notebooks,locales} -> mirror-root _archive_2026-06-11/Hs-tools-primitive-pipeline/ (66 files, reversible)"],
+  "untouched_lockdown": ["HCI-CNT/engine/cnt.py", "HCI-CNQ/engine/cnq.py",
+   "huf-gov/standards/HUF_PUBLICATION_STANDARDS.json", "huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json",
+   "huf-gov/standards/HUF_HS_LINEAR_ALGEBRA_FOUNDATIONS.json", "ai-refresh/INVESTIGATION_CATALOG.json"]
+ },
+ "verification": {
+  "consistency_checker": "content checks OK; 2 errors are the documented PUSH_PROTOCOL §2.5 cross-mount cache-lag artefact on HS_FAST_REFRESH.json (re-run Windows-side -> clears)",
+  "no_create_files_absent": true,
+  "new_json_parse": "OK (stewardship + all 28 Hs AI_ASSIST nodes + ADMIN_DELTA)",
+  "frozen_oracle_untouched": true,
+  "engine_self_test": "PASS earlier this session (VERDICT: PASS; determinism hash 8734e2474a2dd8ff unchanged) — pertains to the S1 split",
+  "must_reverify_on_windows": "python3 scripts/check_ai_refresh_consistency.py -> expect 0 errors, 0 warnings, exit 0"
+ },
+ "splits": {
+  "S1_E21": {"class": "S1", "status": "FOLDED IN per Peter 'roll all in'", "dcp_rationale": "ai-refresh/E21_PATCH_READY_2026-06-11.md", "gate": "self-test PASS (determinism hash 8734e2474a2dd8ff unchanged); frozen oracle untouched; open policy note for Peter: treat all-zero carrier as structural-absence (current default) vs impute"},
+  "HUF_repo": {"repo": "Higgins-Unity-Framework", "items": ["huf-gov/_legacy_2026-03/ (move)", "huf-gov/doctrine/*", "huf-gov/NASA_STYLE_GOVERNANCE.md", "huf-gov/NASA_STYLE_GOVERNANCE.json"], "note": "separate HUF push (standing 'HUF repo push pending')"},
+  "mirror_root_not_tracked": ["Hs-Workplace/", "DOCUMENT_LEDGER_2026-06-11.json", "RELEVANCE_MAP_2026-06-11.json", "_archive_2026-06-11/"]
+ },
+ "post_commit_sync_section6": {
+  "HS_FAST_REFRESH.json": "current_commit_sha 11a1e85->NEW (after this push lands); current_ci_run 71->72; name->'stewardship + tools + E-21 guard'; previous_* demote. ALSO reconcile the pre-existing chain drift: last_updated says #73/0e202f7/CI69 while last_push field still says #71/6b76cf1/CI67 (May 29) — Peter folds the #70 'Clean Start'/#71 'HCI-TT' narratives + this push Windows-side.",
+  "HS_ADMIN.json": "add push_74_completed; advance last_updated",
+  "CHANGELOG.md": "add #74 row",
+  "PUSHES_INDEX.md": "add #74 deep-detail section",
+  "ADMIN_DELTA": "fold ADMIN_DELTA_2026-06-11_restructure.json in",
+  "where": "Windows-side (sandbox truncates the big admin JSONs)"
+ },
+ "github_desktop_safety": "keep .git/ (+ .github/, .gitignore, .gitattributes); clear folder CONTENTS, never delete+recreate the repo folder"
+}

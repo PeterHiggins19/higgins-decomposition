@@ -1,0 +1,36 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-04
+  System:      Bessel Acoustics
+  Domain:      ACOUSTICS
+  Carriers:    Low, Mid, High
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   c6fdc076a68d5821
+  Timestamp:   2026-04-25T06:03:01.827496Z
+
+
+Total codes: 36
+  Errors:       0
+  Warnings:     0
+  Discoveries: 8
+  Calibration signals: 1
+  Information:  27
+
+── DISCOVERIES ──
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/pi, delta=0.000020)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (7)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.171442, drift_direction=decreasing, max_shift_carrier=Mid)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Low/Mid), cv=74.717829)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Low/High), cv=178.416133)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Mid/High), cv=69.134225)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=37, near_zero_carriers=['Low', 'Mid', 'High'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

@@ -1,0 +1,249 @@
+# CodaWork 2026 — Master Conference Plan (planning folder)
+
+**Status:** Active planning — refresh weekly until June 2026
+**Created:** 2026-05-10 (push #36 sweep)
+**Updated:** 2026-05-10 (after upload-verification of original abstract + HUF MC-4 packet; companion mapping doc `ABSTRACT_TO_CNT_V3_MAP.md` written)
+**Conference:** 11th International Workshop on Compositional Data Analysis (CoDaWork 2026), Coimbra, Portugal, 1–5 June 2026
+**Submission entry:** Page 25 of the official book of abstracts (`External_Published_Papers/book-of-abstracts-codawork-2026-draft.pdf`)
+**Country scope (Peter's directive, 2026-05-10):** acceptable to expand beyond the abstract's 3 (DEU/JPN/GBR) and the packet's 5 (DEU/JPN/GBR/FRA/AUS) to **all available countries** — all EMBER 8 + all 73 OWID country trajectories. The abstract's three remain the **headline narrative**; the wider sweep becomes scaling evidence in the talk's middle and Q&A depth.
+
+---
+
+## 0. What changed at this update — read first if you have read the plan before
+
+**Push #42 (2026-05-11, talk delivery infrastructure).** New `papers/codawork2026/talk/` folder added — the talk in phone-readable form:
+
+- `talk/README.md` — the spoken script with each beat linked to its slide
+- `talk/STUDY_PAGE.md` — law-student moot method, five rounds of practice
+- `talk/CHEAT_SHEET.md` — one-page backstage scanner, spine phrases only
+- `talk/BACKUP_PRESENTATION.md` — if AV fails, you deliver from your phone
+- `talk/slides/` — one Markdown file per slide (10 files)
+- `talk/qa_bench/` — Q&A response cards for INV-050, INV-051, prior-art defeat, category defeat, three open questions
+
+The repo IS the presentation now. Study anywhere, deliver anywhere, fall back to the repo if equipment dies.
+
+**Push #41 (2026-05-10, Grok + ChatGPT external review).** Three concrete conference-talk improvements actioned: cut list bumped to Cuts 1+2 DEFAULT; Q&A bench reordered Q3-first; Beat 9 prior-art slide sharpened to operational form. INV-053 (prior-art Area 4 partial) + INV-054 STAGED (Ascent Path doctrine, post-conference) added.
+
+**Push #39 (2026-05-10, claim-sharpening pass).** Three changes the talk inherits:
+
+1. The **MC-4 claim is now stated in its three-conjunct form** (Beat 2 below). The earlier wording reached one rung wider than the evidence; the sharpened version restricts to "natively in Aitchison geometry + formal change detection + carrier-level attribution combined into one observable stack." A defeater must overturn the conjunction, not just one disjunct.
+2. The **three open questions for the community** are now explicitly named in `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md` (Q1 from the abstract, Q2 from INV-050, Q3 from INV-051). Beat 8 lists all three.
+3. The **cut list for the 10-beat plan** is now written into §5.1.1 — drop order is (i) Beat 5 year-by-year animation, (ii) Beat 10 live demo, (iii) Beat 7 OWID 73-country slide.
+
+**Push #36–#38 (earlier in 2026-05-10).** The original submission was a **two-piece package**: the published abstract (CoDa-canonical vocabulary, on book-of-abstracts page 25) plus the **11-page HUF MC-4 packet** (operational vocabulary attached to the submission letter). Both must be honored.
+
+The packet adds:
+
+- The formal claim name: **MC-4** ("no prior monitoring framework tracks compositional market share at the carrier level with formal change detection")
+- The signature concept: **deceptive drift** (internal redistribution within an apparently stable whole)
+- The operational metric stack: **TV distance** (½ Σ|ρᵢ(t)−ρᵢ(t−1)|, half-L1, bounded [0,1]) + **K_eff = exp(Shannon H)** for effective number of categories
+- The headline result: **Germany pre-2022 gas crisis, p = 0.0016** under the deceptive-drift detection protocol (with explicit null-model caveat the packet itself flags)
+- The 4 defeat paths (prior-art / metric / case / category) — these are the four falsifiability conditions the abstract refers to
+- Two extra countries beyond the abstract's three: **France and Australia**
+- The submission-origin repository: **github.com/PeterHiggins19/Higgins-Unity-Framework** (HUF — not the current Hs repo)
+- An Appendix A metric correction (L2 → TV) caught during ChatGPT corpus review March 22, 2026 — a feature, not a flaw
+
+Companion document `papers/codawork2026/planning/ABSTRACT_TO_CNT_V3_MAP.md` carries the operator-by-operator translation of every term in the abstract / packet to the corresponding CNT v3 output field, plus the additions needed to the runner. Read it alongside this plan.
+
+---
+
+## 1. The agenda is set — what we are presenting
+
+### The accepted abstract (verbatim — book of abstracts page 25)
+
+> **Compositional monitoring of energy-mix drift on the simplex**
+> *Peter Higgins — Independent researcher, Markham, Ontario, Canada*
+>
+> Monitoring frameworks in the environmental and governance literature typically compare observed values against external thresholds or conceptual models. None, to the author's knowledge, operates natively on compositions — tracking how the proportional allocation of a finite system evolves over time using the geometric structure of the simplex. This contribution proposes a monitoring protocol that treats energy-generation portfolios as compositional data and detects structural drift using tools from compositional data analysis. Each reporting period produces a composition in the simplex, representing the proportional share of electricity generated by each carrier (coal, gas, nuclear, hydro, solar, wind, and others). Change between periods is measured as perturbation — the compositional ratio between consecutive observations — rather than arithmetic difference, consistent with the Aitchison geometry of the sample space. The magnitude of period-to-period change is quantified using the Aitchison distance. The protocol is applied to publicly available electricity generation data from EMBER (CC BY 4.0) for **Germany, Japan, and the United Kingdom** over the period **2000–2025**, with nine carrier types forming compositions on the 8-simplex. The resulting compositional time series reveal structural transitions that are invisible to non-compositional methods: **Japan's post-Fukushima nuclear withdrawal appears as a large perturbation spike in 2011–2012; Germany's nuclear phase-out traces a continuous trajectory on the simplex toward the renewable vertex; the United Kingdom's coal exit registers as an abrupt regime change in the Aitchison distance matrix.** A concentration measure related to effective diversity is computed alongside the compositional trajectory. The relationship between this measure and the Aitchison norm of the composition is noted as an open question for the community. The central claim is that no existing monitoring framework performs compositional change detection at the carrier level with formal perturbation-based drift measurement. This claim is presented as falsifiable: the contribution identifies four specific ways it could be defeated, and the author would welcome that outcome. All data, code, and documentation are publicly available.
+>
+> **Keywords:** compositional time series, perturbation, drift detection, energy mix
+
+### What this means for the talk
+
+The conference programme committee — through Prof. Egozcue's correspondence — explicitly steered us back to the **original energy-mix drift abstract** when we proposed a broader instrument paper (the "Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex" version, captured in `CoDaWork2026_Letter_and_Revised_Abstract.md`). That broader paper is **deferred to a journal submission after the conference**.
+
+So the talk must:
+
+1. **Honor the published abstract verbatim** — Germany, Japan, UK, 2000–2025, perturbation + Aitchison distance, the three named transitions (Fukushima 2011–2012, German nuclear phase-out trajectory, UK coal-exit regime change).
+2. **Use only standard CoDa machinery in the headline narrative** — closure, perturbation, Aitchison distance, log-ratio pairs, amalgamation. Not the full Hˢ extension stack in the lead.
+3. **Show that the pipeline has matured** without changing the scope or the title — name the instrument explicitly (Hˢ, with CNT v3.0.0 as the engine), but the headline result is still drift on the energy simplex.
+4. **Treat the broader corpus as depth/appendix material**, not as the thesis.
+
+---
+
+## 2. The redirection note — what was offered, what was accepted
+
+| Document | Intent | Outcome |
+|---|---|---|
+| Original abstract submission | "Compositional monitoring of energy-mix drift on the simplex" — DEU/JPN/GBR, 2000–2025, perturbation + Aitchison distance | **Accepted; printed in the book of abstracts page 25** |
+| `CoDaWork2026_Letter_and_Revised_Abstract.md` | Offered a broader instrument-paper replacement: "The Higgins Decomposition: a deterministic compositional diagnostic on the Aitchison simplex" — 25 systems × 18 domains, full operator stack | Egozcue politely declined the broader scope; recommended sticking with the original |
+| `CoDaWork2026_Reply_to_Egozcue.md` and `_Final.txt` | Peter agreed with Egozcue's guidance; offered minor wording refinements only (282-word refined version naming Hˢ explicitly + amalgamation stability sentence + 2025 EMBER update) | The book of abstracts contains the **original text**; the refined wording is internal-presentation polish, not a published change |
+
+**Bottom line:** The conference agenda is set around the original abstract. Our task is to deliver on its specific promises while integrating the matured systems we have built since submission.
+
+---
+
+## 3. Asset inventory — what we already have
+
+A full file listing is in `papers/codawork2026/planning/INVENTORY.md` (next deliverable). High-level summary:
+
+### 3.1 Manuscript drafts and abstracts
+
+| File | Status |
+|---|---|
+| `papers/codawork2026/CoDaWork2026_Abstract_Higgins.pdf` | Submitted; published in book of abstracts |
+| `papers/codawork2026/CoDaWork2026_Letter_and_Revised_Abstract.md` | Broader paper — superseded; archived for journal track |
+| `papers/codawork2026/CoDaWork2026_Refined_Abstract.md` | Wording-refinement version of the original (282 words) |
+| `papers/codawork2026/CoDaWork2026_Reply_to_Egozcue.md` + `_Final.txt` | Reply confirming the original scope |
+| `papers/codawork2026/CoDaWork2026_Email_Draft.txt`, `_Reply_Email.txt` | Correspondence record |
+
+### 3.2 Strategic / framing documents
+
+| File | Status |
+|---|---|
+| `papers/codawork2026/CoDaWork2026_Energy_Briefing.md` | **The 2025–2026 energy headlines** — directly supports the live drift narrative |
+| `papers/codawork2026/CoDaWork2026_Strategic_Agenda.md` | Restructured strategy (April 27, 2026) |
+| `papers/codawork2026/CoDaWork2026_Future_Path.md` | 5-stage post-CoDaWork roadmap |
+| `papers/codawork2026/CoDaWork2026_Speech_GiftRamp.md` | 16-slide speech format (gift ramp; ~180 words spoken; 80% system, 20% presenter) |
+| `papers/codawork2026/CoDaWork2026_Action_Plan.md` | Action items |
+| `papers/codawork2026/CoDaWork2026_Collaboration_Path.md` | Reverse-engineered collaboration plan |
+| `papers/codawork2026/Hs_CoDaWork2026_Executive_Summary.md` | Conference-ready executive summary |
+
+### 3.3 Slide decks (multiple drafts)
+
+| File | Status |
+|---|---|
+| `papers/codawork2026/CoDaWork2026_Presentation.pptx` | v1 (12 slides) — needs rebuild |
+| `papers/codawork2026/codawork2026_slides.pptx` | Working draft |
+| `papers/codawork2026/The_Discovery_Moment.pptx` | Standalone deck |
+| `HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.pdf` + `.pptx` | CNT-specific 30-min talk (push #19 era) |
+| `HCI/codawork2026/HCI_Japan_CoDaWork2026.pdf` + `.pptx` | Japan-focused HCI deck |
+| `Hs_Direct/JPN_Hs_Direct_CoDaWork2026.pdf` + `.pptx` | Japan direct version |
+| Workspace top-level: `CoDaWork2026_Higgins_Talk.pptx`, `_v2.pptx` | Earlier external versions in the Cowork root |
+
+### 3.4 Data + experiment runs (NEW — push #32 onward)
+
+| Asset | Status | Path |
+|---|---|---|
+| EMBER 8-country corpus on CNT v3 + CNQ v2 with CRD-1.0 | Production-ready | `papers/codawork2026/conference_2026_06/` |
+| Per-country Stage 1 (pure CoDa) + Advanced (Hˢ + CNQ v2) reports | All 8 countries | `conference_2026_06/per_country/ember_*/` |
+| Common-range 2001–2025 view (CRD-1.0 manifest) | Headline | `conference_2026_06/COMPARISON_v2_0_4_vs_v3_0_0.md` |
+| Full-corpus reference suite (101 datasets / 11 domains) | Citation-grade | `experiments/2026-05-10_full-corpus-validation/` |
+| OWID 73-country primary-energy compositions | Phase-2 corpus | `experiments/2026-05-10_full-corpus-validation/per_domain/energy/` |
+| Hs_Standards_Edition.ipynb | Self-contained 18-cell notebook | `papers/codawork2026/Hs_Standards_Edition.ipynb` |
+| Cosmic-composition interactive HTMLs | Background visuals | `papers/codawork2026/cosmic_*.html` |
+
+### 3.5 Companion materials in the broader Cowork workspace
+
+These predate the repo migration but contain useful framing material:
+
+| File | Where | Purpose |
+|---|---|---|
+| `book-of-abstracts-codawork-2026-draft.pdf` | `External_Published_Papers/` | The official conference book |
+| `CoDaWork2026_ConversationGuide.docx` | Cowork root | Conversation-prep document |
+| `CoDaWork2026_QA_Preparation.docx` | Cowork root | Q&A rehearsal |
+| `CoDaWork2026_Who_Is_In_The_Room.docx` | Cowork root | Audience profile |
+| `CoDaWork2026_Higgins_Extended_Results.docx` | Cowork root | Extended numerical results |
+| `CoDaWork2026_Primer_*.docx` (4 files: Ascari, KanjiradanVeetil, Narayana, VegaBaquero) | Cowork root | Per-presenter primers (other CoDaWork talks) |
+| `CoDaWork2026_Handout_*.docx` (CoDa_TimeSeries, Geochemistry_Bridge, EITT_Handout, EITT_CoffeeTable) | Cowork root | Handout drafts |
+| `CoDaWork2026_Revised_Plan.pdf` | Cowork root | Earlier revised plan |
+| `Current-Repo/HUF/ai-refresh/CODAWORK_PRESENTATION_OUTLINE.json` | HUF repo | 7-beat narrative outline (v3.0; April 22, 2026) |
+
+These do not all need to come into the Hs repo, but the planning folder should reference them so they are findable.
+
+---
+
+## 4. The gap — past content vs. current systems
+
+| Concept in the abstract | Past artefact (what we have written) | Current system equivalent (where it lives now) |
+|---|---|---|
+| "Compositional monitoring of energy-mix drift on the simplex" | Hs 12-step pipeline; deterministic CSV→JSON | **CNT v3.0.0** (`HCI-CNT/engine/cnt.py`) — schema 3.0.0, engine independence, hash-chained |
+| "Each reporting period produces a composition in the simplex" | Hs Stage 1 closure | CNT v3 Stage 1 closure (identical math; locked schema) |
+| "perturbation — the compositional ratio between consecutive observations" | Hs Stage 1 step-to-step quantities | CNT v3 `coda_standard.aitchison_distance_step` per timestep (per-step ‖h‖_A and step Δ in the per-country STAGE_1_REPORT.md) |
+| "Aitchison distance" | Hs Stage 1 distance computation | CNT v3 `coda_standard.aitchison_norm` per timestep |
+| "Germany, Japan, UK over 2000–2025" | First 12-step run | **Run on CNT v3 with CRD-1.0 in `papers/codawork2026/conference_2026_06/`**: per_country/ember_deu, ember_jpn, ember_gbr; T=26 native, T=25 coherent |
+| "Japan's post-Fukushima nuclear withdrawal as a large perturbation spike 2011–2012" | Identified empirically in 12-step Hs-M02 | JPN per-country STAGE_1_REPORT.md will show this in the step-to-step Aitchison distance column for 2011 and 2012; helmsman flips total = 17 (highest in the 8-country set) reflects the post-Fukushima trajectory complexity |
+| "Germany's nuclear phase-out traces a continuous trajectory toward the renewable vertex" | Traced in 12-step | DEU per-country IR class `OVERDAMPED_EXTREME` confirms continuous (snap-to-attractor) trajectory; flips=13 |
+| "UK coal exit registers as abrupt regime change" | Detected in 12-step | GBR per-country IR class `OVERDAMPED_EXTREME`, flips=15; the regime change shows in the helmsman dominant-axis transitions |
+| "concentration measure related to effective diversity" | Shannon entropy per timestep | CNT v3 `coda_standard.shannon_entropy` per timestep |
+| "Aitchison norm of the composition" | Computed in 12-step | CNT v3 `coda_standard.aitchison_norm` per timestep |
+| "All data, code, documentation publicly available" | Hs repo (was) | Hs repo (now): CNT v3 + CNQ v2 + 101-dataset reference suite + 4 doctrines + EXPERIMENTS_JOURNAL.md |
+
+**Translation key for the talk:** every quantity the abstract mentions has a direct counterpart in the CNT v3 output. The audience does not need to know about CNQ, the Hˢ extension stack, twin-quaternion factoring, or the full-corpus validation in the headline. Those are appendix / depth material to stand behind the presenter when questions get specific.
+
+---
+
+## 5. The plan — bringing the past forward
+
+### 5.1 Headline talk (15 minutes)
+
+Stick to the published abstract beat for beat. The talk is structured around the three named transitions (Fukushima, German phase-out, UK coal exit) plus the four falsifiability conditions plus the open question on entropy/Aitchison norm.
+
+| Beat | Time | Content | Backed by |
+|---|---|---|---|
+| **1. The simplex view** | 1 min | Energy generation is a composition. Standard CoDa: closure, perturbation, Aitchison distance. K_eff = exp(H) for effective diversity. | One slide — composition definition + minimal formal setup from the packet |
+| **2. The data + MC-4 claim** | 1 min | EMBER 2000–2025; 9 carriers; D=9 simplex. Three named countries plus the wider scope. **MC-4 (sharpened, push #39): no monitoring framework in the energy / market-share literature operates *natively in Aitchison geometry* with *formal change detection* at the *carrier level* — the three conjuncts combined into one observable stack.** A defeater must overturn the conjunction, not just one disjunct. Falsifiable. | EMBER citation; MC-4 stated explicitly with the three load-bearing conjuncts |
+| **3. The protocol** | 2 min | Period-to-period perturbation ρ(t)⊖ρ(t−1); magnitude = Aitchison distance (CoDa-canonical); TV distance = ½ Σ|ρᵢ(t)−ρᵢ(t−1)| (the packet's operational metric, bounded [0,1]); both agree on shock verdicts (Appendix A robustness). K_eff alongside. | CNT v3 Stage 1 + runner-level TV/K_eff additions (deliverable 5.3.L) |
+| **4. Japan: Fukushima 2011–2012 perturbation spike** | 2 min | The large step-Δ Aitchison distance spike; carrier-attribution shows nuclear → fossil substitution. | `conference_2026_06/per_country/ember_jpn/STAGE_1_REPORT.md` step-Δ column + helmsman flips |
+| **5. Germany: continuous trajectory + deceptive-drift result** | 3 min | The trajectory toward the renewable vertex (**static visual: start composition + mid-trajectory snapshot + end composition** — animation removed per Cut 1, §5.1.1). **Deceptive drift detected pre-2022 gas crisis with p = 0.0016.** **Null-model caveat ON the slide (not in speaker notes):** *"p-value is computed against the series' own empirical-frequency baseline. This is a weaker null than a Dirichlet, permutation, or bootstrap null; the right null for compositional change-point detection is Q3 in our three open questions. We treat p = 0.0016 as an opening empirical claim, not a closed methodological one."* | `conference_2026_06/per_country/ember_deu/` + deceptive-drift detection result (deliverable 5.3.M) |
+| **6. UK: regime change in the distance matrix** | 1 min | The abrupt shift; coal exit as a step-change in step-Δ Aitchison distance. | `conference_2026_06/per_country/ember_gbr/` |
+| **7. Beyond the three: scaling evidence** | 1 min | One slide showing the wider corpus — France, Australia, and the broader EMBER + OWID expansion. IR-class distribution across all countries; the protocol is not cherry-picked. | Deliverables 5.3.K + 5.3.R |
+| **8. Three open questions** | 1 min | (Q1) Concentration measure (K_eff = exp(H)) vs Aitchison norm — the abstract's named question. (Q2) The right family of "valid simplex distances" against which to test verdict-invariance — INV-050 follow-up. (Q3) The right null model for formal change-point detection on the simplex — INV-051 follow-up. **None has a preconceived answer; the talk invites the room.** | `papers/codawork2026/planning/THREE_OPEN_QUESTIONS.md` |
+| **9. The four defeat paths (MC-4 falsifiability)** | 2 min | Metric defeat preempted by INV-050 (20 seconds). Case defeat preempted by INV-051 (20 seconds). **Prior-art defeat — sharpened per ChatGPT external review:** *"A defeater must combine all three conjuncts: Aitchison-native geometry, formal change detection, and carrier-level attribution. We have searched Area 4 (sectoral allocation / market share); the closest adjacent work is Morais et al. 2017/2018 and Arata & Onozaki 2017; neither combines all three. Three more areas pending."* (50 seconds). **Category defeat — humble framing:** *"This may be a new monitoring category, or it may be an application note inside existing CoDa. We have no preconceived answer."* (30 seconds). | Slide enumerating the four paths (deliverable 5.3.N) + INV-053 hits |
+| **10. Self-discipline + repos (closing) — live demo CUT** | 1 min | The L2 → TV metric correction (Appendix A) — the framework caught its own error during ChatGPT corpus review March 22, 2026 (**one sentence; can move into Beat 3 methods if needed per ChatGPT external review**). Both repository links: HUF (submission origin) and Hs (production engine). **Live demo removed by default per Cut 2** — replaced with "see me afterward for a live demo." If AV permits and time allows, the demo can be offered as bonus content but is not part of the budgeted talk. | Deliverables 5.3.P + 5.3.Q (live demo deferred) |
+
+#### 5.1.1 Cut list (Cuts 1 and 2 are DEFAULT; Cut 3 is contingent)
+
+The 10-beat plan sums to exactly 15 minutes. In practice every beat runs 10–20% long; this is a 17–18 minute talk wearing a 15-minute jacket. **External review pass 2026-05-10 (ChatGPT) recommended Cuts 1 and 2 be applied by default rather than waiting for rehearsals to fail.** This recommendation is adopted.
+
+| Cut # | Status | What to drop | Time saved | Why |
+|---|---|---|---|---|
+| **Cut 1** | **DEFAULT (apply now)** | Year-by-year composition triangle animation in Beat 5 (Germany continuous trajectory) | ~30–45 s | The continuous trajectory can be conveyed with a static start/end + one mid-trajectory snapshot. The animation is rhetorical polish; the deceptive-drift p = 0.0016 result is the actual contribution. ChatGPT external review: this should be cut by default, not held in reserve. |
+| **Cut 2** | **DEFAULT (apply now)** | Live 60-second demo at the close of Beat 10 | ~60–90 s | A deterministic engine is more trustworthy than a working laptop on stage. Replace with "see me afterward for a live demo." The self-discipline note (L2 → TV correction) and the repos line are the load-bearing content of Beat 10. ChatGPT external review: Beat 10's repository/demo close is the least essential part of the scientific argument. |
+| **Cut 3** | **CONTINGENT (drop if running long even with Cuts 1+2 applied)** | The OWID 73-country IR-class distribution slide in Beat 7 | ~30–45 s | The 8-country EMBER + 5-country packet view is already broader than the abstract's three. The OWID expansion is scaling evidence; if asked in Q&A we walk to it. It is not load-bearing on stage. |
+
+**Effective time budget with Cuts 1 and 2 applied by default:** ~13 minutes of beat content + ~2 minutes of buffer + transition. This is a more honest 15-minute talk.
+
+**Rehearsal protocol (updated push #41):** time the talk three times before the conference *with Cuts 1 and 2 already applied*. If any run still exceeds 14:30 by Beat 8, apply Cut 3. A fourth cut would compromise the talk — if needed, the right move is to skip Beat 8 (open questions) and run them into the Q&A directly, but this is dispreferred because Beat 8 is the rhetorical hand-off to the community.
+
+**Reasoning preserved (per the rehearsal-only original protocol):** the original protocol kept Cuts 1 and 2 in reserve. ChatGPT external review pointed out that holding them in reserve is the wrong default for an over-budgeted talk. Applying them by default gives buffer; reserving them for failure means the failure cost has to occur before the cut.
+
+### 5.2 Q&A depth bench
+
+These are **not in the headline talk** but are ready to walk to if asked:
+
+| Question shape | Where to point |
+|---|---|
+| "How does the instrument generalise beyond these three countries?" | The 8-country EMBER corpus + the 73-country OWID expansion. Show the cross-country IR-class distribution. |
+| "What is the engine's reproducibility contract?" | CNT v3 hash chain; show one cnt_v3.json `diagnostics.cnt_content_sha256`; explain engine independence (push #32). |
+| "How does the protocol handle missing data / data asymmetry?" | **CRD-1.0 (Coherent Range Doctrine).** Walk through the USA-EMBER missing-year-2000 example (USA T=25 vs others T=26). |
+| "Has this been applied outside energy?" | EXPERIMENTS_JOURNAL.md. 101 datasets across 11 domains as of push #34. ESA Planck cosmic, BackBlaze drives, Markham budget, SP500 sectors, etc. |
+| "What about ILR substitution for CLR?" | Mentioned in our reply to Egozcue — the Aitchison distances are the same in either coordinate system; classification is invariant. (Open empirical demonstration is in our queue.) |
+| "What are the engine's failure modes?" | SEA-1.0 anti-specification doctrine. Point at `HCI-CNT/engine/ANTI_SPECIFICATION.md`. |
+| "Self-test / build-in test?" | STP-1.0; show the latest BIST receipt `HCI-CNQ/engine/self_test/RECEIPTS/`. |
+
+### 5.3 What needs to be built / refreshed before June
+
+| Item | Status | Effort | Priority |
+|---|---|---|---|
+| **5.3.A** Refresh slide deck around the 9-beat structure above | Existing deck is v1 (12 slides). Rebuild to ~16 slides matching the published abstract. | 1–2 days | **HIGH** |
+| **5.3.B** Generate per-country drift figures for DEU/JPN/GBR | Step-Δ Aitchison distance plots, simplex trajectory animations | 1 day | **HIGH** |
+| **5.3.C** Confirm the 2011–2012 Japan spike is visible in the CNT v3 STAGE_1_REPORT step Δ column | Verify the existing JPN report; if needed bump time grid to capture the spike clearly | 0.5 day | **HIGH** |
+| **5.3.D** Add an "amalgamation stability" demonstration to the JPN/DEU/GBR runs | E.g., merge wind+solar+bioenergy → renewables; rerun; show classification preserved | 1 day | **MEDIUM** (mentioned in refined abstract Peter offered; can be appendix) |
+| **5.3.E** Wire the Hs_Standards_Edition.ipynb to the CNT v3 engine and EMBER 2025 data | Currently uses 12-step pipeline; should run CNT v3 directly | 1 day | **HIGH** if live demo is planned |
+| **5.3.F** Print the four falsifiability conditions on a one-page handout | Names them explicitly so the audience can engage at the close | 0.5 day | **MEDIUM** |
+| **5.3.G** Update the executive summary (`Hs_CoDaWork2026_Executive_Summary.md`) to match the published abstract | The current version mixes original + revised scope | 0.5 day | **MEDIUM** |
+| **5.3.H** Q&A rehearsal pack against the Egozcue letter (entropy invariance, CLR vs ILR, R-language reproducibility) | Draft answers exist in `CoDaWork2026_Reply_to_Egozcue_Final.txt` | 0.5 day | **MEDIUM** |
+| **5.3.I** Conference handout (front: getting started; back: CoDa-integration map + cross-benefit table + open questions) | Listed in April 27 plan as still pending | 1 day | **LOW** but nice-to-have |
+| **5.3.J** Confirm AV setup (HDMI at lectern, own laptop allowed, poster dimensions if needed) | Asked in the original submission letter | (logistical) | **HIGH** — needs reply confirmation |
+| **5.3.K** Add Australia (AUS) EMBER pipeline-ready CSV to `data/Energy/EMBER_pipeline_ready/`; register in conference runner; rerun | Brings the corpus to packet-aligned 5 countries plus the broader expansion Peter authorised | 0.5 day | **HIGH** |
+| **5.3.L** ✅ **COMPLETE (push #37, engine-native v3.1.0)** — TV distance + K_eff + concentration regime tag are now part of the canonical CNT v3.1.0 output as `navigation_concentration_family` per timestep + `navigation_concentration_summary` series-level. Promoted from runner-side post-processor to engine. Slide line: *"during preparation we promoted the packet's TV distance and K_eff into the engine's standard diagnostics — see schema v3.1.0."* | DONE | — |
+| **5.3.M** Implement deceptive-drift detection protocol (6-month sliding window, K_eff YoY change < −0.05, structural velocity < series median, within 12 months of a known shock) on monthly EMBER 2025 data; reproduce the packet's Germany p = 0.0016 OR document the difference honestly | Honors the packet's headline empirical claim; null-model caveat front-and-centre | 1 day | **HIGH** |
+| **5.3.N** Add a slide listing the four defeat paths (prior-art / metric / case / category) explicitly with the MC-4 claim named | Honors MC-4 falsifiability framing; "this is the right room to kill it" | 0.5 day | **HIGH** |
+| **5.3.O** Add a slide for the deceptive-drift definition + the sliding-window protocol | The packet's signature concept; needs to be on stage | 0.5 day | **HIGH** |
+| **5.3.P** Repository pointer slide naming BOTH `Higgins-Unity-Framework` (the submission origin) and `higgins-decomposition` (the production engine), with the lineage one-liner | Audience saw the HUF link in the submission letter; we present the matured framework transparently | 0.25 day | **MEDIUM** |
+| **5.3.Q** Methodological self-discipline slide — the L2 → TV metric correction (Appendix A of the packet) caught during ChatGPT corpus review March 22, 2026 | Shows the framework caught its own metric-naming error before publication; aligns with SEA-1.0 anti-specification doctrine | 0.5 day | **MEDIUM** |
+| **5.3.R** Expand corpus to all 73 OWID country trajectories on one summary slide (IR-class distribution chart) | Per Peter's directive 2026-05-10: all-countries scope; demonstrates protocol generalises beyond the abstract's three | 0.5 day | **MEDIUM** |
+| **5.3.S** **Two named-findings slide(s)** for the CoDa-community discussion (push #37, INV-050 + INV-051): **(1)** *"The qualitative compositional verdict is metric-invariant within the TV / Aitchison family on the simplex."* (INV-050) and **(2)** *"The deceptive-drift signature is reproduced across 5 of 9 EMBER countries at annual grain — AUS, CHN, GBR, IND, JPN."* (INV-051) | Both findings emerged from the schema v3.1.0 engine promotion and directly preempt **Metric defeat** and **Case defeat** in the packet's four-paths falsifiability table. Full content in `papers/codawork2026/planning/NAMED_FINDINGS_FOR_CODA_DISCUSSION.md`. | 0.5 day | **HIGH** |
+| **5.3.T** Q&A response cards for both named findings (INV-050 + INV-051) with per-country numbers cached for instant reference | The community will ask "why this set of 5 and not the other 4?" — we need the per-country trajectories at fingertip | 0.25 day | **MEDIUM** |
+| **5.3.U** Conference-handout footnote referencing INV-050 and INV-051 with the public catalog pointer | Audience can fetch full provenance from the public catalog after the talk | 0.25 day | **LOW** |

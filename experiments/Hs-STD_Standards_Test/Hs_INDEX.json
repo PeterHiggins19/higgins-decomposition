@@ -1,0 +1,110 @@
+{
+  "experiment": "Hs-STD",
+  "title": "Hs Standards Test — Instrument Type Test",
+  "author": "Peter Higgins",
+  "date": "2026-05-01",
+  "status": "COMPLETE",
+  "result": "ALL PASS (3/3 test objects)",
+  "summary": "Three synthetic test objects of known geometry — cylinder, sphere, cube — each built from pure CoDa compositions (D=27 carriers, T=41 timesteps). The projector renders each object correctly without fabricating structure. The instrument does not generate pattern where none exists, and does not suppress pattern where it is present.",
+  "methodology": {
+    "closure": "proportions sum to 1 (simplex constraint)",
+    "transform": "CLR (Aitchison 1986): clr_j = log(x_j) - mean(log(x))",
+    "normalization": "per-run min-max applied to CLR values before polar projection",
+    "projection": "polar polygon — each carrier maps to an angular spoke, CLR magnitude maps to radial distance",
+    "degenerate_detection": "timestep flagged DEGEN when CLR spread < threshold (all carriers indistinguishable)",
+    "lock_detection": "first and last timesteps where the projector resolves a non-degenerate polygon; offset is the CLR spread at that boundary"
+  },
+  "test_objects": [
+    {
+      "id": "cylinder",
+      "label": "Cylinder Standard",
+      "experiment_code": "STD-CYLINDER",
+      "D": 27,
+      "T": 41,
+      "construction": "Uniform composition at every timestep: p_j = 1/D = 0.037037 for all j, all t. CLR transform maps all carriers to the same value. CLR spread = 0 everywhere (machine precision: |CLR| < 2e-15).",
+      "expected_projection": "No resolvable polygon at any timestep. All 41 timesteps degenerate. Projector should display DEGEN marker at every frame with no polygon drawn.",
+      "observed_projection": "DEGEN marker at all 41 timesteps. No polygon rendered at any timestep. No false structure introduced.",
+      "degenerate_timesteps": 41,
+      "lock_acquisition": null,
+      "lock_loss": null,
+      "result": "PASS",
+      "pass_criterion": "Zero false polygon renderings across all 41 timesteps."
+    },
+    {
+      "id": "sphere",
+      "label": "Sphere Standard",
+      "experiment_code": "STD-SPHERE",
+      "D": 27,
+      "T": 41,
+      "construction": "CLR spread follows a sin envelope: amplitude(t) = 0.8 * sin(pi * t / 40). At t=0 and t=40 amplitude=0, yielding uniform composition. Peak amplitude 0.800 at t=20 (midpoint equator). Each carrier perturbed by amplitude * cos(2*pi*j/D) before closure.",
+      "expected_projection": "Expanding circle from t=0 (degenerate pole) to t=20 (maximum radius equator), then contracting back to t=40 (degenerate pole). DEGEN markers at both poles. LOCK markers at first and last resolvable timesteps.",
+      "observed_projection": "DEGEN at t=0 and t=40. Lock acquisition at t=1 (CLR spread = 0.125110). Lock loss at t=39 (CLR spread = 0.125110). Polygon expands symmetrically from t=1 to t=20, contracts symmetrically from t=20 to t=39. Circle shape maintained throughout.",
+      "clr_spread_at_equator": 1.600000,
+      "clr_spread_at_lock_boundary": 0.125110,
+      "degenerate_timesteps": 2,
+      "lock_acquisition": {
+        "timestep": 1,
+        "clr_spread": 0.125110,
+        "note": "First timestep at which projector resolves a non-degenerate polygon. Offset from true zero is real instrument resolving boundary, not error."
+      },
+      "lock_loss": {
+        "timestep": 39,
+        "clr_spread": 0.125110,
+        "note": "Last timestep at which projector resolves a non-degenerate polygon. Symmetric with lock acquisition by construction."
+      },
+      "result": "PASS",
+      "pass_criterion": "Correct DEGEN at both poles, correct LOCK markers at t=1 and t=39, monotonic expansion and contraction of circle radius between boundaries."
+    },
+    {
+      "id": "cube",
+      "label": "Cube Standard",
+      "experiment_code": "STD-CUBE",
+      "D": 27,
+      "T": 41,
+      "construction": "Carriers split into 4 angular quadrants (6 carriers each, with 3 remainder carriers assigned to quadrant 3). Quadrants 0 and 2 (C01-C06, C13-C18) hold weight 2.0 before closure. Quadrants 1 and 3 (C07-C12, C19-C27) hold weight 0.5 before closure. After closure: high carriers p = 0.063492, low carriers p = 0.015873 (4:1 ratio). Composition is identical at all 41 timesteps.",
+      "expected_projection": "Square-like polygon (two high lobes, two low lobes at 90-degree offsets) constant through all 41 timesteps. Zero degenerate timesteps.",
+      "observed_projection": "Constant polygon with high lobes at C01-C06 and C13-C18 angular positions, low lobes at C07-C12 and C19-C27 positions. Shape identical at all timesteps. Zero DEGEN frames. No shape drift.",
+      "clr_high": 0.770164,
+      "clr_low": -0.616131,
+      "clr_spread_constant": 1.386295,
+      "degenerate_timesteps": 0,
+      "lock_acquisition": null,
+      "lock_loss": null,
+      "result": "PASS",
+      "pass_criterion": "Non-degenerate polygon at all 41 timesteps, constant shape across time, correct 4:1 lobe structure."
+    }
+  ],
+  "artifacts": {
+    "root": {
+      "build_standards.py": "Python script that generates all three polar_stack JSON files from first principles",
+      "STD-standards_suite_projector.html": "Combined projector showing all three test objects in a single instrument view",
+      "Hs-STD_JOURNAL.md": "Master experiment journal — full methodology, observations, and conclusions",
+      "Hs_INDEX.json": "This file"
+    },
+    "cylinder": {
+      "STD-cylinder_polar_stack.json": "Polar stack data — 27 carriers, 41 timesteps, uniform composition",
+      "STD-cylinder_projector.html": "Single-object projector for cylinder standard",
+      "STD-cylinder_cinema.pptx": "Frame-by-frame cinema of cylinder projection",
+      "README.md": "Cylinder test object specification and result"
+    },
+    "sphere": {
+      "STD-sphere_polar_stack.json": "Polar stack data — 27 carriers, 41 timesteps, sin-envelope CLR spread",
+      "STD-sphere_projector.html": "Single-object projector for sphere standard",
+      "STD-sphere_cinema.pptx": "Frame-by-frame cinema of sphere projection",
+      "README.md": "Sphere test object specification and result"
+    },
+    "cube": {
+      "STD-cube_polar_stack.json": "Polar stack data — 27 carriers, 41 timesteps, alternating quadrant composition",
+      "STD-cube_projector.html": "Single-object projector for cube standard",
+      "STD-cube_cinema.pptx": "Frame-by-frame cinema of cube projection",
+      "README.md": "Cube test object specification and result"
+    }
+  },
+  "three_laws_compliance": {
+    "law_1_no_fabrication": "VERIFIED — cylinder produced zero false polygons; no structure was rendered where none existed in the data",
+    "law_2_every_nibble_preserved": "VERIFIED — all 27 carrier CLR values present at all 41 timesteps in each polar_stack JSON; no data suppressed",
+    "law_3_confidence_stated": "VERIFIED — DEGEN markers explicitly flag unresolvable timesteps; LOCK markers document resolving boundary"
+  },
+  "dut_principle": "The data is always the Device Under Test. The projector is the measuring instrument. This test suite verifies that the instrument reads correctly when given inputs of known geometry.",
+  "reference": "Aitchison, J. (1986). The Statistical Analysis of Compositional Data. Chapman and Hall."
+}

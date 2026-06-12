@@ -1,0 +1,269 @@
+{
+  "_meta": {
+    "schema": "hs_machine_manifest/3.0",
+    "generated": "2026-05-08T22:00:00Z",
+    "last_writer": "Claude Cowork session - Volume IV (Quaternion View) integration",
+    "purpose": "Authoritative pointer-block for the HUF-CNT system. Use as the single 'where is everything' file when refreshing AI context.",
+    "session_pointer": "push #24 -- Grok crosscheck integration + HCI-AUDIO + HCI-ULTRASOUND sibling tiers + DADC origin lineage.",
+    "last_updated": "2026-05-10",
+    "last_push": "#35",
+    "_status": "LEGACY SNAPSHOT — push #35 era (2026-05-10). Engine versions, last_push, engine_status, and absolute paths in this file are historical. Current authoritative state lives in HS_FAST_REFRESH.json (single source of truth per Hs Change Control v1.0 rule HCC-R001). This file is preserved per HCC-R004 (archive preservation). A refreshed manifest is queued as a post-conference DCP candidate. See AI_AGENTS.md §2.1 for cache-lag guidance.",
+    "_status_added_in_push": "#48 (cache-lag mitigation under Hs Change Control v1.0)",
+    "_status_added_date": "2026-05-12",
+    "_authoritative_current_state": "HS_FAST_REFRESH.json"
+  },
+  "system": {
+    "name": "HUF-CNT (HCI-CNT) inside the Hˢ repository",
+    "engine_version": "2.0.4",
+    "schema_version": "2.1.0",
+    "release": "v1.0.0 + v1.1.x  (CodaWork 2026 demo build)",
+    "license": "Apache-2.0  (engine + atlas)  /  CC BY 4.0  (Hˢ research)",
+    "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT",
+    "n_experiments": 25
+  },
+  "engine": {
+    "python": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.py",
+    "r": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.R",
+    "native_units": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/native_units.py",
+    "tests": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/tests"
+  },
+  "atlas": {
+    "stage1_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage1_v4.py",
+    "stage1_complete": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/atlas_stage1_complete.py",
+    "stage2_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage2_locked.py",
+    "stage3_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage3_locked.py",
+    "stage4_locked": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/stage4_locked.py",
+    "spectrum_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/spectrum_paper.py",
+    "projector_html": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/plate_time_projector.html",
+    "det_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/det_pdf.py",
+    "calibration": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/atlas/STANDARD_CALIBRATION_*"
+  },
+  "mission_command": {
+    "orchestrator": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/mission_command.py",
+    "module_registry": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/modules.py",
+    "master_control": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/mission_command/master_control.json",
+    "registered_modules": [
+      "stage1",
+      "stage2",
+      "stage3",
+      "stage4",
+      "spectrum_paper",
+      "projector_html"
+    ]
+  },
+  "tools": {
+    "run_pipeline": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/tools/run_pipeline.py",
+    "verify_package": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/tools/verify_package.py"
+  },
+  "experiments": {
+    "index": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/experiments/INDEX.json",
+    "by_subdir": {
+      "codawork2026": [
+        "ember_chn",
+        "ember_deu",
+        "ember_fra",
+        "ember_gbr",
+        "ember_ind",
+        "ember_jpn",
+        "ember_usa",
+        "ember_wld",
+        "ember_combined_panel",
+        "backblaze_fleet"
+      ],
+      "domain": [
+        "fao_irrigation_methods",
+        "geochem_ball_age",
+        "geochem_ball_region",
+        "geochem_ball_tas",
+        "geochem_qin_cpx",
+        "geochem_stracke_morb",
+        "geochem_stracke_oib",
+        "geochem_tappe_kim1"
+      ],
+      "reference": [
+        "commodities_gold_silver",
+        "nuclear_semf"
+      ],
+      "extended": [
+        "markham_budget",
+        "iiasa_ngfs",
+        "esa_planck_cosmic",
+        "financial_sector",
+        "chemixhub_oxide"
+      ]
+    },
+    "full_corpus_validation_2026_05_10": {
+      "summary": "Citation-grade reference suite. 101 datasets across 11 domains; 100 ran end-to-end through CNT v3 + CNQ v2",
+      "folder": "experiments/2026-05-10_full-corpus-validation/",
+      "introduced_at_push": "#34",
+      "catalog_entry": "INV-048"
+    },
+    "codawork2026_conference": {
+      "summary": "EMBER 8-country corpus on CNT v3 + CNQ v2 with CRD-1.0 coherent-range manifest",
+      "folder": "papers/codawork2026/conference_2026_06/"
+    }
+  },
+  "conference_demo": {
+    "root": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo",
+    "talk_pptx": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/talk_deck/CodaWork2026_CNT_Talk.pptx",
+    "talk_plan": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/CODAWORK2026_TALK_PLAN.md",
+    "demo_guide": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/DEMO_GUIDE.md",
+    "spectrum_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/spectrum_paper_codawork2026_ember.pdf",
+    "projector_html": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/conference_demo/cnt_demo/03_combined/plate_time_projector_codawork2026_ember.html"
+  },
+  "doctrine_locks": {
+    "output_doctrine": "v1.0.1 (integer orders only; trajectory aggregates round UP to next order)",
+    "stage1_standard": "atlas/stage1_v4.py — ILR-Helmert orthogonal triplet",
+    "stage2_standard": "atlas/stage2_locked.py — 19-plate Order-2 atlas",
+    "schema": "2.1.0 — additive units block",
+    "SEA_1_0": {
+      "doc": "docs/SUSPICION_OF_EVERY_ASSUMPTION.md",
+      "introduced_at_push": "#32",
+      "summary": "Suspicion of Every Assumption — every public function/claim enumerates failure modes with mitigation evidence; engine guilty until proven innocent",
+      "catalog_entry": "INV-045"
+    },
+    "STP_1_0": {
+      "doc": "docs/SELF_TEST_PROTOCOL.md",
+      "introduced_at_push": "#32",
+      "summary": "Self-Test Protocol (BIST) — every engine carries frozen reference corpus + runner producing dated, hash-chained pass/fail receipts",
+      "catalog_entry": "INV-046"
+    },
+    "CRD_1_0": {
+      "doc": "docs/COHERENT_RANGE_DOCTRINE.md",
+      "introduced_at_push": "#33",
+      "summary": "Coherent Range Doctrine — multi-carrier comparisons computed on intersection of all members' ranges; manifest header on every output; shortest-coverage member sets binding window",
+      "catalog_entry": "INV-047"
+    },
+    "engine_independence": {
+      "doc": "ai-refresh/CNT_V3_CNQ_V2_DESIGN.md (design doc) + push narratives",
+      "introduced_at_push": "#32",
+      "summary": "No cross-engine hash chain; each engine deterministic on its own; cnt_content_sha256 and cnq_content_sha256 unrelated by design"
+    }
+  },
+  "v1_1_status": {
+    "A_deterministic_pdf": "shipped (atlas/det_pdf.py)",
+    "B_native_units": "shipped (cnt/native_units.py + engine adoption)",
+    "C_png_svg_export": "shipped (atlas/stage1_v4.py PNG_DETERMINISTIC flag)",
+    "D_comparison_atlas": "shipped (atlas/compare.py)",
+    "E_carrier_alias_map": "shipped (atlas/alias_map.py)",
+    "F_trajectory_windowing": "shipped (atlas/atlas.py)",
+    "G_schema_validator": "shipped (tools/validate_cnt_schema.py)",
+    "H_ortho_triplet": "shipped + locked",
+    "MC_module_pipeline": "shipped (mission_command/modules.py)",
+    "spectrum_paper": "shipped (atlas/spectrum_paper.py)",
+    "projector_html": "shipped (atlas/plate_time_projector.html)",
+    "engine_config_overrides": "wired (cnt.py 2.0.4)",
+    "schema_2_1_0_units": "wired (cnt.py 2.0.4)",
+    "deferred_adapters_5": "all built (extended/markham_budget, iiasa_ngfs, esa_planck_cosmic, financial_sector, chemixhub_oxide)",
+    "conference_package": "shipped (codawork2026_conference/)",
+    "public_trial_readiness": "shipped (PUBLIC_TRIAL_READINESS.md)"
+  },
+  "open_items": [
+    "None blocking. Optional next-cycle items: Hs-Lab 12-component integration (plan in Volume II §H); raw-data swap-in for the 5 extended adapters (checklist in Volume II §C, ~1.5 person-days for the 3 practical swaps); Stage 5+ exploration."
+  ],
+  "handbook": {
+    "volume_1_theory": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md",
+    "volume_2_practitioner": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_2_PRACTITIONER_AND_OPERATIONS.md",
+    "volume_3_verification": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_3_VERIFICATION_REFERENCE_AND_RELEASE.md"
+  },
+  "coda_community": {
+    "balance_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_VS_CODA_BALANCE.md",
+    "roi_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_ROI_AND_USE_CASES.md",
+    "verification_paper": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/CNT_VERIFICATION_VALUE_FOR_CODA.md",
+    "ternary_figure_pdf": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/coda_community/cnt_roi_ternary.pdf"
+  },
+  "history": {
+    "previous_location": "D:\\HUF_Research\\Claude CoWorker\\HUF-CNT-System  (now archived)",
+    "current_location": "Current-Repo/Hs/HCI-CNT/",
+    "migration_date": "2026-05-06",
+    "active_repo_branch": "main",
+    "last_validated_commit": "7d2b25e (push #19); push #21 c9dec16 + #22 (Volume IV integration) pending",
+    "experiments_journal": {
+      "doc": "EXPERIMENTS_JOURNAL.md",
+      "purpose": "Single citation-grade markdown documenting every experiment ever run under HUF / CNT v1 / CNT v2.0.4 / CNT v3.0.0 + CNQ v2.0.0; engine-version transitions; cross-version diffs",
+      "introduced_at_push": "#35",
+      "linked_from_repo_landing": true
+    }
+  },
+  "fault_tolerance_dual_folder_method": {
+    "_principle": "Peter operates a deliberate two-folder fault-tolerant method. The Claude Cowork mirror and the canonical local working repo are kept in lockstep but live independently, so a corruption or unintended edit in either folder can be recovered from the other as long as the push has not been verified as landed on origin/main.",
+    "claude_cowork_mirror": {
+      "path_windows": "D:\\HUF_Research\\Claude CoWorker\\Current-Repo\\Hs",
+      "path_sandbox": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs",
+      "role": "MIRROR — the folder Claude Cowork has read/write access to. All Claude-driven edits land here first.",
+      "writers": "Claude Cowork sessions",
+      "readers": "Claude Cowork sessions; user can read for review"
+    },
+    "canonical_local_repo": {
+      "path_windows": "<Peter's primary local repo folder — separate from the Cowork mirror>",
+      "role": "CANONICAL — the actual git-managed working tree where pushes originate. Mirrored from the Cowork folder before each push, then `git add / commit / push` is run from here.",
+      "writers": "Peter (manual) and `git pull` from origin",
+      "readers": "Peter; git tooling"
+    },
+    "synchronisation_flow": [
+      "1. Claude edits land in the Cowork mirror.",
+      "2. Peter reviews + copies/syncs the changed files into the canonical local repo.",
+      "3. Push procedure (PREPARE_FOR_REPO.json) is run from the canonical repo.",
+      "4. GitHub Actions 'Validate Repository #N' workflow runs and is verified green.",
+      "5. Once the workflow conclusion is `success` and the live tree matches expectation, the push is considered VERIFIED."
+    ],
+    "recovery_rules": {
+      "before_push_verified": "Either folder may be authoritative. If the Cowork mirror gets corrupted or an unintended edit lands, recover from the canonical local repo (and vice versa). Pushes that have not yet been validated by the GitHub Actions workflow are still recoverable from either side.",
+      "after_push_verified": "origin/main becomes the source of truth. To recover either folder, `git fetch origin && git reset --hard origin/main` from the canonical repo, then re-mirror to the Cowork folder.",
+      "claude_responsibility": "Claude Cowork sessions edit only the Cowork mirror. They MUST NOT attempt to write to the canonical repo or to push directly. All `git push` operations are run by Peter from the canonical repo."
+    },
+    "verification_signals": [
+      "GitHub Actions: https://github.com/PeterHiggins19/higgins-decomposition/actions — each push triggers a 'Validate Repository #N' workflow.",
+      "Conclusion `success` on the workflow run + live-repo browse via api.github.com/repos/PeterHiggins19/higgins-decomposition/contents/* = push verified.",
+      "Until both signals are green, Peter retains the canonical local repo as the recovery source."
+    ],
+    "documented_at": "2026-05-06 (push #19 — lock+temp-file cleanup)"
+  },
+  "quaternion_view": {
+    "_description": "Volume IV of the canonical handbook (integrated 2026-05-07). Names the algebra CNT computes in.",
+    "central_claim": "CNT measures invariance. CNQ names the algebra that invariance lives in.",
+    "canonical_volume": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md",
+    "engine_docstring_pointer": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/HCI-CNT/engine/cnt.py (top docstring 'Mathematical interpretation' block)",
+    "ops_protocol_section": "OPERATIONS_PROTOCOL.md Section 13",
+    "cctt_runbook_section": "ai-refresh/CCTT_RUNBOOK.md 'What CNT is measuring (Volume IV)'",
+    "experimental_archive_at_workspace_root": "D:/HUF_Research/Claude CoWorker/Quaternion Decomposition/",
+    "ieee_floor_confirmations_count": 3,
+    "engine_unchanged": true,
+    "determinism_gate_preserved": true,
+    "schema_unchanged": "2.1.0"
+  },
+  "hci_cnq": {
+    "_description": "HCI-CNQ — Compositional Navigation Quaternion (tier live since push #23, 2026-05-07).",
+    "canonical_location": "Hs/HCI-CNQ/",
+    "tier_status": "live",
+    "engine_status": "cnq.py pending (~14 days)",
+    "central_claim": "CNT measures invariance. CNQ names the algebra it lives in.",
+    "demonstrations": "Hs/HCI-CNQ/experiments/ (3 IEEE-floor demonstrations: backblaze, Planck CMB, SM neutrino)",
+    "doctrine": "Hs/HCI-CNQ/doctrine/",
+    "tier_overview": "Hs/HCI-CNQ/tier_system/",
+    "engineering_proposal": "Hs/HCI-CNQ/tier_system/CNQ_ENGINE_PROPOSAL.md",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-07_push23_chatgpt_integration.md"
+  },
+  "hci_audio": {
+    "_description": "HCI-AUDIO applied sibling tier (push #24, 2026-05-08).",
+    "canonical_location": "Hs/HCI-AUDIO/",
+    "tier_status": "doctrine-only",
+    "headline_use_case": "4-way active loudspeaker alignment at listening position",
+    "doctrine_root": "Hs/HCI-AUDIO/doctrine/",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "hci_ultrasound": {
+    "_description": "HCI-ULTRASOUND applied sibling tier (push #24, 2026-05-08).",
+    "canonical_location": "Hs/HCI-ULTRASOUND/",
+    "tier_status": "doctrine-only",
+    "headline_use_case": "Geometry Lock Probe (medical and industrial non-contact ultrasound)",
+    "doctrine_root": "Hs/HCI-ULTRASOUND/doctrine/",
+    "narrative": "ai-refresh/AI_REFRESH_2026-05-08_push24_grok_crosscheck.md"
+  },
+  "origin_lineage": {
+    "_description": "Historical origin verified during push #24.",
+    "origin": "DADC at Binaural Test Lab, Markham (Rogue-Wave-Audio)",
+    "lineage": "DADC -> H1 -> HUF -> Hs -> CNT -> CNQ",
+    "canonical_doc": "Hs/HCI-CNT/handbook/ORIGIN_DADC_LINEAGE.md"
+  }
+}

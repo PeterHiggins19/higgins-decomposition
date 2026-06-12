@@ -1,0 +1,38 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-16
+  System:      Planck Cosmic Budget
+  Domain:      COSMOLOGY
+  Carriers:    Radiation, Matter, Dark_Energy
+  N=200, D=3
+  Source:      DERIVED
+  Description: Friedmann evolution with Planck 2018 parameters: Omega_b=0.0493, Omega_cdm=0.265, Omega_Lambda=0.6857, Omega_r=9.1e-5
+  Pipeline:    1.0 Extended
+  Data hash:   4ef3dc1b6938376b
+  Timestamp:   2026-04-25T06:24:46.253462Z
+
+
+Total codes: 38
+  Errors:       0
+  Warnings:     0
+  Discoveries: 9
+  Calibration signals: 1
+  Information:  28
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000038)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000038)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (2)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Dark_Energy, pct=62.820513)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-TEF-DIS] Dominant directed information flow identified between carriers. (flow=Radiation->Dark_Energy, te=0.036206)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Radiation/Dark_Energy), cv=163.995184)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Matter/Dark_Energy), cv=62.748554)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=200, near_zero_carriers=['Radiation', 'Dark_Energy'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

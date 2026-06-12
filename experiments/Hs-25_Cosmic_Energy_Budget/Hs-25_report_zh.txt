@@ -1,0 +1,51 @@
+Hˢ 诊断报告
+============================================================
+
+  Experiment:  Hs-25
+  System:      Cosmic Energy Budget (Planck 2018 ΛCDM)
+  Domain:      COSMOLOGY
+  Carriers:    Dark_Energy, Cold_Dark_Matter, Baryonic_Matter, Photon_Radiation, Neutrinos
+  N=103, D=5
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   347562a550f1a1df
+  Timestamp:   2026-04-27T13:47:24.434798Z
+
+
+代码总数: 48
+  错误:       0
+  警告:     0
+  发现: 14
+  校准信号: 2
+  结构模式:  5
+  信息:  27
+
+── 发现 ──
+  [S8-EUL-DIS] 检测到欧拉族常数。管道几何与系统结构产生共振。 (constant=1/(e^pi), delta=0.000042)
+  [S8-TGT-DIS] 精确匹配：δ < 0.001——高精度结构共振。 (constant=1/(e^pi), delta=0.000042)
+  [S9-STL-DIS] 检测到停滞——熵变化率低于阈值。 (6)
+  [S9-REV-DIS] 检测到反转——快速成分振荡。 (1)
+  [XU-PCD-DIS] 载体主导：一个载体贡献超过60%的方差。 (carrier=Dark_Energy, pct=72.592593)
+  [XU-DRU-DIS] 漂移增加——系统正在演化。 (variance_ratio_2nd_to_1st=49.336464, drift_direction=increasing, max_shift_carrier=Dark_Energy)
+  [XC-PIR-DIS] PID：载体共享冗余信息——耦合动力学。
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Dark_Energy/Cold_Dark_Matter), cv=131.018751)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Dark_Energy/Baryonic_Matter), cv=194.280000)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Dark_Energy/Photon_Radiation), cv=687.731958)
+  [XC-RPV-DIS] 波动配对比率——这些载体在成分上独立。 (pair=ln(Dark_Energy/Neutrinos), cv=528.410236)
+  [XC-RPS-DIS] 稳定配对比率——这些载体在成分上锁定。 (pair=ln(Cold_Dark_Matter/Baryonic_Matter), cv=0.000000)
+  [XC-RPS-DIS] 稳定配对比率——这些载体在成分上锁定。 (pair=ln(Photon_Radiation/Neutrinos), cv=0.000000)
+  [XC-ZCR-DIS] 零交叉事件——成分接近单纯形边界。 (n_near_zero_events=103, near_zero_carriers=['Dark_Energy', 'Photon_Radiation', 'Neutrinos'], zero_threshold=0.010000)
+
+── 校准信号 ──
+  [XU-MDS-CAL] 匹配密度低于自然基线。
+  [XC-TEZ-CAL] 转移熵为零——系统在此层面成分无记忆。
+
+── 结构模式——调查提示 ──
+  [SM-OVC-CAL] 过约束——近乎完美的拟合。确认这是实测数据而非模型输出。
+  [SM-RTR-DIS] 检测到体制转换。停滞点标记边界。考虑在转换点拆分数据。
+  [SM-DMR-DIS] 域共振——欧拉族几何编码深层结构。与该领域中的其他分解进行比较。
+  [SM-CPL-DIS] 载体耦合——载体共享同一物理驱动因素。稳定比率编码了一个约束。
+  [SM-SCG-INF] 平滑收敛——单一群体持续演化。采样良好的自然系统的预期模式。
+
+管道运行成功完成。
+管道是确定性的。重复运行产生相同结果。

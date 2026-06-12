@@ -1,0 +1,42 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  PAIR-1B
+  System:      DT Fusion Budget
+  Domain:      ENERGY
+  Carriers:    Fusion, Radiation, Loss
+  N=200, D=3
+  Source:      DERIVED
+  Description: Lawson criterion fusion energy partition
+  Pipeline:    1.0 Extended
+  Data hash:   7d1928b059b46b4c
+  Timestamp:   2026-04-25T10:54:39.794093Z
+
+
+कुल कोड: 38
+  त्रुटियाँ:       0
+  चेतावनियाँ:     1
+  खोजें: 10
+  अंशांकन संकेत: 1
+  सूचना:  26
+
+── चेतावनियाँ ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — खराब फिट, प्रक्षेपवक्र बहुपदीय नहीं हो सकता।
+
+── खोजें ──
+  [S8-EUL-DIS] ऑयलर-परिवार स्थिरांक का पता चला। पाइपलाइन ज्यामिति प्रणाली संरचना के साथ अनुनाद करती है। (constant=1/(2pi), delta=0.009134)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (1)
+  [XU-PCD-DIS] वाहक प्रभुत्व: एक वाहक विचरण का 60% से अधिक योगदान करता है। (carrier=Fusion, pct=64.443912)
+  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.019280, drift_direction=decreasing, max_shift_carrier=Fusion)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-TEF-DIS] वाहकों के बीच प्रमुख दिशात्मक सूचना प्रवाह की पहचान हुई। (flow=Radiation->Fusion, te=0.310348)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Fusion/Radiation), cv=102.122956)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Fusion/Loss), cv=92.137107)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Radiation/Loss), cv=193.653347)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=143, near_zero_carriers=['Fusion', 'Radiation', 'Loss'], zero_threshold=0.010000)
+
+── अंशांकन संकेत ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

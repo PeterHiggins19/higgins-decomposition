@@ -1,0 +1,719 @@
+[
+ {
+  "iso": "AUS",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 0.00065,
+    "Coal": 78.9425,
+    "Gas": 5.187,
+    "Hydro": 3.1005,
+    "Nuclear": 0.00065,
+    "Other Fossil": 0.00065,
+    "Other Renewables": 0.00065,
+    "Solar": 0.00065,
+    "Wind": 0.00065
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_AUS_Australia_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_AUS_Australia_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 14.48,
+   "k_eff_final": 3.75,
+   "k_eff_min": 1.38,
+   "helmsman": {
+    "Other Fossil": 18,
+    "Hydro": 3,
+    "Solar": 3,
+    "Wind": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 15,
+    "deceptive": 1
+   },
+   "deceptive": 1,
+   "biggest_step": [
+    "2009",
+    8.486788928638122
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 14.48,
+   "k_eff_final": 3.75,
+   "k_eff_min": 1.38,
+   "helmsman": {
+    "Other Fossil": 18,
+    "Hydro": 3,
+    "Solar": 3,
+    "Wind": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 15,
+    "deceptive": 1
+   },
+   "deceptive": 1,
+   "biggest_step": [
+    "2009",
+    8.486788928638122
+   ]
+  },
+  "changed": false
+ },
+ {
+  "iso": "CAN",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 8,
+   "structural_dropped": [
+    "Other Renewables"
+   ],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 5.187,
+    "Coal": 15.431,
+    "Gas": 23.2895,
+    "Hydro": 215.488,
+    "Nuclear": 46.9885,
+    "Other Fossil": 2.223,
+    "Solar": 0.0065,
+    "Wind": 0.169
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_CAN_Canada_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_CAN_Canada_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 36.16,
+   "k_eff_final": 4.16,
+   "k_eff_min": 3.32,
+   "helmsman": {
+    "Solar": 11,
+    "Wind": 7,
+    "Other Fossil": 5,
+    "Coal": 2
+   },
+   "regimes": {
+    "loosening": 10,
+    "deceptive": 4,
+    "stable": 10,
+    "tightening": 1
+   },
+   "deceptive": 4,
+   "biggest_step": [
+    "2009",
+    1.0645189731535083
+   ]
+  },
+  "treated": {
+   "D": 8,
+   "max_norm": 8.84,
+   "k_eff_final": 4.16,
+   "k_eff_min": 3.32,
+   "helmsman": {
+    "Solar": 11,
+    "Wind": 6,
+    "Other Fossil": 5,
+    "Coal": 2,
+    "Nuclear": 1
+   },
+   "regimes": {
+    "loosening": 10,
+    "deceptive": 4,
+    "stable": 10,
+    "tightening": 1
+   },
+   "deceptive": 4,
+   "biggest_step": [
+    "2009",
+    1.048546596403279
+   ]
+  },
+  "changed": true
+ },
+ {
+  "iso": "CHN",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 8,
+   "D_out": 8,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 1.6445,
+    "Coal": 689.169,
+    "Gas": 2.7235,
+    "Hydro": 144.5665,
+    "Nuclear": 10.881,
+    "Other Fossil": 7.878,
+    "Solar": 0.013,
+    "Wind": 0.3835
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_CHN_China_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_CHN_China_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 8,
+   "max_norm": 9.09,
+   "k_eff_final": 4.27,
+   "k_eff_min": 1.91,
+   "helmsman": {
+    "Solar": 13,
+    "Other Fossil": 6,
+    "Bioenergy": 3,
+    "Wind": 2,
+    "Nuclear": 1
+   },
+   "regimes": {
+    "stable": 8,
+    "loosening": 16,
+    "deceptive": 1
+   },
+   "deceptive": 1,
+   "biggest_step": [
+    "2011",
+    1.162015740068461
+   ]
+  },
+  "treated": {
+   "D": 8,
+   "max_norm": 9.09,
+   "k_eff_final": 4.27,
+   "k_eff_min": 1.91,
+   "helmsman": {
+    "Solar": 13,
+    "Other Fossil": 6,
+    "Bioenergy": 3,
+    "Wind": 2,
+    "Nuclear": 1
+   },
+   "regimes": {
+    "stable": 8,
+    "loosening": 16,
+    "deceptive": 1
+   },
+   "deceptive": 1,
+   "biggest_step": [
+    "2011",
+    1.162015740068461
+   ]
+  },
+  "changed": false
+ },
+ {
+  "iso": "DEU",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 12,
+   "detection_limits": {
+    "Bioenergy": 2.8145,
+    "Coal": 67.0475,
+    "Gas": 31.98,
+    "Hydro": 11.453,
+    "Nuclear": 4.693,
+    "Other Fossil": 11.7325,
+    "Other Renewables": 0.013,
+    "Solar": 0.065,
+    "Wind": 6.0775
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_DEU_Germany_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_DEU_Germany_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 48.16,
+   "k_eff_final": 5.85,
+   "k_eff_min": 3.49,
+   "helmsman": {
+    "Solar": 9,
+    "Other Renewables": 5,
+    "Nuclear": 4,
+    "Coal": 3,
+    "Wind": 2,
+    "Bioenergy": 1,
+    "Gas": 1
+   },
+   "regimes": {
+    "loosening": 19,
+    "stable": 1,
+    "tightening": 5
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2024",
+    34.457789861408564
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 9.59,
+   "k_eff_final": 6.07,
+   "k_eff_min": 3.5,
+   "helmsman": {
+    "Solar": 9,
+    "Other Renewables": 5,
+    "Nuclear": 4,
+    "Coal": 3,
+    "Wind": 2,
+    "Bioenergy": 1,
+    "Gas": 1
+   },
+   "regimes": {
+    "loosening": 19,
+    "stable": 2,
+    "tightening": 4
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2025",
+    2.669653392261167
+   ]
+  },
+  "changed": true
+ },
+ {
+  "iso": "FRA",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 1.612,
+    "Coal": 0.663,
+    "Gas": 7.4815,
+    "Hydro": 29.614,
+    "Nuclear": 191.5745,
+    "Other Fossil": 5.7265,
+    "Other Renewables": 0.2925,
+    "Solar": 0.0065,
+    "Wind": 0.0325
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_FRA_France_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_FRA_France_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 9.72,
+   "k_eff_final": 3.11,
+   "k_eff_min": 2.19,
+   "helmsman": {
+    "Wind": 7,
+    "Solar": 6,
+    "Coal": 6,
+    "Gas": 5,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 10,
+    "loosening": 10,
+    "tightening": 5
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2009",
+    1.436737924531094
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 9.72,
+   "k_eff_final": 3.11,
+   "k_eff_min": 2.19,
+   "helmsman": {
+    "Wind": 7,
+    "Solar": 6,
+    "Coal": 6,
+    "Gas": 5,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 10,
+    "loosening": 10,
+    "tightening": 5
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2009",
+    1.436737924531094
+   ]
+  },
+  "changed": false
+ },
+ {
+  "iso": "GBR",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 29,
+   "detection_limits": {
+    "Bioenergy": 2.522,
+    "Coal": 0.2145,
+    "Gas": 56.095,
+    "Hydro": 2.0995,
+    "Nuclear": 23.647,
+    "Other Fossil": 5.434,
+    "Other Renewables": 0.0065,
+    "Solar": 0.0065,
+    "Wind": 0.611
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_GBR_United_Kingdom_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_GBR_United_Kingdom_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 47.01,
+   "k_eff_final": 5.25,
+   "k_eff_min": 3.65,
+   "helmsman": {
+    "Solar": 8,
+    "Coal": 6,
+    "Wind": 5,
+    "Hydro": 3,
+    "Other Renewables": 2,
+    "Nuclear": 1
+   },
+   "regimes": {
+    "stable": 7,
+    "loosening": 12,
+    "tightening": 4,
+    "deceptive": 2
+   },
+   "deceptive": 2,
+   "biggest_step": [
+    "2018",
+    28.236006602832504
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 10.94,
+   "k_eff_final": 5.25,
+   "k_eff_min": 3.65,
+   "helmsman": {
+    "Solar": 8,
+    "Coal": 6,
+    "Wind": 5,
+    "Hydro": 3,
+    "Other Renewables": 2,
+    "Nuclear": 1
+   },
+   "regimes": {
+    "stable": 7,
+    "loosening": 12,
+    "tightening": 4,
+    "deceptive": 2
+   },
+   "deceptive": 2,
+   "biggest_step": [
+    "2011",
+    1.7268420935088962
+   ]
+  },
+  "changed": true
+ },
+ {
+  "iso": "IND",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 8,
+   "D_out": 8,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 1.0985,
+    "Coal": 253.6495,
+    "Gas": 30.0105,
+    "Hydro": 44.551,
+    "Nuclear": 9.8995,
+    "Other Fossil": 1.9955,
+    "Solar": 0.0065,
+    "Wind": 1.027
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_IND_India_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_IND_India_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 8,
+   "max_norm": 8.71,
+   "k_eff_final": 2.92,
+   "k_eff_min": 2.47,
+   "helmsman": {
+    "Solar": 13,
+    "Gas": 4,
+    "Other Fossil": 3,
+    "Wind": 2,
+    "Bioenergy": 1,
+    "Nuclear": 1,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 9,
+    "deceptive": 3,
+    "tightening": 4
+   },
+   "deceptive": 3,
+   "biggest_step": [
+    "2011",
+    1.819832490788005
+   ]
+  },
+  "treated": {
+   "D": 8,
+   "max_norm": 8.71,
+   "k_eff_final": 2.92,
+   "k_eff_min": 2.47,
+   "helmsman": {
+    "Solar": 13,
+    "Gas": 4,
+    "Other Fossil": 3,
+    "Wind": 2,
+    "Bioenergy": 1,
+    "Nuclear": 1,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 9,
+    "deceptive": 3,
+    "tightening": 4
+   },
+   "deceptive": 3,
+   "biggest_step": [
+    "2011",
+    1.819832490788005
+   ]
+  },
+  "changed": false
+ },
+ {
+  "iso": "JPN",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 8,
+   "D_out": 8,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 1,
+   "detection_limits": {
+    "Bioenergy": 10.4195,
+    "Coal": 154.856,
+    "Gas": 164.294,
+    "Hydro": 45.8055,
+    "Nuclear": 2.938,
+    "Other Fossil": 16.25,
+    "Solar": 0.221,
+    "Wind": 0.0715
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_JPN_Japan_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_JPN_Japan_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 8,
+   "max_norm": 36.42,
+   "k_eff_final": 5.3,
+   "k_eff_min": 3.94,
+   "helmsman": {
+    "Nuclear": 10,
+    "Other Fossil": 6,
+    "Wind": 4,
+    "Hydro": 2,
+    "Solar": 2,
+    "Bioenergy": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 11,
+    "deceptive": 2,
+    "tightening": 3
+   },
+   "deceptive": 2,
+   "biggest_step": [
+    "2014",
+    34.870572644974985
+   ]
+  },
+  "treated": {
+   "D": 8,
+   "max_norm": 8.4,
+   "k_eff_final": 5.3,
+   "k_eff_min": 4.0,
+   "helmsman": {
+    "Nuclear": 10,
+    "Other Fossil": 6,
+    "Wind": 4,
+    "Hydro": 2,
+    "Solar": 2,
+    "Bioenergy": 1
+   },
+   "regimes": {
+    "stable": 9,
+    "loosening": 11,
+    "deceptive": 2,
+    "tightening": 3
+   },
+   "deceptive": 2,
+   "biggest_step": [
+    "2012",
+    2.2006349874139537
+   ]
+  },
+  "changed": true
+ },
+ {
+  "iso": "USA",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 2,
+   "detection_limits": {
+    "Bioenergy": 29.9,
+    "Coal": 424.3915,
+    "Gas": 415.428,
+    "Hydro": 135.2845,
+    "Nuclear": 496.418,
+    "Other Fossil": 19.6105,
+    "Other Renewables": 9.6785,
+    "Solar": 0.3185,
+    "Wind": 4.381
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_USA_United_States_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_USA_United_States_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 37.62,
+   "k_eff_final": 5.31,
+   "k_eff_min": 3.83,
+   "helmsman": {
+    "Solar": 15,
+    "Wind": 5,
+    "Coal": 2,
+    "Other Fossil": 1,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 12,
+    "loosening": 11,
+    "tightening": 1
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2003",
+    31.925472548414497
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 7.76,
+   "k_eff_final": 5.31,
+   "k_eff_min": 3.84,
+   "helmsman": {
+    "Solar": 15,
+    "Wind": 5,
+    "Coal": 2,
+    "Other Fossil": 1,
+    "Hydro": 1
+   },
+   "regimes": {
+    "stable": 12,
+    "loosening": 11,
+    "tightening": 1
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2014",
+    1.0803742559947545
+   ]
+  },
+  "changed": true
+ },
+ {
+  "iso": "WLD",
+  "treatment": {
+   "method": "structural-drop + multiplicative-replacement (frac*DL, DL=min positive per column)",
+   "frac": 0.65,
+   "D_in": 9,
+   "D_out": 9,
+   "structural_dropped": [],
+   "rounded_zeros_replaced": 0,
+   "detection_limits": {
+    "Bioenergy": 97.2075,
+    "Coal": 3775.7265,
+    "Gas": 1784.6205,
+    "Hydro": 1666.418,
+    "Nuclear": 1580.943,
+    "Other Fossil": 504.322,
+    "Other Renewables": 28.3725,
+    "Solar": 0.663,
+    "Wind": 20.2475
+   },
+   "in_csv": "/sessions/stoic-nifty-davinci/mnt/Claude CoWorker/Current-Repo/Hs/data/Energy/EMBER_pipeline_ready/ember_WLD_World_generation_TWh.csv",
+   "out_csv": "/sessions/stoic-nifty-davinci/mnt/outputs/zt_treated/ember_WLD_World_generation_TWh.csv"
+  },
+  "baseline": {
+   "D": 9,
+   "max_norm": 8.17,
+   "k_eff_final": 6.1,
+   "k_eff_min": 4.68,
+   "helmsman": {
+    "Solar": 23,
+    "Wind": 2
+   },
+   "regimes": {
+    "stable": 11,
+    "loosening": 14
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2011",
+    0.6288402187463752
+   ]
+  },
+  "treated": {
+   "D": 9,
+   "max_norm": 8.17,
+   "k_eff_final": 6.1,
+   "k_eff_min": 4.68,
+   "helmsman": {
+    "Solar": 23,
+    "Wind": 2
+   },
+   "regimes": {
+    "stable": 11,
+    "loosening": 14
+   },
+   "deceptive": 0,
+   "biggest_step": [
+    "2011",
+    0.6288402187463752
+   ]
+  },
+  "changed": false
+ }
+]

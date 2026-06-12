@@ -1,0 +1,287 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-04",
+    "name": "Circular Piston Directivity (Bessel J1)",
+    "domain": "ACOUSTICS",
+    "legacy": "EXP-04",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Bouwkamp 1941 (derived)",
+    "data_file": "",
+    "data_hash": "e69991d89a7e2fe8",
+    "N": 200,
+    "D": 3,
+    "carriers": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "elapsed_seconds": 0.0207,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-04",
+    "name": "Circular Piston Directivity (Bessel J1)",
+    "domain": "ACOUSTICS",
+    "carriers": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "D": 3,
+    "N": 200,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "e69991d89a7e2fe8",
+    "run_timestamp": "2026-04-28T21:15:17.920170Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-04: Circular Piston Directivity (Bessel J1): 3-part simplex, carriers=['Low', 'Mid', 'High']",
+      "step2_n_samples": 200,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Low",
+        "Mid",
+        "High"
+      ],
+      "data_hash_sha256_16": "e69991d89a7e2fe8",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        2.483089837303305,
+        -0.5947892846686228,
+        -1.8883005526346832
+      ],
+      "step4_clr_std_per_part": [
+        1.1820399008002265,
+        0.5957092890824647,
+        0.7949263349436942
+      ],
+      "step5_sigma2_range": [
+        1.0330518138597973e-05,
+        2.3839957621699592
+      ],
+      "step5_sigma2_final": 2.3839957621699592,
+      "step6_pll_coeffs": [
+        -0.00012940349811933774,
+        0.039254330082069036,
+        -0.5386952530712282
+      ],
+      "step6_pll_R2": 0.9424419476099039,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        151.67414580194787,
+        2.438238239041535
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 198,
+      "step7_squeeze_closest": {
+        "time_index": 60,
+        "sigma2_A": 1.732003127652495,
+        "constant": "1/sqrt3",
+        "constant_value": 0.5773502691896258,
+        "test_type": "reciprocal",
+        "test_value": 0.5773661629326097,
+        "delta": 1.5893742983830172e-05
+      },
+      "step7_squeeze_mean": 1.6766067935658342,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.045587636405154244,
+        0.9999998564042829
+      ],
+      "step8_entropy_mean": 0.3162796339820135,
+      "step8_entropy_cv": 105.20616073720232,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.3162796339820135,
+          "H_mean_decimated": 0.31625136727606495,
+          "variation_pct": 0.00893725137867346,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.3162796339820135,
+          "H_mean_decimated": 0.3161411607811261,
+          "variation_pct": 0.04378188982451679,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.3162796339820135,
+          "H_mean_decimated": 0.3157472415222235,
+          "variation_pct": 0.1683296686185786,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 1,
+        "stalls": 1,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.11582651903385338,
+        0.3769759725402946
+      ],
+      "step11_complex_range_im": [
+        -0.040586313499565714,
+        0.24650325678854038
+      ],
+      "step12_radius_range": [
+        0.03184712188806008,
+        0.4504161847447958
+      ],
+      "step12_theta_range": [
+        -2.9064592958841837,
+        0.5791095142048532
+      ],
+      "step9_angular_velocity_std": 0.03922349265834909
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            1.3972183270838092,
+            0.35486955709913554,
+            0.6319078779870144
+          ],
+          "carrier_pct": [
+            58.608255486663865,
+            14.885494459777327,
+            26.506250053558805
+          ],
+          "dominant_carrier": "Low",
+          "dominant_pct": 58.608255486663865
+        },
+        "match_density": {
+          "density": 82.66662587982339,
+          "concentration": 0.2291602897663504,
+          "total_matches": 198,
+          "n_constants_hit": 18,
+          "dominant_constant": "1/ln10",
+          "trajectory_length": 2.395162472069956
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              2.8722678903788776,
+              3.703382853042514
+            ],
+            [
+              2.8722678903788776,
+              0.0,
+              0.576336543088489
+            ],
+            [
+              3.703382853042514,
+              0.576336543088489,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            2.483089837303305,
+            -0.5947892846686228,
+            -1.8883005526346832
+          ],
+          "clr_stds": [
+            1.1820399008002265,
+            0.5957092890824647,
+            0.7949263349436942
+          ],
+          "aitchison_distance_mean": 1.7661726147859986
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.09971309523215807,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Low",
+          "max_shift_magnitude": 0.26038037605289166
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.9424419476099039,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "High",
+          "sources": [
+            "Low",
+            "Mid"
+          ],
+          "I_source1_target": 1.6070106803809745,
+          "I_source2_target": 1.3308751338845066,
+          "redundancy": 1.3308751338845066,
+          "unique_source1": 0.2761355464964679,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Low->Mid": 0.0,
+            "Low->High": 0.0,
+            "Mid->Low": 0.0,
+            "Mid->High": 0.0,
+            "High->Low": 0.0,
+            "High->Mid": 0.0
+          },
+          "dominant_flow": "Low->Mid",
+          "dominant_te": 0.0
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 2.3839957621699592,
+          "shuffled_sigma2": 2.3839957621699597,
+          "order_matters": false,
+          "relative_difference": 1.8627936211004168e-16
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 129,
+          "near_zero_carriers": [
+            "Mid",
+            "High"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Low/Mid)": {
+              "mean": 3.077879121971928,
+              "std": 1.6947766491130558,
+              "cv": 55.063132174835076
+            },
+            "ln(Low/High)": {
+              "mean": 4.3713903899379885,
+              "std": 1.9244175360463005,
+              "cv": 44.02300788499468
+            },
+            "ln(Mid/High)": {
+              "mean": 1.2935112679660603,
+              "std": 0.7591683232910137,
+              "cv": 58.690507156133485
+            }
+          },
+          "most_stable": "ln(Low/High)",
+          "least_stable": "ln(Mid/High)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

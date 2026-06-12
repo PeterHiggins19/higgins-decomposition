@@ -1,0 +1,45 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17b
+  System:      Backblaze Per-Model
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=51, D=4
+  Source:      REAL
+  Description: Backblaze 2024-07-27, per-model mean SMART scores
+  Pipeline:    1.0 Extended
+  Data hash:   369e5361952ad1ca
+  Timestamp:   2026-04-25T06:45:53.976012Z
+
+
+Total de códigos: 40
+  Erros:       0
+  Avisos:     1
+  Descobertas: 13
+  Sinais de calibração: 1
+  Informação:  25
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (41)
+  [S9-STL-DIS] S9-STL-DIS (7)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (34)
+  [XU-DRD-DIS] Deriva decrescente — sistema está convergindo. (variance_ratio_2nd_to_1st=0.836681, drift_direction=decreasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=Age->Mechanical, te=0.097032)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Mechanical/Thermal), cv=78.289521)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Mechanical/Age), cv=79.446737)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Mechanical/Errors), cv=515.487239)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Thermal/Age), cv=359.659493)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Thermal/Errors), cv=108.928841)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Age/Errors), cv=112.109225)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=42, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

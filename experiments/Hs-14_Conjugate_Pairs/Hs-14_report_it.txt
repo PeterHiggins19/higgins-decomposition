@@ -1,0 +1,43 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-14
+  System:      Gaussian Self-Conjugate
+  Domain:      SIGNAL THEORY
+  Carriers:    f, f_prime, residual
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   84683af5ec087ed6
+  Timestamp:   2026-04-25T06:03:01.983453Z
+
+
+Codici totali: 39
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 12
+  Segnali di calibrazione: 1
+  Informazioni:  25
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/sqrt3, delta=0.000579)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (48)
+  [S9-STL-DIS] S9-STL-DIS (39)
+  [S9-SPK-DIS] S9-SPK-DIS (6)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (3)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=residual, pct=66.150044)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=f_prime->residual, te=0.020839)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(f/f_prime), cv=136.903415)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(f/residual), cv=122.388051)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(f_prime/residual), cv=138.250186)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=182, near_zero_carriers=['f', 'f_prime', 'residual'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

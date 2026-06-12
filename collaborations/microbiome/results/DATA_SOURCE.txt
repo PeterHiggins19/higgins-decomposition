@@ -1,0 +1,6 @@
+The microbiome datasets (Crohn, HIV, sCD14, ECAM/ecam_filtered, survival) are NOT
+stored here. They belong to the coda4microbiome R package (Calle, Pujolassos & Susin
+2023) and the original studies. Obtain them from CRAN
+(install.packages("coda4microbiome")) or https://github.com/malucalle/coda4microbiome.
+Hs provides the instrument; the data and its biological interpretation belong to the
+domain. See ../README.md (Scope).

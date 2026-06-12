@@ -1,0 +1,286 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-06",
+    "name": "DT Fusion Energy Budget",
+    "domain": "NUCLEAR",
+    "legacy": "EXP-06",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Lawson criterion physics (derived)",
+    "data_file": "",
+    "data_hash": "c50bb032aadd3811",
+    "N": 100,
+    "D": 3,
+    "carriers": [
+      "Fusion",
+      "Radiation",
+      "Loss"
+    ],
+    "elapsed_seconds": 0.0163,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-06",
+    "name": "DT Fusion Energy Budget",
+    "domain": "NUCLEAR",
+    "carriers": [
+      "Fusion",
+      "Radiation",
+      "Loss"
+    ],
+    "D": 3,
+    "N": 100,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "c50bb032aadd3811",
+    "run_timestamp": "2026-04-28T21:15:17.965045Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-06: DT Fusion Energy Budget: 3-part simplex, carriers=['Fusion', 'Radiation', 'Loss']",
+      "step2_n_samples": 100,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Fusion",
+        "Radiation",
+        "Loss"
+      ],
+      "data_hash_sha256_16": "c50bb032aadd3811",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.4747509954086443,
+        -0.08983738047772219,
+        -0.3849136149309221
+      ],
+      "step4_clr_std_per_part": [
+        0.6503196236579041,
+        0.32384864865723784,
+        0.38072300186423064
+      ],
+      "step5_sigma2_range": [
+        0.6365022433414748,
+        4.369487553340811
+      ],
+      "step5_sigma2_final": 0.672743564300188,
+      "step6_pll_coeffs": [
+        0.0007172924758100648,
+        -0.09905692537207658,
+        3.846558359122143
+      ],
+      "step6_pll_R2": 0.92391861803303,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        69.04918754390108,
+        0.4266582503527787
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 34,
+      "step7_squeeze_closest": {
+        "time_index": 9,
+        "sigma2_A": 3.141811426397623,
+        "constant": "1/pi",
+        "constant_value": 0.3183098861837907,
+        "test_type": "reciprocal",
+        "test_value": 0.31828772140745326,
+        "delta": 2.216477633742997e-05
+      },
+      "step7_squeeze_mean": 1.247472068033897,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.46653523040128736,
+        0.9996481484694999
+      ],
+      "step8_entropy_mean": 0.8701349671164657,
+      "step8_entropy_cv": 15.158508569349607,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.8701349671164657,
+          "H_mean_decimated": 0.8686409185453138,
+          "variation_pct": 0.17170308372998627,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.8701349671164657,
+          "H_mean_decimated": 0.8707612510093989,
+          "variation_pct": 0.07197548847033766,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.8654826116083981,
+          "H_mean_decimated": 0.8826064887370523,
+          "variation_pct": 1.9785350853937356,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 2,
+        "stalls": 2,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.18690693379328063,
+        0.5159627527528955
+      ],
+      "step11_complex_range_im": [
+        -0.11809017539340567,
+        0.14346522923130403
+      ],
+      "step12_radius_range": [
+        0.0066231859564329166,
+        0.516157789676756
+      ],
+      "step12_theta_range": [
+        -2.974991251722871,
+        3.069472637148449
+      ],
+      "step9_angular_velocity_std": 0.1865572955831705
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.422915612914558,
+            0.10487794723711907,
+            0.14495000414851097
+          ],
+          "carrier_pct": [
+            62.8643119543611,
+            15.58958759363486,
+            21.54610045200405
+          ],
+          "dominant_carrier": "Fusion",
+          "dominant_pct": 62.8643119543611
+        },
+        "match_density": {
+          "density": 8.766197855639053,
+          "concentration": 0.06747404844290658,
+          "total_matches": 34,
+          "n_constants_hit": 20,
+          "dominant_constant": "ln2",
+          "trajectory_length": 3.8785344068099876
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.9106371161548422,
+              1.030853286889018
+            ],
+            [
+              0.9106371161548422,
+              0.0,
+              0.0767402898567024
+            ],
+            [
+              1.030853286889018,
+              0.0767402898567024,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.4747509954086443,
+            -0.08983738047772219,
+            -0.3849136149309221
+          ],
+          "clr_stds": [
+            0.6503196236579041,
+            0.32384864865723784,
+            0.38072300186423064
+          ],
+          "aitchison_distance_mean": 0.848979938524465
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.1288136157293793,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Fusion",
+          "max_shift_magnitude": 0.2719499702731911
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.92391861803303,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Loss",
+          "sources": [
+            "Fusion",
+            "Radiation"
+          ],
+          "I_source1_target": 1.5965639307372532,
+          "I_source2_target": 1.1290296391468628,
+          "redundancy": 1.1290296391468628,
+          "unique_source1": 0.4675342915903904,
+          "unique_source2": 0.0,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Fusion->Radiation": 0.27696069978443383,
+            "Fusion->Loss": 0.0,
+            "Radiation->Fusion": 0.0,
+            "Radiation->Loss": 0.0,
+            "Loss->Fusion": 0.3030531460265422,
+            "Loss->Radiation": 0.5300564842401339
+          },
+          "dominant_flow": "Loss->Radiation",
+          "dominant_te": 0.5300564842401339
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.672743564300188,
+          "shuffled_sigma2": 0.6727435643001877,
+          "order_matters": false,
+          "relative_difference": 4.950874672937453e-16
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 1,
+          "near_zero_carriers": [
+            "Fusion"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Fusion/Radiation)": {
+              "mean": 0.5645883758863666,
+              "std": 0.9542730825894872,
+              "cv": 169.02102900920363
+            },
+            "ln(Fusion/Loss)": {
+              "mean": 0.8596646103395664,
+              "std": 1.015309453757335,
+              "cv": 118.1052984554394
+            },
+            "ln(Radiation/Loss)": {
+              "mean": 0.2950762344531999,
+              "std": 0.277020378053136,
+              "cv": 93.88095200769968
+            }
+          },
+          "most_stable": "ln(Radiation/Loss)",
+          "least_stable": "ln(Fusion/Radiation)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

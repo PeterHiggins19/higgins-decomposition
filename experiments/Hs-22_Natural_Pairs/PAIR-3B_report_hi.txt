@@ -1,0 +1,42 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  PAIR-3B
+  System:      AISI 1020 Steel
+  Domain:      MATTER
+  Carriers:    Elastic, Plastic, Thermal
+  N=80, D=3
+  Source:      DERIVED
+  Description: Stress-strain response
+  Pipeline:    1.0 Extended
+  Data hash:   d36b949f9fa60c90
+  Timestamp:   2026-04-25T10:54:39.871883Z
+
+
+कुल कोड: 38
+  त्रुटियाँ:       0
+  चेतावनियाँ:     1
+  खोजें: 9
+  अंशांकन संकेत: 2
+  सूचना:  26
+
+── चेतावनियाँ ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — खराब फिट, प्रक्षेपवक्र बहुपदीय नहीं हो सकता।
+
+── खोजें ──
+  [S8-TGT-DIS] सटीक मिलान: δ < 0.001 — उच्च सटीकता पर संरचनात्मक अनुनाद। (constant=ln_phi, delta=0.000149)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (2)
+  [XU-PCD-DIS] वाहक प्रभुत्व: एक वाहक विचरण का 60% से अधिक योगदान करता है। (carrier=Thermal, pct=66.529388)
+  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.048502, drift_direction=decreasing, max_shift_carrier=Thermal)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Elastic/Plastic), cv=56.210197)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Elastic/Thermal), cv=165.418394)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Plastic/Thermal), cv=137.290244)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=7, near_zero_carriers=['Thermal'], zero_threshold=0.010000)
+
+── अंशांकन संकेत ──
+  [XU-MDS-CAL] XU-MDS-CAL
+  [XC-TEZ-CAL] स्थानांतरण एन्ट्रॉपी शून्य है — प्रणाली इस स्तर पर संघटनात्मक रूप से स्मृतिहीन है।
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

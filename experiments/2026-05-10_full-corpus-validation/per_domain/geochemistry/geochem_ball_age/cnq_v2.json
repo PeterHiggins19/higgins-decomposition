@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "engine": "HCI-CNQ",
+    "engine_version": "2.0.0",
+    "schema_version": "cnq/2.0.0",
+    "engine_implementation": "python",
+    "implementation_lang_version": "Python 3.10.12",
+    "principle": "CNT measures invariance. CNQ names the algebra it lives in.",
+    "engine_config": {
+      "active_overrides": {},
+      "defaults_in_use": {
+        "DEFAULT_DELTA": 1e-15,
+        "GATE_THRESHOLD": 1e-12,
+        "HELMSMAN_ROLLING_WINDOW": 8,
+        "CLASSICAL_BOUND": 2.0,
+        "TSIRELSON_BOUND": 2.8284271247461903
+      }
+    },
+    "generated": "2026-05-10T13:58:13Z",
+    "wall_clock_ms": 1,
+    "environment": {
+      "git_sha": null,
+      "python_version": "3.10.12",
+      "numpy_version": "2.2.6",
+      "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.35",
+      "hostname_hash": "c857d09db23e6822"
+    }
+  },
+  "input": {
+    "source_file": "/sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs/experiments/2026-05-10_full-corpus-validation/raw_inputs/ball_oxides_by_age_barycenters.csv",
+    "source_file_sha256": "1e68a5a75d6c2d0b1cb846c1cf8ccad2caa9a739a24ed66c93b37530daed27d7",
+    "n_records": 10,
+    "n_carriers": 10,
+    "carriers": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "FeO",
+      "CaO",
+      "MgO",
+      "MnO",
+      "K2O",
+      "Na2O",
+      "P2O5"
+    ],
+    "labels": [
+      "Holocene",
+      "Late_Pleistocene",
+      "Middle_Pleistocene",
+      "Early_Pleistocene",
+      "Pliocene",
+      "Late_Miocene",
+      "Mid_Miocene",
+      "Early_Miocene",
+      "Oligocene",
+      "Eocene_or_older"
+    ],
+    "zero_replacement_count": 0
+  },
+  "cnt_reference": null,
+  "cnq_view": {
+    "dimension_policy": {
+      "D": 10,
+      "label": "reduced_or_projected",
+      "algebra": "SO(D-1); CNQ view projects onto first 3 ILR axes (lossy)",
+      "processing": "Helmert -> R^(D-1) -> first 3 axes -> sandwich; captured_step_fraction reported global+mean",
+      "claim_strength": "projection diagnostic -- useful when neither twin nor quad factoring applies natively"
+    },
+    "frame": {
+      "type": "Helmert orthonormal contrast",
+      "signature": "row k has (k+1) entries +1/sqrt(n*(n+1)) followed by -n/sqrt(n*(n+1))",
+      "basis_matrix": [
+        [
+          0.7071067811865475,
+          -0.7071067811865475,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.4082482904638631,
+          0.4082482904638631,
+          -0.8164965809277261,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.2886751345948129,
+          0.2886751345948129,
+          0.2886751345948129,
+          -0.8660254037844388,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.22360679774997896,
+          0.22360679774997896,
+          0.22360679774997896,
+          0.22360679774997896,
+          -0.8944271909999159,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          0.18257418583505536,
+          -0.9128709291752768,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          0.1543033499620919,
+          -0.9258200997725514,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          0.1336306209562122,
+          -0.9354143466934854,
+          0.0,
+          0.0
+        ],
+        [
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          0.11785113019775793,
+          -0.9428090415820635,
+          0.0
+        ],
+        [
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          0.10540925533894598,
+          -0.9486832980505138
+        ]
+      ]
+    },
+    "bearing_trajectory": {
+      "n_pairs_tested": 9,
+      "max_residual": 2.220446049250313e-16,
+      "mean_residual": 1.1796119636642288e-16,
+      "gate_threshold": 1e-12,
+      "gate_pass": true,
+      "per_step": [
+        {
+          "t": 0,
+          "label_start": "Holocene",
+          "label_end": "Late_Pleistocene",
+          "q_w": 0.9999949273860818,
+          "q_x": -0.0002068896919302866,
+          "q_y": -0.0013410953467105193,
+          "q_z": 0.0028816422455832237,
+          "angle_rad": 0.006370317547402618,
+          "residual_linf": 2.220446049250313e-16
+        },
+        {
+          "t": 1,
+          "label_start": "Late_Pleistocene",
+          "label_end": "Middle_Pleistocene",
+          "q_w": 0.9996802769066886,
+          "q_x": -0.0010733334031404384,
+          "q_y": -0.0064750347266951695,
+          "q_z": 0.024418555331144388,
+          "angle_rad": 0.050575894013400596,
+          "residual_linf": 2.7755575615628914e-17
+        },
+        {
+          "t": 2,
+          "label_start": "Middle_Pleistocene",
+          "label_end": "Early_Pleistocene",
+          "q_w": 0.9999009721727002,
+          "q_x": -0.00032202700223492623,
+          "q_y": -0.006421705548575385,
+          "q_z": -0.012518140618562382,
+          "angle_rad": 0.028146681759854932,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 3,
+          "label_start": "Early_Pleistocene",
+          "label_end": "Pliocene",
+          "q_w": 0.9999821809943293,
+          "q_x": 0.0004238509398036111,
+          "q_y": 0.004734043953120177,
+          "q_z": 0.003612045411554523,
+          "angle_rad": 0.011939533857036782,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 4,
+          "label_start": "Pliocene",
+          "label_end": "Late_Miocene",
+          "q_w": 0.9999147751012459,
+          "q_x": -2.484726299887395e-05,
+          "q_y": -0.0030190426557751425,
+          "q_z": -0.012701468351372865,
+          "angle_rad": 0.0261114701736722,
+          "residual_linf": 2.7755575615628914e-17
+        },
+        {
+          "t": 5,
+          "label_start": "Late_Miocene",
+          "label_end": "Mid_Miocene",
+          "q_w": 0.9999502664200828,
+          "q_x": -0.0012992618825229038,
+          "q_y": -0.009871694515038776,
+          "q_z": -0.0005711850557261016,
+          "angle_rad": 0.01994672748314753,
+          "residual_linf": 1.1102230246251565e-16
+        },
+        {
+          "t": 6,
+          "label_start": "Mid_Miocene",
+          "label_end": "Early_Miocene",
+          "q_w": 0.9999908770237402,
+          "q_x": -0.000602188746457635,
+          "q_y": -0.0041134531262556765,
+          "q_z": 0.0009811938557951613,
+          "angle_rad": 0.008543062744139232,
+          "residual_linf": 2.220446049250313e-16
+        },
+        {
+          "t": 7,
+          "label_start": "Early_Miocene",
+          "label_end": "Oligocene",
+          "q_w": 0.9999256390407222,
+          "q_x": 0.0002726125531371906,
+          "q_y": 0.0065728850728895205,
+          "q_z": 0.010268361759202963,
+          "angle_rad": 0.02439047041582487,
+          "residual_linf": 2.220446049250313e-16
+        },
+        {
+          "t": 8,
+          "label_start": "Oligocene",
+          "label_end": "Eocene_or_older",
+          "q_w": 0.9999501497323284,
+          "q_x": 0.001179784802084631,
+          "q_y": 0.008557843918615794,
+          "q_z": -0.005006941739155677,
+          "angle_rad": 0.01997011404112116,
+          "residual_linf": 6.938893903907228e-18
+        }
+      ],
+      "projection_method": "first_three_helmert_axes",
+      "captured_step_fraction_mean": 0.07993268394175412,
+      "captured_step_fraction_global": 0.031637557174316454
+    },
+    "radial_trajectory": {
+      "ilr_norms": [
+        5.501875864364621,
+        5.3754861582982505,
+        5.470091894769366,
+        5.024688958789608,
+        5.142996509415363,
+        4.7899700206913725,
+        4.953978725227785,
+        4.935196336782749,
+        5.077153373645759,
+        4.916420746243766
+      ],
+      "min": 4.7899700206913725,
+      "max": 5.501875864364621,
+      "mean": 5.118785858822864,
+      "median": 5.050921166217684,
+      "std": 0.23604672653760622
+    },
+    "bearing_only": null
+  },
+  "helmsman_family": {
+    "sigma": [
+      0,
+      9,
+      1,
+      7,
+      7,
+      6,
+      6,
+      5,
+      7,
+      9
+    ],
+    "sign": [
+      0,
+      1,
+      1,
+      1,
+      -1,
+      1,
+      -1,
+      1,
+      -1,
+      1
+    ],
+    "flips": {
+      "total": 6,
+      "rolling": [
+        4,
+        5
+      ],
+      "rolling_window": 8
+    },
+    "stability_S_sigma": {
+      "global": 0.25,
+      "rolling": [
+        0.4285714285714286,
+        0.2857142857142857
+      ],
+      "rolling_window": 8
+    },
+    "chaos_indicator": 3,
+    "torque_proxy": [
+      0.0,
+      17.0,
+      14.0,
+      6.0,
+      1.0,
+      1.0,
+      1.0,
+      3.0,
+      0.0,
+      0.0
+    ]
+  },
+  "attractor_fit": {
+    "fitted": false,
+    "period": 1,
+    "period_stability": 0.0,
+    "dominant_pair": {
+      "axis_a": 5,
+      "axis_b": 1
+    },
+    "contraction_lambda": -0.09743116749774153,
+    "amplitude_A": 0.16127977006305536,
+    "damping_zeta": 0.09743116749774153,
+    "confidence": {
+      "oscillation_ratio": 0.09106833379642937,
+      "period_stability_score": 0.0
+    },
+    "warnings": [
+      "period_stability 0.000 below threshold 0.6; no clean period-2 structure"
+    ]
+  },
+  "twin_quaternion_factoring": null,
+  "quad_quaternion_factoring": null,
+  "chsh_diagnostic": null,
+  "bundle_view": null,
+  "diagnostics": {
+    "warnings": [],
+    "cnq_content_sha256": "4393ff3690318085ba35e653b9bf27f34f0f3cb1fd3136d734dd8d1481899b7d"
+  }
+}

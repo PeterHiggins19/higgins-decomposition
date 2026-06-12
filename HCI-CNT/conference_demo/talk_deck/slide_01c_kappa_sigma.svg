@@ -1,0 +1,62 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>CNT Pipeline Part 3 -- Kappa and Sigma Channels</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 20px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 20px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .bound { font-size: 16px; font-family: 'Courier New', monospace; fill: #cccccc; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+  </style>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">CNT Channels 3-4: Steering Metric + Helmsman</text>
+
+  <!-- KAPPA box -->
+  <rect x="40" y="65" width="440" height="440" class="box"/>
+  <text x="260" y="100" text-anchor="middle" class="label-bold">kappa_HS -- Steering Metric</text>
+
+  <text x="60" y="140" class="label">Definition:</text>
+  <text x="60" y="170" class="math">kappa_ij = (delta_ij - 1/D) / (x_i x_j)</text>
+
+  <text x="60" y="210" class="label">Matrix form:</text>
+  <text x="60" y="240" class="math">kappa_HS = diag(1/x) P diag(1/x)</text>
+  <text x="60" y="268" class="math">P = I - (1/D) 11^T</text>
+
+  <text x="60" y="310" class="label">Tensor rank:</text>
+  <text x="60" y="340" class="dim">Rank-2 symmetric (D x D)</text>
+  <text x="60" y="365" class="dim">D=8 --> 36 independent entries</text>
+
+  <text x="60" y="405" class="label">Diagonal (sensitivity):</text>
+  <text x="60" y="435" class="math">kappa_jj = (1-1/D) / x_j^2</text>
+
+  <text x="60" y="475" class="label">Key property:</text>
+  <text x="60" y="500" class="dim">Rare carriers dominate steering</text>
+
+  <!-- SIGMA box -->
+  <rect x="520" y="65" width="440" height="440" class="box"/>
+  <text x="740" y="100" text-anchor="middle" class="label-bold">sigma -- Helmsman (DCDI)</text>
+
+  <text x="540" y="140" class="label">Definition:</text>
+  <text x="540" y="170" class="math">sigma = argmax_j |Delta h_j|</text>
+
+  <text x="540" y="210" class="label">Expansion:</text>
+  <text x="540" y="240" class="math">Delta h_j = h_j(t+1) - h_j(t)</text>
+  <text x="540" y="268" class="math">approx Delta x_j / x_j</text>
+  <text x="540" y="296" class="dim">(relative change in proportion)</text>
+
+  <text x="540" y="340" class="label">Tensor rank:</text>
+  <text x="540" y="370" class="dim">Rank-0 categorical index {1..D}</text>
+
+  <text x="540" y="410" class="label">Output:</text>
+  <text x="540" y="440" class="dim">1 carrier label per time step</text>
+
+  <text x="540" y="480" class="label">Requires:</text>
+  <text x="540" y="508" class="dim">2 consecutive points (incremental)</text>
+
+  <!-- Footer -->
+  <text x="500" y="550" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

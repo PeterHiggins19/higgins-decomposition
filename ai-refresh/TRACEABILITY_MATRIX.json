@@ -1,0 +1,98 @@
+{
+  "_schema": "hs_traceability_matrix_v1",
+  "_purpose": "Machine-readable concept-to-requirement-to-file-to-test mapping for high-impact concepts. Part of Hs Change Control v1.0 (INV-063 STAGED).",
+  "_generated": "2026-05-12",
+  "_prepared_in": "push #46",
+  "_authority": "NASA SP-2007-6105 requirements management: maintain bidirectional traceability from stakeholder expectations through technical requirements down to verification artifacts.",
+
+  "traces": [
+    {
+      "trace_id": "TR-CNQ-LIVE-001",
+      "concept": "CNQ v2 live engine status",
+      "requirement": "No live AI-facing file may state that cnq.py is pending, absent, future, or not yet shipped.",
+      "source_of_truth": "HS_FAST_REFRESH.json canonical_engines.cnq_python",
+      "current_source_value": "version 2.0.0, schema cnq/2.0.0, shipped in push #26",
+      "affected_files": [
+        "README.md",
+        "llms.txt",
+        ".well-known/ai-context.json",
+        "AI_AGENTS.md",
+        "HS_FAST_REFRESH.md",
+        "ai-refresh/CCTT_RUNBOOK.md",
+        "ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json"
+      ],
+      "verification_checks": [
+        "cnq.py exists at HCI-CNQ/engine/cnq.py (file_exists check)",
+        "stale phrase scan for cnq.py-pending language (CHK-CNQ-001)",
+        "version comparison against HS_FAST_REFRESH.json (CHK-VERSION-001)"
+      ],
+      "current_drift": "Confirmed: README line 178 says 'cnq.py engine itself is the next milestone'; .well-known/ai-context.json engines block lists CNQ 1.0.0; HS_FAST_REFRESH.md says CNQ 1.0.0; CCTT_RUNBOOK.md says CNQ is future work.",
+      "change_packet": "DCP-001_AI_CURRENT_STATE_ALIGNMENT"
+    },
+    {
+      "trace_id": "TR-AI-COUNT-001",
+      "concept": "Investigation catalog live count",
+      "requirement": "Live AI-facing current-state files must report the investigation count from INVESTIGATION_CATALOG.json or clearly mark older counts as snapshot/archive.",
+      "source_of_truth": "ai-refresh/INVESTIGATION_CATALOG.json _meta.total_investigations",
+      "current_source_value": "63 (post push #46 INV-063 addition; was 62 in push #45, will be reflected once HS_FAST_REFRESH.json is updated)",
+      "affected_files": [
+        "HS_FAST_REFRESH.json",
+        "HS_FAST_REFRESH.md",
+        "AI_AGENTS.md",
+        "llms.txt",
+        "README.md",
+        "ai-refresh/INVESTIGATION_CATALOG.md"
+      ],
+      "verification_checks": [
+        "JSON count valid (CHK-JSON-001 + count walk)",
+        "Snapshot markers present in Markdown companion (CHK-INV-001)",
+        "No unmarked obsolete count in live files"
+      ],
+      "current_drift": "Confirmed: HS_FAST_REFRESH.md lists '29 entries: 9 CANONICAL, 12 DEFERRED, 1 FALSIFIED, 7 OPEN' (push #27 snapshot). Markdown is two versions of the catalog behind the JSON.",
+      "change_packet": "DCP-001_AI_CURRENT_STATE_ALIGNMENT"
+    },
+    {
+      "trace_id": "TR-CCTT-ENGINE-001",
+      "concept": "CCTT protocol engine target",
+      "requirement": "The active CCTT protocol must either target the current CNT/CNQ engines or explicitly label itself as legacy with a current path defined.",
+      "source_of_truth": "HS_FAST_REFRESH.json canonical_engines",
+      "current_source_value": "CNT v3.1.0 schema 3.1.0; CNQ v2.0.0 schema cnq/2.0.0",
+      "affected_files": [
+        "ai-refresh/CCTT_RUNBOOK.md",
+        "ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json",
+        "ai-refresh/CCTT_QUICKSTART.md",
+        "README.md"
+      ],
+      "verification_checks": [
+        "Engine version consistency (CHK-VERSION-001 + CHK-CCTT-001)",
+        "Legacy status marker if v1.0 remains old",
+        "New v1.1 plan if current protocol is introduced"
+      ],
+      "current_drift": "Confirmed: CCTT_RUNBOOK.md line 5 says 'Engine target: CNT 2.0.4 / Schema 2.1.0 / Output Doctrine v1.0.1' and treats cnq.py as ~14 days future work.",
+      "change_packet": "DCP-001_AI_CURRENT_STATE_ALIGNMENT"
+    }
+  ],
+
+  "trace_pattern": {
+    "purpose": "Template for adding new traceability records.",
+    "fields": {
+      "trace_id": "TR-CONCEPT-NNN",
+      "concept": "Short name of the concept that ripples",
+      "requirement": "The specific rule that must hold across the system",
+      "source_of_truth": "Path + field that is authoritative",
+      "current_source_value": "Snapshot of the authoritative value at time of trace creation",
+      "affected_files": "All files that consume the concept",
+      "verification_checks": "Which CHK rules in the consistency checker enforce this",
+      "current_drift": "Observed drift at time of trace creation, if any",
+      "change_packet": "Packet that addresses the drift, if any"
+    }
+  },
+
+  "adding_a_new_trace_protocol": [
+    "When a new concept enters the system at severity S3+, add a trace.",
+    "Identify the source of truth (usually HS_FAST_REFRESH.json or a controlled item).",
+    "Enumerate affected files.",
+    "Map each affected file to a verification check in the consistency checker.",
+    "If no existing check covers the new concept, file a Phase-2 task to extend the checker."
+  ]
+}

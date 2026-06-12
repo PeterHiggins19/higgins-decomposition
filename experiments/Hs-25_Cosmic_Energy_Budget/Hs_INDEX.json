@@ -1,0 +1,80 @@
+{
+  "$schema": "Hs_INDEX/1.0",
+  "experiment_id": "Hs-25",
+  "name": "Cosmic Energy Budget",
+  "domain": "COSMOLOGY",
+  "series": "Core (Hs-01 through Hs-25)",
+  "date_created": "2026-04-30",
+  "author": "Peter Higgins",
+  "affiliation": "Independent Researcher, Markham, Ontario, Canada",
+  "purpose": "Validate Hs decomposition on the 5-component cosmic energy density evolution from Planck 2018 LCDM.",
+  "data_source": {
+    "origin": "Planck Collaboration (2018) + LCDM computation",
+    "origin_url": "https://arxiv.org/abs/1807.06209",
+    "raw_data_path": "D:\\HUF_Research\\Claude CoWorker\\DATA\\esa-planck\\",
+    "repo_copy": "experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_cosmic_energy_budget.csv",
+    "description": "Ingested from Hs-25_cosmic_energy_budget.csv",
+    "license": "Public domain / scientific publication",
+    "data_hash_sha256_16": "8624395e73842820"
+  },
+  "system": {
+    "N": 103,
+    "D": 6,
+    "carriers": [
+      "redshift",
+      "Dark_Energy",
+      "Cold_Dark_Matter",
+      "Baryonic_Matter",
+      "Photon_Radiation",
+      "Neutrinos"
+    ],
+    "time_axis": "Redshift z (0.0 to 1100, 103 epochs)",
+    "zero_replacement": true,
+    "epsilon": 1e-10
+  },
+  "pipeline": {
+    "version": "1.0 Extended",
+    "runner": "hs_run.py",
+    "instrument": "Hˢ Higgins Decomposition — 12-Step Pipeline v1.0 Extended",
+    "deterministic": true,
+    "run_timestamp": "2026-04-30T21:13:53.833117Z",
+    "run_command": "python hs_run.py ../../experiments/Hs-25_Cosmic_Energy_Budget/Hs-25_cosmic_energy_budget.csv --exp-id \"Hs-25\" --name \"Cosmic Energy Budget\" --domain COSMOLOGY"
+  },
+  "results_summary": {
+    "total_variance": 65.331301,
+    "variance_shape": "bowl",
+    "variance_R2": 0.946347,
+    "entropy_mean": 0.379749,
+    "entropy_cv": 67.890777,
+    "closure_verified": true,
+    "zero_replacement_applied": true
+  },
+  "classification": {
+    "auto_detected_features": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  },
+  "outputs": {
+    "results_json": "pipeline_output/HS-25_COSMIC_ENERGY__results.json",
+    "report_en": "pipeline_output/HS-25_COSMIC_ENERGY__report_en.txt",
+    "helix_exploded": "pipeline_output/Hs-25_helix_exploded.pdf",
+    "manifold_helix": "pipeline_output/Hs-25_manifold_helix.pdf",
+    "projections": "pipeline_output/Hs-25_projections.pdf",
+    "polar_stack": "pipeline_output/Hs-25_polar_stack.pdf",
+    "polar_stack_json": "pipeline_output/Hs-25_polar_stack.json",
+    "manifold_paper": "pipeline_output/Hs-25_manifold_paper.pdf"
+  },
+  "governance": {
+    "journal": "JOURNAL.md",
+    "standard": "../EXPERIMENT_STANDARD.md",
+    "admin_ref": "ai-refresh/HS_ADMIN.json"
+  },
+  "repeatability": {
+    "deterministic": true,
+    "note": "Pipeline is fully deterministic. No stochastic elements. Bit-identical output on repeated runs with identical input and pipeline version."
+  }
+}

@@ -1,0 +1,58 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  HS-23_DECAY_COMPOSIT
+  System:      Radionuclide Decay
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=39, D=4
+  Source:      LOCAL FILE
+  Description: Ingested from Hs-23_decay_compositions.csv
+  Pipeline:    1.0 Extended
+  Data hash:   376978271edd5633
+  Timestamp:   2026-04-30T20:07:06.011321Z
+
+
+Total codes: 53
+  Errors:       0
+  Warnings:     2
+  Discoveries: 17
+  Calibration signals: 1
+  Structural modes:  5
+  Information:  28
+
+── WARNINGS ──
+  [S9-EIF-WRN] EITT invariance: FAIL at one or more compression ratios.
+  [MX-CMN-WRN] MX-CMN-WRN
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.007775)
+  [S9-CHH-DIS] High chaos: compositional turbulence detected. (38)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (6)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (32)
+  [XU-DRD-DIS] Drift decreasing — system is converging. (variance_ratio_2nd_to_1st=0.877397, drift_direction=decreasing, max_shift_carrier=Gamma)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Gamma), cv=96.885101)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Recoil), cv=51.907232)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Particle_KE/Neutrino), cv=89.950572)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gamma/Recoil), cv=220.353159)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Gamma/Neutrino), cv=122.929631)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Recoil/Neutrino), cv=507.007647)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=38, near_zero_carriers=['Gamma', 'Recoil', 'Neutrino'], zero_threshold=0.010000)
+  [MX-KHI-DIS] MX-KHI-DIS (kappa=25915066320914056.000000)
+  [MX-ANI-DIS] MX-ANI-DIS (ratio=-0.000000)
+  [MX-CHD-DIS] MX-CHD-DIS (L_DD=0.000002)
+  [MX-TRM-DIS] MX-TRM-DIS (count=2, best={'ratio': 'λ3/λ1', 'value': 0.050106776911462474, 'constant': '1/(pi^e)', 'delta': 0.005581509644539559})
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-BPO-DIS] Bimodal population detected. Investigate: decompose by subpopulation or add a distinguishing carrier.
+  [SM-TNT-DIS] Turbulent but natural — real complexity that decimation destroys. The oscillation pattern is diagnostic.
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-MXR-DIS] SM-MXR-DIS
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

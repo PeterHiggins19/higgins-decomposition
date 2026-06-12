@@ -1,0 +1,265 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-04",
+  "name": "Bessel Acoustics",
+  "domain": "ACOUSTICS",
+  "carriers": [
+    "Low",
+    "Mid",
+    "High"
+  ],
+  "D": 3,
+  "N": 200,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": null
+  },
+  "data_hash_sha256_16": "c6fdc076a68d5821",
+  "run_timestamp": "2026-04-25T06:03:01.827496Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-04: Bessel Acoustics: 3-part simplex, carriers=['Low', 'Mid', 'High']",
+    "step2_n_samples": 200,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Low",
+      "Mid",
+      "High"
+    ],
+    "data_hash_sha256_16": "c6fdc076a68d5821",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      -1.1343037876863564,
+      1.5529004108080473,
+      -0.41859662312169227
+    ],
+    "step4_clr_std_per_part": [
+      1.0255682154649823,
+      1.061840317791198,
+      0.5720545230358723
+    ],
+    "step5_sigma2_range": [
+      0.9064071613320435,
+      3.4653849142150124
+    ],
+    "step5_sigma2_final": 2.5065414023847397,
+    "step6_pll_coeffs": [
+      -0.00015933425139195978,
+      0.036272168351649973,
+      1.122808212267946
+    ],
+    "step6_pll_R2": 0.6533007415429721,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      113.8241402422038,
+      3.1871324009414623
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 81,
+    "step7_squeeze_closest": {
+      "time_index": 41,
+      "sigma2_A": 3.1413952005234607,
+      "constant": "1/pi",
+      "constant_value": 0.3183098861837907,
+      "test_type": "reciprocal",
+      "test_value": 0.3183298936196779,
+      "delta": 2.0007435887203773e-05
+    },
+    "step7_squeeze_mean": 2.6383136375438743,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.10082893634335925,
+      0.9631846935237214
+    ],
+    "step8_entropy_mean": 0.46727950221905423,
+    "step8_entropy_cv": 43.35137934439109,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.46727950221905423,
+        "H_mean_decimated": 0.4658529983332867,
+        "variation_pct": 0.30527850654549205,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.46727950221905423,
+        "H_mean_decimated": 0.4631301830229067,
+        "variation_pct": 0.8879737237441208,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.46727950221905423,
+        "H_mean_decimated": 0.45814672410837837,
+        "variation_pct": 1.9544572503834214,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 7,
+      "stalls": 7,
+      "spikes": 0,
+      "reversals": 0
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.765547263256593,
+      0.16182924682537847
+    ],
+    "step11_complex_range_im": [
+      -0.09113052447752056,
+      0.17519454165796472
+    ],
+    "step12_radius_range": [
+      0.009451066858128628,
+      0.7656960908077646
+    ],
+    "step12_theta_range": [
+      -3.1242812481309943,
+      3.1377206863406757
+    ],
+    "step9_angular_velocity_std": 0.22075384339600285
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          1.0517901645720285,
+          1.1275048604869122,
+          0.32724637732579936
+        ],
+        "carrier_pct": [
+          41.96181094680298,
+          44.9824949795043,
+          13.055694073692742
+        ],
+        "dominant_carrier": "Mid",
+        "dominant_pct": 44.9824949795043
+      },
+      "match_density": {
+        "density": 14.905268755107082,
+        "concentration": 0.2616979119036732,
+        "total_matches": 81,
+        "n_constants_hit": 13,
+        "dominant_constant": "1/e",
+        "trajectory_length": 5.434319993206864
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            4.031343672792083,
+            1.6305682233087426
+          ],
+          [
+            4.031343672792083,
+            0.0,
+            1.8577123110533948
+          ],
+          [
+            1.6305682233087426,
+            1.8577123110533948,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          -1.1343037876863564,
+          1.5529004108080473,
+          -0.41859662312169227
+        ],
+        "clr_stds": [
+          1.0255682154649823,
+          1.061840317791198,
+          0.5720545230358723
+        ],
+        "aitchison_distance_mean": 1.822333389773021
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.17144203342190759,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "Mid",
+        "max_shift_magnitude": 0.2612014242271302
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.6533007415429721,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "High",
+        "sources": [
+          "Low",
+          "Mid"
+        ],
+        "I_source1_target": 0.8647584980264599,
+        "I_source2_target": 0.7244211478997152,
+        "redundancy": 0.7244211478997152,
+        "unique_source1": 0.14033735012674464,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "Low->Mid": 0.0,
+          "Low->High": 0.0,
+          "Mid->Low": 0.0,
+          "Mid->High": 0.0,
+          "High->Low": 0.0,
+          "High->Mid": 0.0
+        },
+        "dominant_flow": "Low->Mid",
+        "dominant_te": 0.0
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 2.5065414023847397,
+        "shuffled_sigma2": 2.5065414023847397,
+        "order_matters": false,
+        "relative_difference": 0.0
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 37,
+        "near_zero_carriers": [
+          "Low",
+          "Mid",
+          "High"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Low/Mid)": {
+            "mean": -2.6872041984944053,
+            "std": 2.007820627643835,
+            "cv": 74.7178286178915
+          },
+          "ln(Low/High)": {
+            "mean": -0.715707164564664,
+            "std": 1.276937047512031,
+            "cv": 178.4161331246056
+          },
+          "ln(Mid/High)": {
+            "mean": 1.9714970339297406,
+            "std": 1.3629792041896291,
+            "cv": 69.13422545063806
+          }
+        },
+        "most_stable": "ln(Mid/High)",
+        "least_stable": "ln(Low/High)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

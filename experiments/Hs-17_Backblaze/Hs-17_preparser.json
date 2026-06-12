@@ -1,0 +1,24 @@
+{
+  "preparser": "Backblaze SMART Intelligent Decomposition",
+  "version": "1.0",
+  "strategy": "Group SMART attributes into 4 physically meaningful health categories",
+  "carriers": {
+    "Mechanical": "SMART 5 (Reallocated) + SMART 197 (Pending) * 10 + SMART 198 (Offline Uncorrectable) * 10",
+    "Thermal": "SMART 194 (Temperature, Celsius)",
+    "Age": "SMART 9 (Power-On Hours) / 1000",
+    "Errors": "SMART 1 (Read Error) / 1e6 + SMART 7 (Seek Error) / 1e6 + SMART 199 (UDMA CRC)"
+  },
+  "decompositions": {
+    "A": "Per-drive: each drive is one observation (N=5000 subsampled, D=4)",
+    "B": "Per-model: mean SMART scores per model (N=52, D=4)",
+    "C": "By-capacity: sampled by TB tier (D=4)",
+    "D": "Fail-contrast: failed + surviving drives (N=mixed, D=3)"
+  },
+  "data_quality_findings": {
+    "fleet_composition": "Mixed HDD/SSD fleet \u2014 only 15.2% are HDD with standard SMART",
+    "coverage": "72 of 93 SMART attributes populated",
+    "reallocated_sectors": "90.8% of drives show zero \u2014 fleet is mostly healthy",
+    "failure_rate": "0.014% daily \u2014 extremely low, making failure detection a rare-event problem",
+    "recommendation": "Separate HDD and SSD populations before decomposition. Use 4-carrier [Mechanical, Thermal, Age, Errors] not crude 3-carrier [Healthy, Warning, Failed]."
+  }
+}

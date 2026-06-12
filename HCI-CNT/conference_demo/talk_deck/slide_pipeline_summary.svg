@@ -1,0 +1,88 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>One picture summary — 4-stage hash-traceable pipeline</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 26px; font-weight: 700; fill: #ffffff; }
+    .h2 { font-size: 22px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 19px; font-family: 'Georgia', serif; font-style: italic; fill: #e8e8e8; }
+    .label { font-size: 17px; fill: #cccccc; }
+    .label-bold { font-size: 17px; font-weight: 700; fill: #ffffff; }
+    .small { font-size: 14px; fill: #aaaaaa; }
+    .num { font-size: 22px; font-weight: 700; fill: #f0c020; font-family: 'Georgia', serif; }
+    .ok { font-size: 17px; fill: #80d050; font-weight: 700; }
+    .warn { font-size: 17px; fill: #ff7050; font-weight: 700; }
+    .accent { stroke: #66aaff; }
+    .box { fill: #2a2a2a; stroke: #555; stroke-width: 2; }
+    .box-cnt { fill: #2a2a3a; stroke: #66aaff; stroke-width: 2; }
+    .divider { stroke: #555; stroke-width: 2; stroke-dasharray: 4,4; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#cccccc"/>
+    </marker>
+  </defs>
+  <text x="500" y="38" text-anchor="middle" class="title">One-picture summary — the full hash-traceable pipeline</text>
+
+  <!-- raw CSV -->
+  <rect x="40" y="80" width="180" height="80" class="box"/>
+  <text x="130" y="115" text-anchor="middle" class="label-bold">raw CSV</text>
+  <text x="130" y="145" text-anchor="middle" class="small">source_file_sha256</text>
+
+  <line x1="220" y1="120" x2="270" y2="120" stroke="#cccccc" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- engine -->
+  <rect x="270" y="80" width="180" height="80" class="box-cnt"/>
+  <text x="360" y="115" text-anchor="middle" class="label-bold">cnt engine 2.0.4</text>
+  <text x="360" y="145" text-anchor="middle" class="small">engine_signature</text>
+
+  <line x1="450" y1="120" x2="500" y2="120" stroke="#cccccc" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- canonical JSON -->
+  <rect x="500" y="80" width="200" height="80" class="box-cnt"/>
+  <text x="600" y="115" text-anchor="middle" class="label-bold">canonical JSON</text>
+  <text x="600" y="145" text-anchor="middle" class="small">content_sha256  (schema 2.1.0)</text>
+
+  <line x1="700" y1="120" x2="750" y2="120" stroke="#cccccc" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 4-stage atlas -->
+  <rect x="750" y="80" width="210" height="80" class="box-cnt"/>
+  <text x="855" y="115" text-anchor="middle" class="label-bold">4-stage atlas</text>
+  <text x="855" y="145" text-anchor="middle" class="small">PDF + interactive HTML</text>
+
+  <!-- Vertical: 4 stages -->
+  <text x="500" y="200" text-anchor="middle" class="h2">Four stages, one per dataset, one per project</text>
+
+  <rect x="60" y="230" width="220" height="120" class="box-cnt"/>
+  <text x="170" y="260" text-anchor="middle" class="label-bold">Stage 1 (Order 1)</text>
+  <text x="170" y="288" text-anchor="middle" class="small">per-timestep ortho plate</text>
+  <text x="170" y="308" text-anchor="middle" class="small">ILR-Helmert triplet</text>
+  <text x="170" y="333" text-anchor="middle" class="small">T plates per dataset</text>
+
+  <rect x="290" y="230" width="220" height="120" class="box-cnt"/>
+  <text x="400" y="260" text-anchor="middle" class="label-bold">Stage 2 (Order 2)</text>
+  <text x="400" y="288" text-anchor="middle" class="small">single report per dataset</text>
+  <text x="400" y="308" text-anchor="middle" class="small">geometry + dynamics</text>
+  <text x="400" y="333" text-anchor="middle" class="num">28 plates</text>
+
+  <rect x="520" y="230" width="220" height="120" class="box-cnt"/>
+  <text x="630" y="260" text-anchor="middle" class="label-bold">Stage 3 (Order 3)</text>
+  <text x="630" y="288" text-anchor="middle" class="small">depth / IR / attractor</text>
+  <text x="630" y="308" text-anchor="middle" class="small">single report per dataset</text>
+  <text x="630" y="333" text-anchor="middle" class="num">11 plates</text>
+
+  <rect x="750" y="230" width="220" height="120" class="box-cnt"/>
+  <text x="860" y="260" text-anchor="middle" class="label-bold">Stage 4 (Order 4+)</text>
+  <text x="860" y="288" text-anchor="middle" class="small">cross-dataset inference</text>
+  <text x="860" y="308" text-anchor="middle" class="small">group-level report</text>
+  <text x="860" y="333" text-anchor="middle" class="num">11 plates</text>
+
+  <!-- Bottom: every page footer -->
+  <rect x="60" y="380" width="900" height="80" class="box"/>
+  <text x="510" y="408" text-anchor="middle" class="label-bold">EVERY page footer carries the full chain</text>
+  <text x="510" y="437" text-anchor="middle" class="math">engine: 2.0.4 (sig...)  |  data: csha...  |  source: ssha...  |  date</text>
+
+  <text x="500" y="490" text-anchor="middle" class="ok">Anyone with the raw CSV can verify any plate in ~2 minutes.</text>
+  <text x="500" y="515" text-anchor="middle" class="small">25 reference experiments / 25 PASS / determinism gate.</text>
+  <text x="500" y="540" text-anchor="middle" class="small">The instrument reads. The expert decides. The hashes hold the line.</text>
+</svg>

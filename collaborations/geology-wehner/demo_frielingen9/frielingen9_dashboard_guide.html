@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Frielingen-9 dashboard — companion guide (Hs / CNT / CNQ)</title>
+<style>
+:root{--ink:#3a372f;--acc:#6b1f2a;--bg:#efe9df;--paper:#fff;--mut:#8a857c;
+ --si:#2a6b9a;--al:#3a8a3a;--rb:#caa000;--zr:#6b1f2a;--line:#e3ddd0}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Helvetica,Arial,sans-serif}
+.wrap{max-width:920px;margin:0 auto;padding:0 22px 90px}
+header.top{padding:34px 0 14px;border-bottom:2px solid var(--ink);margin-bottom:8px}
+h1{font-size:25px;margin:0 0 4px} .sub{color:var(--acc);font-size:13.5px}
+.banner{background:var(--ink);color:#f3eee4;border-radius:8px;padding:11px 15px;margin:16px 0;font-size:13.5px}
+nav.toc{position:sticky;top:0;background:rgba(239,233,223,.96);backdrop-filter:blur(3px);
+ padding:9px 0;border-bottom:1px solid var(--line);margin-bottom:10px;font-size:12.5px;z-index:5}
+nav.toc a{color:var(--acc);text-decoration:none;margin-right:14px;white-space:nowrap}
+nav.toc a:hover{text-decoration:underline}
+h2{font-size:19px;margin:34px 0 6px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:15.5px;margin:20px 0 4px;color:var(--acc)}
+p{margin:7px 0} small{color:var(--mut)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:12px 0}
+.f{font-family:"DejaVu Sans Mono",Consolas,monospace;background:#f6f2ea;border:1px solid var(--line);
+ border-left:3px solid var(--acc);border-radius:5px;padding:9px 12px;margin:8px 0;font-size:13.5px;overflow-x:auto;white-space:pre}
+.lead{font-weight:bold} .why{color:#5b564c;font-size:13.5px}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:13px;background:var(--paper)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#efe7d8;font-size:12px} td code{font-size:12.5px;background:#f6f2ea;padding:1px 4px;border-radius:3px}
+.chip{display:inline-block;width:11px;height:11px;border-radius:3px;vertical-align:middle;margin-right:5px}
+.k{font-variant-numeric:tabular-nums}
+.tier{display:inline-block;font-size:11px;font-weight:bold;padding:1px 7px;border-radius:10px;margin-left:6px}
+.tc{background:#dff0df;color:#256b25} .te{background:#fff0d6;color:#8a6d00} .tn{background:#f3dada;color:#8a2020}
+.foot{margin-top:34px;border-top:2px solid var(--ink);padding-top:12px;color:var(--mut);font-size:12.5px}
+.pill{background:#f6f2ea;border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:12px;margin-right:6px;white-space:nowrap;display:inline-block}
+a{color:var(--acc)}
+</style></head><body><div class=wrap>
+
+<header class=top>
+  <h1>Frielingen-9 dashboard — companion guide</h1>
+  <div class=sub>What each field is, and exactly how it is computed &nbsp;·&nbsp; Hs / CNT / CNQ on real mudstone</div>
+</header>
+
+<div class=banner><b>How to use this.</b> The dashboard is an <i>instrument</i>: it reports how the composition moves down the core. This guide explains every number and panel and the maths behind it. It makes <b>no geological claims</b> — surfaces, provenance, redox, diagenesis, events are <b>yours to read</b>, led by the data and the displays.</div>
+
+<nav class=toc>
+  <a href="#data">Data</a><a href="#pipeline">Pipeline</a><a href="#core">Core maths</a>
+  <a href="#log">The log</a><a href="#radar">Radar</a><a href="#bary">Barycenter</a>
+  <a href="#scatter">Calibration</a><a href="#readout">Readout</a><a href="#summary">Summary</a>
+  <a href="#ref">Field reference</a><a href="#caveats">Caveats</a>
+</nav>
+
+<p>Colour key for the four composition parts, used everywhere:
+  <span class=pill><span class=chip style="background:var(--si)"></span>SiO<sub>2</sub></span>
+  <span class=pill><span class=chip style="background:var(--al)"></span>Al<sub>2</sub>O<sub>3</sub></span>
+  <span class=pill><span class=chip style="background:var(--rb)"></span>Rb</span>
+  <span class=pill><span class=chip style="background:var(--zr)"></span>Zr</span>
+</p>
+
+<!-- ============================================================= -->
+<h2 id=data>1 · The data</h2>
+<div class=card>
+<p><span class=lead>Composition (what the instrument navigates), D = 4:</span> <b>[SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>, Rb, Zr]</b>. SiO<sub>2</sub>/Al<sub>2</sub>O<sub>3</sub> are wt %; Rb/Zr are mg/kg, divided by 10<sup>4</sup> so they enter the same closure. This 4-part subcomposition embeds exactly the two ratios geologists already use here — <b>Si/Al</b> (grain size / quartz–clay) and <b>Zr/Rb</b> (sorting / heavy-mineral). D = 4 is special: it is the one size where <b>CNQ is exact</b> (see §3).</p>
+<p><span class=lead>Independent calibration targets (NOT in the composition):</span> <b>CaCO<sub>3</sub></b> and <b>TOC</b> (wt %). Held out so they can be used as an outside check on what the composition-only navigation finds.</p>
+<p><span class=lead>Extent:</span> 219 discrete samples, 15.4–249.8 m. <span class=lead>Source:</span> Thöle et al. 2019, core Frielingen-9 (Lower Cretaceous, Lower Saxony Basin), <a href="https://doi.org/10.1594/PANGAEA.897615">PANGAEA 897615</a>, CC-BY 4.0; paper <a href="https://doi.org/10.1002/dep2.83">10.1002/dep2.83</a>. Input file: <code>frielingen9_xrf_4part.csv</code>.</p>
+</div>
+
+<!-- ============================================================= -->
+<h2 id=pipeline>2 · The pipeline at a glance</h2>
+<p>Every sample is a point on the simplex (parts that sum to 1). Each <i>step</i> down-core is the move from one sample to the next. The instrument measures that move in a geometry where ratios — not raw amounts — are what count.</p>
+<div class=f>raw parts ──closure──▶ x (sums to 1)
+        ──CLR──▶ centred log-ratios   (ratio geometry)
+        ──ILR──▶ orthonormal coords   (3 numbers per sample, D=4)
+                    │
+   per step:  Aitchison step ‖Δ‖ · helmsman · power-share · activation α · K_eff · regime
+   per step:  CNQ  =  radial ‖ilr‖  +  bearing rotation (quaternion, exact at D=4)
+   whole core: barycenter (ILR→PCA 2-D), calibration r vs CaCO3 / TOC</div>
+<p class=why>Why log-ratios: compositions are closed (a rise in one part forces others down), so ordinary differences mislead. Log-ratio geometry (Aitchison) removes that artefact and makes "how much did the mixture really change" well-defined.</p>
+
+<!-- ============================================================= -->
+<h2 id=core>3 · Core computations</h2>
+
+<h3>Closure</h3>
+<div class=f>x_k = v_k / Σ_j v_j        (parts now sum to 1)</div>
+<p class=why>Puts the four parts on a common total so only relative proportions remain.</p>
+
+<h3>CLR — centred log-ratio</h3>
+<div class=f>clr_k = ln(x_k) − (1/D) Σ_j ln(x_j)        ( = ln of x_k ÷ geometric-mean )</div>
+<p class=why>Each part expressed against the average part. CLR vectors live in ratio space; differences in CLR are the real compositional moves.</p>
+
+<h3>ILR — isometric log-ratio (Helmert / orthonormal balances)</h3>
+<div class=f>ilr = clr · H        H is D×(D−1), orthonormal
+column c (c = 1…D−1):  balances the first c parts against part c+1,
+                       scaled by √(c/(c+1))  →  unit-norm, uncorrelated axes</div>
+<p class=why>Three independent coordinates (D−1 = 3) with no built-in correlation, so distances and PCA behave normally. Because H is orthonormal, <b>‖Δilr‖ = ‖Δclr‖</b> — the step is the same whether measured in CLR or ILR.</p>
+
+<h3>Aitchison step <span class=tier tc>confirmed</span></h3>
+<div class=f>step_i = ‖clr_i − clr_{i−1}‖ = √( Σ_k (Δclr_k)² )</div>
+<p class=why>The size of the compositional move between consecutive samples — a true distance on the simplex. Big step = the mixture reorganised a lot.</p>
+
+<h3>Helmsman</h3>
+<div class=f>helm_i = argmax_k |Δclr_k|        (which part steers this step)</div>
+<p class=why>The single part whose log-ratio moved most. The coloured ticks in the log and the readout name it.</p>
+
+<h3>Power share</h3>
+<div class=f>pw_k = (Δclr_k)² / Σ_j (Δclr_j)²        (sums to 1 across parts)</div>
+<p class=why>How the step's "energy" is split among the four parts — the bars in the readout.</p>
+
+<h3>Activation coefficient α — the deceptive-drift detector</h3>
+<div class=f>α_k = pw_k / ρ_k          ρ_k = mass share of part k at the previous sample
+flag fires when:  α_k ≥ 3  AND  ρ_k ≥ 0.1%   (the share guard)</div>
+<p class=why>α &gt; 1 means a part does <b>more structural work than its abundance</b>. A tiny part with a large α is "deceptive drift" — it punches far above its weight. Here Rb and Zr sit at ≈0.024 % share, <b>below the 0.1 % guard</b>, so the formal flag stays silent (the guard avoids unstable division by near-zero); the dashboard still <b>shows</b> their α (often hundreds–thousands) marked with <b style="color:#b8860b">*</b> in amber, because that punching-above-weight is exactly the signal. The bulk parts (Si/Al) are above the guard but never reach α ≥ 3, so nothing trips the flag in this core.</p>
+
+<h3>K_eff — effective number of active parts</h3>
+<div class=f>K_eff = exp( −Σ_k x_k ln x_k )        (1 ≤ K_eff ≤ D)</div>
+<p class=why>The exponential of compositional entropy. Near D when the mixture is even; near 1 when one part dominates.</p>
+
+<h3>Regime tripwire</h3>
+<div class=f>regime_i = step_i  >  median(step) + 2 · (1.4826 · MAD(step))</div>
+<p class=why>A robust (median/MAD) outlier threshold on the step series. Marks unusually large moves — <b>candidate</b> boundaries, for you to compare against picked surfaces.</p>
+
+<h3>CNQ — Compositional Navigation Quaternion (native, D = 4) <span class=tier tc>confirmed (exact at D=4)</span></h3>
+<div class=f>radial_i  = ‖ilr_i‖                                   (how far from the centre)
+bearing_i = arccos( û_i · û_{i−1} ) in degrees,  û = ilr/‖ilr‖   (turn angle)</div>
+<p class=why>At D = 4 the ILR vector has 3 components, which map to the imaginary part of a quaternion — so the path's <b>magnitude</b> and its <b>turn</b> between steps are read exactly, with no projection loss. (At D = 8 this is experimental <span class=tier te>experimental</span>; above that it is a declared lossy projection <span class=tier tn>not native</span>.)</p>
+
+<h3>Barycenter trajectory (ILR → PCA, 2-D)</h3>
+<div class=f>SVD of centred ilr → keep first 2 principal scores
+sign convention: flip each axis so sample 0 is negative  (deterministic)</div>
+<p class=why>A flat 2-D shadow of the 3-D ILR path, just for the eye. The sign rule makes the picture reproducible rather than mirror-ambiguous.</p>
+
+<h3>SHOCK shading</h3>
+<div class=f>t = min(1, step_i / (0.8 · max step));  redder + thicker segment as t → 1</div>
+<p class=why>Paints the barycenter path by step size so the big compositional jumps stand out visually.</p>
+
+<h3>Calibration r (independent check)</h3>
+<div class=f>r = Pearson( step ,  |ΔCaCO3| )      and      Pearson( step , |ΔTOC| )</div>
+<p class=why>CaCO<sub>3</sub> and TOC are not in the composition, so a non-zero correlation means the composition-only motion partly tracks something it never saw. Here r(step,|ΔCaCO<sub>3</sub>|) ≈ +0.24 and r(step,|ΔTOC|) ≈ −0.08.</p>
+
+<h3>Diagnostic ratios &amp; directness</h3>
+<div class=f>log Si/Al = ln(SiO2/Al2O3)      log Zr/Rb = ln(Zr/Rb)
+flips = # times helmsman changes;   directness = 1 − flips/(N−2)</div>
+<p class=why>The two ratios are the familiar grain-size / sorting handles. Directness near 1 = one part keeps steering; near 0 = the driver changes constantly (here 0.43).</p>
+
+<!-- ============================================================= -->
+<h2 id=log>4 · Reading the dashboard — the log (left)</h2>
+<p>Depth increases downward. Hover anywhere on the log to scrub: the marker line, radar, barycenter, scatter and the whole readout jump to that depth. Six tracks, left to right:</p>
+<table>
+<tr><th>Track</th><th>What you see</th><th>Field / computation</th></tr>
+<tr><td><b>comp</b></td><td>Stacked colour bar of the four closed parts. Si/Al fill it; Rb/Zr are slivers (they are ~0.02 % <i>by mass</i> — their signal is in ratios, not width).</td><td><code>x_k</code> (closure, §3)</td></tr>
+<tr><td><b>Si/Al · Zr/Rb</b></td><td>Two ratio curves: dark = log Si/Al, gold = log Zr/Rb.</td><td><code>ln(Si/Al)</code>, <code>ln(Zr/Rb)</code></td></tr>
+<tr><td><b>CaCO3 · TOC</b></td><td>White-cased line = CaCO<sub>3</sub>; blue = TOC. The independent targets.</td><td>raw CaCO<sub>3</sub>, TOC</td></tr>
+<tr><td><b>CNT step</b></td><td>Filled curve = Aitchison step; red ticks = regime tripwires.</td><td><code>step_i</code>, <code>regime_i</code></td></tr>
+<tr><td><b>helm</b></td><td>Coloured tick per step at the helmsman's column; black ▶ = deceptive-drift flag (silent in this core).</td><td><code>argmax|Δclr|</code>; α-flag</td></tr>
+<tr><td><b>CNQ r</b></td><td>The CNQ radial magnitude down-core.</td><td><code>‖ilr‖</code></td></tr>
+</table>
+
+<h2 id=radar>5 · Radar — CLR deviation at depth (middle, default)</h2>
+<p>A 4-spoke star (one spoke per part) of the current sample's CLR, relative to the section mean ring (dashed). Spoke out = that part is enriched vs its average; in = depleted. The <b>zoom</b> slider magnifies deviations around the mean so small but real moves (e.g. Al<sub>2</sub>O<sub>3</sub>) become visible.</p>
+<div class=f>spoke_k ∝ 0.5 + zoom · 0.42 · clr_k / max|clr|     (clamped to the ring)</div>
+<p class=why>This is the per-depth shape of the composition in ratio space — the radar "rings" when one part pulls away from the others.</p>
+
+<h2 id=bary>6 · Barycenter trajectory + SHOCK (middle, toggle)</h2>
+<p>The 2-D PCA shadow of the ILR path up to the current depth (gold dot = now; dark red dots = regime samples). Toggle <b>SHOCK</b> to colour/thicken the path by step size. It shows the <i>route</i> the composition has travelled, not just where it is.</p>
+
+<h2 id=scatter>7 · Calibration scatter (middle-lower)</h2>
+<p>Each point is one step: x = |ΔCaCO<sub>3</sub>| (independent), y = Aitchison step (composition-only). The printed <code>r</code> is the Pearson correlation; the gold point is the current step. A positive slope means bigger composition moves tend to fall where carbonate also changes — an outside corroboration, not a built-in one.</p>
+
+<h2 id=readout>8 · The readout @ depth (right-upper)</h2>
+<p>Everything for the hovered/selected sample. Two columns:</p>
+<table>
+<tr><th>Field</th><th>Meaning</th><th>Computation</th></tr>
+<tr><td><b>per part</b> — value + unit</td><td>Real concentration: SiO<sub>2</sub>/Al<sub>2</sub>O<sub>3</sub> in %, Rb/Zr in <b>mg/kg</b>. Small grey text shows the closed share % and the CLR.</td><td>raw value; <code>x_k·100</code>; <code>clr_k</code></td></tr>
+<tr><td><b>power share + α</b></td><td>Bar = share of this step owned by each part; <code>α</code> = activation. Amber <b style="color:#b8860b">*</b> = below the 0.1 % share guard (shown, not a trigger).</td><td><code>pw_k</code>; <code>α_k = pw_k/ρ_k</code></td></tr>
+<tr><td><b>log Si/Al, log Zr/Rb</b></td><td>The two diagnostic ratios at this depth.</td><td><code>ln(Si/Al)</code>, <code>ln(Zr/Rb)</code></td></tr>
+<tr><td><b>CaCO3 %, TOC %</b></td><td>The independent targets at this depth.</td><td>raw</td></tr>
+<tr><td><b>Aitchison step</b></td><td>Size of the move into this sample.</td><td><code>step_i</code></td></tr>
+<tr><td><b>helmsman</b></td><td>Driver of this step; <code>▼dd</code> appears only if the guarded flag fires.</td><td><code>argmax|Δclr|</code></td></tr>
+<tr><td><b>K_eff</b></td><td>Effective number of active parts here.</td><td><code>exp(entropy)</code></td></tr>
+<tr><td><b>regime?</b></td><td>YES if this step crossed the tripwire.</td><td><code>regime_i</code></td></tr>
+<tr><td><b>CNQ radial</b></td><td>Distance of this sample from the ILR centre.</td><td><code>‖ilr‖</code></td></tr>
+</table>
+
+<h2 id=summary>9 · Summary — whole core (right-lower)</h2>
+<table>
+<tr><th>Field</th><th>Computation / reading</th></tr>
+<tr><td><b>samples / range</b></td><td>N and depth extent.</td></tr>
+<tr><td><b>helmsman (driver)</b></td><td>How many steps each part steers — <span class=k>Zr 110 · Rb 68 · Al 22 · Si 18</span>. The traces carry the motion.</td></tr>
+<tr><td><b>flips / directness</b></td><td><code>flips</code> = helmsman changes; <code>directness = 1 − flips/(N−2)</code> (here 0.43).</td></tr>
+<tr><td><b>regime surfaces</b></td><td>Count of tripwire steps (here 19).</td></tr>
+<tr><td><b>r(step,|ΔCaCO3|) / r(step,|ΔTOC|)</b></td><td>Independent calibration correlations (+0.24 / −0.08).</td></tr>
+<tr><td><b>biggest steps</b></td><td>Six largest Aitchison steps; <b>click</b> any to jump the whole dashboard to that depth.</td></tr>
+</table>
+
+<!-- ============================================================= -->
+<h2 id=ref>10 · One-line field reference</h2>
+<table>
+<tr><th>Symbol</th><th>Name</th><th>Formula</th><th>Read as</th></tr>
+<tr><td><code>x_k</code></td><td>closed share</td><td>v_k / Σv</td><td>proportion of the mixture</td></tr>
+<tr><td><code>clr_k</code></td><td>centred log-ratio</td><td>ln x_k − mean ln x</td><td>part vs the average part</td></tr>
+<tr><td><code>ilr</code></td><td>isometric coords</td><td>clr · H</td><td>3 orthonormal balances</td></tr>
+<tr><td><code>step</code></td><td>Aitchison step</td><td>‖Δclr‖</td><td>size of the move</td></tr>
+<tr><td><code>helm</code></td><td>helmsman</td><td>argmax |Δclr|</td><td>which part steers</td></tr>
+<tr><td><code>pw_k</code></td><td>power share</td><td>Δclr_k² / Σ Δclr²</td><td>who owns the step</td></tr>
+<tr><td><code>α_k</code></td><td>activation</td><td>pw_k / ρ_k</td><td>work ÷ abundance (&gt;1 punches up)</td></tr>
+<tr><td><code>K_eff</code></td><td>effective parts</td><td>exp(−Σ x ln x)</td><td>how many parts active</td></tr>
+<tr><td><code>regime</code></td><td>tripwire</td><td>step &gt; med+2·1.4826·MAD</td><td>candidate boundary</td></tr>
+<tr><td><code>radial</code></td><td>CNQ radial</td><td>‖ilr‖</td><td>distance from centre</td></tr>
+<tr><td><code>bearing</code></td><td>CNQ rotation</td><td>arccos(û·û₋₁)</td><td>turn angle of the path</td></tr>
+<tr><td><code>bary</code></td><td>barycenter</td><td>PCA(ilr)[1:2]</td><td>2-D route shadow</td></tr>
+<tr><td><code>r</code></td><td>calibration</td><td>Pearson(step, |Δtarget|)</td><td>independent corroboration</td></tr>
+</table>
+
+<!-- ============================================================= -->
+<h2 id=caveats>11 · Caveats &amp; honesty</h2>
+<div class=card>
+<p><b>Claim tiers travel with every number.</b> <span class=tier tc>confirmed</span> the CNT steps/helmsman/regime and the native D = 4 CNQ. <span class=tier te>experimental</span> the calibration mapping (CaCO<sub>3</sub> correlation modest, no picked-surface overlay yet). Nothing here is <span class=tier tn>not-implemented</span> dressed up as more.</p>
+<p><b>Faithful method, not the engine binary.</b> These scripts are a transparent reimplementation of the documented CNT/CNQ method — readable end to end — not the hash-stamped canonical engine. Running the same composition through that engine for byte-provenance is a listed next step.</p>
+<p><b>D = 4 subcomposition.</b> Only Si, Al, Rb, Zr. The companion high-resolution core-scan datasets (Ca, Ti, K, Mn, Fe, Sr… at 1 cm) would change which part is helmsman and let the deceptive-drift flag properly fire.</p>
+<p><b>The instrument does not interpret.</b> Whether the 19 tripwires are sequence boundaries, whether Zr/Rb steering is provenance or diagenesis, whether the +0.24 is dilution or coincidence — those are <b>yours</b>, led by the data and the displays.</p>
+</div>
+
+<div class=foot>
+<b>Reproduce:</b> <code>python cnt_cnq_analysis.py</code> → <code>python build_dashboard.py</code> (see <code>REPRODUCE.md</code>). &nbsp;
+<b>Primer:</b> <code>../HS_PRIMER.md</code>. &nbsp; <b>Results:</b> <code>RESULTS_Frielingen9_CNT_CNQ.md</code>.<br>
+<b>Data:</b> Thöle et al. 2019, PANGAEA 897615 (CC-BY 4.0); paper 10.1002/dep2.83.<br>
+<i>The instrument reads. The expert decides. The hashes carry the receipts.</i>
+</div>
+
+</div></body></html>

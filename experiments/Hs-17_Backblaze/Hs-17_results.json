@@ -1,0 +1,243 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "Hs-17",
+  "name": "Backblaze Fleet",
+  "domain": "ENGINEERING",
+  "carriers": [
+    "Healthy",
+    "Warning",
+    "Failed"
+  ],
+  "D": 3,
+  "N": 34,
+  "data_source": {
+    "type": "REAL",
+    "url": null,
+    "description": "Backblaze Drive Stats, Q1-Q4 2024-2025"
+  },
+  "data_hash_sha256_16": "2d47c924b131c246",
+  "run_timestamp": "2026-04-25T06:24:46.439454Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "Hs-17: Backblaze Fleet: 3-part simplex, carriers=['Healthy', 'Warning', 'Failed']",
+    "step2_n_samples": 34,
+    "step2_D": 3,
+    "step2_carriers": [
+      "Healthy",
+      "Warning",
+      "Failed"
+    ],
+    "data_hash_sha256_16": "2d47c924b131c246",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": false,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      8.647169588007854,
+      0.5835201655936937,
+      -9.230689753601547
+    ],
+    "step4_clr_std_per_part": [
+      2.4841439376100207,
+      4.765216361988228,
+      3.124683598422031
+    ],
+    "step5_sigma2_range": [
+      32.5015562161527,
+      42.84323331167421
+    ],
+    "step5_sigma2_final": 38.641905669572594,
+    "step6_pll_coeffs": [
+      -0.006126449942507163,
+      0.2609426240303542,
+      36.55440124478099
+    ],
+    "step6_pll_R2": 0.08738938090105386,
+    "step6_pll_shape": "hill",
+    "step6_vertex": [
+      21.29639730016035,
+      39.33297014172938
+    ],
+    "step6_curvature": "concave_down",
+    "step7_squeeze_count": 0,
+    "step7_squeeze_closest": null,
+    "step7_squeeze_mean": 38.72239201282061,
+    "step7_cancellation": false,
+    "step8_entropy_range": [
+      1.6030966799432062e-07,
+      0.5693474865338062
+    ],
+    "step8_entropy_mean": 0.13053739283929147,
+    "step8_entropy_cv": 116.47751966019895,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.13053739283929147,
+        "H_mean_decimated": 0.10443654753922284,
+        "variation_pct": 19.99491849220719,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.13869590967721082,
+        "H_mean_decimated": 0.07641037500489788,
+        "variation_pct": 44.90798237472976,
+        "pass": false
+      },
+      "compression_8x": {
+        "H_mean_original": 0.13869590967721082,
+        "H_mean_decimated": 0.04900996719000234,
+        "variation_pct": 64.66372562531656,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 32,
+      "stalls": 4,
+      "spikes": 0,
+      "reversals": 28
+    },
+    "step10_ternary_type": "ternary",
+    "step11_complex_range_re": [
+      -0.05710600952517401,
+      0.6247121575068064
+    ],
+    "step11_complex_range_im": [
+      -1.5062846557000301e-05,
+      0.00040125539968561397
+    ],
+    "step12_radius_range": [
+      0.0015505300649565493,
+      0.6247121576874558
+    ],
+    "step12_theta_range": [
+      -3.1413301453350693,
+      0.00279807823136823
+    ],
+    "step9_angular_velocity_std": 2.177478971613972
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          6.170971102764618,
+          22.707286976560326,
+          9.763647590247652
+        ],
+        "carrier_pct": [
+          15.969634509055187,
+          58.76337251772884,
+          25.266992973215974
+        ],
+        "dominant_carrier": "Warning",
+        "dominant_pct": 58.76337251772884
+      },
+      "match_density": {
+        "density": 0.0,
+        "concentration": 0.0,
+        "total_matches": 0,
+        "n_constants_hit": 0,
+        "dominant_constant": null,
+        "trajectory_length": 49.173753341942046
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            47.992868568402244,
+            9.16195040946421
+          ],
+          [
+            47.99286856840225,
+            0.0,
+            58.770898030851356
+          ],
+          [
+            9.16195040946421,
+            58.770898030851356,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          8.647169588007854,
+          0.5835201655936937,
+          -9.230689753601547
+        ],
+        "clr_stds": [
+          2.4841439376100207,
+          4.765216361988228,
+          3.124683598422031
+        ],
+        "aitchison_distance_mean": 7.228376376821127
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.0637150498775267,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "Healthy",
+        "max_shift_magnitude": 0.05896770366913506
+      },
+      "claim_status": {
+        "htp_classification": "INVESTIGATE",
+        "hvld_shape": "hill",
+        "hvld_R2": 0.08738938090105386,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Failed",
+        "sources": [
+          "Healthy",
+          "Warning"
+        ],
+        "I_source1_target": 1.764877255965346,
+        "I_source2_target": 1.4557894839783871,
+        "redundancy": 1.4557894839783871,
+        "unique_source1": 0.3090877719869589,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 38.641905669572594,
+        "shuffled_sigma2": 38.64190566957261,
+        "order_matters": false,
+        "relative_difference": 3.6775760586755725e-16
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 34,
+        "near_zero_carriers": [
+          "Warning",
+          "Failed"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Healthy/Warning)": {
+            "mean": 8.06364942241416,
+            "std": 6.927688544413804,
+            "cv": 85.91257111398248
+          },
+          "ln(Healthy/Failed)": {
+            "mean": 17.877859341609405,
+            "std": 3.026871389647107,
+            "cv": 16.930837925334195
+          },
+          "ln(Warning/Failed)": {
+            "mean": 9.814209919195243,
+            "std": 7.666217974389416,
+            "cv": 78.11345016571684
+          }
+        },
+        "most_stable": "ln(Healthy/Failed)",
+        "least_stable": "ln(Healthy/Warning)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}

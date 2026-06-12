@@ -1,0 +1,47 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-23-U235
+  System:      U-235 Actinium Series (Comprehensive)
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=15, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   1ca2e5cb74bd7865
+  Timestamp:   2026-04-26T04:43:04.023905Z
+
+
+Codici totali: 37
+  Errori:       0
+  Avvisi:     2
+  Scoperte: 11
+  Segnali di calibrazione: 1
+  Modi strutturali:  1
+  Informazioni:  22
+
+── AVVISI ──
+  [S8-FLG-WRN] S8-FLG-WRN
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (12)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (10)
+  [XU-DRU-DIS] Deriva in aumento — il sistema sta evolvendo. (variance_ratio_2nd_to_1st=1.978419, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=89.193629)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=50.573848)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Neutrino), cv=87.918798)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=226.403627)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Neutrino), cv=131.220352)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=388.557450)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

@@ -1,0 +1,36 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/",
+  "topic": "Hs (Higgins Decomposition) -- deterministic compositional instrument. Repository root / master AI-assist node.",
+  "purpose": "Master local node: orient any AI/agent on the whole Hs repo, then hand off to the central control chain. Bring-your-own-AI entry point for the repository.",
+  "paths_note": "key_files relative to THIS folder (repo root); join_the_chain and related_topics also repo-root-relative.",
+  "specific_knowledge": {
+    "what": "Hs reads the dynamics of compositional data (parts of a whole over time) in Aitchison geometry, deterministically and hash-chained. A 4-part move is an exact quaternion rotation; higher-D is tiled from overlapping exact 4-part charts and reconstructed losslessly. Current engine: CN-TT v4 (HCI-CNTT/). The frozen oracle (CNT v3.2.0 + CNQ v2.0.0) is archived as the validation baseline.",
+    "key_files": ["HS_GUIDE.md", "README.md", "HS_FAST_REFRESH.json", "HCI-CNTT/", "SPACE_READINESS_AND_CHALLENGE.md", "industrial-instruments/", "collaborations/"],
+    "key_results": [
+      "Tier 1: CN-TT v4 reproduces the frozen oracle bit-for-bit on real Backblaze data (parity Tier-A)",
+      "Tier 1: lossless high-D reconstruction proven to D=1,000,000 at machine precision; deterministic content hash on every run"
+    ],
+    "related_topics": [
+      "HCI-CNTT/AI_ASSIST.json (current engine)",
+      "ai-refresh/AI_ASSIST.json (control hub)",
+      "industrial-instruments/AI_ASSIST.json",
+      "collaborations/codawork-2026/AI_ASSIST.json",
+      "collaborations/microbiome/AI_ASSIST.json",
+      "collaborations/geology-wehner/AI_ASSIST.json",
+      "papers/AI_ASSIST.json",
+      "experiments/AI_ASSIST.json"
+    ],
+    "claim_tiers": "Tier 1 = verified/computed engine results; Tier 2 = standard math soundly applied; Tier 3 = to earn. Every claim in the repo carries a tier."
+  },
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start here for the whole repo: read this, then HS_GUIDE.md (humans) or ai-refresh/AI_RAPID_LEARN.md (AI), then drop into a topic node. Read-only context; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001 (human authorship for claims; no AI commits; Peter is the sole commit/contact gate); instrument not data; honest-broker; interest expressed never acquired.",
+  "updated": "2026-06-11"
+}

@@ -1,0 +1,43 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-12
+  System:      Spring-Mass
+  Domain:      FORCE
+  Carriers:    KE, PE, Damping
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   e9c4f6ae157df78e
+  Timestamp:   2026-04-25T06:03:01.947779Z
+
+
+Codici totali: 40
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 12
+  Segnali di calibrazione: 1
+  Informazioni:  26
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(pi^e), delta=0.000450)
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(pi^e), delta=0.000450)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (131)
+  [S9-STL-DIS] S9-STL-DIS (12)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (119)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=PE, pct=60.520544)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=PE->KE, te=0.102931)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(KE/PE), cv=4720.069676)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(KE/Damping), cv=79.485695)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(PE/Damping), cv=190.502165)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=44, near_zero_carriers=['KE', 'PE', 'Damping'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

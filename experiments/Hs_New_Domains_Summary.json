@@ -1,0 +1,53 @@
+{
+  "experiments": [
+    {
+      "id": "Hs-16",
+      "name": "Planck Cosmic Budget",
+      "domain": "COSMOLOGY",
+      "N": 200,
+      "status": "NATURAL",
+      "dominant": "Dark_Energy",
+      "dominant_pct": 62.82051282051283,
+      "nearest": "1/(e^pi)",
+      "delta": 3.771941114563693e-05,
+      "density": 3.0458255115702344
+    },
+    {
+      "id": "Hs-17",
+      "name": "Backblaze Fleet",
+      "domain": "ENGINEERING",
+      "N": 34,
+      "status": "INVESTIGATE",
+      "dominant": "Warning",
+      "dominant_pct": 58.76337251772884,
+      "nearest": "none",
+      "delta": 999,
+      "density": 0.0
+    },
+    {
+      "id": "Hs-18",
+      "name": "Markham Budget",
+      "domain": "URBAN",
+      "N": 31,
+      "status": "NATURAL",
+      "dominant": "Planning",
+      "dominant_pct": 52.34708561662021,
+      "nearest": "ln_phi",
+      "delta": 5.00832506777904e-05,
+      "density": 0.034755860775499345
+    },
+    {
+      "id": "Hs-19",
+      "name": "Traffic Signals",
+      "domain": "URBAN",
+      "N": 831,
+      "status": "NATURAL",
+      "dominant": "Yellow",
+      "dominant_pct": 36.32709383576591,
+      "nearest": "euler_gamma",
+      "delta": 0.0026118988038942303,
+      "density": 0.014665192188080592
+    }
+  ],
+  "timestamp": "2026-04-25T06:24:46Z"
+}

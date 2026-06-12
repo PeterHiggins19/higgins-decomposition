@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hs-M01 Standard Helix — Calibration Reference</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #0d1b2a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  min-height: 100vh;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page { max-width: 900px; width: 100%; }
+h1 { font-size: 26px; color: #f0f0f0; margin-bottom: 6px; letter-spacing: 0.5px; }
+h2 { font-size: 20px; color: #8ecae6; margin: 30px 0 10px 0; border-bottom: 1px solid #1b3a5c; padding-bottom: 6px; }
+h3 { font-size: 16px; color: #a8dadc; margin: 16px 0 8px 0; }
+.subtitle { font-size: 14px; color: #888; margin-bottom: 20px; }
+p, .explain { font-size: 14px; color: #bbb; line-height: 1.6; margin-bottom: 12px; }
+.explain em { color: #8ecae6; font-style: normal; }
+canvas {
+  background: #0a1628;
+  border: 1px solid #1b3a5c;
+  border-radius: 6px;
+  display: block;
+  margin: 10px auto;
+}
+.controls {
+  background: #112240;
+  border: 1px solid #1b3a5c;
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.ctrl-group { display: flex; flex-direction: column; gap: 2px; }
+.ctrl-group label { font-size: 12px; color: #6c8ebf; }
+.ctrl-group input[type="range"] { width: 140px; accent-color: #4169e1; }
+.ctrl-group .val { font-size: 12px; color: #e0e0e0; font-family: monospace; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 13px;
+}
+th { background: #112240; color: #8ecae6; padding: 8px 10px; text-align: left; border: 1px solid #1b3a5c; }
+td { padding: 7px 10px; border: 1px solid #1b3a5c; color: #ccc; }
+tr:nth-child(even) td { background: #0a1628; }
+tr.highlight td { background: #1a3a5c; color: #fff; font-weight: 600; }
+.formula { font-family: monospace; font-size: 13px; color: #a8d8ea; background: #0a1628; padding: 10px 14px; border-radius: 4px; margin: 8px 0; line-height: 1.7; white-space: pre-wrap; }
+.footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #1b3a5c;
+  font-size: 12px;
+  color: #556;
+  text-align: center;
+}
+.heatmap-wrap { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+.legend { font-size: 12px; color: #999; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- SECTION 1 -->
+<h1>The Standard Helix — Calibration Reference</h1>
+<p class="subtitle">Hs-M01 Manifold Calibration | Compound Test Signal</p>
+<p class="explain">
+The helix is the fundamental <em>compound</em> signal: drift + oscillation. It combines the linear drift of the M01 Line (directional movement across the simplex) with the periodic oscillation of the M01 Circle (rotation in CLR space). Most real-world compositional transitions look like helices — a secular trend with cyclical variation around it.
+</p>
+<div class="formula">Helix = Line + Circle
+
+CLR construction (D=3, N=80):
+  c1(t) = drift * t + radius * cos(omega * t)
+  c2(t) = radius * sin(omega * t)
+  c3(t) = -(c1 + c2)          // zero-sum constraint
+  x = closure(exp(c))         // map to simplex</div>
+
+<!-- SECTION 2 -->
+<h2>CLR Trajectory</h2>
+<p class="explain">The helix in CLR space: c1 (horizontal) vs c2 (vertical), time encoded as colour gradient (blue=start, red=end). The dashed white line shows the drift axis; transparent circles show the oscillation envelope.</p>
+<canvas id="canvasCLR" width="700" height="500"></canvas>
+<div class="controls" id="controlsCLR">
+  <div class="ctrl-group">
+    <label>Drift rate</label>
+    <input type="range" id="sliderDrift" min="0" max="0.05" step="0.001" value="0.02">
+    <span class="val" id="valDrift">0.020</span>
+  </div>
+  <div class="ctrl-group">
+    <label>Radius</label>
+    <input type="range" id="sliderRadius" min="0" max="0.6" step="0.01" value="0.30">
+    <span class="val" id="valRadius">0.30</span>
+  </div>
+  <div class="ctrl-group">
+    <label>Rotations</label>
+    <input type="range" id="sliderRot" min="1" max="6" step="1" value="3">
+    <span class="val" id="valRot">3</span>
+  </div>
+  <div class="ctrl-group">
+    <label style="color:#6c6;">drift=0 &rarr; Circle</label>
+    <label style="color:#c66;">radius=0 &rarr; Line</label>
+    <label style="color:#cc6;">both>0 &rarr; Helix</label>
+  </div>
+</div>
+
+<!-- SECTION 3 -->
+<h2>Ternary Simplex View</h2>
+<p class="explain">The helix mapped onto the ternary diagram (S&#178;). The CLR log-transform bends the linear drift component into a curve on the simplex. The oscillation wraps around that projected curve.</p>
+<canvas id="canvasTernary" width="550" height="480"></canvas>
+
+<!-- SECTION 4 -->
+<h2>Pipeline Diagnostics</h2>
+<p class="explain">Full Hs pipeline results for the current helix parameters. All metrics update live as you adjust the sliders above.</p>
+<table id="diagTable">
+  <tr><th>Metric</th><th>Value</th><th>Interpretation</th></tr>
+  <tr><td>Total variance (&sigma;&sup2;<sub>A</sub>)</td><td id="dSigma">—</td><td id="dSigmaI">—</td></tr>
+  <tr><td>V(t) shape</td><td id="dShape">—</td><td id="dShapeI">—</td></tr>
+  <tr><td>V(t) R&sup2;</td><td id="dR2">—</td><td id="dR2I">—</td></tr>
+  <tr><td>Path efficiency</td><td id="dEff">—</td><td id="dEffI">—</td></tr>
+  <tr><td>Lock count</td><td id="dLocks">—</td><td id="dLocksI">—</td></tr>
+  <tr><td>Shannon entropy (mean)</td><td id="dShannon">—</td><td id="dShannonI">—</td></tr>
+  <tr><td>Aitchison norm (mean)</td><td id="dAitch">—</td><td id="dAitchI">—</td></tr>
+</table>
+
+<!-- SECTION 5 -->
+<h2>V(t) Cumulative Variance</h2>
+<p class="explain">The cumulative variance trajectory V(t). Ghost lines show pure Line (green, convex) and pure Circle (cyan, concave) for comparison. The helix V(t) shows drift-driven increase modulated by oscillation ripple.</p>
+<canvas id="canvasVt" width="700" height="320"></canvas>
+
+<!-- SECTION 6 -->
+<h2>Comparison Table</h2>
+<p class="explain">The helix in context: how it compares against all M01 calibration objects. The helix row updates live.</p>
+<table id="compTable">
+  <tr><th>Object</th><th>N</th><th>D</th><th>&sigma;&sup2;<sub>A</sub></th><th>Shape</th><th>Path Eff</th><th>Locks</th><th>Diagnosis</th></tr>
+  <tr><td>Point</td><td>1</td><td>3</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>POINT</td></tr>
+  <tr><td>Point+time</td><td>20</td><td>3</td><td>0.000</td><td>FLAT</td><td>stationary</td><td>3</td><td>STATIONARY</td></tr>
+  <tr><td>Line</td><td>20</td><td>3</td><td>0.657</td><td>CONVEX</td><td>0.961</td><td>0</td><td>ACCELERATING</td></tr>
+  <tr><td>Circle</td><td>40</td><td>3</td><td>0.500</td><td>CONCAVE</td><td>0.027</td><td>0</td><td>DECELERATING</td></tr>
+  <tr class="highlight"><td><b>Helix</b></td><td><b>80</b></td><td><b>3</b></td><td id="cSigma"><b>—</b></td><td id="cShape"><b>—</b></td><td id="cEff"><b>—</b></td><td id="cLocks"><b>0</b></td><td id="cDiag"><b>—</b></td></tr>
+  <tr><td>Spiral</td><td>50</td><td>3</td><td>0.429</td><td>CONVEX</td><td>0.139</td><td>0</td><td>ACCELERATING</td></tr>
+  <tr><td>Torus</td><td>80</td><td>4</td><td>1.655</td><td>CONCAVE</td><td>0.018</td><td>0</td><td>DECELERATING</td></tr>
+</table>
+
+<!-- SECTION 7 -->
+<h2>The Transfer Function</h2>
+<p class="explain">
+The helix reveals how the Hs instrument reads compound signals. By adjusting drift and oscillation independently, you can map the instrument's response surface. Below: a precomputed heatmap of <em>path efficiency</em> across the (drift, radius) parameter space. At (0,0): point. At (drift,0): line. At (0,radius): circle. At (drift,radius): helix.
+</p>
+<div class="heatmap-wrap">
+  <canvas id="canvasHeat" width="400" height="400"></canvas>
+  <div>
+    <p class="legend">X-axis: drift rate (0 to 0.05)<br>Y-axis: radius (0 to 0.6)<br>Colour: path efficiency<br><br>
+    <span style="color:#ff4500;">Red = high efficiency (line-like)</span><br>
+    <span style="color:#4169e1;">Blue = low efficiency (circle-like)</span><br>
+    <span style="color:#9370db;">Purple = moderate (helix)</span></p>
+    <canvas id="canvasHeatLegend" width="30" height="200"></canvas>
+  </div>
+</div>
+
+<!-- SECTION 8 -->
+<h2>4-Part Helix (S&sup3; Simplex)</h2>
+<p class="explain">The helix generalises to any dimension. The S&sup3; helix (D=4) adds a phase-shifted third oscillation axis, producing a richer compound signal in 4-part compositional space.</p>
+<div class="formula">D=4, N=80, drift=0.015, radius=0.25, 4 rotations
+  c1(t) = drift*t + radius*cos(omega*t)
+  c2(t) = radius*sin(omega*t)
+  c3(t) = radius*cos(omega*t + PI/3)
+  c4(t) = -(c1+c2+c3)</div>
+<canvas id="canvas4CLR" width="600" height="400"></canvas>
+<table id="diag4Table">
+  <tr><th>Metric</th><th>Value</th></tr>
+  <tr><td>Total variance (&sigma;&sup2;<sub>A</sub>)</td><td id="d4Sigma">—</td></tr>
+  <tr><td>V(t) shape</td><td id="d4Shape">—</td></tr>
+  <tr><td>Path efficiency</td><td id="d4Eff">—</td></tr>
+  <tr><td>Lock count</td><td id="d4Locks">—</td></tr>
+  <tr><td>Shannon entropy (mean)</td><td id="d4Shannon">—</td></tr>
+  <tr><td>Aitchison norm (mean)</td><td id="d4Aitch">—</td></tr>
+</table>
+
+<div class="footer">
+  Hs-M01 Manifold Calibration | Standard Helix Reference | Peter Higgins | CC BY 4.0
+</div>
+
+</div><!-- .page -->
+
+<script>
+// ========== UTILITY FUNCTIONS ==========
+
+function clrToSimplex(clr) {
+  const ex = clr.map(Math.exp);
+  const s = ex.reduce((a,b) => a+b, 0);
+  return ex.map(v => v/s);
+}
+
+function aitchisonDist(x, y) {
+  // Aitchison distance between two compositions
+  const D = x.length;
+  const lx = x.map(Math.log);
+  const ly = y.map(Math.log);
+  const mlx = lx.reduce((a,b)=>a+b,0)/D;
+  const mly = ly.reduce((a,b)=>a+b,0)/D;
+  let s = 0;
+  for (let i = 0; i < D; i++) {
+    const d = (lx[i]-mlx) - (ly[i]-mly);
+    s += d*d;
+  }
+  return Math.sqrt(s);
+}
+
+function aitchisonNorm(x) {
+  const D = x.length;
+  const lx = x.map(Math.log);
+  const ml = lx.reduce((a,b)=>a+b,0)/D;
+  let s = 0;
+  for (let i = 0; i < D; i++) { const d = lx[i]-ml; s += d*d; }
+  return Math.sqrt(s);
+}
+
+function shannonEntropy(x) {
+  let h = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] > 0) h -= x[i] * Math.log(x[i]);
+  }
+  return h;
+}
+
+function totalVariance(compositions) {
+  const N = compositions.length;
+  const D = compositions[0].length;
+  // Aitchison total variance: mean pairwise squared Aitchison distances / 2
+  // Or: variance of CLR coordinates
+  // Use CLR approach: transform all to CLR, compute trace of covariance
+  const clrs = compositions.map(x => {
+    const lx = x.map(Math.log);
+    const m = lx.reduce((a,b)=>a+b,0)/D;
+    return lx.map(v => v - m);
+  });
+  // Mean CLR
+  const mean = new Array(D).fill(0);
+  for (let i = 0; i < N; i++) for (let j = 0; j < D; j++) mean[j] += clrs[i][j]/N;
+  // Trace of covariance
+  let trace = 0;
+  for (let j = 0; j < D; j++) {
+    let s = 0;
+    for (let i = 0; i < N; i++) { const d = clrs[i][j]-mean[j]; s += d*d; }
+    trace += s/N;
+  }
+  return trace;
+}
+
+function cumulativeVariance(compositions) {
+  // V(t) = totalVariance of first t+1 observations
+  const vt = [];
+  for (let t = 1; t < compositions.length; t++) {
+    vt.push(totalVariance(compositions.slice(0, t+1)));
+  }
+  return vt;
+}
+
+function fitShape(vt) {
+  const N = vt.length;
+  if (N < 3) return { shape: 'FLAT', r2: 0 };
+  // Normalize t to [0,1]
+  const ts = [];
+  for (let i = 0; i < N; i++) ts.push(i/(N-1));
+  // Fit quadratic: V(t) = a + b*t + c*t^2
+  let S0=N, S1=0, S2=0, S3=0, S4=0, Sy=0, Sty=0, St2y=0;
+  for (let i = 0; i < N; i++) {
+    const t = ts[i], t2=t*t, y=vt[i];
+    S1+=t; S2+=t2; S3+=t*t2; S4+=t2*t2;
+    Sy+=y; Sty+=t*y; St2y+=t2*y;
+  }
+  // Solve 3x3 system via Cramer
+  const M = [[S0,S1,S2],[S1,S2,S3],[S2,S3,S4]];
+  const B = [Sy, Sty, St2y];
+  function det3(m) {
+    return m[0][0]*(m[1][1]*m[2][2]-m[1][2]*m[2][1])
+          -m[0][1]*(m[1][0]*m[2][2]-m[1][2]*m[2][0])
+          +m[0][2]*(m[1][0]*m[2][1]-m[1][1]*m[2][0]);
+  }
+  const D = det3(M);
+  if (Math.abs(D) < 1e-15) return { shape: 'FLAT', r2: 0 };
+  function replCol(m, b, col) {
+    return m.map((row,i) => row.map((v,j) => j===col ? b[i] : v));
+  }
+  const a = det3(replCol(M,B,0))/D;
+  const b = det3(replCol(M,B,1))/D;
+  const c = det3(replCol(M,B,2))/D;
+  // R^2
+  const yMean = Sy/N;
+  let ssTot=0, ssRes=0;
+  for (let i = 0; i < N; i++) {
+    const pred = a + b*ts[i] + c*ts[i]*ts[i];
+    ssRes += (vt[i]-pred)*(vt[i]-pred);
+    ssTot += (vt[i]-yMean)*(vt[i]-yMean);
+  }
+  const r2 = ssTot > 0 ? 1 - ssRes/ssTot : 0;
+  // Shape from quadratic coefficient
+  const range = vt[N-1] - vt[0];
+  const flatThreshold = 0.001;
+  let shape;
+  if (Math.abs(range) < flatThreshold) shape = 'FLAT';
+  else if (c > 0.01) shape = 'CONVEX';
+  else if (c < -0.01) shape = 'CONCAVE';
+  else shape = 'LINEAR';
+  return { shape, r2, a, b, c };
+}
+
+function pathEfficiency(compositions) {
+  if (compositions.length < 2) return 0;
+  let totalPath = 0;
+  for (let i = 1; i < compositions.length; i++) {
+    totalPath += aitchisonDist(compositions[i], compositions[i-1]);
+  }
+  const displacement = aitchisonDist(compositions[compositions.length-1], compositions[0]);
+  return totalPath > 0 ? displacement / totalPath : 0;
+}
+
+function lockCount(compositions, threshold) {
+  // Count components that never exceed threshold variation
+  if (compositions.length < 2) return 0;
+  const D = compositions[0].length;
+  let locks = 0;
+  for (let j = 0; j < D; j++) {
+    let mn = Infinity, mx = -Infinity;
+    for (let i = 0; i < compositions.length; i++) {
+      if (compositions[i][j] < mn) mn = compositions[i][j];
+      if (compositions[i][j] > mx) mx = compositions[i][j];
+    }
+    if (mx - mn < (threshold || 0.01)) locks++;
+  }
+  return locks;
+}
+
+function colorGradient(frac) {
+  // blue (0) to red (1)
+  const r = Math.round(65 + frac * 190);
+  const g = Math.round(105 - frac * 36);
+  const b = Math.round(225 - frac * 220);
+  return `rgb(${r},${g},${b})`;
+}
+
+// ========== GENERATE HELIX ==========
+
+function generate3Helix(drift, radius, rotations, N) {
+  N = N || 80;
+  const omega = 2 * Math.PI * rotations / N;
+  const clrs = [];
+  const comps = [];
+  for (let t = 0; t < N; t++) {
+    const c1 = drift * t + radius * Math.cos(omega * t);
+    const c2 = radius * Math.sin(omega * t);
+    const c3 = -(c1 + c2);
+    clrs.push([c1, c2, c3]);
+    comps.push(clrToSimplex([c1, c2, c3]));
+  }
+  return { clrs, comps, N };
+}
+
+function generate4Helix() {
+  const N = 80, drift = 0.015, radius = 0.25;
+  const omega = 2 * Math.PI * 4 / N;
+  const clrs = [], comps = [];
+  for (let t = 0; t < N; t++) {
+    const c1 = drift*t + radius*Math.cos(omega*t);
+    const c2 = radius*Math.sin(omega*t);
+    const c3 = radius*Math.cos(omega*t + Math.PI/3);
+    const c4 = -(c1+c2+c3);
+    clrs.push([c1,c2,c3,c4]);
+    comps.push(clrToSimplex([c1,c2,c3,c4]));
+  }
+  return { clrs, comps, N };
+}
+
+// ========== PIPELINE ==========
+
+function runPipeline(comps) {
+  const sigma = totalVariance(comps);
+  const vt = cumulativeVariance(comps);
+  const shapeInfo = fitShape(vt);
+  const eff = pathEfficiency(comps);
+  const locks = lockCount(comps, 0.01);
+  let shannonSum = 0, aitchSum = 0;
+  for (let i = 0; i < comps.length; i++) {
+    shannonSum += shannonEntropy(comps[i]);
+    aitchSum += aitchisonNorm(comps[i]);
+  }
+  const shannonMean = shannonSum / comps.length;
+  const aitchMean = aitchSum / comps.length;
+  let diagnosis;
+  if (sigma < 0.001) diagnosis = 'STATIONARY';
+  else if (shapeInfo.shape === 'CONVEX') diagnosis = 'ACCELERATING';
+  else if (shapeInfo.shape === 'CONCAVE') diagnosis = 'DECELERATING';
+  else if (shapeInfo.shape === 'LINEAR') diagnosis = 'LINEAR';
+  else diagnosis = 'STATIONARY';
+  return { sigma, vt, shapeInfo, eff, locks, shannonMean, aitchMean, diagnosis };
+}
+
+// ========== DRAWING ==========
+
+function drawCLR(drift, radius, rotations) {
+  const cv = document.getElementById('canvasCLR');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+  const data = generate3Helix(drift, radius, rotations);
+  const clrs = data.clrs;
+  const N = data.N;
+
+  // Find bounds
+  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+  for (let i = 0; i < N; i++) {
+    if (clrs[i][0]<minX) minX=clrs[i][0];
+    if (clrs[i][0]>maxX) maxX=clrs[i][0];
+    if (clrs[i][1]<minY) minY=clrs[i][1];
+    if (clrs[i][1]>maxY) maxY=clrs[i][1];
+  }
+  // Also consider drift axis endpoints
+  const driftEnd = drift * (N-1);
+  if (driftEnd > maxX) maxX = driftEnd;
+  if (0 < minX) minX = 0;
+
+  const pad = 60;
+  const rangeX = (maxX-minX) || 1;
+  const rangeY = (maxY-minY) || 1;
+  const scale = Math.min((W-2*pad)/rangeX, (H-2*pad)/rangeY);
+  const ox = pad + ((W-2*pad) - rangeX*scale)/2;
+  const oy = pad + ((H-2*pad) - rangeY*scale)/2;
+  function tx(v) { return ox + (v-minX)*scale; }
+  function ty(v) { return H - oy - (v-minY)*scale; }
+
+  // Grid
+  ctx.strokeStyle = '#1b3a5c';
+  ctx.lineWidth = 0.5;
+  const gStep = Math.pow(10, Math.floor(Math.log10(rangeX)))/2 || 0.1;
+  for (let v = Math.floor(minX/gStep)*gStep; v <= maxX; v += gStep) {
+    ctx.beginPath(); ctx.moveTo(tx(v), ty(minY)); ctx.lineTo(tx(v), ty(maxY)); ctx.stroke();
+  }
+  for (let v = Math.floor(minY/gStep)*gStep; v <= maxY; v += gStep) {
+    ctx.beginPath(); ctx.moveTo(tx(minX), ty(v)); ctx.lineTo(tx(maxX), ty(v)); ctx.stroke();
+  }
+
+  // Axes labels
+  ctx.fillStyle = '#6c8ebf';
+  ctx.font = '12px monospace';
+  ctx.fillText('c1 (drift axis)', W/2 - 40, H - 8);
+  ctx.save();
+  ctx.translate(14, H/2 + 20);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('c2 (oscillation)', 0, 0);
+  ctx.restore();
+
+  // Drift axis (dashed)
+  if (drift > 0) {
+    ctx.setLineDash([6,4]);
+    ctx.strokeStyle = '#ffffff88';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(tx(0), ty(0));
+    ctx.lineTo(tx(driftEnd), ty(0));
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Oscillation envelope circles
+  if (radius > 0 && drift > 0) {
+    ctx.strokeStyle = '#4169e122';
+    ctx.lineWidth = 1;
+    const envCount = 6;
+    for (let k = 0; k < envCount; k++) {
+      const tt = Math.floor(k * (N-1) / (envCount-1));
+      const cx = drift * tt;
+      ctx.beginPath();
+      ctx.arc(tx(cx), ty(0), radius * scale, 0, 2*Math.PI);
+      ctx.stroke();
+    }
+  }
+
+  // Trajectory
+  for (let i = 1; i < N; i++) {
+    const frac = i / (N-1);
+    ctx.strokeStyle = colorGradient(frac);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(tx(clrs[i-1][0]), ty(clrs[i-1][1]));
+    ctx.lineTo(tx(clrs[i][0]), ty(clrs[i][1]));
+    ctx.stroke();
+  }
+
+  // Points
+  for (let i = 0; i < N; i++) {
+    const frac = i / (N-1);
+    ctx.fillStyle = colorGradient(frac);
+    ctx.beginPath();
+    ctx.arc(tx(clrs[i][0]), ty(clrs[i][1]), 2.5, 0, 2*Math.PI);
+    ctx.fill();
+  }
+
+  // Arrow markers every 10 points
+  for (let i = 10; i < N; i += 10) {
+    const frac = i / (N-1);
+    const dx = clrs[i][0] - clrs[i-1][0];
+    const dy = clrs[i][1] - clrs[i-1][1];
+    const ang = Math.atan2(-dy, dx); // screen coords flipped
+    const px = tx(clrs[i][0]);
+    const py = ty(clrs[i][1]);
+    ctx.fillStyle = colorGradient(frac);
+    ctx.beginPath();
+    ctx.moveTo(px + 7*Math.cos(ang), py - 7*Math.sin(ang));
+    ctx.lineTo(px + 7*Math.cos(ang + 2.5), py - 7*Math.sin(ang + 2.5));
+    ctx.lineTo(px + 7*Math.cos(ang - 2.5), py - 7*Math.sin(ang - 2.5));
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // Start/end labels
+  ctx.fillStyle = '#4169e1';
+  ctx.font = '11px sans-serif';
+  ctx.fillText('START', tx(clrs[0][0]) - 20, ty(clrs[0][1]) - 10);
+  ctx.fillStyle = '#ff4500';
+  ctx.fillText('END', tx(clrs[N-1][0]) - 10, ty(clrs[N-1][1]) - 10);
+
+  return data;
+}
+
+function drawTernary(comps) {
+  const cv = document.getElementById('canvasTernary');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const N = comps.length;
+  // Ternary coordinates: equilateral triangle
+  const pad = 50;
+  const side = Math.min(W - 2*pad, (H - 2*pad) / (Math.sqrt(3)/2));
+  const cx = W/2, baseY = H - pad;
+  // Vertices: A=top, B=bottom-left, C=bottom-right
+  const Ax = cx, Ay = baseY - side * Math.sqrt(3)/2;
+  const Bx = cx - side/2, By = baseY;
+  const Cx = cx + side/2, Cy = baseY;
+
+  function ternXY(p) {
+    // p = [a, b, c] summing to 1
+    const x = Bx * p[1] + Cx * p[2] + Ax * p[0];
+    const y = By * p[1] + Cy * p[2] + Ay * p[0];
+    return [x, y];
+  }
+
+  // Draw triangle
+  ctx.strokeStyle = '#3a5a7c';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(Ax, Ay); ctx.lineTo(Bx, By); ctx.lineTo(Cx, Cy); ctx.closePath();
+  ctx.stroke();
+
+  // Grid lines (0.1 increments)
+  ctx.strokeStyle = '#1b3a5c';
+  ctx.lineWidth = 0.5;
+  for (let k = 1; k <= 9; k++) {
+    const f = k/10;
+    // Lines parallel to each side
+    const p1 = ternXY([f, 1-f, 0]);
+    const p2 = ternXY([f, 0, 1-f]);
+    ctx.beginPath(); ctx.moveTo(p1[0],p1[1]); ctx.lineTo(p2[0],p2[1]); ctx.stroke();
+    const p3 = ternXY([0, f, 1-f]);
+    const p4 = ternXY([1-f, f, 0]);
+    ctx.beginPath(); ctx.moveTo(p3[0],p3[1]); ctx.lineTo(p4[0],p4[1]); ctx.stroke();
+    const p5 = ternXY([0, 1-f, f]);
+    const p6 = ternXY([1-f, 0, f]);
+    ctx.beginPath(); ctx.moveTo(p5[0],p5[1]); ctx.lineTo(p6[0],p6[1]); ctx.stroke();
+  }
+
+  // Labels
+  ctx.fillStyle = '#8ecae6';
+  ctx.font = '14px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('A', Ax, Ay - 12);
+  ctx.fillText('B', Bx - 14, By + 16);
+  ctx.fillText('C', Cx + 14, Cy + 16);
+
+  // Trajectory
+  for (let i = 1; i < N; i++) {
+    const frac = i/(N-1);
+    const [x0,y0] = ternXY(comps[i-1]);
+    const [x1,y1] = ternXY(comps[i]);
+    ctx.strokeStyle = colorGradient(frac);
+    ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x0,y0); ctx.lineTo(x1,y1); ctx.stroke();
+  }
+  for (let i = 0; i < N; i++) {
+    const frac = i/(N-1);
+    const [x,y] = ternXY(comps[i]);
+    ctx.fillStyle = colorGradient(frac);
+    ctx.beginPath(); ctx.arc(x, y, 2.5, 0, 2*Math.PI); ctx.fill();
+  }
+}
+
+function drawVt(vt, drift, radius) {
+  const cv = document.getElementById('canvasVt');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+
+  // Also compute ghost lines: pure line and pure circle
+  const lineData = generate3Helix(0.02, 0, 3);
+  const circData = generate3Helix(0, 0.3, 3);
+  const vtLine = cumulativeVariance(lineData.comps);
+  const vtCirc = cumulativeVariance(circData.comps);
+
+  // Find y range across all
+  let maxV = 0;
+  [vt, vtLine, vtCirc].forEach(v => v.forEach(val => { if (val > maxV) maxV = val; }));
+  if (maxV < 0.01) maxV = 0.1;
+
+  const pad = { l: 60, r: 20, t: 30, b: 40 };
+  const plotW = W - pad.l - pad.r;
+  const plotH = H - pad.t - pad.b;
+  function px(i, len) { return pad.l + (i / (len-1)) * plotW; }
+  function py(v) { return pad.t + plotH - (v / maxV) * plotH; }
+
+  // Grid
+  ctx.strokeStyle = '#1b3a5c';
+  ctx.lineWidth = 0.5;
+  for (let i = 0; i <= 5; i++) {
+    const yy = pad.t + plotH * i / 5;
+    ctx.beginPath(); ctx.moveTo(pad.l, yy); ctx.lineTo(W-pad.r, yy); ctx.stroke();
+    ctx.fillStyle = '#556';
+    ctx.font = '10px monospace';
+    ctx.textAlign = 'right';
+    ctx.fillText((maxV * (5-i)/5).toFixed(2), pad.l - 6, yy + 4);
+  }
+
+  // Axis labels
+  ctx.fillStyle = '#6c8ebf';
+  ctx.font = '12px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('t (observation index)', W/2, H - 6);
+  ctx.save();
+  ctx.translate(14, H/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('V(t)', 0, 0);
+  ctx.restore();
+
+  // Ghost: Line (green dashed)
+  ctx.setLineDash([4,3]);
+  ctx.strokeStyle = '#2ecc7166';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  for (let i = 0; i < vtLine.length; i++) {
+    const x = px(i, vtLine.length), y = py(vtLine[i]);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+
+  // Ghost: Circle (cyan dashed)
+  ctx.strokeStyle = '#00bcd466';
+  ctx.beginPath();
+  for (let i = 0; i < vtCirc.length; i++) {
+    const x = px(i, vtCirc.length), y = py(vtCirc[i]);
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Current V(t) (solid, gradient approximation)
+  if (vt.length > 1) {
+    ctx.strokeStyle = '#e0e0e0';
+    ctx.lineWidth = 2.5;
+    ctx.beginPath();
+    for (let i = 0; i < vt.length; i++) {
+      const x = px(i, vt.length), y = py(vt[i]);
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+    // Color overlay
+    for (let i = 1; i < vt.length; i++) {
+      const frac = i/(vt.length-1);
+      ctx.strokeStyle = colorGradient(frac);
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.moveTo(px(i-1, vt.length), py(vt[i-1]));
+      ctx.lineTo(px(i, vt.length), py(vt[i]));
+      ctx.stroke();
+    }
+  }
+
+  // Legend
+  ctx.font = '11px sans-serif';
+  const lx = pad.l + 10, ly = pad.t + 16;
+  ctx.fillStyle = '#2ecc71'; ctx.fillText('--- Line (pure drift)', lx, ly);
+  ctx.fillStyle = '#00bcd4'; ctx.fillText('--- Circle (pure oscillation)', lx, ly+16);
+  ctx.fillStyle = '#e0e0e0'; ctx.fillText('--- Helix (current)', lx, ly+32);
+}
+
+function drawHeatmap() {
+  const cv = document.getElementById('canvasHeat');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+
+  const steps = 12;
+  const pad = { l: 50, r: 20, t: 20, b: 50 };
+  const cellW = (W - pad.l - pad.r) / steps;
+  const cellH = (H - pad.t - pad.b) / steps;
+
+  const driftVals = [];
+  const radiusVals = [];
+  for (let i = 0; i < steps; i++) {
+    driftVals.push(i * 0.05 / (steps-1));
+    radiusVals.push(i * 0.6 / (steps-1));
+  }
+
+  for (let di = 0; di < steps; di++) {
+    for (let ri = 0; ri < steps; ri++) {
+      const d = driftVals[di];
+      const r = radiusVals[ri];
+      let eff = 0;
+      if (d < 0.0001 && r < 0.001) {
+        eff = 0; // point
+      } else {
+        const data = generate3Helix(d, r, 3);
+        eff = pathEfficiency(data.comps);
+      }
+      // Color: high eff = red, low = blue
+      const cr = Math.round(65 + eff * 190);
+      const cg = Math.round(40 + (1-eff) * 60);
+      const cb = Math.round(225 - eff * 220);
+      ctx.fillStyle = `rgb(${cr},${cg},${cb})`;
+      ctx.fillRect(pad.l + di*cellW, pad.t + (steps-1-ri)*cellH, cellW-1, cellH-1);
+    }
+  }
+
+  // Axes
+  ctx.fillStyle = '#6c8ebf';
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'center';
+  for (let i = 0; i < steps; i += 2) {
+    ctx.fillText(driftVals[i].toFixed(3), pad.l + i*cellW + cellW/2, H - pad.b + 16);
+    ctx.textAlign = 'right';
+    ctx.fillText(radiusVals[i].toFixed(2), pad.l - 4, pad.t + (steps-1-i)*cellH + cellH/2 + 4);
+    ctx.textAlign = 'center';
+  }
+  ctx.fillStyle = '#8ecae6';
+  ctx.font = '12px sans-serif';
+  ctx.fillText('drift rate', W/2, H - 6);
+  ctx.save();
+  ctx.translate(12, H/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('radius', 0, 0);
+  ctx.restore();
+
+  // Legend bar
+  const lcv = document.getElementById('canvasHeatLegend');
+  const lctx = lcv.getContext('2d');
+  lctx.clearRect(0, 0, 30, 200);
+  for (let y = 0; y < 200; y++) {
+    const f = 1 - y/199;
+    const cr = Math.round(65 + f * 190);
+    const cg = Math.round(40 + (1-f) * 60);
+    const cb = Math.round(225 - f * 220);
+    lctx.fillStyle = `rgb(${cr},${cg},${cb})`;
+    lctx.fillRect(0, y, 20, 1);
+  }
+  lctx.fillStyle = '#999';
+  lctx.font = '10px monospace';
+  lctx.fillText('1.0', 0, -2 + 10);
+  lctx.fillText('0.0', 0, 200);
+}
+
+function draw4Part() {
+  const data = generate4Helix();
+  const cv = document.getElementById('canvas4CLR');
+  const ctx = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  ctx.clearRect(0, 0, W, H);
+  const clrs = data.clrs;
+  const N = data.N;
+
+  // Plot c1 vs c2 projection
+  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+  for (let i = 0; i < N; i++) {
+    if (clrs[i][0]<minX) minX=clrs[i][0];
+    if (clrs[i][0]>maxX) maxX=clrs[i][0];
+    if (clrs[i][1]<minY) minY=clrs[i][1];
+    if (clrs[i][1]>maxY) maxY=clrs[i][1];
+  }
+  const pad = 50;
+  const rangeX = (maxX-minX)||1, rangeY = (maxY-minY)||1;
+  const scale = Math.min((W-2*pad)/rangeX, (H-2*pad)/rangeY);
+  const ox = pad + ((W-2*pad)-rangeX*scale)/2;
+  const oy = pad + ((H-2*pad)-rangeY*scale)/2;
+  function tx(v) { return ox + (v-minX)*scale; }
+  function ty(v) { return H - oy - (v-minY)*scale; }
+
+  // Grid
+  ctx.strokeStyle = '#1b3a5c';
+  ctx.lineWidth = 0.5;
+  const gStep = 0.1;
+  for (let v = Math.floor(minX/gStep)*gStep; v <= maxX; v += gStep) {
+    ctx.beginPath(); ctx.moveTo(tx(v), ty(minY)); ctx.lineTo(tx(v), ty(maxY)); ctx.stroke();
+  }
+  for (let v = Math.floor(minY/gStep)*gStep; v <= maxY; v += gStep) {
+    ctx.beginPath(); ctx.moveTo(tx(minX), ty(v)); ctx.lineTo(tx(maxX), ty(v)); ctx.stroke();
+  }
+
+  ctx.fillStyle = '#6c8ebf';
+  ctx.font = '12px monospace';
+  ctx.fillText('c1', W/2, H - 8);
+  ctx.save();
+  ctx.translate(14, H/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.fillText('c2', 0, 0);
+  ctx.restore();
+
+  // Trajectory
+  for (let i = 1; i < N; i++) {
+    const frac = i/(N-1);
+    ctx.strokeStyle = colorGradient(frac);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(tx(clrs[i-1][0]), ty(clrs[i-1][1]));
+    ctx.lineTo(tx(clrs[i][0]), ty(clrs[i][1]));
+    ctx.stroke();
+  }
+  for (let i = 0; i < N; i++) {
+    const frac = i/(N-1);
+    ctx.fillStyle = colorGradient(frac);
+    ctx.beginPath();
+    ctx.arc(tx(clrs[i][0]), ty(clrs[i][1]), 2.5, 0, 2*Math.PI);
+    ctx.fill();
+  }
+  ctx.fillStyle = '#4169e1'; ctx.font = '11px sans-serif';
+  ctx.fillText('START', tx(clrs[0][0])-20, ty(clrs[0][1])-10);
+  ctx.fillStyle = '#ff4500';
+  ctx.fillText('END', tx(clrs[N-1][0])-10, ty(clrs[N-1][1])-10);
+
+  // Pipeline diagnostics
+  const p = runPipeline(data.comps);
+  document.getElementById('d4Sigma').textContent = p.sigma.toFixed(3);
+  document.getElementById('d4Shape').textContent = p.shapeInfo.shape;
+  document.getElementById('d4Eff').textContent = p.eff.toFixed(3);
+  document.getElementById('d4Locks').textContent = p.locks;
+  document.getElementById('d4Shannon').textContent = p.shannonMean.toFixed(3);
+  document.getElementById('d4Aitch').textContent = p.aitchMean.toFixed(3);
+}
+
+// ========== UPDATE ALL ==========
+
+function updateAll() {
+  const drift = parseFloat(document.getElementById('sliderDrift').value);
+  const radius = parseFloat(document.getElementById('sliderRadius').value);
+  const rotations = parseInt(document.getElementById('sliderRot').value);
+  document.getElementById('valDrift').textContent = drift.toFixed(3);
+  document.getElementById('valRadius').textContent = radius.toFixed(2);
+  document.getElementById('valRot').textContent = rotations;
+
+  const data = generate3Helix(drift, radius, rotations);
+  drawCLR(drift, radius, rotations);
+  drawTernary(data.comps);
+
+  const p = runPipeline(data.comps);
+
+  // Section 4: diagnostics
+  document.getElementById('dSigma').textContent = p.sigma.toFixed(3);
+  document.getElementById('dSigmaI').textContent = p.sigma < 0.001 ? 'Near zero - stationary' : p.sigma < 0.3 ? 'Low variance' : p.sigma < 1.0 ? 'Moderate variance' : 'High variance';
+  document.getElementById('dShape').textContent = p.shapeInfo.shape;
+  document.getElementById('dShapeI').textContent = p.shapeInfo.shape === 'CONVEX' ? 'Drift-dominated (accelerating)' : p.shapeInfo.shape === 'CONCAVE' ? 'Oscillation-dominated (decelerating)' : p.shapeInfo.shape === 'LINEAR' ? 'Balanced drift/oscillation' : 'No significant trend';
+  document.getElementById('dR2').textContent = p.shapeInfo.r2.toFixed(4);
+  document.getElementById('dR2I').textContent = p.shapeInfo.r2 > 0.95 ? 'Excellent quadratic fit' : p.shapeInfo.r2 > 0.8 ? 'Good fit' : 'Weak fit - complex V(t) shape';
+  document.getElementById('dEff').textContent = p.eff.toFixed(3);
+  document.getElementById('dEffI').textContent = p.eff > 0.8 ? 'Line-like (high directionality)' : p.eff > 0.3 ? 'Moderate (helix-like)' : p.eff > 0.05 ? 'Low (oscillation-dominated)' : 'Near-zero (circle-like)';
+  document.getElementById('dLocks').textContent = p.locks;
+  document.getElementById('dLocksI').textContent = p.locks > 0 ? p.locks + ' locked component(s)' : 'No locked components';
+  document.getElementById('dShannon').textContent = p.shannonMean.toFixed(3);
+  document.getElementById('dShannonI').textContent = 'Mean information content';
+  document.getElementById('dAitch').textContent = p.aitchMean.toFixed(3);
+  document.getElementById('dAitchI').textContent = 'Mean distance from centroid';
+
+  // Section 5: V(t)
+  drawVt(p.vt, drift, radius);
+
+  // Section 6: comparison table live row
+  document.getElementById('cSigma').innerHTML = '<b>' + p.sigma.toFixed(3) + '</b>';
+  document.getElementById('cShape').innerHTML = '<b>' + p.shapeInfo.shape + '</b>';
+  document.getElementById('cEff').innerHTML = '<b>' + p.eff.toFixed(3) + '</b>';
+  document.getElementById('cLocks').innerHTML = '<b>' + p.locks + '</b>';
+  document.getElementById('cDiag').innerHTML = '<b>' + p.diagnosis + '</b>';
+}
+
+// ========== INIT ==========
+
+document.getElementById('sliderDrift').addEventListener('input', updateAll);
+document.getElementById('sliderRadius').addEventListener('input', updateAll);
+document.getElementById('sliderRot').addEventListener('input', updateAll);
+
+updateAll();
+drawHeatmap();
+draw4Part();
+
+</script>
+</body>
+</html>

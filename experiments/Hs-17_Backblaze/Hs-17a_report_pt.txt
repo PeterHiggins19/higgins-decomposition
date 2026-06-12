@@ -1,0 +1,46 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17a
+  System:      Backblaze Per-Drive
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=5000, D=4
+  Source:      REAL
+  Description: Backblaze Drive Stats 2024-07-27, per-drive SMART decomposition
+  Pipeline:    1.0 Extended
+  Data hash:   058fde30806a8e6b
+  Timestamp:   2026-04-25T06:45:53.435331Z
+
+
+Total de códigos: 40
+  Erros:       0
+  Avisos:     3
+  Descobertas: 12
+  Sinais de calibração: 1
+  Informação:  24
+
+── AVISOS ──
+  [S7-LRQ-WRN] HVLD R² < 0.5 — ajuste fraco. Trajetória pode ser não polinomial.
+  [S8-FLG-WRN] S8-FLG-WRN
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (5256)
+  [S9-STL-DIS] S9-STL-DIS (675)
+  [S9-SPK-DIS] S9-SPK-DIS (28)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (4553)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=Errors, pct=60.929022)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=Age->Thermal, te=0.004599)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Mechanical/Errors), cv=105.857380)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Thermal/Age), cv=136.884753)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Thermal/Errors), cv=186.883040)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(Age/Errors), cv=171.610172)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=4827, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

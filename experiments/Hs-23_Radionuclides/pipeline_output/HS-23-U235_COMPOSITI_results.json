@@ -1,0 +1,284 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "HS-23-U235_COMPOSITI",
+  "name": "U-235 Decay Chain",
+  "domain": "NUCLEAR",
+  "carriers": [
+    "Particle_KE",
+    "Gamma",
+    "Recoil",
+    "Neutrino"
+  ],
+  "D": 4,
+  "N": 15,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from Hs-23-U235_compositions.csv"
+  },
+  "data_hash_sha256_16": "e6bf5c61cf0fe207",
+  "run_timestamp": "2026-04-30T21:13:52.156314Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "HS-23-U235_COMPOSITI: U-235 Decay Chain: 4-part simplex, carriers=['Particle_KE', 'Gamma', 'Recoil', 'Neutrino']",
+    "step2_n_samples": 15,
+    "step2_D": 4,
+    "step2_carriers": [
+      "Particle_KE",
+      "Gamma",
+      "Recoil",
+      "Neutrino"
+    ],
+    "data_hash_sha256_16": "e6bf5c61cf0fe207",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      4.329905496438277,
+      0.7175169250281582,
+      -1.3469351132686525,
+      -3.700487308197784
+    ],
+    "step4_clr_std_per_part": [
+      2.036050830696428,
+      1.8673353589989548,
+      3.9315799716651285,
+      5.3664732587309665
+    ],
+    "step5_sigma2_range": [
+      31.07508018535479,
+      52.337606166888584
+    ],
+    "step5_sigma2_final": 51.88880063842031,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.8755871336523523,
+      "eigenvalues_final": [
+        48.678392378199405,
+        4.972283619599938,
+        1.9444675433652456,
+        -3.501162578652547e-15
+      ],
+      "eigenvector_overlap": 0.9783307539051775,
+      "condition_number": 25.034304400860723,
+      "von_neumann_entropy": 0.4495288269112422,
+      "von_neumann_ratio": 0.32426650466074114,
+      "commutator_norm": 0.2700889665062894,
+      "det_V": 2.090080625474105e-13,
+      "det_amgm_ratio": 5.600871144864284e-18,
+      "cholesky_last_diag": 1.9992005623875167e-06,
+      "eigenvalue_power_law_alpha": -0.04788762459908275,
+      "eigenvalue_power_law_R2": 0.10241631714579125,
+      "eigenvalue_ratio_matches": 2,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb3/\u03bb1",
+        "value": 0.03994518817010224,
+        "constant": "1/(e^pi)",
+        "delta": 0.0032687300936700206
+      },
+      "gamma": 0.35272208089039125,
+      "VSWR": 2.089862856361896,
+      "Q_factor": 6.110199836850573,
+      "trace_final": 55.5951435411646,
+      "n_slices": 5
+    },
+    "step6_pll_coeffs": [
+      0.22412660486012223,
+      -1.9583148022220669,
+      38.768904769910975
+    ],
+    "step6_pll_R2": 0.8271487151954459,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      4.368769168310594,
+      34.491192105013965
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 0,
+    "step7_squeeze_closest": null,
+    "step7_squeeze_mean": 40.584261531223994,
+    "step7_cancellation": false,
+    "step8_entropy_range": [
+      0.06708727016778515,
+      0.7673072370720524
+    ],
+    "step8_entropy_mean": 0.32597642265027016,
+    "step8_entropy_cv": 81.11147559799768,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.34435100053879386,
+        "H_mean_decimated": 0.29473548100696373,
+        "variation_pct": 14.408414511413783,
+        "pass": false
+      },
+      "compression_4x": {
+        "H_mean_original": 0.3003952839006504,
+        "H_mean_decimated": 0.17517267045086335,
+        "variation_pct": 41.685945206517246,
+        "pass": false
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 12,
+      "stalls": 2,
+      "spikes": 0,
+      "reversals": 10
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.18201644730267283,
+      0.5198181710308155
+    ],
+    "step11_complex_range_im": [
+      -0.008992894094108242,
+      0.007425840903958918
+    ],
+    "step12_radius_range": [
+      0.061521119460960776,
+      0.5198859264571483
+    ],
+    "step12_theta_range": [
+      -3.1272800550970574,
+      3.1240486695238454
+    ],
+    "step9_angular_velocity_std": 2.3041355473788374
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          4.145502985179615,
+          3.4869413429677554,
+          15.457321073598374,
+          28.79903523667456
+        ],
+        "carrier_pct": [
+          7.98920563623538,
+          6.720026865269074,
+          29.789320399425893,
+          55.501447099069644
+        ],
+        "dominant_carrier": "Neutrino",
+        "dominant_pct": 55.501447099069644
+      },
+      "match_density": {
+        "density": 0.0,
+        "concentration": 0.0,
+        "total_matches": 0,
+        "n_constants_hit": 0,
+        "dominant_constant": null,
+        "trajectory_length": 41.1406891777722
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            10.381415853712326,
+            8.242622394520684,
+            49.84677433090577
+          ],
+          [
+            10.381415853712326,
+            0.0,
+            21.84622272032966,
+            33.60892743624935
+          ],
+          [
+            8.242622394520684,
+            21.84622272032966,
+            0.0,
+            83.62923981796348
+          ],
+          [
+            49.846774330905774,
+            33.60892743624935,
+            83.62923981796348,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          4.329905496438277,
+          0.7175169250281582,
+          -1.3469351132686525,
+          -3.700487308197784
+        ],
+        "clr_stds": [
+          2.036050830696428,
+          1.8673353589989548,
+          3.9315799716651285,
+          5.3664732587309665
+        ],
+        "aitchison_distance_mean": 8.721330964967793
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 1.978419023533956,
+        "drift_direction": "increasing",
+        "max_shift_carrier": "Particle_KE",
+        "max_shift_magnitude": 0.1261287989669303
+      },
+      "claim_status": {
+        "htp_classification": "INVESTIGATE",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.8271487151954459,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "Recoil",
+        "sources": [
+          "Particle_KE",
+          "Gamma"
+        ],
+        "I_source1_target": 1.6792043316027065,
+        "I_source2_target": 1.459481873869085,
+        "redundancy": 1.459481873869085,
+        "unique_source1": 0.21972245773362165,
+        "unique_source2": 0.0,
+        "dominant": "redundancy"
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(Particle_KE/Gamma)": {
+            "mean": 3.6123885714101203,
+            "std": 3.222020461404975,
+            "cv": 89.1936290272128
+          },
+          "ln(Particle_KE/Recoil)": {
+            "mean": 5.67684060970693,
+            "std": 2.870996759754473,
+            "cv": 50.57384832762972
+          },
+          "ln(Particle_KE/Neutrino)": {
+            "mean": 8.030392804636062,
+            "std": 7.060224807391459,
+            "cv": 87.91879773696112
+          },
+          "ln(Gamma/Recoil)": {
+            "mean": 2.0644520382968103,
+            "std": 4.673994300416899,
+            "cv": 226.40362738932808
+          },
+          "ln(Gamma/Neutrino)": {
+            "mean": 4.418004233225942,
+            "std": 5.797320711867625,
+            "cv": 131.22035212796825
+          },
+          "ln(Recoil/Neutrino)": {
+            "mean": 2.353552194929132,
+            "std": 9.144902395212508,
+            "cv": 388.5574500924918
+          }
+        },
+        "most_stable": "ln(Particle_KE/Recoil)",
+        "least_stable": "ln(Recoil/Neutrino)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "ratio_pair_lattice"
+    ]
+  }
+}

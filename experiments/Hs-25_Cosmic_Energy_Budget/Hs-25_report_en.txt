@@ -1,0 +1,51 @@
+Hˢ DIAGNOSTIC REPORT
+============================================================
+
+  Experiment:  Hs-25
+  System:      Cosmic Energy Budget (Planck 2018 ΛCDM)
+  Domain:      COSMOLOGY
+  Carriers:    Dark_Energy, Cold_Dark_Matter, Baryonic_Matter, Photon_Radiation, Neutrinos
+  N=103, D=5
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   347562a550f1a1df
+  Timestamp:   2026-04-27T13:47:24.434798Z
+
+
+Total codes: 48
+  Errors:       0
+  Warnings:     0
+  Discoveries: 14
+  Calibration signals: 2
+  Structural modes:  5
+  Information:  27
+
+── DISCOVERIES ──
+  [S8-EUL-DIS] Euler-family constant detected. Pipeline geometry resonates with system structure. (constant=1/(e^pi), delta=0.000042)
+  [S8-TGT-DIS] Precision match: δ < 0.001 — structural resonance at high precision. (constant=1/(e^pi), delta=0.000042)
+  [S9-STL-DIS] Stalls detected — entropy rate dropped below threshold. (6)
+  [S9-REV-DIS] Reversals detected — rapid compositional oscillation. (1)
+  [XU-PCD-DIS] Carrier dominance: one carrier contributes >60% of variance. (carrier=Dark_Energy, pct=72.592593)
+  [XU-DRU-DIS] Drift increasing — system is evolving. (variance_ratio_2nd_to_1st=49.336464, drift_direction=increasing, max_shift_carrier=Dark_Energy)
+  [XC-PIR-DIS] PID: carriers share redundant information — coupled dynamics.
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Cold_Dark_Matter), cv=131.018751)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Baryonic_Matter), cv=194.280000)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Photon_Radiation), cv=687.731958)
+  [XC-RPV-DIS] Volatile pairwise ratio — these carriers are independent. (pair=ln(Dark_Energy/Neutrinos), cv=528.410236)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Cold_Dark_Matter/Baryonic_Matter), cv=0.000000)
+  [XC-RPS-DIS] Stable pairwise ratio — these carriers are compositionally locked. (pair=ln(Photon_Radiation/Neutrinos), cv=0.000000)
+  [XC-ZCR-DIS] Zero-crossing events — compositions approaching simplex boundary. (n_near_zero_events=103, near_zero_carriers=['Dark_Energy', 'Photon_Radiation', 'Neutrinos'], zero_threshold=0.010000)
+
+── CALIBRATION SIGNALS ──
+  [XU-MDS-CAL] Match density below natural baseline.
+  [XC-TEZ-CAL] Transfer entropy is zero — system is compositionally memoryless.
+
+── STRUCTURAL MODES — INVESTIGATION PROMPTS ──
+  [SM-OVC-CAL] Overconstrained — near-perfect fit. Verify this is measured data, not model output.
+  [SM-RTR-DIS] Regime transition detected. Stall points mark boundaries. Consider splitting data at the transition.
+  [SM-DMR-DIS] Domain resonance — Euler-family geometry encodes deep structure. Compare with other decompositions in this domain.
+  [SM-CPL-DIS] Carrier coupling — carriers share a common physical driver. The stable ratio encodes a constraint.
+  [SM-SCG-INF] Smooth convergence — single population evolving continuously. Expected mode for well-sampled natural systems.
+
+Pipeline run completed successfully.
+Pipeline is deterministic. Repeated runs produce identical results.

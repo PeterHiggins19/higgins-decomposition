@@ -1,0 +1,51 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-25
+  System:      Cosmic Energy Budget (Planck 2018 ΛCDM)
+  Domain:      COSMOLOGY
+  Carriers:    Dark_Energy, Cold_Dark_Matter, Baryonic_Matter, Photon_Radiation, Neutrinos
+  N=103, D=5
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   347562a550f1a1df
+  Timestamp:   2026-04-27T13:47:24.434798Z
+
+
+Codici totali: 48
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 14
+  Segnali di calibrazione: 2
+  Modi strutturali:  5
+  Informazioni:  27
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.000042)
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(e^pi), delta=0.000042)
+  [S9-STL-DIS] S9-STL-DIS (6)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (1)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Dark_Energy, pct=72.592593)
+  [XU-DRU-DIS] Deriva in aumento — il sistema sta evolvendo. (variance_ratio_2nd_to_1st=49.336464, drift_direction=increasing, max_shift_carrier=Dark_Energy)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Dark_Energy/Cold_Dark_Matter), cv=131.018751)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Dark_Energy/Baryonic_Matter), cv=194.280000)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Dark_Energy/Photon_Radiation), cv=687.731958)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Dark_Energy/Neutrinos), cv=528.410236)
+  [XC-RPS-DIS] Rapporto a coppie stabile — questi portanti sono composizionalmente bloccati. (pair=ln(Cold_Dark_Matter/Baryonic_Matter), cv=0.000000)
+  [XC-RPS-DIS] Rapporto a coppie stabile — questi portanti sono composizionalmente bloccati. (pair=ln(Photon_Radiation/Neutrinos), cv=0.000000)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=103, near_zero_carriers=['Dark_Energy', 'Photon_Radiation', 'Neutrinos'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+  [XC-TEZ-CAL] Entropia di trasferimento è zero — sistema composizionalmente senza memoria.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-OVC-CAL] Sovravincolato — adattamento quasi perfetto. Verificare che si tratti di dati misurati, non di output di modello.
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+  [SM-DMR-DIS] Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.
+  [SM-CPL-DIS] Accoppiamento dei portanti — i portanti condividono uno stesso motore fisico. Il rapporto stabile codifica un vincolo.
+  [SM-SCG-INF] Convergenza regolare — popolazione singola in evoluzione continua. Modalità attesa per sistemi naturali ben campionati.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

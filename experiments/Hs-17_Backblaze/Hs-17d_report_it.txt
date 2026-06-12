@@ -1,0 +1,40 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-17d
+  System:      Backblaze Fail-Contrast
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age
+  N=126, D=3
+  Source:      REAL
+  Pipeline:    1.0 Extended
+  Data hash:   d19986ad474d096b
+  Timestamp:   2026-04-25T06:45:54.064854Z
+
+
+Codici totali: 39
+  Errori:       0
+  Avvisi:     0
+  Scoperte: 12
+  Segnali di calibrazione: 1
+  Informazioni:  26
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.000020)
+  [S8-TGT-DIS] Corrispondenza di precisione: δ < 0,001 — risonanza strutturale ad alta precisione. (constant=1/(e^pi), delta=0.000020)
+  [S9-CHH-DIS] Caos elevato: turbolenza composizionale rilevata. (127)
+  [S9-STL-DIS] S9-STL-DIS (10)
+  [S9-SPK-DIS] S9-SPK-DIS (2)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (115)
+  [XU-PCD-DIS] Dominanza del portante: un portante contribuisce >60% della varianza totale. (carrier=Mechanical, pct=66.080230)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.701713, drift_direction=decreasing, max_shift_carrier=Age)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-TEF-DIS] Flusso informativo direzionale dominante identificato tra i portanti. (flow=Age->Mechanical, te=0.044653)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Thermal/Age), cv=149.657486)
+  [XC-ZCR-DIS] Eventi di attraversamento zero — composizioni che si avvicinano al confine del simplesso. (n_near_zero_events=115, near_zero_carriers=['Mechanical', 'Thermal', 'Age'], zero_threshold=0.010000)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

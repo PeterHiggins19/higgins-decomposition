@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+<style>
+  text { font-family: Arial, sans-serif; }
+  .title { font-size: 14px; font-weight: bold; fill: #1A1A2E; }
+  .subtitle { font-size: 11px; fill: #555; }
+  .label { font-size: 9px; fill: #333; }
+  .axis-label { font-size: 10px; fill: #666; }
+  .ring-label { font-size: 8px; font-style: italic; }
+  .value { font-size: 8px; fill: #444; font-family: Consolas, monospace; }
+  .carrier-label { font-size: 8px; }
+</style>
+<rect width="400" height="300" fill="white"/>
+<text x="200.0" y="18" class="title" text-anchor="middle">2011 — CLR Profile</text>
+<text x="200.0" y="34" class="subtitle" text-anchor="middle">H_s=0.231 Hs-2 | Anisotropy=85.2:1</text>
+<line x1="70" y1="147.5" x2="380" y2="147.5" stroke="#E53935" stroke-width="1" stroke-dasharray="4,2"/>
+<rect x="76.45833333333333" y="147.5" width="25.833333333333332" height="33.517978766299315" fill="#E64A19" opacity="0.8"/>
+<text x="89.375" y="265" class="value" text-anchor="middle" transform="rotate(-45,89.375,265)">Bioe</text>
+<text x="89.375" y="191.0179787662993" class="value" text-anchor="middle">-1.00</text>
+<rect x="115.20833333333333" y="94.1198556361768" width="25.833333333333332" height="53.3801443638232" fill="#424242" opacity="0.8"/>
+<text x="128.125" y="265" class="value" text-anchor="middle" transform="rotate(-45,128.125,265)">Coal</text>
+<text x="128.125" y="89.1198556361768" class="value" text-anchor="middle">+1.60</text>
+<rect x="153.95833333333334" y="84.5390169469869" width="25.833333333333332" height="62.960983053013095" fill="#1565C0" opacity="0.8"/>
+<text x="166.875" y="265" class="value" text-anchor="middle" transform="rotate(-45,166.875,265)">Gas</text>
+<text x="166.875" y="79.5390169469869" class="value" text-anchor="middle">+1.89</text>
+<rect x="192.70833333333334" y="135.51792965841207" width="25.833333333333332" height="11.982070341587935" fill="#0097A7" opacity="0.8"/>
+<text x="205.625" y="265" class="value" text-anchor="middle" transform="rotate(-45,205.625,265)">Hydr</text>
+<text x="205.625" y="130.51792965841207" class="value" text-anchor="middle">+0.36</text>
+<rect x="231.45833333333334" y="112.79533069234873" width="25.833333333333332" height="34.704669307651265" fill="#7B1FA2" opacity="0.8"/>
+<text x="244.375" y="265" class="value" text-anchor="middle" transform="rotate(-45,244.375,265)">Nucl</text>
+<text x="244.375" y="107.79533069234873" class="value" text-anchor="middle">+1.04</text>
+<rect x="270.2083333333333" y="112.80762682154696" width="25.833333333333332" height="34.692373178453046" fill="#795548" opacity="0.8"/>
+<text x="283.125" y="265" class="value" text-anchor="middle" transform="rotate(-45,283.125,265)">Othe</text>
+<text x="283.125" y="107.80762682154696" class="value" text-anchor="middle">+1.04</text>
+<rect x="308.9583333333333" y="147.5" width="25.833333333333332" height="78.78559481156258" fill="#F9A825" opacity="0.8"/>
+<text x="321.875" y="265" class="value" text-anchor="middle" transform="rotate(-45,321.875,265)">Sola</text>
+<text x="321.875" y="236.2855948115626" class="value" text-anchor="middle">-2.36</text>
+<rect x="347.7083333333333" y="147.5" width="25.833333333333332" height="85.41666666666667" fill="#2E7D32" opacity="0.8"/>
+<text x="360.625" y="265" class="value" text-anchor="middle" transform="rotate(-45,360.625,265)">Wind</text>
+<text x="360.625" y="242.91666666666669" class="value" text-anchor="middle">-2.56</text>
+</svg>

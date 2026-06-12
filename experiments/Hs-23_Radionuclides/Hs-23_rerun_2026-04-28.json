@@ -1,0 +1,287 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-23",
+    "name": "Radionuclides Decay Chain",
+    "domain": "NUCLEAR",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "U-238 chain (simulated)",
+    "data_hash": "ba02d75a9249e36e",
+    "N": 80,
+    "D": 3,
+    "carriers": [
+      "Parent",
+      "Intermediate",
+      "Stable"
+    ],
+    "elapsed_seconds": 0.0114,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-23",
+    "name": "Radionuclides Decay Chain",
+    "domain": "NUCLEAR",
+    "carriers": [
+      "Parent",
+      "Intermediate",
+      "Stable"
+    ],
+    "D": 3,
+    "N": 80,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "ba02d75a9249e36e",
+    "run_timestamp": "2026-04-28T21:19:28.432619Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-23: Radionuclides Decay Chain: 3-part simplex, carriers=['Parent', 'Intermediate', 'Stable']",
+      "step2_n_samples": 80,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Parent",
+        "Intermediate",
+        "Stable"
+      ],
+      "data_hash_sha256_16": "ba02d75a9249e36e",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        -0.8184875424703592,
+        -0.1034953458883118,
+        0.9219828883586711
+      ],
+      "step4_clr_std_per_part": [
+        1.2601968959345538,
+        0.28351925705619,
+        1.0645129862477918
+      ],
+      "step5_sigma2_range": [
+        1.7293920427808376,
+        2.80166728353497
+      ],
+      "step5_sigma2_final": 2.80166728353497,
+      "step6_pll_coeffs": [
+        0.00038692507633467685,
+        -0.020026870067251935,
+        2.0637206853063454
+      ],
+      "step6_pll_R2": 0.9551686992168982,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        25.879519436896594,
+        1.804577798723521
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 80,
+      "step7_squeeze_closest": {
+        "time_index": 23,
+        "sigma2_A": 1.7329921823672285,
+        "constant": "euler_gamma",
+        "constant_value": 0.5772156649015329,
+        "test_type": "reciprocal",
+        "test_value": 0.5770366480442066,
+        "delta": 0.00017901685732624184
+      },
+      "step7_squeeze_mean": 2.0834250739859157,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.014368979406190797,
+        0.9984357539952382
+      ],
+      "step8_entropy_mean": 0.6518158364257225,
+      "step8_entropy_cv": 38.34997875292092,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.6518158364257225,
+          "H_mean_decimated": 0.6501623365162013,
+          "variation_pct": 0.25367593377115855,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.6518158364257225,
+          "H_mean_decimated": 0.6465704283466055,
+          "variation_pct": 0.8047377473797749,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.6518158364257225,
+          "H_mean_decimated": 0.6423713407302396,
+          "variation_pct": 1.4489515546710925,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 1,
+        "stalls": 1,
+        "spikes": 0,
+        "reversals": 0
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.4951273094515088,
+        0.0804162043147259
+      ],
+      "step11_complex_range_im": [
+        -0.520264389539599,
+        0.2760594042337271
+      ],
+      "step12_radius_range": [
+        0.07557236229734315,
+        0.7182103365920751
+      ],
+      "step12_theta_range": [
+        -2.331443503143238,
+        1.439764644490738
+      ],
+      "step9_angular_velocity_std": 0.04238197339280883
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            1.5880962165230843,
+            0.08038316912169395,
+            1.1331878978901915
+          ],
+          "carrier_pct": [
+            56.68396907284876,
+            2.8691190275910086,
+            40.44691189956023
+          ],
+          "dominant_carrier": "Parent",
+          "dominant_pct": 56.68396907284876
+        },
+        "match_density": {
+          "density": 50.41969121431638,
+          "concentration": 0.12968749999999998,
+          "total_matches": 80,
+          "n_constants_hit": 13,
+          "dominant_constant": "omega_lambert",
+          "trajectory_length": 1.586681672839846
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              2.203770873399364,
+              5.3621850597048555
+            ],
+            [
+              2.203770873399364,
+              0.0,
+              0.8390459175006871
+            ],
+            [
+              5.362185059704856,
+              0.8390459175006869,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            -0.8184875424703592,
+            -0.1034953458883118,
+            0.9219828883586711
+          ],
+          "clr_stds": [
+            1.2601968959345538,
+            0.28351925705619,
+            1.0645129862477918
+          ],
+          "aitchison_distance_mean": 1.84839773101837
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.17528508679890037,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Stable",
+          "max_shift_magnitude": 0.45186783415248244
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.9551686992168982,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Stable",
+          "sources": [
+            "Parent",
+            "Intermediate"
+          ],
+          "I_source1_target": 2.0570693952261134,
+          "I_source2_target": 0.7079183222968437,
+          "redundancy": 0.7079183222968437,
+          "unique_source1": 1.3491510729292697,
+          "unique_source2": 0.0,
+          "dominant": "unique"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Parent->Intermediate": 0.28442144174554884,
+            "Parent->Stable": 0.0,
+            "Intermediate->Parent": 0.0,
+            "Intermediate->Stable": 0.0,
+            "Stable->Parent": 0.3819097476041873,
+            "Stable->Intermediate": 0.31448053226467554
+          },
+          "dominant_flow": "Stable->Parent",
+          "dominant_te": 0.3819097476041873
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 2.80166728353497,
+          "shuffled_sigma2": 2.80166728353497,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "zero_crossing": {
+          "n_near_zero_events": 8,
+          "near_zero_carriers": [
+            "Parent",
+            "Intermediate",
+            "Stable"
+          ],
+          "zero_threshold": 0.01
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Parent/Intermediate)": {
+              "mean": -0.7149921965820472,
+              "std": 1.4845103143459004,
+              "cv": 207.62608619261331
+            },
+            "ln(Parent/Stable)": {
+              "mean": -1.74047043082903,
+              "std": 2.3156392334957654,
+              "cv": 133.0467437124323
+            },
+            "ln(Intermediate/Stable)": {
+              "mean": -1.0254782342469828,
+              "std": 0.9159944964358068,
+              "cv": 89.32364099452867
+            }
+          },
+          "most_stable": "ln(Intermediate/Stable)",
+          "least_stable": "ln(Parent/Intermediate)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "zero_crossing_detector",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

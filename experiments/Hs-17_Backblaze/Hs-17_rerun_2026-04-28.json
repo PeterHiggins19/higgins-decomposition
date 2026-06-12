@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-17",
+    "name": "BackBlaze Hard Drive Failure",
+    "domain": "ENGINEERING",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "BackBlaze (simulated)",
+    "data_hash": "7c9ddbeb58b43990",
+    "N": 100,
+    "D": 3,
+    "carriers": [
+      "Mechanical",
+      "Electronic",
+      "Firmware"
+    ],
+    "elapsed_seconds": 0.0151,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-17",
+    "name": "BackBlaze Hard Drive Failure",
+    "domain": "ENGINEERING",
+    "carriers": [
+      "Mechanical",
+      "Electronic",
+      "Firmware"
+    ],
+    "D": 3,
+    "N": 100,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "7c9ddbeb58b43990",
+    "run_timestamp": "2026-04-28T21:19:28.358410Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-17: BackBlaze Hard Drive Failure: 3-part simplex, carriers=['Mechanical', 'Electronic', 'Firmware']",
+      "step2_n_samples": 100,
+      "step2_D": 3,
+      "step2_carriers": [
+        "Mechanical",
+        "Electronic",
+        "Firmware"
+      ],
+      "data_hash_sha256_16": "7c9ddbeb58b43990",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.35582296873877617,
+        0.07132356919633798,
+        -0.4271465379351145
+      ],
+      "step4_clr_std_per_part": [
+        0.9018108122145362,
+        0.8092785682186481,
+        0.7628232435014966
+      ],
+      "step5_sigma2_range": [
+        0.7013907352979685,
+        2.31247007847121
+      ],
+      "step5_sigma2_final": 2.05009384283121,
+      "step6_pll_coeffs": [
+        -0.00012110646159731625,
+        0.013363175991045495,
+        1.7731671176995343
+      ],
+      "step6_pll_R2": 0.28046596038014227,
+      "step6_pll_shape": "hill",
+      "step6_vertex": [
+        55.17119324102863,
+        2.1417983001574568
+      ],
+      "step6_curvature": "concave_down",
+      "step7_squeeze_count": 55,
+      "step7_squeeze_closest": {
+        "time_index": 65,
+        "sigma2_A": 2.078236649944532,
+        "constant": "ln_phi",
+        "constant_value": 0.48121182505960347,
+        "test_type": "reciprocal",
+        "test_value": 0.48117715565582486,
+        "delta": 3.466940377860883e-05
+      },
+      "step7_squeeze_mean": 2.0422403056655227,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.25109821195055265,
+        0.999990814213029
+      ],
+      "step8_entropy_mean": 0.7568251095544893,
+      "step8_entropy_cv": 21.89769868037312,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.7568251095544893,
+          "H_mean_decimated": 0.8497505697328177,
+          "variation_pct": 12.278326789795548,
+          "pass": false
+        },
+        "compression_4x": {
+          "H_mean_original": 0.7568251095544893,
+          "H_mean_decimated": 0.906628728754151,
+          "variation_pct": 19.793690419157034,
+          "pass": false
+        },
+        "compression_8x": {
+          "H_mean_original": 0.7561346152111174,
+          "H_mean_decimated": 0.9387388830606885,
+          "variation_pct": 24.14970352846324,
+          "pass": false
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 98,
+        "stalls": 8,
+        "spikes": 0,
+        "reversals": 90
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.39977448471817956,
+        0.4706458787513959
+      ],
+      "step11_complex_range_im": [
+        -0.17185401746317563,
+        0.49917818644599643
+      ],
+      "step12_radius_range": [
+        0.019648189790476202,
+        0.5142192952049728
+      ],
+      "step12_theta_range": [
+        -3.066166556666092,
+        3.1352290420967046
+      ],
+      "step9_angular_velocity_std": 1.8385112037659075
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.8132627410270414,
+            0.6549318009780251,
+            0.5818993008261435
+          ],
+          "carrier_pct": [
+            39.669537268787344,
+            31.946430319187463,
+            28.384032412025196
+          ],
+          "dominant_carrier": "Mechanical",
+          "dominant_pct": 39.669537268787344
+        },
+        "match_density": {
+          "density": 10.020851541632878,
+          "concentration": 0.6013223140495869,
+          "total_matches": 55,
+          "n_constants_hit": 8,
+          "dominant_constant": "ln_phi",
+          "trajectory_length": 5.488555515616177
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              2.3544897831839906,
+              2.1353922827283465
+            ],
+            [
+              2.3544897831839906,
+              0.0,
+              1.6603994625812957
+            ],
+            [
+              2.1353922827283465,
+              1.6603994625812957,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.35582296873877617,
+            0.07132356919633798,
+            -0.4271465379351145
+          ],
+          "clr_stds": [
+            0.9018108122145362,
+            0.8092785682186481,
+            0.7628232435014966
+          ],
+          "aitchison_distance_mean": 1.811953443939983
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 0.9067012005990382,
+          "drift_direction": "decreasing",
+          "max_shift_carrier": "Mechanical",
+          "max_shift_magnitude": 0.021294097316572003
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "hill",
+          "hvld_R2": 0.28046596038014227,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "Firmware",
+          "sources": [
+            "Mechanical",
+            "Electronic"
+          ],
+          "I_source1_target": 1.15189574643848,
+          "I_source2_target": 1.2536891389056122,
+          "redundancy": 1.15189574643848,
+          "unique_source1": 0.0,
+          "unique_source2": 0.10179339246713215,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "Mechanical->Electronic": 0.0,
+            "Mechanical->Firmware": 0.0,
+            "Electronic->Mechanical": 0.05959618729393057,
+            "Electronic->Firmware": 0.0,
+            "Firmware->Mechanical": 0.0,
+            "Firmware->Electronic": 0.002569961510835217
+          },
+          "dominant_flow": "Electronic->Mechanical",
+          "dominant_te": 0.05959618729393057
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 2.05009384283121,
+          "shuffled_sigma2": 2.0500938428312105,
+          "order_matters": false,
+          "relative_difference": 2.1661896668923644e-16
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(Mechanical/Electronic)": {
+              "mean": 0.28449939954243847,
+              "std": 1.5344346786957048,
+              "cv": 539.3454893625584
+            },
+            "ln(Mechanical/Firmware)": {
+              "mean": 0.782969506673891,
+              "std": 1.4612981498408688,
+              "cv": 186.63538456926184
+            },
+            "ln(Electronic/Firmware)": {
+              "mean": 0.49847010713145223,
+              "std": 1.2885648848937703,
+              "cv": 258.5039436585434
+            }
+          },
+          "most_stable": "ln(Mechanical/Firmware)",
+          "least_stable": "ln(Mechanical/Electronic)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

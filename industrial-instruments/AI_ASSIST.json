@@ -1,0 +1,30 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/",
+  "topic": "Hs industrial instruments -- the engine as a deterministic instrument on industrial / device / operational compositional data (MC-4 composition monitoring).",
+  "purpose": "Local AI-assist node: orient an AI/agent on the industrial-instruments line, then link up to the full Hs AI-refresh control chain. Self-serve / bring-your-own-AI.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain and related_topics relative to the Hs repo root.",
+  "specific_knowledge": {
+    "what": "Hs reads any composition that drifts over time and reports which carrier is steering the change, when the regime shifts, and whether a change is real or a sensor fault -- the fourth monitoring category (MC-4) that magnitude/threshold instruments miss. This folder holds the public, self-standing studies that demonstrate Hs as an industrial instrument; each is deterministic and hash-chained (auditable, reproducible).",
+    "key_files": ["README.md", "gas-composition-study/"],
+    "key_results": [
+      "gas-composition-study: RAN on a transparent O2/CO2/N2 series -- lossless 8.9e-16; CO2 helmsman; 40/60 single-channel-green while composition moved (ratio blindness); see its AI_ASSIST.json"
+    ],
+    "related_topics": [
+      "HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md",
+      "Hs/SPACE_READINESS_AND_CHALLENGE.md",
+      "Hs/collaborations/codawork-2026/HS_LETTER_OF_INTENT.md (the common web)"
+    ],
+    "claim_tiers": "Tier 1 = computed study outputs; Tier 2 = the instrument framing; Tier 3 = commercial/clinical/flight claims (none asserted)."
+  },
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Point any AI/agent at this file to self-onboard on the industrial-instruments line, then follow join_the_chain for the full system. Read-only context; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001 (human authorship for claims; no AI commits); instrument not data; honest-broker; interest expressed never acquired. Private commercial engagements are tracked off the public repo per the carrier-filter doctrine.",
+  "updated": "2026-06-11"
+}

@@ -1,0 +1,199 @@
+{
+  "orderings": {
+    "CSV-as-given": [
+      {
+        "M": 2,
+        "n_full": 25449,
+        "n_decimated": 12725,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.581428353493582,
+        "variation_pct": 0.06414272945202894,
+        "pass": true
+      },
+      {
+        "M": 4,
+        "n_full": 25449,
+        "n_decimated": 6363,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.580405178665254,
+        "variation_pct": 0.12880064037206523,
+        "pass": true
+      },
+      {
+        "M": 8,
+        "n_full": 25449,
+        "n_decimated": 3182,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5793857435850573,
+        "variation_pct": 0.1932222238387199,
+        "pass": true
+      },
+      {
+        "M": 16,
+        "n_full": 25449,
+        "n_decimated": 1591,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.578266047213409,
+        "variation_pct": 0.26397966064337297,
+        "pass": true
+      },
+      {
+        "M": 32,
+        "n_full": 25449,
+        "n_decimated": 796,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5771623851254577,
+        "variation_pct": 0.33372383631389885,
+        "pass": true
+      },
+      {
+        "M": 64,
+        "n_full": 25449,
+        "n_decimated": 398,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5761744049725026,
+        "variation_pct": 0.39615767552876846,
+        "pass": true
+      },
+      {
+        "M": 128,
+        "n_full": 25449,
+        "n_decimated": 199,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5750007335120655,
+        "variation_pct": 0.47032598248598634,
+        "pass": true
+      },
+      {
+        "M": 261,
+        "n_full": 25449,
+        "n_decimated": 98,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5745136608860377,
+        "variation_pct": 0.501105764780625,
+        "pass": true
+      },
+      {
+        "M": 512,
+        "n_full": 25449,
+        "n_decimated": 50,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.572224928211785,
+        "variation_pct": 0.6457385970927988,
+        "pass": true
+      }
+    ],
+    "Aitchison-distance": [
+      {
+        "M": 2,
+        "n_full": 25449,
+        "n_decimated": 12725,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5767975926514823,
+        "variation_pct": 0.3567763182882077,
+        "pass": true
+      },
+      {
+        "M": 4,
+        "n_full": 25449,
+        "n_decimated": 6363,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5738882307795128,
+        "variation_pct": 0.5406288286742897,
+        "pass": true
+      },
+      {
+        "M": 8,
+        "n_full": 25449,
+        "n_decimated": 3182,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5721498481550926,
+        "variation_pct": 0.6504831622277947,
+        "pass": true
+      },
+      {
+        "M": 16,
+        "n_full": 25449,
+        "n_decimated": 1591,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5713059693938305,
+        "variation_pct": 0.7038107424832231,
+        "pass": true
+      },
+      {
+        "M": 32,
+        "n_full": 25449,
+        "n_decimated": 796,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.570610688408412,
+        "variation_pct": 0.7477479219123266,
+        "pass": true
+      },
+      {
+        "M": 64,
+        "n_full": 25449,
+        "n_decimated": 398,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5702674687598615,
+        "variation_pct": 0.7694371433899936,
+        "pass": true
+      },
+      {
+        "M": 128,
+        "n_full": 25449,
+        "n_decimated": 199,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5698989518315443,
+        "variation_pct": 0.7927249863509024,
+        "pass": true
+      },
+      {
+        "M": 261,
+        "n_full": 25449,
+        "n_decimated": 98,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5674185879432931,
+        "variation_pct": 0.9494676493793553,
+        "pass": true
+      },
+      {
+        "M": 512,
+        "n_full": 25449,
+        "n_decimated": 50,
+        "H_mean_full": 1.5824433758668959,
+        "H_mean_decimated": 1.5660932875181839,
+        "variation_pct": 1.033217908334639,
+        "pass": true
+      }
+    ]
+  },
+  "meta": {
+    "source": "ball_oxides_composition.csv",
+    "n_rows": 25449,
+    "spec_M": 261,
+    "gate_pct": 5.0,
+    "M_sweep": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      261,
+      512
+    ],
+    "oxides": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "FeO",
+      "CaO",
+      "MgO",
+      "MnO",
+      "K2O",
+      "Na2O",
+      "P2O5"
+    ]
+  }
+}

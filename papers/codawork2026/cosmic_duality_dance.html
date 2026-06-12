@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hˢ — Cosmic Duality Dance: Black Holes & White Holes on the Simplex</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#06060f;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;overflow-x:hidden}
+canvas{display:block}
+.hud{position:fixed;top:0;left:0;right:0;background:rgba(6,6,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.08);padding:8px 20px;display:flex;justify-content:space-between;align-items:center;z-index:10}
+.hud .title{font-size:14px;font-weight:700;letter-spacing:0.5px}
+.hud .stats{display:flex;gap:14px}
+.stat{text-align:center}
+.stat .val{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums}
+.stat .lbl{font-size:8px;color:#888;text-transform:uppercase;letter-spacing:0.5px}
+.timer{position:fixed;top:8px;right:20px;font-size:28px;font-weight:800;color:rgba(255,255,255,0.3);font-variant-numeric:tabular-nums;z-index:11}
+.controls{position:fixed;bottom:0;left:0;right:0;background:rgba(6,6,15,0.92);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.08);padding:10px 20px;display:flex;align-items:center;gap:12px;z-index:10}
+.controls button{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:#e0e0e0;padding:5px 14px;border-radius:5px;cursor:pointer;font-size:12px;font-weight:600;transition:all 0.2s}
+.controls button:hover{background:rgba(255,255,255,0.15)}
+.controls button.on{background:rgba(96,160,255,0.2);border-color:rgba(96,160,255,0.5);color:#60a0ff}
+.slider-wrap{flex:1;display:flex;align-items:center;gap:8px}
+.slider-wrap label{font-size:10px;color:#888;white-space:nowrap}
+.slider-wrap input[type=range]{flex:1;accent-color:#60a0ff;height:4px}
+
+/* Diagnostic code tags — 3 rows with staggered spacing */
+.code-strip{position:fixed;bottom:50px;left:0;right:0;overflow:hidden;height:72px;z-index:9;pointer-events:none}
+.code-tag{position:absolute;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;font-family:'SF Mono',Consolas,monospace;white-space:nowrap;animation:drift 18s linear forwards;opacity:0}
+@keyframes drift{0%{transform:translateX(100vw);opacity:0}4%{opacity:0.9}92%{opacity:0.9}100%{transform:translateX(-400px);opacity:0}}
+.code-dis{background:rgba(34,197,94,0.15);color:#22c55e;border:1px solid rgba(34,197,94,0.3)}
+.code-inf{background:rgba(96,160,255,0.12);color:#60a0ff;border:1px solid rgba(96,160,255,0.25)}
+.code-cal{background:rgba(250,204,21,0.12);color:#facc15;border:1px solid rgba(250,204,21,0.25)}
+.code-sm{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3)}
+.code-wh{background:rgba(239,68,68,0.12);color:#ef4444;border:1px solid rgba(239,68,68,0.25)}
+
+/* Legend */
+.legend{position:fixed;top:48px;right:16px;background:rgba(6,6,15,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;z-index:10;font-size:10px}
+.legend div{display:flex;align-items:center;gap:5px;padding:2px 0}
+.legend .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.tag{display:inline-block;padding:1px 5px;border-radius:3px;font-size:8px;font-weight:700}
+.tag-bh{background:rgba(34,197,94,0.2);color:#22c55e}
+.tag-wh{background:rgba(239,68,68,0.2);color:#ef4444}
+.tag-dp{background:rgba(250,204,21,0.2);color:#facc15}
+
+/* Mode info panel */
+.mode-info{position:fixed;top:48px;left:16px;background:rgba(6,6,15,0.85);border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:8px 12px;z-index:10;font-size:10px;max-width:240px}
+.mode-info h3{font-size:11px;font-weight:700;margin-bottom:4px;color:#60a0ff}
+.mode-info p{color:#aaa;line-height:1.5;font-size:10px}
+
+/* Pipeline step indicator */
+.pipe-step{position:fixed;top:48px;left:50%;transform:translateX(-50%);background:rgba(6,6,15,0.85);border:1px solid rgba(96,160,255,0.2);border-radius:6px;padding:4px 14px;z-index:10;font-size:10px;font-family:'SF Mono',Consolas,monospace;color:#60a0ff;text-align:center;white-space:nowrap}
+</style>
+</head>
+<body>
+
+<div class="hud">
+  <div class="title">Hˢ Cosmic Duality Dance — Hs-25</div>
+  <div class="stats">
+    <div class="stat"><div class="val" id="s-z">0.00</div><div class="lbl">Redshift</div></div>
+    <div class="stat"><div class="val" id="s-age">Today</div><div class="lbl">Lookback</div></div>
+    <div class="stat"><div class="val" id="s-dom" style="color:#a855f7">Dark Energy</div><div class="lbl">Dominant</div></div>
+    <div class="stat"><div class="val" id="s-cls" style="color:#22c55e">NATURAL</div><div class="lbl">Class</div></div>
+    <div class="stat"><div class="val" id="s-delta">δ=4.19×10⁻⁵</div><div class="lbl">1/(eᵖⁱ)</div></div>
+  </div>
+</div>
+
+<div class="timer" id="timer">2:00</div>
+
+<div class="pipe-step" id="pipe-step">STEP 4: SIMPLEX CLOSURE</div>
+
+<div class="legend">
+  <div><div class="dot" style="background:#a855f7"></div> Dark Energy <span class="tag tag-wh">⚪</span></div>
+  <div><div class="dot" style="background:#3b82f6"></div> Cold Dark Matter <span class="tag tag-bh">⚫</span></div>
+  <div><div class="dot" style="background:#22c55e"></div> Baryonic Matter <span class="tag tag-bh">⚫</span></div>
+  <div><div class="dot" style="background:#f59e0b"></div> Photon Radiation <span class="tag tag-bh">⚫</span></div>
+  <div><div class="dot" style="background:#ef4444"></div> Neutrinos <span class="tag tag-bh">⚫</span></div>
+  <div style="margin-top:3px;border-top:1px solid rgba(255,255,255,0.08);padding-top:3px">
+    <div><div class="dot" style="background:#22c55e;box-shadow:0 0 6px #22c55e"></div> Locked (CV=0) <span class="tag tag-dp">DEEP</span></div>
+    <div><div class="dot" style="background:#ef4444;box-shadow:0 0 6px #ef4444"></div> Volatile (CV>1)</div>
+  </div>
+</div>
+
+<div class="mode-info" id="mode-info">
+  <h3>LEVEL 0 — Full System (D=5)</h3>
+  <p>5 carriers · 2 black holes · 8 white holes · 25/25 amalgamations preserve NATURAL</p>
+</div>
+
+<div class="code-strip" id="code-strip"></div>
+
+<canvas id="cv"></canvas>
+
+<div class="controls">
+  <button class="on" id="btn-play" onclick="togglePlay()">⏸ Pause</button>
+  <div class="slider-wrap">
+    <label>Epoch</label>
+    <input type="range" id="sl-epoch" min="0" max="34" value="0" oninput="scrubTo(+this.value)">
+  </div>
+  <button class="on" id="btn-l0" onclick="setLevel(0)">Full D=5</button>
+  <button id="btn-l1" onclick="setLevel(1)">Amalg D=3</button>
+  <button id="btn-l2" onclick="setLevel(2)">Amalg D=2</button>
+</div>
+
+<script>
+// ============================================================
+// TIMING: 2 minutes total, loops
+// ============================================================
+const LOOP_DURATION = 120; // seconds
+const startTime = performance.now();
+
+// ============================================================
+// DATA: 35 epochs from Hs-25 cosmic energy budget
+// ============================================================
+const EPOCHS = [
+  {z:0,de:.6900,cdm:.2609,bar:.0490,pho:5.42e-5,neu:3.66e-5},
+  {z:.013,de:.681,cdm:.268,bar:.050,pho:5.6e-5,neu:3.8e-5},
+  {z:.021,de:.677,cdm:.272,bar:.051,pho:5.8e-5,neu:3.9e-5},
+  {z:.032,de:.669,cdm:.278,bar:.052,pho:6.0e-5,neu:4.0e-5},
+  {z:.050,de:.658,cdm:.288,bar:.054,pho:6.3e-5,neu:4.2e-5},
+  {z:.078,de:.640,cdm:.303,bar:.057,pho:6.8e-5,neu:4.6e-5},
+  {z:.105,de:.622,cdm:.318,bar:.060,pho:7.3e-5,neu:4.9e-5},
+  {z:.163,de:.586,cdm:.349,bar:.065,pho:8.4e-5,neu:5.7e-5},
+  {z:.219,de:.551,cdm:.378,bar:.071,pho:9.6e-5,neu:6.5e-5},
+  {z:.300,de:.503,cdm:.418,bar:.078,pho:1.1e-4,neu:7.6e-5},
+  {z:.394,de:.451,cdm:.462,bar:.087,pho:1.3e-4,neu:9.0e-5},
+  {z:.526,de:.385,cdm:.518,bar:.097,pho:1.6e-4,neu:1.1e-4},
+  {z:.632,de:.339,cdm:.556,bar:.104,pho:1.9e-4,neu:1.3e-4},
+  {z:.821,de:.269,cdm:.615,bar:.115,pho:2.3e-4,neu:1.6e-4},
+  {z:.951,de:.231,cdm:.647,bar:.122,pho:2.6e-4,neu:1.8e-4},
+  {z:1.16,de:.181,cdm:.689,bar:.129,pho:3.1e-4,neu:2.1e-4},
+  {z:1.37,de:.143,cdm:.721,bar:.135,pho:3.5e-4,neu:2.4e-4},
+  {z:1.58,de:.115,cdm:.745,bar:.140,pho:4.0e-4,neu:2.7e-4},
+  {z:1.79,de:.093,cdm:.763,bar:.143,pho:4.4e-4,neu:3.0e-4},
+  {z:2.00,de:.076,cdm:.777,bar:.146,pho:4.8e-4,neu:3.3e-4},
+  {z:3.08,de:.032,cdm:.814,bar:.153,pho:6.9e-4,neu:4.7e-4},
+  {z:4.79,de:.011,cdm:.831,bar:.156,pho:1.0e-3,neu:6.7e-4},
+  {z:7.44,de:.004,cdm:.837,bar:.157,pho:1.5e-3,neu:9.9e-4},
+  {z:11.6,de:.001,cdm:.838,bar:.157,pho:2.2e-3,neu:1.5e-3},
+  {z:18.0,de:3.2e-4,cdm:.837,bar:.157,pho:3.3e-3,neu:2.2e-3},
+  {z:27.9,de:9.1e-5,cdm:.835,bar:.157,pho:5.0e-3,neu:3.4e-3},
+  {z:43.4,de:2.5e-5,cdm:.831,bar:.156,pho:7.7e-3,neu:5.2e-3},
+  {z:67.4,de:6.8e-6,cdm:.825,bar:.155,pho:1.2e-2,neu:7.9e-3},
+  {z:105,de:1.8e-6,cdm:.817,bar:.153,pho:1.8e-2,neu:1.2e-2},
+  {z:163,de:4.8e-7,cdm:.803,bar:.151,pho:2.7e-2,neu:1.8e-2},
+  {z:253,de:1.3e-7,cdm:.784,bar:.147,pho:4.1e-2,neu:2.8e-2},
+  {z:393,de:3.3e-8,cdm:.755,bar:.142,pho:6.2e-2,neu:4.2e-2},
+  {z:611,de:8.2e-9,cdm:.714,bar:.134,pho:9.1e-2,neu:6.1e-2},
+  {z:950,de:2.0e-9,cdm:.659,bar:.124,pho:.130,neu:.088},
+  {z:3400,de:2.8e-11,cdm:.422,bar:.079,pho:.298,neu:.201},
+];
+
+const CARRIERS = [
+  {key:'de',name:'Dark Energy',color:'#a855f7',wh:true},
+  {key:'cdm',name:'Cold Dark Matter',color:'#3b82f6'},
+  {key:'bar',name:'Baryonic Matter',color:'#22c55e'},
+  {key:'pho',name:'Photon Radiation',color:'#f59e0b'},
+  {key:'neu',name:'Neutrinos',color:'#ef4444'},
+];
+
+// ============================================================
+// DIAGNOSTIC CODES — triggered at specific progress points
+// ============================================================
+const DIAG_CODES = [
+  {at:0.02, code:'GD-ALL-INF', text:'All 4 input guards passed', cls:'code-inf', row:0},
+  {at:0.05, code:'S4-CLO-INF', text:'Simplex closure OK — rows sum to 1.0', cls:'code-inf', row:1},
+  {at:0.08, code:'S5-CLR-INF', text:'CLR transform applied', cls:'code-inf', row:2},
+  {at:0.12, code:'S6-VAR-INF', text:'σ²_A trajectory computed', cls:'code-inf', row:0},
+  {at:0.15, code:'S7-BWL-INF', text:'HVLD: bowl — variance accelerating', cls:'code-inf', row:1},
+  {at:0.18, code:'S7-HRQ-INF', text:'HVLD R² = 0.932 — strong fit', cls:'code-inf', row:2},
+  {at:0.22, code:'S8-NAT-INF', text:'Classification: NATURAL', cls:'code-dis', row:0},
+  {at:0.25, code:'S8-EUL-DIS', text:'Euler-family: 1/(eᵖⁱ) detected', cls:'code-dis', row:1},
+  {at:0.28, code:'S8-TGT-DIS', text:'Precision: δ = 4.19 × 10⁻⁵', cls:'code-dis', row:2},
+  {at:0.32, code:'S9-EIT-INF', text:'EITT invariance: PASS at 2×/4×/8×', cls:'code-inf', row:0},
+  {at:0.35, code:'S9-STL-DIS', text:'6 entropy stalls — regime boundaries', cls:'code-dis', row:1},
+  {at:0.39, code:'XC-RPS-DIS', text:'⚫ CDM/Baryon: CV = 0.000000 — LOCKED', cls:'code-dis', row:2},
+  {at:0.43, code:'XC-RPS-DIS', text:'⚫ Photon/Neutrino: CV = 0.000000 — LOCKED', cls:'code-dis', row:0},
+  {at:0.47, code:'XC-RPV-DIS', text:'⚪ DE/CDM: CV = 131.0 — VOLATILE', cls:'code-wh', row:1},
+  {at:0.50, code:'XC-RPV-DIS', text:'⚪ DE/Baryon: CV = 194.3 — VOLATILE', cls:'code-wh', row:2},
+  {at:0.53, code:'XC-RPV-DIS', text:'⚪ DE/Photon: CV = 687.7 — VOLATILE', cls:'code-wh', row:0},
+  {at:0.56, code:'XC-RPV-DIS', text:'⚪ DE/Neutrino: CV = 528.4 — VOLATILE', cls:'code-wh', row:1},
+  {at:0.60, code:'XU-PCD-DIS', text:'Dominant carrier: Dark Energy (72.6%)', cls:'code-dis', row:2},
+  {at:0.63, code:'XU-DRU-DIS', text:'Drift increasing — universe evolving', cls:'code-dis', row:0},
+  {at:0.67, code:'SM-CPL-DIS', text:'Carrier coupling — stable ratio = constraint', cls:'code-sm', row:1},
+  {at:0.70, code:'SM-RTR-DIS', text:'Regime transition — stalls mark boundaries', cls:'code-sm', row:2},
+  {at:0.73, code:'SM-DMR-DIS', text:'Domain resonance — Euler geometry = deep structure', cls:'code-sm', row:0},
+  {at:0.76, code:'SM-SCG-INF', text:'Smooth convergence — single evolving population', cls:'code-sm', row:1},
+  {at:0.79, code:'SM-OVC-CAL', text:'Overconstrained fit — verify measured, not model', cls:'code-cal', row:2},
+  {at:0.82, code:'T2-AML-INF', text:'Amalgamation: 25/25 preserve NATURAL (100%)', cls:'code-dis', row:0},
+  {at:0.85, code:'T2-BHD-DIS', text:'⬛ DEEP: CDM↔Baryon survives all amalgamations', cls:'code-dis', row:1},
+  {at:0.88, code:'T2-BHD-DIS', text:'⬛ DEEP: Photon↔Neutrino survives all amalgamations', cls:'code-dis', row:2},
+  {at:0.91, code:'T2-WHD-DIS', text:'⚪ Dark Energy: pure white hole at all levels', cls:'code-wh', row:0},
+  {at:0.94, code:'T2-REC-INF', text:'Subcompositional recursion: 3 levels verified', cls:'code-inf', row:1},
+  {at:0.97, code:'RP-FIN-INF', text:'Pipeline complete · 48 codes · Hash: 347562a5', cls:'code-inf', row:2},
+];
+
+// Pipeline step names (keyed to progress)
+const PIPE_STEPS = [
+  {at:0.00, text:'STEP 4: SIMPLEX CLOSURE → S⁴'},
+  {at:0.05, text:'STEP 5: CLR TRANSFORM → log(xᵢ) − mean(log(x))'},
+  {at:0.09, text:'STEP 6: AITCHISON VARIANCE → σ²_A(t)'},
+  {at:0.13, text:'STEP 7: HVLD VERTEX LOCK → bowl / R²=0.932'},
+  {at:0.18, text:'STEP 8: SUPER SQUEEZE → 35 constants tested'},
+  {at:0.25, text:'STEP 9: EITT ENTROPY → H preserved under decimation'},
+  {at:0.32, text:'STEP 10: RATIO-PAIR LATTICE → 10 pairs ranked by CV'},
+  {at:0.42, text:'STEP 11: TRANSFER ENTROPY → directed information flow'},
+  {at:0.52, text:'STEP 12: FINGERPRINT → compositional signature'},
+  {at:0.60, text:'STRUCTURAL MODES → SM-CPL, SM-RTR, SM-DMR, SM-SCG, SM-OVC'},
+  {at:0.72, text:'T2: SUBCOMPOSITIONAL RECURSION → 25 amalgamations'},
+  {at:0.85, text:'T2: DUALITY MAP → 2 black holes · 8 white holes'},
+  {at:0.92, text:'REPORT GENERATION → 48 codes · 5 languages'},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let cv, ctx, W, H;
+let playing = true;
+let level = 0;
+let frame = 0;
+let lastCodeIdx = -1;
+let stars = [];
+let trails = {};
+CARRIERS.forEach(c => trails[c.key] = []);
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  cv = document.getElementById('cv');
+  ctx = cv.getContext('2d');
+  resize();
+  window.addEventListener('resize', resize);
+  for (let i = 0; i < 100; i++) {
+    stars.push({x:Math.random()*2000, y:Math.random()*1200, r:Math.random()*1.3+0.4, a:Math.random()*0.35+0.08});
+  }
+  requestAnimationFrame(loop);
+}
+
+function resize() {
+  W = cv.width = window.innerWidth;
+  H = cv.height = window.innerHeight;
+}
+
+// ============================================================
+// TIME & PROGRESS
+// ============================================================
+function getProgress() {
+  if (!playing) return currentProgress || 0;
+  const elapsed = (performance.now() - startTime) / 1000;
+  const p = (elapsed % LOOP_DURATION) / LOOP_DURATION;
+  currentProgress = p;
+  return p;
+}
+
+let currentProgress = 0;
+
+function getEpochIndex(progress) {
+  return Math.min(EPOCHS.length - 1, Math.floor(progress * EPOCHS.length));
+}
+
+// ============================================================
+// MAIN LOOP
+// ============================================================
+function loop() {
+  frame++;
+  const progress = getProgress();
+  const ei = getEpochIndex(progress);
+  const e = EPOCHS[ei];
+
+  document.getElementById('sl-epoch').value = ei;
+
+  // Timer countdown
+  const elapsed = (performance.now() - startTime) / 1000;
+  const remaining = LOOP_DURATION - (elapsed % LOOP_DURATION);
+  const mins = Math.floor(remaining / 60);
+  const secs = Math.floor(remaining % 60);
+  document.getElementById('timer').textContent = `${mins}:${secs.toString().padStart(2,'0')}`;
+
+  // HUD updates
+  document.getElementById('s-z').textContent = e.z < 10 ? e.z.toFixed(2) : Math.round(e.z).toString();
+  const lbt = e.z < 0.01 ? 'Today' : e.z < 2 ? (e.z * 6).toFixed(1) + ' Gyr' : e.z < 100 ? ((1 - 1/Math.pow(1+e.z, 0.6)) * 13.8).toFixed(1) + ' Gyr' : '~13.8 Gyr';
+  document.getElementById('s-age').textContent = lbt;
+
+  const vals = [e.de, e.cdm, e.bar, e.pho, e.neu];
+  const maxIdx = vals.indexOf(Math.max(...vals));
+  document.getElementById('s-dom').textContent = CARRIERS[maxIdx].name;
+  document.getElementById('s-dom').style.color = CARRIERS[maxIdx].color;
+
+  // Pipeline step
+  let stepText = PIPE_STEPS[0].text;
+  for (const ps of PIPE_STEPS) {
+    if (progress >= ps.at) stepText = ps.text;
+  }
+  document.getElementById('pipe-step').textContent = stepText;
+
+  // Diagnostic codes
+  spawnCodes(progress);
+
+  // Auto level cycling — spread across 2-minute loop
+  if (progress < 0.70) level = 0;
+  else if (progress < 0.85) { if (level === 0) setLevel(1); }
+  else { if (level === 1) setLevel(2); }
+
+  // Mode info
+  updateModeInfo();
+
+  // Draw
+  draw(e, progress);
+  requestAnimationFrame(loop);
+}
+
+function spawnCodes(progress) {
+  const strip = document.getElementById('code-strip');
+  for (let i = lastCodeIdx + 1; i < DIAG_CODES.length; i++) {
+    if (progress >= DIAG_CODES[i].at) {
+      const dc = DIAG_CODES[i];
+      const tag = document.createElement('div');
+      tag.className = 'code-tag ' + dc.cls;
+      tag.textContent = `[${dc.code}] ${dc.text}`;
+      tag.style.top = (dc.row * 22) + 'px';
+      strip.appendChild(tag);
+      // Clean up old tags
+      setTimeout(() => tag.remove(), 19000);
+      lastCodeIdx = i;
+    }
+  }
+  // Reset for loop
+  if (progress < 0.01 && lastCodeIdx > 0) {
+    lastCodeIdx = -1;
+    strip.innerHTML = '';
+  }
+}
+
+function updateModeInfo() {
+  const mi = document.getElementById('mode-info');
+  const lvNames = [
+    {h:'LEVEL 0 — Full System (D=5)', p:'5 carriers · 10 ratio pairs · 2 black holes (CV=0) · 8 white holes (CV>0.3) · NATURAL at δ=4.19×10⁻⁵'},
+    {h:'LEVEL 1 — Amalgamated (D=3)', p:'CDM+Baryon→Matter · Pho+Neu→Radiation · Black holes hidden inside groups · All pairs volatile · Classification preserved'},
+    {h:'LEVEL 2 — Maximum Amalgamation (D=2)', p:'Dark Energy vs Everything Else · Pure duality · The ultimate white hole · Conservation laws invisible'},
+  ];
+  const lv = lvNames[level];
+  mi.innerHTML = `<h3>${lv.h}</h3><p>${lv.p}</p>`;
+}
+
+// ============================================================
+// DRAWING
+// ============================================================
+function draw(e, progress) {
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  const bg = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, W * 0.65);
+  bg.addColorStop(0, '#0c0c1f');
+  bg.addColorStop(1, '#06060f');
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, W, H);
+
+  // Stars
+  stars.forEach(s => {
+    ctx.globalAlpha = s.a * (0.5 + 0.5 * Math.sin(frame * 0.015 + s.x * 0.01));
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(s.x % W, s.y % H, s.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+
+  const cx = W / 2, cy = H / 2 + 10;
+
+  if (level === 0) drawLevel0(e, cx, cy, progress);
+  else if (level === 1) drawLevel1(e, cx, cy, progress);
+  else drawLevel2(e, cx, cy, progress);
+
+  // Progress arc (bottom center, subtle)
+  ctx.save();
+  ctx.strokeStyle = 'rgba(96,160,255,0.2)';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(W/2, H - 38, 8, -Math.PI/2, -Math.PI/2 + progress * Math.PI * 2);
+  ctx.stroke();
+  ctx.restore();
+}
+
+function drawLevel0(e, cx, cy, progress) {
+  const R = Math.min(W, H) * 0.26;
+  const t = frame * 0.004;
+  const vals = [e.de, e.cdm, e.bar, e.pho, e.neu];
+
+  // Positions: DE isolated at top, CDM+Bar locked left, Pho+Neu locked right
+  const deFloat = R * 1.1 + Math.sin(t * 1.3) * 12;
+  const p = [
+    {x: cx + Math.sin(t * 0.5) * 8, y: cy - deFloat + Math.sin(t * 0.7) * 8},
+    {x: cx - R * 0.7 + Math.sin(t * 0.35) * 6, y: cy + R * 0.4 + Math.cos(t * 0.4) * 6},
+    {x: cx - R * 0.35 + Math.sin(t * 0.38) * 6, y: cy + R * 0.55 + Math.cos(t * 0.42) * 6},
+    {x: cx + R * 0.4 + Math.sin(t * 0.45) * 6, y: cy + R * 0.35 + Math.cos(t * 0.38) * 6},
+    {x: cx + R * 0.6 + Math.sin(t * 0.48) * 6, y: cy + R * 0.50 + Math.cos(t * 0.4) * 6},
+  ];
+
+  // Lock beams
+  drawLockBeam(p[1], p[2], '#22c55e', 'CDM↔Bar CV=0');
+  drawLockBeam(p[3], p[4], '#f59e0b', 'Pho↔Neu CV=0');
+
+  // Repulsion lines from DE
+  for (let i = 1; i < 5; i++) drawRepulsion(p[0], p[i], CARRIERS[i].color);
+
+  // Central simplex
+  ctx.strokeStyle = 'rgba(255,255,255,0.04)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(cx, cy, R * 0.3, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(255,255,255,0.015)';
+  ctx.fill();
+  ctx.fillStyle = 'rgba(255,255,255,0.1)';
+  ctx.font = '9px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('S⁴ SIMPLEX', cx, cy + 3);
+
+  // Carrier orbs + trails
+  for (let i = 0; i < 5; i++) {
+    const c = CARRIERS[i];
+    const sz = Math.max(10, Math.sqrt(vals[i]) * 95);
+    drawOrb(p[i].x, p[i].y, sz, c.color, c.name, vals[i], c.wh);
+    trails[c.key].push({x: p[i].x, y: p[i].y});
+    if (trails[c.key].length > 35) trails[c.key].shift();
+    drawTrail(trails[c.key], c.color);
+  }
+
+  // Phase transition fireworks
+  if (e.z > 0.3 && e.z < 0.6) drawFirework(cx, cy - R * 0.4, '#a855f7', 'DE=CDM crossover');
+  if (e.z > 2800) drawFirework(cx + R * 0.3, cy + R * 0.3, '#f59e0b', 'Radiation dominance');
+}
+
+function drawLevel1(e, cx, cy) {
+  const R = Math.min(W, H) * 0.22;
+  const t = frame * 0.004;
+  const matter = e.cdm + e.bar;
+  const radiation = e.pho + e.neu;
+
+  const angles = [
+    -Math.PI/2 + Math.sin(t * 0.8) * 0.12,
+    -Math.PI/2 + 2*Math.PI/3 + Math.sin(t * 0.6) * 0.08,
+    -Math.PI/2 + 4*Math.PI/3 + Math.sin(t * 0.7) * 0.08,
+  ];
+  const p = angles.map((a, i) => ({x: cx + Math.cos(a) * R * (i === 0 ? 1.05 : 0.9), y: cy + Math.sin(a) * R * (i === 0 ? 1.05 : 0.9)}));
+
+  // All volatile
+  for (let i = 0; i < 3; i++) for (let j = i+1; j < 3; j++) drawRepulsion(p[i], p[j], 'rgba(239,68,68,0.3)');
+
+  // Simplex triangle
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(p[0].x, p[0].y);
+  ctx.lineTo(p[1].x, p[1].y);
+  ctx.lineTo(p[2].x, p[2].y);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Ghost lock indicators
+  ctx.save();
+  ctx.globalAlpha = 0.15;
+  ctx.setLineDash([3, 6]);
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = '#22c55e';
+  ctx.beginPath(); ctx.moveTo(p[1].x - 18, p[1].y); ctx.lineTo(p[1].x + 18, p[1].y); ctx.stroke();
+  ctx.strokeStyle = '#f59e0b';
+  ctx.beginPath(); ctx.moveTo(p[2].x - 14, p[2].y); ctx.lineTo(p[2].x + 14, p[2].y); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  // Orbs
+  drawOrb(p[0].x, p[0].y, Math.max(16, Math.sqrt(e.de) * 130), '#a855f7', 'Dark Energy', e.de, true);
+  drawOrb(p[1].x, p[1].y, Math.max(16, Math.sqrt(matter) * 130), '#2d8cf0', 'Matter (CDM+Bar)', matter, false);
+  drawOrb(p[2].x, p[2].y, Math.max(16, Math.sqrt(radiation) * 130), '#f5a623', 'Radiation (Pho+Neu)', radiation, false);
+
+  // Ghost labels
+  ctx.fillStyle = 'rgba(250,204,21,0.35)';
+  ctx.font = 'italic 10px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('⚫ CDM↔Bar lock hidden inside', p[1].x, p[1].y + 54);
+  ctx.fillText('⚫ Pho↔Neu lock hidden inside', p[2].x, p[2].y + 54);
+}
+
+function drawLevel2(e, cx, cy) {
+  const t = frame * 0.004;
+  const R = Math.min(W, H) * 0.2;
+  const sep = R + Math.sin(t) * 25;
+  const everything = e.cdm + e.bar + e.pho + e.neu;
+
+  const p1 = {x: cx - sep, y: cy + Math.sin(t * 1.2) * 15};
+  const p2 = {x: cx + sep, y: cy + Math.sin(t * 0.9 + 1) * 15};
+
+  // Heavy repulsion
+  drawRepulsion(p1, p2, 'rgba(239,68,68,0.4)', 3);
+
+  // Pulse rings
+  for (let ring = 0; ring < 3; ring++) {
+    const pr = ((frame * 1.5 + ring * 55) % 180);
+    const alpha = 0.2 * (1 - pr / 180);
+    if (alpha > 0) {
+      ctx.strokeStyle = `rgba(239,68,68,${alpha})`;
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(p1.x, p1.y, pr, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(p2.x, p2.y, pr, 0, Math.PI * 2); ctx.stroke();
+    }
+  }
+
+  // Orbs
+  drawOrb(p1.x, p1.y, Math.max(22, Math.sqrt(e.de) * 170), '#a855f7', 'Dark Energy', e.de, true);
+  drawOrb(p2.x, p2.y, Math.max(22, Math.sqrt(everything) * 170), '#60a0ff', 'Everything Else', everything, false);
+
+  // Ghost carriers inside "Everything Else"
+  ctx.save();
+  ctx.globalAlpha = 0.2;
+  [{c:'#3b82f6',a:-0.7,n:'CDM'},{c:'#22c55e',a:-0.2,n:'Bar'},{c:'#f59e0b',a:0.3,n:'Pho'},{c:'#ef4444',a:0.8,n:'Neu'}].forEach(g => {
+    const gx = p2.x + Math.cos(g.a + t * 0.5) * 35;
+    const gy = p2.y + Math.sin(g.a + t * 0.5) * 28;
+    ctx.fillStyle = g.c;
+    ctx.beginPath(); ctx.arc(gx, gy, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.font = '8px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(g.n, gx, gy + 12);
+  });
+  ctx.restore();
+
+  // Label
+  ctx.fillStyle = 'rgba(239,68,68,0.5)';
+  ctx.font = 'bold 11px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('⚪ PURE WHITE HOLE DUALITY', cx, cy + R + 70);
+  ctx.fillStyle = 'rgba(255,255,255,0.3)';
+  ctx.font = '10px sans-serif';
+  ctx.fillText('Maximum amalgamation — all structure hidden inside "Everything Else"', cx, cy + R + 86);
+}
+
+// ============================================================
+// DRAWING HELPERS
+// ============================================================
+function drawOrb(x, y, sz, color, name, val, isWH) {
+  ctx.save();
+  // Glow
+  const gl = ctx.createRadialGradient(x, y, 0, x, y, sz * 1.8);
+  gl.addColorStop(0, color + '25');
+  gl.addColorStop(1, 'transparent');
+  ctx.fillStyle = gl;
+  ctx.beginPath(); ctx.arc(x, y, sz * 1.8, 0, Math.PI * 2); ctx.fill();
+
+  // WH expanding rings
+  if (isWH) {
+    const t = frame * 0.025;
+    for (let r = 0; r < 3; r++) {
+      const rr = sz + 6 + ((t * 20 + r * 22) % 55);
+      const ra = 0.25 * (1 - (rr - sz) / 55);
+      if (ra > 0) {
+        ctx.strokeStyle = color + Math.floor(ra * 255).toString(16).padStart(2, '0');
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.arc(x, y, rr, 0, Math.PI * 2); ctx.stroke();
+      }
+    }
+  }
+
+  // Core
+  const og = ctx.createRadialGradient(x - sz * 0.2, y - sz * 0.2, 0, x, y, sz);
+  og.addColorStop(0, color);
+  og.addColorStop(0.7, color + 'aa');
+  og.addColorStop(1, color + '44');
+  ctx.fillStyle = og;
+  ctx.beginPath(); ctx.arc(x, y, sz, 0, Math.PI * 2); ctx.fill();
+
+  // Border
+  ctx.strokeStyle = color;
+  ctx.lineWidth = isWH ? 2 : 1;
+  ctx.beginPath(); ctx.arc(x, y, sz, 0, Math.PI * 2); ctx.stroke();
+
+  // Name
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 10px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(name, x, y + sz + 14);
+
+  // Percentage
+  ctx.fillStyle = 'rgba(255,255,255,0.5)';
+  ctx.font = '9px sans-serif';
+  const pct = val * 100;
+  ctx.fillText(pct < 0.01 ? pct.toExponential(1) + '%' : pct.toFixed(1) + '%', x, y + sz + 25);
+
+  ctx.restore();
+}
+
+function drawLockBeam(p1, p2, color, label) {
+  ctx.save();
+  const t = frame * 0.018;
+
+  // Beam
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2.5;
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 10;
+  ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+  ctx.shadowBlur = 0;
+
+  // Energy pulses
+  const dx = p2.x - p1.x, dy = p2.y - p1.y;
+  for (let i = 0; i < 4; i++) {
+    const prog = ((t + i * 0.25) % 1);
+    ctx.fillStyle = '#fff';
+    ctx.globalAlpha = 0.7 * (1 - Math.abs(prog - 0.5) * 2);
+    ctx.beginPath();
+    ctx.arc(p1.x + dx * prog, p1.y + dy * prog, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+
+  // Label
+  const mx = (p1.x + p2.x) / 2, my = (p1.y + p2.y) / 2;
+  ctx.fillStyle = color;
+  ctx.font = 'bold 9px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(label, mx, my - 7);
+  ctx.fillStyle = 'rgba(250,204,21,0.7)';
+  ctx.font = '8px sans-serif';
+  ctx.fillText('⬛ DEEP STRUCTURE', mx, my + 5);
+  ctx.restore();
+}
+
+function drawRepulsion(p1, p2, color, width) {
+  ctx.save();
+  ctx.strokeStyle = color || 'rgba(239,68,68,0.15)';
+  ctx.lineWidth = width || 1;
+  ctx.setLineDash([3, 7]);
+  ctx.lineDashOffset = -frame * 0.4;
+  ctx.beginPath(); ctx.moveTo(p1.x, p1.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+function drawTrail(trail, color) {
+  if (trail.length < 2) return;
+  ctx.save();
+  for (let i = 1; i < trail.length; i++) {
+    const a = (i / trail.length) * 0.2;
+    ctx.strokeStyle = color + Math.floor(a * 255).toString(16).padStart(2, '0');
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(trail[i-1].x, trail[i-1].y); ctx.lineTo(trail[i].x, trail[i].y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawFirework(x, y, color, label) {
+  const t = (frame % 100) / 100;
+  if (t > 0.65) return;
+  ctx.save();
+  for (let i = 0; i < 10; i++) {
+    const angle = (i / 10) * Math.PI * 2;
+    const r = t * 60;
+    ctx.globalAlpha = (1 - t) * 0.6;
+    ctx.fillStyle = color;
+    ctx.beginPath(); ctx.arc(x + Math.cos(angle) * r, y + Math.sin(angle) * r, 2 * (1 - t), 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.globalAlpha = (1 - t) * 0.8;
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 9px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(label, x, y - 16);
+  ctx.restore();
+}
+
+// ============================================================
+// CONTROLS
+// ============================================================
+function togglePlay() {
+  playing = !playing;
+  document.getElementById('btn-play').textContent = playing ? '⏸ Pause' : '▶ Play';
+  document.getElementById('btn-play').classList.toggle('on', playing);
+}
+
+function scrubTo(idx) {
+  // Map epoch index to progress and adjust startTime
+  currentProgress = idx / (EPOCHS.length - 1);
+}
+
+function setLevel(lv) {
+  level = lv;
+  ['btn-l0','btn-l1','btn-l2'].forEach((id, i) => {
+    document.getElementById(id).classList.toggle('on', level === i);
+  });
+  CARRIERS.forEach(c => trails[c.key] = []);
+}
+
+// ============================================================
+// GO
+// ============================================================
+init();
+</script>
+</body>
+</html>

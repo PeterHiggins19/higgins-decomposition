@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1000 560" xmlns="http://www.w3.org/2000/svg">
+  <title>CNT Pipeline Part 2 -- Theta and Omega Channels</title>
+  <rect width="1000" height="560" fill="#1a1a1a"/>
+  <style>
+    text { font-family: 'Arial', 'Helvetica', sans-serif; fill: #e0e0e0; }
+    .title { font-size: 28px; font-weight: 700; fill: #ffffff; }
+    .math { font-size: 20px; font-family: 'Georgia', serif; font-style: italic; fill: #d0d0d0; }
+    .label { font-size: 18px; fill: #cccccc; }
+    .label-bold { font-size: 20px; font-weight: 700; fill: #ffffff; }
+    .dim { font-size: 16px; fill: #999999; }
+    .bound { font-size: 16px; font-family: 'Courier New', monospace; fill: #cccccc; }
+    .box { rx: 6; fill: #2a2a2a; stroke: #666666; stroke-width: 2; }
+  </style>
+
+  <!-- Title -->
+  <text x="500" y="40" text-anchor="middle" class="title">CNT Channels 1-2: Bearing Tensor + Angular Velocity</text>
+
+  <!-- THETA box -->
+  <rect x="40" y="65" width="440" height="440" class="box"/>
+  <text x="260" y="100" text-anchor="middle" class="label-bold">theta -- Bearing Tensor</text>
+
+  <text x="60" y="140" class="label">Definition:</text>
+  <text x="60" y="170" class="math">theta_ij(x) = atan2( h_j, h_i )</text>
+
+  <text x="60" y="210" class="label">Tensor rank:</text>
+  <text x="60" y="240" class="dim">Rank-2 antisymmetric</text>
+  <text x="60" y="265" class="dim">theta_ij = -theta_ji + pi</text>
+
+  <text x="60" y="305" class="label">Shape:</text>
+  <text x="60" y="335" class="dim">D(D-1)/2 independent values</text>
+  <text x="60" y="360" class="dim">D=8 --> 28 bearings</text>
+
+  <text x="60" y="400" class="label">Bounds:</text>
+  <text x="60" y="430" class="bound">[-180 deg, +180 deg] exact</text>
+
+  <text x="60" y="470" class="label">Requires:</text>
+  <text x="60" y="498" class="dim">1 time point (instantaneous)</text>
+
+  <!-- OMEGA box -->
+  <rect x="520" y="65" width="440" height="440" class="box"/>
+  <text x="740" y="100" text-anchor="middle" class="label-bold">omega -- Angular Velocity</text>
+
+  <text x="540" y="140" class="label">Definition:</text>
+  <text x="540" y="170" class="math">omega = atan2(||h1 x h2||, h1.h2)</text>
+
+  <text x="540" y="210" class="label">Cross product (Lagrange):</text>
+  <text x="540" y="240" class="math">||h1 x h2||^2 =</text>
+  <text x="540" y="268" class="math">  ||h1||^2 ||h2||^2 - (h1.h2)^2</text>
+
+  <text x="540" y="310" class="label">Tensor rank:</text>
+  <text x="540" y="340" class="dim">Rank-0 scalar (1 value per step)</text>
+
+  <text x="540" y="380" class="label">Bounds:</text>
+  <text x="540" y="410" class="bound">[0 deg, 180 deg] exact</text>
+
+  <text x="540" y="450" class="label">Requires:</text>
+  <text x="540" y="480" class="dim">2 consecutive time points (incremental)</text>
+
+  <!-- Footer -->
+  <text x="500" y="550" text-anchor="middle" class="dim">The instrument reads. The expert decides. The loop stays open.</text>
+</svg>

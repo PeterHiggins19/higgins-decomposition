@@ -1,0 +1,43 @@
+RELATÓRIO DE DIAGNÓSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-12
+  System:      Spring-Mass
+  Domain:      FORCE
+  Carriers:    KE, PE, Damping
+  N=200, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   e9c4f6ae157df78e
+  Timestamp:   2026-04-25T06:03:01.947779Z
+
+
+Total de códigos: 40
+  Erros:       0
+  Avisos:     1
+  Descobertas: 12
+  Sinais de calibração: 1
+  Informação:  26
+
+── AVISOS ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── DESCOBERTAS ──
+  [S8-EUL-DIS] Constante da família de Euler detectada. A geometria do pipeline ressoa com a estrutura do sistema. (constant=1/(pi^e), delta=0.000450)
+  [S8-TGT-DIS] Correspondência de precisão: δ < 0,001 — ressonância estrutural de alta precisão. (constant=1/(pi^e), delta=0.000450)
+  [S9-CHH-DIS] Caos alto: turbulência composicional detectada. (131)
+  [S9-STL-DIS] S9-STL-DIS (12)
+  [S9-REV-DIS] Reversões de entropia detectadas — oscilação composicional rápida. (119)
+  [XU-PCD-DIS] Dominância de portador: um portador contribui >60% da variância total. (carrier=PE, pct=60.520544)
+  [XC-PIR-DIS] PID: portadores compartilham informação redundante — dinâmica acoplada.
+  [XC-TEF-DIS] Fluxo de informação direcional dominante identificado entre portadores. (flow=PE->KE, te=0.102931)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(KE/PE), cv=4720.069676)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(KE/Damping), cv=79.485695)
+  [XC-RPV-DIS] Razão pareada volátil — estes portadores são composicionalmente independentes. (pair=ln(PE/Damping), cv=190.502165)
+  [XC-ZCR-DIS] Eventos de cruzamento zero — composições se aproximando da fronteira do simplex. (n_near_zero_events=44, near_zero_carriers=['KE', 'PE', 'Damping'], zero_threshold=0.010000)
+
+── SINAIS DE CALIBRAÇÃO ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Execução do pipeline concluída com sucesso.
+O pipeline é determinístico. Execuções repetidas produzem resultados idênticos.

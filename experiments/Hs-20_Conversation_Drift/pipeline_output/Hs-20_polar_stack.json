@@ -1,0 +1,451 @@
+{
+  "experiment": "HS-20_MILESTONE_COMP",
+  "test_object": "Conversation Compositional Drift",
+  "carriers": [
+    "index",
+    "Theory",
+    "Engineering",
+    "Documentation",
+    "Discovery"
+  ],
+  "D": 5,
+  "N": 18,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 0.579944,
+    "norm_max": 3.372133,
+    "norm_mean": 1.808331,
+    "norm_range": 2.792189,
+    "phase_range_deg": 157.356,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [
+    {
+      "t": 3,
+      "type": "DOM_SHIFT",
+      "label": "inde->Theo"
+    },
+    {
+      "t": 5,
+      "type": "DOM_SHIFT",
+      "label": "Theo->Engi"
+    },
+    {
+      "t": 6,
+      "type": "DOM_SHIFT",
+      "label": "Engi->Theo"
+    },
+    {
+      "t": 9,
+      "type": "DOM_SHIFT",
+      "label": "Theo->Docu"
+    },
+    {
+      "t": 10,
+      "type": "DOM_SHIFT",
+      "label": "Docu->inde"
+    },
+    {
+      "t": 3,
+      "type": "NORM_TROUGH",
+      "label": "||x||=1.1"
+    },
+    {
+      "t": 10,
+      "type": "NORM_TROUGH",
+      "label": "||x||=0.6"
+    },
+    {
+      "t": 16,
+      "type": "NORM_PEAK",
+      "label": "||x||=3.4"
+    },
+    {
+      "t": 1,
+      "type": "BIG_DELTA",
+      "label": "delta=-0.8"
+    },
+    {
+      "t": 12,
+      "type": "BIG_DELTA",
+      "label": "delta=+0.7"
+    }
+  ],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "index": -2.095671010547527,
+        "Theory": -1.1919791731964824,
+        "Engineering": -1.05818181925069,
+        "Documentation": -0.5212364573808048,
+        "Discovery": -0.7440970962941519
+      },
+      "aitchison_norm": 2.785277,
+      "phase_deg": -150.37
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "index": -1.3870717428363284,
+        "Theory": -0.9414321497847571,
+        "Engineering": -0.8012913642849007,
+        "Documentation": -0.28569721020054506,
+        "Discovery": -0.46447086124808784
+      },
+      "aitchison_norm": 1.936411,
+      "phase_deg": -145.835,
+      "delta_norm": -0.848866,
+      "delta_clr": {
+        "index": 0.708599,
+        "Theory": 0.250547,
+        "Engineering": 0.25689,
+        "Documentation": 0.235539,
+        "Discovery": 0.279626
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "index": -0.8001230004154447,
+        "Theory": -0.7562314488087125,
+        "Engineering": -0.6387351800834065,
+        "Documentation": -0.16536868285107467,
+        "Discovery": -0.3594640997751898
+      },
+      "aitchison_norm": 1.332902,
+      "phase_deg": -136.615,
+      "delta_norm": -0.603509,
+      "delta_clr": {
+        "index": 0.586949,
+        "Theory": 0.185201,
+        "Engineering": 0.162556,
+        "Documentation": 0.120329,
+        "Discovery": 0.105007
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "index": -0.42003298033922953,
+        "Theory": -0.6738525246234194,
+        "Engineering": -0.6108147829347695,
+        "Documentation": -0.19059991501254325,
+        "Discovery": -0.4437634818138654
+      },
+      "aitchison_norm": 1.112139,
+      "phase_deg": -121.937,
+      "delta_norm": -0.220762,
+      "delta_clr": {
+        "index": 0.38009,
+        "Theory": 0.082379,
+        "Engineering": 0.02792,
+        "Documentation": -0.025231,
+        "Discovery": -0.084299
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "index": -0.2700420957978441,
+        "Theory": -0.6879163028219102,
+        "Engineering": -0.6807150445981123,
+        "Documentation": -0.28452383164449524,
+        "Discovery": -0.5586714512619824
+      },
+      "aitchison_norm": 1.184311,
+      "phase_deg": -111.433,
+      "delta_norm": 0.072171,
+      "delta_clr": {
+        "index": 0.149991,
+        "Theory": -0.014064,
+        "Engineering": -0.0699,
+        "Documentation": -0.093924,
+        "Discovery": -0.114908
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "index": -0.30446094480835506,
+        "Theory": -0.7509099200510732,
+        "Engineering": -0.7555911500875497,
+        "Documentation": -0.3196758384236803,
+        "Discovery": -0.5174562522828616
+      },
+      "aitchison_norm": 1.263896,
+      "phase_deg": -112.07,
+      "delta_norm": 0.079585,
+      "delta_clr": {
+        "index": -0.034419,
+        "Theory": -0.062994,
+        "Engineering": -0.074876,
+        "Documentation": -0.035152,
+        "Discovery": 0.041215
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "index": -0.42235728920634596,
+        "Theory": -0.794451441248801,
+        "Engineering": -0.7397482221271442,
+        "Documentation": -0.21188143610734889,
+        "Discovery": -0.2763782909561045
+      },
+      "aitchison_norm": 1.215749,
+      "phase_deg": -117.997,
+      "delta_norm": -0.048148,
+      "delta_clr": {
+        "index": -0.117896,
+        "Theory": -0.043542,
+        "Engineering": 0.015843,
+        "Documentation": 0.107794,
+        "Discovery": 0.241078
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "index": -0.4977918941048919,
+        "Theory": -0.7584554472421114,
+        "Engineering": -0.5894534034041893,
+        "Documentation": 0.017742696216250825,
+        "Discovery": 0.025249064272198904
+      },
+      "aitchison_norm": 1.08234,
+      "phase_deg": -123.278,
+      "delta_norm": -0.133409,
+      "delta_clr": {
+        "index": -0.075435,
+        "Theory": 0.035996,
+        "Engineering": 0.150295,
+        "Documentation": 0.229624,
+        "Discovery": 0.301627
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "index": -0.4175456065453267,
+        "Theory": -0.6167600743251833,
+        "Engineering": -0.3379851490750469,
+        "Documentation": 0.25834278211324135,
+        "Discovery": 0.19265566154627708
+      },
+      "aitchison_norm": 0.879107,
+      "phase_deg": -124.098,
+      "delta_norm": -0.203233,
+      "delta_clr": {
+        "index": 0.080246,
+        "Theory": 0.141695,
+        "Engineering": 0.251468,
+        "Documentation": 0.2406,
+        "Discovery": 0.167407
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "index": -0.11503593353807584,
+        "Theory": -0.38828531399084626,
+        "Engineering": -0.07657200349785706,
+        "Documentation": 0.39098039935583395,
+        "Discovery": 0.15400324020408057
+      },
+      "aitchison_norm": 0.588596,
+      "phase_deg": -106.503,
+      "delta_norm": -0.290511,
+      "delta_clr": {
+        "index": 0.30251,
+        "Theory": 0.228475,
+        "Engineering": 0.261413,
+        "Documentation": 0.132638,
+        "Discovery": -0.038652
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "index": 0.4097371249168603,
+        "Theory": -0.12896344501416165,
+        "Engineering": 0.0978612572314008,
+        "Documentation": 0.3762399036025271,
+        "Discovery": 0.026181611471368632
+      },
+      "aitchison_norm": 0.579944,
+      "phase_deg": -17.471,
+      "delta_norm": -0.008652,
+      "delta_clr": {
+        "index": 0.524773,
+        "Theory": 0.259322,
+        "Engineering": 0.174433,
+        "Documentation": -0.01474,
+        "Discovery": -0.127822
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "index": 1.0901910758299076,
+        "Theory": 0.09211664969978542,
+        "Engineering": 0.13821016859851198,
+        "Documentation": 0.2832611243829278,
+        "Discovery": 0.007750065034897752
+      },
+      "aitchison_norm": 1.138596,
+      "phase_deg": 4.83,
+      "delta_norm": 0.558652,
+      "delta_clr": {
+        "index": 0.680454,
+        "Theory": 0.22108,
+        "Engineering": 0.040349,
+        "Documentation": -0.092979,
+        "Discovery": -0.018432
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "index": 1.8131067662423999,
+        "Theory": 0.2221765911261297,
+        "Engineering": 0.07417105830851424,
+        "Documentation": 0.2388124886071903,
+        "Discovery": 0.19707824853589137
+      },
+      "aitchison_norm": 1.854209,
+      "phase_deg": 6.986,
+      "delta_norm": 0.715613,
+      "delta_clr": {
+        "index": 0.722916,
+        "Theory": 0.13006,
+        "Engineering": -0.064039,
+        "Documentation": -0.044449,
+        "Discovery": 0.189328
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "index": 2.4525449612674115,
+        "Theory": 0.24725901709910447,
+        "Engineering": -0.004768407126271218,
+        "Documentation": 0.33391618779481885,
+        "Discovery": 0.5022500676454694
+      },
+      "aitchison_norm": 2.537694,
+      "phase_deg": 5.757,
+      "delta_norm": 0.683485,
+      "delta_clr": {
+        "index": 0.639438,
+        "Theory": 0.025082,
+        "Engineering": -0.078939,
+        "Documentation": 0.095104,
+        "Discovery": 0.305172
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "index": 2.907573422740528,
+        "Theory": 0.19818053857914242,
+        "Engineering": -0.0005859403752709602,
+        "Documentation": 0.5568032354279827,
+        "Discovery": 0.7252490198327914
+      },
+      "aitchison_norm": 3.054386,
+      "phase_deg": 3.899,
+      "delta_norm": 0.516692,
+      "delta_clr": {
+        "index": 0.455028,
+        "Theory": -0.049078,
+        "Engineering": 0.004182,
+        "Documentation": 0.222887,
+        "Discovery": 0.222999
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "index": 3.132502748678815,
+        "Theory": 0.13738814309294417,
+        "Engineering": 0.13713019124471992,
+        "Documentation": 0.8015822433556583,
+        "Discovery": 0.7433201797591837
+      },
+      "aitchison_norm": 3.323449,
+      "phase_deg": 2.511,
+      "delta_norm": 0.269063,
+      "delta_clr": {
+        "index": 0.224929,
+        "Theory": -0.060792,
+        "Engineering": 0.137716,
+        "Documentation": 0.244779,
+        "Discovery": 0.018071
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "index": 3.1505733522724326,
+        "Theory": 0.13232492234422,
+        "Engineering": 0.38230634909158107,
+        "Documentation": 0.9462366873708037,
+        "Discovery": 0.6214006113487802
+      },
+      "aitchison_norm": 3.372133,
+      "phase_deg": 2.405,
+      "delta_norm": 0.048684,
+      "delta_clr": {
+        "index": 0.018071,
+        "Theory": -0.005063,
+        "Engineering": 0.245176,
+        "Documentation": 0.144654,
+        "Discovery": -0.12192
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "index": 3.0469934305757356,
+        "Theory": 0.22666491081271625,
+        "Engineering": 0.6473179738871462,
+        "Documentation": 0.9424995930517311,
+        "Discovery": 0.5526439468593409
+      },
+      "aitchison_norm": 3.30882,
+      "phase_deg": 4.254,
+      "delta_norm": -0.063314,
+      "delta_clr": {
+        "index": -0.10358,
+        "Theory": 0.09434,
+        "Engineering": 0.265012,
+        "Documentation": -0.003737,
+        "Discovery": -0.068757
+      }
+    }
+  ]
+}

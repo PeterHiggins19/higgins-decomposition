@@ -1,0 +1,2500 @@
+{
+  "experiment": "NUCLEAR_SEMF_COMPOSI",
+  "test_object": "Nuclear SEMF Binding Energy",
+  "carriers": [
+    "B_volume",
+    "B_surface",
+    "B_coulomb",
+    "B_asymmetry",
+    "B_pairing"
+  ],
+  "D": 5,
+  "N": 118,
+  "generator": "hs_polar_stack.py",
+  "summary": {
+    "norm_min": 6.954126,
+    "norm_max": 10.239881,
+    "norm_mean": 8.400771,
+    "norm_range": 3.285755,
+    "phase_range_deg": 11.126,
+    "total_variance": null,
+    "vt_shape": "\u2014",
+    "path_efficiency": null,
+    "path_length": null,
+    "net_distance": null,
+    "amalgamation_pass": null
+  },
+  "events": [],
+  "intervals": [
+    {
+      "index": 0,
+      "year": 0,
+      "clr": {
+        "B_volume": 2.8254289532013797,
+        "B_surface": 1.2333596022191657,
+        "B_coulomb": 0.5461399466091867,
+        "B_asymmetry": -1.7097608843828398,
+        "B_pairing": -9.598404959227231
+      },
+      "aitchison_norm": 10.239881,
+      "phase_deg": 23.582
+    },
+    {
+      "index": 1,
+      "year": 1,
+      "clr": {
+        "B_volume": 2.8524922160078074,
+        "B_surface": 1.271146965597023,
+        "B_coulomb": 0.6031624791272522,
+        "B_asymmetry": -1.6270212597100964,
+        "B_pairing": -9.440152457663785
+      },
+      "aitchison_norm": 10.093563,
+      "phase_deg": 24.019,
+      "delta_norm": -0.146318,
+      "delta_clr": {
+        "B_volume": 0.027063,
+        "B_surface": 0.037787,
+        "B_coulomb": 0.057023,
+        "B_asymmetry": 0.08274,
+        "B_pairing": 0.158253
+      }
+    },
+    {
+      "index": 2,
+      "year": 2,
+      "clr": {
+        "B_volume": 2.8794527251701676,
+        "B_surface": 1.308712488884052,
+        "B_coulomb": 0.6597040685555787,
+        "B_asymmetry": -1.5452325881545275,
+        "B_pairing": -9.284281900290585
+      },
+      "aitchison_norm": 9.951122,
+      "phase_deg": 24.442,
+      "delta_norm": -0.142441,
+      "delta_clr": {
+        "B_volume": 0.026961,
+        "B_surface": 0.037566,
+        "B_coulomb": 0.056542,
+        "B_asymmetry": 0.081789,
+        "B_pairing": 0.155871
+      }
+    },
+    {
+      "index": 3,
+      "year": 3,
+      "clr": {
+        "B_volume": 2.906208393441203,
+        "B_surface": 1.345836403250582,
+        "B_coulomb": 0.71528988206815,
+        "B_asymmetry": -1.4653300478711073,
+        "B_pairing": -9.133125240956149
+      },
+      "aitchison_norm": 9.814791,
+      "phase_deg": 24.848,
+      "delta_norm": -0.13633,
+      "delta_clr": {
+        "B_volume": 0.026756,
+        "B_surface": 0.037124,
+        "B_coulomb": 0.055586,
+        "B_asymmetry": 0.079903,
+        "B_pairing": 0.151157
+      }
+    },
+    {
+      "index": 4,
+      "year": 4,
+      "clr": {
+        "B_volume": 2.9326584620454414,
+        "B_surface": 1.382303063050447,
+        "B_coulomb": 0.7694572297369938,
+        "B_asymmetry": -1.388217528774639,
+        "B_pairing": -8.988915501982905
+      },
+      "aitchison_norm": 9.686643,
+      "phase_deg": 25.237,
+      "delta_norm": -0.128148,
+      "delta_clr": {
+        "B_volume": 0.02645,
+        "B_surface": 0.036467,
+        "B_coulomb": 0.054167,
+        "B_asymmetry": 0.077113,
+        "B_pairing": 0.14421
+      }
+    },
+    {
+      "index": 5,
+      "year": 5,
+      "clr": {
+        "B_volume": 2.9587041541385184,
+        "B_surface": 1.4179029592462826,
+        "B_coulomb": 0.8217614428939719,
+        "B_asymmetry": -1.314752638289268,
+        "B_pairing": -8.853739909278644
+      },
+      "aitchison_norm": 9.56854,
+      "phase_deg": 25.605,
+      "delta_norm": -0.118104,
+      "delta_clr": {
+        "B_volume": 0.026046,
+        "B_surface": 0.0356,
+        "B_coulomb": 0.052304,
+        "B_asymmetry": 0.073465,
+        "B_pairing": 0.135176
+      }
+    },
+    {
+      "index": 6,
+      "year": 6,
+      "clr": {
+        "B_volume": 2.984249315412916,
+        "B_surface": 1.4524346755389588,
+        "B_coulomb": 0.8717815235368922,
+        "B_asymmetry": -1.245732474858813,
+        "B_pairing": -8.729496087306666
+      },
+      "aitchison_norm": 9.462096,
+      "phase_deg": 25.952,
+      "delta_norm": -0.106444,
+      "delta_clr": {
+        "B_volume": 0.025545,
+        "B_surface": 0.034532,
+        "B_coulomb": 0.05002,
+        "B_asymmetry": 0.06902,
+        "B_pairing": 0.124244
+      }
+    },
+    {
+      "index": 7,
+      "year": 7,
+      "clr": {
+        "B_volume": 3.0092010376955445,
+        "B_surface": 1.4857067689372951,
+        "B_coulomb": 0.9191254930056313,
+        "B_asymmetry": -1.1818804052151775,
+        "B_pairing": -8.617852233259557
+      },
+      "aitchison_norm": 9.368651,
+      "phase_deg": 26.277,
+      "delta_norm": -0.093445,
+      "delta_clr": {
+        "B_volume": 0.024952,
+        "B_surface": 0.033272,
+        "B_coulomb": 0.047344,
+        "B_asymmetry": 0.063852,
+        "B_pairing": 0.111644
+      }
+    },
+    {
+      "index": 8,
+      "year": 8,
+      "clr": {
+        "B_volume": 3.0334702614928974,
+        "B_surface": 1.5175395572096901,
+        "B_coulomb": 0.9634353719746465,
+        "B_asymmetry": -1.1238340647511902,
+        "B_pairing": -8.520212106269234
+      },
+      "aitchison_norm": 9.289246,
+      "phase_deg": 26.577,
+      "delta_norm": -0.079405,
+      "delta_clr": {
+        "B_volume": 0.024269,
+        "B_surface": 0.031833,
+        "B_coulomb": 0.04431,
+        "B_asymmetry": 0.058046,
+        "B_pairing": 0.09764
+      }
+    },
+    {
+      "index": 9,
+      "year": 9,
+      "clr": {
+        "B_volume": 3.0569723535760414,
+        "B_surface": 1.5477667965287025,
+        "B_coulomb": 1.0043917284923043,
+        "B_asymmetry": -1.072134780054654,
+        "B_pairing": -8.437685566431755
+      },
+      "aitchison_norm": 9.224612,
+      "phase_deg": 26.853,
+      "delta_norm": -0.064634,
+      "delta_clr": {
+        "B_volume": 0.023502,
+        "B_surface": 0.030227,
+        "B_coulomb": 0.040956,
+        "B_asymmetry": 0.051699,
+        "B_pairing": 0.082527
+      }
+    },
+    {
+      "index": 10,
+      "year": 10,
+      "clr": {
+        "B_volume": 3.0796276558595834,
+        "B_surface": 1.5762372336448776,
+        "B_coulomb": 1.0417177362852967,
+        "B_asymmetry": -1.0272185890687424,
+        "B_pairing": -8.37106528195029
+      },
+      "aitchison_norm": 9.175169,
+      "phase_deg": 27.105,
+      "delta_norm": -0.049444,
+      "delta_clr": {
+        "B_volume": 0.022655,
+        "B_surface": 0.02847,
+        "B_coulomb": 0.037326,
+        "B_asymmetry": 0.044916,
+        "B_pairing": 0.06662
+      }
+    },
+    {
+      "index": 11,
+      "year": 11,
+      "clr": {
+        "B_volume": 3.1013620020149197,
+        "B_surface": 1.602816018097584,
+        "B_coulomb": 1.0751826917683898,
+        "B_asymmetry": -0.9894090078415438,
+        "B_pairing": -8.32081009324814
+      },
+      "aitchison_norm": 9.141023,
+      "phase_deg": 27.33,
+      "delta_norm": -0.034146,
+      "delta_clr": {
+        "B_volume": 0.021734,
+        "B_surface": 0.026579,
+        "B_coulomb": 0.033465,
+        "B_asymmetry": 0.03781,
+        "B_pairing": 0.050255
+      }
+    },
+    {
+      "index": 12,
+      "year": 12,
+      "clr": {
+        "B_volume": 3.122107198467337,
+        "B_surface": 1.627385961277431,
+        "B_coulomb": 1.1046049450767592,
+        "B_asymmetry": -0.9589116638540975,
+        "B_pairing": -8.287035383192492
+      },
+      "aitchison_norm": 9.121982,
+      "phase_deg": 27.531,
+      "delta_norm": -0.01904,
+      "delta_clr": {
+        "B_volume": 0.020745,
+        "B_surface": 0.02457,
+        "B_coulomb": 0.029422,
+        "B_asymmetry": 0.030497,
+        "B_pairing": 0.033775
+      }
+    },
+    {
+      "index": 13,
+      "year": 13,
+      "clr": {
+        "B_volume": 3.1418014666575163,
+        "B_surface": 1.6498486305847404,
+        "B_coulomb": 1.1298542078828662,
+        "B_asymmetry": -0.9358108849524035,
+        "B_pairing": -8.269510655531
+      },
+      "aitchison_norm": 9.117567,
+      "phase_deg": 27.705,
+      "delta_norm": -0.004415,
+      "delta_clr": {
+        "B_volume": 0.019694,
+        "B_surface": 0.022463,
+        "B_coulomb": 0.025249,
+        "B_asymmetry": 0.023101,
+        "B_pairing": 0.017525
+      }
+    },
+    {
+      "index": 14,
+      "year": 14,
+      "clr": {
+        "B_volume": 3.160389843699191,
+        "B_surface": 1.6701252684682073,
+        "B_coulomb": 1.1508532086776286,
+        "B_asymmetry": -0.9200683004681718,
+        "B_pairing": -8.267664372362965
+      },
+      "aitchison_norm": 9.127028,
+      "phase_deg": 27.854,
+      "delta_norm": 0.009461,
+      "delta_clr": {
+        "B_volume": 0.018588,
+        "B_surface": 0.020277,
+        "B_coulomb": 0.020999,
+        "B_asymmetry": 0.015743,
+        "B_pairing": 0.001846
+      }
+    },
+    {
+      "index": 15,
+      "year": 15,
+      "clr": {
+        "B_volume": 3.1778245388345585,
+        "B_surface": 1.6881575277629373,
+        "B_coulomb": 1.1675786744859493,
+        "B_asymmetry": -0.9115234777337369,
+        "B_pairing": -8.280595949120208
+      },
+      "aitchison_norm": 9.149362,
+      "phase_deg": 27.979,
+      "delta_norm": 0.022334,
+      "delta_clr": {
+        "B_volume": 0.017435,
+        "B_surface": 0.018032,
+        "B_coulomb": 0.016725,
+        "B_asymmetry": 0.008545,
+        "B_pairing": -0.012932
+      }
+    },
+    {
+      "index": 16,
+      "year": 16,
+      "clr": {
+        "B_volume": 3.1940652433756838,
+        "B_surface": 1.7039080164622042,
+        "B_coulomb": 1.1800616265441422,
+        "B_asymmetry": -0.9098965834322569,
+        "B_pairing": -8.307094655316497
+      },
+      "aitchison_norm": 9.183335,
+      "phase_deg": 28.078,
+      "delta_norm": 0.033972,
+      "delta_clr": {
+        "B_volume": 0.016241,
+        "B_surface": 0.01575,
+        "B_coulomb": 0.012483,
+        "B_asymmetry": 0.001627,
+        "B_pairing": -0.026499
+      }
+    },
+    {
+      "index": 17,
+      "year": 17,
+      "clr": {
+        "B_volume": 3.2090793921218057,
+        "B_surface": 1.7173606468365425,
+        "B_coulomb": 1.1883869861827507,
+        "B_asymmetry": -0.9147930256351767,
+        "B_pairing": -8.345665024391746
+      },
+      "aitchison_norm": 9.2275,
+      "phase_deg": 28.154,
+      "delta_norm": 0.044165,
+      "delta_clr": {
+        "B_volume": 0.015014,
+        "B_surface": 0.013453,
+        "B_coulomb": 0.008325,
+        "B_asymmetry": -0.004896,
+        "B_pairing": -0.03857
+      }
+    },
+    {
+      "index": 18,
+      "year": 18,
+      "clr": {
+        "B_volume": 3.222842374557164,
+        "B_surface": 1.728520785640542,
+        "B_coulomb": 1.1926924959219212,
+        "B_asymmetry": -0.9257099995221434,
+        "B_pairing": -8.394558239369436
+      },
+      "aitchison_norm": 9.280224,
+      "phase_deg": 28.206,
+      "delta_norm": 0.052724,
+      "delta_clr": {
+        "B_volume": 0.013763,
+        "B_surface": 0.01116,
+        "B_coulomb": 0.004306,
+        "B_asymmetry": -0.010917,
+        "B_pairing": -0.048893
+      }
+    },
+    {
+      "index": 19,
+      "year": 19,
+      "clr": {
+        "B_volume": 3.235337694459634,
+        "B_surface": 1.7374152040049065,
+        "B_coulomb": 1.1931669694865459,
+        "B_asymmetry": -0.942044828199172,
+        "B_pairing": -8.4518088356302
+      },
+      "aitchison_norm": 9.33971,
+      "phase_deg": 28.236,
+      "delta_norm": 0.059486,
+      "delta_clr": {
+        "B_volume": 0.012495,
+        "B_surface": 0.008894,
+        "B_coulomb": 0.000474,
+        "B_asymmetry": -0.016335,
+        "B_pairing": -0.057251
+      }
+    },
+    {
+      "index": 20,
+      "year": 20,
+      "clr": {
+        "B_volume": 3.2465570768850593,
+        "B_surface": 1.7440918274816204,
+        "B_coulomb": 1.190047892974306,
+        "B_asymmetry": -0.9631049602527304,
+        "B_pairing": -8.515275950513024
+      },
+      "aitchison_norm": 9.404026,
+      "phase_deg": 28.245,
+      "delta_norm": 0.064315,
+      "delta_clr": {
+        "B_volume": 0.011219,
+        "B_surface": 0.006677,
+        "B_coulomb": -0.003119,
+        "B_asymmetry": -0.02106,
+        "B_pairing": -0.063467
+      }
+    },
+    {
+      "index": 21,
+      "year": 21,
+      "clr": {
+        "B_volume": 3.2565005218334404,
+        "B_surface": 1.748619288575981,
+        "B_coulomb": 1.1836184076531824,
+        "B_asymmetry": -0.9881194581945143,
+        "B_pairing": -8.582688254030444
+      },
+      "aitchison_norm": 9.471132,
+      "phase_deg": 28.234,
+      "delta_norm": 0.067106,
+      "delta_clr": {
+        "B_volume": 0.009943,
+        "B_surface": 0.004527,
+        "B_coulomb": -0.006429,
+        "B_asymmetry": -0.025014,
+        "B_pairing": -0.067412
+      }
+    },
+    {
+      "index": 22,
+      "year": 22,
+      "clr": {
+        "B_volume": 3.2651763042489335,
+        "B_surface": 1.7510862859433896,
+        "B_coulomb": 1.174203712721253,
+        "B_asymmetry": -1.0162517872199228,
+        "B_pairing": -8.651691617727758
+      },
+      "aitchison_norm": 9.538919,
+      "phase_deg": 28.204,
+      "delta_norm": 0.067787,
+      "delta_clr": {
+        "B_volume": 0.008676,
+        "B_surface": 0.002467,
+        "B_coulomb": -0.009415,
+        "B_asymmetry": -0.028132,
+        "B_pairing": -0.069003
+      }
+    },
+    {
+      "index": 23,
+      "year": 23,
+      "clr": {
+        "B_volume": 3.272600920353662,
+        "B_surface": 1.7516007562339047,
+        "B_coulomb": 1.1621669337308282,
+        "B_asymmetry": -1.0466136921328848,
+        "B_pairing": -8.719898521250302
+      },
+      "aitchison_norm": 9.605243,
+      "phase_deg": 28.157,
+      "delta_norm": 0.066324,
+      "delta_clr": {
+        "B_volume": 0.007425,
+        "B_surface": 0.000514,
+        "B_coulomb": -0.012037,
+        "B_asymmetry": -0.030362,
+        "B_pairing": -0.068207
+      }
+    },
+    {
+      "index": 24,
+      "year": 24,
+      "clr": {
+        "B_volume": 3.278798980663388,
+        "B_surface": 1.750288866316822,
+        "B_coulomb": 1.1479045091675761,
+        "B_asymmetry": -1.0782799322385557,
+        "B_pairing": -8.784938159713276
+      },
+      "aitchison_norm": 9.667965,
+      "phase_deg": 28.094,
+      "delta_norm": 0.062722,
+      "delta_clr": {
+        "B_volume": 0.006198,
+        "B_surface": -0.001312,
+        "B_coulomb": -0.014262,
+        "B_asymmetry": -0.031666,
+        "B_pairing": -0.06504
+      }
+    },
+    {
+      "index": 25,
+      "year": 25,
+      "clr": {
+        "B_volume": 3.2838030503788715,
+        "B_surface": 1.7472938352946095,
+        "B_coulomb": 1.1318411537970239,
+        "B_asymmetry": -1.1103036297729358,
+        "B_pairing": -8.844506200260605
+      },
+      "aitchison_norm": 9.724995,
+      "phase_deg": 28.017,
+      "delta_norm": 0.05703,
+      "delta_clr": {
+        "B_volume": 0.005004,
+        "B_surface": -0.002995,
+        "B_coulomb": -0.016063,
+        "B_asymmetry": -0.032024,
+        "B_pairing": -0.059568
+      }
+    },
+    {
+      "index": 26,
+      "year": 26,
+      "clr": {
+        "B_volume": 3.2876534381880482,
+        "B_surface": 1.7427745973047357,
+        "B_coulomb": 1.114424462767868,
+        "B_asymmetry": -1.141731977260745,
+        "B_pairing": -8.896413143562006
+      },
+      "aitchison_norm": 9.774333,
+      "phase_deg": 27.928,
+      "delta_norm": 0.049338,
+      "delta_clr": {
+        "B_volume": 0.00385,
+        "B_surface": -0.004519,
+        "B_coulomb": -0.017417,
+        "B_asymmetry": -0.031428,
+        "B_pairing": -0.051907
+      }
+    },
+    {
+      "index": 27,
+      "year": 27,
+      "clr": {
+        "B_volume": 3.2903979348487202,
+        "B_surface": 1.736904317594452,
+        "B_coulomb": 1.0961192250256513,
+        "B_asymmetry": -1.17162204323879,
+        "B_pairing": -8.93863027527572
+      },
+      "aitchison_norm": 9.814114,
+      "phase_deg": 27.828,
+      "delta_norm": 0.039781,
+      "delta_clr": {
+        "B_volume": 0.002744,
+        "B_surface": -0.00587,
+        "B_coulomb": -0.018305,
+        "B_asymmetry": -0.02989,
+        "B_pairing": -0.042217
+      }
+    },
+    {
+      "index": 28,
+      "year": 28,
+      "clr": {
+        "B_volume": 3.2920915032471534,
+        "B_surface": 1.7298687757235347,
+        "B_coulomb": 1.0774015182834666,
+        "B_asymmetry": -1.1990564141503146,
+        "B_pairing": -8.969332243084384
+      },
+      "aitchison_norm": 9.84265,
+      "phase_deg": 27.72,
+      "delta_norm": 0.028536,
+      "delta_clr": {
+        "B_volume": 0.001694,
+        "B_surface": -0.007036,
+        "B_coulomb": -0.018718,
+        "B_asymmetry": -0.027434,
+        "B_pairing": -0.030702
+      }
+    },
+    {
+      "index": 29,
+      "year": 29,
+      "clr": {
+        "B_volume": 3.2927959219426683,
+        "B_surface": 1.72186463099059,
+        "B_coulomb": 1.0587526605716515,
+        "B_asymmetry": -1.223158412933506,
+        "B_pairing": -8.986935365731183
+      },
+      "aitchison_norm": 9.858469,
+      "phase_deg": 27.606,
+      "delta_norm": 0.015818,
+      "delta_clr": {
+        "B_volume": 0.000704,
+        "B_surface": -0.008004,
+        "B_coulomb": -0.018649,
+        "B_asymmetry": -0.024102,
+        "B_pairing": -0.017603
+      }
+    },
+    {
+      "index": 30,
+      "year": 30,
+      "clr": {
+        "B_volume": 3.292579384509978,
+        "B_surface": 1.7130975862781728,
+        "B_coulomb": 1.0406530952105397,
+        "B_asymmetry": -1.2431066418493797,
+        "B_pairing": -8.990130870056866
+      },
+      "aitchison_norm": 9.86035,
+      "phase_deg": 27.488,
+      "delta_norm": 0.001882,
+      "delta_clr": {
+        "B_volume": -0.000217,
+        "B_surface": -0.008767,
+        "B_coulomb": -0.0181,
+        "B_asymmetry": -0.019948,
+        "B_pairing": -0.003196
+      }
+    },
+    {
+      "index": 31,
+      "year": 31,
+      "clr": {
+        "B_volume": 3.291516057277684,
+        "B_surface": 1.7037804674603927,
+        "B_coulomb": 1.0235762868961835,
+        "B_asymmetry": -1.258148608304181,
+        "B_pairing": -8.977912358485225
+      },
+      "aitchison_norm": 9.84736,
+      "phase_deg": 27.367,
+      "delta_norm": -0.01299,
+      "delta_clr": {
+        "B_volume": -0.001063,
+        "B_surface": -0.009317,
+        "B_coulomb": -0.017077,
+        "B_asymmetry": -0.015042,
+        "B_pairing": 0.012219
+      }
+    },
+    {
+      "index": 32,
+      "year": 32,
+      "clr": {
+        "B_volume": 3.2896855983311823,
+        "B_surface": 1.6941312363050727,
+        "B_coulomb": 1.0079827064477884,
+        "B_asymmetry": -1.2676132076332416,
+        "B_pairing": -8.94959693049142
+      },
+      "aitchison_norm": 9.818873,
+      "phase_deg": 27.248,
+      "delta_norm": -0.028487,
+      "delta_clr": {
+        "B_volume": -0.00183,
+        "B_surface": -0.009649,
+        "B_coulomb": -0.015594,
+        "B_asymmetry": -0.009465,
+        "B_pairing": 0.028315
+      }
+    },
+    {
+      "index": 33,
+      "year": 33,
+      "clr": {
+        "B_volume": 3.287172640899405,
+        "B_surface": 1.684370955423448,
+        "B_coulomb": 0.9943139806391551,
+        "B_asymmetry": -1.2709218557746387,
+        "B_pairing": -8.904839514772618
+      },
+      "aitchison_norm": 9.774594,
+      "phase_deg": 27.131,
+      "delta_norm": -0.04428,
+      "delta_clr": {
+        "B_volume": -0.002513,
+        "B_surface": -0.00976,
+        "B_coulomb": -0.013669,
+        "B_asymmetry": -0.003309,
+        "B_pairing": 0.044757
+      }
+    },
+    {
+      "index": 34,
+      "year": 34,
+      "clr": {
+        "B_volume": 3.284066244475859,
+        "B_surface": 1.6747217242681283,
+        "B_coulomb": 0.9829872814390849,
+        "B_asymmetry": -1.2675980871573986,
+        "B_pairing": -8.843640111328819
+      },
+      "aitchison_norm": 9.714568,
+      "phase_deg": 27.019,
+      "delta_norm": -0.060026,
+      "delta_clr": {
+        "B_volume": -0.003106,
+        "B_surface": -0.009649,
+        "B_coulomb": -0.011327,
+        "B_asymmetry": 0.003324,
+        "B_pairing": 0.061199
+      }
+    },
+    {
+      "index": 35,
+      "year": 35,
+      "clr": {
+        "B_volume": 3.280459317233633,
+        "B_surface": 1.6654046054503482,
+        "B_coulomb": 0.9743900259440732,
+        "B_asymmetry": -1.257275458588909,
+        "B_pairing": -8.766343791462855
+      },
+      "aitchison_norm": 9.639188,
+      "phase_deg": 26.916,
+      "delta_norm": -0.07538,
+      "delta_clr": {
+        "B_volume": -0.003607,
+        "B_surface": -0.009317,
+        "B_coulomb": -0.008597,
+        "B_asymmetry": 0.010323,
+        "B_pairing": 0.077296
+      }
+    },
+    {
+      "index": 36,
+      "year": 36,
+      "clr": {
+        "B_volume": 3.276448013480245,
+        "B_surface": 1.656637560737931,
+        "B_coulomb": 0.9688749543393411,
+        "B_asymmetry": -1.2397036280272649,
+        "B_pairing": -8.67363345569957
+      },
+      "aitchison_norm": 9.549192,
+      "phase_deg": 26.822,
+      "delta_norm": -0.089996,
+      "delta_clr": {
+        "B_volume": -0.004011,
+        "B_surface": -0.008767,
+        "B_coulomb": -0.005515,
+        "B_asymmetry": 0.017572,
+        "B_pairing": 0.09271
+      }
+    },
+    {
+      "index": 37,
+      "year": 37,
+      "clr": {
+        "B_volume": 3.272131110060061,
+        "B_surface": 1.6486334160049865,
+        "B_coulomb": 0.9667556484214959,
+        "B_asymmetry": -1.214752507400349,
+        "B_pairing": -8.566515501615166
+      },
+      "aitchison_norm": 9.445648,
+      "phase_deg": 26.741,
+      "delta_norm": -0.103544,
+      "delta_clr": {
+        "B_volume": -0.004317,
+        "B_surface": -0.008004,
+        "B_coulomb": -0.002119,
+        "B_asymmetry": 0.024951,
+        "B_pairing": 0.107118
+      }
+    },
+    {
+      "index": 38,
+      "year": 38,
+      "clr": {
+        "B_volume": 3.267609365748552,
+        "B_surface": 1.6415978741340689,
+        "B_coulomb": 0.9683025476188972,
+        "B_asymmetry": -1.182414420582267,
+        "B_pairing": -8.446298702368898
+      },
+      "aitchison_norm": 9.329941,
+      "phase_deg": 26.674,
+      "delta_norm": -0.115707,
+      "delta_clr": {
+        "B_volume": -0.004522,
+        "B_surface": -0.007036,
+        "B_coulomb": 0.001547,
+        "B_asymmetry": 0.032338,
+        "B_pairing": 0.120217
+      }
+    },
+    {
+      "index": 39,
+      "year": 39,
+      "clr": {
+        "B_volume": 3.2629848677929747,
+        "B_surface": 1.6357275944237852,
+        "B_coulomb": 0.9737395131252029,
+        "B_asymmetry": -1.1428042307293822,
+        "B_pairing": -8.31456673921758
+      },
+      "aitchison_norm": 9.203742,
+      "phase_deg": 26.625,
+      "delta_norm": -0.126199,
+      "delta_clr": {
+        "B_volume": -0.004624,
+        "B_surface": -0.00587,
+        "B_coulomb": 0.005437,
+        "B_asymmetry": 0.03961,
+        "B_pairing": 0.131732
+      }
+    },
+    {
+      "index": 40,
+      "year": 40,
+      "clr": {
+        "B_volume": 3.2583603698373977,
+        "B_surface": 1.6312083564339115,
+        "B_coulomb": 0.9832409837979375,
+        "B_asymmetry": -1.0961574348636116,
+        "B_pairing": -8.173144964478574
+      },
+      "aitchison_norm": 9.068979,
+      "phase_deg": 26.594,
+      "delta_norm": -0.134763,
+      "delta_clr": {
+        "B_volume": -0.004624,
+        "B_surface": -0.004519,
+        "B_coulomb": 0.009501,
+        "B_asymmetry": 0.046647,
+        "B_pairing": 0.141422
+      }
+    },
+    {
+      "index": 41,
+      "year": 41,
+      "clr": {
+        "B_volume": 3.2538386255258893,
+        "B_surface": 1.628213325411699,
+        "B_coulomb": 0.9969297599556893,
+        "B_asymmetry": -1.04282625731116,
+        "B_pairing": -8.024062092493642
+      },
+      "aitchison_norm": 8.927792,
+      "phase_deg": 26.583,
+      "delta_norm": -0.141187,
+      "delta_clr": {
+        "B_volume": -0.004522,
+        "B_surface": -0.002995,
+        "B_coulomb": 0.013689,
+        "B_asymmetry": 0.053331,
+        "B_pairing": 0.149083
+      }
+    },
+    {
+      "index": 42,
+      "year": 42,
+      "clr": {
+        "B_volume": 3.2495217221057047,
+        "B_surface": 1.6269014354946163,
+        "B_coulomb": 1.0148754432302536,
+        "B_asymmetry": -0.9832738068009738,
+        "B_pairing": -7.869507622593064
+      },
+      "aitchison_norm": 8.782491,
+      "phase_deg": 26.595,
+      "delta_norm": -0.145301,
+      "delta_clr": {
+        "B_volume": -0.004317,
+        "B_surface": -0.001312,
+        "B_coulomb": 0.017946,
+        "B_asymmetry": 0.059552,
+        "B_pairing": 0.154554
+      }
+    },
+    {
+      "index": 43,
+      "year": 43,
+      "clr": {
+        "B_volume": 3.245510418352317,
+        "B_surface": 1.6274159057851314,
+        "B_coulomb": 1.0370935522950089,
+        "B_asymmetry": -0.918066394148384,
+        "B_pairing": -7.711785887632914
+      },
+      "aitchison_norm": 8.635501,
+      "phase_deg": 26.631,
+      "delta_norm": -0.14699,
+      "delta_clr": {
+        "B_volume": -0.004011,
+        "B_surface": 0.000514,
+        "B_coulomb": 0.022218,
+        "B_asymmetry": 0.065207,
+        "B_pairing": 0.157722
+      }
+    },
+    {
+      "index": 44,
+      "year": 44,
+      "clr": {
+        "B_volume": 3.241903491110091,
+        "B_surface": 1.6298829031525401,
+        "B_coulomb": 1.0635453257039895,
+        "B_asymmetry": -0.8478641379626357,
+        "B_pairing": -7.553267692497998
+      },
+      "aitchison_norm": 8.489306,
+      "phase_deg": 26.691,
+      "delta_norm": -0.146195,
+      "delta_clr": {
+        "B_volume": -0.003607,
+        "B_surface": 0.002467,
+        "B_coulomb": 0.026452,
+        "B_asymmetry": 0.070202,
+        "B_pairing": 0.158518
+      }
+    },
+    {
+      "index": 45,
+      "year": 45,
+      "clr": {
+        "B_volume": 3.2387970946865448,
+        "B_surface": 1.6344103642469006,
+        "B_coulomb": 1.0941382143465253,
+        "B_asymmetry": -0.7734100142162911,
+        "B_pairing": -7.396340557542973
+      },
+      "aitchison_norm": 8.346392,
+      "phase_deg": 26.777,
+      "delta_norm": -0.142914,
+      "delta_clr": {
+        "B_volume": -0.003106,
+        "B_surface": 0.004527,
+        "B_coulomb": 0.030593,
+        "B_asymmetry": 0.074454,
+        "B_pairing": 0.156927
+      }
+    },
+    {
+      "index": 46,
+      "year": 46,
+      "clr": {
+        "B_volume": 3.2362841372547675,
+        "B_surface": 1.6410869877236143,
+        "B_coulomb": 1.1287270572609414,
+        "B_asymmetry": -0.6955175313286115,
+        "B_pairing": -7.243358611222546
+      },
+      "aitchison_norm": 8.209185,
+      "phase_deg": 26.889,
+      "delta_norm": -0.137207,
+      "delta_clr": {
+        "B_volume": -0.002513,
+        "B_surface": 0.006677,
+        "B_coulomb": 0.034589,
+        "B_asymmetry": 0.077892,
+        "B_pairing": 0.152982
+      }
+    },
+    {
+      "index": 47,
+      "year": 47,
+      "clr": {
+        "B_volume": 3.2344536783082654,
+        "B_surface": 1.6499814060879792,
+        "B_coulomb": 1.1671159258688917,
+        "B_asymmetry": -0.615057235215768,
+        "B_pairing": -7.096593183524178
+      },
+      "aitchison_norm": 8.079989,
+      "phase_deg": 27.027,
+      "delta_norm": -0.129196,
+      "delta_clr": {
+        "B_volume": -0.00183,
+        "B_surface": 0.008894,
+        "B_coulomb": 0.038389,
+        "B_asymmetry": 0.08046,
+        "B_pairing": 0.146765
+      }
+    },
+    {
+      "index": 48,
+      "year": 48,
+      "clr": {
+        "B_volume": 3.2333903510759723,
+        "B_surface": 1.6611415448919784,
+        "B_coulomb": 1.209060613199778,
+        "B_asymmetry": -0.5329422681699596,
+        "B_pairing": -6.958185137108883
+      },
+      "aitchison_norm": 7.96093,
+      "phase_deg": 27.192,
+      "delta_norm": -0.119059,
+      "delta_clr": {
+        "B_volume": -0.001063,
+        "B_surface": 0.01116,
+        "B_coulomb": 0.041945,
+        "B_asymmetry": 0.082115,
+        "B_pairing": 0.138408
+      }
+    },
+    {
+      "index": 49,
+      "year": 49,
+      "clr": {
+        "B_volume": 3.2331738136432815,
+        "B_surface": 1.6745941752663167,
+        "B_coulomb": 1.2542717364802785,
+        "B_asymmetry": -0.45011322112511976,
+        "B_pairing": -6.83009993659603
+      },
+      "aitchison_norm": 7.8539,
+      "phase_deg": 27.382,
+      "delta_norm": -0.10703,
+      "delta_clr": {
+        "B_volume": -0.000217,
+        "B_surface": 0.013453,
+        "B_coulomb": 0.045211,
+        "B_asymmetry": 0.082829,
+        "B_pairing": 0.128085
+      }
+    },
+    {
+      "index": 50,
+      "year": 50,
+      "clr": {
+        "B_volume": 3.2338782323387965,
+        "B_surface": 1.6903446639655837,
+        "B_coulomb": 1.3024184136713401,
+        "B_asymmetry": -0.3675225305886298,
+        "B_pairing": -6.714086398962136
+      },
+      "aitchison_norm": 7.760513,
+      "phase_deg": 27.596,
+      "delta_norm": -0.093387,
+      "delta_clr": {
+        "B_volume": 0.000704,
+        "B_surface": 0.01575,
+        "B_coulomb": 0.048147,
+        "B_asymmetry": 0.082591,
+        "B_pairing": 0.116014
+      }
+    },
+    {
+      "index": 51,
+      "year": 51,
+      "clr": {
+        "B_volume": 3.2355718007372296,
+        "B_surface": 1.7083769232603137,
+        "B_coulomb": 1.3531324672431448,
+        "B_asymmetry": -0.2861186790717751,
+        "B_pairing": -6.61163999076729
+      },
+      "aitchison_norm": 7.682063,
+      "phase_deg": 27.834,
+      "delta_norm": -0.07845,
+      "delta_clr": {
+        "B_volume": 0.001694,
+        "B_surface": 0.018032,
+        "B_coulomb": 0.050714,
+        "B_asymmetry": 0.081404,
+        "B_pairing": 0.102446
+      }
+    },
+    {
+      "index": 52,
+      "year": 52,
+      "clr": {
+        "B_volume": 3.2383162973979016,
+        "B_surface": 1.7286535611437803,
+        "B_coulomb": 1.4060131017801099,
+        "B_asymmetry": -0.2068304611113963,
+        "B_pairing": -6.5239714424977215
+      },
+      "aitchison_norm": 7.619501,
+      "phase_deg": 28.094,
+      "delta_norm": -0.062562,
+      "delta_clr": {
+        "B_volume": 0.002744,
+        "B_surface": 0.020277,
+        "B_coulomb": 0.052881,
+        "B_asymmetry": 0.079288,
+        "B_pairing": 0.087669
+      }
+    },
+    {
+      "index": 53,
+      "year": 53,
+      "clr": {
+        "B_volume": 3.2421666852070783,
+        "B_surface": 1.7511162304510899,
+        "B_coulomb": 1.4606319959881169,
+        "B_asymmetry": -0.13055157588707497,
+        "B_pairing": -6.45198133872161
+      },
+      "aitchison_norm": 7.573414,
+      "phase_deg": 28.374,
+      "delta_norm": -0.046086,
+      "delta_clr": {
+        "B_volume": 0.00385,
+        "B_surface": 0.022463,
+        "B_coulomb": 0.054619,
+        "B_asymmetry": 0.076279,
+        "B_pairing": 0.07199
+      }
+    },
+    {
+      "index": 54,
+      "year": 54,
+      "clr": {
+        "B_volume": 3.247170754922562,
+        "B_surface": 1.775686173630937,
+        "B_coulomb": 1.5165387444112541,
+        "B_asymmetry": -0.058125802020480066,
+        "B_pairing": -6.396241217339652
+      },
+      "aitchison_norm": 7.544027,
+      "phase_deg": 28.672,
+      "delta_norm": -0.029387,
+      "delta_clr": {
+        "B_volume": 0.005004,
+        "B_surface": 0.02457,
+        "B_coulomb": 0.055907,
+        "B_asymmetry": 0.072426,
+        "B_pairing": 0.05574
+      }
+    },
+    {
+      "index": 55,
+      "year": 55,
+      "clr": {
+        "B_volume": 3.2533688152322875,
+        "B_surface": 1.8022649580836432,
+        "B_coulomb": 1.5732665797224084,
+        "B_asymmetry": 0.009666999514099661,
+        "B_pairing": -6.3569815746042
+      },
+      "aitchison_norm": 7.531205,
+      "phase_deg": 28.985,
+      "delta_norm": -0.012823,
+      "delta_clr": {
+        "B_volume": 0.006198,
+        "B_surface": 0.026579,
+        "B_coulomb": 0.056728,
+        "B_asymmetry": 0.067793,
+        "B_pairing": 0.03926
+      }
+    },
+    {
+      "index": 56,
+      "year": 56,
+      "clr": {
+        "B_volume": 3.2607934313370164,
+        "B_surface": 1.8307353951998186,
+        "B_coulomb": 1.6303383028874077,
+        "B_asymmetry": 0.072123822176198,
+        "B_pairing": -6.33408702764806
+      },
+      "aitchison_norm": 7.534469,
+      "phase_deg": 29.312,
+      "delta_norm": 0.003265,
+      "delta_clr": {
+        "B_volume": 0.007425,
+        "B_surface": 0.02847,
+        "B_coulomb": 0.057072,
+        "B_asymmetry": 0.062457,
+        "B_pairing": 0.022895
+      }
+    },
+    {
+      "index": 57,
+      "year": 57,
+      "clr": {
+        "B_volume": 3.2694692137525094,
+        "B_surface": 1.8609626345188306,
+        "B_coulomb": 1.6872723458614367,
+        "B_asymmetry": 0.12863017573965657,
+        "B_pairing": -6.327098736047936
+      },
+      "aitchison_norm": 7.553027,
+      "phase_deg": 29.648,
+      "delta_norm": 0.018558,
+      "delta_clr": {
+        "B_volume": 0.008676,
+        "B_surface": 0.030227,
+        "B_coulomb": 0.056934,
+        "B_asymmetry": 0.056506,
+        "B_pairing": 0.006988
+      }
+    },
+    {
+      "index": 58,
+      "year": 58,
+      "clr": {
+        "B_volume": 3.2794126587008905,
+        "B_surface": 1.8927954227912258,
+        "B_coulomb": 1.74358888979266,
+        "B_asymmetry": 0.17867027981312147,
+        "B_pairing": -6.335224031600655
+      },
+      "aitchison_norm": 7.585797,
+      "phase_deg": 29.992,
+      "delta_norm": 0.032769,
+      "delta_clr": {
+        "B_volume": 0.009943,
+        "B_surface": 0.031833,
+        "B_coulomb": 0.056317,
+        "B_asymmetry": 0.05004,
+        "B_pairing": -0.008125
+      }
+    },
+    {
+      "index": 59,
+      "year": 59,
+      "clr": {
+        "B_volume": 3.2906320411263157,
+        "B_surface": 1.9260675161895624,
+        "B_coulomb": 1.7988159610027763,
+        "B_asymmetry": 0.22183561990451003,
+        "B_pairing": -6.357353054210159
+      },
+      "aitchison_norm": 7.63144,
+      "phase_deg": 30.341,
+      "delta_norm": 0.045644,
+      "delta_clr": {
+        "B_volume": 0.011219,
+        "B_surface": 0.033272,
+        "B_coulomb": 0.055227,
+        "B_asymmetry": 0.043165,
+        "B_pairing": -0.022129
+      }
+    },
+    {
+      "index": 60,
+      "year": 60,
+      "clr": {
+        "B_volume": 3.303127361028786,
+        "B_surface": 1.960599232482238,
+        "B_coulomb": 1.8524954272965755,
+        "B_asymmetry": 0.2578317240964922,
+        "B_pairing": -6.392082044744533
+      },
+      "aitchison_norm": 7.688402,
+      "phase_deg": 30.692,
+      "delta_norm": 0.056962,
+      "delta_clr": {
+        "B_volume": 0.012495,
+        "B_surface": 0.034532,
+        "B_coulomb": 0.053679,
+        "B_asymmetry": 0.035996,
+        "B_pairing": -0.034729
+      }
+    },
+    {
+      "index": 61,
+      "year": 61,
+      "clr": {
+        "B_volume": 3.316890343464144,
+        "B_surface": 1.996199128678074,
+        "B_coulomb": 1.90418881841885,
+        "B_asymmetry": 0.28648304791755214,
+        "B_pairing": -6.43774280601119
+      },
+      "aitchison_norm": 7.754941,
+      "phase_deg": 31.041,
+      "delta_norm": 0.066539,
+      "delta_clr": {
+        "B_volume": 0.013763,
+        "B_surface": 0.0356,
+        "B_coulomb": 0.051693,
+        "B_asymmetry": 0.028651,
+        "B_pairing": -0.045661
+      }
+    },
+    {
+      "index": 62,
+      "year": 62,
+      "clr": {
+        "B_volume": 3.3319044922102665,
+        "B_surface": 2.032665788477939,
+        "B_coulomb": 1.9534828967111952,
+        "B_asymmetry": 0.3077358863755598,
+        "B_pairing": -6.492437713546831
+      },
+      "aitchison_norm": 7.829167,
+      "phase_deg": 31.386,
+      "delta_norm": 0.074226,
+      "delta_clr": {
+        "B_volume": 0.015014,
+        "B_surface": 0.036467,
+        "B_coulomb": 0.049294,
+        "B_asymmetry": 0.021253,
+        "B_pairing": -0.054695
+      }
+    },
+    {
+      "index": 63,
+      "year": 63,
+      "clr": {
+        "B_volume": 3.3481451967513913,
+        "B_surface": 2.0697897028444685,
+        "B_coulomb": 1.9999949071948744,
+        "B_asymmetry": 0.32165926484735047,
+        "B_pairing": -6.554079541443662
+      },
+      "aitchison_norm": 7.909078,
+      "phase_deg": 31.724,
+      "delta_norm": 0.07991,
+      "delta_clr": {
+        "B_volume": 0.016241,
+        "B_surface": 0.037124,
+        "B_coulomb": 0.046512,
+        "B_asymmetry": 0.013923,
+        "B_pairing": -0.061642
+      }
+    },
+    {
+      "index": 64,
+      "year": 64,
+      "clr": {
+        "B_volume": 3.365579891886759,
+        "B_surface": 2.107355226131498,
+        "B_coulomb": 2.0433774403787246,
+        "B_asymmetry": 0.3284437940457131,
+        "B_pairing": -6.62043526737926
+      },
+      "aitchison_norm": 7.992591,
+      "phase_deg": 32.053,
+      "delta_norm": 0.083513,
+      "delta_clr": {
+        "B_volume": 0.017435,
+        "B_surface": 0.037566,
+        "B_coulomb": 0.043383,
+        "B_asymmetry": 0.006785,
+        "B_pairing": -0.066356
+      }
+    },
+    {
+      "index": 65,
+      "year": 65,
+      "clr": {
+        "B_volume": 3.3841682689284336,
+        "B_surface": 2.1451425895093554,
+        "B_coulomb": 2.0833228460113364,
+        "B_asymmetry": 0.32839850805826387,
+        "B_pairing": -6.6891729375051
+      },
+      "aitchison_norm": 8.077583,
+      "phase_deg": 32.37,
+      "delta_norm": 0.084992,
+      "delta_clr": {
+        "B_volume": 0.018588,
+        "B_surface": 0.037787,
+        "B_coulomb": 0.039945,
+        "B_asymmetry": -4.5e-05,
+        "B_pairing": -0.068738
+      }
+    },
+    {
+      "index": 66,
+      "year": 66,
+      "clr": {
+        "B_volume": 3.403862537118613,
+        "B_surface": 2.1829299528872124,
+        "B_coulomb": 2.119567141701868,
+        "B_asymmetry": 0.3219457379106518,
+        "B_pairing": -6.757910607630942
+      },
+      "aitchison_norm": 8.161926,
+      "phase_deg": 32.672,
+      "delta_norm": 0.084343,
+      "delta_clr": {
+        "B_volume": 0.019694,
+        "B_surface": 0.037787,
+        "B_coulomb": 0.036244,
+        "B_asymmetry": -0.006453,
+        "B_pairing": -0.068738
+      }
+    },
+    {
+      "index": 67,
+      "year": 67,
+      "clr": {
+        "B_volume": 3.42460773357103,
+        "B_surface": 2.2204954761742415,
+        "B_coulomb": 2.1518933667514224,
+        "B_asymmetry": 0.30961410569440245,
+        "B_pairing": -6.824266333566539
+      },
+      "aitchison_norm": 8.243522,
+      "phase_deg": 32.959,
+      "delta_norm": 0.081596,
+      "delta_clr": {
+        "B_volume": 0.020745,
+        "B_surface": 0.037566,
+        "B_coulomb": 0.032326,
+        "B_asymmetry": -0.012332,
+        "B_pairing": -0.066356
+      }
+    },
+    {
+      "index": 68,
+      "year": 68,
+      "clr": {
+        "B_volume": 3.4463420797263664,
+        "B_surface": 2.2576193905407718,
+        "B_coulomb": 2.1801343385853924,
+        "B_asymmetry": 0.29202975547687327,
+        "B_pairing": -6.88590816146337
+      },
+      "aitchison_norm": 8.320344,
+      "phase_deg": 33.228,
+      "delta_norm": 0.076822,
+      "delta_clr": {
+        "B_volume": 0.021734,
+        "B_surface": 0.037124,
+        "B_coulomb": 0.028241,
+        "B_asymmetry": -0.017584,
+        "B_pairing": -0.061642
+      }
+    },
+    {
+      "index": 69,
+      "year": 69,
+      "clr": {
+        "B_volume": 3.468997382009908,
+        "B_surface": 2.294086050340637,
+        "B_coulomb": 2.2041747767669686,
+        "B_asymmetry": 0.269905966460079,
+        "B_pairing": -6.940603068999012
+      },
+      "aitchison_norm": 8.39047,
+      "phase_deg": 33.477,
+      "delta_norm": 0.070126,
+      "delta_clr": {
+        "B_volume": 0.022655,
+        "B_surface": 0.036467,
+        "B_coulomb": 0.02404,
+        "B_asymmetry": -0.022124,
+        "B_pairing": -0.054695
+      }
+    },
+    {
+      "index": 70,
+      "year": 70,
+      "clr": {
+        "B_volume": 3.492499474093053,
+        "B_surface": 2.3296859465364723,
+        "B_coulomb": 2.2239527676067508,
+        "B_asymmetry": 0.2440313206913303,
+        "B_pairing": -6.986263830265669
+      },
+      "aitchison_norm": 8.452123,
+      "phase_deg": 33.705,
+      "delta_norm": 0.061654,
+      "delta_clr": {
+        "B_volume": 0.023502,
+        "B_surface": 0.0356,
+        "B_coulomb": 0.019778,
+        "B_asymmetry": -0.025875,
+        "B_pairing": -0.045661
+      }
+    },
+    {
+      "index": 71,
+      "year": 71,
+      "clr": {
+        "B_volume": 3.5167686978904054,
+        "B_surface": 2.3642176628291485,
+        "B_coulomb": 2.23946055076095,
+        "B_asymmetry": 0.21525662160657485,
+        "B_pairing": -7.020992820800043
+      },
+      "aitchison_norm": 8.503708,
+      "phase_deg": 33.912,
+      "delta_norm": 0.051584,
+      "delta_clr": {
+        "B_volume": 0.024269,
+        "B_surface": 0.034532,
+        "B_coulomb": 0.015508,
+        "B_asymmetry": -0.028775,
+        "B_pairing": -0.034729
+      }
+    },
+    {
+      "index": 72,
+      "year": 72,
+      "clr": {
+        "B_volume": 3.541720420173034,
+        "B_surface": 2.3974897562274853,
+        "B_coulomb": 2.25074461782465,
+        "B_asymmetry": 0.18448078040923266,
+        "B_pairing": -7.043121843409548
+      },
+      "aitchison_norm": 8.543839,
+      "phase_deg": 34.095,
+      "delta_norm": 0.040132,
+      "delta_clr": {
+        "B_volume": 0.024952,
+        "B_surface": 0.033272,
+        "B_coulomb": 0.011284,
+        "B_asymmetry": -0.030776,
+        "B_pairing": -0.022129
+      }
+    },
+    {
+      "index": 73,
+      "year": 73,
+      "clr": {
+        "B_volume": 3.5672655814474314,
+        "B_surface": 2.42932254449988,
+        "B_coulomb": 2.2579051216675206,
+        "B_asymmetry": 0.15263590440946279,
+        "B_pairing": -7.051247138962267
+      },
+      "aitchison_norm": 8.571377,
+      "phase_deg": 34.255,
+      "delta_norm": 0.027538,
+      "delta_clr": {
+        "B_volume": 0.025545,
+        "B_surface": 0.031833,
+        "B_coulomb": 0.007161,
+        "B_asymmetry": -0.031845,
+        "B_pairing": -0.008125
+      }
+    },
+    {
+      "index": 74,
+      "year": 74,
+      "clr": {
+        "B_volume": 3.593311273540508,
+        "B_surface": 2.459549783818892,
+        "B_coulomb": 2.261094604016227,
+        "B_asymmetry": 0.12067183468714977,
+        "B_pairing": -7.044258847362141
+      },
+      "aitchison_norm": 8.585451,
+      "phase_deg": 34.391,
+      "delta_norm": 0.014073,
+      "delta_clr": {
+        "B_volume": 0.026046,
+        "B_surface": 0.030227,
+        "B_coulomb": 0.003189,
+        "B_asymmetry": -0.031964,
+        "B_pairing": 0.006988
+      }
+    },
+    {
+      "index": 75,
+      "year": 75,
+      "clr": {
+        "B_volume": 3.6197613421447468,
+        "B_surface": 2.4880202209350677,
+        "B_coulomb": 2.2605160574492986,
+        "B_asymmetry": 0.08954038957682163,
+        "B_pairing": -7.021364300406002
+      },
+      "aitchison_norm": 8.585477,
+      "phase_deg": 34.502,
+      "delta_norm": 2.7e-05,
+      "delta_clr": {
+        "B_volume": 0.02645,
+        "B_surface": 0.02847,
+        "B_coulomb": -0.000579,
+        "B_asymmetry": -0.031131,
+        "B_pairing": 0.022895
+      }
+    },
+    {
+      "index": 76,
+      "year": 76,
+      "clr": {
+        "B_volume": 3.6465170104157822,
+        "B_surface": 2.514599005387774,
+        "B_coulomb": 2.2564203464263155,
+        "B_asymmetry": 0.06017957535272561,
+        "B_pairing": -6.98210465767055
+      },
+      "aitchison_norm": 8.57118,
+      "phase_deg": 34.59,
+      "delta_norm": -0.014297,
+      "delta_clr": {
+        "B_volume": 0.026756,
+        "B_surface": 0.026579,
+        "B_coulomb": -0.004096,
+        "B_asymmetry": -0.029361,
+        "B_pairing": 0.03926
+      }
+    },
+    {
+      "index": 77,
+      "year": 77,
+      "clr": {
+        "B_volume": 3.6734775195781424,
+        "B_surface": 2.539168948567621,
+        "B_coulomb": 2.2491030201166256,
+        "B_asymmetry": 0.03349802603636598,
+        "B_pairing": -6.926364536288592
+      },
+      "aitchison_norm": 8.542595,
+      "phase_deg": 34.653,
+      "delta_norm": -0.028586,
+      "delta_clr": {
+        "B_volume": 0.026961,
+        "B_surface": 0.02457,
+        "B_coulomb": -0.007317,
+        "B_asymmetry": -0.026682,
+        "B_pairing": 0.05574
+      }
+    },
+    {
+      "index": 78,
+      "year": 78,
+      "clr": {
+        "B_volume": 3.70054078238457,
+        "B_surface": 2.56163161787493,
+        "B_coulomb": 2.2389005575198033,
+        "B_asymmetry": 0.010359930448033183,
+        "B_pairing": -6.854374432512481
+      },
+      "aitchison_norm": 8.50007,
+      "phase_deg": 34.692,
+      "delta_norm": -0.042525,
+      "delta_clr": {
+        "B_volume": 0.027063,
+        "B_surface": 0.022463,
+        "B_coulomb": -0.010202,
+        "B_asymmetry": -0.023138,
+        "B_pairing": 0.07199
+      }
+    },
+    {
+      "index": 79,
+      "year": 79,
+      "clr": {
+        "B_volume": 3.7276040451909984,
+        "B_surface": 2.581908255758397,
+        "B_coulomb": 2.2261860925826786,
+        "B_asymmetry": -0.008429303458895865,
+        "B_pairing": -6.766705884242911
+      },
+      "aitchison_norm": 8.444262,
+      "phase_deg": 34.708,
+      "delta_norm": -0.055808,
+      "delta_clr": {
+        "B_volume": 0.027063,
+        "B_surface": 0.020277,
+        "B_coulomb": -0.012714,
+        "B_asymmetry": -0.018789,
+        "B_pairing": 0.087669
+      }
+    },
+    {
+      "index": 80,
+      "year": 80,
+      "clr": {
+        "B_volume": 3.7545645543533586,
+        "B_surface": 2.599940515053127,
+        "B_coulomb": 2.2113646736242725,
+        "B_asymmetry": -0.022136409172503868,
+        "B_pairing": -6.6642594760480645
+      },
+      "aitchison_norm": 8.376122,
+      "phase_deg": 34.702,
+      "delta_norm": -0.06814,
+      "delta_clr": {
+        "B_volume": 0.026961,
+        "B_surface": 0.018032,
+        "B_coulomb": -0.014821,
+        "B_asymmetry": -0.013707,
+        "B_pairing": 0.102446
+      }
+    },
+    {
+      "index": 81,
+      "year": 81,
+      "clr": {
+        "B_volume": 3.781320222624394,
+        "B_surface": 2.615691003752394,
+        "B_coulomb": 2.1948681172964815,
+        "B_asymmetry": -0.03011242547279208,
+        "B_pairing": -6.548245938414171
+      },
+      "aitchison_norm": 8.296873,
+      "phase_deg": 34.673,
+      "delta_norm": -0.079249,
+      "delta_clr": {
+        "B_volume": 0.026756,
+        "B_surface": 0.01575,
+        "B_coulomb": -0.016497,
+        "B_asymmetry": -0.007976,
+        "B_pairing": 0.116014
+      }
+    },
+    {
+      "index": 82,
+      "year": 82,
+      "clr": {
+        "B_volume": 3.807770291228632,
+        "B_surface": 2.629143634126732,
+        "B_coulomb": 2.177149522459668,
+        "B_asymmetry": -0.031803461777029474,
+        "B_pairing": -6.42016073790132
+      },
+      "aitchison_norm": 8.207982,
+      "phase_deg": 34.624,
+      "delta_norm": -0.088891,
+      "delta_clr": {
+        "B_volume": 0.02645,
+        "B_surface": 0.013453,
+        "B_coulomb": -0.017719,
+        "B_asymmetry": -0.001691,
+        "B_pairing": 0.128085
+      }
+    },
+    {
+      "index": 83,
+      "year": 83,
+      "clr": {
+        "B_volume": 3.8338159833217094,
+        "B_surface": 2.6403037729307317,
+        "B_coulomb": 2.15867751367303,
+        "B_asymmetry": -0.026759886398189936,
+        "B_pairing": -6.281752691486021
+      },
+      "aitchison_norm": 8.111126,
+      "phase_deg": 34.555,
+      "delta_norm": -0.096856,
+      "delta_clr": {
+        "B_volume": 0.026046,
+        "B_surface": 0.01116,
+        "B_coulomb": -0.018472,
+        "B_asymmetry": 0.005044,
+        "B_pairing": 0.138408
+      }
+    },
+    {
+      "index": 84,
+      "year": 84,
+      "clr": {
+        "B_volume": 3.859361144596107,
+        "B_surface": 2.6491981912950964,
+        "B_coulomb": 2.139930287434783,
+        "B_asymmetry": -0.014643785296323208,
+        "B_pairing": -6.134987263787655
+      },
+      "aitchison_norm": 8.008152,
+      "phase_deg": 34.467,
+      "delta_norm": -0.102974,
+      "delta_clr": {
+        "B_volume": 0.025545,
+        "B_surface": 0.008894,
+        "B_coulomb": -0.018747,
+        "B_asymmetry": 0.012116,
+        "B_pairing": 0.146765
+      }
+    },
+    {
+      "index": 85,
+      "year": 85,
+      "clr": {
+        "B_volume": 3.8843128668787354,
+        "B_surface": 2.6558748147718103,
+        "B_coulomb": 2.121389536813205,
+        "B_asymmetry": 0.004765432407237258,
+        "B_pairing": -5.982005317467229
+      },
+      "aitchison_norm": 7.901029,
+      "phase_deg": 34.362,
+      "delta_norm": -0.107123,
+      "delta_clr": {
+        "B_volume": 0.024952,
+        "B_surface": 0.006677,
+        "B_coulomb": -0.018541,
+        "B_asymmetry": 0.019409,
+        "B_pairing": 0.152982
+      }
+    },
+    {
+      "index": 86,
+      "year": 86,
+      "clr": {
+        "B_volume": 3.9085820906760884,
+        "B_surface": 2.6604022758661707,
+        "B_coulomb": 2.1035343316546227,
+        "B_asymmetry": 0.031567375140359344,
+        "B_pairing": -5.8250781825122
+      },
+      "aitchison_norm": 7.7918,
+      "phase_deg": 34.241,
+      "delta_norm": -0.109229,
+      "delta_clr": {
+        "B_volume": 0.024269,
+        "B_surface": 0.004527,
+        "B_coulomb": -0.017855,
+        "B_asymmetry": 0.026802,
+        "B_pairing": 0.156927
+      }
+    },
+    {
+      "index": 87,
+      "year": 87,
+      "clr": {
+        "B_volume": 3.9320841827592323,
+        "B_surface": 2.6628692732335795,
+        "B_coulomb": 2.086835032118791,
+        "B_asymmetry": 0.06573901651770075,
+        "B_pairing": -5.666559987377286
+      },
+      "aitchison_norm": 7.68253,
+      "phase_deg": 34.106,
+      "delta_norm": -0.10927,
+      "delta_clr": {
+        "B_volume": 0.023502,
+        "B_surface": 0.002467,
+        "B_coulomb": -0.016699,
+        "B_asymmetry": 0.034172,
+        "B_pairing": 0.158518
+      }
+    },
+    {
+      "index": 88,
+      "year": 88,
+      "clr": {
+        "B_volume": 3.9547394850427744,
+        "B_surface": 2.663383743524095,
+        "B_coulomb": 2.0717473128686894,
+        "B_asymmetry": 0.10713507731575483,
+        "B_pairing": -5.508838252417137
+      },
+      "aitchison_norm": 7.575255,
+      "phase_deg": 33.959,
+      "delta_norm": -0.107275,
+      "delta_clr": {
+        "B_volume": 0.022655,
+        "B_surface": 0.000514,
+        "B_coulomb": -0.015088,
+        "B_asymmetry": 0.041396,
+        "B_pairing": 0.157722
+      }
+    },
+    {
+      "index": 89,
+      "year": 89,
+      "clr": {
+        "B_volume": 3.9764738311981107,
+        "B_surface": 2.662071853607012,
+        "B_coulomb": 2.058706373835951,
+        "B_asymmetry": 0.15549043544892188,
+        "B_pairing": -5.354283782516561
+      },
+      "aitchison_norm": 7.471932,
+      "phase_deg": 33.801,
+      "delta_norm": -0.103323,
+      "delta_clr": {
+        "B_volume": 0.021734,
+        "B_surface": -0.001312,
+        "B_coulomb": -0.013041,
+        "B_asymmetry": 0.048355,
+        "B_pairing": 0.154554
+      }
+    },
+    {
+      "index": 90,
+      "year": 90,
+      "clr": {
+        "B_volume": 3.9972190276505284,
+        "B_surface": 2.6590768225847987,
+        "B_coulomb": 2.048121411112725,
+        "B_asymmetry": 0.21042452396853245,
+        "B_pairing": -5.205200910531626
+      },
+      "aitchison_norm": 7.374391,
+      "phase_deg": 33.633,
+      "delta_norm": -0.097541,
+      "delta_clr": {
+        "B_volume": 0.020745,
+        "B_surface": -0.002995,
+        "B_coulomb": -0.010585,
+        "B_asymmetry": 0.054934,
+        "B_pairing": 0.149083
+      }
+    },
+    {
+      "index": 91,
+      "year": 91,
+      "clr": {
+        "B_volume": 4.016913295840707,
+        "B_surface": 2.6545575845949254,
+        "B_coulomb": 2.040370418215913,
+        "B_asymmetry": 0.2714476441282524,
+        "B_pairing": -5.063779135792622
+      },
+      "aitchison_norm": 7.284293,
+      "phase_deg": 33.459,
+      "delta_norm": -0.090098,
+      "delta_clr": {
+        "B_volume": 0.019694,
+        "B_surface": -0.004519,
+        "B_coulomb": -0.007751,
+        "B_asymmetry": 0.061023,
+        "B_pairing": 0.141422
+      }
+    },
+    {
+      "index": 92,
+      "year": 92,
+      "clr": {
+        "B_volume": 4.035501672882382,
+        "B_surface": 2.648687304884642,
+        "B_coulomb": 2.035795383772468,
+        "B_asymmetry": 0.3379690887910945,
+        "B_pairing": -4.932047172641303
+      },
+      "aitchison_norm": 7.203096,
+      "phase_deg": 33.279,
+      "delta_norm": -0.081197,
+      "delta_clr": {
+        "B_volume": 0.018588,
+        "B_surface": -0.00587,
+        "B_coulomb": -0.004575,
+        "B_asymmetry": 0.066521,
+        "B_pairing": 0.131732
+      }
+    },
+    {
+      "index": 93,
+      "year": 93,
+      "clr": {
+        "B_volume": 4.0529363680177495,
+        "B_surface": 2.6416517630137246,
+        "B_coulomb": 2.0346979466379596,
+        "B_asymmetry": 0.4093069414222185,
+        "B_pairing": -4.811830373395035
+      },
+      "aitchison_norm": 7.13203,
+      "phase_deg": 33.096,
+      "delta_norm": -0.071066,
+      "delta_clr": {
+        "B_volume": 0.017435,
+        "B_surface": -0.007036,
+        "B_coulomb": -0.001097,
+        "B_asymmetry": 0.071338,
+        "B_pairing": 0.120217
+      }
+    },
+    {
+      "index": 94,
+      "year": 94,
+      "clr": {
+        "B_volume": 4.069177072558875,
+        "B_surface": 2.6336476182807798,
+        "B_coulomb": 2.037335563649068,
+        "B_asymmetry": 0.4846993881161763,
+        "B_pairing": -4.7047124193106304
+      },
+      "aitchison_norm": 7.072078,
+      "phase_deg": 32.912,
+      "delta_norm": -0.059952,
+      "delta_clr": {
+        "B_volume": 0.016241,
+        "B_surface": -0.008004,
+        "B_coulomb": 0.002638,
+        "B_asymmetry": 0.075392,
+        "B_pairing": 0.107118
+      }
+    },
+    {
+      "index": 95,
+      "year": 95,
+      "clr": {
+        "B_volume": 4.084191221304997,
+        "B_surface": 2.6248805735683622,
+        "B_coulomb": 2.043918238697766,
+        "B_asymmetry": 0.563317355008088,
+        "B_pairing": -4.612002083547345
+      },
+      "aitchison_norm": 7.023967,
+      "phase_deg": 32.729,
+      "delta_norm": -0.048112,
+      "delta_clr": {
+        "B_volume": 0.015014,
+        "B_surface": -0.008767,
+        "B_coulomb": 0.006583,
+        "B_asymmetry": 0.078618,
+        "B_pairing": 0.09271
+      }
+    },
+    {
+      "index": 96,
+      "year": 96,
+      "clr": {
+        "B_volume": 4.097954203740355,
+        "B_surface": 2.6155634547505824,
+        "B_coulomb": 2.0546058546835,
+        "B_asymmetry": 0.6442782614320813,
+        "B_pairing": -4.534705763681382
+      },
+      "aitchison_norm": 6.988165,
+      "phase_deg": 32.548,
+      "delta_norm": -0.035801,
+      "delta_clr": {
+        "B_volume": 0.013763,
+        "B_surface": -0.009317,
+        "B_coulomb": 0.010688,
+        "B_asymmetry": 0.080961,
+        "B_pairing": 0.077296
+      }
+    },
+    {
+      "index": 97,
+      "year": 97,
+      "clr": {
+        "B_volume": 4.110449523642825,
+        "B_surface": 2.6059142235952626,
+        "B_coulomb": 2.069506142240253,
+        "B_asymmetry": 0.7266606606815837,
+        "B_pairing": -4.473506360237582
+      },
+      "aitchison_norm": 6.964893,
+      "phase_deg": 32.374,
+      "delta_norm": -0.023272,
+      "delta_clr": {
+        "B_volume": 0.012495,
+        "B_surface": -0.009649,
+        "B_coulomb": 0.0149,
+        "B_asymmetry": 0.082382,
+        "B_pairing": 0.061199
+      }
+    },
+    {
+      "index": 98,
+      "year": 98,
+      "clr": {
+        "B_volume": 4.12166890606825,
+        "B_surface": 2.5961539427136375,
+        "B_coulomb": 2.088673311045331,
+        "B_asymmetry": 0.8095195255020601,
+        "B_pairing": -4.42874894451878
+      },
+      "aitchison_norm": 6.954126,
+      "phase_deg": 32.206,
+      "delta_norm": -0.010767,
+      "delta_clr": {
+        "B_volume": 0.011219,
+        "B_surface": -0.00976,
+        "B_coulomb": 0.019167,
+        "B_asymmetry": 0.082859,
+        "B_pairing": 0.044757
+      }
+    },
+    {
+      "index": 99,
+      "year": 99,
+      "clr": {
+        "B_volume": 4.131612351016631,
+        "B_surface": 2.5865047115583177,
+        "B_coulomb": 2.112107361098734,
+        "B_asymmetry": 0.8919019247515614,
+        "B_pairing": -4.400433516524977
+      },
+      "aitchison_norm": 6.955611,
+      "phase_deg": 32.048,
+      "delta_norm": 0.001486,
+      "delta_clr": {
+        "B_volume": 0.009943,
+        "B_surface": -0.009649,
+        "B_coulomb": 0.023434,
+        "B_asymmetry": 0.082382,
+        "B_pairing": 0.028315
+      }
+    },
+    {
+      "index": 100,
+      "year": 100,
+      "clr": {
+        "B_volume": 4.140288133432125,
+        "B_surface": 2.5771875927405383,
+        "B_coulomb": 2.1397540827231563,
+        "B_asymmetry": 0.9728628311755547,
+        "B_pairing": -4.388215004953336
+      },
+      "aitchison_norm": 6.968882,
+      "phase_deg": 31.901,
+      "delta_norm": 0.013271,
+      "delta_clr": {
+        "B_volume": 0.008676,
+        "B_surface": -0.009317,
+        "B_coulomb": 0.027647,
+        "B_asymmetry": 0.080961,
+        "B_pairing": 0.012219
+      }
+    },
+    {
+      "index": 101,
+      "year": 101,
+      "clr": {
+        "B_volume": 4.147712749536853,
+        "B_surface": 2.568420548028121,
+        "B_coulomb": 2.1715057452846147,
+        "B_asymmetry": 1.0514807980674683,
+        "B_pairing": -4.391410509279018
+      },
+      "aitchison_norm": 6.993271,
+      "phase_deg": 31.767,
+      "delta_norm": 0.024389,
+      "delta_clr": {
+        "B_volume": 0.007425,
+        "B_surface": -0.008767,
+        "B_coulomb": 0.031752,
+        "B_asymmetry": 0.078618,
+        "B_pairing": -0.003196
+      }
+    },
+    {
+      "index": 102,
+      "year": 102,
+      "clr": {
+        "B_volume": 4.153910809846579,
+        "B_surface": 2.560416403295176,
+        "B_coulomb": 2.207202465883662,
+        "B_asymmetry": 1.1268732447614243,
+        "B_pairing": -4.409013631925816
+      },
+      "aitchison_norm": 7.027922,
+      "phase_deg": 31.649,
+      "delta_norm": 0.034651,
+      "delta_clr": {
+        "B_volume": 0.006198,
+        "B_surface": -0.008004,
+        "B_coulomb": 0.035697,
+        "B_asymmetry": 0.075392,
+        "B_pairing": -0.017603
+      }
+    },
+    {
+      "index": 103,
+      "year": 103,
+      "clr": {
+        "B_volume": 4.1589148795620625,
+        "B_surface": 2.553380861424259,
+        "B_coulomb": 2.2466342406283255,
+        "B_asymmetry": 1.1982110973925484,
+        "B_pairing": -4.4397155997344795
+      },
+      "aitchison_norm": 7.071809,
+      "phase_deg": 31.548,
+      "delta_norm": 0.043886,
+      "delta_clr": {
+        "B_volume": 0.005004,
+        "B_surface": -0.007036,
+        "B_coulomb": 0.039432,
+        "B_asymmetry": 0.071338,
+        "B_pairing": -0.030702
+      }
+    },
+    {
+      "index": 104,
+      "year": 104,
+      "clr": {
+        "B_volume": 4.162765267371239,
+        "B_surface": 2.547510581713975,
+        "B_coulomb": 2.2895436126819266,
+        "B_asymmetry": 1.2647325420553905,
+        "B_pairing": -4.481932731448195
+      },
+      "aitchison_norm": 7.123742,
+      "phase_deg": 31.466,
+      "delta_norm": 0.051934,
+      "delta_clr": {
+        "B_volume": 0.00385,
+        "B_surface": -0.00587,
+        "B_coulomb": 0.042909,
+        "B_asymmetry": 0.066521,
+        "B_pairing": -0.042217
+      }
+    },
+    {
+      "index": 105,
+      "year": 105,
+      "clr": {
+        "B_volume": 4.165509764031912,
+        "B_surface": 2.542991343724102,
+        "B_coulomb": 2.335628943188895,
+        "B_asymmetry": 1.325755662215112,
+        "B_pairing": -4.533839674749597
+      },
+      "aitchison_norm": 7.182393,
+      "phase_deg": 31.404,
+      "delta_norm": 0.058651,
+      "delta_clr": {
+        "B_volume": 0.002744,
+        "B_surface": -0.004519,
+        "B_coulomb": 0.046085,
+        "B_asymmetry": 0.061023,
+        "B_pairing": -0.051907
+      }
+    },
+    {
+      "index": 106,
+      "year": 106,
+      "clr": {
+        "B_volume": 4.167203332430344,
+        "B_surface": 2.5399963127018887,
+        "B_coulomb": 2.384548243522277,
+        "B_asymmetry": 1.3806897507347216,
+        "B_pairing": -4.593407715296927
+      },
+      "aitchison_norm": 7.246305,
+      "phase_deg": 31.363,
+      "delta_norm": 0.063912,
+      "delta_clr": {
+        "B_volume": 0.001694,
+        "B_surface": -0.002995,
+        "B_coulomb": 0.048919,
+        "B_asymmetry": 0.054934,
+        "B_pairing": -0.059568
+      }
+    },
+    {
+      "index": 107,
+      "year": 107,
+      "clr": {
+        "B_volume": 4.16790775112586,
+        "B_surface": 2.5386844227848058,
+        "B_coulomb": 2.4359235201651708,
+        "B_asymmetry": 1.429045108867889,
+        "B_pairing": -4.6584473537599
+      },
+      "aitchison_norm": 7.313918,
+      "phase_deg": 31.346,
+      "delta_norm": 0.067613,
+      "delta_clr": {
+        "B_volume": 0.000704,
+        "B_surface": -0.001312,
+        "B_coulomb": 0.051375,
+        "B_asymmetry": 0.048355,
+        "B_pairing": -0.06504
+      }
+    },
+    {
+      "index": 108,
+      "year": 108,
+      "clr": {
+        "B_volume": 4.1676912136931685,
+        "B_surface": 2.539198893075321,
+        "B_coulomb": 2.48934557702543,
+        "B_asymmetry": 1.4704411696659436,
+        "B_pairing": -4.726654257282446
+      },
+      "aitchison_norm": 7.383595,
+      "phase_deg": 31.352,
+      "delta_norm": 0.069677,
+      "delta_clr": {
+        "B_volume": -0.000217,
+        "B_surface": 0.000514,
+        "B_coulomb": 0.053422,
+        "B_asymmetry": 0.041396,
+        "B_pairing": -0.068207
+      }
+    },
+    {
+      "index": 109,
+      "year": 109,
+      "clr": {
+        "B_volume": 4.1666278864608755,
+        "B_surface": 2.54166589044273,
+        "B_coulomb": 2.5443792141714168,
+        "B_asymmetry": 1.504612811043285,
+        "B_pairing": -4.795657620979758
+      },
+      "aitchison_norm": 7.453651,
+      "phase_deg": 31.383,
+      "delta_norm": 0.070055,
+      "delta_clr": {
+        "B_volume": -0.001063,
+        "B_surface": 0.002467,
+        "B_coulomb": 0.055034,
+        "B_asymmetry": 0.034172,
+        "B_pairing": -0.069003
+      }
+    },
+    {
+      "index": 110,
+      "year": 110,
+      "clr": {
+        "B_volume": 4.164797427514373,
+        "B_surface": 2.5461933515370907,
+        "B_coulomb": 2.6005687569401545,
+        "B_asymmetry": 1.531414753776407,
+        "B_pairing": -4.86306992449718
+      },
+      "aitchison_norm": 7.522385,
+      "phase_deg": 31.44,
+      "delta_norm": 0.068734,
+      "delta_clr": {
+        "B_volume": -0.00183,
+        "B_surface": 0.004527,
+        "B_coulomb": 0.05619,
+        "B_asymmetry": 0.026802,
+        "B_pairing": -0.067412
+      }
+    },
+    {
+      "index": 111,
+      "year": 111,
+      "clr": {
+        "B_volume": 4.1622844700825965,
+        "B_surface": 2.552869975013804,
+        "B_coulomb": 2.6574438451718883,
+        "B_asymmetry": 1.5508239714799674,
+        "B_pairing": -4.926537039380001
+      },
+      "aitchison_norm": 7.588121,
+      "phase_deg": 31.522,
+      "delta_norm": 0.065736,
+      "delta_clr": {
+        "B_volume": -0.002513,
+        "B_surface": 0.006677,
+        "B_coulomb": 0.056875,
+        "B_asymmetry": 0.019409,
+        "B_pairing": -0.063467
+      }
+    },
+    {
+      "index": 112,
+      "year": 112,
+      "clr": {
+        "B_volume": 4.15917807365905,
+        "B_surface": 2.561764393378169,
+        "B_coulomb": 2.714525409020293,
+        "B_asymmetry": 1.5629400725818343,
+        "B_pairing": -4.9837876356407635
+      },
+      "aitchison_norm": 7.649246,
+      "phase_deg": 31.63,
+      "delta_norm": 0.061125,
+      "delta_clr": {
+        "B_volume": -0.003106,
+        "B_surface": 0.008894,
+        "B_coulomb": 0.057082,
+        "B_asymmetry": 0.012116,
+        "B_pairing": -0.057251
+      }
+    },
+    {
+      "index": 113,
+      "year": 113,
+      "clr": {
+        "B_volume": 4.155571146416824,
+        "B_surface": 2.5729245321821685,
+        "B_coulomb": 2.7713317554170867,
+        "B_asymmetry": 1.567983647960674,
+        "B_pairing": -5.032680850618457
+      },
+      "aitchison_norm": 7.704248,
+      "phase_deg": 31.764,
+      "delta_norm": 0.055002,
+      "delta_clr": {
+        "B_volume": -0.003607,
+        "B_surface": 0.01116,
+        "B_coulomb": 0.056806,
+        "B_asymmetry": 0.005044,
+        "B_pairing": -0.048893
+      }
+    },
+    {
+      "index": 114,
+      "year": 114,
+      "clr": {
+        "B_volume": 4.151559842663437,
+        "B_surface": 2.586377162556506,
+        "B_coulomb": 2.827384687864056,
+        "B_asymmetry": 1.5662926116564366,
+        "B_pairing": -5.071251219693704
+      },
+      "aitchison_norm": 7.751759,
+      "phase_deg": 31.922,
+      "delta_norm": 0.04751,
+      "delta_clr": {
+        "B_volume": -0.004011,
+        "B_surface": 0.013453,
+        "B_coulomb": 0.056053,
+        "B_asymmetry": -0.001691,
+        "B_pairing": -0.03857
+      }
+    },
+    {
+      "index": 115,
+      "year": 115,
+      "clr": {
+        "B_volume": 4.1472429392432515,
+        "B_surface": 2.6021276512557736,
+        "B_coulomb": 2.882215581802003,
+        "B_asymmetry": 1.5583165953561486,
+        "B_pairing": -5.097749925889994
+      },
+      "aitchison_norm": 7.790588,
+      "phase_deg": 32.106,
+      "delta_norm": 0.03883,
+      "delta_clr": {
+        "B_volume": -0.004317,
+        "B_surface": 0.01575,
+        "B_coulomb": 0.054831,
+        "B_asymmetry": -0.007976,
+        "B_pairing": -0.026499
+      }
+    },
+    {
+      "index": 116,
+      "year": 116,
+      "clr": {
+        "B_volume": 4.142721194931743,
+        "B_surface": 2.6201599105505036,
+        "B_coulomb": 2.9353713383705653,
+        "B_asymmetry": 1.5446094896425406,
+        "B_pairing": -5.110681502647236
+      },
+      "aitchison_norm": 7.819761,
+      "phase_deg": 32.312,
+      "delta_norm": 0.029173,
+      "delta_clr": {
+        "B_volume": -0.004522,
+        "B_surface": 0.018032,
+        "B_coulomb": 0.053156,
+        "B_asymmetry": -0.013707,
+        "B_pairing": -0.012932
+      }
+    },
+    {
+      "index": 117,
+      "year": 117,
+      "clr": {
+        "B_volume": 4.138096696976166,
+        "B_surface": 2.64043654843397,
+        "B_coulomb": 2.9864201409178452,
+        "B_asymmetry": 1.5258202557356118,
+        "B_pairing": -5.108835219479202
+      },
+      "aitchison_norm": 7.838544,
+      "phase_deg": 32.541,
+      "delta_norm": 0.018783,
+      "delta_clr": {
+        "B_volume": -0.004624,
+        "B_surface": 0.020277,
+        "B_coulomb": 0.051049,
+        "B_asymmetry": -0.018789,
+        "B_pairing": 0.001846
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/papers/",
+  "topic": "Publication suite -- the publishable findings and the CNQ-tiling paper set.",
+  "purpose": "Local node for the papers: what is publishable, what is drafted, and the gates that remain.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "specific_knowledge": {
+    "what": "Findings were triaged into a small publishable set; the speculative differential-geometry tower and the transcendental-constant cluster are QUARANTINED (out of all claims until earned). The CNQ-tiling suite is the active manuscript set.",
+    "key_files": ["FINDINGS_INVENTORY_2026-06-10.md", "cnq_tiling_suite_2026/00_SUITE_README.md", "cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md", "cnq_tiling_suite_2026/P2_DECEPTIVE_DRIFT.md", "cnq_tiling_suite_2026/P3_CNTT_TOOL_PAPER.md", "flagship/GROUND_STATE_AND_TRACTION.md"],
+    "key_results": [
+      "Tier 2: P1 (CNQ-tiling methods) full draft exists; gate = final novelty pass",
+      "Tier 3: P2 (deceptive drift) scaffold, gate = a defensible null model; P3 (CN-TT tool paper) scaffold, gate = engine navigation parity (now met -> P3 can advance)",
+      "Governance: numerology/diff-geometry findings quarantined, not publishable"
+    ],
+    "related_topics": ["../collaborations/geology-wehner/CNQ_TILING_CONTRIBUTION.md", "../collaborations/geology-wehner/CNQ_TILING_PRIOR_ART.md"],
+    "claim_tiers": "Tier 1 = the computed results the papers cite; Tier 2 = the P1 draft; Tier 3 = arXiv/journal submission (gated on novelty pass + null model)."
+  },
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at FINDINGS_INVENTORY_2026-06-10.md (what's publishable + what's quarantined), then cnq_tiling_suite_2026/. Read-only context; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001 (human authorship for claims); honest-broker; quarantined findings stay out of all claims until earned; no AI commits.",
+  "updated": "2026-06-11"
+}

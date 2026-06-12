@@ -1,0 +1,39 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-08
+  System:      CKM+PMNS+SEMF
+  Domain:      PARTICLE
+  Carriers:    C1, C2, C3
+  N=11, D=3
+  Source:      LOCAL FILE
+  Pipeline:    1.0 Extended
+  Data hash:   53cc1a1c12c73c31
+  Timestamp:   2026-04-25T06:03:01.895832Z
+
+
+Codici totali: 34
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 8
+  Segnali di calibrazione: 1
+  Informazioni:  24
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(2pi), delta=0.007740)
+  [S9-STL-DIS] S9-STL-DIS (2)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (5)
+  [XU-DRD-DIS] Deriva in diminuzione — il sistema sta convergendo. (variance_ratio_2nd_to_1st=0.153947, drift_direction=decreasing, max_shift_carrier=C1)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(C1/C2), cv=23761.426367)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(C1/C3), cv=207.320782)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(C2/C3), cv=153.545338)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

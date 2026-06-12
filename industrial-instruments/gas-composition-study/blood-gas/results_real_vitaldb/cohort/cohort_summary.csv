@@ -1,0 +1,9 @@
+case,T,D,carriers,recon_err,lossless,dominant_helmsman,n_regimes,hash12
+1,586,4,O2+CO2+Agent+N2,6.66e-16,True,O2,12,6bf2976a0c1c
+2,656,4,O2+CO2+Agent+N2,1.78e-15,True,O2,17,ca8484120819
+3,408,3,O2+CO2+N2,5.55e-16,True,O2,10,9b19c5f3e16f
+4,590,4,O2+CO2+Agent+N2,8.88e-16,True,O2,12,12158bb49953
+5,575,4,O2+CO2+Agent+N2,1.78e-15,True,O2,14,59f5b333bbef
+6,569,4,O2+CO2+Agent+N2,6.66e-16,True,O2,6,3723b0bd677a
+7,599,4,O2+CO2+Agent+N2,8.88e-16,True,O2,21,90e27b81e881
+8,651,3,O2+CO2+N2,4.44e-16,True,O2,15,44ea01bf233e

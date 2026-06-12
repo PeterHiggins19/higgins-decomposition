@@ -1,0 +1,47 @@
+RAPPORTO DIAGNOSTICO Hˢ
+============================================================
+
+  Experiment:  Hs-23-U238
+  System:      Radionuclide U-238 → Pb-206
+  Domain:      NUCLEAR
+  Carriers:    Particle_KE, Gamma, Recoil, Neutrino
+  N=14, D=4
+  Source:      DERIVED
+  Pipeline:    1.0 Extended
+  Data hash:   d78d7bcc403ad0c3
+  Timestamp:   2026-04-26T04:43:04.100692Z
+
+
+Codici totali: 39
+  Errori:       0
+  Avvisi:     1
+  Scoperte: 11
+  Segnali di calibrazione: 1
+  Modi strutturali:  2
+  Informazioni:  24
+
+── AVVISI ──
+  [S9-EIF-WRN] S9-EIF-WRN
+
+── SCOPERTE ──
+  [S8-EUL-DIS] Costante della famiglia di Eulero rilevata. La geometria della pipeline risuona con la struttura del sistema. (constant=1/(e^pi), delta=0.007775)
+  [S9-STL-DIS] S9-STL-DIS (1)
+  [S9-REV-DIS] Inversioni di entropia rilevate — oscillazione composizionale rapida. (8)
+  [XU-DRU-DIS] Deriva in aumento — il sistema sta evolvendo. (variance_ratio_2nd_to_1st=2.421636, drift_direction=increasing, max_shift_carrier=Particle_KE)
+  [XC-PIR-DIS] PID: i portanti condividono informazione ridondante — dinamica accoppiata.
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Gamma), cv=99.470991)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Recoil), cv=51.925414)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Particle_KE/Neutrino), cv=93.646437)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Recoil), cv=193.410311)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Gamma/Neutrino), cv=129.025477)
+  [XC-RPV-DIS] Rapporto a coppie volatile — questi portanti sono composizionalmente indipendenti. (pair=ln(Recoil/Neutrino), cv=768.666592)
+
+── SEGNALI DI CALIBRAZIONE ──
+  [XU-MDS-CAL] Densità di corrispondenza al di sotto della linea base naturale.
+
+── MODI STRUTTURALI — PROMPT DI INDAGINE ──
+  [SM-RTR-DIS] Transizione di regime rilevata. I punti di stallo delimitano le frontiere. Considerare di suddividere i dati alla transizione.
+  [SM-DMR-DIS] Risonanza di dominio — la geometria della famiglia di Eulero codifica una struttura profonda. Confrontare con altre decomposizioni in questo dominio.
+
+Esecuzione della pipeline completata con successo.
+La pipeline è deterministica. Esecuzioni ripetute producono risultati identici.

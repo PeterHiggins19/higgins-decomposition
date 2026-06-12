@@ -1,0 +1,38 @@
+======================================================================
+Hs AI-Refresh Consistency Checker
+Repo root: /sessions/epic-gracious-lovelace/mnt/Claude CoWorker/Current-Repo/Hs
+Profile:   default
+Strict:    False
+======================================================================
+
+PASSES   (8):
+  OK  [CHK-JSON-001] HS_FAST_REFRESH.json parses cleanly
+  OK  [CHK-JSON-001] .well-known/ai-context.json parses cleanly
+  OK  [CHK-JSON-001] ai-refresh/INVESTIGATION_CATALOG.json parses cleanly
+  OK  [CHK-JSON-001] ai-refresh/CONFIGURATION_ITEMS.json parses cleanly
+  OK  [CHK-JSON-001] ai-refresh/INTERFACE_CONTROL.json parses cleanly
+  OK  [CHK-JSON-001] ai-refresh/TRACEABILITY_MATRIX.json parses cleanly
+  OK  [CHK-JSON-001] ai-refresh/CHANGE_PACKET_TEMPLATE.json parses cleanly
+  OK  [CHK-INV-001] INVESTIGATION_CATALOG.md is snapshot-marked (live count in JSON: 62)
+
+WARNINGS (3):
+  WARN [CHK-CCTT-001] ai-refresh/CCTT_RUNBOOK.md — neither current nor legacy status is explicit
+  WARN [CHK-CCTT-001] ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json — neither current nor legacy status is explicit
+  WARN [CHK-CCTT-001] ai-refresh/CCTT_QUICKSTART.md — neither current nor legacy status is explicit
+
+ERRORS   (13):
+  FAIL [CHK-CNQ-001] README.md:180 — live file contains stale phrase 'until it lands' (cnq.py shipped in push #26)
+  FAIL [CHK-CNQ-001] ai-refresh/CCTT_RUNBOOK.md:57 — live file contains stale phrase 'when the engine ships' (cnq.py shipped in push #26)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_QUICKSTART.md:102 — stale version reference 'Schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_RUNBOOK.md:5 — stale version reference 'CNT 2.0.4' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_RUNBOOK.md:5 — stale version reference 'Schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_RUNBOOK.md:214 — stale version reference 'schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_RUNBOOK.md:332 — stale version reference 'Schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json:86 — stale version reference 'schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json:256 — stale version reference 'schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-VERSION-001] ai-refresh/CCTT_BUILD_INSTRUCTION_v1.0.json:336 — stale version reference 'Schema 2.1.0' (HS_FAST_REFRESH.json says cnt=3.1.0, cnq=2.0.0)
+  FAIL [CHK-INV-001] HS_FAST_REFRESH.md claims 29 entries; live JSON has 62; no snapshot marker
+  FAIL [CHK-README-001] README.md:178 — forbidden phrase 'The compiled `cnq.py` engine itself is the next milestone' (CNQ shipped; this contradicts the top of the same README)
+  FAIL [CHK-README-001] README.md:180 — forbidden phrase 'Until it lands' (CNQ shipped; this contradicts the top of the same README)
+
+RESULT: 13 error(s), 3 warning(s) — exit 1

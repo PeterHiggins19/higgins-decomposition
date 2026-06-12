@@ -1,0 +1,45 @@
+Hˢ नैदानिक रिपोर्ट
+============================================================
+
+  Experiment:  Hs-17b
+  System:      Backblaze Per-Model
+  Domain:      ENGINEERING
+  Carriers:    Mechanical, Thermal, Age, Errors
+  N=51, D=4
+  Source:      REAL
+  Description: Backblaze 2024-07-27, per-model mean SMART scores
+  Pipeline:    1.0 Extended
+  Data hash:   369e5361952ad1ca
+  Timestamp:   2026-04-25T06:45:53.976012Z
+
+
+कुल कोड: 40
+  त्रुटियाँ:       0
+  चेतावनियाँ:     1
+  खोजें: 13
+  अंशांकन संकेत: 1
+  सूचना:  25
+
+── चेतावनियाँ ──
+  [S9-EIF-WRN] EITT अपरिवर्तनशीलता: एक या अधिक संपीड़न अनुपातों पर विफल।
+
+── खोजें ──
+  [S9-CHH-DIS] उच्च अराजकता: संघटन अशांति का पता चला। (41)
+  [S9-STL-DIS] ठहराव पाया गया — एन्ट्रॉपी दर सीमा से नीचे गिरी। (7)
+  [S9-REV-DIS] उलटाव पाए गए — तीव्र संघटनात्मक दोलन। (34)
+  [XU-DRD-DIS] बहाव घट रहा है — प्रणाली अभिसरित हो रही है। (variance_ratio_2nd_to_1st=0.836681, drift_direction=decreasing, max_shift_carrier=Errors)
+  [XC-PIR-DIS] PID: वाहक अनावश्यक सूचना साझा करते हैं — युग्मित गतिकी।
+  [XC-TEF-DIS] वाहकों के बीच प्रमुख दिशात्मक सूचना प्रवाह की पहचान हुई। (flow=Age->Mechanical, te=0.097032)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Mechanical/Thermal), cv=78.289521)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Mechanical/Age), cv=79.446737)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Mechanical/Errors), cv=515.487239)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Thermal/Age), cv=359.659493)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Thermal/Errors), cv=108.928841)
+  [XC-RPV-DIS] अस्थिर युग्म अनुपात — ये वाहक संघटनात्मक रूप से स्वतंत्र हैं। (pair=ln(Age/Errors), cv=112.109225)
+  [XC-ZCR-DIS] शून्य-क्रॉसिंग घटनाएँ — संघटन सिम्प्लेक्स सीमा के निकट पहुँच रहा है। (n_near_zero_events=42, near_zero_carriers=['Mechanical', 'Thermal', 'Age', 'Errors'], zero_threshold=0.010000)
+
+── अंशांकन संकेत ──
+  [XU-MDS-CAL] XU-MDS-CAL
+
+पाइपलाइन सफलतापूर्वक चली।
+पाइपलाइन नियतात्मक है। बार-बार चलाने पर समान परिणाम मिलते हैं।

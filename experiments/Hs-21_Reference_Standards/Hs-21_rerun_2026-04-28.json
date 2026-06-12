@@ -1,0 +1,277 @@
+{
+  "_meta": {
+    "experiment_id": "Hs-21",
+    "name": "Reference Standards",
+    "domain": "CALIBRATION",
+    "legacy": "",
+    "date": "2026-04-28",
+    "pipeline_version": "1.0 Extended",
+    "data_source": "Synthetic (mathematical constants)",
+    "data_hash": "49091e4206a09a03",
+    "N": 100,
+    "D": 3,
+    "carriers": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "elapsed_seconds": 0.014,
+    "engine_status": "COMPLETE",
+    "rerun_note": "Re-run 2026-04-28 with post-O-1 engine"
+  },
+  "full_result": {
+    "framework": "Higgins Unity Framework",
+    "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+    "experiment": "Hs-21",
+    "name": "Reference Standards",
+    "domain": "CALIBRATION",
+    "carriers": [
+      "C1",
+      "C2",
+      "C3"
+    ],
+    "D": 3,
+    "N": 100,
+    "data_source": {
+      "type": "LOCAL FILE",
+      "url": null,
+      "description": null
+    },
+    "data_hash_sha256_16": "49091e4206a09a03",
+    "run_timestamp": "2026-04-28T21:19:28.405827Z",
+    "pipeline_version": "1.0 Extended",
+    "steps": {
+      "step1_system": "Hs-21: Reference Standards: 3-part simplex, carriers=['C1', 'C2', 'C3']",
+      "step2_n_samples": 100,
+      "step2_D": 3,
+      "step2_carriers": [
+        "C1",
+        "C2",
+        "C3"
+      ],
+      "data_hash_sha256_16": "49091e4206a09a03",
+      "step3_closure_check": true,
+      "step3_zero_replacement_applied": false,
+      "step3_zero_delta": 1e-06,
+      "step4_clr_mean_per_part": [
+        0.45105143363851785,
+        -0.6301379212467747,
+        0.17908648760825707
+      ],
+      "step4_clr_std_per_part": [
+        0.060102351184156515,
+        0.3633726750062729,
+        0.3050642204691555
+      ],
+      "step5_sigma2_range": [
+        3.8970337483809185e-06,
+        0.22953066460168187
+      ],
+      "step5_sigma2_final": 0.2287161721695316,
+      "step6_pll_coeffs": [
+        2.8555412766794757e-05,
+        0.0003120809173209166,
+        -0.020631199466796868
+      ],
+      "step6_pll_R2": 0.8982200398011309,
+      "step6_pll_shape": "bowl",
+      "step6_vertex": [
+        -5.464479184202431,
+        -0.02148387930504034
+      ],
+      "step6_curvature": "concave_up",
+      "step7_squeeze_count": 6,
+      "step7_squeeze_closest": {
+        "time_index": 64,
+        "sigma2_A": 0.16126434980114554,
+        "constant": "1/(2pi)",
+        "constant_value": 0.15915494309189535,
+        "test_type": "direct",
+        "test_value": 0.16126434980114554,
+        "delta": 0.0021094067092501945
+      },
+      "step7_squeeze_mean": 0.09080379733305523,
+      "step7_cancellation": true,
+      "step8_entropy_range": [
+        0.8340958131871428,
+        0.9668764794222663
+      ],
+      "step8_entropy_mean": 0.9130378020665776,
+      "step8_entropy_cv": 5.228041405183752,
+      "step8_eitt_invariance": {
+        "compression_2x": {
+          "H_mean_original": 0.9130378020665776,
+          "H_mean_decimated": 0.9130571734030504,
+          "variation_pct": 0.002121635755818552,
+          "pass": true
+        },
+        "compression_4x": {
+          "H_mean_original": 0.9130378020665776,
+          "H_mean_decimated": 0.9135122311144955,
+          "variation_pct": 0.051961599710780765,
+          "pass": true
+        },
+        "compression_8x": {
+          "H_mean_original": 0.9149193826404636,
+          "H_mean_decimated": 0.9155762809386966,
+          "variation_pct": 0.07179848964803846,
+          "pass": true
+        }
+      },
+      "step9_chaos_detection": {
+        "total_deviations": 99,
+        "stalls": 9,
+        "spikes": 1,
+        "reversals": 89
+      },
+      "step10_ternary_type": "ternary",
+      "step11_complex_range_re": [
+        -0.050041549372810135,
+        0.0415442915641096
+      ],
+      "step11_complex_range_im": [
+        -0.08110338883993434,
+        0.08003908041428626
+      ],
+      "step12_radius_range": [
+        0.06476889864299264,
+        0.09112457321099142
+      ],
+      "step12_theta_range": [
+        -1.2812456782535697,
+        2.163919639240205
+      ],
+      "step9_angular_velocity_std": 0.31460858576739986
+    },
+    "extended": {
+      "universal": {
+        "per_carrier_contribution": {
+          "carrier_variance": [
+            0.0036122926178636804,
+            0.13203970094121442,
+            0.09306417861045349
+          ],
+          "carrier_pct": [
+            1.57937787415668,
+            57.73081093860842,
+            40.689811187234895
+          ],
+          "dominant_carrier": "C2",
+          "dominant_pct": 57.73081093860842
+        },
+        "match_density": {
+          "density": 25.987466990539417,
+          "concentration": 0.3888888888888889,
+          "total_matches": 6,
+          "n_constants_hit": 3,
+          "dominant_constant": "1/(2pi)",
+          "trajectory_length": 0.2308805241458994
+        },
+        "coda_structural": {
+          "variation_matrix": [
+            [
+              0.0,
+              0.17823980850770277,
+              0.06131324151541978
+            ],
+            [
+              0.17823980850770277,
+              0.0,
+              0.4465954664854721
+            ],
+            [
+              0.061313241515419795,
+              0.446595466485472,
+              0.0
+            ]
+          ],
+          "clr_means": [
+            0.45105143363851785,
+            -0.6301379212467747,
+            0.17908648760825707
+          ],
+          "clr_stds": [
+            0.060102351184156515,
+            0.3633726750062729,
+            0.3050642204691555
+          ],
+          "aitchison_distance_mean": 0.5033579388760467
+        },
+        "carrier_drift": {
+          "variance_ratio_2nd_to_1st": 3.6142815540259203,
+          "drift_direction": "increasing",
+          "max_shift_carrier": "C3",
+          "max_shift_magnitude": 0.16167606411486957
+        },
+        "claim_status": {
+          "htp_classification": "NATURAL",
+          "hvld_shape": "bowl",
+          "hvld_R2": 0.8982200398011309,
+          "guards_passed": true,
+          "pipeline_version": "1.0 Extended",
+          "constants_tested": 35
+        }
+      },
+      "conditional": {
+        "PID": {
+          "target": "C3",
+          "sources": [
+            "C1",
+            "C2"
+          ],
+          "I_source1_target": 0.940943968598036,
+          "I_source2_target": 1.0412269266105738,
+          "redundancy": 0.940943968598036,
+          "unique_source1": 0.0,
+          "unique_source2": 0.10028295801253784,
+          "dominant": "redundancy"
+        },
+        "transfer_entropy": {
+          "te_matrix": {
+            "C1->C2": 0.029978223757290978,
+            "C1->C3": 0.013961116315458932,
+            "C2->C1": 0.0,
+            "C2->C3": 0.005724098898680197,
+            "C3->C1": 0.0,
+            "C3->C2": 0.0
+          },
+          "dominant_flow": "C1->C2",
+          "dominant_te": 0.029978223757290978
+        },
+        "order_sensitivity": {
+          "original_sigma2_final": 0.2287161721695316,
+          "shuffled_sigma2": 0.2287161721695316,
+          "order_matters": false,
+          "relative_difference": 0.0
+        },
+        "ratio_pair_lattice": {
+          "pairs": {
+            "ln(C1/C2)": {
+              "mean": 1.0811893548852922,
+              "std": 0.42218456687532147,
+              "cv": 39.04816163493515
+            },
+            "ln(C1/C3)": {
+              "mean": 0.27196494603026067,
+              "std": 0.24761510760739092,
+              "cv": 91.04669966541923
+            },
+            "ln(C2/C3)": {
+              "mean": -0.8092244088550318,
+              "std": 0.6682779859350988,
+              "cv": 82.58252947172497
+            }
+          },
+          "most_stable": "ln(C1/C2)",
+          "least_stable": "ln(C1/C3)"
+        }
+      },
+      "auto_detected": [
+        "PID",
+        "transfer_entropy",
+        "order_sensitivity",
+        "ratio_pair_lattice"
+      ]
+    }
+  }
+}

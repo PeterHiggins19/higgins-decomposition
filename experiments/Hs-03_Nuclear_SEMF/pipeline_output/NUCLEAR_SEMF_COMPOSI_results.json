@@ -1,0 +1,374 @@
+{
+  "framework": "Higgins Unity Framework",
+  "instrument": "H\u02e2 Higgins Decomposition \u2014 12-Step Pipeline v1.0 Extended",
+  "experiment": "NUCLEAR_SEMF_COMPOSI",
+  "name": "Nuclear SEMF Binding Energy",
+  "domain": "NUCLEAR",
+  "carriers": [
+    "B_volume",
+    "B_surface",
+    "B_coulomb",
+    "B_asymmetry",
+    "B_pairing"
+  ],
+  "D": 5,
+  "N": 118,
+  "data_source": {
+    "type": "LOCAL FILE",
+    "url": null,
+    "description": "Ingested from nuclear_semf_composition.csv"
+  },
+  "data_hash_sha256_16": "8f2f5fd2126ab09e",
+  "run_timestamp": "2026-04-30T21:00:22.357926Z",
+  "pipeline_version": "1.0 Extended",
+  "steps": {
+    "step1_system": "NUCLEAR_SEMF_COMPOSI: Nuclear SEMF Binding Energy: 5-part simplex, carriers=['B_volume', 'B_surface', 'B_coulomb', 'B_asymmetry', 'B_pairing']",
+    "step2_n_samples": 118,
+    "step2_D": 5,
+    "step2_carriers": [
+      "B_volume",
+      "B_surface",
+      "B_coulomb",
+      "B_asymmetry",
+      "B_pairing"
+    ],
+    "data_hash_sha256_16": "8f2f5fd2126ab09e",
+    "step3_closure_check": true,
+    "step3_zero_replacement_applied": true,
+    "step3_zero_delta": 1e-06,
+    "step4_clr_mean_per_part": [
+      3.4817628250887727,
+      2.0539642907803364,
+      1.66741932170625,
+      -0.22305029789804273,
+      -6.980096139677314
+    ],
+    "step4_clr_std_per_part": [
+      0.6563338718873932,
+      0.8206046885611707,
+      1.1212793750970633,
+      1.4867105864847971,
+      2.618308819549918
+    ],
+    "step5_sigma2_range": [
+      11.42728308579219,
+      67.07001953954803
+    ],
+    "step5_sigma2_final": 11.42728308579219,
+    "matrix_analysis": {
+      "lambda1_fraction": 0.7769970873056612,
+      "eigenvalues_final": [
+        8.95485426897759,
+        1.3857643139347906,
+        1.1758461987111501,
+        0.00848739037201788,
+        -2.7980485038811537e-16
+      ],
+      "eigenvector_overlap": 0.7630879956089737,
+      "condition_number": 1055.0774592035846,
+      "von_neumann_entropy": 0.6889412590268682,
+      "von_neumann_ratio": 0.42806327209287576,
+      "commutator_norm": 0.49505024714737816,
+      "det_V": -5.499748300186644e-17,
+      "det_amgm_ratio": -8.452733507371482e-19,
+      "cholesky_last_diag": 2.2357701460732283e-06,
+      "eigenvalue_power_law_alpha": -0.5406802089268669,
+      "eigenvalue_power_law_R2": 0.9875555109526004,
+      "eigenvalue_ratio_matches": 1,
+      "eigenvalue_ratio_best_match": {
+        "ratio": "\u03bb2/\u03bb1",
+        "value": 0.1547500687683451,
+        "constant": "1/(2pi)",
+        "delta": 0.004404874323550245
+      },
+      "gamma": 0.47223184210124886,
+      "VSWR": 2.789542756733889,
+      "Q_factor": 17.565775706810573,
+      "trace_final": 11.524952171995542,
+      "n_slices": 10
+    },
+    "step6_pll_coeffs": [
+      0.004966845956464403,
+      -0.8425800388887354,
+      46.68439006105789
+    ],
+    "step6_pll_R2": 0.8598249680066772,
+    "step6_pll_shape": "bowl",
+    "step6_vertex": [
+      84.82043194757316,
+      10.950388636585132
+    ],
+    "step6_curvature": "concave_up",
+    "step7_squeeze_count": 51,
+    "step7_squeeze_closest": {
+      "time_index": 28,
+      "sigma2_A": 22.480012131186136,
+      "constant": "1/(pi^e)",
+      "constant_value": 0.044525267266922915,
+      "test_type": "reciprocal",
+      "test_value": 0.04448396175964323,
+      "delta": 4.130550727968196e-05
+    },
+    "step7_squeeze_mean": 19.703830173236952,
+    "step7_cancellation": true,
+    "step8_entropy_range": [
+      0.48127543321607924,
+      0.6064258168531684
+    ],
+    "step8_entropy_mean": 0.5617315698209309,
+    "step8_entropy_cv": 6.309458699054287,
+    "step8_eitt_invariance": {
+      "compression_2x": {
+        "H_mean_original": 0.5617315698209309,
+        "H_mean_decimated": 0.5573832725937024,
+        "variation_pct": 0.7740880984514842,
+        "pass": true
+      },
+      "compression_4x": {
+        "H_mean_original": 0.5609828970970273,
+        "H_mean_decimated": 0.5552241461084537,
+        "variation_pct": 1.0265466235020637,
+        "pass": true
+      },
+      "compression_8x": {
+        "H_mean_original": 0.5594099104804134,
+        "H_mean_decimated": 0.5521093017295994,
+        "variation_pct": 1.305055311684486,
+        "pass": true
+      }
+    },
+    "step9_chaos_detection": {
+      "total_deviations": 102,
+      "stalls": 9,
+      "spikes": 0,
+      "reversals": 93
+    },
+    "step10_ternary_type": "projected_ternary",
+    "step11_complex_range_re": [
+      -0.024630748681854275,
+      0.19616610278170193
+    ],
+    "step11_complex_range_im": [
+      -0.12029346709337617,
+      0.06515694231001025
+    ],
+    "step12_radius_range": [
+      0.010337327364792877,
+      0.23011227282764912
+    ],
+    "step12_theta_range": [
+      -3.0545365449673447,
+      3.1277099148747163
+    ],
+    "step9_angular_velocity_std": 0.1307417847966598
+  },
+  "extended": {
+    "universal": {
+      "per_carrier_contribution": {
+        "carrier_variance": [
+          0.43077415138669706,
+          0.673392054888576,
+          1.2572674370180608,
+          2.2103083679659696,
+          6.855541074532886
+        ],
+        "carrier_pct": [
+          3.769698782751682,
+          5.892844780626991,
+          11.002330366535253,
+          19.34237868591965,
+          59.99274738416642
+        ],
+        "dominant_carrier": "B_pairing",
+        "dominant_pct": 59.99274738416642
+      },
+      "match_density": {
+        "density": 0.6973229201703098,
+        "concentration": 0.5001922337562476,
+        "total_matches": 51,
+        "n_constants_hit": 2,
+        "dominant_constant": "1/(pi^e)",
+        "trajectory_length": 73.13684739853966
+      },
+      "coda_structural": {
+        "variation_matrix": [
+          [
+            0.0,
+            0.103833320695161,
+            1.4357374321889014,
+            2.1538685374391795,
+            9.887714552402434
+          ],
+          [
+            0.103833320695161,
+            0.0,
+            2.117163286158375,
+            2.856940262913188,
+            9.716306490468348
+          ],
+          [
+            1.4357374321889014,
+            2.117163286158375,
+            0.0,
+            2.763884131109516,
+            11.396835421425697
+          ],
+          [
+            2.1538685374391795,
+            2.856940262913188,
+            2.763884131109516,
+            0.0,
+            14.704131994160155
+          ],
+          [
+            9.887714552402434,
+            9.716306490468348,
+            11.396835421425696,
+            14.704131994160155,
+            0.0
+          ]
+        ],
+        "clr_means": [
+          3.4817628250887727,
+          2.0539642907803364,
+          1.66741932170625,
+          -0.22305029789804273,
+          -6.980096139677314
+        ],
+        "clr_stds": [
+          0.6563338718873932,
+          0.8206046885611707,
+          1.1212793750970633,
+          1.4867105864847971,
+          2.618308819549918
+        ],
+        "aitchison_distance_mean": 3.8821910333866563
+      },
+      "carrier_drift": {
+        "variance_ratio_2nd_to_1st": 0.32440118502847537,
+        "drift_direction": "decreasing",
+        "max_shift_carrier": "B_surface",
+        "max_shift_magnitude": 0.08783302289711159
+      },
+      "claim_status": {
+        "htp_classification": "NATURAL",
+        "hvld_shape": "bowl",
+        "hvld_R2": 0.8598249680066772,
+        "guards_passed": true,
+        "pipeline_version": "1.0 Extended",
+        "constants_tested": 35
+      }
+    },
+    "conditional": {
+      "PID": {
+        "target": "B_coulomb",
+        "sources": [
+          "B_volume",
+          "B_surface"
+        ],
+        "I_source1_target": 0.915632358579262,
+        "I_source2_target": 1.0321761683715003,
+        "redundancy": 0.915632358579262,
+        "unique_source1": 0.0,
+        "unique_source2": 0.11654380979223833,
+        "dominant": "redundancy"
+      },
+      "transfer_entropy": {
+        "te_matrix": {
+          "B_volume->B_surface": 0.0,
+          "B_volume->B_coulomb": 0.37619379936614394,
+          "B_volume->B_asymmetry": 0.15915229057528246,
+          "B_surface->B_volume": 0.18744643475685718,
+          "B_surface->B_coulomb": 0.6203225806016086,
+          "B_surface->B_asymmetry": 0.46110519539021255,
+          "B_coulomb->B_volume": 0.11067915692800412,
+          "B_coulomb->B_surface": 0.0,
+          "B_coulomb->B_asymmetry": 0.0,
+          "B_asymmetry->B_volume": 0.0,
+          "B_asymmetry->B_surface": 0.0,
+          "B_asymmetry->B_coulomb": 0.13310550086237694
+        },
+        "dominant_flow": "B_surface->B_coulomb",
+        "dominant_te": 0.6203225806016086
+      },
+      "order_sensitivity": {
+        "original_sigma2_final": 11.42728308579219,
+        "shuffled_sigma2": 11.42728308579219,
+        "order_matters": false,
+        "relative_difference": 0.0
+      },
+      "zero_crossing": {
+        "n_near_zero_events": 118,
+        "near_zero_carriers": [
+          "B_coulomb",
+          "B_asymmetry",
+          "B_pairing"
+        ],
+        "zero_threshold": 0.01
+      },
+      "ratio_pair_lattice": {
+        "pairs": {
+          "ln(B_volume/B_surface)": {
+            "mean": 1.427798534308437,
+            "std": 0.32223178101354466,
+            "cv": 22.568434780584756
+          },
+          "ln(B_volume/B_coulomb)": {
+            "mean": 1.814343503382522,
+            "std": 1.198222613786312,
+            "cv": 66.04166253812677
+          },
+          "ln(B_volume/B_asymmetry)": {
+            "mean": 3.7048131229868155,
+            "std": 1.46760639731475,
+            "cv": 39.61350677066183
+          },
+          "ln(B_volume/B_pairing)": {
+            "mean": 10.461858964766089,
+            "std": 3.1444736526805936,
+            "cv": 30.056547916299493
+          },
+          "ln(B_surface/B_coulomb)": {
+            "mean": 0.3865449690740848,
+            "std": 1.455047520240619,
+            "cv": 376.4238669891332
+          },
+          "ln(B_surface/B_asymmetry)": {
+            "mean": 2.277014588678379,
+            "std": 1.690248580213333,
+            "cv": 74.23090693478535
+          },
+          "ln(B_surface/B_pairing)": {
+            "mean": 9.03406043045765,
+            "std": 3.1170990504743905,
+            "cv": 34.50385432407921
+          },
+          "ln(B_coulomb/B_asymmetry)": {
+            "mean": 1.8904696196042932,
+            "std": 1.6624933476888009,
+            "cv": 87.94075982224928
+          },
+          "ln(B_coulomb/B_pairing)": {
+            "mean": 8.647515461383568,
+            "std": 3.375919937058001,
+            "cv": 39.03918937333553
+          },
+          "ln(B_asymmetry/B_pairing)": {
+            "mean": 6.7570458417792745,
+            "std": 3.834596718582041,
+            "cv": 56.74960342687729
+          }
+        },
+        "most_stable": "ln(B_volume/B_surface)",
+        "least_stable": "ln(B_surface/B_coulomb)"
+      }
+    },
+    "auto_detected": [
+      "PID",
+      "transfer_entropy",
+      "order_sensitivity",
+      "zero_crossing_detector",
+      "ratio_pair_lattice"
+    ]
+  }
+}
