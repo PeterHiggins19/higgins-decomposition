@@ -1,38 +1,34 @@
-# Next‑push control rows — DRAFT (number‑agnostic, paste at your gate)
+# Control rows — #74 / #75 / #76 (numbering resolved; paste at your gate)
 
-*Drafted 2026‑06‑11 for the §6 admin sync. **The push NUMBER is left as `#NN` and SHA/CI as placeholders on purpose** — see the blocker note at the bottom. Paste the filled rows into `CHANGELOG.md` (top of the push table) and `ai-refresh/PUSHES_INDEX.md` once the push lands and you assign the number. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001.*
-
----
-
-## CHANGELOG.md — new top row
-
-```
-| **#NN** | `<SHA>` | #<CI> ("stewardship + tools + E-21 guard") green <NN>s | **🧭 Stewardship track + tools reset + E‑21 carrier guard + distributed onboarding.** **(S1)** E‑21 carrier guard landed in the live engine (CN‑TT v4): new `geometry.carrier_health()` triages carriers, `run_cntt.py` + `cntt.py` drop structural‑zero carriers and flag constant ones (the `input.carrier_guard` block appears only when degenerate, so clean‑data payloads + hashes are unchanged), `codes.py` adds `GD‑ZRC‑CAL` / `GD‑CNC‑CAL` + mode `SM‑SZC‑CAL`; verified — the previously‑crashing all‑zero case now runs, clean‑data hash byte‑identical, self‑test `VERDICT: PASS` with determinism hash `8734e2474a2dd8ff` unchanged; DCP rationale in `ai-refresh/E21_PATCH_READY_2026-06-11.md`. **(S2)** New `stewardship/` top‑level pursuit — the public‑good line (ISO MC‑4 standards + Ramsar wetlands), deliberately separate from the commercial `industrial-instruments/`: `COMMITMENT_OF_PURPOSE.md` + `iso-standards/` + `ramsar-wetlands/`, distilled from Peter's own ISO positioning + wetland paper + complexity‑gap + Human‑AI Accord (interest expressed, never acquired). **(S2)** `tools/` reset — the pre‑CN‑TT piecemeal pipeline (66 files: `hs_*` 12‑step, manifold/projector generators, old interactives, the quarantined transcendental pre‑test) archived reversibly to mirror‑root `_archive_2026-06-11/Hs-tools-primitive-pipeline/`; replaced with the current toolchain: `cntt_report.py` (verified general tool — CSV → CN‑TT v4 diagnostics + `SS‑CCC‑LLL` codes, E‑21 aware) + a current‑toolchain `README.md`. **(S2)** Distributed onboarding enhanced to schema `hs_ai_assist/1.1` (`byo_ai_onboarding` block: Hs as a deterministic extension to standard CoDa; CoDa tools in machine apps; determinism by doctrine) — 16 new nodes across the major folders (30 total). **(S2)** `ai-refresh/OPERATIONS_INDEX_2026-06-11.md` — condensed run/govern/expand front door; `RESTRUCTURE_JOURNAL_2026-06-11.md` + `ADMIN_DELTA_2026-06-11_restructure.json`. **Lockdown discipline:** frozen oracle (cnt.py 2026‑05‑19, cnq.py 2026‑05‑09), schemas (HUF‑STD‑001/002/003), and the INV catalog all untouched; the only engine change is the additive E‑21 guard in CN‑TT v4; all archive moves reversible (nothing deleted); HUF‑repo governance work (huf‑gov doctrine + NASA‑style governance) pushes to `Higgins-Unity-Framework` separately; mirror‑root items (`Hs-Workplace/`, the ledger/map, `_archive_2026-06-11/`) are not repo‑tracked. AI‑assisted per HUF‑STD‑001; human authorship; nothing sent. |
-```
-
-## ai-refresh/PUSHES_INDEX.md — new deep‑detail section (place above the most recent block)
-
-```
-### Push #NN — *stewardship + tools + E‑21 guard*  (`<SHA>`, CI #<CI>, green <NN>s, 2026‑06‑11)
-
-Class: **S1 + S2 combined** (E‑21 is the S1 engine change; the rest is additive S2 doc/governance/tools).
-
-1. **E‑21 carrier guard (S1).** `HCI-CNTT/engine/geometry.py` gains pure `carrier_health(M)`; `run_cntt.py` + `engine/cntt.py` exclude structural‑zero carriers (undefined under the log‑ratio map; the live engine's `log(0)→nan→eigh` crash) and flag constant carriers; `engine/codes.py` emits `GD‑ZRC‑CAL` / `GD‑CNC‑CAL` + structural mode `SM‑SZC‑CAL`. Hash‑neutral on clean data (the guard record is present only when a carrier is degenerate). Gate: self‑test PASS, determinism hash `8734e2474a2dd8ff` unchanged; frozen oracle untouched. DCP rationale: `ai-refresh/E21_PATCH_READY_2026-06-11.md`. Open policy note: all‑zero carrier treated as structural absence (current default) vs impute.
-2. **stewardship/ (S2).** New public‑good pursuit beside `industrial-instruments/`: charter + ISO (MC‑4 = the standardless 4th monitoring category) + Ramsar (two‑tier offer, 5 wetland CoDa series, honest complexity gap). Offered, not sold.
-3. **tools/ reset (S2).** Pre‑CN‑TT pipeline (66 files) archived reversibly to mirror root; `cntt_report.py` + current‑toolchain README installed.
-4. **Onboarding `hs_ai_assist/1.1` (S2).** 16 new bring‑your‑own‑AI nodes (30 total).
-5. **Operations layer (S2).** `OPERATIONS_INDEX_2026-06-11.md` + restructure journal + admin delta.
-
-Lockdown: frozen oracle / schemas / INV untouched; only additive E‑21 engine code; all moves reversible; HUF‑repo governance pushes separately.
-```
+*Drafted 2026‑06‑11 for the §6 admin sync. Numbering now confirmed by Peter: **#74 "Clean Start" (`1efcbc9`)** = emptied the repo to nothing; **#75 "HCI‑TT" (`11a1e85`)** = full repaste, complete + CI‑green (contains this session's work through `stewardship/` + the E‑21 guard). The next push is **#76 (CI #72)**. SHA for #76 fills in after it lands. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001.*
 
 ---
 
-## ⛔ Blocker — confirm before assigning the number
+## CHANGELOG.md — three new top rows (most recent first: #76, #75, #74)
 
-Your CI runs **#70 "Clean Start" (`1efcbc9`)** and **#71 "HCI‑TT" (`11a1e85`)** map to project pushes **#74 and #75** (CI run = push − 4; #73 was CI #69). That means:
+```
+| **#76** | `<SHA>` | #74 ("CI fix + tools reset + DVR protocol") green <NN>s | **🛠️ CI fix + tools reset + operations index + DVR‑1.0 protocol.** **(S2, no engine change.)** **CI FIX (makes the build green again):** `.github/workflows/validate.yml` was hard‑wired to the archived `tools/pipeline` (it checked for + *ran* `higgins_decomposition_12step` / `hs_codes` / `hs_reporter` + the quarantined transcendental pre‑test + the locales + `tools/interactive/`), so push CI #73 "HCI‑New Build" went red on a healthy repo. The workflow is repointed to the **current CN‑TT v4 toolchain** (current engine/tool file checks + frozen‑oracle check + the canonical self‑test + a `cntt_report` clean smoke), and **scipy** is added to the install (the engine's `atlas.py` imports it). **Tools reset:** the pre‑CN‑TT piecemeal pipeline (66 files) archived reversibly to mirror‑root `_archive_2026-06-11/Hs-tools-primitive-pipeline/`; replaced with `tools/cntt_report.py` (verified: CSV → CN‑TT v4 diagnostics + `SS‑CCC‑LLL` codes, E‑21 aware) + current‑toolchain `tools/README.md` + updated `tools/AI_ASSIST.json`. **Operations + discipline:** `ai-refresh/OPERATIONS_INDEX_2026-06-11.md` (condensed run/govern/expand front door) and **DVR‑1.0** — `ai-refresh/DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md` + `VERIFICATION_PROTOCOL.json`, the named lose‑nothing / verify‑before‑and‑after / staged‑recovery operating discipline (built by the ChatGPT/Grok/Claude caretakers, now documented with its five failure modes), registered in the `ai-refresh/AI_ASSIST.json` control hub. **Lockdown:** frozen oracle / schemas / INV catalog untouched; no engine change (E‑21 already landed in #75); all archive moves reversible; cruft gitignored. AI‑assisted per HUF‑STD‑001; human authorship; nothing sent. |
+| **#75** | `11a1e85` | #71 ("HCI-TT") green | **🟢 Full repaste — current state restored + verified.** After #74 emptied the repository, the complete current mirror was repasted and pushed: this session's body of work — the **E‑21 carrier guard** in CN‑TT v4 (additive; `geometry.carrier_health()` + structural‑zero exclusion + `GD‑ZRC‑CAL`/`GD‑CNC‑CAL`/`SM‑SZC‑CAL`; hash‑neutral on clean data; self‑test PASS, determinism hash `8734e2474a2dd8ff` unchanged), the new **`stewardship/`** public‑good pursuit (ISO MC‑4 + Ramsar wetlands, separate from `industrial-instruments/`), the **`hs_ai_assist/1.1`** distributed onboarding nodes (30 total), and the restructure journal + admin delta. CI green. *(§6 admin chain to be reconciled — see note below.)* |
+| **#74** | `1efcbc9` | #70 ("Clean Start") green | **🧹 Clean start — repository emptied.** Working‑tree reset: all files emptied to nothing as the first half of an empty‑and‑repaste cycle. Repopulated immediately in #75. |
+```
 
-- **If those two commits already pushed this session's mirror work**, then most of the above is already on `main`, the next push is **#76 (CI #72)**, and these rows should describe only the *residual* (operations index, tools‑reset finalization, the push‑prep docs) — not the whole body.
-- **If "Clean Start"/"HCI‑TT" were something else**, the numbering and contents differ again.
+## ai-refresh/PUSHES_INDEX.md — new deep‑detail section for #76 (place at top)
 
-I haven't seen the contents of `1efcbc9` / `11a1e85`, so I can't honestly assign the number or trim the rows to the true delta without guessing. **Tell me what those two commits contained** (or paste their file lists) and I'll finalize the rows at the correct number and scope — and reconcile the `last_updated` #73 vs `last_push` #71 drift in the same pass.
+```
+### Push #76 — *tools reset + operations index*  (`<SHA>`, CI #72, green, 2026‑06‑11)
+
+Class: **S2** (doc/tools; no engine change — E‑21 already landed in #75 "HCI‑TT").
+
+1. **tools/ reset.** The pre‑CN‑TT piecemeal pipeline (66 files) archived reversibly to mirror‑root `_archive_2026-06-11/Hs-tools-primitive-pipeline/`. Replaced with `cntt_report.py` (verified: CSV → CN‑TT v4 diagnostics + SS‑CCC‑LLL codes, E‑21 aware), a current‑toolchain `README.md`, and an updated `AI_ASSIST.json`. One engine, one run path.
+2. **Operations index.** `ai-refresh/OPERATIONS_INDEX_2026-06-11.md` — condensed run/govern/expand front door + the additive pattern for a new domain (adapter → folder → node → run → tier → push).
+3. **Push admin.** `PUSH76_READY_FOR_COMMIT.md`, `PUSH76_PRE_PUSH.json`, this draft.
+
+Lockdown: frozen oracle / schemas / INV untouched; no engine change; all moves reversible.
+Predecessors this window: **#75 "HCI‑TT"** (`11a1e85`, full repaste incl. E‑21 + stewardship, green) and **#74 "Clean Start"** (`1efcbc9`, repo emptied).
+```
+
+---
+
+## §6 chain reconciliation note (Windows‑side)
+
+The admin chain skipped the #74/#75 entries (it still reads `last_updated` #73 / `0e202f7` / CI 69, and `last_push` #71 / `6b76cf1` / CI 67 from May 29 — a pre‑existing drift). When you sync, roll `HS_FAST_REFRESH.json` current → `11a1e85` / CI 71 (or → the #76 SHA after it lands), add `push_74_completed` / `push_75_completed` / `push_76_completed`, and reconcile the stale `last_push` field. The big admin JSONs are edited Windows‑side (the sandbox truncates them).

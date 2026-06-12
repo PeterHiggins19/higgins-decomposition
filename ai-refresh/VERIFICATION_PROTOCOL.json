@@ -1,0 +1,36 @@
+{
+ "schema": "hs_verification_protocol/1.0",
+ "id": "DVR-1.0",
+ "title": "Double-Verify & Staged-Recovery Protocol",
+ "date": "2026-06-11",
+ "author": "Peter Higgins (human authorship for claims); AI-assisted per HUF-STD-001",
+ "companion_md": "DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md",
+ "one_line": "Lose nothing; check everything; verify before and after; move slowly in reversible stages; recover from any mistake (AI or human).",
+ "lineage": "Built over many sessions by the HUF AI Collective caretakers (ChatGPT, Grok, Claude) under Peter; DVR-1.0 names and extends what they built.",
+ "four_pillars": {
+  "lose_nothing": "Never delete in place; move superseded material to a dated reversible archive (_archive_YYYY-MM-DD/, _legacy_*) with a manifest. A mistake is always undoable by moving a file back.",
+  "double_verify": "Every change has a pre-condition check (ground truth before acting) and a post-condition check (it landed as intended after). One check is a guess; two checks are control.",
+  "slow_staged": "Small, independently verifiable, independently reversible stages, with a human gate between substantive stages (Peter is the sole commit/contact gate).",
+  "recovery": "Because nothing is deleted and every stage is double-checked, any AI or human mistake is caught at the next gate and rolled back. Recovery is the design."
+ },
+ "double_verify_gate": [
+  {"change": "file edit", "before": "read authoritative current content", "after": "read the result back (authoritative); never trust a single bash read of a just-edited file"},
+  {"change": "archive move", "before": "confirm move list excludes anything current", "after": "count source+dest, write manifest, confirm reversibility"},
+  {"change": "engine change", "before": "capture baseline hash/result", "after": "self-test PASS + clean-data hash unchanged where hash-neutral intended"},
+  {"change": "push", "before": "PUSH_PROTOCOL §2 (consistency checker, NO-CREATE absent, frozen oracle untouched, JSON parse, self-test)", "after": "§6 closure check: live SHA == recorded SHA, CI green, admin chain rolled"},
+  {"change": "repo structure", "before": "list what the verification config (CI, checkers) references", "after": "update the verification config to track current files; re-verify"}
+ ],
+ "known_failure_modes": [
+  {"id": "FM-1 buffered/stale-mount read", "what": "sandbox mount serves a stale/truncated/NUL-padded copy of a just-written file; bash can falsely report it broken or show the OLD code's line numbers in a traceback", "authority": "Read/Write/Edit tools are authoritative (Windows-side); bash reads can lag", "recovery": "verify via the authoritative Read tool; reconstruct to /tmp to run; validate big admin JSONs Windows-side; never blind-edit them from the sandbox", "prior_art": "AI_AGENTS.md §2.1, PUSH_PROTOCOL §2.5"},
+  {"id": "FM-2 stale pipeline / verification coupled to moved files", "what": "CI/checkers hard-wired to old paths fail when structure changes (validate.yml checked for + ran the archived tools/pipeline)", "recovery": "treat the verification config as part of the structure; update the checker's file list in the same change; a red here is the system catching drift loudly"},
+  {"id": "FM-3 unseen-commit fabrication", "what": "narrating a commit you have not seen corrupts the audit trail", "recovery": "never fabricate; use placeholders, flag the blocker, reconcile at the human gate (honest-broker applied to bookkeeping)"},
+  {"id": "FM-4 admin-chain mis-numbering/drift", "what": "push numbers and CI runs desync; empty-and-repaste can skip chain entries", "recovery": "§6 closure check reconciles at the gate; draft control rows number-agnostically until confirmed"},
+  {"id": "FM-5 ordinary AI/human mistake", "what": "anyone can make a wrong call", "recovery": "before/after double-check catches it at the next gate; reversibility undoes it. No single actor trusted to be right once; the system is trusted to catch it twice."}
+ ],
+ "design_claim": {
+  "tier": 2,
+  "statement": "DVR applies the engine's epistemology (determinism + hash receipts: same input -> same output -> same content hash) to the operations layer: every state has a checkable receipt before and after, plus a reversible path back. That is why the system absorbs a buffered read, a stale pipeline, a mis-numbered push, or a plain mistake without losing anything."
+ },
+ "registered_in": ["ai-refresh/AI_ASSIST.json (control hub: key_files + join_the_chain.operating_discipline)", "ai-refresh/OPERATIONS_INDEX_2026-06-11.md", "to fold Windows-side: HS_FAST_REFRESH.json _meta + HS_ADMIN.json"],
+ "consolidates": ["AI_AGENTS.md §2.1", "PUSH_PROTOCOL.md §2.5 + §6", "OPERATIONS_PROTOCOL.md", "CHANGE_CONTROL_README.md", "HS_MACHINE_MANIFEST.json fault_tolerance_dual_folder_method"]
+}

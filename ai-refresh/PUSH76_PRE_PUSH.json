@@ -1,0 +1,37 @@
+{
+ "schema": "hs_pre_push/1.0",
+ "push_number": 76,
+ "date": "2026-06-11",
+ "repo": "PeterHiggins19/higgins-decomposition",
+ "status": "READY (S2 doc/tools delta) — Peter commits via GitHub Desktop (empty-and-repaste workflow)",
+ "prepared_by": "Claude Fable 5; AI-assisted per HUF-STD-001; Peter is the sole commit gate (nothing pushed)",
+ "baseline": {"last_green": {"commit": "11a1e85", "ci_run": 71, "name": "HCI-TT", "note": "last GREEN push; contains E-21 + stewardship; preceded by #74 'Clean Start' = emptied repo"}, "current_head": {"commit": "3145828", "ci_run": 73, "name": "HCI-New Build", "status": "RED — CI failed because the stale validate.yml checked for the archived tools/pipeline; THIS push fixes it"}},
+ "suggested": {"ci_name": "CI fix + tools reset + DVR protocol", "next_ci_run": 74},
+ "push_class": "S2 (doc/tools/CI; NO engine change in this push — E-21 already landed in #75)",
+ "critical": "INCLUDES the CI fix .github/workflows/validate.yml — the last push (CI #73 'HCI-New Build', 3145828) went RED because the stale workflow checked for the archived tools/pipeline. This push makes CI green again. MUST be included.",
+ "delta_since_75": {
+  "ci_fix": [".github/workflows/validate.yml (repointed from archived tools/pipeline to the current CN-TT v4 toolchain: current engine/tool file checks + frozen-oracle check + run the self-test + a cntt_report clean smoke; added scipy to the pip install since HCI-CNTT/engine/atlas.py imports it; removed all archived-file references)"],
+  "operating_discipline_DVR": ["ai-refresh/DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md (DVR-1.0)", "ai-refresh/VERIFICATION_PROTOCOL.json", "ai-refresh/AI_ASSIST.json (control-hub registration: join_the_chain.operating_discipline)", "ai-refresh/OPERATIONS_INDEX_2026-06-11.md (DVR pointer added)"],
+  "tools_reset": ["tools/cntt_report.py (new current general tool, verified)", "tools/README.md (current toolchain)", "tools/AI_ASSIST.json (updated to current toolchain)", "MOVED OUT of repo: tools/{pipeline,interactive,diagnostics,notebooks,locales} (66 files) -> mirror-root _archive_2026-06-11/Hs-tools-primitive-pipeline/ (reversible)"],
+  "operations_layer": ["ai-refresh/OPERATIONS_INDEX_2026-06-11.md (condensed run/govern/expand front door)"],
+  "push_admin": ["ai-refresh/PUSH76_READY_FOR_COMMIT.md", "ai-refresh/PUSH76_PRE_PUSH.json", "ai-refresh/NEXT_PUSH_CONTROL_ROWS_DRAFT.md", "ai-refresh/ADMIN_DELTA_2026-06-11_restructure.json (DVR + CI-fix notes)"]
+ },
+ "already_pushed_in_75_HCI_TT": ["E-21 carrier guard (HCI-CNTT engine)", "stewardship/ public-good pursuit", "16 new hs_ai_assist/1.1 onboarding nodes", "RESTRUCTURE_JOURNAL + ADMIN_DELTA", "document ledger / relevance map (mirror root)"],
+ "verification": {
+  "consistency_checker": "content checks OK; the only error is the documented PUSH_PROTOCOL §2.5 cross-mount cache-lag artefact on HS_FAST_REFRESH.json (re-run Windows-side -> clears)",
+  "no_create_files_absent": true,
+  "new_files_parse": "OK (cntt_report.py compiles; tools/AI_ASSIST.json valid; all confirmed via authoritative read)",
+  "frozen_oracle_untouched": true,
+  "engine_self_test": "PASS (VERDICT: PASS; determinism hash 8734e2474a2dd8ff) — and E-21 is already green in #75",
+  "cruft": "all gitignored (__pycache__/*.pyc/*.tmp/.~lock); nothing commits; mount can't delete dirs but moot",
+  "must_reverify_on_windows": "python3 scripts/check_ai_refresh_consistency.py -> expect 0 errors, 0 warnings, exit 0"
+ },
+ "post_commit_sync_section6": {
+  "HS_FAST_REFRESH.json": "current_commit_sha 11a1e85->NEW (after #76 lands); current_ci_run 71->72; name->'tools reset + operations index'; previous_* demote. ALSO reconcile pre-existing drift: last_updated #73/0e202f7/CI69 vs last_push field #71/6b76cf1/CI67 (May 29) -- and note #74 'Clean Start'/#75 'HCI-TT' in the chain (Peter narrates Windows-side).",
+  "HS_ADMIN.json": "add push_74/75/76 entries; advance last_updated",
+  "CHANGELOG.md": "add #74 'Clean Start' + #75 'HCI-TT' + #76 rows (see NEXT_PUSH_CONTROL_ROWS_DRAFT.md for the #76 row)",
+  "PUSHES_INDEX.md": "add #74/#75/#76 sections",
+  "where": "Windows-side (sandbox truncates the big admin JSONs)"
+ },
+ "github_desktop_safety": "keep .git/ (+ .github/, .gitignore, .gitattributes); clear folder CONTENTS, never delete+recreate the repo folder"
+}

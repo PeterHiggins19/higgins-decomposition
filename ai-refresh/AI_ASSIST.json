@@ -6,7 +6,7 @@
   "paths_note": "key_files relative to THIS folder; source_of_truth is one level up at the Hs repo root.",
   "specific_knowledge": {
     "what": "The control hub. Source-of-truth order (wins on conflict): ../HS_FAST_REFRESH.json -> HS_ADMIN.json -> narrative docs. AI_RAPID_LEARN.md is the central granular onboarding map; AI_ASSIST_PATH_PROTOCOL.md defines the distributed-node convention (this node's own scheme). Journals/histories update in lock-step (JOURNALING_PROTOCOL.md); the tracking log is the machine-readable objective status; the unified agenda is its human render.",
-    "key_files": ["AI_RAPID_LEARN.md", "AI_ASSIST_PATH_PROTOCOL.md", "HS_TRACKING_LOG.json", "UNIFIED_AGENDA_2026-06-10.md", "JOURNALING_PROTOCOL.md", "CNTT_V4_ENGINE_DESIGN.md", "ENGINE_INTEROP_REGISTRY.md", "PUSH_READY_2026-06-11.md"],
+    "key_files": ["AI_RAPID_LEARN.md", "AI_ASSIST_PATH_PROTOCOL.md", "HS_TRACKING_LOG.json", "UNIFIED_AGENDA_2026-06-10.md", "JOURNALING_PROTOCOL.md", "CNTT_V4_ENGINE_DESIGN.md", "ENGINE_INTEROP_REGISTRY.md", "PUSH_READY_2026-06-11.md", "DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md", "VERIFICATION_PROTOCOL.json", "OPERATIONS_INDEX_2026-06-11.md"],
     "key_results": [
       "Convention (G-6): folders that matter carry a local AI_ASSIST.json (topic knowledge + up-link); nodes link up, the centre stays small",
       "Tracking tracks: stage_0..2, stage_P engagement, engine_build_v4, publication, huf, governance (G-1..G-6), space_readiness (SR), industrial (II)"
@@ -19,7 +19,9 @@
     "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
     "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
     "human_guide": "HS_GUIDE.md",
-    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json",
+    "operating_discipline": "ai-refresh/VERIFICATION_PROTOCOL.json (DVR-1.0 Double-Verify & Staged-Recovery: lose nothing, verify before+after, recover from any AI/human mistake; guards the buffered-read/stale-mount, stale-pipeline, and unseen-commit failure modes)",
+    "operations_index": "ai-refresh/OPERATIONS_INDEX_2026-06-11.md"
   },
   "bring_your_own_ai": "This is the centre. From any topic node, follow join_the_chain to here, then read AI_RAPID_LEARN.md in priority order. Read-only context; governance + claim-tiers apply.",
   "governance": "HUF-STD-001; source-of-truth order is authoritative; never let a synthesis doc override the JSONs. No AI commits; Peter is the gate.",

@@ -18,17 +18,23 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: pip install numpy pandas
+        run: pip install numpy scipy pandas
 
-      - name: Verify core pipeline files
+      - name: Verify current engine + tools
         run: |
-          echo "=== Core Pipeline Check ==="
+          echo "=== Current Engine + Tools Check (CN-TT v4) ==="
           missing=0
           for f in \
-            "tools/pipeline/higgins_decomposition_12step.py" \
-            "tools/pipeline/hs_codes.py" \
-            "tools/pipeline/hs_reporter.py" \
-            "tools/pipeline/higgins_transcendental_pretest.py"; do
+            "HCI-CNTT/run_cntt.py" \
+            "HCI-CNTT/engine/geometry.py" \
+            "HCI-CNTT/engine/cntt.py" \
+            "HCI-CNTT/engine/codes.py" \
+            "HCI-CNTT/engine/navigate.py" \
+            "HCI-CNTT/engine/atlas.py" \
+            "HCI-CNTT/engine/provenance.py" \
+            "HCI-CNTT/engine/self_test/run_self_test.py" \
+            "tools/cntt_report.py" \
+            "tools/README.md"; do
             if [ -f "$f" ]; then
               size=$(stat --format=%s "$f")
               kb=$((size / 1024))
@@ -39,17 +45,16 @@ jobs:
             fi
           done
           if [ $missing -gt 0 ]; then
-            echo "ERROR: $missing core pipeline file(s) missing"
+            echo "ERROR: $missing current engine/tool file(s) missing"
             exit 1
           fi
-          echo "All core pipeline files present."
+          echo "All current engine + tool files present."
 
-      - name: Verify locale files
+      - name: Verify frozen oracle present (archived reference)
         run: |
-          echo "=== Locale Check ==="
+          echo "=== Frozen Oracle Check ==="
           missing=0
-          for lang in en zh hi pt it; do
-            f="tools/pipeline/locales/${lang}.json"
+          for f in "HCI-CNT/engine/cnt.py" "HCI-CNQ/engine/cnq.py"; do
             if [ -f "$f" ]; then
               echo "  OK: $f"
             else
@@ -58,10 +63,10 @@ jobs:
             fi
           done
           if [ $missing -gt 0 ]; then
-            echo "ERROR: $missing locale file(s) missing"
+            echo "ERROR: $missing frozen-oracle file(s) missing"
             exit 1
           fi
-          echo "All 5 locale files present."
+          echo "Frozen oracle present."
 
       - name: Verify control plane files
         run: |
@@ -71,7 +76,8 @@ jobs:
             "ai-refresh/HS_MACHINE_MANIFEST.json" \
             "ai-refresh/HS_ADMIN.json" \
             "ai-refresh/HS_SYSTEM_INVENTORY.json" \
-            "ai-refresh/HS_GITHUB_CONFIG.json"; do
+            "ai-refresh/HS_GITHUB_CONFIG.json" \
+            "HS_FAST_REFRESH.json"; do
             if [ -f "$f" ]; then
               echo "  OK: $f"
             else
@@ -88,7 +94,7 @@ jobs:
       - name: Verify root documents
         run: |
           echo "=== Root Documents Check ==="
-          for f in README.md EXECUTIVE_SUMMARY.md CITATION.cff LICENSE .gitignore; do
+          for f in README.md EXECUTIVE_SUMMARY.md HS_GUIDE.md CITATION.cff LICENSE .gitignore; do
             if [ -f "$f" ]; then
               echo "  OK: $f"
             else
@@ -115,23 +121,6 @@ jobs:
           done
           echo "All reference standards present."
 
-      - name: Verify interactive tools
-        run: |
-          echo "=== Interactive Tools Check ==="
-          count=0
-          for html in tools/interactive/*.html; do
-            if [ -f "$html" ]; then
-              size=$(stat --format=%s "$html")
-              kb=$((size / 1024))
-              echo "  OK: $(basename $html) (${kb} KB)"
-              count=$((count + 1))
-            fi
-          done
-          echo "Total interactive tools: $count"
-          if [ $count -lt 3 ]; then
-            echo "WARNING: Expected at least 3 interactive tools"
-          fi
-
       - name: Verify experiment results
         run: |
           echo "=== Experiment Results Check ==="
@@ -156,50 +145,19 @@ jobs:
             exit 1
           fi
 
-      - name: Run pipeline smoke test
+      - name: Run CN-TT v4 engine self-test (BIST)
         run: |
-          echo "=== Pipeline Smoke Test ==="
-          cd tools/pipeline
-          python3 -c "
-          import numpy as np
-          from higgins_decomposition_12step import HigginsDecomposition
+          echo "=== Engine Self-Test (canonical) ==="
+          python3 HCI-CNTT/engine/self_test/run_self_test.py
 
-          # Minimal test: 5 observations, 3 carriers
-          data = np.array([
-              [0.5, 0.3, 0.2],
-              [0.4, 0.4, 0.2],
-              [0.3, 0.5, 0.2],
-              [0.45, 0.35, 0.2],
-              [0.35, 0.45, 0.2]
-          ])
-
-          hd = HigginsDecomposition('SMOKE', 'Smoke Test', 'TEST',
-              carriers=['A', 'B', 'C'])
-          hd.load_data(data)
-          result = hd.run_full_extended()
-
-          # Verify core outputs exist
-          assert 'steps' in result, 'Missing steps in result'
-          assert 'extended' in result, 'Missing extended in result'
-          assert result['extended']['universal']['claim_status']['htp_classification'] in ['NATURAL', 'INVESTIGATE', 'FLAG'], 'Invalid HTP classification'
-
-          # Verify diagnostic codes
-          from hs_codes import generate_codes
-          codes = generate_codes(result)
-          assert len(codes) > 0, 'No diagnostic codes generated'
-
-          # Verify reporter
-          from hs_reporter import report
-          for lang in ['en', 'zh', 'hi', 'pt', 'it']:
-              rpt = report(codes, lang=lang)
-              assert len(rpt) > 100, f'Report too short for language {lang}'
-
-          print('Pipeline smoke test: PASSED')
-          print(f'  Codes generated: {len(codes)}')
-          print(f'  Classification: {result[\"extended\"][\"universal\"][\"claim_status\"][\"htp_classification\"]}')
-          print(f'  All 5 languages verified')
-          "
-          echo "Smoke test complete."
+      - name: Run current-tool smoke test (cntt_report)
+        run: |
+          echo "=== Tool Smoke Test (tools/cntt_report.py) ==="
+          printf 't,A,B,C,D\n0,5,3,2,4\n1,6,2,3,3\n2,4,4,1,5\n3,7,1,2,2\n' > /tmp/smoke.csv
+          out=$(python3 tools/cntt_report.py /tmp/smoke.csv)
+          echo "$out"
+          echo "$out" | grep -q "content hash" || { echo "ERROR: cntt_report produced no content hash"; exit 1; }
+          echo "Tool smoke test: PASSED"
 
       - name: Verify JSON integrity
         run: |
@@ -226,8 +184,9 @@ jobs:
           echo "  Hˢ Repository Validation: PASSED"
           echo "=========================================="
           echo ""
-          echo "  Pipeline: $(wc -l < tools/pipeline/higgins_decomposition_12step.py) lines"
-          echo "  Codes: $(python3 -c 'import json; print(len(json.load(open("tools/pipeline/locales/en.json"))))'  ) entries"
-          echo "  Experiments: $(ls -d experiments/Hs-*/ 2>/dev/null | wc -l)"
-          echo "  Languages: 5 (en, zh, hi, pt, it)"
+          echo "  Current engine: CN-TT v4 (HCI-CNTT/)"
+          echo "  Engine kernel:  $(wc -l < HCI-CNTT/engine/cntt.py) lines (cntt.py)"
+          echo "  Current tool:   tools/cntt_report.py ($(wc -l < tools/cntt_report.py) lines)"
+          echo "  Frozen oracle:  HCI-CNT (CNT v3.2.0) + HCI-CNQ (CNQ v2.0.0), archived reference"
+          echo "  Experiments:    $(ls -d experiments/Hs-*/ 2>/dev/null | wc -l)"
           echo ""

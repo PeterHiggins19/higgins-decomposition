@@ -29,6 +29,7 @@
 - **Standards (locked):** `huf-gov/standards/` — HUF‑STD‑001/002/003.
 - **Push discipline:** `PUSH_PROTOCOL.md` (classes S0–S3; the §6 admin‑chain closure check).
 - **Verification / trust:** `TRUST_AND_VERIFICATION.md` · `REPRODUCIBILITY_CHECKLIST.md`.
+- **Operating discipline (lose nothing, recover anything):** `ai-refresh/DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md` (DVR‑1.0) + `ai-refresh/VERIFICATION_PROTOCOL.json` — verify before *and* after every change; archive, never delete; recover from any AI/human mistake. Names the buffered‑read/stale‑mount, stale‑pipeline, and unseen‑commit failure modes.
 - **Change control:** `ai-refresh/CHANGE_CONTROL_README.md`; investigation catalog `ai-refresh/INVESTIGATION_CATALOG.json`.
 
 ## 4 · The domains (where the work lives)
