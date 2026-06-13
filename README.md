@@ -1,3 +1,40 @@
+<!-- ╔══════════════════════════════════════════════════════════════════╗
+     ║  THREE-LEVEL ORIENTATION  ·  always three to confirm position     ║
+     ║  Level 1 below is identical in every repository of this system.   ║
+     ╚══════════════════════════════════════════════════════════════════╝ -->
+
+# The system — one instrument, one arc of discovery
+
+*Level 1 of 3 · the shared message. This section is identical in every repository of this system.*
+
+This is one deterministic compositional instrument and the living history that produced it. It began as a loudspeaker's **ground state** — uniform 4π radiation into a room, a fixed **6.02 dB** budget apportioned across a cabinet's dimensions and summing to a constant — and that single structure, *forced by physics rather than chosen at a whiteboard*, became the simplex, the Higgins operator, composition monitoring (MC‑4 / EITT), the deterministic CN‑TT engine, the **3ⁿ confidence index**, and finally a verification network where any node checks any other. Each step was forced by the one before it.
+
+**Read the whole arc, source to network → [`ARC_OF_DISCOVERY.md`](ARC_OF_DISCOVERY.md).**
+
+![The arc of discovery — from a loudspeaker's ground state to the verification network](arc_of_discovery.svg)
+
+## …and the system lives in more than one repository
+
+*Level 2 of 3 · the other half exists.*
+
+This is one **cross‑brain** split across sibling repositories that reference and **check** each other:
+
+- **Hˢ — higgins‑decomposition** — *you are here* — the deterministic instrument (the math).
+- **HUF — [Higgins‑Unity‑Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework)** — the governance, lineage, and development history.
+- **RWA — [Rogue‑Wave‑Audio](https://github.com/PeterHiggins19/Rogue-Wave-Audio)** — the headwater, where the ground state and diffraction were first measured.
+
+Two‑repo map and the cross‑repo resolver: [`CROSS_BRAIN.md`](CROSS_BRAIN.md).
+
+## …and this repository is the instrument
+
+*Level 3 of 3 · what this one is.*
+
+**Hˢ (Higgins Decomposition)** is the live, deterministic, hash‑receipted engine — closure → CLR → tiling → diagnostics → hash, lossless to D = 1,000,000. Everything below this line is its body: the engine, the frozen oracle, the run path, the studies, and the conference face.
+
+> **Why three.** Three statements — what the system is, that a sibling exists, and which one you are reading — let any reader, human or machine, confirm both their **position** and the system's **status**. It is the same rule the instrument runs on: one perspective is a point, two a line, three a plane; three is the minimum to *locate*, not merely detect. Machines: each repo's entry point is its `AI_ASSIST.json` and fast‑refresh JSON; the resolver in [`CROSS_BRAIN.md`](CROSS_BRAIN.md) keeps every cross‑repo path valid standalone.
+
+---
+
 # Hˢ — Higgins Decomposition on the Simplex
 
 A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
@@ -545,3 +582,54 @@ llms.txt (discovery convention), and .well-known/ai-context.json.
 A new applied workhorse and repo-facing front door now lead the geoscience face of the project (`collaborations/geology-wehner/`).
 
 Since publication the system advanced: Hs/CNT/CNQ was applied to **mudstone chemostratigraphy** as a cited, reproducible demo on real PANGAEA data (`collaborations/geology-wehner/`), and a new concept — **CNQ tiling / "faceted read"** (overlapping exact D=4 charts glued on shared parts reconstruct the full higher-dimensional compositional move **losslessly**: alignment 9e-16, reconstruction 4e-14, overlap proven necessary) — was tested. **Engine, schemas, and canonical numbers are UNCHANGED**; this is a documentation / application / concept advance. Gluing maths CONFIRMED; scientific value on real high-D data TO TEST. Full current picture: `collaborations/geology-wehner/00_EXECUTIVE_OVERVIEW.md`.
+
+---
+
+## References & Acknowledgments
+
+*A fully maintained list. The science here stands on the work of others; we cite it extensively, as both respect and protection. When the framework adopts a new method, or a member of the community engages the work, add it here — and in the identical block carried by the sibling repositories.*
+
+### Acknowledgments — the compositional data analysis community
+
+This instrument is built on standard compositional tools, and it exists in dialogue with the people who created and steward them. With gratitude to the **CoDa Association** and the organisers, scientific committee, and hosts of **CoDaWork 2026** (Coimbra, Portugal, 1–5 June 2026; co-hosted with the **Sociedade Portuguesa de Geologia**), whose welcome made this work's first compositional presentation possible — and to the community members who welcomed, questioned, and strengthened it:
+
+- **Conference chairs & hosts:** Juan José Egozcue (chair of the committee that accepted the work), Teresa Albuquerque (conference co-chair and host).
+- **Foundational scholars whose work the instrument stands on:** Vera Pawlowsky-Glahn, Juan José Egozcue, Raimon Tolosana-Delgado, Karel Hron, Antonella Buccianti, Gregory B. Gloor, Javier Palarea-Albaladejo.
+- **Colleagues who welcomed and challenged the work:** Paul-Gauthier Noé, Patricia Genius Serra, Christine Thomas-Agnan, Dot Dumuid, Kamila Fačevicová, Gianna Serafina Monti, Rui Santos.
+- **Fellow presenters whose work runs alongside this one:** Narayana & Chotirmall (microbiome time series), Ascari & Fiori (energy-mix clustering), Kanjiradan & Veetil (compositional health series), Vega Baquero & Santolino (compositional finance).
+
+Particular thanks to **Juan José Egozcue** and **Vera Pawlowsky-Glahn** for their written discussion of this work and their subcompositional-coherence results, which directly informed it.
+
+*The instrument reads. The expert decides. These are the experts.*
+
+### References — the science this instrument is built upon
+
+**Compositional data analysis.**
+- Aitchison, J. (1982). The statistical analysis of compositional data. *Journal of the Royal Statistical Society, Series B*, 44(2), 139–177.
+- Aitchison, J. (1986). *The Statistical Analysis of Compositional Data*. London: Chapman & Hall.
+- Pawlowsky-Glahn, V., & Egozcue, J. J. (2001). Geometric approach to statistical analysis on the simplex. *Stochastic Environmental Research and Risk Assessment*, 15, 384–398.
+- Egozcue, J. J., Pawlowsky-Glahn, V., Mateu-Figueras, G., & Barceló-Vidal, C. (2003). Isometric logratio transformations for compositional data analysis. *Mathematical Geology*, 35(3), 279–300.
+- Egozcue, J. J., & Pawlowsky-Glahn, V. (2005). Groups of parts and their balances in compositional data analysis. *Mathematical Geology*, 37(7), 795–828.
+- Pawlowsky-Glahn, V., Egozcue, J. J., & Tolosana-Delgado, R. (2015). *Modeling and Analysis of Compositional Data*. Chichester: John Wiley & Sons.
+- Egozcue, J. J., & Pawlowsky-Glahn, V. (2023). Subcompositional coherence and proportionality. *SORT — Statistics and Operations Research Transactions*.
+- Martín-Fernández, J. A., Barceló-Vidal, C., & Pawlowsky-Glahn, V. (2003). Dealing with zeros and missing values in compositional data sets. *Mathematical Geology*, 35(3), 253–278.
+- Palarea-Albaladejo, J., & Martín-Fernández, J. A. (2015). zCompositions: R package for the imputation of left-censored compositional data. *Chemometrics and Intelligent Laboratory Systems*, 143, 85–96.
+- Filzmoser, P., Hron, K., & Templ, M. (2018). *Applied Compositional Data Analysis*. Cham: Springer.
+- Greenacre, M. (2018). *Compositional Data Analysis in Practice*. Boca Raton: Chapman & Hall/CRC.
+- Gloor, G. B., Macklaim, J. M., Pawlowsky-Glahn, V., & Egozcue, J. J. (2017). Microbiome datasets are compositional: and this is not optional. *Frontiers in Microbiology*, 8, 2224.
+
+**Information theory & geometry.**
+- Shannon, C. E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27, 379–423 & 623–656.
+- Stevens, S. S. (1946). On the theory of scales of measurement. *Science*, 103(2684), 677–680.
+- Amari, S. (1985). *Differential-Geometrical Methods in Statistics*. New York: Springer.
+
+**Acoustic & mathematical lineage (the DADC origin).**
+- Strutt, J. W. (Lord Rayleigh) (1896). *The Theory of Sound* (2nd ed.). London: Macmillan.
+- Sommerfeld, A. (1896). Mathematische Theorie der Diffraction. *Mathematische Annalen*, 47, 317–374.
+- Olson, H. F. (1957). *Acoustical Engineering*. Princeton: Van Nostrand.
+- Vanderkooy, J. (1991). A simple theory of cabinet edge diffraction. *Journal of the Audio Engineering Society*, 39(12), 923–933.
+- Linkwitz, S. H. (1976). Active crossover networks for noncoincident drivers. *Journal of the Audio Engineering Society*, 24(1), 2–8.
+- Banach, S. (1922). Sur les opérations dans les ensembles abstraits et leur application aux équations intégrales. *Fundamenta Mathematicae*, 3, 133–181.
+- Gershgorin, S. A. (1931). Über die Abgrenzung der Eigenwerte einer Matrix. *Izvestiya Akademii Nauk SSSR*.
+
+**How to cite this work:** see [`CITATION.cff`](CITATION.cff). AI assistance is used per HUF-STD-001; research design, mathematical content, and scientific responsibility remain with the named author.

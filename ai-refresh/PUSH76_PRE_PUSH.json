@@ -27,10 +27,11 @@
   "must_reverify_on_windows": "python3 scripts/check_ai_refresh_consistency.py -> expect 0 errors, 0 warnings, exit 0"
  },
  "post_commit_sync_section6": {
-  "HS_FAST_REFRESH.json": "current_commit_sha 11a1e85->NEW (after #76 lands); current_ci_run 71->72; name->'tools reset + operations index'; previous_* demote. ALSO reconcile pre-existing drift: last_updated #73/0e202f7/CI69 vs last_push field #71/6b76cf1/CI67 (May 29) -- and note #74 'Clean Start'/#75 'HCI-TT' in the chain (Peter narrates Windows-side).",
-  "HS_ADMIN.json": "add push_74/75/76 entries; advance last_updated",
-  "CHANGELOG.md": "add #74 'Clean Start' + #75 'HCI-TT' + #76 rows (see NEXT_PUSH_CONTROL_ROWS_DRAFT.md for the #76 row)",
-  "PUSHES_INDEX.md": "add #74/#75/#76 sections",
+  "LANDED": "GREEN on CI #74 (f13d134, 'CI fix + tools reset + DVR protocol', 55s). This pre-push doc is now a record of a landed push.",
+  "HS_FAST_REFRESH.json": "current_commit_sha -> f13d134 (current green HEAD, CI #74); current_ci_run -> 74; name->'CI fix + tools reset + DVR protocol'; previous_* demote. ALSO reconcile pre-existing drift: last_updated #73/0e202f7/CI69 vs last_push field #71/6b76cf1/CI67 (May 29).",
+  "HS_ADMIN.json": "advance last_updated; record the CI #70-74 cycle (2 empty-and-repaste cycles; HEAD f13d134)",
+  "CHANGELOG.md": "add the CI #71 (HCI-TT) + CI #74 (current green) content rows; see NEXT_PUSH_CONTROL_ROWS_DRAFT.md (CI-ledger table + recommended numbering alignment to CI run number)",
+  "PUSHES_INDEX.md": "add the CI #71 + CI #74 deep-detail sections",
   "where": "Windows-side (sandbox truncates the big admin JSONs)"
  },
  "github_desktop_safety": "keep .git/ (+ .github/, .gitignore, .gitattributes); clear folder CONTENTS, never delete+recreate the repo folder"

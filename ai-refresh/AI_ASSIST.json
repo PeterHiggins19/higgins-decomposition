@@ -21,7 +21,8 @@
     "human_guide": "HS_GUIDE.md",
     "tracking_log": "ai-refresh/HS_TRACKING_LOG.json",
     "operating_discipline": "ai-refresh/VERIFICATION_PROTOCOL.json (DVR-1.0 Double-Verify & Staged-Recovery: lose nothing, verify before+after, recover from any AI/human mistake; guards the buffered-read/stale-mount, stale-pipeline, and unseen-commit failure modes)",
-    "operations_index": "ai-refresh/OPERATIONS_INDEX_2026-06-11.md"
+    "operations_index": "ai-refresh/OPERATIONS_INDEX_2026-06-11.md",
+    "cross_brain": "CROSS_BRAIN.md (repo root) — governance(HUF)+math(Hs) cross-brain + the canonical cross-repo reference resolver + the network cross-verification capability (experiments/network_redundancy_2026-06 + clifford_tiling_redundancy_2026-06)"
   },
   "bring_your_own_ai": "This is the centre. From any topic node, follow join_the_chain to here, then read AI_RAPID_LEARN.md in priority order. Read-only context; governance + claim-tiers apply.",
   "governance": "HUF-STD-001; source-of-truth order is authoritative; never let a synthesis doc override the JSONs. No AI commits; Peter is the gate.",

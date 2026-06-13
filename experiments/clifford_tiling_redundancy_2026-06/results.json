@@ -1,0 +1,23 @@
+{
+ "date": "2026-06-11",
+ "engine": "CN-TT v4 (HCI-CNTT) real tiling atlas",
+ "per_step_D12": [
+  {"t": 1, "theta_clifford": 1.286509285, "theta_tiling": 1.286509285, "rotor_selfcheck": 1.36e-16, "tiling_lossless": 2.38e-15, "cross_residual": 4.38e-16, "redundant_agree": true},
+  {"t": 2, "theta_clifford": 1.709840603, "theta_tiling": 1.709840603, "rotor_selfcheck": 4.40e-16, "tiling_lossless": 2.21e-15, "cross_residual": 4.31e-16, "redundant_agree": true},
+  {"t": 3, "theta_clifford": 0.927804211, "theta_tiling": 0.927804211, "rotor_selfcheck": 1.55e-16, "tiling_lossless": 2.21e-15, "cross_residual": 4.18e-16, "redundant_agree": true},
+  {"t": 4, "theta_clifford": 1.647380473, "theta_tiling": 1.647380473, "rotor_selfcheck": 7.07e-16, "tiling_lossless": 1.72e-15, "cross_residual": 9.00e-16, "redundant_agree": true},
+  {"t": 5, "theta_clifford": 1.762117445, "theta_tiling": 1.762117445, "rotor_selfcheck": 6.55e-17, "tiling_lossless": 1.18e-15, "cross_residual": 2.27e-16, "redundant_agree": true},
+  {"t": 6, "theta_clifford": 1.805191991, "theta_tiling": 1.805191991, "rotor_selfcheck": 1.29e-16, "tiling_lossless": 1.02e-15, "cross_residual": 3.91e-16, "redundant_agree": true}
+ ],
+ "crossover": [
+  {"D": 4,     "tiling_recon_err": 4.44e-16, "clifford_simple_err": 1.14e-16, "clifford_simple_ms": 0.043, "full_GA_multivector_dim": "2^2"},
+  {"D": 8,     "tiling_recon_err": 2.22e-16, "clifford_simple_err": 3.28e-16, "clifford_simple_ms": 0.024, "full_GA_multivector_dim": "2^6"},
+  {"D": 16,    "tiling_recon_err": 1.78e-15, "clifford_simple_err": 1.18e-16, "clifford_simple_ms": 0.041, "full_GA_multivector_dim": "2^14"},
+  {"D": 64,    "tiling_recon_err": 3.55e-15, "clifford_simple_err": 8.26e-17, "clifford_simple_ms": 0.027, "full_GA_multivector_dim": "2^62"},
+  {"D": 256,   "tiling_recon_err": 2.31e-14, "clifford_simple_err": 2.06e-16, "clifford_simple_ms": 0.032, "full_GA_multivector_dim": "2^254"},
+  {"D": 1024,  "tiling_recon_err": 7.37e-14, "clifford_simple_err": 2.25e-16, "clifford_simple_ms": 0.056, "full_GA_multivector_dim": "2^1022"},
+  {"D": 10000, "tiling_recon_err": 1.94e-13, "clifford_simple_err": 2.22e-16, "clifford_simple_ms": 0.106, "full_GA_multivector_dim": "2^9998 (inf)"}
+ ],
+ "verdict": "Redundancy CONFIRMED at the machine floor (theta_clifford == theta_tiling to 9 digits; cross-residual ~1e-16). Clifford simple-rotor (plane+angle) is exact + O(D) at any D = a redundancy check available everywhere for single moves, plus the global rotor object apps need. The FULL Clifford multivector (even subalgebra, 2^(D-2)) is intractable past ~D=25 -- that is where Clifford-as-GA-object is 'limited redundancy to a point' and tiling stands alone.",
+ "claim_tier": "Tier 1 (verified/computed on the real CN-TT v4 atlas)"
+}

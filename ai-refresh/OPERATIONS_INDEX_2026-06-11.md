@@ -28,6 +28,7 @@
 - **NASA‑style governance:** `HUF/huf-gov/NASA_STYLE_GOVERNANCE.md` (honest cross‑walk; flight‑readiness Tier‑3).
 - **Standards (locked):** `huf-gov/standards/` — HUF‑STD‑001/002/003.
 - **Push discipline:** `PUSH_PROTOCOL.md` (classes S0–S3; the §6 admin‑chain closure check).
+- **Push numbering (convention, adopted 2026‑06‑11):** the **canonical push number is the GitHub CI run number** (`Validate Repository #NN`) — the empty‑and‑repaste workflow makes each commit its own CI run, so the CI run number is the natural unit. Historical project numbers #1–#73 are preserved (#73 = CI #69 is the last dual‑numbered entry; CI #70+ is CI‑canonical). Current green HEAD: **CI #74 (`f13d134`)**.
 - **Verification / trust:** `TRUST_AND_VERIFICATION.md` · `REPRODUCIBILITY_CHECKLIST.md`.
 - **Operating discipline (lose nothing, recover anything):** `ai-refresh/DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md` (DVR‑1.0) + `ai-refresh/VERIFICATION_PROTOCOL.json` — verify before *and* after every change; archive, never delete; recover from any AI/human mistake. Names the buffered‑read/stale‑mount, stale‑pipeline, and unseen‑commit failure modes.
 - **Change control:** `ai-refresh/CHANGE_CONTROL_README.md`; investigation catalog `ai-refresh/INVESTIGATION_CATALOG.json`.

@@ -7,7 +7,7 @@
 
 > **⚠️ This push fixes a RED CI.** Your last push (CI #73 "HCI‑New Build", `3145828`) went red because the stale `.github/workflows/validate.yml` still checked for (and ran) the archived `tools/pipeline`. **This push includes the corrected `validate.yml`** (repointed to the current CN‑TT v4 toolchain + scipy). It MUST be in the next push or CI stays red.
 
-**Numbering:** the last *green* push was **#75 "HCI‑TT" (`11a1e85`)** — already contains `stewardship/` + the **E‑21 guard** (live + green). #74 "Clean Start" emptied the repo; #73‑CI "HCI‑New Build" (`3145828`) carried the tools reset but went red on the stale CI. **This push = the post‑#75 delta + the CI fix.** No engine change. (Confirm the project push number at the §6 gate — the empty‑and‑repaste cycle muddies CI↔push mapping.)
+**Numbering (resolved — LANDED):** this prep doc's working name "PUSH76" was a pre‑push placeholder; the push **landed as CI #74 (`f13d134`, green 55s)**. Under the **adopted convention (2026‑06‑11), the canonical push number = the GitHub CI run number**, so this is **push CI #74**. It contains the CI fix + tools reset + operations index + DVR‑1.0; the E‑21 guard + stewardship already landed in **CI #71 "HCI‑TT"**. No engine change. See `NEXT_PUSH_CONTROL_ROWS_DRAFT.md` for the CI‑ledger and the §6 rows.
 
 **Suggested commit message:**
 

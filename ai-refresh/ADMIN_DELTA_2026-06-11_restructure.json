@@ -22,7 +22,8 @@
   "GitHub-Desktop paste: keep .git/ + .github/ + .gitignore; never delete-and-recreate the repo folder.",
   "Verify-before-delete still applies to EITT/ and _archive_2026-06-07/HUF-CNT-System.",
   "REGISTER DVR-1.0 (Double-Verify & Staged-Recovery Protocol) in the authoritative admin JSONs Windows-side: add a _meta pointer in HS_FAST_REFRESH.json + a note in HS_ADMIN.json -> ai-refresh/VERIFICATION_PROTOCOL.json + DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md. Already registered in the safely-editable surfaces: ai-refresh/AI_ASSIST.json (control hub) + OPERATIONS_INDEX_2026-06-11.md.",
-  "CI FIX (validate.yml): the workflow was repointed from the archived tools/pipeline to the current CN-TT v4 toolchain (+ scipy added to install). Must be in the next push or CI stays red."
+  "CI FIX (validate.yml): repointed from the archived tools/pipeline to the current CN-TT v4 toolchain (+ scipy). LANDED GREEN on CI #74 (f13d134, 55s).",
+  "PUSH NUMBERING CONVENTION (adopted 2026-06-11): canonical push number = GitHub CI run number. Empty-and-repaste makes each commit its own CI run. Historical project #1-73 preserved (#73 = CI #69 last dual-numbered; CI #70+ canonical). Current green HEAD = CI #74 (f13d134). Documented in OPERATIONS_INDEX + NEXT_PUSH_CONTROL_ROWS_DRAFT; fold the push_numbering note into HS_FAST_REFRESH._meta Windows-side."
  ],
  "github_desktop_answer": "GitHub Desktop keys on the .git/ directory at the registered path. Preserve .git/, .github/, .gitignore, .gitattributes when clearing-and-pasting; clear contents but keep .git/, do not delete+recreate the folder. The mirror's Current-Repo/Hs has no .git (only .github + .gitignore) so the mirror never triggers the 'where is repo' error."
 }

@@ -1,0 +1,23 @@
+{
+ "date": "2026-06-11",
+ "tier": 1,
+ "engine": "CN-TT v4 (HCI-CNTT) real tiling atlas, D=12",
+ "channels": ["tiling (4-part charts)", "clifford (Spin(n) bivector rotor)", "matrix (n-D 2-plane rotation matrix)"],
+ "verdict_codes": {
+  "RC-CON-INF": "consensus 3/3 — full confidence; emit read + global rotor",
+  "RC-ISO-WRN": "isolate 2-of-3 — flag + exclude the outlier channel; emit majority read",
+  "RC-HLT-ERR": "no majority — HALT-AND-REPORT (Safe-Operations safe state); no read"
+ },
+ "cases": [
+  {"case": "CLEAN", "code": "RC-CON-INF", "verdict": "CONSENSUS (3/3 agree) — full confidence", "isolated": null,
+   "residuals": {"clifford-tiling": 5.0e-16, "matrix-tiling": 4.5e-16, "clifford-matrix": 1.8e-16}},
+  {"case": "FAULT in tiling", "code": "RC-ISO-WRN", "verdict": "ISOLATE tiling; majority clifford+matrix agree", "isolated": "tiling",
+   "residuals": {"clifford-tiling": 3.2e-3, "matrix-tiling": 3.2e-3, "clifford-matrix": 1.8e-16}},
+  {"case": "FAULT in clifford", "code": "RC-ISO-WRN", "verdict": "ISOLATE clifford; majority tiling+matrix agree", "isolated": "clifford",
+   "residuals": {"clifford-tiling": 4.4e-3, "matrix-tiling": 4.5e-16, "clifford-matrix": 4.4e-3}},
+  {"case": "FAULT in 2 channels", "code": "RC-HLT-ERR", "verdict": "HALT-AND-REPORT — no 2-of-3 majority (safe state)", "isolated": null,
+   "residuals": {"clifford-tiling": 3.2e-3, "matrix-tiling": 5.8e-3, "clifford-matrix": 3.2e-3}}
+ ],
+ "result": "Detect (2 channels disagree), ISOLATE (2-of-3 vote names the faulty channel), and HALT (no majority -> safe state) all verified. The dual cross-check is now a self-diagnosing, confidence-graded instrument — FDIR applied to the read itself.",
+ "governance": "Maps to the Safe-Operations + Open-Loop doctrine (huf-gov/doctrine) — hold-and-report is the safe state; the instrument flags, the expert decides. RC-* codes proposed for HCI-CNTT/engine/codes.py."
+}
