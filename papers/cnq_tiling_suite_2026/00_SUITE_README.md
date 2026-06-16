@@ -4,6 +4,8 @@
 
 ---
 
+> **Read the arc first.** The five papers form one successive story — *exactness (P1) → trust (P3) → motion (P4) → character (P5) → vigilance (P2)* — written for the public in [`../THE_HIGGINS_DECOMPOSITION_SERIES.md`](../THE_HIGGINS_DECOMPOSITION_SERIES.md). The order below is by identity number, not reading order.
+
 ## The three papers
 
 | # | Working title | Kind | Status | Gate before submission |
@@ -13,6 +15,15 @@
 | **P3** | *CN‑TT: a deterministic, hash‑chained engine for compositional navigation* | Tool / software paper | **Scaffold (`P3_CNTT_TOOL_PAPER.md`)** | v4 engine reaches navigation parity (engine build P2) |
 
 P1 is the flagship and nearest to submittable. P2 and P3 are scaffolded with abstract, outline, citations, and gating notes.
+
+### Companion concept papers (staged here; part of the broader five‑paper offering)
+
+| # | Working title | Kind | Status | Gate before submission |
+|---|---|---|---|---|
+| **P4** | *Compositional kinematics — the mechanics of compositional trajectories* | Methods (recognition + synthesis) | scaffold from `HCI-CNTT/COMPOSITIONAL_MECHANICS.md` | write‑up + prior‑art/novelty pass |
+| **P5** | *Compositional Character Space — a cross‑domain taxonomy of compositional dynamics* | Methods / complexity (the second‑order read) | **Full draft (`P5_COMPOSITIONAL_CHARACTER_SPACE.md`)** — 107 systems / 13 domains, with the n=11→n=107 self‑correction | the isomorphism‑residual experiment + novelty pass |
+
+P5 is the second‑order read built *on* the P4 kinematics (turn the engine on its own outputs); the two submit as a pair. Full picture: `papers/PUBLICATION_OFFERING_AND_SITE_2026-06-14.md`.
 
 ---
 

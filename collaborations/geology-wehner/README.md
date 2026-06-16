@@ -4,6 +4,8 @@ Applying the **Higgins Decomposition (Hs)** to compositional geoscience — muds
 
 ---
 
+> ★ **PRIME PROJECT (2026‑06).** This is the lead collaboration of the program. The flagship deliverable — a complete read of the Frielingen‑9 section through the full Hˢ kinematics platform, in geologist's language — is **[`FRIELINGEN9_WHAT_YOUR_SYSTEM_SAYS_2026-06.md`](FRIELINGEN9_WHAT_YOUR_SYSTEM_SAYS_2026-06.md)**: lossless to 3.55e‑15, trace‑over‑bulk confirmed, **8 datable structural boundaries**, ~2 effective dimensions, Diffusive character among 107 cross‑domain systems, within‑regime. Reproducible to a content hash; the geology stays the geologist's.
+
 ## Executive summary — the key
 
 > **The full version is [`00_EXECUTIVE_OVERVIEW.md`](00_EXECUTIVE_OVERVIEW.md) — read it first. This is the condensed key.**

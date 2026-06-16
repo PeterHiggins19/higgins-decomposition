@@ -46,6 +46,20 @@ Per step (all built ✅, ported faithfully from the oracle except where noted):
 
 **Pending for full oracle‑output parity (P2 remainder):** helmsman rolling‑window family (flips/torque/etc.), attractor fit (P2 limit cycle), depth tower (energy/curvature levels, M²=I involution, IR class), stage1/2/3 (variation matrix, triadic area, subcomposition ladder), EITT bench, navigation_2d PCA. Parity expected; unproven until ported.
 
+## 6b · Guard, resolvability & control layer (additive, built 2026‑06)
+
+Beyond the navigation family, the engine now reads **the boundary of what it can honestly resolve**, and can act behind breakers. All additive, observe‑only by default, oracle untouched; each module self‑tests PASS (kill‑tests in `experiments/engine_killtest_2026-06/`). Full rationale + the before/after table: **`ENGINE_CAPABILITIES_DELTA_2026-06.md`**; codes: `CNTT_DIAGNOSTIC_CODES.md §7`.
+
+- **Resolvability guard** (`engine/helmsman_guard.py`): at rest → `HM‑NUL‑WRN` (no resolvable helmsman, not a noise leader); tie → `HM‑TIE‑WRN` (not broken by index); reports magnitude + margin.
+- **Coherent helmsman** (`engine/structural_guards.py`): pairwise‑log‑ratio (closure‑invariant) helmsman — unchanged when an irrelevant carrier is added (fixes CLR subcompositional incoherence).
+- **Effective‑rank guard** (`structural_guards.effective_rank`): `DG‑RNK‑WRN` when motion collapses into a subspace (an `eigh`‑instability sibling of the carrier guard).
+- **Hold‑lock + hysteresis** (`structural_guards.hold_lock`): discovers the trigger from `max(system, engine)` noise floor; ties down near‑zero drift, registers a structural change only when sustained; the held state is announced (`L4‑HLD‑INF`), never silent. A self‑calibrating, chatter‑free upgrade of the `mean+k·std` regime boundary.
+- **Sparsity detector + Bayesian‑multiplicative** (`engine/zero_methods.py`): `GD‑SPZ‑WRN` when the CLR geometry is replacement‑δ‑dominated; `GD‑ZBM‑CAL` count‑aware zero treatment. E‑21 multi‑method zero registry (`GD‑ZRC/CNC/ZRP/ZUN`) replaces silent `nan` on a degenerate carrier.
+- **precise_ops** (`engine/precise_ops.py`): Neumaier compensated reductions for the closure/CLR zeros + an error‑feedback accumulator for stateful integrators (precision in the carrier).
+- **SafeLoop** (`engine/loop_control.py`): the first time the engine may *act* — a closed‑loop controller, OBSERVE→ACTIVE→TRIPPED, behind mandatory breakers (`LC‑TRIP‑*`) + manual `LC‑ESTOP` + a time‑boxed window (`LC‑WIN‑END`), bounded/dithered/anti‑windup, deterministic.
+
+Doctrine: `DESIGN_PHILOSOPHY_THE_EXPERT_ENGINE_AND_THE_GUARDS.md`, `PRECISION_AND_CONTROL.md`, `DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md`.
+
 ## 7 · Determinism & provenance
 - **Determinism:** same input + same config → same output, bit‑for‑bit. No statistics/sampling in the science path. Any sampling (e.g. an optional cap) uses a fixed declared seed.
 - **Cross‑platform determinism contract:** `stable_hash` normalizes floats to a declared precision (`DETERMINISM_DECIMALS = 12`) before hashing, so receipts match across platforms (rover ↔ ground) to 1e‑12. (Honest limit: hash stability to declared precision; full bit‑identity of raw floats across BLAS/FMA is a separate, harder guarantee.)
@@ -75,7 +89,7 @@ provenance: {per‑section chain: stage, version, config, out_hash, cached}, _ch
 - **Microbiome sniff** (`experiments/microbiome_sniff_2026-06/`): lossless tree‑atlas reconstruction to **D=10,000** (≤1.6e‑13, 7 ms/sample, 0.3 MB); navigation reads an injected diversity collapse with a correct helmsman; deterministic. Reference: coda4microbiome (Calle, Pujolassos & Susin 2023).
 
 ## 12 · Chain completeness — built vs pending
-- **Built:** the four links + modular sections + determinism contract + caching + the core navigation family + lossless tiling/hierarchical atlas + zero‑treatment + basic adapter/calibration.
+- **Built:** the four links + modular sections + determinism contract + caching + the core navigation family + lossless tiling/hierarchical atlas + zero‑treatment + basic adapter/calibration + **the guard/resolvability/control layer (§6b): E‑21 zero registry, resolvability + coherent helmsman, effective‑rank guard, hold‑lock hysteresis, sparsity detector, precise_ops, SafeLoop.**
 - **Pending (the completion backlog, prioritized):** (1) full navigation‑parity (§6 remainder) → (2) the parity harness (certifies v4=oracle corpus‑wide, emits interop transforms) → (3) calibration‑map interface + unified adapter contract (Canada loader, microbiome real data) → (4) output `config` block + `CNTT_V4_SCHEMA.md` + `ANTI_SPECIFICATION.md` + CI corpus → (5) **input‑uncertainty propagation** + **streaming mode** (the two highest‑value still‑missing layers) → (6) interop registry + control‑point config layer + Coherence Supervisor/FDIR → (7) smart‑downlink + consumer/visualization → (8) formal extension contracts. Full gap analysis: `CNTT_CHAIN_COMPLETENESS_MAP.md`.
 
 ## 13 · Claim tiers

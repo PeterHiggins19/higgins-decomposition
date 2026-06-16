@@ -4,6 +4,7 @@
     "version": "1.0",
     "created": "2026-05-08",
     "author": "Peter Higgins / Claude (Cowork session)",
+    "contact_authority": "RWA-001 (RWA repo RWA-001.json) -- canonical contact/identity authority for the whole system (RWA/HUF/Hs); check there. RWA-001 wins on any conflict about contact/identity.",
     "purpose": "Single-file AI context loader for the Hs (Higgins Decomposition) repository. Load this FIRST in any new session. Contains all canonical names, numbers, formulas, dimension policy, engine pointers, raw URLs, claim-strength rules, and structure. Every value here is the source of truth — if a document disagrees with this file, this file wins.",
     "companion_md": "HS_FAST_REFRESH.md (one-page narrative for AI assistants who prefer Markdown)",
     "usage": "AI: read this file before doing ANY Hs / CNT / CNQ work. Reviewer / researcher: use as quick reference. Both: if a value looks wrong in a document, check it against this file first.",

@@ -6,6 +6,8 @@
 **Companion documents:** `papers/in_progress/GAUGE_THEORY_AND_Hs.md`; `papers/in_progress/MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md`; `papers/POST_CODA_PARTNERSHIP_TARGETS.md` (the applied-domain counterpart); `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §5.8 (post-conference work entry); workspace-root `PICCIRILLO_DRAFT_LETTER.md` (the worked-example draft outreach).
 **Lockdown discipline:** S2 doc-only; `papers/in_progress/`; no engine, schema, INV catalog, or NO-CREATE touches.
 
+> **★ UPDATE 2026‑06‑15 — the maximized standing artifact is built (roadmap §6 item 3 fulfilled).** The matured instrument's offer is now consolidated and *maximized* in [`../frontier/THE_MAXIMUM_DEPTH_OFFER.md`](../frontier/THE_MAXIMUM_DEPTH_OFFER.md), with the new depth **verified this session at the IEEE floor**: D=4 → Spin(3) exact (`q v q*` resid 2.2e‑16); the **D=8 twin → Spin(4)=SU(2)×SU(2), the double cover of the rotations of dimension four** (SO(4) element, orthogonality 4.4e‑16, det +1) — *the ladder reaches her dimension exactly*; the **maximum‑depth reverse case** (high‑D tiled into S³ charts and reconstructed losslessly, verified to D=1024 here, D=10⁶ in repo); and the isomorphism‑residual generator. All Tier‑1 numerics; relevance to topology kept Tier‑3 (questions for her). Non‑contact unchanged; outreach remains Peter's gate.
+
 ---
 
 ## 1. The premise

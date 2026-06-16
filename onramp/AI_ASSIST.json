@@ -1,0 +1,65 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/onramp/",
+  "topic": "PhD onramp -- AI-assisted intake that lets a domain expert get an Hs reading of their data WITHOUT learning CoDa first.",
+  "purpose": "Operationalize the inverted deal: the user brings their field data X; the AI runs the intake, maps X to Hs's readings, and reports what the data says, why it matters, and how -- in the user's domain language. Bring-your-own-AI; any agent can run this.",
+  "paths_note": "key_files relative to THIS folder (Hs/onramp/); other paths are repo-root-relative.",
+  "intended_user": "Field-capable PhD-level researcher (or industry practitioner), expert in domain X, with little time/appetite to learn compositional data analysis before knowing if it helps. NOT a CoDa expert. Never require a CoDa term from them.",
+  "how_to_run_the_intake": {
+    "trigger": "User says some form of: 'I have X -- what would my data inform me of using Hs; what is useful, what should I care about, why and how.'",
+    "step_1_parts": "Ask: what components sum to a whole? (do NOT let them pre-filter for 'importance' -- the non-obvious driver is the prize).",
+    "step_2_ordering": "Ask: what is the ordering? time / depth / age / dose / baseline->followup / sample index. A cross-section is fine (read structure across the section).",
+    "step_3_stakes": "Ask: what would surprise or cost you if missed? (regime change / hidden driver / early warning / quiet concentration) -> picks which reading to lead with.",
+    "step_4_floor": "Ask: rough noise floor? measurement precision, detection limits, fraction of zeros. (Hs also discovers its own floor; this sharpens the honest/withhold line.)",
+    "step_5_success": "Ask: one concrete thing you'd act on. THEN check honestly whether Hs can speak to it BEFORE running. If data is not compositional, too short, or too sparse to resolve -> say so now, not after."
+  },
+  "static_only_path": "If the user's data has NO time axis (single snapshot / cross-section) OR they just want standard CoDa, do NOT force dynamics. Route to the standard static CoDa apparatus via atlas Stage-2 (HCI-CNT/atlas/stage2_locked.py): ternary diagram (D=3), CLR biplot (Aitchison-Greenacre), variation matrix, CLR-PCA scree, balance dendrogram -- stored under the coda_standard/ key, readable without any Higgins extension. Stance: Hs is an EXTENSION of standard CoDa into dynamics; the dynamic layer is offered, never imposed. Leave the static-only user (e.g. cross-sectional geochemist) fully served and alone.",
+  "readings_menu": {
+    "lossless_error": "Did the analysis distort my data? No -- exact ~1e-15. A trust certificate, not a claim.",
+    "helmsman": "Who is actually driving the change? Often NOT the biggest component (ratio != magnitude). The recurring surprise.",
+    "regime_boundaries": "When did the system change state? Datable, automatic, no prior labeling.",
+    "K_eff": "Is the system concentrating or spreading out -- and quietly?",
+    "activation_coefficient": "Is a tiny component doing outsized work? The early warning a threshold misses (a.k.a. yeast factor).",
+    "deceptive_drift": "Is something shifting under cover of calm? Concentration without the expected velocity.",
+    "across_cases": "Does the same driver hold across the cohort? Replication -- the honest road to confidence."
+  },
+  "output_shape": [
+    "1) What went in (parts, ordering, source, size) -- reproducible.",
+    "2) Trust certificate (reconstruction error ~1e-15).",
+    "3) Who is driving (helmsman lineage; flag explicitly when it is a MINOR component = ratio-blindness catch).",
+    "4) When it changed (regime boundaries dated to the ordering; activation/deceptive-drift flags where they fire).",
+    "Then: what it means in the user's field + a hypothesis for THEM to accept/reject. Hs flags; the scientist decides."
+  ],
+  "worked_examples_router": {
+    "file": "WORKED_EXAMPLES.md",
+    "by_domain": {
+      "gas/process/medical": "blood-gas VitalDB+UQ (O2 driver, 13/13)",
+      "water/geochemistry": "USGS produced water (SO4/HCO3 over Na-Cl)",
+      "core/stratigraphy": "Frielingen-9 mudstone (trace Zr/Rb over bulk)",
+      "microbiome/abundance": "Crohn null + ECAM maturation",
+      "omics/high-D": "spaceflight transcriptome D=18,952 (global null -> use DE)",
+      "energy/markets": "EMBER 9-country (named events + deceptive drift)",
+      "social-science": "Pew religion (rise-of-Nones anomaly; internal)",
+      "early-warning": "Ramsar wetland activation coefficient (Tier 2)"
+    }
+  },
+  "honest_envelope": {
+    "scope": "Hs analyzes the data given; it does not replace the user's sensors or domain model. Removes COMPUTATION uncertainty (deterministic, lossless), propagates the user's measurement uncertainty -- does not remove it.",
+    "confidence": "Bounded by the data, not manufactured by the engine. Actionable claims clear a stated gate (6sigma industrial / 9sigma research); else WITHHOLD. High confidence = replication across cases, NOT one run. See HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md.",
+    "sparsity": "At high zero-fraction the log-ratio reading is densification-dependent; Hs flags the regime (GD-SPZ-WRN); zero-robust reads (diversity, regime null) still hold. See experiments/sparsity_microbiome_2026-06/.",
+    "no_signal_is_a_real_answer": "Report honest nulls plainly (e.g., Crohn global, spaceflight global). That honesty is what makes the positive readings trustworthy.",
+    "governance": "HUF-STD-001: human authorship for claims; no AI commits; instrument not data; interest expressed never acquired; Peter is the sole contact/commit gate."
+  },
+  "mission": "Let a domain expert see value fast; give a PhD candidate a boost into the community with basic CoDa methods intact; make ratio blindness an aware topic in industry, one real-data demonstration at a time.",
+  "key_files": ["PHD_ONRAMP_PROTOCOL.md", "WORKED_EXAMPLES.md"],
+  "join_the_chain": {
+    "repo_root_node": "../AI_ASSIST.json",
+    "human_guide": "../HS_GUIDE.md",
+    "engine": "../HCI-CNTT/AI_ASSIST.json",
+    "confidence_standard": "../HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md",
+    "rediscovery_map": "../ai-refresh/REDISCOVERY_INVENTORY_2026-06-14.md",
+    "tracking_log": "../ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Read this node + PHD_ONRAMP_PROTOCOL.md, run the 5-step intake in the user's domain language, produce the 4-element output, route to the closest worked example. Read-only; claim-tiers + honest-broker apply.",
+  "updated": "2026-06-14"
+}
