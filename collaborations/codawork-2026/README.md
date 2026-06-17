@@ -32,8 +32,8 @@ We offer help only where Hˢ brings something the presented work did not already
 
 ## Already covered — cross‑references (not duplicated here)
 
-- **coda4microbiome team — Calle, Pujolassos & Susin** (U. Vic / UPC; *"Bias of compositional microbiome differential abundance testing,"* p. 11). Among the very strongest fits and the microbiome‑CoDA standard Hˢ builds alongside. A scientific DRAFT letter is **already prepared** → `../../../Pipeline-Projects/microbiome_coda4microbiome/` (off the public repo), and the applied work lives in [`../microbiome/`](../microbiome/). Presenter `malu.calle@uvic.cat` confirmed in the abstract.
-- **Matthew Wehner** (*"Using X‑means and Imputation … from incomplete XRF geochem,"* p. 58). The existing geology collaboration → [`../geology-wehner/`](../geology-wehner/). Contact handled off‑repo per the carrier‑filter doctrine.
+- **The coda4microbiome work** (*"Bias of compositional microbiome differential abundance testing,"* CoDaWork 2026, p. 11). Among the very strongest fits and the microbiome‑CoDA standard Hˢ builds alongside; the applied work lives in [`../microbiome/`](../microbiome/). Any engagement is handled off the public repo per the carrier‑filter doctrine.
+- **The incomplete‑XRF geochemistry work** (*"Using X‑means and Imputation … from incomplete XRF geochem,"* CoDaWork 2026, p. 58). Connects to the geology applications → [`../geology-wehner/`](../geology-wehner/). Any engagement is handled off‑repo per the carrier‑filter doctrine.
 
 ## The broader field (surveyed, no folder)
 

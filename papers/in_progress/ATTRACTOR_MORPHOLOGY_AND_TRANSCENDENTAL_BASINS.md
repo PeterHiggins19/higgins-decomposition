@@ -3,7 +3,7 @@
 **Filed:** 2026-05-27 (pre-conference; doc-only, S2-class).
 **Status:** Working note. Records Peter's *"strange attractor analysis"* flash and the four-thread synthesis that came after it. Consolidates the framework's chaotic-regime research direction under one named target.
 **Trigger:** Peter's mid-conference-prep observation, *"strange attractor analysis, it just flashed, what does it mean? what could cnt do with it?"* — followed, after the initial analysis, by the synthesis *"the transcendentals and the complex conjugates and the old html demos and the morphological analysis is in my thinking i believe."*
-**Companion documents:** `papers/in_progress/MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md`; `papers/in_progress/GAUGE_THEORY_AND_Hs.md`; `papers/in_progress/AUDIENCES_AT_THE_FRONTIER.md`; `papers/in_progress/WETLAND_COMPOSITIONAL_ANALYSIS_RAMSAR.md` (sibling, filed same day); `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §4.12 (post-conference work entry); `papers/flagship/GROUND_STATE_AND_TRACTION.md` v2.2 §4 Step 4 (the transcendental-basin hypothesis this note formalises).
+**Companion documents:** `papers/in_progress/WETLAND_COMPOSITIONAL_ANALYSIS_RAMSAR.md` (sibling, filed same day); `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §4.12 (post-conference work entry); `papers/flagship/GROUND_STATE_AND_TRACTION.md` v2.2 §4 Step 4 (the transcendental-basin hypothesis this note formalises).
 **Lockdown discipline:** S2 doc-only; `papers/in_progress/`; no engine, schema, INV catalog, or NO-CREATE touches.
 
 ---
@@ -115,17 +115,17 @@ The "old HTML demos" Peter named are the **prior art for this visualisation line
 
 ---
 
-## 7. Connection to the gauge-theoretic reading (`GAUGE_THEORY_AND_Hs.md`)
+## 7. Connection to the gauge-theoretic reading
 
 Strange attractors on compact gauge-theoretic manifolds are a specific mathematical object — and the framework lives on exactly such a manifold.
 
-Per `GAUGE_THEORY_AND_Hs.md`: closure Σpᵢ = 1 is a Ward identity under the (ℝ₊, ·) gauge symmetry; CLR is the gauge fixing; CNQ's S³ ≅ SU(2) is a non-abelian gauge group; group-delay-as-rotation is a Wilson-line holonomy on that gauge group; ADAC is anomaly cancellation in the open loop; DADI is parallel transport with Banach-bounded holonomy. The simplex is therefore a *principal SU(2) bundle over a compact base*, with a smooth connection (the Aitchison metric) and bounded holonomy (Banach).
+Per the gauge-theoretic reading: closure Σpᵢ = 1 is a Ward identity under the (ℝ₊, ·) gauge symmetry; CLR is the gauge fixing; CNQ's S³ ≅ SU(2) is a non-abelian gauge group; group-delay-as-rotation is a Wilson-line holonomy on that gauge group; ADAC is anomaly cancellation in the open loop; DADI is parallel transport with Banach-bounded holonomy. The simplex is therefore a *principal SU(2) bundle over a compact base*, with a smooth connection (the Aitchison metric) and bounded holonomy (Banach).
 
 Strange attractors on principal SU(2) bundles over compact bases are studied in mathematical physics under names like **Yang-Mills-Higgs flow attractors** and **instanton moduli space attractors**. Donaldson's 1986 work on smooth-structure invariants of 4-manifolds used exactly this setup. Seiberg-Witten's 1994 refinement gave a different family of attractors on the same kind of bundle.
 
 The Hˢ framework's chaotic-regime trajectories are *naturally instances of the Donaldson / Seiberg-Witten objects*, but with three differences: the base manifold is the simplex Sᴰ⁻¹ instead of ℝ⁴; the gauge group is SU(2) at the algebraic-view level but specifically the CNQ representation; the trajectory is *measured from real data*, not from an action functional. The attractor morphology classifier this note proposes is, in that framing, *an empirical reconstruction of the moduli-space structure of the dataset's underlying gauge theory*.
 
-This is the Piccirillo audience hook (`AUDIENCES_AT_THE_FRONTIER.md`) made precise — low-dim topology + 4-manifold theory + Donaldson invariants connect directly to the attractor diagnostic block. A theoretical-frontier reader who picks up the framework's empirical record now has a path back to their own field's invariants. *The recursion-test pattern at the post-conference layer.*
+The attractor diagnostic block connects directly to low-dimensional topology, 4-manifold theory, and Donaldson invariants — the framework's empirical record offers a path back to those fields' invariants. *The recursion-test pattern at the post-conference layer.*
 
 ---
 
@@ -169,9 +169,6 @@ The same module then runs on Backblaze (D=4 fleet reliability), Planck CMB (D=4 
 
 ## 10. Cross-references
 
-- `papers/in_progress/MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md` — the manifold layering (DIFF / PL / TOP / synthetic) that attractor morphology lives on; the synthetic layer is where the SRB measure is most naturally expressed.
-- `papers/in_progress/GAUGE_THEORY_AND_Hs.md` — the gauge-theoretic reading that places these attractors on principal SU(2) bundles over compact base manifolds; connects to Donaldson / Seiberg-Witten 4-manifold theory.
-- `papers/in_progress/AUDIENCES_AT_THE_FRONTIER.md` — the theoretical-frontier audience (low-dim topology, gauge theory, dynamical systems) for whom this consolidation is the relevant entry point.
 - `papers/in_progress/WETLAND_COMPOSITIONAL_ANALYSIS_RAMSAR.md` — sibling note, filed same day; one of the seven application domains where the attractor diagnostic module will be useful.
 - `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §4.1 (Lyapunov), §4.2 (correlation dimension), §4.3 (symbolic dynamics), §4.4 (RQA), §4.6 (ergodic theory + SRB), §4 Step 4 (transcendental basin hypothesis) — all consolidated under this note's organising principle.
 - `papers/flagship/GROUND_STATE_AND_TRACTION.md` v2.2 §4 Step 4 — the original transcendental-basin hypothesis statement.
@@ -182,7 +179,7 @@ The same module then runs on Backblaze (D=4 fleet reliability), Planck CMB (D=4 
 
 ## 11. Why this note exists (the recursion-test observation)
 
-The framework's discovery pattern has been consistent: *the math was always there; the recognition catches up later.* Banach 1922 applied retroactively to DADI convergence (flagship §9); the manifold-category layering recognised retroactively from existing engine fields (`MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md`); the gauge-theoretic reading consolidated from four prior pieces in the system (`GAUGE_THEORY_AND_Hs.md`).
+The framework's discovery pattern has been consistent: *the math was always there; the recognition catches up later.* Banach 1922 applied retroactively to DADI convergence (flagship §9); the manifold-category layering recognised retroactively from existing engine fields; the gauge-theoretic reading consolidated from four prior pieces in the system.
 
 This note continues that pattern. The seven components of the attractor fingerprint are all 30–60-year-old dynamical-systems mathematics. The framework's engines already produce the trajectories. The framework's algebra (CNQ quaternion view) already carries the spectral structure. The framework's standards (HUF-STD-002) already define the pipeline slot. The framework's visualisation lineage (HTML demos through projector v2.2) already points at attractor reconstruction. The framework's roadmap already names transcendental basins (§4 Step 4). *Six existing structures point at one missing module; this note names the module and records the convergence.*
 

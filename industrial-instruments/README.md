@@ -17,6 +17,7 @@ Hˢ reads any composition that drifts over time and reports **which carrier is s
 | ↳ Study 2 — [oil & gas produced water](gas-composition-study/produced-water-codawork/) | oil & gas (CoDaWork/Engle; USGS DB) | lossless 3.6e‑15; formation transition; censored values handled |
 | ↳ Study 3 — [blood / alveolar gas](gas-composition-study/blood-gas/) | clinical / dissolved O₂ (D=4 CNQ‑native) | exact quaternion read 4.7e‑16; O₂/CO₂ drive desaturation |
 | ↳ Study 4 — [spacecraft cabin atmosphere](gas-composition-study/cabin-atmosphere/) | closed‑loop life support (ISS‑style) | lossless 2.2e‑15; CO₂ duty cycle; VOC event caught |
+| [`financial/`](financial/) | **Financial systems** — the composition that allocates and moves money; *study the system that studies the market*, not the price | ✅ RUN — S&P 500 ten‑sector composition, deterministic vector map (arrow of intent, ~5 effective directions, regime changes), hash `5b2a32d6…`. **Not statistics, not a forecast, not investment advice** — complements existing analysis |
 
 *Each study names a public‑data verification target. Experiments + science only — no outreach letters in this repo. More industrial studies added here as run.*
 

@@ -1,0 +1,71 @@
+{
+  "artifact": "Hs Induction Map",
+  "version": "1.0.0",
+  "date": "2026-06-16",
+  "purpose": "Machine-readable graduated induction so an AI assistant can walk an expert user through the Hs system deterministically: one hard go/no-go gauge at the door, then seven graduated stages, each with a pass condition, branching by discipline and purpose. Companion to INDUCTION_MAP.md.",
+  "principle": "Deterministic, hash-receipted, honest-tiered (Tier 1 verified / Tier 3 open). Nothing more or less. The map orders the doors; it adds and removes no claims.",
+  "human_authorship": "Peter Higgins; AI-assisted per HUF-STD-001",
+  "gate": {
+    "id": "go_no_go",
+    "type": "hard_pass_fail",
+    "question": "Do you have a composition — parts of a whole tracked in order, within a shared budget?",
+    "doc": "IS_Hs_RIGHT_FOR_YOU.md",
+    "interactive_gauge": "COMPOSITION_GAUGE.html",
+    "GO": "Proceed to stage 0. The user already has the need.",
+    "NO_GO": "With respect, Hs is not the best tool. Say so kindly, suggest better-suited methods, wish them well, do not waste their time. Compositions only.",
+    "HIGHER_DOOR": "The raw data is not a composition, but a composition may exist one level up: the mix among samples, methods, or the observers/systems that study the subject. Form that higher-order mix, track it in order, and read its direction. Study the studiers, not the device under test. If the user can build it, re-run the gauge on that mix.",
+    "examples_compositional": ["energy mix over years", "taxa in a gut over days", "oxides down a core", "market sectors over quarters", "failure modes across a fleet", "a budget across categories"],
+    "examples_not_compositional": ["raw signals", "absolute counts with no shared whole"]
+  },
+  "stages": [
+    {"n": 0, "name": "Orient", "do": "See the whole system and locate yourself in it.",
+     "targets": ["README.md", "AI_WELCOME.md", "HS_GUIDE.md", "ARC_OF_DISCOVERY.md", "CROSS_BRAIN.md"],
+     "gauge": "User can state what Hs is in one line and which repo they are in."},
+    {"n": 1, "name": "Fit by D", "do": "Learn what Hs yields at the user's number of parts (D).",
+     "targets": ["IS_Hs_RIGHT_FOR_YOU.md"],
+     "gauge": "User knows their D and what reading it yields (per the D-table)."},
+    {"n": 2, "name": "Run your data", "do": "Put the composition through the engine and get a receipt.",
+     "targets": ["QUICKSTART.md", "onramp/PHD_ONRAMP_PROTOCOL.md", "Hs-Kinematics/", "onramp/WORKED_EXAMPLES.md", "DATA_SOURCES.md"],
+     "run_command": "python HCI-CNTT/run_cntt.py <composition.csv> -o out.json   (or: from hs_kinematics_engine import run)",
+     "gauge": "User produced a run with a content hash on their own or sample data."},
+    {"n": 3, "name": "Branch by discipline", "do": "Open the worked run nearest the user's field.",
+     "branch": "discipline_branches",
+     "gauge": "User found a worked run in or adjacent to their field."},
+    {"n": 4, "name": "Branch by purpose", "do": "Pick what the user actually came to do.",
+     "branch": "purpose_branches",
+     "gauge": "User can name their purpose and the component that serves it."},
+    {"n": 5, "name": "Playground", "do": "Experiment freely; reproduce, refute, or bring your own.",
+     "targets": ["experiments/", "experiments/EXPERIMENT_STANDARD.md"],
+     "gauge": "User reproduced one result to its hash, or ran their own composition."},
+    {"n": 6, "name": "Graduate", "do": "Become a verified node others can check.",
+     "targets": ["GRADUATE_SCHOOL.md", "REPRODUCIBILITY_CHECKLIST.md", "Hs-Kinematics/TRACEABILITY.md"],
+     "gauge": "The user's run is independently reproducible and traceable end to end."}
+  ],
+  "discipline_branches": [
+    {"field": "Microbiome / longitudinal omics", "target": "collaborations/microbiome/", "hook": "abundance tables over time; honest null + real signal; lossless to high D"},
+    {"field": "Geoscience / chemostratigraphy", "target": "collaborations/geology-wehner/", "hook": "a section read in motion; trace-over-bulk; datable boundaries; field-instrument path"},
+    {"field": "Storage / reliability fleets", "target": "collaborations/distributed-systems-backblaze/", "hook": "drive-fleet composition; pre-fault migration"},
+    {"field": "Spaceflight / transcriptomics", "target": "collaborations/spaceflight-glds1/", "hook": "NASA GeneLab; lossless at very high D + honest global null"},
+    {"field": "Industrial gas / process fluids", "target": "industrial-instruments/", "hook": "life support, produced water, blood/alveolar gas; MC-4 ratio-blindness"},
+    {"field": "Financial systems", "target": "industrial-instruments/financial/", "hook": "the composition that allocates/moves money read as a vector map; study the system that studies the market; descriptive and deterministic, not statistics, not advice"},
+    {"field": "Energy mixes", "target": "experiments/Hs-M02_EMBER_Energy", "hook": "transition drift on the simplex"},
+    {"field": "Physics / geochemistry / cosmology", "target": "experiments/", "hook": "validation runs that recover known structure (SEMF, QCD, Planck, geochem)"},
+    {"field": "Experimental mathematics (near dimension four)", "target": "papers/frontier/EXACT_DIM4_EXAMPLE_GENERATION.md", "hook": "exact S^3=SU(2) / Spin(4) example generation + high-D chart atlas"}
+  ],
+  "purpose_branches": [
+    {"purpose": "Read a snapshot (static only)", "target": "onramp/PHD_ONRAMP_PROTOCOL.md", "component": "standard-CoDa fallback: ternary / CLR-biplot / variation matrix"},
+    {"purpose": "Read the motion", "target": "Hs-Kinematics/", "component": "full kinematic read: helmsman, arrow of intent, regime changes"},
+    {"purpose": "Monitor / catch deceptive drift", "target": "papers/cnq_tiling_suite_2026/", "component": "guards + deceptive-drift detector (fail loud)"},
+    {"purpose": "Track budget / control", "target": "Hs-Kinematics/MOVING_BUDGET_AND_CONTROL_PRIMITIVE.md", "component": "moving budget + safe closed-loop control primitive"},
+    {"purpose": "Characterize the system kind", "target": "library/CCS_FOR_COMPOSITIONAL_READERS.md", "component": "Compositional Character Space (cross-domain placement)"},
+    {"purpose": "Extend / build into a pipeline", "target": "tools/", "component": "tool kit + traceability (Hs-Kinematics/TRACEABILITY.md)"},
+    {"purpose": "Publish / cite", "target": "papers/", "component": "the paper series"}
+  ],
+  "ai_assistant_protocol": [
+    "Confirm the gate first: is the user's data a composition? If NO_GO, redirect kindly and stop.",
+    "Read the user's intent and D; jump to the stage that fits (do not force stage 0 on a determinist who already knows CoDa).",
+    "At each stage, check the gauge before advancing; if unmet, stay and help meet it.",
+    "Always run on real or user data and surface the content hash; never claim a result without a receipt.",
+    "Hold the honest tiers: Tier 1 verified, Tier 3 open question; if the engine holds or hits a guard, say what cannot be resolved and why."
+  ]
+}

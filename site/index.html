@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hˢ kinematics — the deterministic compositional instrument</title>
+<meta name="description" content="Hˢ kinematics reads the full motion of a composition — deterministically, named for the navigator and the physicist, as far as the data can be known and not one step further.">
+<style>
+  :root{--ink:#1a2230;--mut:#5a6678;--line:#e3e7ee;--bg:#fbfcfe;--accent:#1f6feb;--card:#ffffff;}
+  *{box-sizing:border-box}
+  body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  .wrap{max-width:920px;margin:0 auto;padding:0 22px}
+  header{padding:64px 0 36px;border-bottom:1px solid var(--line)}
+  h1{font-size:2.5rem;margin:0 0 .2em;letter-spacing:-.02em}
+  h1 sup{font-size:.55em}
+  .tag{color:var(--accent);font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem}
+  .lede{font-size:1.22rem;color:var(--ink);max-width:46ch}
+  .promise{color:var(--mut);font-style:italic;margin-top:.6em;max-width:60ch}
+  h2{font-size:1.35rem;margin:2.4em 0 .6em;letter-spacing:-.01em}
+  section{padding:8px 0}
+  code,pre{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:.92em}
+  pre{background:#0e1726;color:#e6edf6;padding:16px 18px;border-radius:10px;overflow:auto;font-size:.86rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card h3{margin:.1em 0 .3em;font-size:1rem}
+  .card p{margin:.2em 0;color:var(--mut);font-size:.92rem}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.93rem}
+  th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:.78rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+  .pill{display:inline-block;font-size:.72rem;padding:2px 8px;border-radius:999px;background:#eaf1ff;color:var(--accent);font-weight:600}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .muted{color:var(--mut)}
+  footer{margin:48px 0 60px;padding-top:22px;border-top:1px solid var(--line);color:var(--mut);font-size:.9rem}
+  .note{background:#fff8e6;border:1px solid #f0e2b8;border-radius:10px;padding:12px 16px;font-size:.9rem;color:#6b5b2a}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="tag">Higgins Decomposition · current working name</div>
+  <h1>H<sup>s</sup> kinematics</h1>
+  <p class="lede">A deterministic instrument that reads the full <em>motion</em> of a composition — who is steering, where the weight is flowing, when it changed state — and tells you in plain words.</p>
+  <p class="promise">As far as the data can be known and not one step further, named for the navigator and the physicist at once, with a receipt anyone can re‑check.</p>
+</div></header>
+
+<div class="wrap">
+
+<section>
+  <h2>If you have a composition, you have a reason to look</h2>
+  <p>A composition is just <strong>parts of a whole, tracked in some order</strong> — an energy mix over years, gut bacteria over days, rock chemistry down a borehole, market sectors over months. Shape it as a table and run one line:</p>
+<pre>from hs_kinematics_engine import run
+from hs_diagnosis import diagnose
+
+say = diagnose(M, names)["narrative"]   # what your system is doing, in plain words
+out = run(M, names)                     # the full state, named twice, + the floors + a hash</pre>
+  <p class="muted">It returns a sentence like <em>“X is steering; weight is moving toward A, B, C and away from D; it changed state 3 times; it runs in about 4 independent directions.”</em> — and the complete numbers underneath.</p>
+</section>
+
+<section>
+  <h2>What it reads (named for the navigator / the physicist)</h2>
+  <div class="grid">
+    <div class="card"><h3>Helmsman / velocity</h3><p>which part is steering the change — often a small one.</p></div>
+    <div class="card"><h3>Arrow of intent / momentum</h3><p>where the <em>weight</em> is flowing, and whether it's a move or a churn.</p></div>
+    <div class="card"><h3>Waypoints / phase transitions</h3><p>when the system genuinely changed state.</p></div>
+    <div class="card"><h3>Course directness / path efficiency</h3><p>a clean trend vs wandering.</p></div>
+    <div class="card"><h3>Degrees of freedom / dimensionality</h3><p>how many things are moving at once.</p></div>
+    <div class="card"><h3>Station‑keeping / equilibrium</h3><p>it <em>holds</em> when there's nothing to resolve — and says so.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Already run on real things</h2>
+  <div class="grid">
+    <div class="card"><h3>Energy &amp; markets</h3><p>national transitions; sector rotation as a system in motion.</p></div>
+    <div class="card"><h3>Microbiome</h3><p>a real gut community narrated a Prevotella↑ / Bacteroides↓ shift — deterministically.</p></div>
+    <div class="card"><h3>Geoscience</h3><p>219 mudstone samples: trace elements drive over the bulk; datable regimes.</p></div>
+    <div class="card"><h3>Exact D=4 physics</h3><p>quaternion ≡ Aitchison rotation, confirmed to the IEEE floor on real data.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>The offering</h2>
+  <table>
+    <tr><th>Paper</th><th>What</th><th>Status</th></tr>
+    <tr><td><strong>P1 ★ CNQ‑tiling</strong></td><td>quaternion‑exact, lossless reconstruction of compositions (to D=10⁶, IEEE floor)</td><td><span class="pill">closest to submit</span></td></tr>
+    <tr><td><strong>P3 The instrument</strong></td><td>a deterministic, gauge‑R&amp;R≈0, guard‑aware engine + full reproducibility kit (tool paper)</td><td><span class="pill">strong now</span></td></tr>
+    <tr><td><strong>P4 Compositional kinematics</strong></td><td>the mechanics of compositional trajectories + the diagnosis language (recognition + synthesis)</td><td><span class="pill">fresh</span></td></tr>
+    <tr><td><strong>P2 Deceptive‑drift</strong></td><td>the MC‑4 monitoring detector (concentration tightening under quiet motion)</td><td><span class="pill muted">needs data + null</span></td></tr>
+  </table>
+  <p class="muted" style="margin-top:10px">One instrument, four faces — each reproducible from the same engine, each citing the same CoDa foundations, each honestly scoped.</p>
+</section>
+
+<section>
+  <h2>Why you can trust it</h2>
+  <p><strong>Deterministic</strong> — same input → same output → same hash, on any machine (demonstrated identical SHA‑256 on Windows and Linux). <strong>Gauge R&amp;R ≈ machine epsilon</strong> — the analysis adds no measurement variation. <strong>Honest</strong> — it holds at rest, flags a fragile read, withholds below its confidence gate, and marks the boundary where structure runs out. <strong>Reproducible</strong> — a single‑cell engine, an R port, an annotated notebook, a designer specification, and a conformance test.</p>
+</section>
+
+<section>
+  <h2>Built on, and grateful to, the CoDa community</h2>
+  <p class="muted">Hˢ kinematics is an <em>extension of standard compositional data analysis into dynamics</em> — the geometry is CoDa's; the motion is the extension. It builds on Aitchison's log‑ratio geometry and the four decades of the CoDaWork community (Egozcue, Pawlowsky‑Glahn, Hron, Martín‑Fernández, Gloor, and many more), and on replicator dynamics and information geometry for the kinematics. Recognition, not invention.</p>
+</section>
+
+<footer><div>
+  <strong>Hˢ kinematics</strong> · Higgins Decomposition · Peter Higgins, with the HUF AI Collective.<br>
+  Honest‑broker; claim tiers throughout; interest expressed is never acquired.
+  Code: open‑source (see <code>LICENSE</code>); docs CC‑BY (<code>LICENSE-DOCS</code>); cite via <code>CITATION.cff</code>.<br>
+  <span class="muted">The instrument reads. The expert decides. The hash carries the receipt.</span>
+</div></footer>
+
+</div>
+</body>
+</html>

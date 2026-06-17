@@ -6,7 +6,7 @@
 
 ## 0 · Division of labor and the principle
 
-**Matthew supplies the geo codes** — the domain content: what a given adaptation should respond to (a saturated channel, a new diagnostic element, a calibration drift, a facies/regime change). **This document supplies the engine's control surface** — the bounded set of places adaptation is *permitted*, and the rules that keep every adaptation deterministic and auditable.
+**The domain collaborator supplies the geo codes** — the domain content: what a given adaptation should respond to (a saturated channel, a new diagnostic element, a calibration drift, a facies/regime change). **This document supplies the engine's control surface** — the bounded set of places adaptation is *permitted*, and the rules that keep every adaptation deterministic and auditable.
 
 Every control point obeys the same five rules (the GPCC contract):
 1. **Whitelisted & bounded** — only the listed primitives, only within declared ranges; no arbitrary code, no opaque self‑modification.
@@ -28,7 +28,7 @@ Adaptation lives entirely in **configuration within whitelists**, never in the m
 | **CP‑1** | L1 Ingest | Carrier set — add a newly‑relevant part; drop a dead/saturated sensor channel | `SELECT / ADD / DROP_CARRIER` | only from the available carrier list; ≥2 parts remain | yes | A (changes the composition) |
 | **CP‑2** | L1 Treat | Zero‑treatment policy — detection‑limit fraction; structural vs rounded | `SET_ZERO_TREATMENT` | frac ∈ [0.5, 0.8]×DL; policy ∈ {drop, multiplicative} | yes | B |
 | **CP‑3** | L2 Geometry | Basis selection among **pre‑registered orthonormal** bases / SBP orderings | `SET_BASIS` | registered orthonormal bases only (orthonormality enforced) | yes | A (mostly locked) |
-| **CP‑4** | L3 Atlas | Atlas strategy & structure — sliding ↔ hierarchical; the tree/grouping (**Matthew's geo codes plug in here**) | `SET_ATLAS` | atlas must stay **connected** (losslessness condition); charts size 4 | yes | A |
+| **CP‑4** | L3 Atlas | Atlas strategy & structure — sliding ↔ hierarchical; the tree/grouping (**the domain collaborator's geo codes plug in here**) | `SET_ATLAS` | atlas must stay **connected** (losslessness condition); charts size 4 | yes | A |
 | **CP‑5** | L3 Atlas | Chart focus — which charts get the full exact CNQ read (regions of interest) | `SELECT_CHARTS` | subset of the atlas; rest still reconstructed | yes | C |
 | **CP‑6** | L4 Navigate | Fusion weights — calibration‑weighted multi‑sensor fusion (geosensing) | `SET_FUSION_WEIGHTS` | simplex weights, ≥0, Σ=1; from calibration windows | yes | B |
 | **CP‑7** | L4 Navigate | Navigation thresholds — regime tripwire, activation guard, K_eff threshold, helmsman window | `SET_PARAM` | regime k·MAD/σ ∈ [1.5,3]; guard ρ ∈ [1e‑4,1e‑2]; K_eff thr ∈ [0.02,0.1]; window ∈ [4,16] | yes | B |
@@ -67,6 +67,6 @@ This is engine build phase P2/P3 work; the control surface above is the spec it 
 ## Claim tiers
 - **Tier 1 (verified):** the engine is deterministic and self‑describing/hashed (basis for all of this); the parameters/bounds are taken from the harvested oracle + flight spec.
 - **Tier 2 (sound engineering):** the control‑point map, the safety classes, the remote‑hash flow, the delta‑testing equivalence.
-- **Tier 3 (to build):** the config object, the setters, the Supervisor wiring, the registry population; Matthew's geo codes that drive CP‑4 on real data.
+- **Tier 3 (to build):** the config object, the setters, the Supervisor wiring, the registry population; the domain collaborator's geo codes that drive CP‑4 on real data.
 
 *The control surface is bounded; the math is locked; the hash carries the receipt. The instrument reads. The expert decides.*

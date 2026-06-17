@@ -81,7 +81,7 @@ A generalized view of the flight ladder, marked honestly. This is **pre‑Phase�
 | Stage | Generalized objective (any compositional payload) | Status (2026‑06‑11) | ~TRL |
 |---|---|---|---|
 | **L‑7 · NOW** | Concept + reproducible evidence; deterministic engine; ground‑twin contract | ✅ **In hand** — CN‑TT v4 deterministic, hash‑chained, parity‑certified on real data; high‑D lossless to 10⁶ | 3 |
-| **L‑6 · Domain validation** | Validate + calibrate on a domain expert's ground‑truthed data; co‑author | 🔄 open — geosensing (Matthew), microbiome (coda4microbiome), space‑bio partners sought | 4 |
+| **L‑6 · Domain validation** | Validate + calibrate on a domain expert's ground‑truthed data; co‑author | 🔄 open — geosensing (a geoscience domain collaborator), microbiome, space‑bio partners sought | 4 |
 | **L‑5 · Archive reprocessing** | Atlas over existing mission/agency archives vs known maps | ⬜ planned | 4–5 |
 | **L‑4 · Instrument definition** | Mission class + sensor suite; freeze GPCC primitives; flight‑profile spec | ⬜ planned (control‑surface spec exists) | 5 |
 | **L‑3 · Breadboard / TRL‑raise** | Port fixed kernel to a dev board; benchmark speed + downlink reduction | ⬜ planned | 5 |

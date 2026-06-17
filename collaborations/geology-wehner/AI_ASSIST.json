@@ -1,11 +1,11 @@
 {
   "schema": "hs_ai_assist/1.0",
   "folder": "Hs/collaborations/geology-wehner/",
-  "topic": "Geosensing -> flight (collaboration with geologist Matthew Wehner): Hs on inorganic geochemistry toward field and orbital remote sensing.",
+  "topic": "Geosensing -> flight (open geoscience collaboration): Hs on inorganic geochemistry toward field and orbital remote sensing.",
   "purpose": "Local node for the geoscience/flight arc: the CNQ-tiling method + proof, the cited mudstone demo, and the staged flight-spec suite.",
   "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
   "specific_knowledge": {
-    "what": "The primary workhorse application: Hs reads mineral/oxide compositions; the same engine runs from a field sensor edge toward orbital remote sensing. The CNQ-tiling method + proof live here. Matthew Wehner is the domain/validation authority; his contact is handled OFF the public repo per the carrier-filter doctrine.",
+    "what": "The primary workhorse application: Hs reads mineral/oxide compositions; the same engine runs from a field sensor edge toward orbital remote sensing. The CNQ-tiling method + proof live here. A geoscience domain expert is the domain/validation authority; any individual contact is handled OFF the public repo per the carrier-filter doctrine.",
     "key_files": ["README.md", "00_EXECUTIVE_OVERVIEW.md", "CNQ_TILING_METHOD_AND_PROOF.md", "HIGHD_DETERMINISTIC_SCALING.md", "CNQ_TILING_PRIOR_ART.md", "CNQ_TILING_CONTRIBUTION.md", "flight_spec_suite/", "GEOSENSING_FLIGHT_ROADMAP.md"],
     "key_results": [
       "Tier 1: cited reproducible Frielingen-9 mudstone demo (PANGAEA 897615); CNQ-tiling lossless reconstruction proof (overlap proven necessary); scaling to D=1,000,000",
@@ -21,7 +21,7 @@
     "human_guide": "HS_GUIDE.md",
     "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
   },
-  "bring_your_own_ai": "Start at 00_EXECUTIVE_OVERVIEW.md, then CNQ_TILING_METHOD_AND_PROOF.md. Matthew's contact is off-repo; do not surface personal contact data. Read-only context; governance + claim-tiers apply.",
+  "bring_your_own_ai": "Start at 00_EXECUTIVE_OVERVIEW.md, then CNQ_TILING_METHOD_AND_PROOF.md. Any individual collaborator contact is off-repo; do not surface personal contact data. Read-only context; governance + claim-tiers apply.",
   "governance": "HUF-STD-001; HUF-Gov carrier-filter (need-to-know / withhold-on-distribution); instrument not data; pre-Phase-A, unfunded, no agency involvement implied; no AI commits.",
   "updated": "2026-06-11"
 }

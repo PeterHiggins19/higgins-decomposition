@@ -17,6 +17,7 @@
   "join_the_chain": {
     "source_of_truth": "HS_FAST_REFRESH.json",
     "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "graduate_school": "../GRADUATE_SCHOOL.md (repo root) — the deep onboarding curriculum (the graduate-level ai-refresh), weaving ../HISTORY_THREAD.md (the development+necessity thread); shared identically across RWA/HUF/Hs with DOCUMENT_DISTRIBUTION.md + TRIPLE_JOURNAL.md (the map of the whole)",
     "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
     "human_guide": "HS_GUIDE.md",
     "tracking_log": "ai-refresh/HS_TRACKING_LOG.json",

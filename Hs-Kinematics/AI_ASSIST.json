@@ -1,0 +1,29 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/Hs-Kinematics/",
+  "topic": "Hs kinematics -- the current working name; the unified engine + the deterministic diagnosis language. The matured instrument in one place.",
+  "purpose": "Help any AI assist a user who has a composition: run the full read, speak it in plain words, name it twice (navigation + physics), and stay honest about limits.",
+  "how_to_help_a_user": {
+    "step_1": "Read START_HERE.md and README.md.",
+    "step_2": "Get the user's data into M (rows = time/sample order, cols = parts) and names.",
+    "step_3": "diagnose(M, names)['narrative'] -> the plain sentence of what the system is doing; run(M, names) -> the full dual-named state + computational_floors + content_hash.",
+    "step_4": "Name every reading TWICE (navigation_NAV / physics_PHYS, per ../HCI-CNTT/TERMINOLOGY_BRIDGE.md) and translate the named parts into the user's domain words.",
+    "step_5": "NEVER interpret meaning as a claim -- the engine says who gains/sheds and when it changed; the user supplies what it means.",
+    "step_6": "If a guard code fires (HM-NUL/HM-TIE/DG-RNK/GD-SPZ/MO-DIF/FR-BND), tell the user honestly what cannot be resolved and why."
+  },
+  "key_files": ["START_HERE.md", "README.md", "hs_kinematics_engine.py", "hs_diagnosis.py", "DIAGNOSIS_LANGUAGE.md", "STRATEGY.md"],
+  "reproducibility_kit_v1.0": {
+    "specification": "HS_KINEMATICS_SPECIFICATION.md (full designer-level spec, all stages + output schema + claim tiers + conformance anchor)",
+    "pseudocode": "HS_KINEMATICS_PSEUDOCODE.md (language-agnostic; re-implement + check the hash)",
+    "r_port": "hs_kinematics.R (1:1 mirror; NOT yet executed on an R install -- conformance gate = the reference hash, honestly flagged)",
+    "notebook": "HS_KINEMATICS_REPLICATION.ipynb (annotated; runs the reference, reads every quantity, speaks the diagnosis, asserts the receipt)",
+    "data_prep": "hs_data_prep.py + DATA_PREP.md (any data zip/CSV/xlsx -> engine-ready by streaming)",
+    "conformance_anchor": "content_hash = fcae0ebe5c4f443aa076d1900d3d04219c2628591323cd7745621e740a3d7ae7 on the fixed 12x6 energy reference; a deviation is a located signal per ../HCI-CNTT/ADAPTIVE_ANTICIPATION.md"
+  },
+  "what_it_reads": "lossless reconstruction; navigation family (helmsman/K_eff/waypoints/silent-drift); the kinematics+dynamics tower (jet to noise-bounded N*, curvature, momentum/force/energy/action) named nav+physics; spectral modes; the guard layer; the EITT fringe/boundary (Tier 3); the computational floors; a deterministic hash.",
+  "diagnosis_language": "hs_diagnosis.diagnose() composes the readings into plain sentences that EXPAND with complexity (simple system = 1-2 voices; microbiome = many). Deterministic (same data -> same words -> same hash); the words are a description, the meaning is the expert's.",
+  "domains_demonstrated": ["energy (showcase/canada_portugal + experiments/finance_kinematics)", "microbiome (real Crohn/ECAM -- the community speaks)", "geology (Frielingen)", "exact-D=4 physics (quaternion)", "finance (sector rotation in motion)"],
+  "honesty": "Tier 1 on computed values + determinism; mechanics framing Tier 2; fringe/boundary Tier 3 (clue never claim). Distilled engine; the frozen-oracle binary adds depth-tower/IR/CNQ. interest expressed never acquired; Peter is the sole commit/contact gate.",
+  "join_the_chain": {"repo_root_node": "../AI_ASSIST.json", "welcome": "../AI_WELCOME.md", "engine_home": "../HCI-CNTT/AI_ASSIST.json", "vocabulary": "../HCI-CNTT/TERMINOLOGY_BRIDGE.md", "onramp": "../onramp/PHD_ONRAMP_PROTOCOL.md", "tracking_log": "../ai-refresh/HS_TRACKING_LOG.json"},
+  "updated": "2026-06-15"
+}

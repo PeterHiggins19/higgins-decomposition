@@ -3,7 +3,7 @@
 **Filed:** 2026-05-27 (pre-conference; doc-only, S2-class).
 **Status:** Working note. Records Peter's pivot expanding the framework's Ramsar offering from governance-only (HUF-GOV / HUF-CLS observe-or-control fork) to *also* compositional field-work tools for wetland ecologists, hydrologists, and ornithologists.
 **Trigger:** Peter's flight-prep observation, *"Ramsar is also on my agenda, now we can offer more than governance, compositional analysis tools for wetlands field work."*
-**Companion documents:** `HUF/science/quantum/HUF_Topography_Conjecture_v1.0.md` (which uses Ramsar as its canonical worked example for the mixed-geometry hierarchy); `papers/in_progress/ATTRACTOR_MORPHOLOGY_AND_TRANSCENDENTAL_BASINS.md` (sibling, filed same day; ecological trajectories may become a primary application target for the attractor diagnostic module); `papers/in_progress/AUDIENCES_AT_THE_FRONTIER.md` (audience-class framing — wetland ecologists are a *practitioner* audience, distinct from the *frontier* audience class but consuming the same framework); `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §5.9 (post-conference work entry).
+**Companion documents:** `HUF/science/quantum/HUF_Topography_Conjecture_v1.0.md` (which uses Ramsar as its canonical worked example for the mixed-geometry hierarchy); `papers/in_progress/ATTRACTOR_MORPHOLOGY_AND_TRANSCENDENTAL_BASINS.md` (sibling, filed same day; ecological trajectories may become a primary application target for the attractor diagnostic module); `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §5.9 (post-conference work entry).
 **Lockdown discipline:** S2 doc-only; `papers/in_progress/`; no engine, schema, INV catalog, or NO-CREATE touches.
 
 ---
@@ -105,7 +105,7 @@ The regional + Secretariat tiers consume the per-site CNT JSONs as input — the
 
 3. **Three pilot studies** — pick three Ramsar-designated sites with published long-term monitoring data (e.g., one boreal peatland in Finland, one tropical floodplain in Botswana, one temperate fen in the UK), run the full CNT diagnostic on their published time-series, publish the resulting Helmsman / Power Share / Activation Coefficient / Stage-1 plates as a companion data paper. Provides empirical anchor for the field-work claim. **Effort:** substantial (~3 weeks per site). **Push class:** S2 doc + data publication.
 
-4. **Outreach to Ramsar Secretariat** — drafted letter following the *non-contact / ghost-tool* outreach doctrine from `AUDIENCES_AT_THE_FRONTIER.md`, but addressed to a practitioner audience (Secretariat or Scientific and Technical Review Panel) rather than a frontier researcher. Frame: *"the framework that already supports the governance tier now offers a field-work tier; here are three pilot studies; happy to demo the runbook to any interested member-state ecologist."* **Effort:** low (one letter + supporting links). **Push class:** S2 (private draft outside repo, mirroring the Piccirillo letter pattern).
+4. **Outreach to Ramsar Secretariat** — a standing offer following the *non-contact / ghost-tool* outreach doctrine, addressed to a practitioner audience (Secretariat or Scientific and Technical Review Panel). Frame: *"the framework that already supports the governance tier now offers a field-work tier; here are three pilot studies; happy to demo the runbook to any interested member-state ecologist."* **Effort:** low (one offer + supporting links). **Push class:** S2 (any draft kept private outside the public repo, mirroring the frontier-audience ghost-tool pattern; any sending is Peter's gate).
 
 **Sequencing:** items 1, 2 cluster in the first post-conference sprint (weeks 1–4). Item 3 (three pilots) runs in parallel across the second and third sprints (weeks 5–20). Item 4 outreach lands after at least one pilot is complete — provides concrete demonstration content alongside the abstract framework claim.
 
@@ -131,7 +131,6 @@ There is also a personal-arc reason. Peter's note today framed this as *"my mind
 
 - `HUF/science/quantum/HUF_Topography_Conjecture_v1.0.md` §6 (the induced manifold) and §7 (the Ramsar three-tier example) — the existing governance-tier framing this note extends.
 - `papers/in_progress/ATTRACTOR_MORPHOLOGY_AND_TRANSCENDENTAL_BASINS.md` — sibling note filed same day; ecological trajectories may become a primary application target for the attractor-fingerprint diagnostic.
-- `papers/in_progress/AUDIENCES_AT_THE_FRONTIER.md` — the audience-class framing; this note's audience is *practitioners* (field ecologists, hydrologists), distinct from the theoretical-frontier audience in §3 of that note, but consuming the same framework via a different entry point.
 - `papers/in_progress/POST_CONFERENCE_ROADMAP_2026-06.md` §5.9 — the post-conference work entry filed in parallel with this note.
 - `huf-gov/standards/HUF_TENSOR_TRAIN_IO_STANDARD.json` `the_tensor_train_v1_0.links[]` Link 1 (Adapter) — where the `ramsar_wetland.py` module slots in.
 - `HCI-CNT/engine/cnt.py` v3.1.0 and `HCI-CNQ/engine/cnq.py` v2.0.0 — the existing engines that run unchanged on wetland compositional inputs.
@@ -139,6 +138,6 @@ There is also a personal-arc reason. Peter's note today framed this as *"my mind
 
 **Acknowledgement:**
 
-Pivot raised by Peter Higgins during pre-conference / pre-flight preparation, 2026-05-27 (six days before CoDaWork 2026 in Coimbra; flight on Saturday). The expansion from governance-only to governance + field-work was implicit in the framework since the HUF Topography Conjecture's Ramsar worked example but had not been named as a deliberate tier. This note names it. Concrete-substrate mapping (five compositional time-series types, three-tier deployment, four-item work plan) developed in conversation with Claude (Anthropic). The wetland pivot is a *practitioner-audience* offering that complements the *theoretical-frontier* outreach captured in `AUDIENCES_AT_THE_FRONTIER.md` — together they cover both halves of the framework's post-conference audience expansion.
+Pivot raised by Peter Higgins during pre-conference / pre-flight preparation, 2026-05-27 (six days before CoDaWork 2026 in Coimbra; flight on Saturday). The expansion from governance-only to governance + field-work was implicit in the framework since the HUF Topography Conjecture's Ramsar worked example but had not been named as a deliberate tier. This note names it. Concrete-substrate mapping (five compositional time-series types, three-tier deployment, four-item work plan) developed in conversation with Claude (Anthropic). The wetland pivot is a *practitioner-audience* offering — a field-work tier for the framework's post-conference expansion.
 
-*Filed during the pre-conference lockdown, six days before CoDaWork 2026. The practitioner-audience companion to the theoretical-frontier outreach already filed.*
+*Filed during the pre-conference lockdown, six days before CoDaWork 2026.*
