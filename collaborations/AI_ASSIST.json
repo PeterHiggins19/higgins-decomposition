@@ -19,7 +19,7 @@
   "expert_decides": "The instrument reads and hands you diagnostics (helmsman, K_eff, regime, internal/external fault); the domain expert assigns meaning. Open-loop (Skydiver Doctrine)."
  },
  "specific_knowledge": {
-  "what": "Real-data domain collaborations: geology (Matthew Wehner), microbiome, spaceflight (GLDS-1), and the CoDaWork-2026 collaboration web. Each is a real dataset the instrument has read, with claim tiers and honest nulls.",
+  "what": "Real-data domain collaborations: geology, microbiome, spaceflight (GLDS-1), and the CoDaWork-2026 collaboration web. Each is a real dataset the instrument has read, with claim tiers and honest nulls. Individual collaborator identities are kept off the public repo per the carrier-filter doctrine.",
   "key_files": [
    "README.md",
    "geology-wehner/",

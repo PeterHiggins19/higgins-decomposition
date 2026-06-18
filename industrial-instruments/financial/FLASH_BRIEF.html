@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hˢ Financial — Know Your Position</title>
+<style>
+  :root{--bg:#06080b;--ink:#cfe0ee;--mut:#5f7686;--gold:#e0b25a;--cy:#6fd0e0;--go:#3fb37f;--no:#d98a8a;--line:#1a2730}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter','Segoe UI',Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto;padding:0 22px}
+  section{padding:58px 0;border-bottom:1px solid var(--line)}
+  .kick{font-family:'Courier New',monospace;font-size:12px;letter-spacing:4px;color:var(--mut);text-transform:uppercase}
+  h1{font-size:clamp(34px,7vw,72px);line-height:1.02;font-weight:800;letter-spacing:-1.5px;margin:14px 0}
+  h1 .g{color:var(--gold)}
+  h2{font-size:clamp(24px,4vw,40px);font-weight:800;letter-spacing:-.5px;margin:0 0 8px}
+  .lead{font-size:clamp(17px,2.4vw,23px);color:#9fb3c4;max-width:760px;margin-top:14px}
+  .hero{padding-top:74px}
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .card{background:#0b1117;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:6px;padding:20px}
+  .card h3{font-size:15px;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+  .card p{font-size:15px;color:#9fb3c4}
+  .proof{background:#0a0f14;border:1px solid var(--line);border-radius:8px;padding:24px;margin-top:26px;font-family:'Courier New',monospace}
+  .proof .row{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .proof .row:last-child{border:none}
+  .proof .k{color:var(--mut)} .proof .v{color:var(--cy);text-align:right}
+  .up{color:var(--go)} .dn{color:var(--no)}
+  .hash{font-size:12px;color:var(--mut);word-break:break-all;margin-top:12px}
+  .big{font-size:clamp(28px,5vw,52px);font-weight:800;letter-spacing:-1px;line-height:1.08}
+  .sci{background:#080c10;border:1px solid var(--line);border-radius:8px;padding:26px;margin-top:18px}
+  .sci h4{font-size:13px;letter-spacing:2px;color:var(--mut);text-transform:uppercase;margin:14px 0 6px}
+  .sci p{color:#9fb3c4;font-size:15px;max-width:780px}
+  .sci .first{margin-top:0}
+  .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  a.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:15px;padding:13px 22px;border-radius:6px}
+  a.solid{background:var(--gold);color:#0a0a0a}
+  a.ghost{border:1px solid var(--mut);color:var(--ink)}
+  .fine{font-size:12px;color:var(--mut);margin-top:30px;line-height:1.6}
+  @media(max-width:680px){.cards{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="wrap">
+
+  <section class="hero">
+    <div class="kick">Hˢ · Compositional Navigation · for the institutions inside the mix</div>
+    <h1>Know exactly <span class="g">where you are</span>,<br>and which way the system is carrying you.</h1>
+    <p class="lead">Every institution inside a market leaves an allocation trail. That trail has a
+      direction. Hˢ reads it — deterministically, and hands you a cryptographic receipt that proves the
+      reading. Not a forecast. Not an opinion. The structure your own data already contains.</p>
+  </section>
+
+  <section>
+    <h2>Three certainties.</h2>
+    <div class="cards">
+      <div class="card"><h3>Provable, not persuasive</h3><p>Same data in → same answer out → the same
+        SHA-256 receipt, on any machine, forever. Run it yourself and check the hash. Certainty you can
+        audit, not a model you have to trust.</p></div>
+      <div class="card"><h3>Your position, today</h3><p>Where your sector sits in the whole, how far it
+        has moved, and whether the system is steering toward you or away. The map the rest of the room
+        is reading without you.</p></div>
+      <div class="card"><h3>The turns, dated</h3><p>The instrument finds where the system genuinely
+        reorganised — from the allocation alone — and dates each one. Not every wiggle. The real breaks.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="kick">Proof — one real run, reproducible to the receipt</div>
+    <h2>S&amp;P 500, ten sectors, 252 days.</h2>
+    <div class="proof">
+      <div class="row"><span class="k">steering (loudest mover)</span><span class="v dn">Financials — shedding</span></div>
+      <div class="row"><span class="k">weight flowing toward</span><span class="v up">Comm Services · Information Tech · Materials</span></div>
+      <div class="row"><span class="k">weight flowing away from</span><span class="v dn">Financials · Health Care · Cons Discretionary</span></div>
+      <div class="row"><span class="k">character</span><span class="v">rebalancing / diffusive (path efficiency 0.066)</span></div>
+      <div class="row"><span class="k">independent directions</span><span class="v">~5 of 10</span></div>
+      <div class="row"><span class="k">regime changes (trading day)</span><span class="v">32 · 72 · 182 · 209 · 246</span></div>
+      <div class="hash">content_hash = 5b2a32d60a32a78a32240058c58a6eed46eb8e7ffacf32ddec70406ae7227d7e &nbsp;—&nbsp; `python3 run_financial.py` reproduces it byte-for-byte.</div>
+    </div>
+    <p class="lead" style="margin-top:20px">That is not an opinion you can argue with. It is a fact you
+      can re-derive. <b style="color:var(--ink)">Bring your own book, your own desk weights, your own
+      flows — and read your own position the same way.</b></p>
+    <div class="btns">
+      <a class="solid" href="navigation_projector.html">Open the live instrument →</a>
+      <a class="ghost" href="THE_FINANCIAL_NAVIGATION_STUDY.md">Read the full study</a>
+      <a class="ghost" href="../../COMPOSITION_GAUGE.html">Do I have a composition?</a>
+    </div>
+  </section>
+
+  <section>
+    <div class="kick">The temper — science as the declaration of bias, limits, and bounds</div>
+    <p class="big">Power is worth nothing if it lies. Here is exactly what this will <span class="g">not</span> do.</p>
+    <div class="sci">
+      <h4 class="first">Its bias</h4>
+      <p>Hˢ reads <b>relative motion</b> — proportions, not magnitudes; how the mix is moving, not whether
+        the market is up or down. It is built for compositions and is honest that it is blind to anything
+        that is not one.</p>
+      <h4>Its limits</h4>
+      <p>It is <b>descriptive, not predictive.</b> It computes no probability, fits no model, forecasts no
+        price, and recommends no trade. It tells you where the system <i>has been and is</i> — never where
+        it will go. <b>This is not investment advice.</b> What the motion means, and any decision, are
+        yours alone. Hˢ is not a financial advisor.</p>
+      <h4>Its bounds</h4>
+      <p>The reading is <b>Tier 1 — verified and reproducible</b>; its meaning is <b>Tier 3 — your
+        judgement</b>. When the data cannot support a read, the instrument <b>holds or warns</b> rather
+        than hand you a confident wrong answer. It runs on <b>public, aggregate</b> data; your private
+        book never leaves your hands. It complements the statistics others publish — it never restates
+        them.</p>
+    </div>
+    <p class="lead" style="margin-top:22px">That restraint is the source of the confidence. An instrument
+      that refuses to bluff is one whose every reading you can take to the table.</p>
+  </section>
+
+  <section style="border:none">
+    <h2>Step inside the mix.</h2>
+    <p class="lead">If you allocate, you have a composition — and you already have the need. Bring it; an
+      AI assistant trained on Hˢ will compose your system, run it, and translate the vector map into your
+      desk's language, staying strictly inside the bounds above.</p>
+    <div class="btns">
+      <a class="solid" href="AI_ASSISTANT_ONRAMP.md">Start with the AI assistant →</a>
+      <a class="ghost" href="README.md">The instrument &amp; its purpose</a>
+    </div>
+    <p class="fine">Hˢ (Higgins Decomposition) · deterministic compositional instrument · descriptive, not
+      advice · public data only · honest-broker, claim-tiered. The data is the star; Hˢ is the lens; the
+      receipt is the proof.</p>
+  </section>
+
+</div>
+</body></html>

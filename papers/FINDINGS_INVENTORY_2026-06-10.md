@@ -60,11 +60,11 @@ These can appear as **cited background** inside P1/P2, framed as known results t
 
 ## Valid validation evidence — belongs *inside* the papers, not standalone
 
-The "instrument recovers known/plausible structure" results are genuinely useful as **evidence that the tool works** (for P3, and for the Matthew/geology case), but they are applications/validations, not novel findings:
+The "instrument recovers known/plausible structure" results are genuinely useful as **evidence that the tool works** (for P3, and for the geology case), but they are applications/validations, not novel findings:
 
 - **Physics recovery (validation):** D‑12 recoil dominance, **D‑14 diagnosing a missing carrier (neutrino) from geometry alone** (a nice demonstration), D‑19 FLAG counting‑vs‑dynamics, D‑20 conservation‑law detection, D‑15/16/17/18 cosmology recovers known structure.
 - **Applied/diagnostic:** D‑22 energy transition near‑geodesic (path efficiency), D‑23 Backblaze homogeneity diagnostic, D‑24 component power‑mapper (the "yeast"/SEMF power‑vs‑fraction point).
-- **Geology (feed to Matthew, not standalone):** **D‑25 CaO+MgO depletion dominates over SiO₂ accumulation** in differentiation — a real, domain‑checkable observation worth running by Matthew as part of the geology collaboration, not published alone.
+- **Geology (feed to the geology collaboration, not standalone):** **D‑25 CaO+MgO depletion dominates over SiO₂ accumulation** in differentiation — a real, domain‑checkable observation worth running by a geoscience domain collaborator as part of the geology collaboration, not published alone.
 - **Framework principles (not findings):** D‑28 informational transparency, D‑29 compositional memory, D‑30 dimensional collapse (likely a 1e‑15‑floor artifact — re‑check now that zero‑treatment exists), D‑31 reversed attractor (speculative), D‑32 the 8‑day‑sprint narrative, D‑27 six‑AI collaboration (a methods/commentary piece at best, not a scientific finding).
 
 ---
@@ -75,12 +75,12 @@ The "instrument recovers known/plausible structure" results are genuinely useful
 2. **Tighten P2** (deceptive‑drift) → pick a defensible null model (Q3) → draft the narrow applied note with generous citation of the CoDa‑SPC/change‑point prior art.
 3. **P3 tool paper** once the v4 engine reaches navigation parity (P2 of the engine build).
 4. **Quarantine the constant cluster** out of all outward‑facing material; relabel in the registry as curiosities.
-5. **Route D‑25** (and any other geology validation) into the Matthew collaboration.
+5. **Route D‑25** (and any other geology validation) into the geology collaboration.
 
 ## Claim tiers for this inventory
 
 - **Tier 1 (verified):** the prior‑art findings and the novelty calls for P1 (two searches) and P2 (one search); the registry contents as scraped.
 - **Tier 2 (sound judgment):** the publishable/set‑aside/established/validation classification; the numerology assessment (standard look‑elsewhere reasoning).
-- **Tier 3 (to confirm):** P1's absolute novelty (final Scholar/ADS/patent pass); P2's null‑model resolution; whether D‑25 survives Matthew's domain scrutiny.
+- **Tier 3 (to confirm):** P1's absolute novelty (final Scholar/ADS/patent pass); P2's null‑model resolution; whether D‑25 survives a domain collaborator's scrutiny.
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*

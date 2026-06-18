@@ -3,6 +3,8 @@
 **Working draft — 2026-06-10. For HUF AI Collective review; not submission‑ready until the final novelty pass clears (see §8).**
 **Author:** Peter Higgins (Independent; Rogue Wave Audio / Binaural Test Lab, Markham, Ontario, Canada). Human authorship for all claims; AI‑assisted per HUF‑STD‑001.
 
+> **Movement I — Exactness**, the foundation of the five‑part arc (**exactness** → trust → motion → character → vigilance): before anything is interpreted, a composition is read *exactly*. Everything downstream (P3 the instrument, P4 motion, P5 character, P2 vigilance) stands on this. Suite narrative: [`../THE_HIGGINS_DECOMPOSITION_SERIES.md`](../THE_HIGGINS_DECOMPOSITION_SERIES.md).
+
 ---
 
 ## Abstract

@@ -32,7 +32,7 @@ Each cheap, noisy channel is navigated by its own exact CNT; the fusion takes th
 |---|---|---|---|
 | **Camera RGB** | colour → carbonate (pale), organic (dark), Fe/clay (hue) | every phone | RGB = f(CaCO₃ lightness, TOC darkness, Si/Al hue) + noise → 3-part colour composition |
 | **Magnetometer** | magnetic susceptibility → detrital clay / heavy minerals vs carbonate dilution | every phone | χ ∝ (Al₂O₃ + Zr) − CaCO₃ dilution → 2-part [susceptible, diluent] + noise |
-| **Raman / pXRF clip-on** | elemental composition directly | clip-on add-ons exist; **cell-phone Raman is Matthew's own field-ID work (Dhankhar & Wehner 2023)** | reads [SiO₂, Al₂O₃, Rb, Zr] with multiplicative noise → 4-part elemental composition (the high-fidelity channel) |
+| **Raman / pXRF clip-on** | elemental composition directly | clip-on add-ons exist; **cell-phone Raman field identification is established in the literature (Dhankhar & Wehner 2023)** | reads [SiO₂, Al₂O₃, Rb, Zr] with multiplicative noise → 4-part elemental composition (the high-fidelity channel) |
 | **GPS + IMU** | position, bed dip/strike | every phone | tags each reading; not navigated, used for geometry |
 | **Onsite grab-samples** | lab-grade ground truth at a few heights | the geologist's hammer | a handful of exact composition points = calibration anchors |
 
@@ -53,6 +53,6 @@ So the demonstrated lesson is sharper than "more sensors = better": **calibrate,
 ## Honest tiering
 - **Simulation, not measurement.** Sensor readings are synthetic proxies of the real Frielingen-9 composition; the proxy mappings are modelling assumptions, stated above.
 - **Demonstrable here:** the multi-sensor / CNT-per-sensor / calibration-weighted-fusion architecture runs end to end; and the simulation correctly surfaces that **fusion must be reliability-weighted** — naive averaging of a strong channel with weak ones degrades it, and calibration against the onsite samples fixes that.
-- **To test on real hardware:** the actual sensor→composition transfer functions (the synthetic colour/magnetic proxies here are deliberately crude and came out near-uninformative about the *elemental* dynamics — real RGB and magnetic-susceptibility geology proxies may carry more, and that is an empirical question for Matthew), real-device noise, and field calibration. Architecture CONFIRMED in simulation; field performance and proxy fidelity TO TEST.
+- **To test on real hardware:** the actual sensor→composition transfer functions (the synthetic colour/magnetic proxies here are deliberately crude and came out near-uninformative about the *elemental* dynamics — real RGB and magnetic-susceptibility geology proxies may carry more, and that is an empirical question for the domain collaborator), real-device noise, and field calibration. Architecture CONFIRMED in simulation; field performance and proxy fidelity TO TEST.
 
 *The instrument reads. The expert decides. The hashes carry the receipts.*

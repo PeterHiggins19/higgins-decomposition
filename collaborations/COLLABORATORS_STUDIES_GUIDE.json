@@ -1,0 +1,201 @@
+{
+  "schema": "hs_collaborators_studies_guide/1.1",
+  "title": "Hˢ Collaborators Studies & Complementary Resources Guide",
+  "purpose": "Help collaborators quickly locate high-quality, relevant studies and resources that complement the existing work in each collaboration folder. At least 3 suggested studies plus complementary datasets, tools, and communities per entry.",
+  "generated": "2026-06-18",
+  "source": "Drafted by Grok (AI collective). Integrated honest-broker by Claude 2026-06-18.",
+  "_honest_broker_reconciliation": {
+    "by": "Claude (executor); Peter Higgins sole gate — nothing here is contact, submission, or a commitment.",
+    "what_this_is": "A LITERATURE/RESOURCE companion: 3 suggested citations + datasets/tools/communities per collaboration folder, to strengthen literature-review and justification sections.",
+    "what_this_is_NOT": "This is distinct from the established triangulation discipline ('three to locate'), which means 3 *views* of the real data per domain — View A Navigation (full D), View B Structure (macro amalgamation), View C EITT/boundary — cross-read into a diagnosis. See papers/TRIANGULATION_PROTOCOL.md and papers/TRIANGULATION_LEDGER.md. 'Three studies' (citations) and 'three views' (altitudes of the data) are both useful and should not be conflated; this file is the citation companion, the ledger is the data discipline.",
+    "corrections_applied": [
+      "Removed every use of 'lossless' (Grok's draft used it ~8×). Per the claim-tier standard the per-D=4 chart is exact at the IEEE floor; high-D reconstruction is floating-point (~4.1e-12 at D=1e6), NOT bit-exact identity. Replaced with 'deterministic / locally-exact / reproducible / floating-point at scale'.",
+      "Flagged the placeholder entries ('Various', 'Search Google Scholar for X', 'Multiple papers', 'Recent reviews') as NOT citations — they are search leads. Each must be resolved to a specific peer-reviewed reference (author, year, venue/DOI) before it enters any proposal or paper.",
+      "Kept and verified-as-real the concrete pointers: PANGAEA 10.1594/PANGAEA.897615 (geology source), ECAM doi 10.1126/scitranslmed.aad7121, NASA OSDR/GLDS-1 (OSD-1), Backblaze drive-stats. Exact titles/years still to confirm at use."
+    ],
+    "status": "reference companion; tier-3 (to verify) on every non-DOI entry; not a publication artifact until citations are resolved."
+  },
+  "note": "All suggestions are chosen for scientific rigor and relevance to deterministic high-D reconstruction, CNQ-tiling, or compositional dynamics. They strengthen proposals and give reviewers context. Placeholder ('Search...') entries are leads, not references.",
+
+  "collaborations": {
+    "geology-wehner": {
+      "current_focus": "CNQ-tiling on real mudstone XRF data (Frielingen-9); deterministic high-D reconstruction at scale (locally exact per D=4 chart, floating-point at scale — not lossless); flight-ready geosensing concepts. NOTE: now triangulated 3/3 — see geology-wehner/DIAGNOSIS_OF_THREE_VIEWS.md.",
+      "suggested_studies": [
+        {
+          "title": "Chemostratigraphy and provenance of Lower Cretaceous mudstones, Frielingen, Germany",
+          "authors": "Wehner et al. (associated PANGAEA dataset + related publications)",
+          "year": "—",
+          "link": "https://doi.pangaea.de/10.1594/PANGAEA.897615",
+          "verification": "REAL DOI — source dataset used in the demo.",
+          "relevance": "Direct source dataset; full geological context for the CNQ-tiling demonstration."
+        },
+        {
+          "title": "Application of compositional data analysis in chemostratigraphy",
+          "authors": "PLACEHOLDER — resolve to specific papers (robCompositions/zCompositions on geological data)",
+          "year": "2015–2024",
+          "link": "Lead: Scholar 'compositional data analysis chemostratigraphy'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Shows how mainstream CoDa tools are applied in geology; positions CNQ-tiling as a deterministic, locally-exact alternative for high-D reconstruction."
+        },
+        {
+          "title": "High-resolution chemostratigraphy of mudstones using portable XRF",
+          "authors": "PLACEHOLDER — resolve (Sedimentary Geology, Marine and Petroleum Geology)",
+          "year": "2018–2025",
+          "link": "Lead: Scholar 'portable XRF chemostratigraphy mudstone'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Validates high-dimensional XRF data in real geological workflows; strengthens the case for deterministic high-D tiling."
+        }
+      ],
+      "complementary_resources": [
+        "PANGAEA Data Publisher for Earth & Environmental Science (https://www.pangaea.de/)",
+        "International Association of Geoanalysts (IAG) — XRF standards and best practice",
+        "robCompositions R package docs/vignettes (for comparison with current CoDa tools)"
+      ]
+    },
+
+    "microbiome": {
+      "current_focus": "Deterministic high-D reconstruction (locally exact; floating-point at scale) on real Crohn's and ECAM microbiome datasets; honest null models; diversity metrics.",
+      "suggested_studies": [
+        {
+          "title": "Gut microbiome composition in Crohn's disease (16S / shotgun)",
+          "authors": "Gevers et al.; Lewis et al. (resolve to exact refs)",
+          "year": "2014–2022",
+          "link": "Lead: Scholar 'Gevers Crohn microbiome', 'Lewis Crohn microbiome'",
+          "verification": "Named authors — confirm exact title/venue/DOI before use.",
+          "relevance": "Foundational datasets and biological context; the reconstruction results compare directly."
+        },
+        {
+          "title": "Early childhood microbiome maturation (ECAM study)",
+          "authors": "Bokulich, Blaser, et al.",
+          "year": "2016",
+          "link": "https://doi.org/10.1126/scitranslmed.aad7121",
+          "verification": "REAL DOI — used in current demos.",
+          "relevance": "Biological grounding for the maturation-trajectory analysis (ρ≈0.71 in our read)."
+        },
+        {
+          "title": "Compositional data analysis in microbiome research — review and best practices",
+          "authors": "PLACEHOLDER — resolve (Microbiome, mSystems)",
+          "year": "2018–2025",
+          "link": "Lead: Scholar 'compositional data analysis microbiome review'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "How the field handles compositionality; positions deterministic CNQ-tiling + honest nulls as an advance."
+        }
+      ],
+      "complementary_resources": [
+        "QIIME 2 / DADA2 pipelines and tutorials",
+        "MicrobiomeDB and MGnify (EBI) for additional datasets",
+        "robCompositions and phyloseq R packages (for comparison)"
+      ]
+    },
+
+    "spaceflight-glds1": {
+      "current_focus": "NASA GeneLab GLDS-1 Drosophila spaceflight transcriptome — high-D reconstruction at very high D (floating-point at scale) + honest global null.",
+      "suggested_studies": [
+        {
+          "title": "NASA GeneLab GLDS-1: Drosophila spaceflight transcriptome",
+          "authors": "NASA GeneLab team",
+          "year": "—",
+          "link": "https://osdr.nasa.gov/ (GLDS-1 / OSD-1 accession)",
+          "verification": "REAL repository — confirm exact accession at use.",
+          "relevance": "Direct source dataset; the high-D read at D≈19k is a strong validation case."
+        },
+        {
+          "title": "Spaceflight effects on gene expression in Drosophila — follow-up studies",
+          "authors": "PLACEHOLDER — resolve (NASA + academic groups)",
+          "year": "2015–2024",
+          "link": "Lead: Scholar 'Drosophila spaceflight transcriptome GeneLab'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Biological interpretation/validation context for the deterministic reconstruction."
+        },
+        {
+          "title": "High-dimensional transcriptomics and compositional challenges in space biology",
+          "authors": "PLACEHOLDER — resolve (npj Microgravity or similar reviews)",
+          "year": "2020–2025",
+          "link": "Lead: Scholar 'compositional data analysis space biology'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Why deterministic, reproducible methods are valuable in space-biology datasets."
+        }
+      ],
+      "complementary_resources": [
+        "NASA Open Science Data Repository (OSDR) — https://osdr.nasa.gov/",
+        "GeneLab data-processing pipelines and metadata standards",
+        "EBI ArrayExpress / GEO for additional space-biology datasets"
+      ]
+    },
+
+    "distributed-systems-backblaze": {
+      "current_focus": "Hard-drive reliability and pre-fault migration using compositional / high-D methods (fleet composition D=4, parity-certified).",
+      "suggested_studies": [
+        {
+          "title": "Backblaze Hard Drive Stats — annual failure reports and datasets",
+          "authors": "Backblaze",
+          "year": "2013–present",
+          "link": "https://www.backblaze.com/b2/hard-drive-test-data.html",
+          "verification": "REAL public dataset.",
+          "relevance": "Primary public dataset for hard-drive reliability; direct complement to the fleet-composition work."
+        },
+        {
+          "title": "Statistical models for hard-drive failure prediction (SMART data)",
+          "authors": "PLACEHOLDER — resolve (USENIX FAST / reliability venues)",
+          "year": "2015–2025",
+          "link": "Lead: Scholar 'Backblaze hard drive failure prediction'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "How the field analyses this data; positions deterministic methods for high-D feature spaces."
+        },
+        {
+          "title": "Compositional / high-dimensional sensor data in predictive maintenance",
+          "authors": "PLACEHOLDER — resolve (predictive-maintenance literature)",
+          "year": "2018–2025",
+          "link": "Lead: Scholar 'compositional data analysis predictive maintenance'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Bridges to compositional thinking in system monitoring."
+        }
+      ],
+      "complementary_resources": [
+        "Backblaze Hard Drive Test Data repository",
+        "SMART monitoring tools / open-source failure-prediction projects",
+        "USENIX ;login: and FAST proceedings on storage reliability"
+      ]
+    },
+
+    "codawork-2026": {
+      "current_focus": "Conference materials, outreach, and positioning of Hs as 'One Instrument, Many Hands'.",
+      "suggested_studies": [
+        {
+          "title": "CoDaWork conference proceedings and keynotes (recent years)",
+          "authors": "Various (resolve to specific items)",
+          "year": "2022–2026",
+          "link": "Lead: CoDaWork official site / proceedings",
+          "verification": "LEAD — resolve to specific proceedings.",
+          "relevance": "Current directions in the CoDa community; aligns outreach language."
+        },
+        {
+          "title": "Deterministic vs statistical methods in compositional data analysis",
+          "authors": "PLACEHOLDER — resolve (methodological papers)",
+          "year": "2015–2025",
+          "link": "Lead: Scholar 'deterministic compositional data analysis'",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Supports the positioning of Hs as a deterministic, reproducible instrument."
+        },
+        {
+          "title": "High-dimensional challenges in compositional domains (microbiome, geochemistry)",
+          "authors": "PLACEHOLDER — resolve (recent reviews)",
+          "year": "2020–2025",
+          "link": "Lead: reviews in Microbiome, Sedimentary Geology, npj Microgravity",
+          "verification": "LEAD, not a citation — resolve before use.",
+          "relevance": "Justifies the need for scalable, reproducible, deterministic methods."
+        }
+      ],
+      "complementary_resources": [
+        "CoDa Association website and past conference materials",
+        "The CoDa special issues / journal",
+        "HUF governance documents (the 'deterministic instrument' framing)"
+      ]
+    }
+  },
+
+  "general_recommendations": {
+    "how_to_use": "Start with 'suggested_studies' to strengthen literature-review/justification; resolve every PLACEHOLDER/LEAD to a real reference before it enters a proposal or paper. Use 'complementary_resources' for datasets, tools, communities. Always cross-reference the specific collaboration folder AND the triangulation ledger (the data-side three-views discipline).",
+    "standards": "Peer-reviewed papers, public datasets with DOIs, well-maintained open-source tools. No 'lossless' claims. Names of researchers stay OFF the public repo unless they appear as cited published-paper authors. Peter Higgins is the sole contact/submission gate."
+  }
+}

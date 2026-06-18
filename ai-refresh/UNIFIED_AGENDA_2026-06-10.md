@@ -2,6 +2,8 @@
 
 *2026-06-10. Human‑readable render of the machine‑readable `HS_TRACKING_LOG.json` (the canonical source; this doc is generated from it). Combines the HUF + Hs objectives, proposals, and agendas into one tracker. Supersedes `ACTION_PLAN_2026-06-07.json` as the live agenda (that file remains the staged‑plan rationale). Source of truth on any conflict: `HS_FAST_REFRESH.json`. Update simultaneously with advancement per `JOURNALING_PROTOCOL.md`.*
 
+> **Update 2026‑06‑12 (read this first).** Rolled forward from the canonical `HS_TRACKING_LOG.json`. Current totals: **72 objectives · 42 done · 12 in progress · 15 open · 2 holding · 1 moot.** Deltas since 06‑10: **S0‑2, S0‑3, H‑3 → done** (HUF #94 `83d3516` and RWA #5 `574bf08` pushed — "Cross Brain Training"); **E‑21 → in progress** (all‑zero/constant‑carrier guard drafted + verified, hash‑neutral, awaiting Peter's commit gate); and a new **Governance/Docs G‑7…G‑11** block — the system coherence layer (three‑level READMEs + Arc of Discovery + maintained References), the EITT reposition, the document‑distribution policy + unified `.gitattributes` + coherence verifier + triple journal, the history thread + graduate‑school ai‑refresh, and the data‑path + carrier/channel doctrine (`HCI-CNTT/DATA_PATH_AND_CHANNELS.md`). The Snapshot table below still reflects the 06‑10 state; the JSON is canonical.
+
 Legend: ✅ done · 🔄 in progress · ⬚ open · ⊘ moot · ⏸ holding
 
 ---

@@ -2,7 +2,7 @@
 
 **Vision + backward-designed path · 2026-06-09 · honest-broker, claim-tiered · working draft (publication at the author's gate).**
 
-**Abstract.** Two halves. **Part I** improves the Hs / CN-TT engine *for spaceflight* — eight architectural moves that turn Hs's determinism into flight advantages (cheap upset-detection, a perfect ground twin, power- and bandwidth-aware compositional resolution, onboard cross-instrument calibration, and sense-to-sample autonomy). **Part II** designs *backwards* from the end goal — the first flight of a purpose-built compositional **geosensing** apparatus running the CN-TT engine onboard — down to the single, modest, immediate step: field-validating with geologist Matthew Wehner. Dreaming big, then landing the dream on a human conversation.
+**Abstract.** Two halves. **Part I** improves the Hs / CN-TT engine *for spaceflight* — eight architectural moves that turn Hs's determinism into flight advantages (cheap upset-detection, a perfect ground twin, power- and bandwidth-aware compositional resolution, onboard cross-instrument calibration, and sense-to-sample autonomy). **Part II** designs *backwards* from the end goal — the first flight of a purpose-built compositional **geosensing** apparatus running the CN-TT engine onboard — down to the single, modest, immediate step: field-validating with a geoscience domain collaborator. Dreaming big, then landing the dream on a human conversation.
 
 **Keywords:** spaceflight, compositional geosensing, CN-TT, CNT, CNQ, quaternion, determinism, single-event upset, triple modular redundancy, core Flight System cFS, NPR 7150.2, FDIR, onboard autonomy, smart downlink, hyperspectral, EMIT, CRISM, rover, CubeSat, NASA, USGS, technology readiness level, backward design.
 
@@ -40,15 +40,15 @@ flowchart TD
   B["L-3: Breadboard / TRL-raise - NASA tech-demo; downlink-reduction + speed benchmark on EMIT-class data"]
   D["L-4: Instrument definition - mission class + sensor suite chosen; GPCC primitive set frozen; flight-profile spec written"]
   U["L-5: USGS ground reprocessing - atlas on EMIT/CRISM archives; benchmarked vs established mineral maps"]
-  M["L-6: Field validation with Matthew - phone + clip-on prototype on ground-truthed sections; calibrate; co-author the method paper -- THE GATE"]
+  M["L-6: Field validation with a domain collaborator - phone + clip-on prototype on ground-truthed sections; calibrate; co-author the method paper -- THE GATE"]
   N["L-7: NOW - reproducible demo, proof-list, concept proposal, flight-control spec, geosensing simulation (all built)"]
   L --> Q --> H --> B --> D --> U --> M --> N
 ```
 
 | Stage | Goal | Closes the gate to |
 |---|---|---|
-| **L-7 · NOW** | Built: the reproducible demo, proof-list, geosensing concept + simulation, the flight-control spec. | the Matthew conversation |
-| **L-6 · Matthew (field)** | Validate on a ground-truthed section; calibrate transfer functions + reliability weights; co-author. | USGS credibility |
+| **L-7 · NOW** | Built: the reproducible demo, proof-list, geosensing concept + simulation, the flight-control spec. | the domain-collaborator conversation |
+| **L-6 · Domain collaborator (field)** | Validate on a ground-truthed section; calibrate transfer functions + reliability weights; co-author. | USGS credibility |
 | **L-5 · USGS (ground)** | Reprocess EMIT/CRISM archives; benchmark vs known mineral maps; remote-sensing track record. | NASA tech-demo |
 | **L-4 · Instrument def** | Pick mission class + sensors; freeze the GPCC primitives; write the flight-profile spec (Part I §2, §8). | a fundable build |
 | **L-3 · Breadboard** | Port the fixed kernel to a dev board; benchmark deterministic speed + downlink reduction. | flight hardware |

@@ -4,6 +4,8 @@ Applying the **Higgins Decomposition (Hs)** to compositional geoscience — muds
 
 ---
 
+> ★ **PRIME PROJECT (2026‑06).** This is the lead collaboration of the program. The flagship deliverable — a complete read of the Frielingen‑9 section through the full Hˢ kinematics platform, in geologist's language — is **[`FRIELINGEN9_WHAT_YOUR_SYSTEM_SAYS_2026-06.md`](FRIELINGEN9_WHAT_YOUR_SYSTEM_SAYS_2026-06.md)**: lossless to 3.55e‑15, trace‑over‑bulk confirmed, **8 datable structural boundaries**, ~2 effective dimensions, Diffusive character among 107 cross‑domain systems, within‑regime. Reproducible to a content hash; the geology stays the geologist's.
+
 ## Executive summary — the key
 
 > **The full version is [`00_EXECUTIVE_OVERVIEW.md`](00_EXECUTIVE_OVERVIEW.md) — read it first. This is the condensed key.**
@@ -33,10 +35,10 @@ Applying the **Higgins Decomposition (Hs)** to compositional geoscience — muds
 | `demo_frielingen9/HS_FRONTEND_POSITION.html` | The sensor front end as the highest-leverage seat; why Hs's design is the entry ticket; hardware tiers; honestly tiered. |
 | **`FIELD_MULTISENSOR_TOOL_CONCEPT.md`** | **Geosensing — the flagship application.** Rover = geologist, phone = multi-sensor platform, one CNT per sensor, calibration-weighted fusion; real-vs-simulated; NASA/USGS value; honest tiering. |
 | **`field_tool_sim/field_multisensor_sim.html`** | **Working simulation** on the Frielingen-9 wall — per-sensor CNT, the elemental-sensor-leads / calibration-weighted-fusion result, live readout. Concept demonstrator (synthetic proxies, clearly labelled). |
-| **`GEOSENSING_CONCEPT_PROPOSAL.md`** | **Public concept proposal** — develop the device with Matthew, lock Hs's vector-space (quaternion) computation in hardware, a staged NASA/USGS remote-sensing approach, and the **established-results proof-list** qualifying Hs. Written for discovery; honest-broker tiered. |
+| **`GEOSENSING_CONCEPT_PROPOSAL.md`** | **Public concept proposal** — develop the device with a geoscience collaborator, lock Hs's vector-space (quaternion) computation in hardware, a staged NASA/USGS remote-sensing approach, and the **established-results proof-list** qualifying Hs. Written for discovery; honest-broker tiered. |
 | **`CNTT_FLIGHT_CONTROL_SPEC.md`** | **Space spec** — the expert-steerable, deterministic CN-TT flight engine: the **Geologist Protocol Control Code** (bounded, hash-stamped, in-flight reconfiguration + delta-correction) and the **Coherence Supervisor** (engine-monitoring-engines, redundancy voting, FDIR), mapped to NASA cFS / TMR / NPR 7150.2. |
-| **`GEOSENSING_FLIGHT_ROADMAP.md`** | **Vision + backward-designed path** — eight flight-architecture improvements (deterministic-replay upset detection, ground digital twin, power/bandwidth-aware resolution, sense→sample autonomy…) and the staged path from first flight back to the immediate Matthew field step. Dream big; build small; skip nothing. |
-| **`flight_spec_suite/`** | **NASA-style specification suite (Pre-Phase-A drafts).** `HGS-000` spec tree + index, then ConOps, System Requirements, Software Requirements, Interface Control, Fault Management/FDIR, V&V + verification matrix, Software Assurance & CM, and the **Development Plan & staged test route** (`HGS-008`, incl. the proposal to Matthew). Build-to-flight-spec from day one → a directed instrument, testable in stages. |
+| **`GEOSENSING_FLIGHT_ROADMAP.md`** | **Vision + backward-designed path** — eight flight-architecture improvements (deterministic-replay upset detection, ground digital twin, power/bandwidth-aware resolution, sense→sample autonomy…) and the staged path from first flight back to the immediate field step. Dream big; build small; skip nothing. |
+| **`flight_spec_suite/`** | **NASA-style specification suite (Pre-Phase-A drafts).** `HGS-000` spec tree + index, then ConOps, System Requirements, Software Requirements, Interface Control, Fault Management/FDIR, V&V + verification matrix, Software Assurance & CM, and the **Development Plan & staged test route** (`HGS-008`, incl. the staged field-collaboration proposal). Build-to-flight-spec from day one → a directed instrument, testable in stages. |
 | `IGNEOUS_DIFFERENTIATION_SEED.md` | Igneous differentiation / fractional crystallization as compositional dynamics. |
 | `FIELD_DIRECTIONAL_SNIFFER.md` | The earlier seed of the cell-phone field "sniffer" idea (now built out in the geosensing concept above). |
 | `REPO_MAP.md` | Links across the whole `PeterHiggins19` structure (Hs · HUF · RWA). |

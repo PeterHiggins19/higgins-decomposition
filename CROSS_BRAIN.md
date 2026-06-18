@@ -1,6 +1,6 @@
 # The cross‑brain — governance (HUF) + pure math (Hˢ), and the network they enable
 
-*2026‑06‑11. One system, two repositories, designed to reference and **check** each other (with a third repo, RWA, upstream as the **headwater/origin** — see the resolver and headwater note in §2). This file is identical in both repos — each carries the map of the whole — and it is also the **canonical resolver** for cross‑repo references, so they stay valid whether you read them in the development mirror (where the two repos are sibling folders) or standalone on GitHub. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001.*
+*2026‑06‑11. One system, two repositories, designed to reference and **check** each other (with a third repo, RWA, upstream as the **headwater/origin** — see the resolver and headwater note in §2). This file is identical in all three repos — each carries the map of the whole — and it is also the **canonical resolver** for cross‑repo references, so they stay valid whether you read them in the development mirror (where the two repos are sibling folders) or standalone on GitHub. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001.*
 
 ---
 
@@ -13,7 +13,7 @@
 | Checks the other | runs the governance's rules in code (codes, FDIR, DVR) and stress‑tests them on real data | bounds the math (where it applies, where it must fail), keeps the loop open, certifies the claims |
 | Source of truth | `HS_FAST_REFRESH.json` (**wins on any conflict about current state**) | `ai-refresh/HUF_FAST_REFRESH.json` (HUF history) |
 
-Neither half is dependable alone. Pure math without governance is a tool with no guard; governance without a deterministic instrument is a rulebook with nothing to measure. Together they are a **cross‑brain**: the math gives the governance teeth (a hash receipt for every claim), and the governance gives the math a conscience (the open loop, the safe state, the honest null).
+Neither half is dependable alone. Pure math without governance is a tool with no guard; governance without a deterministic instrument is a rulebook with nothing to measure. Together they are a **cross‑brain**: the math gives the governance teeth (a hash receipt for every claim), and the governance gives the math a conscience (the open loop, the safe state, the honest null). RWA is the **headwater** upstream of both — where the instrument was built, in sound.
 
 ## 2 · Cross‑reference resolver (so references never break)
 
@@ -25,7 +25,7 @@ In the development mirror, Hˢ and HUF are sibling folders under `Current-Repo/`
 | `../higgins-decomposition/<path>` or `../Hs/<path>` | the **Hˢ** repo at `<path>` | `https://github.com/PeterHiggins19/higgins-decomposition` |
 | `../Rogue-Wave-Audio/<path>` or `../RWA/<path>` | the **RWA** origin repo at `<path>` | `https://github.com/PeterHiggins19/Rogue-Wave-Audio` |
 
-So every relative cross‑repo path in either repo is **interpretable** even when the repos are read standalone — translate the prefix to the URL above. *(Single‑source rule: shared governance like the operating doctrine is canonical in HUF; Hˢ carries a pointer stub at `huf-gov/doctrine/README.md`, not a duplicate.)* *(Headwater: the origin of the whole arc is the RWA repo — `../Rogue-Wave-Audio/THE_GROUND_STATE.md` traces the one formula — 6.02 dB apportioned on the simplex, time forced by the boundary not tacked on — forward through the 3ⁿ confidence index to this network.)*
+So every relative cross‑repo path in any repo is **interpretable** even when the repos are read standalone — translate the prefix to the URL above. *(Single‑source rule: shared governance like the operating doctrine is canonical in HUF; Hˢ carries a pointer stub at `huf-gov/doctrine/README.md`, not a duplicate. See `DOCUMENT_DISTRIBUTION.md` for the full routing rule.)* *(Headwater: the origin of the whole arc is the RWA repo — `../Rogue-Wave-Audio/THE_GROUND_STATE.md` traces the one formula — 6.02 dB apportioned on the simplex, time forced by the boundary not tacked on — forward through the 3ⁿ confidence index to this network.)*
 
 ## 3 · The network it enables — any node checks any node
 

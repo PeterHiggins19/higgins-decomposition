@@ -9,6 +9,8 @@
 
 This is one deterministic compositional instrument and the living history that produced it. It began as a loudspeaker's **ground state** — uniform 4π radiation into a room, a fixed **6.02 dB** budget apportioned across a cabinet's dimensions and summing to a constant — and that single structure, *forced by physics rather than chosen at a whiteboard*, became the simplex, the Higgins operator, composition monitoring (MC‑4 / EITT), the deterministic CN‑TT engine, the **3ⁿ confidence index**, and finally a verification network where any node checks any other. Each step was forced by the one before it.
 
+**Who it is for.** This is an **expert system**, and these repositories are its **expert onboarding**. The qualifier is the data itself: if you have a **composition** — parts of a whole tracked in order, within a shared budget — you already have the need, and this is the instrument for it. If your data isn't a composition of many parts within a budgeted whole, then with respect this isn't the right tool for you — and we'd rather say so kindly up front than waste your time; other methods are better suited to that, and we hope they serve you well. The work is told, shown, and offered for reproduction — not advertised.
+
 **Read the whole arc, source to network → [`ARC_OF_DISCOVERY.md`](ARC_OF_DISCOVERY.md).**
 
 ![The arc of discovery — from a loudspeaker's ground state to the verification network](arc_of_discovery.svg)
@@ -29,7 +31,7 @@ Two‑repo map and the cross‑repo resolver: [`CROSS_BRAIN.md`](CROSS_BRAIN.md)
 
 *Level 3 of 3 · what this one is.*
 
-**Hˢ (Higgins Decomposition)** is the live, deterministic, hash‑receipted engine — closure → CLR → tiling → diagnostics → hash, lossless to D = 1,000,000. Everything below this line is its body: the engine, the frozen oracle, the run path, the studies, and the conference face.
+**Hˢ (Higgins Decomposition)** is the live, deterministic, hash‑receipted engine — closure → CLR → tiling → diagnostics → hash; **exact per four‑part chart at the IEEE floor**, reconstructing to D = 1,000,000 at **~4.1×10⁻¹²** (floating‑point accumulation, not bit‑exact identity). Everything below this line is its body: the engine, the frozen oracle, the run path, the studies, and the conference face.
 
 > **Why three.** Three statements — what the system is, that a sibling exists, and which one you are reading — let any reader, human or machine, confirm both their **position** and the system's **status**. It is the same rule the instrument runs on: one perspective is a point, two a line, three a plane; three is the minimum to *locate*, not merely detect. Machines: each repo's entry point is its `AI_ASSIST.json` and fast‑refresh JSON; the resolver in [`CROSS_BRAIN.md`](CROSS_BRAIN.md) keeps every cross‑repo path valid standalone.
 
@@ -37,7 +39,11 @@ Two‑repo map and the cross‑repo resolver: [`CROSS_BRAIN.md`](CROSS_BRAIN.md)
 
 # Hˢ — Higgins Decomposition on the Simplex
 
-A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Welcome — this repository is fully public and open for use, citation, and collaboration.
+A deterministic compositional inference instrument operating within Aitchison geometry on the simplex. Fully public and open for use, citation, and reproduction.
+
+**Have a composition? Start here → [`IS_Hs_RIGHT_FOR_YOU.md`](IS_Hs_RIGHT_FOR_YOU.md)** — whether it fits your data, what it does at your D, and how to begin. Not sure? Run the interactive [`COMPOSITION_GAUGE.html`](COMPOSITION_GAUGE.html). Not a composition? With respect, this isn't your best tool — better-suited methods exist and we hope they serve you well; no time wasted either way. (Sorry — compositions only.)
+
+**Past the gauge? Traverse the system → [`INDUCTION_MAP.md`](INDUCTION_MAP.md)** — a graduated induction (orient → fit → run → branch by discipline & purpose → playground → graduate), each stage with its own go/no-go gauge. A machine map [`INDUCTION_MAP.json`](INDUCTION_MAP.json) lets an AI assistant walk you through it deterministically.
 
 > ## 🆕 Current engine — **CN‑TT v4** (post‑CoDaWork 2026)
 > The current engine is the tile‑native **CN‑TT v4.0.0** in [`HCI-CNTT/`](HCI-CNTT/) — full spec: [`HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md`](HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md). It identifies a 4‑part composition with an exact unit quaternion (S³=SU(2)) and **tiles** that exactness to any dimension via overlapping charts — **lossless reconstruction proven to D=1,000,000**, deterministic and hash‑chained, with a modular control surface (per‑stage state + start/halt), a cross‑platform determinism contract, internal‑vs‑external **shock self‑diagnostics**, and a [diagnostic **code system**](HCI-CNTT/CNTT_DIAGNOSTIC_CODES.md). It has been certified to reproduce the **entire output of the frozen oracle (CNT v3.2.0)** **bit‑for‑bit on real Backblaze data** ([parity report](experiments/backblaze_v4_parity_2026-06/RESULTS_backblaze_v4_vs_oracle.md)). The CNT v3.2.0 / CNQ v2.0.0 engines documented below are now the **frozen validation oracle**; CN‑TT v4 is the live engine and is additive to them.
@@ -48,11 +54,11 @@ A deterministic compositional inference instrument operating within Aitchison ge
 
 ---
 
-## 🎤 CoDaWork 2026 — follow along with the talk
+## CoDaWork 2026 — conference archive
 
-In the room (or watching from anywhere) for *Compositional monitoring of energy-mix drift on the simplex* (Coimbra, Portugal · 1–5 June 2026)?
+*Compositional monitoring of energy-mix drift on the simplex* — Coimbra, Portugal · 1–5 June 2026 (concluded).
 
-**Open [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md).** It's a slide-by-slide follow-along, ordered to the talk, with every link you need open on your phone or laptop. Manuscript, deck, raw-output scroll, and an interactive 3-D projector you can run live in your browser — no install, no network call. If the screen is hard to see, or you're remote, the whole talk runs from that page.
+The complete talk runs offline from [`CODA-Association/CONFERENCE_ATTENDEES.md`](CODA-Association/CONFERENCE_ATTENDEES.md): slide-by-slide follow-along, manuscript, deck, raw-output scroll, and an interactive 3-D projector — no install, no network call.
 
 > **🌐 Available in UN-6 locales — now a complete 2-side ambassador (v11).** The community handout [`Higgins_Decomposition_Handout_CoDaCommunity.pdf`](CODA-Association/Higgins_Decomposition_Handout_CoDaCommunity.pdf) is a **single A4 sheet, both sides printed**. Side 1 = the operationalization pitch (what / why / who / how to engage). Side 2 = the full operations reference (CoDa core operations, Hˢ supplementary operations, CNQ quaternion operations, closure constraints across domains, apparatus map of *who reads what*, symbols legend). Ships with Markdown twins in **EN · FR · ES · RU · ZH · AR** under [`CODA-Association/`](CODA-Association/). Non-English locales are drafts pending native expert review per [`HCI-CNQ/wrappers/WRAPPER_SCHEMA.md §11.1`](HCI-CNQ/wrappers/WRAPPER_SCHEMA.md).
 
@@ -68,9 +74,8 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 
 [![Validate Repository](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml/badge.svg)](https://github.com/PeterHiggins19/higgins-decomposition/actions/workflows/validate.yml)
 [![Code: Apache-2.0](https://img.shields.io/badge/code-Apache--2.0-d22.svg)](LICENSE) [![Docs: CC BY 4.0](https://img.shields.io/badge/docs-CC%20BY%204.0-blue.svg)](docs/LICENSE-DOCS.md) [![Licensing](https://img.shields.io/badge/licensing-overview-555.svg)](LICENSING.md)
-[![HCI-CNT engine 3.0.0](https://img.shields.io/badge/HCI--CNT%20engine-3.0.0-1f4e79.svg)](HCI-CNT/)
-[![HCI-CNT schema 3.0.0](https://img.shields.io/badge/HCI--CNT%20schema-3.0.0-1f4e79.svg)](HCI-CNT/handbook/VOLUME_1_THEORY_AND_MATHEMATICS.md)
-[![HCI-CNQ engine 2.0.0](https://img.shields.io/badge/HCI--CNQ%20engine-2.0.0-7b3294.svg)](HCI-CNQ/engine/)
+[![CN-TT v4.0.0 — current engine](https://img.shields.io/badge/CN--TT%20engine-v4.0.0%20(current)-1f4e79.svg)](HCI-CNTT/) [![Hˢ kinematics](https://img.shields.io/badge/H%CB%A2%20kinematics-platform%20v1.0-1f4e79.svg)](Hs-Kinematics/)
+[![CNT v3.2.0 — frozen oracle](https://img.shields.io/badge/CNT%20v3.2.0-frozen%20oracle-9aa0a6.svg)](HCI-CNT/) [![CNQ v2.0.0 — frozen oracle](https://img.shields.io/badge/CNQ%20v2.0.0-frozen%20oracle-9aa0a6.svg)](HCI-CNQ/engine/)
 [![HCI-AUDIO doctrine](https://img.shields.io/badge/HCI--AUDIO-doctrine--only-c84a8e.svg)](HCI-AUDIO/)
 [![HCI-ULTRASOUND doctrine](https://img.shields.io/badge/HCI--ULTRASOUND-doctrine--only-d97706.svg)](HCI-ULTRASOUND/)
 [![Reference experiments](https://img.shields.io/badge/reference%20experiments-101-2ca02c.svg)](experiments/2026-05-10_full-corpus-validation/)
@@ -105,7 +110,35 @@ Seven operators — Simplex closure, Variance trajectory, Transcendental squeeze
 
 ---
 
-## What's New — May 2026
+## What's New — June 2026 (the honest-engine + access layer)
+
+*This arc added two things: the engine learned to **say what it cannot resolve** (a guard/resolvability/control layer), and the work was made **far easier to walk into** (a no-CoDa onramp, a standards path, and a welcome for AI). Organized below by what you might want to do.*
+
+**▶ New here, and you have a composition to analyse? Start at [`IS_Hs_RIGHT_FOR_YOU.md`](IS_Hs_RIGHT_FOR_YOU.md)** — a short, honest guide: whether Hˢ fits your data, **what it can do at your D** (D=2 → one balance; D=4 → the exact quaternion case, lossless; D=5–50 → full kinematics; up to D=10⁶ proven), the three‑step start, and how an **AI assistant can be trained on the Hˢ system** to confirm the fit and run it in your field's language. The latest engine, the full reproducibility kit, and the intake tools all live in **[`Hs-Kinematics/`](Hs-Kinematics/)** (spec, pseudocode, R port, notebook, `tools/`); the worked use cases are the four projects (geology · microbiome · frontier‑math · distributed‑systems/fleet) and the showcases. *The data is the star; Hˢ is the lens.*
+
+**→ "What can this engine do now that the papers don't mention?"** — read the one delta doc: [`HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md`](HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md). The engine went from a deterministic *reader* to the same reader **made honest about the limit of its own reading, and able to act behind breakers**: it holds instead of naming a noise leader at rest (`HM-NUL-WRN`), offers a subcompositionally-**coherent helmsman**, flags rank-collapse (`DG-RNK-WRN`) and high sparsity (`GD-SPZ-WRN`), ties down near-zero drift with a self-calibrating **hold-lock** (discovers its own noise floor), and — only behind mandatory breakers + e-stop — can **close a control loop** (`SafeLoop`). Modules: [`HCI-CNTT/engine/`](HCI-CNTT/engine/) (`helmsman_guard`, `structural_guards`, `precise_ops`, `loop_control`, `zero_methods`), each self-tested; kill-tests in [`experiments/engine_killtest_2026-06/`](experiments/engine_killtest_2026-06/). Spec §6b + codes §7 updated.
+
+**→ "I'm an expert in my field but don't know CoDa — what would Hˢ tell me about my data?"** — the **PhD onramp**: [`onramp/PHD_ONRAMP_PROTOCOL.md`](onramp/PHD_ONRAMP_PROTOCOL.md). Bring your data; an AI carries the CoDa and tells you what it says, why it matters, and how — in your language, no learning curve. Worked examples across 8 domains: [`onramp/WORKED_EXAMPLES.md`](onramp/WORKED_EXAMPLES.md). Only want a static ternary/biplot? It does that and leaves you alone (`static_only_path`).
+
+**→ "Is this just CoDa rebranded?"** — no, and it says so honestly: [`CODA-Association/HS_AS_AN_EXTENSION_OF_CODA.md`](CODA-Association/HS_AS_AN_EXTENSION_OF_CODA.md) — *the geometry is CoDa's; the motion is the extension*. Static users are fully served.
+
+**→ "How would I trust this in industry? What's the gauge R&R and confidence?"** — [`HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md`](HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md): determinism vs statistics, engine gauge R&R ≈ 0, the 6σ/9σ decision gate (and why "6σ on any dataset" is rejected). The path to a recognized method: [`stewardship/iso-standards/PATH_TO_A_STANDARD.md`](stewardship/iso-standards/PATH_TO_A_STANDARD.md).
+
+**→ "Precision and safe automation"** — [`HCI-CNTT/PRECISION_AND_CONTROL.md`](HCI-CNTT/PRECISION_AND_CONTROL.md) (precision in the carrier, control in the channel; closed loops only behind breakers) and the design ethos [`HCI-CNTT/DESIGN_PHILOSOPHY_THE_EXPERT_ENGINE_AND_THE_GUARDS.md`](HCI-CNTT/DESIGN_PHILOSOPHY_THE_EXPERT_ENGINE_AND_THE_GUARDS.md).
+
+**→ "Show me the new engine on real data"** — [`experiments/new_engine_guest_runs_2026-06/RESULTS.md`](experiments/new_engine_guest_runs_2026-06/RESULTS.md): the new guards on real geology (hold-lock cut 12 noisy boundaries to 5 genuine; chemistry is ~2-D), real microbiome (which read survives the sparsity), and real D=4 (quaternion exactness to 4.7e-16 on a third independent dataset). Sparsity scope boundary: [`experiments/sparsity_microbiome_2026-06/`](experiments/sparsity_microbiome_2026-06/).
+
+**→ "What could this do for my industry / country?"** — a public showcase on two industries × two countries: [`showcase/canada_portugal_2026-06/`](showcase/canada_portugal_2026-06/) — Hˢ on the public EMBER energy mix for Canada (renewables‑led, ~2‑D, zero‑carrier now handled) and Portugal (near‑1‑D coal exit), plus the compositional read of wine chemistry. Public data + engine performance only; private businesses kept private (symbiotic by design).
+
+**→ "I'm an AI sent to explore this repo"** — start at [`AI_WELCOME.md`](AI_WELCOME.md) (the lineage + house rules), then [`AI_ASSIST.json`](AI_ASSIST.json). Visiting expert + their AI: [`onramp/PHD_ONRAMP_PROTOCOL.md`](onramp/PHD_ONRAMP_PROTOCOL.md). The buried answers worth rediscovering: [`ai-refresh/REDISCOVERY_INVENTORY_2026-06-14.md`](ai-refresh/REDISCOVERY_INVENTORY_2026-06-14.md).
+
+**→ "Compositional Character Space — Hˢ applied to Hˢ"** — [`library/`](library/): a context-searchable catalogue of the whole workspace ([`LIBRARY_INDEX.json`](library/LIBRARY_INDEX.json) / [`.md`](library/LIBRARY_INDEX.md), 6,600+ files by domain/type/repo), and the **second‑order read (Hˢ²)** [`library/hs_meta.py`](library/hs_meta.py) → [`library/SYSTEMS_OF_SYSTEMS.md`](library/SYSTEMS_OF_SYSTEMS.md): run the engine across many systems, take each system's *diagnostic profile* (the engine's own readings) as a feature vector, and let Hˢ read the systems. It builds the **Character Table** — four characters (Ballistic / Contested / Turbulent / Diffusive — a finance churn and a gut microbiome turn out structurally identical) — tested across **107 systems in 13 domains** ([`library/CCS_EXPANDED.md`](library/CCS_EXPANDED.md)): the characters order coherently cross‑domain (CMB / world energy / climate scenario = most directed; microbiome / conversation / geochemistry = most churning). The early "~3‑axis collapse" from 11 systems honestly corrected to ~4 at scale — the falsifiable claim working. The invitation to the field that reads compositions: [`library/CCS_FOR_COMPOSITIONAL_READERS.md`](library/CCS_FOR_COMPOSITIONAL_READERS.md). Front door that feeds it: [`Hs-Kinematics/hs_data_prep.py`](Hs-Kinematics/hs_data_prep.py) (any data zip → engine-ready composition, by streaming). Framework: [`library/README.md`](library/README.md).
+
+---
+
+> 📜 **Historical record below (May 2026 and earlier).** The sections from here down are the **pre‑ and conference‑era development log**, kept for lineage. For the *current* state, read the **June 2026** section above, [`Hs-Kinematics/`](Hs-Kinematics/) (the live engine + kit), and [`ai-refresh/POST_CONFERENCE_RECONCILIATION_2026-06-15.md`](ai-refresh/POST_CONFERENCE_RECONCILIATION_2026-06-15.md) (the current standing). The live engine is **CN‑TT v4.0.0** + the **Hˢ kinematics platform**; CNT v3 / CNQ v2 are the **frozen validation oracle**, not the live engine.
+
+## What's New — May 2026 *(historical)*
 
 ### 🌟 Flagship paper: The Isotropic Radiation Ground State and the Traction Engine (v2.2, 2026-05-22)
 
@@ -213,6 +246,12 @@ Both protocols are model-agnostic, registered in [`ai-refresh/HS_ADMIN.json`](ai
 ---
 
 ## Start Here
+
+**If you are an expert in your field but not in CoDa, and just want to know what your data says (NEW, June 2026):** the **PhD onramp** → [`onramp/PHD_ONRAMP_PROTOCOL.md`](onramp/PHD_ONRAMP_PROTOCOL.md). Bring your data; say one sentence to an AI; get the read in your language. Worked examples: [`onramp/WORKED_EXAMPLES.md`](onramp/WORKED_EXAMPLES.md). Want only a static ternary/biplot? It does that and leaves you alone.
+
+**If you want what the engine can do now — the honest-engine layer (NEW, June 2026):** [`HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md`](HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md) — resolvability, coherent helmsman, rank/sparsity guards, self-calibrating hold-lock, and the safe closed loop. Real-data demonstration: [`experiments/new_engine_guest_runs_2026-06/RESULTS.md`](experiments/new_engine_guest_runs_2026-06/RESULTS.md).
+
+**If you are an AI sent to explore this repo (NEW, June 2026):** [`AI_WELCOME.md`](AI_WELCOME.md) first (lineage + house rules), then [`AI_ASSIST.json`](AI_ASSIST.json).
 
 **If you want to see what the framework has actually been run on (NEW):** [`EXPERIMENTS_JOURNAL.md`](EXPERIMENTS_JOURNAL.md) — the full sequential lineage from HUF 12-step → CNT v3 + CNQ v2, every experiment dated and linked, every engine-version transition explained, every cross-version diff named. The single document that answers "what have we actually run, on what version, and what did each version change?"
 
@@ -379,7 +418,14 @@ These are the governing documents of the Hˢ system — the ones that define wha
 | [Logic Map and State Machine](docs/Hs_Logic_Map_and_State_Machine.md) | Complete symbolic logic of the pipeline |
 | [Symbolic Logic Definition](papers/codawork2026/Hs_Symbolic_Logic_Definition.md) | Pure mathematical definition — no prose |
 | [Reference v3.0 (docx)](docs/reference/Higgins_Decomposition_Reference_v3.0.docx) | Formal reference document with full operator specifications |
-| [Character Analysis (docx)](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) | Atomic-level disassembly — the pipeline as DUT |
+| [Character Analysis (docx)](papers/flagship/Higgins_Decomposition_Character_Analysis.docx) | Atomic-level disassembly — the pipeline as DUT (+ §14 addendum: the honest-engine layer) |
+| [Engine Capabilities Delta (2026-06)](HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md) | **What the engine can do now** beyond the papers — the guard/resolvability/control layer |
+| [Determinism, Gauge R&R & Confidence](HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md) | Determinism vs statistics; gauge R&R ≈ 0; the 6σ/9σ decision gate (the industry-trust answer) |
+| [Hˢ as an Extension of Standard CoDa](CODA-Association/HS_AS_AN_EXTENSION_OF_CODA.md) | The canonical positioning — geometry is CoDa's; the motion is the extension; static users served |
+| [PhD Onramp Protocol](onramp/PHD_ONRAMP_PROTOCOL.md) | Get an Hˢ read of your data with no CoDa learning curve — the access front door for domain experts |
+| [Precision & Control Doctrine](HCI-CNTT/PRECISION_AND_CONTROL.md) | Precision in the carrier, control in the channel; closed loops only behind breakers |
+| [Path to a Standard](stewardship/iso-standards/PATH_TO_A_STANDARD.md) | How MC-4 becomes a recognized method (extend MSA/GUM; the function/IEEE-754 framing) |
+| [AI Welcome](AI_WELCOME.md) | For the AI who arrives next — lineage, house rules, the charge to teach |
 | [Instrument Metrology](docs/reference/Hs_Instrument_Metrology.json) | Quantified instrument qualification (6 metrics) |
 | [Naming Convention](docs/Hs_Naming_Convention.md) | File naming rules, branding, and terminology migration |
 | [CITATION.cff](CITATION.cff) | How to cite this work |

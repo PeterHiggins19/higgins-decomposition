@@ -1,0 +1,135 @@
+{
+ "profiles": [
+  {
+   "system": "energy_deu",
+   "realm": "energy",
+   "effective_rank": 2.66,
+   "coherence": 0.67,
+   "path_efficiency": 0.534,
+   "regimes": 1,
+   "trend": 2.57,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_wld",
+   "realm": "energy",
+   "effective_rank": 1.27,
+   "coherence": 0.897,
+   "path_efficiency": 0.953,
+   "regimes": 1,
+   "trend": 1.31,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_jpn",
+   "realm": "energy",
+   "effective_rank": 2.57,
+   "coherence": 0.392,
+   "path_efficiency": 0.444,
+   "regimes": 2,
+   "trend": 0.39,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_gbr",
+   "realm": "energy",
+   "effective_rank": 2.06,
+   "coherence": 0.503,
+   "path_efficiency": 0.627,
+   "regimes": 3,
+   "trend": 1.54,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_ind",
+   "realm": "energy",
+   "effective_rank": 1.73,
+   "coherence": 0.546,
+   "path_efficiency": 0.647,
+   "regimes": 2,
+   "trend": 0.08,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_usa",
+   "realm": "energy",
+   "effective_rank": 1.67,
+   "coherence": 0.712,
+   "path_efficiency": 0.749,
+   "regimes": 2,
+   "trend": 1.47,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "energy_fra",
+   "realm": "energy",
+   "effective_rank": 2.14,
+   "coherence": 0.583,
+   "path_efficiency": 0.558,
+   "regimes": 2,
+   "trend": 0.89,
+   "boundary": "BOUNDARY (ed"
+  },
+  {
+   "system": "energy_chn",
+   "realm": "energy",
+   "effective_rank": 1.99,
+   "coherence": 0.953,
+   "path_efficiency": 0.657,
+   "regimes": 1,
+   "trend": 2.26,
+   "boundary": "BOUNDARY (ed"
+  },
+  {
+   "system": "finance_sectors",
+   "realm": "finance",
+   "effective_rank": 4.88,
+   "coherence": 0.048,
+   "path_efficiency": 0.066,
+   "regimes": 5,
+   "trend": 0.01,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "geology_frielingen",
+   "realm": "geology",
+   "effective_rank": 2.05,
+   "coherence": 0.024,
+   "path_efficiency": 0.025,
+   "regimes": 12,
+   "trend": -0.09,
+   "boundary": "within-regim"
+  },
+  {
+   "system": "microbiome_crohn",
+   "realm": "microbiome",
+   "effective_rank": 36.1,
+   "coherence": 0.01,
+   "path_efficiency": 0.001,
+   "regimes": 21,
+   "trend": -2.12,
+   "boundary": "within-regim"
+  }
+ ],
+ "classes": {
+  "Contested (mid)": [
+   "energy_deu",
+   "energy_jpn",
+   "energy_gbr",
+   "energy_fra"
+  ],
+  "Ballistic (directed, simple)": [
+   "energy_wld",
+   "energy_ind",
+   "energy_usa",
+   "energy_chn"
+  ],
+  "Turbulent (churning, complex)": [
+   "finance_sectors",
+   "microbiome_crohn"
+  ],
+  "Diffusive (low-direction)": [
+   "geology_frielingen"
+  ]
+ }
+}

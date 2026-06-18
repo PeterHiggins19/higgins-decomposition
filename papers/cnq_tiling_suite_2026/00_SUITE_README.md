@@ -1,8 +1,13 @@
 # CNQ‑Tiling Paper Suite — 2026
 
+> **Abstracts only.** Per `../PAPERS_LOCATION_POLICY.md`, this suite folder now holds **abstracts and review apparatus only**; the full drafts and the P1 LaTeX live off-repo in the CoWorker `arXiv/` folder. Each abstract cites its arXiv paper (once posted) and each paper cites its Hˢ work location.
+
+
 *Three papers that emerged once the system "went to school" — i.e., once the prior‑art landscape was mapped and the genuinely novel contributions were isolated. Author: Peter Higgins (human authorship for all claims); AI‑assisted per HUF‑STD‑001. This folder organizes the three publishable items from `papers/FINDINGS_INVENTORY_2026-06-10.md` into draftable papers.*
 
 ---
+
+> **Read the arc first.** The five papers form one successive story — *exactness (P1) → trust (P3) → motion (P4) → character (P5) → vigilance (P2)* — written for the public in [`../THE_HIGGINS_DECOMPOSITION_SERIES.md`](../THE_HIGGINS_DECOMPOSITION_SERIES.md). The order below is by identity number, not reading order.
 
 ## The three papers
 
@@ -13,6 +18,15 @@
 | **P3** | *CN‑TT: a deterministic, hash‑chained engine for compositional navigation* | Tool / software paper | **Scaffold (`P3_CNTT_TOOL_PAPER.md`)** | v4 engine reaches navigation parity (engine build P2) |
 
 P1 is the flagship and nearest to submittable. P2 and P3 are scaffolded with abstract, outline, citations, and gating notes.
+
+### Companion concept papers (staged here; part of the broader five‑paper offering)
+
+| # | Working title | Kind | Status | Gate before submission |
+|---|---|---|---|---|
+| **P4** | *Compositional kinematics — the mechanics of compositional trajectories* | Methods (recognition + synthesis) | scaffold from `HCI-CNTT/COMPOSITIONAL_MECHANICS.md` | write‑up + prior‑art/novelty pass |
+| **P5** | *Compositional Character Space — a cross‑domain taxonomy of compositional dynamics* | Methods / complexity (the second‑order read) | **Full draft (`P5_COMPOSITIONAL_CHARACTER_SPACE.md`)** — 107 systems / 13 domains, with the n=11→n=107 self‑correction | the isomorphism‑residual experiment + novelty pass |
+
+P5 is the second‑order read built *on* the P4 kinematics (turn the engine on its own outputs); the two submit as a pair. Full picture: `papers/PUBLICATION_OFFERING_AND_SITE_2026-06-14.md`.
 
 ---
 

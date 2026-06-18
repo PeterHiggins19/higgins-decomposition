@@ -20,6 +20,23 @@ python tools/cntt_report.py  <composition.csv>                 # human report
 python tools/cntt_report.py  <composition.csv> --json -o out.json
 ```
 
+## Preprocessors — the engine intake tool kit
+
+The engine reads a clean composition; real data does not arrive that way. These **preprocessors** are part of the engine tool kit — they turn raw inputs into engine‑ready material and track the budget the engine's closure sets aside. *(Canonical runnable copies live next to the engine at `../Hs-Kinematics/`; these are identical tool‑kit copies as of 2026‑06‑15. Both carry provenance — see `../Hs-Kinematics/TRACEABILITY.md`.)*
+
+| Preprocessor | What it does |
+|---|---|
+| [`hs_data_prep.py`](hs_data_prep.py) | **Streaming intake.** Any data zip / folder‑of‑zips / CSV / xlsx → an engine‑ready composition by *streaming* (a 4.5 GB zip processed in kilobytes of memory). Wide + long modes, filters (e.g. HS code `^2204`), top‑k. Writes the engine‑ready CSV **plus a `.manifest.json`** (source, config, shape, output SHA‑256) — the traceability link. `DATA_PREP.md`. |
+| [`hs_budget.py`](hs_budget.py) | **Moving‑budget co‑tracker.** Reads the *size* (the total/budget) the engine's closure discards: growth rate, budget regimes, budget coherence, and size–shape coupling — required for control of a budgeted dynamic system. `MOVING_BUDGET_AND_CONTROL_PRIMITIVE.md`. |
+| (ancestor) `DATA/BackBlaze/.../huf_preparser.py` | the original domain‑specific Backblaze preparser whose streaming trick `hs_data_prep.py` generalised. |
+
+```
+python tools/hs_data_prep.py SOURCE --mode long --order t --carrier j --value v --filter k:^2204 --run
+python tools/hs_budget.py            # demo; or import track_budget(M, names)
+```
+
+The pattern: **prep → engine → diagnosis/budget**, every stage hash‑receipted (traceability is required, `../Hs-Kinematics/TRACEABILITY.md`).
+
 ## The canonical tools that live elsewhere (by design)
 
 The current reusable tools live next to what they serve, not in a catch‑all folder:
