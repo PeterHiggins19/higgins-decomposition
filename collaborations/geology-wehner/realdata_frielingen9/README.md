@@ -2,7 +2,7 @@
 
 > **Headline research:** Hˢ read the **real Frielingen‑9 grain‑size composition** (11 size fractions, 218 samples down‑section) **losslessly** (3.6×10⁻¹⁵), named the **coarse sand/gravel pulses as the dominant compositional drivers** in an otherwise mud‑dominated section, and detected **7 facies/lithology regime boundaries** — deterministic, with a hash receipt. · **Engine:** CN‑TT v4 (`../../../HCI-CNTT/`). · **Goal:** the geosensing study on *real* geochemical/granulometric data.
 
-*2026‑06‑11. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001. Geological interpretation belongs to the domain expert (Matthew Wehner / the authors). Claim‑tiered. Instrument, not data.*
+*2026‑06‑11. Author: Peter Higgins (human authorship for claims); AI‑assisted per HUF‑STD‑001. Geological interpretation belongs to the domain expert / the dataset authors (Thöle et al. 2019). Claim‑tiered. Instrument, not data.*
 
 ## Source (public)
 **Thöle, Bornemann, Heimhofer, Luppold, Blumenberg, Dohrmann, Erbacher (2019/2020)** — Frielingen‑9 core, Lower Saxony, N Germany; geochemical + lithological log; **PANGAEA** https://doi.org/10.1594/PANGAEA.897615 (file `Toehle-etal_geochem_litho_Frielingen-9.tab`). Depth 15.4–249.8 m; 427 samples. The `.tab` also carries SiO₂, Al₂O₃, Rb, Zr, CaCO₃, TOC, δ¹³C — a geochemical run is a natural follow‑up.

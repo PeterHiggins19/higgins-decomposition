@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "tool": "triad_backbone.py",
+    "what": "Q/Hs/DUT triad cross-verify backbone: one observable, three independent math routes, coherence certifies the claim.",
+    "Qts_from_nodes": 5.714286,
+    "Qes": 8.0,
+    "Qms": 20.0,
+    "receipt_sha256": "f8ee9f6fce466c0f"
+  },
+  "runs": [
+    {
+      "label": "A: consistent resonant device (expect CON)",
+      "omega0": 345.57519189487726,
+      "Q_dut": 5.714285714285714,
+      "Q_spec": 5.714285714285714,
+      "tol": 0.002,
+      "rho": {
+        "Q": 0.333018435,
+        "DUT": 0.331625431,
+        "Hs": 0.333010623
+      },
+      "suppression_dB": {
+        "Q": 1.7589,
+        "DUT": 1.7498,
+        "Hs": 1.7588
+      },
+      "pairwise_abs_diff": {
+        "Q-DUT": 0.001393,
+        "Q-Hs": 7.812e-06,
+        "DUT-Hs": 0.001385
+      },
+      "max_diff": 0.001393,
+      "verdict": "TRIAD-CON",
+      "outlier": null,
+      "note": "all three maths cohere -> claim SUPPORTED"
+    },
+    {
+      "label": "B: high-Q resonator (expect CON)",
+      "omega0": 345.57519189487726,
+      "Q_dut": 12.0,
+      "Q_spec": 12.0,
+      "tol": 0.002,
+      "rho": {
+        "Q": 0.592384847,
+        "DUT": 0.592115445,
+        "Hs": 0.592376354
+      },
+      "suppression_dB": {
+        "Q": 3.8975,
+        "DUT": 3.8946,
+        "Hs": 3.8974
+      },
+      "pairwise_abs_diff": {
+        "Q-DUT": 0.0002694,
+        "Q-Hs": 8.493e-06,
+        "DUT-Hs": 0.0002609
+      },
+      "max_diff": 0.0002694,
+      "verdict": "TRIAD-CON",
+      "outlier": null,
+      "note": "all three maths cohere -> claim SUPPORTED"
+    },
+    {
+      "label": "C: wrong nameplate Q (expect ISO, Q outlier)",
+      "omega0": 345.57519189487726,
+      "Q_dut": 12.0,
+      "Q_spec": 11.0,
+      "tol": 0.002,
+      "rho": {
+        "Q": 0.56484797,
+        "DUT": 0.592115445,
+        "Hs": 0.592376354
+      },
+      "suppression_dB": {
+        "Q": 3.6136,
+        "DUT": 3.8946,
+        "Hs": 3.8974
+      },
+      "pairwise_abs_diff": {
+        "Q-DUT": 0.02727,
+        "Q-Hs": 0.02753,
+        "DUT-Hs": 0.0002609
+      },
+      "max_diff": 0.02753,
+      "verdict": "TRIAD-ISO",
+      "outlier": [
+        "Q"
+      ],
+      "note": "outlier route(s) ['Q'] disagree -> isolate + warn"
+    }
+  ]
+}

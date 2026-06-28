@@ -77,8 +77,37 @@ report = codes.generate_codes(payload, shock=shock_verdict)
 ```
 Codes are designed to ride in the emitted payload (`payload["diagnostics"]["codes"]`) and downlink as a compact, deterministic status line a central controller can read.
 
-## 7 · Claim tiers
-- **Tier 1 (verified):** the code generator emits the documented codes on real runs; the automated NULL flag fires on the real Crohn null (p=0.78) and the SEP flag on a separated case; the FDIR/lifecycle codes fire correctly.
+## 7 · Guard & control‑layer codes (additive, 2026‑06)
+
+The guard modules built this round (`engine/zero_methods.py`, `engine/helmsman_guard.py`, `engine/structural_guards.py`, `engine/loop_control.py`) emit the codes below. They extend the registry so the engine announces the **boundary of what it can honestly resolve**, and the codes a closed loop raises. Full rationale: `ENGINE_CAPABILITIES_DELTA_2026-06.md`. *(Stage‑prefix harmonization — `HM`/`DG` are navigate‑/geometry‑family guard prefixes — is a Tier‑3 tidy; codes are registered here as the modules actually emit them.)*
+
+| Code | Level | Fires when | Module |
+|---|---|---|---|
+| `GD‑ZRC‑CAL` | CAL | structural‑zero carrier dropped to sub‑composition (was silent `nan`) | zero_methods (E‑21) |
+| `GD‑CNC‑CAL` | CAL | constant/degenerate carrier dropped | zero_methods (E‑21) |
+| `GD‑ZRP‑CAL` | CAL | detection‑limit zeros: multiplicative replacement applied | zero_methods |
+| `GD‑ZBM‑CAL` | CAL | **Bayesian‑multiplicative** zero replacement (count‑aware, ratio‑preserving) | zero_methods |
+| `GD‑ZUN‑WRN` | WRN | unresolved zeros — **not imputed** (honest default; flagged) | zero_methods |
+| `GD‑SPZ‑WRN` | WRN | **sparsity regime**: zero‑fraction past threshold → CLR geometry is δ‑dominated; densify before the log‑ratio | zero_methods |
+| `HM‑NUL‑WRN` | WRN | **no resolvable helmsman** — motion below the floor (at/near barycentre); leader would be noise | helmsman_guard |
+| `HM‑TIE‑WRN` | WRN | **helmsman tie** — leader not separated from runner‑up (margin ≤ tol); not broken by index | helmsman_guard |
+| `DG‑RNK‑WRN` | WRN | **rank‑deficient trajectory** — motion confined to a subspace (eigh‑instability sibling of E‑21) | structural_guards |
+| `MO‑DIF‑WRN` | WRN | **diffuse momentum** — motion present but no coherent *arrow of intent* (the system is churning; `coherence < floor`) | compositional_momentum |
+| `MO‑NUL‑WRN` | WRN | **no resolvable momentum** — the composition is at rest (no mass flow to report) | compositional_momentum |
+| `FR‑BND‑INF` | INF | **boundary of analysable structure** — entropy not invariant under geometric‑mean decimation (EITT‑as‑boundary; *Tier‑3 fringe, exploratory clue, never a claim*) | fringe_boundary |
+| `L4‑HLD‑INF` | INF | **hold‑lock engaged** — motion below the *discovered* noise floor `max(system,engine)`; structural change withheld until sustained (announced, never silent) | structural_guards `hold_lock` *(code emitted when wired to the run path — Peter's gate)* |
+| `LC‑WIN‑END` | INF | closed‑loop **automation window exhausted** → graceful revert to OBSERVE | loop_control |
+| `LC‑TRIP‑NAN` | ERR | breaker: non‑finite measurement | loop_control |
+| `LC‑TRIP‑RATE` | ERR | breaker: fast excursion / instability | loop_control |
+| `LC‑TRIP‑WIND` | ERR | breaker: integral windup / runaway drift | loop_control |
+| `LC‑TRIP‑SAT` | ERR | breaker: authority saturated too long (fighting the plant) | loop_control |
+| `LC‑TRIP‑DOG` | ERR | breaker: watchdog/deadman timeout | loop_control |
+| `LC‑ESTOP` | ERR | **manual emergency stop** — latched safe until human `reset()` | loop_control |
+
+These follow the same spirit as the NULL flag: every guard that fires says *what it found and what to do about it*, automatically. The `HM`/`DG`/`GD‑SPZ` family is the engine learning to say **"I cannot honestly resolve this"**; the `LC` family is the engine acting only behind breakers.
+
+## 8 · Claim tiers
+- **Tier 1 (verified):** the code generator emits the documented codes on real runs; the automated NULL flag fires on the real Crohn null (p=0.78) and the SEP flag on a separated case; the FDIR/lifecycle codes fire correctly. The guard/control codes in §7 are each emitted + self‑tested by their modules (kill‑tests in `experiments/engine_killtest_2026-06/`); `L4‑HLD‑INF` emission awaits run‑path wiring (Peter's gate).
 - **Tier 2 (sound):** the SS‑CCC‑LLL taxonomy and structural‑mode logic, faithful to `hs_codes.py v1.2`, adapted to the CN‑TT stages.
 - **Tier 3 (to earn):** full coverage parity with the original 76 codes; per‑domain code wrappers; the `group_separation` metric/threshold calibration on real labeled contrasts.
 

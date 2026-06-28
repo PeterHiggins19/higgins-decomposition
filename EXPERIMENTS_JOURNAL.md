@@ -1,7 +1,7 @@
 # Experiments Journal — Hs Framework Lineage and Sequential Run Record
 
 **Status:** living document — refreshed at every push
-**Last updated:** 2026-05-10 (push #34)
+**Last updated:** 2026-05-10 (push #34)  ·  working-tree pointer 2026-06-20: P1 finalized for arXiv (composite Fig 1; archive staged; final collective readability review queued) + new constellation-navigation seed study — run-records unchanged; see `ai-refresh/HS_TRACKING_LOG.json` (G-124..G-129) and `ai-refresh/PRE_PUSH_READINESS_2026-06-20.md`.
 **Scope:** every experiment that has ever been run under the Hs / HUF / CNT / CNQ family of engines, dated, linked, and cross-referenced to the engine version that ran it
 **Companion documents:** [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) (running narrative), [`ai-refresh/INVESTIGATION_CATALOG.json`](ai-refresh/INVESTIGATION_CATALOG.json) (research-disposition record), [`HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md`](HCI-CNT/handbook/VOLUME_4_QUATERNION_VIEW.md) (theory)
 

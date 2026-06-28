@@ -1,0 +1,234 @@
+{
+  "schema": "hs_division_routing/1.0",
+  "axis": "deployment/adoption stream division (complementary to papers/PAPER_AND_REPO_DIVISION.md intelligence/data axis)",
+  "streams": {
+    "MATH": "controlled-OPEN (principle, published)",
+    "INDUSTRY": "controlled-TIERED (OPEN/REVIEW by tsi)",
+    "GOVERNANCE": "controlled-STEWARD (sensitive applied -> national steward)"
+  },
+  "gate": "disposition set by export transfer-sensitivity index tsi (EXPORT_AND_TRANSFER_GOVERNANCE.md, 14b2f557): OPEN<0.42, REVIEW 0.42-0.55, STEWARD>=0.55; pure-math = OPEN",
+  "routing": [
+    {
+      "item": "P1_D4_ILR_SU2_lossless_tiling",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "methods_proofs_Hs_Kinematics",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "coherence_law",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "the_blindness_suite",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "dimension_is_the_message",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "the_data_is_the_carrier",
+      "stream": "MATH",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "gas-life-support",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.22,
+      "canada_division": false
+    },
+    {
+      "item": "blood-gas-clinical",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.22,
+      "canada_division": false
+    },
+    {
+      "item": "geoscience",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.22,
+      "canada_division": false
+    },
+    {
+      "item": "backblaze-fleet",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.3,
+      "canada_division": false
+    },
+    {
+      "item": "produced-water-oilgas",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.32,
+      "canada_division": false
+    },
+    {
+      "item": "financial-markets",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.39,
+      "canada_division": false
+    },
+    {
+      "item": "smt-dispense-placement",
+      "stream": "INDUSTRY",
+      "disposition": "REVIEW",
+      "tsi": 0.42,
+      "canada_division": false
+    },
+    {
+      "item": "energy-grid",
+      "stream": "INDUSTRY",
+      "disposition": "REVIEW",
+      "tsi": 0.46,
+      "canada_division": true
+    },
+    {
+      "item": "microbiome-bio",
+      "stream": "INDUSTRY",
+      "disposition": "REVIEW",
+      "tsi": 0.46,
+      "canada_division": false
+    },
+    {
+      "item": "fiber-photonics",
+      "stream": "INDUSTRY",
+      "disposition": "REVIEW",
+      "tsi": 0.48,
+      "canada_division": true
+    },
+    {
+      "item": "wine-trade-canada-portugal",
+      "stream": "INDUSTRY",
+      "disposition": "OPEN",
+      "tsi": 0.3,
+      "canada_division": true
+    },
+    {
+      "item": "euv-lithography",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.58,
+      "canada_division": true
+    },
+    {
+      "item": "constellation-space-SSA",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.55,
+      "canada_division": false
+    },
+    {
+      "item": "aerospace-defense-skin(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.58,
+      "canada_division": false
+    },
+    {
+      "item": "fusion-nuclear-diag(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.59,
+      "canada_division": false
+    },
+    {
+      "item": "space-launch-GNC(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.57,
+      "canada_division": false
+    },
+    {
+      "item": "quantum-photonics-mfg(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "STEWARD",
+      "tsi": 0.55,
+      "canada_division": true
+    },
+    {
+      "item": "advanced-packaging-chiplet(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "REVIEW",
+      "tsi": 0.5,
+      "canada_division": true
+    },
+    {
+      "item": "critical-infra-control(future)",
+      "stream": "GOVERNANCE",
+      "disposition": "REVIEW",
+      "tsi": 0.54,
+      "canada_division": false
+    },
+    {
+      "item": "THE_THREE_STREAM_DIVISION",
+      "stream": "GOVERNANCE",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    },
+    {
+      "item": "CANADA_DIVISION",
+      "stream": "GOVERNANCE",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": true
+    },
+    {
+      "item": "EXPORT_AND_TRANSFER_GOVERNANCE",
+      "stream": "GOVERNANCE",
+      "disposition": "OPEN",
+      "tsi": null,
+      "canada_division": false
+    }
+  ],
+  "counts_by_stream_disposition": {
+    "MATH": {
+      "OPEN": 6
+    },
+    "INDUSTRY": {
+      "OPEN": 7,
+      "REVIEW": 4
+    },
+    "GOVERNANCE": {
+      "STEWARD": 6,
+      "REVIEW": 2,
+      "OPEN": 3
+    }
+  },
+  "canada_division_members": [
+    "energy-grid",
+    "fiber-photonics",
+    "wine-trade-canada-portugal",
+    "euv-lithography",
+    "quantum-photonics-mfg(future)",
+    "advanced-packaging-chiplet(future)",
+    "CANADA_DIVISION"
+  ],
+  "moves_note": "Authoritative SEPARATION is this manifest. Physical relocation of any file into a stream folder is STAGED + REVERSIBLE, pending Peter's gate. Nothing moved or deleted on AI authority.",
+  "governance": "Publish the principle; gate applied by tsi; defer sensitive release upward to national governance; no company contact; Peter sole gate; nothing posted.",
+  "content_sha256": "e4b7708a5922aab6dbb69b18b5e639f3eefe83ef03aa8564ed25ec9af792c99d"
+}

@@ -1,0 +1,78 @@
+{
+  "_meta": {
+    "tool": "loglog_index.py",
+    "what": "recursive log-of-logs: tracks the trackers, indexes itself",
+    "tiers": [
+      "artifacts",
+      "logs",
+      "log/log"
+    ],
+    "receipt_sha256": "ea0c56f045c0b58f"
+  },
+  "tier2_loglog_the_index_of_logs": [
+    {
+      "tracker": "journal",
+      "path": "ai-refresh/HS_TRACKING_LOG.json",
+      "present": true,
+      "indexes": "every G-entry: objective + docs + receipt"
+    },
+    {
+      "tracker": "memory_index",
+      "path": "(spaces)/memory/MEMORY.md",
+      "present": true,
+      "indexes": "durable cross-session facts (external to repo)"
+    },
+    {
+      "tracker": "induction_map",
+      "path": "INDUCTION_MAP.md",
+      "present": true,
+      "indexes": "human traversal of the repo"
+    },
+    {
+      "tracker": "abstract_ledger",
+      "path": "papers/ABSTRACT_LEDGER.md",
+      "present": true,
+      "indexes": "the publication abstracts"
+    },
+    {
+      "tracker": "session_capstone",
+      "path": "ai-refresh/SESSION_CAPSTONE_2026-06-26.md",
+      "present": true,
+      "indexes": "this session's artifacts by four-pole spine"
+    },
+    {
+      "tracker": "loglog_index (SELF)",
+      "path": "ai-refresh/loglog/loglog_index.py",
+      "present": true,
+      "indexes": "the Tier-1 logs AND itself -- the recursive fixed point"
+    }
+  ],
+  "coverage": {
+    "tier0_receipted_artifacts": 51,
+    "tier1_logs_present": 5,
+    "tier1_logs_total": 5,
+    "journal_G_entries": 261,
+    "artifacts_referenced_in_journal_docs": 45,
+    "loglog_indexes_itself": true
+  },
+  "gaps": [
+    "6 receipted artifacts not (yet) name-matched in journal docs (cross-link debt)"
+  ],
+  "tier0_artifacts_sample": [
+    "HCI-CNQ/engine/self_test/run_self_test.py",
+    "HCI-CNTT/engine/self_test/run_self_test.py",
+    "HCI-ULTRASOUND/instrument/probe_public_data_tests.py",
+    "HCI-ULTRASOUND/mri-compositional/mri_compositional_demo.py",
+    "HCI-ULTRASOUND/probe_survey_lock.py",
+    "HCI-ULTRASOUND/streaming_tissue_probe.py",
+    "HCI-ULTRASOUND/ultrasonic_probe_hs.py",
+    "HCI/sensorial_fidelity.py",
+    "ai-refresh/loglog/loglog_index.py",
+    "ai-refresh/session_stance.py",
+    "collaborations/geology-wehner/drift_self_report.py",
+    "experiments/hs_dut_stress_2026-06/hs_dut_stress.py",
+    "...(51 total)"
+  ],
+  "recursion_note": "the log/log lists itself as a tracked tracker -> the management layer closes: each tier is tracked by the tier above, the top tracks itself (a fixed point).",
+  "fence": "Tracks PRESENCE/coverage of the logs (a deterministic structural read), not the QUALITY of what they record. The artifact<->journal match is by path/basename; 'gaps' are cross-link debt to close, not errors. Peter is the sole gate; nothing posted."
+}

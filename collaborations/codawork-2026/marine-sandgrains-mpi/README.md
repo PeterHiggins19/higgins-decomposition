@@ -12,7 +12,7 @@ Their result is a *trajectory with structure* — exactly Hˢ's regime:
 
 - **Succession as a helmsman handoff.** Their three named stages are, in Hˢ terms, a sequence of **helmsman** changes — the genus whose log‑ratio change dominates each step. Hˢ would render the Vibrionaceae→Rhodobacteraceae/Alteromonadaceae→Flavobacteriaceae/Saprospiraceae succession as a deterministic driver trajectory with **regime boundaries** at the stage transitions.
 - **A quantitative convergence metric.** Their central finding — grains converge, liquid does not — is, geometrically, a **shrinking Aitchison step / attractor fit** over time. Hˢ can turn "converge" into a number per grain and per time, and contrast it against the non‑converging liquid fraction.
-- **Lossless high‑D.** ~10,000 ASVs is within Hˢ's lossless tiling range (proven to D=10⁶ at machine precision using a phylogeny as the atlas), all hash‑reproducible.
+- **High‑D, locally exact.** ~10,000 ASVs is within Hˢ's tiling range — **exact at the IEEE floor per D=4 chart**; reconstruction proven to D=10⁶ at **~4×10⁻¹²** (floating‑point accumulation, not bit‑exact identity) using a phylogeny as the atlas — all hash‑reproducible.
 - **Determinism + receipt.** A succession read that reruns byte‑for‑byte — useful for a microcosm result others will want to reproduce.
 
 ## What we'd offer

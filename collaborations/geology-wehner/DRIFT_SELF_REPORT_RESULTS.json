@@ -1,0 +1,101 @@
+{
+  "_meta": {
+    "tool": "drift_self_report.py",
+    "dataset": "Frielingen-9 mudstone (Matthew Wehner collab; PANGAEA 897615)",
+    "n_samples": 219,
+    "D": 4,
+    "what": "self-reporting drift detection + localization",
+    "receipt_sha256": "26572eb86fc0a9c6"
+  },
+  "drift_threshold": 0.208,
+  "n_drift_events_flagged": 14,
+  "events_localized": [
+    {
+      "depth_m": 80.75,
+      "component": "Rb",
+      "drift": 0.24,
+      "locality_effdim": 3.36
+    },
+    {
+      "depth_m": 93.65,
+      "component": "Rb",
+      "drift": 0.309,
+      "locality_effdim": 3.43
+    },
+    {
+      "depth_m": 95.75,
+      "component": "Rb",
+      "drift": 0.313,
+      "locality_effdim": 3.46
+    },
+    {
+      "depth_m": 120.79,
+      "component": "Zr",
+      "drift": 0.321,
+      "locality_effdim": 3.35
+    },
+    {
+      "depth_m": 121.75,
+      "component": "Zr",
+      "drift": 0.274,
+      "locality_effdim": 3.87
+    },
+    {
+      "depth_m": 123.69,
+      "component": "Rb",
+      "drift": 0.224,
+      "locality_effdim": 3.17
+    },
+    {
+      "depth_m": 176.75,
+      "component": "Zr",
+      "drift": 0.21,
+      "locality_effdim": 3.36
+    },
+    {
+      "depth_m": 218.75,
+      "component": "Zr",
+      "drift": 0.246,
+      "locality_effdim": 3.44
+    },
+    {
+      "depth_m": 219.75,
+      "component": "Zr",
+      "drift": 0.255,
+      "locality_effdim": 3.32
+    },
+    {
+      "depth_m": 223.75,
+      "component": "Rb",
+      "drift": 0.225,
+      "locality_effdim": 3.65
+    },
+    {
+      "depth_m": 226.89,
+      "component": "Zr",
+      "drift": 0.38,
+      "locality_effdim": 3.49
+    },
+    {
+      "depth_m": 230.92,
+      "component": "Rb",
+      "drift": 0.314,
+      "locality_effdim": 3.12
+    },
+    {
+      "depth_m": 234.92,
+      "component": "Rb",
+      "drift": 0.442,
+      "locality_effdim": 3.24
+    },
+    {
+      "depth_m": 237.75,
+      "component": "Zr",
+      "drift": 0.32,
+      "locality_effdim": 3.65
+    }
+  ],
+  "mean_locality_effdim": 3.3,
+  "validation_vs_engine_aitchison_step_corr": 1.0,
+  "verdict": "each component self-reports vs its last value; the system localizes WHERE (the drift helmsman) and whether the drift is localized (eff-dim~1) or distributed (eff-dim>1); the self-report tracks the engine's own step -- consistent and deterministic."
+}

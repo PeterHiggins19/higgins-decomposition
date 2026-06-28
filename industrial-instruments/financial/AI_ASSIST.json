@@ -1,0 +1,20 @@
+{
+  "node": "industrial-instruments/financial",
+  "what": "Hs as a deterministic instrument on financial systems: reads how a financial composition (sector weights, asset-class mix, flows, holdings, or the mix of the institutions/observers that study the market) is moving, and returns the system's own vector map. Not statistics, not a forecast, not investment advice; complements existing analysis, never restates it.",
+  "read_first": ["FLASH_BRIEF.html", "AI_ASSISTANT_ONRAMP.md", "README.md", "THE_FINANCIAL_NAVIGATION_STUDY.md", "RESULTS.md", "DATA_AND_SOURCES.md"],
+  "onramp_and_training": "AI_ASSISTANT_ONRAMP.md -- the gate (only what the data reveals; no advice/forecast), compose-your-system, run, translate, bounds, plus a 5-minute user training and the AI-assistant protocol.",
+  "compose_your_system": "On request, build the user's operated system into a composition (rows=dates, cols=parts summing to one): book/portfolio weights, desk/strategy allocation, exposure by region/factor/rating, flows by category, or the higher-order committee/analyst conviction mix. Validate with ../../COMPOSITION_GAUGE.html; keep the user's private data local.",
+  "register": "Audience responds to power and confidence: lead with provable certainty + reproducibility (FLASH_BRIEF.html), then temper with the science declaration of bias/limits/bounds. Confidence in what is provable; silence on what is not.",
+  "run": "python3 run_financial.py [your_shares_over_time.csv]   (default: sp500_sectors.csv; numpy + stdlib; deterministic; same data -> same content_hash)",
+  "demo": {"file": "sp500_sectors.csv", "rows_dates": 252, "parts_D": 10, "content_hash": "5b2a32d60a32a78a32240058c58a6eed46eb8e7ffacf32ddec70406ae7227d7e"},
+  "reads": ["arrow of intent (momentum: where weight flows)", "helmsman (who steers)", "path efficiency + coherence (directed vs diffusive)", "effective dimensionality (independent directions)", "regime changes (where the system reorganised)", "plain-language diagnosis"],
+  "higher_order": "Study the studiers: read the composition OF the analysts/institutions/surveys that study and move the market, not the price. The mix of observers in motion has a direction. See DATA_AND_SOURCES.md Tier B.",
+  "constraints": [
+    "Descriptive and deterministic only: no probability, no model fit, no prediction.",
+    "NOT investment advice and not a buy/sell/hold recommendation. Meaning and decisions stay the user's. Hs is not a financial advisor.",
+    "Public, aggregate data only on the repo; no private/position-level data (carrier filter, data-is-the-star).",
+    "Honest tiers: the reading is Tier 1 (reproducible to the hash); interpretation/relevance is Tier 3 (the user's).",
+    "If the supplied series is not a composition, say so kindly and point to the gauge (../../COMPOSITION_GAUGE.html)."
+  ],
+  "engine": "../../Hs-Kinematics/ (hs_kinematics_engine.run); gate: ../../IS_Hs_RIGHT_FOR_YOU.md; map: ../../INDUCTION_MAP.md"
+}

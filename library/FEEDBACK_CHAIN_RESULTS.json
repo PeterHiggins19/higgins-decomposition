@@ -1,0 +1,66 @@
+{
+  "_meta": {
+    "tool": "feedback_chain.py",
+    "what": "the science<->data improvement loop: does it compound to the knowable, or drift? determinism+receipts decide.",
+    "knowable_floor_maxQ": 0.01,
+    "receipt_sha256": "5388bc746d33c015"
+  },
+  "anchored_receipted_chain": {
+    "final_error": 0.01,
+    "monotone_never_regresses": true,
+    "cycles_to_within_5pct_of_floor": 10,
+    "final_data_N": 977188,
+    "trajectory_error": [
+      0.1052,
+      0.0906,
+      0.0681,
+      0.0418,
+      0.0418,
+      0.0352,
+      0.0241,
+      0.0227,
+      0.0175,
+      0.0137,
+      0.0105,
+      0.0105,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01,
+      0.01
+    ]
+  },
+  "unanchored_drifting_chain": {
+    "final_error": 0.0168,
+    "monotone_never_regresses": false,
+    "regressions": 11,
+    "false_precision_breaches_below_floor": 4,
+    "trajectory_error": [
+      0.1545,
+      0.0073,
+      0.1,
+      0.0826,
+      0.0617,
+      0.0663,
+      0.014,
+      0.0556,
+      0.0005,
+      0.0036,
+      0.0059,
+      0.0723,
+      0.1034,
+      0.0153,
+      0.0234,
+      0.0535,
+      0.1326,
+      0.0508,
+      0.0889,
+      0.0168
+    ]
+  },
+  "verdict": "the receipted chain RATCHETS to the knowable limit and STAYS; the unanchored chain wanders, regresses, and even fakes precision below the floor -- determinism+receipts are what make the feedback chain MEAN and BE something",
+  "fence": "T2 model of the loop dynamics; the structural result is the point, the numbers are scenario numbers; the asymptote is the max-Q knowable floor."
+}

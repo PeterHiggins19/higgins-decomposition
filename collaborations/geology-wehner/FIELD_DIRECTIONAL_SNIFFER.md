@@ -20,8 +20,11 @@
 ## Audiences
 USGS; NASA / planetary science (the rover analog); mineral exploration; environmental / contamination mapping.
 
+## Now measured (the navigation math is no longer just a concept)
+The "which way to dig" reading has since been **built, measured, and stress-tested** — `../../industrial-instruments/the-sniffer/the_sniffer.py` (`520d894e0ef25a3c`). Guided by the compositional gradient read from a **tetrode of four samples** per station, a rover reaches the target in **14 stations vs ~120 for random hunting (8.4×)**, with the heading aligned 0.92 to the true bearing. Under stress (`the_sniffer_stress.py`, `d871430ef12fdcb2`) it holds at **100%** through heavy noise and **99%** through rough terrain on the tetrode alone; a strong decoy can capture a blind climber, but **a little exploration** escapes it, and an exploration *patrol* holds the worst combined push at **97%**. The honest boundary: a truly flat field has no heading to read. *The navigation/targeting layer is now a measured instrument; the field sensor + calibration + ground validation remain the work below.* See also the tetrode sampling standard (`../../huf-gov/doctrine/THE_TETRODE_STANDARD_for_sensitive_studies.md`).
+
 ## Honest framing
-Concept / feasibility, research-grade — not a deployed device. It needs: a real onsite composition feed (Raman / XRF), positioning, **field calibration**, proper **zero-treatment** for trace / below-detection values, and validation against known ground. Hs assists targeting; **the geologist decides** where to dig. Claim tier: candidate application of CNT to field remote-sensing.
+Concept / feasibility, research-grade — not a deployed device. It needs: a real onsite composition feed (Raman / XRF), positioning, **field calibration**, proper **zero-treatment** for trace / below-detection values, and validation against known ground. Hs assists targeting; **the geologist decides** where to dig. Claim tier: candidate application of CNT to field remote-sensing — **navigation layer now measured; the device is not deployed.**
 
 ## References
 - Dhankhar, D. & Wehner, M. (2023). *Feasibility of cell-phone camera Raman spectrometer for geological samples identification in field or mobile situations.* EGUsphere (preprint). https://egusphere.copernicus.org/preprints/2023/egusphere-2023-2146/

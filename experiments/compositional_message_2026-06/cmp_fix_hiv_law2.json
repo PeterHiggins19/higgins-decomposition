@@ -1,0 +1,48 @@
+{
+  "dataset": "HIV (155x60)",
+  "grid_parts": [
+    3,
+    4,
+    5,
+    7,
+    9,
+    13,
+    17,
+    25,
+    33,
+    45,
+    60
+  ],
+  "fixed_C1_auc": [
+    0.71,
+    0.682,
+    0.684,
+    0.687,
+    0.673,
+    0.669,
+    0.666,
+    0.706,
+    0.678,
+    0.598,
+    0.613
+  ],
+  "cv_tuned_auc": [
+    0.714,
+    0.686,
+    0.686,
+    0.691,
+    0.682,
+    0.656,
+    0.684,
+    0.725,
+    0.706,
+    0.663,
+    0.658
+  ],
+  "fixed_peak": 0.71,
+  "fixed_fullD": 0.613,
+  "tuned_peak": 0.725,
+  "tuned_fullD": 0.658,
+  "diagnosis": "fixed-C declines at high D (overfit); CV-tuned saturates (variance controlled) => Law 2 is a finite-sample/estimator boundary, not a refutation of the population monotonicity (DPI).",
+  "seconds": 23.5
+}

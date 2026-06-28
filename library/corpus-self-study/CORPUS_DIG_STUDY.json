@@ -1,0 +1,168 @@
+{
+  "_meta": {
+    "tool": "corpus_dig.py",
+    "n_md_files": 1991,
+    "what": "Hs-on-us: is 'dig deeper = more advanced' true?",
+    "receipt_sha256": "80e9f81cbc75aff6"
+  },
+  "corpus_as_composition": {
+    "shares": {
+      "advanced": 0.4761,
+      "receipt": 0.1039,
+      "formula": 0.3744,
+      "crossref": 0.0281,
+      "tier": 0.0174
+    },
+    "clr": {
+      "advanced": 1.58,
+      "receipt": 0.058,
+      "formula": 1.34,
+      "crossref": -1.25,
+      "tier": -1.729
+    },
+    "helmsman_dimension": "tier",
+    "effective_dimension": 3.087,
+    "reading": "the dimension the corpus is most made of (by |clr|) is the helmsman"
+  },
+  "TEST_A_backward_concepts": {
+    "advanced_density_archive": 15.464,
+    "advanced_density_current": 15.631,
+    "archive_minus_current": -0.167,
+    "corr_advanced_vs_dig_depth": 0.002,
+    "n_archive": 607,
+    "n_current": 1384,
+    "verdict": "NOT SUPPORTED",
+    "meaning": "if archive advanced-density >= current, the deep dig is at least as advanced -> 'built backwards' has support"
+  },
+  "TEST_B_forward_rigor": {
+    "corr_receipt_vs_recency": 0.083,
+    "corr_advanced_vs_recency": 0.143,
+    "n_dated": 677,
+    "meaning": "positive corr(receipt,recency) = rigor MATURED FORWARD in time, coexisting with backward-seeded concepts"
+  },
+  "top_advanced_files": [
+    {
+      "path": "Current-Repo/HUF/science/spectral/README.md",
+      "advanced": 121.212,
+      "archive": 0
+    },
+    {
+      "path": "_archive_2026-06-07/repo-update/science/spectral/README.md",
+      "advanced": 121.212,
+      "archive": 1
+    },
+    {
+      "path": "Current-Repo/Hs/docs/Hs_Projection_Generation_Transcription.md",
+      "advanced": 104.111,
+      "archive": 0
+    },
+    {
+      "path": "Current-Repo/Hs-Lab/components/tensor-bridge/README.md",
+      "advanced": 92.896,
+      "archive": 0
+    },
+    {
+      "path": "_archive_2026-06-07/HUF-Project/science/spectral/README.md",
+      "advanced": 88.235,
+      "archive": 1
+    },
+    {
+      "path": "Current-Repo/HUF/science/coda-monitoring/README.md",
+      "advanced": 75.269,
+      "archive": 0
+    },
+    {
+      "path": "_archive_2026-06-07/repo-update/science/coda-monitoring/README.md",
+      "advanced": 75.269,
+      "archive": 1
+    },
+    {
+      "path": "Current-Repo/Hs/papers/locked-discriminant/THE_LOCKED_DISCRIMINANT_PRINCIPLE.md",
+      "advanced": 74.408,
+      "archive": 0
+    },
+    {
+      "path": "_archive_2026-06-07/HUF-Project/science/wetlands/README.md",
+      "advanced": 71.429,
+      "archive": 1
+    },
+    {
+      "path": "_archive_2026-06-07/HUF-Project/science/coda-monitoring/README.md",
+      "advanced": 65.574,
+      "archive": 1
+    },
+    {
+      "path": "_archive_2026-06-07/HUF-CNT-System/_archive_pre_consolidation/handbook/02_compositional_data_basics.md",
+      "advanced": 64.549,
+      "archive": 1
+    },
+    {
+      "path": "Current-Repo/HUF/science/wetlands/README.md",
+      "advanced": 64.516,
+      "archive": 0
+    }
+  ],
+  "advancement_by_top_dir": [
+    {
+      "dir": "FRONTIER_AUDIENCE_INTERNAL",
+      "mean_advanced": 22.927,
+      "n": 6
+    },
+    {
+      "dir": "arXiv",
+      "mean_advanced": 21.267,
+      "n": 20
+    },
+    {
+      "dir": "Collective Documents",
+      "mean_advanced": 18.78,
+      "n": 7
+    },
+    {
+      "dir": "Current-Repo",
+      "mean_advanced": 16.108,
+      "n": 1414
+    },
+    {
+      "dir": "_archive_2026-06-07",
+      "mean_advanced": 15.872,
+      "n": 399
+    },
+    {
+      "dir": "Personal-Contacts",
+      "mean_advanced": 14.843,
+      "n": 4
+    },
+    {
+      "dir": "_archive_2026-06-11",
+      "mean_advanced": 14.814,
+      "n": 45
+    },
+    {
+      "dir": ".",
+      "mean_advanced": 14.022,
+      "n": 20
+    },
+    {
+      "dir": "Pipeline-Projects",
+      "mean_advanced": 13.858,
+      "n": 12
+    },
+    {
+      "dir": "Studies",
+      "mean_advanced": 8.827,
+      "n": 2
+    },
+    {
+      "dir": "remote_data_in",
+      "mean_advanced": 1.43,
+      "n": 15
+    },
+    {
+      "dir": "node_modules",
+      "mean_advanced": 0.101,
+      "n": 30
+    }
+  ],
+  "fence": "'advanced' is a LEXICAL PROXY (designed word-list), NOT true intellectual advancement (T2); the correlations are measured on the proxies (T1). Archive-flag and dig_depth are path proxies. Dates are self-reported in text. Peter is the sole gate; nothing posted."
+}

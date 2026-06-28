@@ -1,0 +1,22 @@
+{
+  "experiment": "exact_native_dim4_example_generation",
+  "seed": 4,
+  "construction_1_D4_S3_SU2": {
+    "sandwich_vs_SO3_max_residual": 1.5543122344752192e-15,
+    "ilr_norm_preservation": 4.440892098500626e-16,
+    "trials": 2000
+  },
+  "construction_2_D8_Spin4_SO4": {
+    "orthogonality_max_residual": 8.881784197001252e-16,
+    "det_deviation_from_+1": 1.5543122344752192e-15,
+    "trials": 2000
+  },
+  "construction_3_reverse_tiling": [
+    {"D": 16,   "charts": 13,   "edges": 42,    "recon_residual": 1.3322676295501878e-15},
+    {"D": 64,   "charts": 61,   "edges": 186,   "recon_residual": 6.661338147750939e-14},
+    {"D": 256,  "charts": 253,  "edges": 762,   "recon_residual": 2.956523914576792e-13},
+    {"D": 1024, "charts": 1021, "edges": 3066,  "recon_residual": 5.919709167301335e-12},
+    {"D": 4096, "charts": 4093, "edges": 12282, "recon_residual": 2.9034552539997094e-11}
+  ],
+  "content_sha256": "f9fa4198d056b1c2a1dbb954157f6268326a3d4f4c0ebbe4dd4ef3de0202d0f8"
+}

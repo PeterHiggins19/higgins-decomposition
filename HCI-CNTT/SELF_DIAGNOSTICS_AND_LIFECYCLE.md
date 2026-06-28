@@ -37,7 +37,7 @@ classify_shock(channel_clrs_now, consensus_prev, resid_threshold) ->
 
 **Commands, stage‑by‑stage:** `halt(stage)` / `start(stage)` (and `halt_all`/`start_all`). The pipeline is state‑aware: before running a stage it checks the controller — a **HALTED** stage blocks itself **and everything downstream** (the run stops, `_halted_at` is recorded, no downstream work happens); a started stage returns to **READY** and the run completes. A stage that raises is marked **ERROR** and the run stops there. Every run reports a per‑stage `_stage_states` snapshot and an `_halted_at`/`_error_at` marker.
 
-**Who controls it.** The `StageController` has an `owner` field — **CN‑TT** drives it now (the Coherence Supervisor can halt a stage on incoherence and roll back); the **same interface** is exposed for an external controller (Matthew, NASA, USGS, or the operator) to drive later. No code change is needed to hand over control — only who issues the commands.
+**Who controls it.** The `StageController` has an `owner` field — **CN‑TT** drives it now (the Coherence Supervisor can halt a stage on incoherence and roll back); the **same interface** is exposed for an external controller (a domain collaborator, NASA, USGS, or the operator) to drive later. No code change is needed to hand over control — only who issues the commands.
 
 **Verified (demo):** normal run → all six stages cycle to READY; `halt("atlas")` → run halts at atlas (downstream `navigate` does not run; upstream `geometry` stays READY); `start("atlas")` → run completes, all READY. The change is backward‑compatible — with no controller the pipeline behaves exactly as before (modular self‑test stays green).
 

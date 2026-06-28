@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "tool": "diagnostic_constructive_duality.py",
+    "principle": "the math that finds the flaw IS the math that proves the conjecture: ONE invariance functional, low value = falsifier, =1.0 value = certificate",
+    "receipt_sha256": "b9b62de04d6d69e1"
+  },
+  "one_functional_two_roles": {
+    "D=2 (synthetic)": {
+      "SAME_functional_on_argmax_clr": 0.522,
+      "SAME_functional_on_ilr_balance": 1.0,
+      "reading": "argmax|clr| -> FLAW LOCATED (not invariant); ilr-balance -> PROOF CERTIFIED (invariant)"
+    },
+    "D=4 (geology)": {
+      "SAME_functional_on_argmax_clr": 1.0,
+      "SAME_functional_on_ilr_balance": 1.0,
+      "reading": "argmax|clr| -> FLAW LOCATED (not invariant); ilr-balance -> PROOF CERTIFIED (invariant)"
+    }
+  },
+  "statement": "A single computation (nuisance-group invariance) simultaneously LOCATES non-invariance (the flaw) and CERTIFIES invariance (the proof). The falsifier and the certificate are the same function read by its value; determinism makes the flaw LOCATED, hence constructive."
+}

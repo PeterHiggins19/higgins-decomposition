@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "tool": "max_power_hs.py",
+    "what": "the finest supportable component = min(statistical ceiling, compute ceiling); web density sets the grain; data-vs-compute sets which ceiling binds; max-power Hs sits at the meeting point.",
+    "fence": "DESIGN RELATION (T2); scaling forms standard, constants illustrative; the structural claim is the result, not the numbers.",
+    "receipt_sha256": "88d64e73b8cefb08"
+  },
+  "runs": [
+    {
+      "web_density_w": 4,
+      "D_stat": 125000.0,
+      "D_comp": 1250.0,
+      "D_max_supportable": 1250.0,
+      "binding_ceiling": "compute (need more POWER)",
+      "finest_component_share": 0.0008,
+      "scenario": "data-rich, compute-poor",
+      "inputs": {
+        "N": 1000000,
+        "C": 5000,
+        "w": 4
+      }
+    },
+    {
+      "web_density_w": 4,
+      "D_stat": 250.0,
+      "D_comp": 500000.0,
+      "D_max_supportable": 250.0,
+      "binding_ceiling": "statistical (need more DATA)",
+      "finest_component_share": 0.004,
+      "scenario": "compute-rich, data-poor",
+      "inputs": {
+        "N": 2000,
+        "C": 2000000,
+        "w": 4
+      }
+    },
+    {
+      "web_density_w": 4,
+      "D_stat": 5000.0,
+      "D_comp": 5000.0,
+      "D_max_supportable": 5000.0,
+      "binding_ceiling": "balanced (at the meeting point -- MAX POWER)",
+      "finest_component_share": 0.0002,
+      "scenario": "balanced (max-power)",
+      "inputs": {
+        "N": 40000,
+        "C": 20000,
+        "w": 4
+      }
+    },
+    {
+      "web_density_w": 20,
+      "D_stat": 1000.0,
+      "D_comp": 1000.0,
+      "D_max_supportable": 1000.0,
+      "binding_ceiling": "balanced (at the meeting point -- MAX POWER)",
+      "finest_component_share": 0.001,
+      "scenario": "dense web (w=20)",
+      "inputs": {
+        "N": 40000,
+        "C": 20000,
+        "w": 20
+      }
+    },
+    {
+      "web_density_w": 1,
+      "D_stat": 20000.0,
+      "D_comp": 20000.0,
+      "D_max_supportable": 20000.0,
+      "binding_ceiling": "balanced (at the meeting point -- MAX POWER)",
+      "finest_component_share": 5e-05,
+      "scenario": "sparse web (w=1)",
+      "inputs": {
+        "N": 40000,
+        "C": 20000,
+        "w": 1
+      }
+    }
+  ]
+}

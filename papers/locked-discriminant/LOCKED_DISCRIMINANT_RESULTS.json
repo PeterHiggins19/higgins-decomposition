@@ -1,0 +1,16 @@
+{
+  "_meta": {
+    "tool": "locked_discriminant.py",
+    "n_units": 219,
+    "D": 4,
+    "nuisance_draws": 4380,
+    "principle": "locked <=> invariant under the nuisance group (scalar common-mode + baseline offset) = factors through the maximal invariant (centred log-ratio contrast)",
+    "receipt_sha256": "9055c4a907c2286d"
+  },
+  "invariance_rate": {
+    "D_static_argmax_abs_clr": 0.612,
+    "D_uncentered_sign_proj": 0.828,
+    "D_diff_centred_contrast_LOCKED": 1.0
+  },
+  "verdict": "the centred-contrast (differential) discriminant is invariant under the full nuisance group (rate 1.0) -> LOCKED; the static and uncentered discriminants are not -> not locked. Invariance IS the lock."
+}

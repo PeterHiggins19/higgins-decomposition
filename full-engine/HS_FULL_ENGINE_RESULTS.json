@@ -1,0 +1,135 @@
+{
+  "engine": "hs_full_engine v5 (integration orchestrator)",
+  "runs": {
+    "ample_budget_with_coherence": {
+      "CORE_determinism_math": {
+        "D": 16,
+        "effective_dimension": 12.719,
+        "helmsman_part": 1,
+        "helmsman_clr": 1.111,
+        "core_receipt": "c8d6a24085b6d8f4"
+      },
+      "CH_INERT_noninvasive": {
+        "roundtrip_residual": 5.551e-17,
+        "non_invasive": true
+      },
+      "CH_PROBE_ceiling_down": {
+        "D_native": 16,
+        "D_stat": 50000.0,
+        "D_comp": 25000.0,
+        "D_max_supportable": 25000.0,
+        "binding": "compute(need POWER)",
+        "probed_to_L": 16,
+        "stopped_because": "reached native resolution",
+        "ladder": [
+          {
+            "grain_L": 2,
+            "eff_dim": 1.6987,
+            "helmsman_part": 1,
+            "helmsman_clr": -0.626,
+            "info_gain_vs_prev": null
+          },
+          {
+            "grain_L": 4,
+            "eff_dim": 3.2101,
+            "helmsman_part": 0,
+            "helmsman_clr": 0.9729,
+            "info_gain_vs_prev": 1.5114
+          },
+          {
+            "grain_L": 8,
+            "eff_dim": 6.3701,
+            "helmsman_part": 0,
+            "helmsman_clr": 1.1089,
+            "info_gain_vs_prev": 3.16
+          },
+          {
+            "grain_L": 16,
+            "eff_dim": 12.7402,
+            "helmsman_part": 1,
+            "helmsman_clr": 1.111,
+            "info_gain_vs_prev": 6.3701
+          }
+        ]
+      },
+      "CH_TRIAD_crossverify": {
+        "rho": {
+          "Q": 0.592385,
+          "DUT": 0.592115,
+          "Hs": 0.592385
+        },
+        "max_diff": 0.00027,
+        "verdict": "TRIAD-CON(certified)"
+      },
+      "CH_SUPPORT": {
+        "guards": {
+          "all_zero_carrier_guard": "pass",
+          "effective_rank": 14.661,
+          "coherence_gate": "pass"
+        },
+        "confidence_3n": "validation(27, locate the outlier)",
+        "staged_use_tier": "5-triad-certified(coherence across maths)"
+      },
+      "MASTER_RECEIPT": "b74dcb6204cc6e89"
+    },
+    "tight_budget_data_floor": {
+      "CORE_determinism_math": {
+        "D": 16,
+        "effective_dimension": 12.719,
+        "helmsman_part": 1,
+        "helmsman_clr": 1.111,
+        "core_receipt": "c8d6a24085b6d8f4"
+      },
+      "CH_INERT_noninvasive": {
+        "roundtrip_residual": 5.551e-17,
+        "non_invasive": true
+      },
+      "CH_PROBE_ceiling_down": {
+        "D_native": 16,
+        "D_stat": 8.0,
+        "D_comp": 5000.0,
+        "D_max_supportable": 8.0,
+        "binding": "statistical(need DATA)",
+        "probed_to_L": 8,
+        "stopped_because": "data floor",
+        "ladder": [
+          {
+            "grain_L": 2,
+            "eff_dim": 1.6987,
+            "helmsman_part": 1,
+            "helmsman_clr": -0.626,
+            "info_gain_vs_prev": null
+          },
+          {
+            "grain_L": 4,
+            "eff_dim": 3.2101,
+            "helmsman_part": 0,
+            "helmsman_clr": 0.9729,
+            "info_gain_vs_prev": 1.5114
+          },
+          {
+            "grain_L": 8,
+            "eff_dim": 6.3701,
+            "helmsman_part": 0,
+            "helmsman_clr": 1.1089,
+            "info_gain_vs_prev": 3.16
+          }
+        ]
+      },
+      "CH_TRIAD_crossverify": {
+        "status": "no coherence observable supplied -- channel idle"
+      },
+      "CH_SUPPORT": {
+        "guards": {
+          "all_zero_carrier_guard": "pass",
+          "effective_rank": 14.661,
+          "coherence_gate": "pass"
+        },
+        "confidence_3n": "opinion(3)",
+        "staged_use_tier": "4-verified(receipted, non-invasive)"
+      },
+      "MASTER_RECEIPT": "2ce764456e295d27"
+    }
+  },
+  "ENGINE_RECEIPT": "cebfe37a06831c9f"
+}

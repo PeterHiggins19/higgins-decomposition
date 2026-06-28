@@ -1,0 +1,15 @@
+{
+  "_provenance": {
+    "source": "Google Books Ngram Viewer (public)",
+    "corpus": "en-2019",
+    "smoothing": 3,
+    "years": "1900-2019 inclusive (120 points)",
+    "how_to_reproduce": "Re-pull the two public queries below (values are book-frequency shares per year). A fresh pull of corpus en-2019 returns identical floats, hence the same data fingerprint and the same receipt. Raw payloads stored verbatim in ngram_virtues_raw.json and ngram_order_chaos_raw.json.",
+    "query_virtues": "https://books.google.com/ngrams/json?content=responsibility,courage,honesty,humility,gratitude,discipline&year_start=1900&year_end=2019&corpus=en-2019&smoothing=3",
+    "query_order_chaos": "https://books.google.com/ngrams/json?content=order,chaos&year_start=1900&year_end=2019&corpus=en-2019&smoothing=3",
+    "retrieved": "2026-06-27"
+  },
+  "virtues": ["responsibility", "courage", "honesty", "humility", "gratitude", "discipline"],
+  "order_chaos": ["order", "chaos"],
+  "raw_files": ["ngram_virtues_raw.json", "ngram_order_chaos_raw.json"]
+}

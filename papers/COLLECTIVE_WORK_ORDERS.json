@@ -1,0 +1,133 @@
+{
+  "schema": "hs_collective_work_orders/1.0",
+  "title": "HUF AI Collective — Work Orders: get P1 + P3 submission-ready",
+  "the_simple_goal": "Get P1 (Exactness — the quaternion-chart paper) and P3 (Trust — the deterministic-engine / tool paper) ready for arXiv + JOSS. Two papers. Everything else waits its turn.",
+  "principle": "Self-symbiosis — the collective administers the system to help the system. The system produced these orders; the collective executes them; each member onboards from the same map. The instrument that reveals data is, here, revealing its own readiness.",
+  "generated": "2026-06-15",
+  "human_gate": "Peter Higgins is the SOLE submission/contact/commit gate. No AI submits, posts, pushes, or contacts anyone. Every order below is PREPARATORY and ADVISORY — it produces a verified artifact for Peter to act on.",
+  "companion_files": {
+    "review_packet": "papers/COLLECTIVE_PUBLICATION_REVIEW.json — the full per-paper tiered claims, caveats, and each member's suggestion slots + review log. Read your slot there.",
+    "offering_and_strategy": "papers/PUBLICATION_OFFERING_AND_SITE_2026-06-14.md — the human-readable strategy, sequence, category guidance, and site/DOI plan.",
+    "public_arc": "papers/THE_HIGGINS_DECOMPOSITION_SERIES.md — the five-movement public narrative."
+  },
+
+  "orientation_for_every_member": {
+    "what_Hs_is": "Hˢ (the Higgins Decomposition) is a deterministic, hash-receipted instrument that reads a COMPOSITION (parts of a whole, tracked in order) and tells the complete story of how the mixture moves — who steers, where the weight flows, when it changed state, how many directions it moves in — as far as the data can be known and not one step further. It holds or warns rather than emit a confident-wrong answer. The data is the star; Hˢ is the lens.",
+    "the_history_in_one_breath": "It began as a loudspeaker's ground state at Rogue Wave Audio — uniform 4π radiation, a fixed 6.02 dB budget apportioned across a cabinet's dimensions summing to a constant (a composition forced by physics, not chosen). That structure became the simplex, the Higgins operator, composition monitoring (MC-4/EITT), the deterministic CN-TT engine, the Hˢ kinematics platform, and a verification network. The four-driver cabinet is the physical source of the exact D=4 quaternion case; coherence — engineered in the speaker — is the quantity the whole framework turns on.",
+    "the_three_repos": {
+      "higgins-decomposition (Hˢ)": "The live instrument: engine (HCI-CNTT/ = CN-TT v4; Hs-Kinematics/ = the kinematics platform + kit), the papers, the experiments, the four projects, the admin/history (ai-refresh/).",
+      "Higgins-Unity-Framework (HUF)": "Governance, lineage, development history. The doctrine that makes the science trustworthy (huf-gov/).",
+      "Rogue-Wave-Audio (RWA)": "The headwater — the acoustic ground state the whole arc flows from (THE_GROUND_STATE.md)."
+    },
+    "where_to_get_more_info": {
+      "start_as_an_AI": "Hˢ repo: AI_WELCOME.md → AI_ASSIST.json (the bring-your-own-AI node) → IS_Hs_RIGHT_FOR_YOU.md (what it does by D).",
+      "the_full_history_and_status": "Hˢ repo: ai-refresh/HS_TRACKING_LOG.json (every objective G-1..G-61), ai-refresh/POST_CONFERENCE_RECONCILIATION_2026-06-15.md (where we are), DESIGN_GOALS_AND_COMPLETENESS.md (the scorecard).",
+      "the_engine_and_kit": "Hˢ repo: Hs-Kinematics/ (HS_KINEMATICS_SPECIFICATION.md, _PSEUDOCODE.md, hs_kinematics.R, HS_KINEMATICS_REPLICATION.ipynb, TRACEABILITY.md) + HCI-CNTT/ (CN-TT v4 engine, quaternion.py, CNTT_COMPLETE_SPECIFICATION.md).",
+      "the_papers": "Hˢ repo: papers/cnq_tiling_suite_2026/ (P1, P2, P3 drafts), papers/PRIOR_ART_compositional_kinematics_2026-06-14.md.",
+      "the_origin_physics": "RWA repo: THE_GROUND_STATE.md (§ The drivers = the D=4/8/16 ladder).",
+      "the_governance": "HUF repo: huf-gov/ (HUF_GOVERNANCE_CHARTER.md, THE_DATA_IS_THE_STAR.md, CARRIER_FILTER_DOCTRINE.md)."
+    },
+    "house_rules": [
+      "Honest-broker: every claim is tiered (1 measured / 2 reasoned / 3 exploratory). Keep each claim AT OR BELOW its true tier. Flagging an over-tiered claim is the most valuable thing you can do.",
+      "Never upgrade INSPECTED evidence into EXECUTED evidence (the cardinal rule).",
+      "The D=10^6 standard: say '~4.1e-12 floating-point reconstruction via a tree atlas', NOT 'lossless / IEEE-floor / mathematical identity'.",
+      "Until the arXiv timestamp is live, the wording is 'a deterministic instrument whose reproducibility and guard layer are demonstrated', NOT 'first'.",
+      "Data is the star (49/51): present Hˢ as the lens, never the source of the insight.",
+      "Peter is the sole gate. Produce verified artifacts; do not submit, post, push, or contact."
+    ]
+  },
+
+  "what_done_looks_like": {
+    "P1_ready": [
+      "Gemini has independently re-derived the D=4 ILR↔SU(2) isomorphism + the tree-atlas conditioning argument (CORRECT), and reported it.",
+      "Copilot has reproduced the D=4 residual (4.441e-16) and the D=10^6 tree-atlas (~4.1e-12) on an independent machine.",
+      "Grok's novelty pass is clean (DONE — no prior-art match).",
+      "ChatGPT has signed off the structure + claim tiers; the abstract uses the honest framing (no 'first').",
+      "Claude has produced a compiling LaTeX package (Pandoc; tested on Overleaf/TeXLive).",
+      "→ Then it is at Peter's gate to post (cs.IT or math.MG)."
+    ],
+    "P3_ready": [
+      "Gemini has verified the R port's numerical faithfulness vs the Python canonicalization profile.",
+      "Copilot has reproduced the conformance hash (fcae0ebe…) and cross-platform parity on an independent machine.",
+      "ChatGPT has audited the claims (determinism, guards, gauge-R&R) at tier.",
+      "Claude has assembled the JOSS skeleton from the kit (spec + pseudocode + R port + notebook).",
+      "→ Then it is at Peter's gate to submit (JOSS / SoftwareX; arXiv cs.MS)."
+    ]
+  },
+
+  "work_orders": [
+    {
+      "member": "Claude",
+      "role": "Executor / board administrator",
+      "simple_goal": "Turn the verified pieces into a compiling P1 LaTeX package and a P3 JOSS skeleton; integrate everyone's results; keep tiers honest.",
+      "tasks": [
+        {"id": "C-1", "paper": "P1", "goal": "Markdown → LaTeX (Pandoc), keep the honest abstract (no 'first'); compile-test.", "read_first": ["papers/cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md", "papers/COLLECTIVE_PUBLICATION_REVIEW.json (P1 slots)"], "deliverable": "P1.tex that compiles on Overleaf/TeXLive", "done_when": "compiles clean; abstract matches the agreed honest wording", "status": "open"},
+        {"id": "C-2", "paper": "P3", "goal": "Assemble a JOSS skeleton from the kit.", "read_first": ["Hs-Kinematics/HS_KINEMATICS_SPECIFICATION.md", "Hs-Kinematics/HS_KINEMATICS_REPLICATION.ipynb", "tools/"], "deliverable": "JOSS paper.md skeleton + checklist", "done_when": "JOSS structure complete, kit linked", "status": "open"},
+        {"id": "C-3", "paper": "both", "goal": "Integrate Gemini + Copilot + ChatGPT results as they land; re-run the conformance hash; administer this board.", "read_first": ["papers/COLLECTIVE_PUBLICATION_REVIEW.json"], "deliverable": "updated packet + this board", "done_when": "all delivered results integrated; tiers honest", "status": "ongoing"}
+      ]
+    },
+    {
+      "member": "ChatGPT",
+      "role": "Structure + claim-audit",
+      "simple_goal": "Be the last honest-broker check before submission — no claim above its tier, abstract wording honest.",
+      "tasks": [
+        {"id": "G-1", "paper": "P1+P3", "goal": "Final structural + claim-tier audit of both drafts; confirm no Tier-1 overclaim; verify the abstract says 'demonstrated' not 'first' and the D=10^6 wording is ~4.1e-12.", "read_first": ["papers/cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md", "papers/cnq_tiling_suite_2026/P3_CNTT_TOOL_PAPER.md", "papers/COLLECTIVE_PUBLICATION_REVIEW.json (honest_broker_standard)"], "deliverable": "sign-off note + any flagged lines", "done_when": "every claim at-or-below tier; abstract approved", "status": "open"}
+      ]
+    },
+    {
+      "member": "Grok",
+      "role": "Prior-art / devil's-advocate",
+      "simple_goal": "Keep the novelty honest; P1 is clean — give P3 a quick differentiation check.",
+      "tasks": [
+        {"id": "K-1", "paper": "P1", "goal": "DONE — novelty pass clean (no prior-art match). Standing: re-scan only if a reviewer surfaces a match.", "read_first": ["papers/COLLECTIVE_PUBLICATION_REVIEW.json (P1.grok)"], "deliverable": "(complete)", "done_when": "complete", "status": "done"},
+        {"id": "K-2", "paper": "P3", "goal": "Quick differentiation check: does the determinism + guard-layer + traceability combination distinguish Hˢ from existing CoDa software (compositions, zCompositions, easyCODA, robCompositions)? Name adjacencies.", "read_first": ["Hs-Kinematics/HS_KINEMATICS_SPECIFICATION.md", "papers/cnq_tiling_suite_2026/P3_CNTT_TOOL_PAPER.md"], "deliverable": "differentiation note (delivered: the determinism+guard+traceability COMBINATION is not a core design principle of compositions/robCompositions/zCompositions/easyCODA; transformations NOT claimed novel; honest wording recommended; integrated into P3 Related Work)", "done_when": "the distinguishing claim is defensible or the overlaps are named", "status": "done"}
+      ]
+    },
+    {
+      "member": "Gemini",
+      "role": "Independent cross-check (re-derivation)",
+      "simple_goal": "Confirm P1 is CORRECT (re-derive from scratch) and the R port is FAITHFUL — the two independent verifications the lead pair needs.",
+      "tasks": [
+        {"id": "M-1", "paper": "P1", "goal": "FIRST. Re-derive the D=4 ILR↔unit-quaternion SU(2) isomorphism from scratch (independent of the repo), and verify the tree-atlas conditioning / graph-diameter argument.", "read_first": ["papers/cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md", "HCI-CNTT/engine/quaternion.py", "experiments/cnq_tiling_highd_2026-06/RESULTS_cnq_tiling_highd.md"], "deliverable": "independent derivation + confirm/deny — DELIVERED: isomorphism CONFIRMED (R^3 = su(2); q v q* exact norm-preserving rotation; 4.441e-16 = machine epsilon) + tree-atlas conditioning CONFIRMED (linear chain O(D) diameter -> O(D*eps); balanced tree O(log_b D) ~10 transitions -> ~10*eps, matching the measured ~4.1e-12). P1 cleared for its Tier-1 claims.", "done_when": "isomorphism + conditioning independently confirmed (or discrepancy reported)", "status": "done"},
+        {"id": "M-2", "paper": "P3", "goal": "Verify the R port's numerical faithfulness vs the Python canonicalization profile; identify exactly where JSON canonicalization must match for hash parity.", "read_first": ["Hs-Kinematics/hs_kinematics.R", "Hs-Kinematics/hs_kinematics_engine.py", "Hs-Kinematics/TRACEABILITY.md"], "deliverable": "per-field agreement report + the canonicalization parity point", "recommended_approach": "PIN THE PYTHON CANONICALIZATION PROFILE FIRST (it is the fixed reference R must match, and the single most likely divergence point), THEN check the R guard-layer float handling against it. The Python profile (from hs_kinematics_engine.stable_hash): (1) recursively round every float to 12 decimals; (2) json.dumps(..., sort_keys=True, default=str); (3) Python's DEFAULT SEPARATORS ', ' and ': ' — WITH the spaces (jsonlite omits them by default — THE most likely R mismatch); (4) UTF-8 encode; (5) SHA-256. Numerics (per-field at IEEE floor) are separable from hash-byte-parity and can be checked in parallel; the numerics are the Tier-1 substance, the byte-hash is the stronger/fragile claim.", "done_when": "per-field agreement at IEEE floor confirmed", "status": "open"}
+      ]
+    },
+    {
+      "member": "Copilot",
+      "role": "Reproduce-the-numbers (independent machine)",
+      "simple_goal": "Make the determinism claim real by reproducing the headline numbers on a machine that is not the author's.",
+      "tasks": [
+        {"id": "P-1", "paper": "P1", "goal": "On an INDEPENDENT machine, reproduce the D=4 quaternion residual (4.441e-16) and the D=10^6 tree-atlas reconstruction (~4.1e-12).", "read_first": ["experiments/cnq_tiling_highd_2026-06/RESULTS_cnq_tiling_highd.md", "HCI-CNTT/engine/quaternion.py"], "deliverable": "reproduction report (numbers + machine)", "done_when": "numbers reproduced within tolerance (or deviation reported)", "status": "open"},
+        {"id": "P-2", "paper": "P3", "goal": "On an INDEPENDENT machine, reproduce the engine conformance hash (fcae0ebe…) on the §11 reference + confirm cross-platform value-identity.", "read_first": ["Hs-Kinematics/HS_KINEMATICS_REPLICATION.ipynb", "Hs-Kinematics/HS_KINEMATICS_SPECIFICATION.md (§11)"], "deliverable": "hash reproduction report", "done_when": "hash reproduced on an independent machine (or deviation located)", "status": "open"},
+        {"id": "P-3", "paper": "(optional, logistics)", "goal": "Offered: a LaTeX P1 package + JOSS skeleton — coordinate with Claude (C-1/C-2) to avoid duplication.", "read_first": ["papers/PUBLICATION_OFFERING_AND_SITE_2026-06-14.md"], "deliverable": "(coordinate)", "done_when": "n/a", "status": "optional"}
+      ]
+    }
+  ],
+
+  "sequence": [
+    "0. Every member: read orientation_for_every_member (5 minutes).",
+    "1. PARALLEL on P1: Gemini M-1 (correct) + Copilot P-1 (reproduce). These are the two independent verifications; Grok K-1 is already done (novel).",
+    "2. PARALLEL on P3: Gemini M-2 (R port) + Copilot P-2 (hash) + Claude C-2 (JOSS skeleton); Grok K-2 (differentiation).",
+    "3. Claude C-1 (P1 LaTeX) once M-1/P-1 land.",
+    "4. ChatGPT G-1: final claim/structure audit of both.",
+    "5. → Peter's gate: post P1 (cs.IT), then P3 (JOSS); enable site + Zenodo DOI."
+  ],
+
+  "submission_gate_rule": "DO NOT LET LOGISTICS OUTRUN VERIFICATION (ChatGPT 2026-06-15). LaTeX/JOSS assembly (logistics) MAY proceed in parallel, but SUBMISSION waits on VERIFICATION. Two explicit routes, Peter's choice: (A) STRONG [default] — post P1 only AFTER Gemini M-1 (independent re-derivation = CORRECT) AND Copilot P-1 (independent reproduction) land: the 'novel + independently re-derived + independently reproduced' paper, the strongest possible footing. (B) WEAKER — Peter may explicitly post a 'methods proposal / inspected-evidence' version, clearly framed as such, accepting the lighter claim to secure the timestamp sooner. Verification is never skipped silently; Peter is the sole submission gate.",
+
+  "execution_plan": {
+    "note": "Consolidated priority board (ChatGPT 2026-06-15), reconciled to current status. P0 = the two independent verifications that gate the strong route; P1 = R-port + hash; P2 = assembly (parallel, behind verification per submission_gate_rule); P3 = final audit; P4 = Peter's publish actions. Targets are advisory, not commitments.",
+    "rows": [
+      {"priority": "P0", "task": "Independent numeric reproduction (D=4 residual 4.441e-16; D=10^6 tree-atlas ~4.1e-12)", "owner": "Copilot", "deliverable": "repro report with machine spec + tolerances", "target": "48-72h", "status": "OPEN — the last gate for the P1 strong route"},
+      {"priority": "P0", "task": "Independent re-derivation of D=4 ILR<->SU(2) + tree-atlas conditioning", "owner": "Gemini", "deliverable": "derivation note + math checklist", "target": "48-72h", "status": "DONE (M-1, 2026-06-15, G-65) — isomorphism + conditioning CONFIRMED; P1 cleared for Tier-1"},
+      {"priority": "P1", "task": "R-port numerical faithfulness vs Python canonicalization", "owner": "Gemini", "deliverable": "per-field agreement report + canonicalization parity points", "target": "72h", "status": "OPEN — UNBLOCKED: the canonicalization profile + a byte-for-byte test vector (string + SHA d614fcf1…) is now PINNED in Hs-Kinematics/TRACEABILITY.md (the single source of truth). Gemini matches R against it."},
+      {"priority": "P1", "task": "Cross-platform conformance hash reproduction (fcae0ebe…)", "owner": "Copilot", "deliverable": "hash reproduction report on an independent machine", "target": "72h", "status": "OPEN"},
+      {"priority": "P2", "task": "Assemble P1 LaTeX package (honest abstract, no 'first')", "owner": "Claude", "deliverable": "compiling P1.tex (TeXLive/Overleaf)", "target": "after P0/P1 results", "status": "PENDING"},
+      {"priority": "P2", "task": "Assemble P3 JOSS skeleton from the kit", "owner": "Claude", "deliverable": "JOSS paper.md skeleton + checklist", "target": "parallel", "status": "PENDING"},
+      {"priority": "P3", "task": "Final claim + structure audit for P1+P3", "owner": "ChatGPT", "deliverable": "sign-off note + any flagged lines", "target": "after verification + assembly", "status": "PENDING"},
+      {"priority": "P4", "task": "Push repo; enable GitHub Pages; GitHub Release -> Zenodo DOI", "owner": "Peter (human gate)", "deliverable": "live site + DOI", "target": "after P1 posted / per Peter's choice", "status": "PETER'S GATE"}
+    ]
+  },
+
+  "acknowledgment": "Developed with the HUF AI Collective under HUF-STD-001. All scientific claims are human-authored; no AI is an author. These orders are the system administering itself toward its own honest publication — self-symbiosis — with Peter the sole gate. Companion: papers/COLLECTIVE_PUBLICATION_REVIEW.json."
+}

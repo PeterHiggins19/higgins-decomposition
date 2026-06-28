@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Composition Gauge — do you have a composition?</title>
+<style>
+  :root{
+    --bg:#0f1216; --card:#171c22; --ink:#e7edf3; --mut:#9aa7b4; --line:#2a323b;
+    --go:#3fb37f; --no:#d98a8a; --re:#e0b25a; --acc:#6ea8fe;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 60px}
+  h1{font-size:1.5rem;margin:.2em 0 .1em}
+  .sub{color:var(--mut);margin:0 0 18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;margin:14px 0}
+  .q{font-weight:600;font-size:1.12rem;margin:0 0 14px}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  button{font:inherit;color:var(--ink);background:#202832;border:1px solid var(--line);border-radius:10px;padding:12px 14px;text-align:left;cursor:pointer;transition:.12s}
+  button:hover{border-color:var(--acc);background:#26303c}
+  button.primary{background:#243140;border-color:var(--acc)}
+  .nums{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+  .nums input{width:92px;background:#202832;border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:9px;font:inherit}
+  .trail{margin:16px 0 0;padding:0;list-style:none;font-size:.92rem;color:var(--mut)}
+  .trail li{padding:6px 0;border-top:1px dashed var(--line)}
+  .trail li b{color:var(--ink)}
+  .verdict{border-radius:14px;padding:22px;margin:14px 0;border:1px solid}
+  .v-go{border-color:var(--go);background:rgba(63,179,127,.10)}
+  .v-no{border-color:var(--no);background:rgba(217,138,138,.10)}
+  .v-re{border-color:var(--re);background:rgba(224,178,90,.10)}
+  .verdict h2{margin:.1em 0 .3em;font-size:1.25rem}
+  .tag{display:inline-block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid currentColor}
+  .go{color:var(--go)} .no{color:var(--no)} .re{color:var(--re)}
+  code{background:#0c0f13;border:1px solid var(--line);border-radius:6px;padding:1px 6px}
+  a{color:var(--acc)}
+  .ex{font-size:.94rem;color:var(--mut);border-top:1px solid var(--line);margin-top:22px;padding-top:14px}
+  .ex b{color:var(--ink)}
+  .reset{margin-top:12px;background:transparent;border:none;color:var(--acc);cursor:pointer;padding:6px 0}
+  .norm{font-size:.9rem;color:var(--mut);margin:4px 0 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>The Composition Gauge</h1>
+  <p class="sub">A go / no-go gauge for the front door of Hˢ. A few questions, a few numbers — and the logic, step by step, for why you do or don't have a composition. Deterministic; offline; nothing is sent anywhere.</p>
+  <div id="stage"></div>
+  <ul class="trail" id="trail"></ul>
+  <button class="reset" onclick="reset()" id="resetBtn" style="display:none">↺ Start over</button>
+
+  <div class="ex">
+    <p><b>A worked rejection — baking bread.</b> "How my loaf turns out" is a chaotic process outcome, not data of parts — the rise and crumb depend on temperature, humidity, fermentation, technique. That fails the gauge (NO-GO). But the <i>recipe</i> — flour : water : yeast : salt as fractions of the dough — <i>is</i> a composition (GO), and a run of recipes across batches is a composition in motion. Same kitchen, two answers; the gauge tells which one you brought.</p>
+    <p><b>The higher door — study the studiers.</b> A single market price isn't a composition. But the allocation across sectors is — and so is the <i>composition of forecasts across the analysts who study the market</i>. Don't study the thing; study the composition of those who study it, and read where the system says it's heading. That is how a chaotic field yields a direction: a composition of samples, methods, or observers, in motion.</p>
+  </div>
+</div>
+
+<script>
+const trail=[];
+const $=id=>document.getElementById(id);
+function logStep(t){trail.push(t);render();}
+function render(){
+  const ul=$('trail'); ul.innerHTML='';
+  trail.forEach(t=>{const li=document.createElement('li');li.innerHTML=t;ul.appendChild(li);});
+  $('resetBtn').style.display = trail.length?'block':'none';
+}
+function ask(question, options){
+  const s=$('stage'); s.innerHTML='';
+  const card=document.createElement('div'); card.className='card';
+  const q=document.createElement('div'); q.className='q'; q.textContent=question; card.appendChild(q);
+  const wrap=document.createElement('div'); wrap.className='opts';
+  options.forEach(o=>{const b=document.createElement('button'); b.textContent=o.label; if(o.primary)b.className='primary'; b.onclick=o.go; wrap.appendChild(b);});
+  card.appendChild(wrap); s.appendChild(card);
+}
+function numbers(){
+  const s=$('stage'); s.innerHTML='';
+  const card=document.createElement('div'); card.className='card';
+  card.innerHTML='<div class="q">Enter 3–6 of your parts at one moment in time (just the raw values).</div>';
+  const row=document.createElement('div'); row.className='nums';
+  const ins=[];
+  for(let i=0;i<6;i++){const inp=document.createElement('input');inp.type='number';inp.step='any';inp.placeholder='part '+(i+1);row.appendChild(inp);ins.push(inp);}
+  card.appendChild(row);
+  const norm=document.createElement('p'); norm.className='norm'; card.appendChild(norm);
+  const b=document.createElement('button'); b.className='primary'; b.textContent='Check these numbers';
+  b.onclick=()=>{
+    const vals=ins.map(x=>x.value.trim()).filter(x=>x!=='').map(Number).filter(x=>!Number.isNaN(x));
+    if(vals.length<2){norm.textContent='Enter at least two values.';return;}
+    const anyNeg=vals.some(v=>v<0), sum=vals.reduce((a,b)=>a+b,0);
+    if(anyNeg){
+      logStep('<b>Sign check — fails.</b> A part went below zero. Compositions are non-negative parts of a whole; a signed quantity (returns, temperature, velocity) is not a part. → consider the higher door.');
+      verdict('re'); return;
+    }
+    if(sum<=0){norm.textContent='The parts sum to zero or less — not a budget. Check your values.';return;}
+    const frac=vals.map(v=>(v/sum));
+    norm.innerHTML='These are non-negative and sum to a real total ('+sum.toPrecision(4)+'). As shares they close to: '+frac.map(f=>f.toFixed(3)).join(' · ')+' — summing to 1.000. <b>That is the shape of a composition.</b>';
+    logStep('<b>Number check — passes.</b> Parts non-negative, sum to a real budget ('+sum.toPrecision(4)+'); they close cleanly to shares summing to 1.');
+    setTimeout(qRelative,50);
+  };
+  card.appendChild(b); s.appendChild(card);
+}
+// ---- flow ----
+function start(){
+  trail.length=0; render();
+  ask('What are you bringing to the gauge?',[
+    {label:'A table of variables measured together (shares, amounts, counts of categories).',primary:true,go:()=>{logStep('<b>Input:</b> a table of variables measured together.');qWhole();}},
+    {label:'A single outcome of a process — how the bread turns out, whether a trade wins, a yes/no result.',go:()=>{logStep('<b>Input:</b> a process outcome, not parts. An outcome is not itself compositional data.');qHaveInputs();}}
+  ]);
+}
+function qHaveInputs(){
+  ask('Do you instead have the inputs you allocate — recipe fractions, budget shares, a mix you set?',[
+    {label:'Yes — I have the allocation / mix.',primary:true,go:()=>{logStep('<b>Recovered:</b> the allocation behind the process is parts of a whole — that can be a composition.');qWhole();}},
+    {label:'No — only the outcome.',go:()=>{logStep('<b>No parts available.</b> Only a chaotic outcome, with nothing allocated that sums to a whole.');verdict('no');}}
+  ]);
+}
+function qWhole(){
+  ask('Are your variables parts of ONE shared whole — shares of a common total, the same kind of thing divided up?',[
+    {label:'Yes — they are pieces of one total.',primary:true,go:()=>{logStep('<b>Whole check — passes.</b> The variables are parts of one shared whole.');qSign();}},
+    {label:'No — they are unrelated quantities, different kinds, different units.',go:()=>{logStep('<b>Whole check — fails.</b> Unrelated quantities are not a composition. But a composition may exist one level up.');qHigher();}}
+  ]);
+}
+function qSign(){
+  ask('Can any part go below zero — like temperature, a return, a velocity, a net change?',[
+    {label:'No — every part is zero or positive (an amount, a count, a share).',primary:true,go:()=>{logStep('<b>Sign check — passes.</b> All parts are non-negative.');numbers();}},
+    {label:'Yes — at least one part can be negative.',go:()=>{logStep('<b>Sign check — fails.</b> Signed quantities are not parts of a whole. Consider the higher door.');qHigher();}}
+  ]);
+}
+function qRelative(){
+  ask('Is it the PROPORTIONS that carry the meaning — would multiplying every part by the same factor leave the essential meaning unchanged?',[
+    {label:'Yes — only the relative shares matter.',primary:true,go:()=>{logStep('<b>Relative check — passes.</b> Meaning lives in the proportions: a pure composition.');verdict('go',false);}},
+    {label:'The total magnitude matters too (TWh, dollars, IOPS), alongside the mix.',go:()=>{logStep('<b>Relative + size.</b> Both the mix and the budget carry meaning — Hˢ reads the shape AND tracks the moving budget.');verdict('go',true);}}
+  ]);
+}
+function qHigher(){
+  ask('Could you study proportions one level UP — the mix among related samples, methods, or the people/systems that study your subject?',[
+    {label:'Yes — there is a higher-order mix to study.',primary:true,go:()=>{logStep('<b>Higher door — open.</b> A composition of samples / methods / observers can be formed and read for direction.');verdict('re');}},
+    {label:'No — nothing compositional, at any level.',go:()=>{logStep('<b>Higher door — closed.</b> No parts of a whole at any level.');verdict('no');}}
+  ]);
+}
+function verdict(kind, withBudget){
+  const s=$('stage'); s.innerHTML='';
+  const v=document.createElement('div');
+  if(kind==='go'){
+    v.className='verdict v-go';
+    v.innerHTML='<span class="tag go">Go</span><h2>You have a composition.</h2>'+
+      '<p>Parts of a whole, non-negative, with the proportions carrying the meaning. This is exactly what Hˢ is built for'+
+      (withBudget?' — and the <b>moving budget</b> will track the size of the whole alongside the shifting mix.':'.')+'</p>'+
+      '<p>→ Continue at <code>IS_Hs_RIGHT_FOR_YOU.md</code> (what it does at your D), then Stage 2 of <code>INDUCTION_MAP.md</code> (run your data).</p>';
+  }else if(kind==='no'){
+    v.className='verdict v-no';
+    v.innerHTML='<span class="tag no">No-go</span><h2>This isn\'t your tool — with respect.</h2>'+
+      '<p>What you have isn\'t a composition of parts within a shared budget, at any level we could find. Hˢ would rather say so plainly than waste your time. Other methods are better suited — and we hope they serve you well.</p>'+
+      '<p>If you later strip your problem down to a set of shares of a whole, the door is here and open. Sorry — compositions only.</p>';
+  }else{
+    v.className='verdict v-re';
+    v.innerHTML='<span class="tag re">Higher door</span><h2>Not your raw data — but maybe one level up.</h2>'+
+      '<p>Your raw numbers aren\'t a composition. But a composition may exist <i>above</i> them: the mix among <b>samples</b>, among <b>methods</b>, or among the <b>observers/systems that study your subject</b>. Form that mix, track it in order, and Hˢ reads whether it has a direction.</p>'+
+      '<p>This is how a chaotic field yields a heading: don\'t study the thing — study the composition of those who study it, and see where the system says it\'s going. If you can build that higher-order mix, re-run this gauge on <i>it</i>.</p>';
+  }
+  s.appendChild(v);
+  const note=document.createElement('p'); note.className='norm'; note.textContent='The reasoning trail below is the gauge’s working — every step, with its reason.'; s.appendChild(note);
+}
+function reset(){start();}
+start();
+</script>
+</body>
+</html>

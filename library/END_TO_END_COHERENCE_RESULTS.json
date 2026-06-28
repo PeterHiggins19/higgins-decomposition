@@ -1,0 +1,51 @@
+{
+  "_meta": {
+    "tool": "end_to_end_coherence.py",
+    "what": "one stream skin->read->discriminant-lock->store->buffer, run on two real projects; compositional + deterministic end-to-end",
+    "receipt_sha256": "7f015532f01e3653"
+  },
+  "geo_project": {
+    "project": "GEO Frielingen-9 (terrestrial gather)",
+    "n_units": 219,
+    "D": 4,
+    "compositional_form_held_every_stage": true,
+    "discriminant_locked": {
+      "fixed_rule": "differential helmsman argmax|clr-baseline|",
+      "deterministic_reproducible": true,
+      "stable_regime_partition": {
+        "0": 10,
+        "1": 51,
+        "2": 39,
+        "3": 119
+      },
+      "n_regimes_populated": 4
+    },
+    "determinism_end_to_end": {
+      "chained_receipt": "d52624d74a457334",
+      "reproduces_on_rerun": true,
+      "tamper_changes_receipt": true
+    }
+  },
+  "remote_sensor_array": {
+    "project": "ARRAY Backblaze fleet (remote sensor array)",
+    "n_units": 108,
+    "D": 3,
+    "compositional_form_held_every_stage": true,
+    "discriminant_locked": {
+      "fixed_rule": "differential helmsman argmax|clr-baseline|",
+      "deterministic_reproducible": true,
+      "stable_regime_partition": {
+        "0": 87,
+        "1": 12,
+        "2": 9
+      },
+      "n_regimes_populated": 3
+    },
+    "determinism_end_to_end": {
+      "chained_receipt": "f98cb510d12d358c",
+      "reproduces_on_rerun": true,
+      "tamper_changes_receipt": true
+    }
+  },
+  "verdict": "COHERENT end-to-end -- on both real projects the data stays compositional at every stage, the discriminant is a fixed deterministic decision (locked) giving a stable well-populated regime partition, and one chained receipt makes the whole pipeline reproducible and tamper-evident."
+}

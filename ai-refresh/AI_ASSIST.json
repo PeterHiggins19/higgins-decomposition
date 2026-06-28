@@ -9,7 +9,8 @@
     "key_files": ["AI_RAPID_LEARN.md", "AI_ASSIST_PATH_PROTOCOL.md", "HS_TRACKING_LOG.json", "UNIFIED_AGENDA_2026-06-10.md", "JOURNALING_PROTOCOL.md", "CNTT_V4_ENGINE_DESIGN.md", "ENGINE_INTEROP_REGISTRY.md", "PUSH_READY_2026-06-11.md", "DOUBLE_VERIFY_AND_RECOVERY_PROTOCOL.md", "VERIFICATION_PROTOCOL.json", "OPERATIONS_INDEX_2026-06-11.md"],
     "key_results": [
       "Convention (G-6): folders that matter carry a local AI_ASSIST.json (topic knowledge + up-link); nodes link up, the centre stays small",
-      "Tracking tracks: stage_0..2, stage_P engagement, engine_build_v4, publication, huf, governance (G-1..G-6), space_readiness (SR), industrial (II)"
+      "Tracking tracks: stage_0..2, stage_P engagement, engine_build_v4, publication, huf, governance (G-1..G-6), space_readiness (SR), industrial (II)",
+      "Governance refinement (G-145, 2026-06-22): the UPWARD lossless component-request-escalation channel -- VOICE (always, right to request) vs AUTHORITY (by class: governance full breakers / closed-loop passes its breaker up as a request / open-loop up to the user); no request is lost; reactivation is a governance act; not a 17th breaker; collective instance = four ordered review seats (reach -> verify -> conservative elder -> human gate). Doc: ../huf-gov/COMPONENT_REQUEST_ESCALATION_DOCTRINE.md"
     ],
     "related_topics": ["../HS_GUIDE.md", "../HS_FAST_REFRESH.json", "AI_ASSIST_PATH_PROTOCOL.md"],
     "claim_tiers": "Governance docs are the discipline, not claims; the items they track carry their own tiers."
@@ -17,6 +18,7 @@
   "join_the_chain": {
     "source_of_truth": "HS_FAST_REFRESH.json",
     "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "graduate_school": "../GRADUATE_SCHOOL.md (repo root) — the deep onboarding curriculum (the graduate-level ai-refresh), weaving ../HISTORY_THREAD.md (the development+necessity thread); shared identically across RWA/HUF/Hs with DOCUMENT_DISTRIBUTION.md + TRIPLE_JOURNAL.md (the map of the whole)",
     "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
     "human_guide": "HS_GUIDE.md",
     "tracking_log": "ai-refresh/HS_TRACKING_LOG.json",
@@ -26,5 +28,5 @@
   },
   "bring_your_own_ai": "This is the centre. From any topic node, follow join_the_chain to here, then read AI_RAPID_LEARN.md in priority order. Read-only context; governance + claim-tiers apply.",
   "governance": "HUF-STD-001; source-of-truth order is authoritative; never let a synthesis doc override the JSONs. No AI commits; Peter is the gate.",
-  "updated": "2026-06-11"
+  "updated": "2026-06-22"
 }

@@ -1,0 +1,89 @@
+{
+  "_meta": {
+    "tool": "language_as_composition.py",
+    "data": "real parallel multilingual repo text (UN-6 + CoDa handout) + Latin colophon",
+    "what": "a language is a composition (letter-frequency simplex); Hs reads its signature invariant to text amount above a sample floor",
+    "receipt_sha256": "a3204a02ffa16446"
+  },
+  "language_signatures": {
+    "EN": {
+      "n_letters": 8859,
+      "helmsman_letter": "e",
+      "top3": [
+        "e",
+        "a",
+        "t"
+      ],
+      "reliable": true,
+      "absent_letters": 0
+    },
+    "ES": {
+      "n_letters": 9632,
+      "helmsman_letter": "e",
+      "top3": [
+        "e",
+        "a",
+        "o"
+      ],
+      "reliable": true,
+      "absent_letters": 0
+    },
+    "FR": {
+      "n_letters": 9615,
+      "helmsman_letter": "e",
+      "top3": [
+        "e",
+        "t",
+        "a"
+      ],
+      "reliable": true,
+      "absent_letters": 0
+    },
+    "LA": {
+      "n_letters": 2695,
+      "helmsman_letter": "e",
+      "top3": [
+        "e",
+        "t",
+        "i"
+      ],
+      "reliable": false,
+      "absent_letters": 1
+    }
+  },
+  "aitchison_distance_reliable_only": {
+    "EN": {
+      "EN": 0.0,
+      "ES": 2.055,
+      "FR": 2.07
+    },
+    "ES": {
+      "EN": 2.055,
+      "ES": 0.0,
+      "FR": 1.24
+    },
+    "FR": {
+      "EN": 2.07,
+      "ES": 1.24,
+      "FR": 0.0
+    }
+  },
+  "nearest_neighbour": {
+    "EN": "ES",
+    "ES": "FR",
+    "FR": "ES"
+  },
+  "length_invariance_by_subsampling_same_text": {
+    "5%_of_text": 34.176,
+    "20%_of_text": 1.346,
+    "50%_of_text": 0.506,
+    "100%_of_text": 0.0,
+    "reading": "distance to the full signature shrinks as the sample grows (1.35 at 20%, 0.51 at 50%, 0 at full); at 5% it is unreliable -- the knowable-sample FLOOR, the same one the stress sheet found. Above the floor: the language is read, not the AMOUNT."
+  },
+  "locked_discriminant_language_id": {
+    "accuracy": 0.533,
+    "n_test_windows": 15,
+    "reading": "classify a window to its language by its letter-composition; harder for the close Romance pair ES/FR on little data -- honest"
+  },
+  "latin_note": "the Latin sample is short with structural zeros (k,w,y rare) -> distance UNRELIABLE (flagged); top letters reported; a full reading needs a real Latin corpus (the zero-handling limit, cf. E-21)"
+}

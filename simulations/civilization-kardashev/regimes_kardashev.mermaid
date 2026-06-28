@@ -1,0 +1,27 @@
+%% The regimes of projection — the Compositional Governance Scale to Kardashev V
+%% Treasure of the HUF/Hs vaults (CGS = log10(GDoF)); Hs is the bridge from governing
+%% SYSTEMS (CGS-4) to governing the COUPLINGS = complexity itself (CGS-5 ~ Kardashev V).
+%% n=1 designed scale; "Kardashev V" is an analogy, not a physics claim. Peter is the sole gate.
+flowchart TD
+    A["CGS-1 · Instrument Proof<br/>GDoF ≥ 10 · one system<br/>HUF today: GDoF 48, CGS 1.68"]
+    B["CGS-2 · Cross-Domain Validation<br/>GDoF ≥ 100 · two domains"]
+    C["CGS-3 · Operational Deployment<br/>GDoF ≥ 10,000 · three domains"]
+    D["CGS-4 · Network Governance<br/>GDoF ≥ 1,000,000<br/>~ Kardashev I: govern the home domain"]
+    E["CGS-5 · Universal Compositional Standard<br/>GDoF ≥ 100,000,000<br/>~ Kardashev V: govern complexity itself"]
+
+    A --> B --> C --> D
+    D -->|"govern domains separately<br/>(no relational read)"| CAP["⛔ caps at CGS-4<br/>CGS 7.56 — governs systems, not couplings"]
+    D ==>|"+ Hˢ governs the COUPLINGS<br/>(the relations between domains)"| E
+    E --> BEYOND["→ and beyond<br/>finer carriers · sites · cadence<br/>governance of complexity"]
+
+    subgraph BRIDGE["the bridge only Hˢ crosses"]
+      D
+      E
+    end
+
+    classDef reached fill:#1b4,stroke:#063,color:#fff;
+    classDef gate fill:#258,stroke:#024,color:#fff;
+    classDef blocked fill:#933,stroke:#600,color:#fff;
+    class A,B,C reached;
+    class D,E gate;
+    class CAP blocked;

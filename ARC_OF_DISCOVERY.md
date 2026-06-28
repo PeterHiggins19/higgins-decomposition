@@ -34,6 +34,8 @@ Two colours: the warm boxes were found in the loudspeaker lab (physics); the coo
 
 **How.** Low-frequency radiation is omnidirectional by the physics of a body small compared to the wavelength — the uniform share is not chosen, it is forced. *(Tier 1 — derived and measured.)*
 
+*The Q thread starts here too.* The same cabinet is a resonator, and its **Quality Factor Q** — energy stored ÷ dissipated, a ratio — is the *first coherence* the lab ever measured (Thiele‑Small; Richard H. Small). Named only in 2026, Q is the quantity that runs from this bench to the later coherence law and common‑mode rejection: the loudspeaker taught the *how* of coherence before anything else. See [`library/THE_Q_CONNECTION.md`](library/THE_Q_CONNECTION.md).
+
 ## 3 · Diffraction breaks the balance
 
 **What.** As frequency rises and the wavelength approaches the cabinet's size, the pattern breaks — sound concentrates forward, the sides and back lose power. The correction for this is a **fixed budget**, exactly `6.02 dB = 20·log₁₀2` (the 2π→4π step), **apportioned** across the dimensions, `G_dim = 6.02·dim/S` with `S = H+W+D`, the shares always summing back to 6.02, each with corner `f_c = 115/dim`. This is **DADC** — Dimension-Apportioned Diffraction Correction (with its inverse DADI and adaptive ADAC).
@@ -62,7 +64,7 @@ Two colours: the warm boxes were found in the loudspeaker lab (physics); the coo
 
 **When.** The Higgins Operator H₁ paper, February 2026.
 
-**How.** Generalization from the concrete acoustic map to a nonlinear unity-normalization map on Hilbert space; candidate applications span cosmology, urban resilience, EUV lithography, Planck CMB anomalies, and stellar fusion. *(Tier 2.)*
+**How.** Generalization from the concrete acoustic map to a nonlinear unity-normalization map on Hilbert space; candidate applications span cosmology, urban resilience, EUV lithography, Planck CMB anomalies, and stellar fusion. *(Tier 2.)* *(EUV lithography promoted from candidate to a built, receipted experiment — see [`industrial-instruments/euv-lithography/`](industrial-instruments/euv-lithography/), 2026‑06‑24.)*
 
 ## 6 · MC-4 · EITT
 
@@ -114,14 +116,12 @@ Read the nine steps as a single forced chain, each link a consequence of the one
 
 Nothing was added from outside. The conserved budget forced the simplex; the simplex forced the operator; the operator forced the monitoring; the monitoring forced the instrument; the instrument forced the confidence model; the confidence model forced the network. And the network closes the loop back on the instrument itself — the thing built to read compositions reads the composition of its own readers.
 
-That is why the framework can claim certainty: not faith that it applies everywhere, but certainty in an instrument whose every part is a consequence rather than a choice, plus the honesty to let it report where it fits. The box gave the formula. The open loop is what lets it be trusted everywhere it is earned.
+That is why the framework can claim certainty: not faith that it applies everywhere, but certainty in an instrument whose every part is a consequence rather than a choice, plus the honesty 
 
----
+## Appendix — Q-factor review (test of concept)
 
-## Where to read next
+*A standing test of the Q seed (`library/THE_Q_CONNECTION.md`): read this document through Q and report honestly where it HOLDS and where it does NOT — the boundary is the result. Nothing published; appendix only; lose nothing, miss nothing.*
 
-- **The headwater, in full:** RWA repo `THE_GROUND_STATE.md` — the one formula and the time argument, derived.
-- **The far end, built:** Hˢ repo `experiments/clifford_tiling_redundancy_2026-06/` and `experiments/network_redundancy_2026-06/`.
-- **The confidence model:** HUF repo `science/methodology/CONFIDENCE_INDEX.md`.
-- **The two-repo map + resolver:** `CROSS_BRAIN.md` (identical in both repos).
-- **The narrative lineage:** HUF `briefings/THE_LINEAGE.md`; RWA `LINEAGE.md` and `HUF_RELATIONSHIP.json`.
+Read the arc through Q: the **warm** (acoustic) boxes are where Q physically lived — the cabinet is a resonator, its Quality Factor the first coherence measured; the **cool** (instrument) boxes are where that Q was generalized into the coherence law and common-mode rejection. **Holds:** Q is the warm-to-cool bridge — the same quantity, named late. **Does NOT extend:** the simplex/exactness pivot (the quaternion rung, tiling) is geometry, not Q; Q is the coherence axis, not the whole arc.
+
+*Q-review status: T2 where the bridge is measured (`52fee398`); the 'Q is universal' generalization stays a T3 seed; the boundary noted above is the honest falsifier. Lineage: Richard H. Small & A. N. Thiele.*

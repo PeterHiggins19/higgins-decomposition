@@ -1,0 +1,55 @@
+{
+  "_meta": {
+    "tool": "probe_public_data_tests.py",
+    "what": "Hs probe tested on 3 real public datasets x 3 nuisance kinds -- honest hits and misses.",
+    "datasets_cited": {
+      "GAS_breathing": "closed-loop O2/CO2/N2 gas-composition study (in-repo)",
+      "BLOOD_alveolar": "VitalDB (Seoul Nat'l Univ Hosp) + UQ Vital Signs (Adelaide) anaesthesia cohorts",
+      "WATER_produced": "USGS Produced Waters DB, Williston Basin (CoDaWork/Engle)"
+    },
+    "receipt_sha256": "53dfdfa812041058"
+  },
+  "nuisance_sweep": {
+    "GAS_breathing": {
+      "D": 3,
+      "n_samples": 60,
+      "A_scalar_commonmode_distortion": 6.66e-16,
+      "B_additive_offset_distortion": 2.19,
+      "C_perchannel_gain_distortion": 0.732,
+      "verdict": {
+        "A_scalar": "HIT (rejected to floor)",
+        "B_additive": "MISS (clr cannot reject additive -- needs raw-domain handling)",
+        "C_perchannel_gain": "PARTIAL (a fixed clr bias remains -> calibration/paired-measurement)"
+      }
+    },
+    "BLOOD_alveolar": {
+      "D": 4,
+      "n_samples": 30,
+      "A_scalar_commonmode_distortion": 3.33e-16,
+      "B_additive_offset_distortion": 0.812,
+      "C_perchannel_gain_distortion": 0.824,
+      "verdict": {
+        "A_scalar": "HIT (rejected to floor)",
+        "B_additive": "MISS (clr cannot reject additive -- needs raw-domain handling)",
+        "C_perchannel_gain": "PARTIAL (a fixed clr bias remains -> calibration/paired-measurement)"
+      }
+    },
+    "WATER_produced": {
+      "D": 7,
+      "n_samples": 36,
+      "A_scalar_commonmode_distortion": 8.88e-16,
+      "B_additive_offset_distortion": 5.57,
+      "C_perchannel_gain_distortion": 0.942,
+      "verdict": {
+        "A_scalar": "HIT (rejected to floor)",
+        "B_additive": "MISS (clr cannot reject additive -- needs raw-domain handling)",
+        "C_perchannel_gain": "PARTIAL (a fixed clr bias remains -> calibration/paired-measurement)"
+      }
+    }
+  },
+  "real_drift_detection": {
+    "drift_seen_clean_after_t30": true,
+    "drift_seen_under_scalar_commonmode": true,
+    "note": "the CO2-doubling event is detected, and the scalar gain nuisance does NOT change the detection (clr-invariant)."
+  }
+}

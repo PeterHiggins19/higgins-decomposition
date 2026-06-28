@@ -1,0 +1,296 @@
+{
+  "method": "Each application = a composition over 4 export/transfer-sensitivity axes; deterministic clr read + tsi = share(controlled_adj + strategic_weight).",
+  "axes": [
+    "open_science",
+    "applied_knowhow",
+    "controlled_adj",
+    "strategic_weight"
+  ],
+  "ranked": [
+    {
+      "app": "fusion-nuclear-diag",
+      "done": false,
+      "shares": {
+        "open_science": 0.203,
+        "applied_knowhow": 0.203,
+        "controlled_adj": 0.297,
+        "strategic_weight": 0.297
+      },
+      "transfer_sensitivity": 0.594,
+      "dominant_axis": "controlled_adj",
+      "disposition": "STEWARD (offer applied how-to to national governance; gov decides distribution)"
+    },
+    {
+      "app": "aerospace-defense-skin",
+      "done": false,
+      "shares": {
+        "open_science": 0.177,
+        "applied_knowhow": 0.242,
+        "controlled_adj": 0.274,
+        "strategic_weight": 0.306
+      },
+      "transfer_sensitivity": 0.581,
+      "dominant_axis": "strategic_weight",
+      "disposition": "STEWARD (offer applied how-to to national governance; gov decides distribution)"
+    },
+    {
+      "app": "euv-lithography",
+      "done": true,
+      "shares": {
+        "open_science": 0.197,
+        "applied_knowhow": 0.227,
+        "controlled_adj": 0.288,
+        "strategic_weight": 0.288
+      },
+      "transfer_sensitivity": 0.576,
+      "dominant_axis": "controlled_adj",
+      "disposition": "STEWARD (offer applied how-to to national governance; gov decides distribution)"
+    },
+    {
+      "app": "space-launch-GNC",
+      "done": false,
+      "shares": {
+        "open_science": 0.183,
+        "applied_knowhow": 0.25,
+        "controlled_adj": 0.283,
+        "strategic_weight": 0.283
+      },
+      "transfer_sensitivity": 0.567,
+      "dominant_axis": "controlled_adj",
+      "disposition": "STEWARD (offer applied how-to to national governance; gov decides distribution)"
+    },
+    {
+      "app": "constellation-space-SSA",
+      "done": true,
+      "shares": {
+        "open_science": 0.224,
+        "applied_knowhow": 0.224,
+        "controlled_adj": 0.259,
+        "strategic_weight": 0.293
+      },
+      "transfer_sensitivity": 0.552,
+      "dominant_axis": "strategic_weight",
+      "disposition": "STEWARD (offer applied how-to to national governance; gov decides distribution)"
+    },
+    {
+      "app": "quantum-photonics-mfg",
+      "done": false,
+      "shares": {
+        "open_science": 0.21,
+        "applied_knowhow": 0.242,
+        "controlled_adj": 0.274,
+        "strategic_weight": 0.274
+      },
+      "transfer_sensitivity": 0.548,
+      "dominant_axis": "controlled_adj",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "critical-infra-control",
+      "done": false,
+      "shares": {
+        "open_science": 0.232,
+        "applied_knowhow": 0.232,
+        "controlled_adj": 0.232,
+        "strategic_weight": 0.304
+      },
+      "transfer_sensitivity": 0.536,
+      "dominant_axis": "strategic_weight",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "advanced-packaging-chiplet",
+      "done": false,
+      "shares": {
+        "open_science": 0.232,
+        "applied_knowhow": 0.268,
+        "controlled_adj": 0.232,
+        "strategic_weight": 0.268
+      },
+      "transfer_sensitivity": 0.5,
+      "dominant_axis": "applied_knowhow",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "fiber-photonics",
+      "done": true,
+      "shares": {
+        "open_science": 0.241,
+        "applied_knowhow": 0.278,
+        "controlled_adj": 0.241,
+        "strategic_weight": 0.241
+      },
+      "transfer_sensitivity": 0.481,
+      "dominant_axis": "applied_knowhow",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "telecom-6g-comms",
+      "done": false,
+      "shares": {
+        "open_science": 0.241,
+        "applied_knowhow": 0.278,
+        "controlled_adj": 0.241,
+        "strategic_weight": 0.241
+      },
+      "transfer_sensitivity": 0.481,
+      "dominant_axis": "applied_knowhow",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "autonomous-robotics",
+      "done": false,
+      "shares": {
+        "open_science": 0.25,
+        "applied_knowhow": 0.288,
+        "controlled_adj": 0.212,
+        "strategic_weight": 0.25
+      },
+      "transfer_sensitivity": 0.462,
+      "dominant_axis": "applied_knowhow",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "energy-grid",
+      "done": true,
+      "shares": {
+        "open_science": 0.312,
+        "applied_knowhow": 0.229,
+        "controlled_adj": 0.188,
+        "strategic_weight": 0.271
+      },
+      "transfer_sensitivity": 0.458,
+      "dominant_axis": "open_science",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "microbiome-bio",
+      "done": true,
+      "shares": {
+        "open_science": 0.312,
+        "applied_knowhow": 0.229,
+        "controlled_adj": 0.229,
+        "strategic_weight": 0.229
+      },
+      "transfer_sensitivity": 0.458,
+      "dominant_axis": "open_science",
+      "disposition": "REVIEW (principle public; applied how-to to steward)"
+    },
+    {
+      "app": "smt-dispense-placement",
+      "done": true,
+      "shares": {
+        "open_science": 0.271,
+        "applied_knowhow": 0.312,
+        "controlled_adj": 0.188,
+        "strategic_weight": 0.229
+      },
+      "transfer_sensitivity": 0.417,
+      "dominant_axis": "applied_knowhow",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "financial-markets",
+      "done": true,
+      "shares": {
+        "open_science": 0.326,
+        "applied_knowhow": 0.283,
+        "controlled_adj": 0.109,
+        "strategic_weight": 0.283
+      },
+      "transfer_sensitivity": 0.391,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "produced-water-oilgas",
+      "done": true,
+      "shares": {
+        "open_science": 0.395,
+        "applied_knowhow": 0.289,
+        "controlled_adj": 0.132,
+        "strategic_weight": 0.184
+      },
+      "transfer_sensitivity": 0.316,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "backblaze-fleet",
+      "done": true,
+      "shares": {
+        "open_science": 0.375,
+        "applied_knowhow": 0.325,
+        "controlled_adj": 0.125,
+        "strategic_weight": 0.175
+      },
+      "transfer_sensitivity": 0.3,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "gas-life-support",
+      "done": true,
+      "shares": {
+        "open_science": 0.472,
+        "applied_knowhow": 0.306,
+        "controlled_adj": 0.083,
+        "strategic_weight": 0.139
+      },
+      "transfer_sensitivity": 0.222,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "blood-gas-clinical",
+      "done": true,
+      "shares": {
+        "open_science": 0.472,
+        "applied_knowhow": 0.306,
+        "controlled_adj": 0.083,
+        "strategic_weight": 0.139
+      },
+      "transfer_sensitivity": 0.222,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    },
+    {
+      "app": "geoscience",
+      "done": true,
+      "shares": {
+        "open_science": 0.528,
+        "applied_knowhow": 0.25,
+        "controlled_adj": 0.083,
+        "strategic_weight": 0.139
+      },
+      "transfer_sensitivity": 0.222,
+      "dominant_axis": "open_science",
+      "disposition": "OPEN (publish; low transfer sensitivity)"
+    }
+  ],
+  "portfolio_mean_shares": {
+    "open_science": 0.293,
+    "applied_knowhow": 0.263,
+    "controlled_adj": 0.203,
+    "strategic_weight": 0.242
+  },
+  "portfolio_effective_dimension_over_sensitivity": 1.36,
+  "must_transfer_to_governance_tsi_ge_0.55": [
+    "fusion-nuclear-diag",
+    "aerospace-defense-skin",
+    "euv-lithography",
+    "space-launch-GNC",
+    "constellation-space-SSA"
+  ],
+  "publish_open_tsi_lt_0.42": [
+    "smt-dispense-placement",
+    "financial-markets",
+    "produced-water-oilgas",
+    "backblaze-fleet",
+    "gas-life-support",
+    "blood-gas-clinical",
+    "geoscience"
+  ],
+  "honest_note": "Axis scores are judgment inputs (T3); the compositional read + ranking are deterministic. The PRINCIPLE of every app is publishable; only the APPLIED how-to of the high-tsi apps transfers to a governance steward.",
+  "content_sha256": "14b2f5570b59f38bd4f24c2a687c64d4509a30c365fac1b3f751a8c713382907"
+}

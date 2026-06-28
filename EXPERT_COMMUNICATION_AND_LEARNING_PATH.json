@@ -1,0 +1,43 @@
+{
+  "artifact": "Expert communication & learning path — consolidated method",
+  "version": "1.0.0",
+  "date": "2026-06-16",
+  "human_authorship": "Peter Higgins; AI-assisted per HUF-STD-001",
+  "prose_twin": "EXPERT_COMMUNICATION_AND_LEARNING_PATH.md",
+  "communication_doctrines": [
+    {"name": "composition-is-the-qualifier", "rule": "Expert system; repos are expert onboarding. Have a composition (parts of a whole tracked in order, within a budget) = you have the need; if not, not your tool. State purpose at the front door."},
+    {"name": "kind-exclusive-club", "rule": "Friendly, humble rejection — 'sorry, compositions only' — explained, with better-suited methods named and goodwill offered. Win-win-win; no time wasted."},
+    {"name": "no-advertisement", "rule": "Tell it, show it, offer it for reproduction, then stop. The audience that can use it already has the need; advertising wastes resource."},
+    {"name": "dont-narrate-intent", "rule": "Write to a phantom audience of experts; make the work legible to the field's best; never address them, never explain intent. Protesting non-outreach reads as neediness. Confidence in what is provable; silence on what is not."},
+    {"name": "names-off-repo-unless-cited", "rule": "A target expert audience is a writing instrument kept off-repo. Published-paper citations (author-year) are scholarship and welcome; naming a person as contact/target is not. No false collaboration claims; inspiration only; names move on-repo only when an official collaboration exists."},
+    {"name": "match-register", "rule": "Science audience: honest tiers + reproduction first. Power/confidence audience (finance): lead with provable certainty + reproducibility, then temper with the science declaration of bias/limits/bounds. Confidence is epistemic (what the data reveals + that it reproduces), never about the future."},
+    {"name": "honest-envelope", "rule": "Tier 1 (verified, reproducible) vs Tier 3 (the expert's meaning). Holds-or-warns, never a confident wrong answer. Descriptive, not advice — emphatically in finance and medicine. Public/aggregate data only on the repo."},
+    {"name": "paper-repo-division", "rule": "Higher intelligence -> the paper; vast data effort -> the repository; a content-hash receipt binds them. See papers/PAPER_AND_REPO_DIVISION.md."}
+  ],
+  "onboarding": {
+    "gate": {"question": "Do you have a composition?", "interactive": "COMPOSITION_GAUGE.html", "prose": "IS_Hs_RIGHT_FOR_YOU.md",
+      "outcomes": {"GO": "continue the induction", "NO_GO": "kind redirect, compositions only", "HIGHER_DOOR": "raw data isn't a composition but a composition of samples/methods/observers might be — study the studiers; re-run the gauge on that mix"}},
+    "induction_map": {"doc": "INDUCTION_MAP.md", "json": "INDUCTION_MAP.json",
+      "stages": ["orient", "fit-by-D", "run-your-data", "branch-by-discipline", "branch-by-purpose", "playground", "graduate"],
+      "rule": "each stage has a pass-gauge; graduated not permission-gated; skip ahead if already qualified"}
+  },
+  "learning_path": {
+    "users": "pass the gauge -> learn what Hs gives at your D -> run your data + get a receipt -> find the worked run nearest your field -> pick your purpose -> experiment in the playground -> graduate to a reproducible, traceable node",
+    "ai_assistant_protocol": [
+      "Gate first: confirm a composition; if the user wants advice/forecast/probability, say plainly Hs does not produce those and stop, kindly; deliver only what the data reveals.",
+      "Compose on request: turn the user's operated system into a composition (rows=order, cols=parts summing to a whole); validate with the gauge; keep private data local.",
+      "Run + receipt: always surface the content_hash; never report a result without it.",
+      "Translate: map the reading into the user's own field language.",
+      "Hold the bounds: Tier 1 reading vs Tier 3 meaning; descriptive not advice; holds-or-warns; public framing on anything shared."
+    ],
+    "convention": "every domain folder carries an AI_ASSIST.json; onboarding nodes are distributed, not central"
+  },
+  "throughline": "Same discipline from engine to outreach: non-perturbing, honest, reproducible. The instrument doesn't disturb the data; the communication doesn't disturb the reader; onboarding wastes no time; the assistant refuses to bluff. Data is the star; Hs is the lens; the receipt is the proof.",
+  "pointers": {
+    "gate": ["COMPOSITION_GAUGE.html", "IS_Hs_RIGHT_FOR_YOU.md"],
+    "induction": ["INDUCTION_MAP.md", "INDUCTION_MAP.json"],
+    "paper_repo_division": "papers/PAPER_AND_REPO_DIVISION.md",
+    "worked_register_example_finance": "industrial-instruments/financial/ (FLASH_BRIEF.html power+confidence; THE_FINANCIAL_NAVIGATION_STUDY.md science; AI_ASSISTANT_ONRAMP.md the assistant)",
+    "data_is_the_star": "../HUF/huf-gov/THE_DATA_IS_THE_STAR.md"
+  }
+}

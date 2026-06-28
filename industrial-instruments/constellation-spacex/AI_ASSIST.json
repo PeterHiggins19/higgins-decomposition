@@ -1,0 +1,31 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/constellation-spacex/",
+  "topic": "Open study (concept stage): Hs as a deterministic fleet-coherence + environmental-sensing layer for large LEO constellations (SpaceX/Starlink).",
+  "purpose": "Local node for the constellation-navigation seed study -- the industrial/space arm proposing Hs for fleet navigation, drift/anomaly detection, collision-avoidance support, and dual-use upper-atmosphere science.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "status": "SEED / CONCEPT -- no orbital-data run yet. Everything operational/scientific is T2 (reasoned) or T3 (exploratory) on top of P1's T1 engine facts. No numbers are claimed.",
+  "specific_knowledge": {
+    "what": "A constellation (~10,400 active Starlink, mid-2026, growing; SpaceX lowering/reconfiguring as conjunctions rise) read as a high-dimensional composition. Proposes: Fleet Coherence Index (FCI), kinematics->drag, spectral/wavelet anomaly detection, and the constellation-as-Earth-sensor dual-use (density/winds/gravity waves via drag; ionospheric scintillation via radio).",
+    "key_files": ["README.md", "CONCEPT_AND_VALUE.md", "FLEET_COHERENCE_METRIC.md", "ENVIRONMENTAL_SENSING.md", "DATA_AND_SOURCES.md", "PAPER_SEED.md"],
+    "key_points": [
+      "T1 foundation (from P1): D=4 quaternion exactness ~4.4e-16; O(log D) tiling to D=1e6 ~4.1e-12 (numerical, not bit-exact); determinism + hash receipts; HS-EPS-1 conformance.",
+      "T2 mappings: orbital deviations read compositionally; kinematics(P4)->drag; diameter->drift bound at fleet scale; standard Lomb-Scargle/wavelet/WPT+best-basis(Shannon) methods.",
+      "T3 (NO numbers): all fuel/risk/economic figures; gravity-wave/wind/scintillation detections; FCI dynamic range + lead time vs conjunction probability.",
+      "Precision wall: public TLEs suffice for FCI/storm-response tests; fine science (winds, gravity waves, density retrieval) needs high-precision ephemerides + ballistic coefficients (proprietary); scintillation needs radio metrics (proprietary)."
+    ],
+    "related_topics": ["../../papers/cnq_tiling_suite_2026/P1_ON_HS_ABSTRACT.md", "../../Hs-Kinematics/", "../../collaborations/spaceflight-glds1/AI_ASSIST.json", "../README.md"],
+    "claim_tiers": "T1 = P1 engine facts only; T2 = the mappings onto orbital data; T3 = every operational/scientific magnitude. Promotion T3->T1 requires a public-data prototype with a content receipt."
+  },
+  "next_step": "Minimal FCI + spectral-anomaly prototype on PUBLIC data (Starlink TLEs + NOAA F10.7 + GFZ Kp), validated across a known geomagnetic storm window; compare a kinematics-derived drag proxy vs a standard atmospheric model. Only measured prototype output may leave Tier 3.",
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at README.md, then CONCEPT_AND_VALUE.md. Public data only (DATA_AND_SOURCES.md). Read-only context; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker (large vision, small claims; tier everything); complement not replacement for propagators/conjunction assessment; NO contact with or approach to SpaceX or any party -- Peter Higgins is the sole gate for all external steps; no AI commits/pushes/contacts.",
+  "updated": "2026-06-20"
+}

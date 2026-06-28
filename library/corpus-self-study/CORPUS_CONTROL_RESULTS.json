@@ -1,0 +1,153 @@
+{
+  "_meta": {
+    "tool": "corpus_control.py",
+    "what": "can Hs detect controlled vs free-floating operation of itself?",
+    "weeks": 14,
+    "window": "2026 active build",
+    "receipt_sha256": "d1fb24f3f9b21173"
+  },
+  "ANSWER": "YES Hs can detect it -- directedness D and effective-movers ARE the self-control signal; the trajectory shows real variation (not flat), so it is structure not pure rationalization. Whether that 'control' is intent or emergence is interpretation, not measured.",
+  "directedness_overall": {
+    "path": 102.374,
+    "net": 12.585,
+    "directedness": 0.123,
+    "heat_entropy_fought": 89.789
+  },
+  "codawork_split": {
+    "pivot": "2026-05-01",
+    "before": {
+      "path": 54.908,
+      "net": 9.918,
+      "directedness": 0.181,
+      "heat_entropy_fought": 44.989
+    },
+    "after": {
+      "path": 36.686,
+      "net": 14.393,
+      "directedness": 0.392,
+      "heat_entropy_fought": 22.293
+    },
+    "peter_claim_after_more_controlled": true,
+    "meaning": "Peter predicted directedness rises after CodaWork2026 (from entropy-fought to helmsman control)"
+  },
+  "helmsman": {
+    "first": "advanced",
+    "first_week": "2026-W13",
+    "modal": "tier",
+    "modal_count": 5,
+    "longest_dwell_steps": 2,
+    "reading": "the yeast level: which dimension first took the wheel and how long it held"
+  },
+  "control_tally": {
+    "controlled_steps": 0,
+    "free_floating_steps": 13,
+    "total_steps": 13
+  },
+  "step_series": [
+    {
+      "to_week": "2026-W13",
+      "date": "2026-03-26",
+      "steplen": 2.333,
+      "helmsman": "advanced",
+      "effective_movers": 4.64,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W15",
+      "date": "2026-04-09",
+      "steplen": 11.747,
+      "helmsman": "crossref",
+      "effective_movers": 3.79,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W16",
+      "date": "2026-04-16",
+      "steplen": 12.018,
+      "helmsman": "tier",
+      "effective_movers": 3.92,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W17",
+      "date": "2026-04-23",
+      "steplen": 15.54,
+      "helmsman": "formula",
+      "effective_movers": 4.86,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W18",
+      "date": "2026-04-30",
+      "steplen": 13.27,
+      "helmsman": "formula",
+      "effective_movers": 4.83,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W19",
+      "date": "2026-05-07",
+      "steplen": 10.78,
+      "helmsman": "tier",
+      "effective_movers": 3.66,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W20",
+      "date": "2026-05-14",
+      "steplen": 0.809,
+      "helmsman": "tier",
+      "effective_movers": 4.19,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W21",
+      "date": "2026-05-21",
+      "steplen": 1.16,
+      "helmsman": "crossref",
+      "effective_movers": 3.32,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W22",
+      "date": "2026-05-28",
+      "steplen": 2.316,
+      "helmsman": "receipt",
+      "effective_movers": 4.82,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W23",
+      "date": "2026-06-04",
+      "steplen": 17.542,
+      "helmsman": "crossref",
+      "effective_movers": 2.65,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W24",
+      "date": "2026-06-11",
+      "steplen": 11.292,
+      "helmsman": "crossref",
+      "effective_movers": 3.99,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W25",
+      "date": "2026-06-18",
+      "steplen": 2.533,
+      "helmsman": "tier",
+      "effective_movers": 3.55,
+      "mode": "FREE-FLOATING"
+    },
+    {
+      "to_week": "2026-W26",
+      "date": "2026-06-25",
+      "steplen": 1.034,
+      "helmsman": "tier",
+      "effective_movers": 3.58,
+      "mode": "FREE-FLOATING"
+    }
+  ],
+  "fence": "Detects directedness in the DOCUMENTARY RECORD of the system (proxy), not literal internal intent. The 5 dims are lexical proxies; the CodaWork pivot date is approximate; weekly bins need >=3 files. 'Control' vs 'emergence' is interpretation. Peter is the sole gate; nothing posted."
+}

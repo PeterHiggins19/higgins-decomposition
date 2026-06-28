@@ -1,0 +1,130 @@
+{
+  "dataset": "coda4microbiome HIV (155x60, Pos/Neg)",
+  "N": 155,
+  "D": 60,
+  "n_pos": 128,
+  "n_neg": 27,
+  "zeros_frac": 0.348494623655914,
+  "seed": 20260622,
+  "input_hash": {
+    "X": "9bdad5f7ee5bdd8f",
+    "y": "b1836614dafc6aa3"
+  },
+  "law1": {
+    "aggregates": {
+      "K_eff": {
+        "separation_auc": 0.5434027777777779,
+        "mannwhitney_p": 0.48061470315756316
+      },
+      "Shannon": {
+        "separation_auc": 0.5434027777777779,
+        "mannwhitney_p": 0.48061470315756316
+      },
+      "Gini_dominance": {
+        "separation_auc": 0.5049189814814814,
+        "mannwhitney_p": 0.9379521090083554
+      },
+      "seq_depth": {
+        "separation_auc": 0.5434027777777778,
+        "mannwhitney_p": 0.4806132889770447
+      }
+    },
+    "relational_ilr": {
+      "cv_auc": 0.6182871794871795,
+      "cv_auc_sd": 0.03442168177471679,
+      "n_features": 59
+    },
+    "permanova": {
+      "pseudoF": 3.471489235464621,
+      "p": 0.002
+    },
+    "relational_perm_null": {
+      "B": 200,
+      "null_p95": 0.6274000000000001,
+      "p_value": 0.06965174129353234
+    }
+  },
+  "law2": {
+    "ordering_abundance": [
+      {
+        "D_parts": 3,
+        "n_top": 2,
+        "cv_auc": 0.7096923076923076,
+        "cv_auc_sd": 0.0063014352956298775,
+        "null_p95": 0.5787282051282051
+      },
+      {
+        "D_parts": 4,
+        "n_top": 3,
+        "cv_auc": 0.6818205128205128,
+        "cv_auc_sd": 0.016614573421160322,
+        "null_p95": 0.6138923076923076
+      },
+      {
+        "D_parts": 5,
+        "n_top": 4,
+        "cv_auc": 0.6842820512820512,
+        "cv_auc_sd": 0.01725042758333894,
+        "null_p95": 0.6223076923076922
+      },
+      {
+        "D_parts": 7,
+        "n_top": 6,
+        "cv_auc": 0.6867948717948718,
+        "cv_auc_sd": 0.023063001498781707,
+        "null_p95": 0.5891846153846152
+      },
+      {
+        "D_parts": 9,
+        "n_top": 8,
+        "cv_auc": 0.6734358974358974,
+        "cv_auc_sd": 0.022017206826700428,
+        "null_p95": 0.6447384615384615
+      },
+      {
+        "D_parts": 13,
+        "n_top": 12,
+        "cv_auc": 0.6693589743589743,
+        "cv_auc_sd": 0.026800539211704888,
+        "null_p95": 0.6235794871794871
+      },
+      {
+        "D_parts": 17,
+        "n_top": 16,
+        "cv_auc": 0.666076923076923,
+        "cv_auc_sd": 0.026262757145552314,
+        "null_p95": 0.6425589743589742
+      },
+      {
+        "D_parts": 25,
+        "n_top": 24,
+        "cv_auc": 0.7055,
+        "cv_auc_sd": 0.03370592307730347,
+        "null_p95": 0.6340051282051282
+      },
+      {
+        "D_parts": 33,
+        "n_top": 32,
+        "cv_auc": 0.6780641025641025,
+        "cv_auc_sd": 0.018370748086913784,
+        "null_p95": 0.6519076923076921
+      },
+      {
+        "D_parts": 45,
+        "n_top": 44,
+        "cv_auc": 0.598474358974359,
+        "cv_auc_sd": 0.02543757425717738,
+        "null_p95": 0.5928974358974358
+      },
+      {
+        "D_parts": 60,
+        "n_top": 60,
+        "cv_auc": 0.612551282051282,
+        "cv_auc_sd": 0.026995065538818405,
+        "null_p95": 0.6325128205128204
+      }
+    ]
+  },
+  "caveats": "minority class n_neg=27 (imbalance); MSM is a known gut-enterotype confounder; claim is about WHERE discriminative info lives, not biological causation.",
+  "result_hash": "252ed1984c57e956"
+}

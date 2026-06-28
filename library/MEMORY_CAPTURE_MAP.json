@@ -1,0 +1,84 @@
+{
+  "schema": "hs_memory_capture_map/1.0",
+  "purpose": "Track the externalization of Peter Higgins's tacit knowledge into the repositories -- the finish line for 'the repositories as the world's open expert system'. Status advances as each domain is poured in; the journal records each step.",
+  "status_legend": {
+    "captured": "explicit + in the repo + receipted/cited",
+    "partial": "the result is in the repo but the reasoning/why is thin",
+    "tacit": "still mainly in Peter's memory"
+  },
+  "domains": [
+    {
+      "id": "D1",
+      "domain": "the math / method (closure, log-ratio, the quaternion rung, tiling, kinematics)",
+      "status": "captured",
+      "home": "papers/, Hs-Kinematics/, library/MATH_Hs_MAKES_SIMPLER.md",
+      "capture_method": "formal docs + receipts (done)"
+    },
+    {
+      "id": "D2",
+      "domain": "the application studies (industrial, energy, finance, microbiome, geology, world-monetary)",
+      "status": "captured",
+      "home": "industrial-instruments/, experiments/",
+      "capture_method": "real-data runs + RESULTS + receipts (ongoing as run)"
+    },
+    {
+      "id": "D3",
+      "domain": "the doctrines / governance (export, division, breaker-16, honest-broker, maturation)",
+      "status": "captured",
+      "home": "huf-gov/doctrine/",
+      "capture_method": "doctrine docs (done)"
+    },
+    {
+      "id": "D4",
+      "domain": "the acoustic origin (RWA): the ground state, diffraction, 25 years of instrument-building",
+      "status": "partial",
+      "home": "RWA/, THE_GROUND_STATE.md, ARC_OF_DISCOVERY.md",
+      "capture_method": "elicitation: narrate the path of choices, not just the result"
+    },
+    {
+      "id": "D5",
+      "domain": "the 'why' behind design choices -- the alternatives considered and rejected",
+      "status": "partial",
+      "home": "journals record WHAT; the WHY is thin",
+      "capture_method": "narrate-the-why notes on each artifact"
+    },
+    {
+      "id": "D6",
+      "domain": "the unwritten connections -- the leaps between domains seen before they're proven (next-paper seeds)",
+      "status": "partial",
+      "home": "papers/UNWRITTEN_CONNECTIONS_SEEDS.md -- the three Peter-spoken slots now CAPTURED + peter-confirmed: P1=Q (Quality Factor, the coherence keystone; bridge 52fee398), P2=the dimensional differential engine (knock-and-read vs a known mirror), P3=the staged-use ladder -> verify/lock (Hs<->cryptography, integrity T1 / confidentiality fenced). Remaining tacit domains D4/D5/D7/D8/D9 still await Peter's voice.",
+      "capture_method": "seed-the-connection: capture each leap the moment it's spoken, fenced until measured"
+    },
+    {
+      "id": "D7",
+      "domain": "the expert judgment -- when to trust a read, when to refuse, what 'feels' wrong",
+      "status": "tacit",
+      "home": "partially in the coherence gate / guards; mostly in memory",
+      "capture_method": "capture-the-judgment-as-rules: 'when X distrust', 'refuse if Y', fold into the guard doctrine"
+    },
+    {
+      "id": "D8",
+      "domain": "lineage / people / context -- the human story, collaborators, the CoDa connection, the timeline",
+      "status": "tacit",
+      "home": "scattered (acknowledgments, contact docs, history)",
+      "capture_method": "elicitation: a structured lineage/timeline doc, names per consent + gate"
+    },
+    {
+      "id": "D9",
+      "domain": "the future projections -- where it goes, the reaches not yet built",
+      "status": "partial",
+      "home": "papers/THE_PINNACLE_RELEASE_ARCHITECTURE.md, frontier seeds, TARGET_THE_FUTURE.md",
+      "capture_method": "tiered roadmap seeds (ongoing)"
+    }
+  ],
+  "summary": {
+    "captured": 3,
+    "partial": 4,
+    "tacit": 2,
+    "finish_line": "all domains at 'captured', with the WHY and the JUDGMENT (D5,D6,D7) being the hardest and most valuable -- those are the marrow of an expert system."
+  },
+  "next_step": "Begin elicitation on one domain at Peter's choice; the AI interviews (why this/not that? what would make you distrust it? what connection isn't written?) and writes the answers into the repo as it goes. Mature-and-capture cadence; status advances; journal records.",
+  "honest_note": "The access layer (37 AI_ASSIST nodes, journals, library, manuals, receipts) is real and in place. The remaining gap is the tacit layer. 'For all the world' adoption is Tier 3 aspiration; the instrument is real, the reach is to be earned. Peter is the sole gate; nothing posted.",
+  "updated": "2026-06-25",
+  "progress_2026-06-25": "D6 advanced: all three Peter-spoken unwritten-connection slots (P1 Q, P2 differential engine, P3 verify/lock) captured + confirmed. New standing instruments since the map was written: the triad backbone (triad-backbone/, Q/Hs/DUT cross-verify), the delivery tracker + scientific-register glossary (library/), and the global-user-system design axiom (huf-gov/COMPONENT_REQUEST_ESCALATION_DOCTRINE.md section 6). The tacit layer (D4/D5/D7/D8/D9) remains the open frontier -- it needs Peter to speak it."
+}

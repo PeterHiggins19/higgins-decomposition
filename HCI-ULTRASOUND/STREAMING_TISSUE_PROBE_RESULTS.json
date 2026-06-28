@@ -1,0 +1,91 @@
+{
+  "_meta": {
+    "tool": "streaming_tissue_probe.py",
+    "what": "streaming tissue probe: lock fine structure, cancel rigid relative motion, climb resolution to the coherence (max-Q) limit; emit positional+temporal coherence control signals.",
+    "data_ingestion": "existing RF/IQ ultrasound (PICMUS plane-wave; CUBDL subsets) -> per-band scattering composition; model used here is grounded synthetic (T2)",
+    "D_bands": 32,
+    "smallest_true_feature_clr": 0.03,
+    "receipt_sha256": "f7fc1cc1cdf5203b"
+  },
+  "motion_cancellation": {
+    "rigid_relative_motion_swing": "0.2-5x (25x)",
+    "structure_read_stability_dB_vs_absolute": 22.2,
+    "meaning": "patient may relax / move; rigid relative motion cancels as common-mode, the structure read holds"
+  },
+  "streaming_resolution_climb": [
+    {
+      "frames": 1,
+      "noise_floor": 0.06,
+      "features_resolved": 1,
+      "smallest_detail_resolved": 0.5
+    },
+    {
+      "frames": 4,
+      "noise_floor": 0.03,
+      "features_resolved": 2,
+      "smallest_detail_resolved": 0.2
+    },
+    {
+      "frames": 16,
+      "noise_floor": 0.015,
+      "features_resolved": 3,
+      "smallest_detail_resolved": 0.03
+    },
+    {
+      "frames": 64,
+      "noise_floor": 0.008,
+      "features_resolved": 4,
+      "smallest_detail_resolved": 0.03
+    },
+    {
+      "frames": 256,
+      "noise_floor": 0.008,
+      "features_resolved": 3,
+      "smallest_detail_resolved": 0.03
+    },
+    {
+      "frames": 1024,
+      "noise_floor": 0.008,
+      "features_resolved": 3,
+      "smallest_detail_resolved": 0.03
+    }
+  ],
+  "control_signals_sample": [
+    {
+      "frame": 0,
+      "coherence_readback": 0.825,
+      "rigid_drift_log_g": 0.005,
+      "lock": true
+    },
+    {
+      "frame": 1,
+      "coherence_readback": 0.824,
+      "rigid_drift_log_g": 0.563,
+      "lock": true
+    },
+    {
+      "frame": 2,
+      "coherence_readback": 0.758,
+      "rigid_drift_log_g": -0.003,
+      "lock": false
+    },
+    {
+      "frame": 3,
+      "coherence_readback": 0.624,
+      "rigid_drift_log_g": -0.209,
+      "lock": false
+    },
+    {
+      "frame": 4,
+      "coherence_readback": 0.784,
+      "rigid_drift_log_g": -0.352,
+      "lock": false
+    }
+  ],
+  "honest_fences": {
+    "non_rigid_deformation_detected_not_cancelled": true,
+    "coherence_floor_caps_resolution": "noise cannot fall below 0.008 (max-Q irreducible decorrelation)",
+    "out_of_plane_decorrelation": "independent, NOT cancelled -- sets the floor",
+    "tier": "T1 common-mode cancellation exact; T2 tissue model; T3 real RF data + clinical validation"
+  }
+}

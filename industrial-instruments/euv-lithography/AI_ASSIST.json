@@ -1,0 +1,31 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/euv-lithography/",
+  "topic": "Built experiment (promoted from a Tier-2 repo seed): Hs reads EUV lithography as a composition -- the stochastic valley-of-death as a {OK, missing, bridge} defect composition; the LPP source as a laser+droplet+plasma budget; dose/CD as a deformation field.",
+  "purpose": "Local node for the EUV application. EUV has been a listed Tier-2 candidate since the Higgins Operator H1 paper (Feb 2026, ARC_OF_DISCOVERY.md sec 5); this folder promotes it into a built, receipted experiment showing Hs catches stochastic dose drift early and DIRECTIONALLY.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "status": "BUILT / PLANNING -- one receipted physics-grounded demo (euv_stochastic_drift.py, 877516b6). All mappings T2; real-fab validation T3. NO contact, partnership, or endorsement with any equipment maker, foundry, or institute -- public physics only.",
+  "specific_knowledge": {
+    "what": "EUV at 13.5 nm (~91.8 eV/photon): photons per feature are Poisson (photon shot noise). Public imec two-sided stochastic cliff: under-dose -> missing/broken contacts; over-dose -> bridging/merging. So the per-feature outcome is a composition {OK, missing, bridge}; a slow dose drift shifts the ratios before total defectivity crosses the yield spec. The LPP source (CO2/2um drive laser + tin droplets at ~100 kHz, ~5% conversion efficiency, >250W) is a laser+plasma composition whose stability/coherence is yield-limiting.",
+    "key_files": ["README.md", "CONCEPT_AND_MATH.md", "euv_stochastic_drift.py", "RESULTS_euv_stochastic.md", "INDUSTRY_IMPACT_AND_OFFERING.md", "POLITICAL_COMPOSITION_AND_EXPORT.md", "OFFER_TO_CANADA_AND_PUBLIC_SCIENCE.md"],
+    "key_points": [
+      "Measured (euv_stochastic_drift.py, 877516b6): under a 1.000->0.975 dose drift over a 100-wafer lot, Hs flags the silent ratio drift at wafer 7 (defectivity ~0.006 ppm, ~18x under spec) vs single-channel yield alarm at wafer 69 = 62-wafer lead; arrow = missing/broken -> steer dose UP.",
+      "The two-sided cliff makes the arrow a DIRECTIONAL helmsman (missing->dose up, bridge->dose down); a scalar total-defect count is direction-blind (rises on both sides of the valley).",
+      "Source common-mode: a drive-laser pulse-energy droop is a shared multiplicative factor on dose across fields -> closure rejects it exactly; the coherence law suppression_dB ~ -10log10(1-rho) applies (coherence_demo.py a5ceab9e); Hs reads source coherence back and gates on it.",
+      "Honest fences: physics-grounded Poisson model is illustrative (T2); real resists add CHEMICAL stochastics on top; lead time is spec/drift-dependent (durable claim is qualitative: ratio leads the count); model numbers not fab numbers."
+    ],
+    "related_topics": ["../electronics-assembly-smt/COHERENCE_AND_LASERS.md", "../electronics-assembly-smt/FUTURE_PROJECTS_FIBER_AND_Hs.md", "../../papers/flagship/PURE_SIGNAL_EXTRACTION_FROM_THE_GROUND_STATE.md", "../../ARC_OF_DISCOVERY.md", "../../library/THE_BLINDNESS_SUITE.md", "../README.md"],
+    "claim_tiers": "T1 = engine facts + the receipted demo; T2 = the physics->composition mappings; T3 = real-fab validation + every operational magnitude. Promotion T3->T1 requires running the read on public imec/fab stochastic-defect data with a content receipt."
+  },
+  "next_step": "Run the composition read on PUBLIC imec/fab stochastic-defect data (dose-defect / NOK(CD) curves) and measure whether the ratio drift leads the yield excursion, and by how much. Only measured output on cited public data may leave Tier 3.",
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at README.md, then CONCEPT_AND_MATH.md, then run euv_stochastic_drift.py (numpy+scipy). Public physics only; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker (large vision, small claims; tier everything); complement not the dose controller of record; operator holds Breaker 16, full automation never possible; NO contact with or approach to any equipment maker, foundry, or institute -- Peter Higgins is the sole gate for all external steps; no AI commits/pushes/contacts. EXPORT-SENSITIVE: advanced-node semiconductor manufacturing is heavily export-controlled (EUV on Wassenaar; ASML/NL/US/JP controls). Doctrine: PUBLISH the principle (abstract method, P-series), WITHHOLD the applied advanced-node how-to, DEFER sensitive release upward to national export-control authority/counsel (HUF is a sub-composition of a larger governance system that holds the breaker for sensitive release). POLITICAL_COMPOSITION_AND_EXPORT.md is INTERNAL/NOT-FOR-PUBLICATION, candidate for the private governance hold. Prefer the lower-sensitivity packaging/test/photonics on-ramp (Canada: IBM Bromont/C2MI). RESOLVED DISPOSITION (2026-06-24, OFFER_TO_CANADA_AND_PUBLIC_SCIENCE.md): publish the science (principle) openly to the world; offer the applied plan/concept package to the GOVERNMENT OF CANADA to steward for Canadian + partner companies (the upward-defer made concrete; government decides distribution + any export-sensitive control). The 'blueprint' is honestly the analytical/monitoring/yield layer + application plan + roadmap + conformance + the packaging/photonics on-ramp -- NOT lithography hardware. DRAFT only; nothing transmitted; no company contacted; Peter is the sole gate.",
+  "updated": "2026-06-24"
+}

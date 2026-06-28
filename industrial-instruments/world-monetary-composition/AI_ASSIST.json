@@ -1,0 +1,31 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/world-monetary-composition/",
+  "topic": "Proper real-data Hs study (no estimates): the composition of the world's economic weight (the backing of the monetary systems) over time -- shares, arrow, momentum, concentration, and laminar-vs-turbulent flow regimes, at two levels (countries + blocs).",
+  "purpose": "Answer 'compose how the world monetary systems move and churn over time' with REAL public data and a deterministic compositional read -- not an estimate.",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "status": "BUILT / STUDY -- one receipted run on real World Bank GDP (world_composition_study.py, d03048c3). Descriptive, not a forecast or financial advice.",
+  "specific_knowledge": {
+    "what": "World Bank GDP current US$ (NY.GDP.MKTP.CD), 10 largest economies, 2009-2023, fetched live. Read as a composition over time: shares; clr-velocity arrow (helmsman); momentum (mass x velocity); effective dimension (perplexity of shares = concentration); flow regime via 3-yr tortuosity of the clr trajectory (1=laminar, >1 turbulent); level-2 bloc composition (North America / Europe / Asia / Latin America) = composition of compositions.",
+    "key_files": ["README.md", "RESULTS_world_composition.md", "world_composition_study.py"],
+    "key_points": [
+      "China share 12.9%->25.7% (doubled); Japan 13.2%->5.9% (more than halved); US 36.1%->38.4% (steady-dominant). Europe declining, India rising.",
+      "Concentration: effective dimension 7.3->6.2 of 10 -> the world's economic weight is CONCENTRATING toward a US-China duopoly; bloc eff-dim 3.36->3.17 of 4.",
+      "Flow regime (tortuosity): laminar in calm years, TURBULENT 2015-2018 (2.08; China slowdown/yuan, Brexit, trade) and 2019-2022 (1.81; COVID+inflation+yen) -- turbulence found in the geometry where macro history puts it.",
+      "Arrow = China rising early, Japan FALLING fastest 2020-23 (yen collapse = a ratio-blind moment a scalar 'world GDP up' misses); momentum alternates US/China (mass-blindness: fastest != heaviest). Blocs: weight moves Europe->Asia, North America holding."
+    ],
+    "related_topics": ["../financial/", "../../library/THE_BLINDNESS_SUITE.md", "../canada-program/WORLD_COMPOSITION_AND_MOMENTUM.md", "../README.md"],
+    "claim_tiers": "T1 = engine + the deterministic reads on real World Bank data (d03048c3); T2 = the regime/turbulence framing + bloc recursion; T3 = any why/forward-looking interpretation. Not financial advice."
+  },
+  "next_step": "Stack the next public layers, each a composition: IMF COFER reserve-currency shares (the money layer itself), broad money by country, equity market cap, trade. Add more economies/years. Only descriptive output; governance + claim-tiers apply.",
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at README.md, then RESULTS_world_composition.md, then run world_composition_study.py (numpy). Public data only; descriptive read; current-US$ caveat applies; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker; descriptive not predictive; NOT financial advice; current-US$ GDP mixes real growth + price + exchange rate (stated caveat); real public World Bank data; Peter Higgins is the sole gate; no AI commits/pushes/contacts.",
+  "updated": "2026-06-25"
+}

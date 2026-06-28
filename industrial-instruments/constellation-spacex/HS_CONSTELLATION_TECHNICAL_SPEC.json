@@ -1,0 +1,107 @@
+{
+  "schema": "hs_constellation_technical_spec/1.0",
+  "title": "Hs for large LEO constellations — total systems coherence, fleet navigation & dual-use sensing (technical spec)",
+  "version": "1.0",
+  "date": "2026-06-20",
+  "status": "SEED / concept + technical specification. No orbital-data run yet.",
+  "author": "Peter Higgins (human authorship for all claims); AI-assisted per HUF-STD-001.",
+  "honest_broker": "Tiered throughout. T1 = measured P1 engine facts only. T2 = reasoned mappings + established methods. T3 = every operational/scientific magnitude (NO numbers asserted). T3+ = embedded controller / deployment. The actuation-authority gate (below) is a REQUIREMENT, not an option.",
+  "human_gate": "Peter Higgins is the sole gate. No AI commits/pushes/contacts. No engagement with SpaceX or any party is implied or authorized.",
+  "core_principles": [
+    "Determinism + full provenance (content hash at every layer).",
+    "Recursive linear-algebraic structure (ILR + quaternion/SO(3) + Laplacian + linear spectral bases).",
+    "Locked coherence at scale and distance = the same linear algebra applied self-similarly with a receipt at each level.",
+    "Controller AND analyzer in lock-step -- BUT analysis<->recommendation is locked; actuation authority stays GATED (observe-or-control fork preserved; guard layers active).",
+    "Dual-use: operations + planetary science from one read; the residual is the science.",
+    "Complement, never replacement, for propagators / conjunction assessment / GNSS estimators."
+  ],
+  "safety_boundary": {
+    "requirement": "Hs provides deterministic, auditable control-DECISION SUPPORT with hard guard rails and a content receipt; a qualified-automation tier or a human holds ACTUATION authority. Especially binding for collision avoidance (safety-of-life).",
+    "rationale": "Preserves the P3 guard layer and the observe-or-control doctrine under the controller/analyzer unification."
+  },
+  "components": {
+    "fleet_coherence_index": {
+      "formula": "FCI = w1*C_geo + w2*C_behav + w3*C_kin + w4*C_spec + w5*(1 - R_risk)",
+      "tier": "T2 structure / T3 every value, dynamic range, and lead-time",
+      "sub_metrics": {
+        "C_geo": {"reads": "relative position/velocity consistency vs reference geometry", "method": "ILR -> quaternion (D=4) on local clusters", "tier": "T1 reading / T2 mapping"},
+        "C_behav": {"reads": "station-keeping effort / maneuver-pattern consistency", "method": "Activation Coefficient + Helmsman on (often proprietary) effort proxies", "tier": "T2"},
+        "C_kin": {"reads": "trajectory smoothness/predictability", "method": "noise-bounded derivatives + curvature (P4) on orbital elements", "tier": "T2"},
+        "C_spec": {"reads": "frequency-content consistency + coherent response to F10.7/Kp", "method": "Lomb-Scargle / wavelet-packet features aggregated across fleet", "tier": "T2"},
+        "R_risk": {"reads": "conjunction-risk concentration", "method": "EITT-style effective-diversity/entropy over relative-geometry + drift", "tier": "T3"}
+      },
+      "weights": "w_i >= 0, sum = 1; tunable per shell/phase/solar-activity; UNTUNED = research object, not an operational signal.",
+      "receipt": "SHA-256 over {fci, sub-metrics, hash(states), hash(reference_geometry), weights}, full-precision, sort_keys, UTF-8."
+    },
+    "kinematics_layer": {
+      "tier": "T2",
+      "inputs": ["high-precision ephemerides (pos, vel)"],
+      "outputs": ["along/cross/radial acceleration", "jerk + higher-order", "curvature", "momentum"],
+      "uses": ["drag estimation", "maneuver detection", "gravity-wave signature extraction", "timing-residual analysis"]
+    },
+    "signal_separation": {
+      "tier": "T2 method / T3 demonstrated separation",
+      "model": "observed = commanded_control(KNOWN) + environmental_forcing(drag/waves/plasma) + noise",
+      "key_point": "NOT blind source separation -- the operator knows its own commanded control; subtract it, residual = environment + noise; then Hs MC-4 attributes the residual across environmental carriers. Cleaner control record => cleaner science residual.",
+      "method": "forward-model + subtract known (commanded control, relativity, Sagnac, gravity field) -> residual -> MC-4 carrier attribution"
+    },
+    "spectral_wavelet": {
+      "tier": "T2 (standard methods)",
+      "lomb_scargle": "stable frequency ID on unevenly-sampled data",
+      "wavelet_packet": {"wavelet": "db4 / sym5 (to validate per shell)", "max_level": "6-8", "best_basis": "Shannon-entropy cost (Coifman-Wickerhauser, deterministic with fixed wavelet+cost)", "features": ["per-node energy", "dominant scale", "kurtosis", "wavelet entropy", "intermittency"]},
+      "wavelet_coherence": "between residual and external driver (F10.7/Kp) or neighbours, to separate driven response from anomaly",
+      "indicative_LEO_bands_cpd": {"orbital": "~15", "nodal_precession": "0.1-1", "diurnal": "~1", "long_period": "<0.05", "maneuver_anomaly": "broadband / >orbital"}
+    },
+    "external_drivers": {
+      "F10_7": {"is": "10.7 cm solar radio flux, proxy for solar EUV", "use": "solar-cycle/27-day context, detrending, adaptive thresholds", "source": "NOAA SWPC / NRCan"},
+      "Kp": {"is": "planetary geomagnetic index 0-9, 3-hourly", "use": "storm context, adaptive thresholds, coherence reference", "source": "GFZ Potsdam / NOAA SWPC"}
+    },
+    "relativistic_timing": {
+      "tier": "T2 method / T3 finding",
+      "facts": {
+        "GPS_MEO": "~+45.7 us/day GR, ~-7.2 us/day SR, NET ~+38 us/day FAST (~20,200 km, ~3.9 km/s)",
+        "crossover_altitude_km": "~3200 (SR and GR cancel for circular orbit)",
+        "LEO_starlink": "~550 km is BELOW crossover -> velocity (SR) term dominates -> clocks run SLOW (NET NEGATIVE, opposite sign to GPS; ISS at ~400 km ~ -25 to -28 us/day). Exact value altitude/velocity specific.",
+        "sagnac": "geometric frame-rotation correction for one/two-way time transfer + inter-satellite ranging; EXACTLY computed and applied -- a correction, NOT noise to mitigate."
+      },
+      "hs_role": "operate on POST-correction residuals only; fold timing coherence into FCI; over long records test residual<->environment correlation. Hs does NOT replace or improve the relativistic/Sagnac physics."
+    },
+    "tx_rx_chain": {
+      "tier": "T3 (needs largely proprietary radio metrics)",
+      "channels": ["downlink amplitude/phase/SNR/fading", "inter-satellite link metrics", "EVM, bit/frame error rate", "AGC behaviour"],
+      "representation": "radio metrics as additional ILR compositional channels alongside orbital state + environment",
+      "integration_levels": ["per-link coherence", "plane/beam coherence", "fleet comms coherence", "joint drag+radio (neutral-plasma coupling)"],
+      "control_use": "ADVISORY adaptive modulation/power/routing; Hs is the slower high-fidelity layer; hard real-time control + actuation stay separate (safety_boundary)."
+    }
+  },
+  "architecture": {
+    "recursion": "local 4-part exact charts -> overlapping atlas (linear SU(2) transition maps) -> balanced-tree Laplacian roll-up (O(log D) diameter) -> fleet metrics -> (optionally) constellation-of-constellations. Same linear algebra + a receipt at every level.",
+    "data_flow": "raw tracking (+radio) -> detrend (F10.7/Kp, commanded control, relativity, Sagnac) -> features (kinematics + wavelet) -> ILR compositional representation -> coherence/anomaly -> hash-receipted outputs",
+    "linear_algebraic_basis": ["ILR isometry", "quaternion/SO(3) sandwich", "sparse Laplacian least-squares", "linear spectral/wavelet bases"]
+  },
+  "dual_use_science": {
+    "neutral_atmosphere": "density, winds, gravity waves from drag residuals (needs high-precision ephemerides + ballistic coefficients).",
+    "ionosphere": "plasma irregularities / scintillation from radio metrics (needs proprietary high-rate link data); TEC as the error-is-the-science product.",
+    "space_weather": "solar-cycle (F10.7) + geomagnetic-storm (Kp) impact characterization.",
+    "method": "the residual is the science: remove exactly-known physics -> study what remains -> refine models over a solar cycle -> models improve operations -> cleaner data -> better science (continuous, standard-operations by-product)."
+  },
+  "data_and_precision": {
+    "public_sufficient_for": ["FCI behaviour + storm-response tests (Starlink TLEs + F10.7 + Kp)"],
+    "needs_proprietary": ["fine science (winds, gravity waves, density retrieval): high-precision ephemerides + ballistic coefficients", "ionospheric scintillation: high-rate radio link metrics"],
+    "rule": "always state which precision channel a result came from; never present a TLE-precision result as a high-precision science product."
+  },
+  "roadmap": {
+    "phase_0": "3-6 mo: finalize FCI spec, fix LEO bands/wavelet scales, stand up public data pipelines.",
+    "phase_1": "6-12 mo: minimal FCI + spectral-anomaly prototype on PUBLIC data; validate across a known geomagnetic storm; kinematics drag proxy vs a standard atmospheric model.",
+    "phase_2": "12-24 mo: advisory dashboards; internal science products (safety boundary held).",
+    "phase_3": "24+ mo: full-constellation scale; external science collaboration; long-term model refinement.",
+    "promotion_rule": "only measured prototype output with a content receipt may leave Tier 3."
+  },
+  "open_questions": [
+    "Does the FCI move AHEAD of per-pair conjunction probability in real events?",
+    "Can a kinematics drag proxy beat/complement a standard atmospheric model during a storm?",
+    "What OD precision is the floor for each science product, and is it reachable from any public source?",
+    "Where is the real Delta-v lever (earlier detection vs coordination vs false-positive reduction) against real station-keeping logs?"
+  ],
+  "generalization_note": "The pattern (compositional state + recursive coherence + multi-scale analysis + receipted determinism + guard) is domain-general -- space debris/STM (closest), V2X / cooperative perception, distributed + underwater acoustics, returning to Hs's acoustic origin (HCI-ULTRASOUND). Captured separately and tiered as HORIZON in GENERALIZATION_AND_ACOUSTIC_RETURN.md; the constellation remains the focused flagship. Each other domain is its own unvalidated hypothesis."
+}

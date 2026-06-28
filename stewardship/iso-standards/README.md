@@ -34,3 +34,9 @@ A genuine pathway would mean engaging ISO/TC 69 on the merits, with empirical ev
 **Source (full):** `../../../HUF/science/coda-monitoring/MC4_ISO_Positioning_Document.docx` · **doctrine:** `../../../HUF/huf-gov/doctrine/HUF_GOV_OPERATING_DOCTRINE_2026-06.md` §4 (MC‑4) · `../../../HUF/huf-gov/RATIO_BLINDNESS_DOCTRINE.md`.
 
 *The instrument reads. The expert decides. A standard is written against what can be reproduced.*
+
+---
+
+## Update — 2026‑06‑14: the missing piece now exists
+
+This root named the missing element as *"the deterministic instrument that makes a composition read reproducible and auditable."* That instrument is now built and demonstrated. The realistic strategy — the function/IEEE‑754 reproducibility framing, the wedge of extending MSA/GUM rather than proposing a new philosophy, the four‑leg evidence portfolio, and an honest ladder of where the project stands — is written up in **`PATH_TO_A_STANDARD.md`** (this folder). Supporting current doctrine, now integral to this pursuit: `../../HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md` (engine gauge R&R ≈ 0, conformance), `../../HCI-CNTT/DESIGN_PHILOSOPHY_THE_EXPERT_ENGINE_AND_THE_GUARDS.md`, and the `../../onramp/` PhD onramp (the consensus flywheel). Still a proposal; still Tier 3; still nothing initiated.

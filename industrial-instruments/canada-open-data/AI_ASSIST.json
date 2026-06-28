@@ -1,0 +1,31 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/canada-open-data/",
+  "topic": "Demo for the Government of Canada: Hs reads the COMPOSITION of Canada's entire open-data estate (open.canada.ca, 47,462 datasets) -- department/format/jurisdiction/collection shares, arrow of intent, effective dimension, concentration.",
+  "purpose": "Smallest possible proof, on the government's OWN public data, that the compositional instrument sees what a dataset headcount cannot. Part of the Canada Division (GOVERNANCE stream).",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "status": "BUILT / DEMO -- one receipted read on real catalogue metadata (canada_open_data_composition.py, 209a8559). Descriptive, not political. No endorsement implied or sought.",
+  "specific_knowledge": {
+    "what": "open.canada.ca CKAN package_search facets (fetched 2026-06-24); total = 47,462 datasets. Each facet read as a composition: shares, arrow (dominant part), effective dimension (perplexity), HHI concentration.",
+    "key_files": ["README.md", "RESULTS_canada_open_data.md", "canada_open_data_composition.py"],
+    "key_points": [
+      "Two mandates dominate: NRCan (10,247) + Statistics Canada (10,203) = 43% of all 47,462 datasets, from 2 of 100+ bodies; arrow of the estate = geoscience + national statistics.",
+      "Output does NOT track size: Yukon (pop ~45k) = 2,901 datasets, ~3x Ontario (988), far above its ~0.1% population share -- a mandate-and-culture signal, not a size signal.",
+      "Metadata-heavy: HTML (landing pages) = 29% of format tags; machine-readable core (CSV+XLSX+JSON+GEOJSON) smaller; catalogue larger than the directly-usable data within it.",
+      "Concentrated: effective dimension ~15 departments / ~11 formats / ~1.8 jurisdiction levels -- composition (not count) is the right lens. Receipt 209a8559."
+    ],
+    "related_topics": ["../../huf-gov/doctrine/CANADA_DIVISION.md", "../euv-lithography/", "../../library/THE_DATA_IS_THE_CARRIER.md", "../README.md"],
+    "claim_tiers": "T1 = engine + the receipted read; T2 = the government-demo framing; T3 = any value/uptake. Counts are real public metadata; interpretation is descriptive, not political."
+  },
+  "next_step": "Optional: extend to a second layer -- read one substantive Canadian open dataset's internal composition (e.g., energy mix, trade, GHG) and/or refresh the facet counts. Only descriptive output; governance + claim-tiers apply.",
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at README.md, then RESULTS_canada_open_data.md, then run canada_open_data_composition.py (numpy). Public data only; descriptive read; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker; descriptive not political; counts are real public open.canada.ca metadata; NO endorsement, partnership, or contact implied or sought -- Peter Higgins is the sole gate for all external steps; no AI commits/pushes/contacts.",
+  "updated": "2026-06-24"
+}

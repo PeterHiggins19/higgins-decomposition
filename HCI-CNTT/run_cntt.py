@@ -21,6 +21,16 @@ def run(csv_path, high_d_threshold=64, atlas_strategy="hierarchical"):
         carrier_guard = {"excluded_structural_zero": [carriers[j] for j in health["structural_zero"]],
                          "flagged_constant": [carriers[j] for j in health["constant"]],
                          "n_carriers_in": int(M.shape[1]), "n_carriers_active": len(health["active"]),
+                         "zero_methods": {**{carriers[j]: "dropped:structural_zero" for j in health["structural_zero"]},
+                                          **{carriers[j]: "retained:flagged_constant" for j in health["constant"]}},
+                         "diagnostic_codes": sorted(({"GD-ZRC-CAL"} if health["structural_zero"] else set())
+                                                    | ({"GD-CNC-CAL"} if health["constant"] else set())),
+                         "active_zero_replacement": "active carriers: sporadic zeros (<=0) replaced by 0.65*min(positive) "
+                                                    "per carrier (multiplicative replacement)",
+                         "registry": "HCI-CNTT/engine/zero_methods.py (resolve_zeros) — the announced multi-method zero "
+                                     "registry; this run path uses the engine-default policy (drop structural / flag "
+                                     "constant / multiplicative-replace sporadic). Detection-limit-gated replacement and "
+                                     "the honest no-impute policy are available there.",
                          "policy": "structural-zero carriers (no positive value across all records) are undefined "
                                    "under the CLR/ILR log-ratio map and are excluded; constant carriers are admissible, "
                                    "retained, and flagged for calibration."}

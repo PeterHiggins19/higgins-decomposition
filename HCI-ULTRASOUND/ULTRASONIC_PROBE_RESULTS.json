@@ -1,0 +1,22 @@
+{
+  "_meta": {
+    "tool": "ultrasonic_probe_hs.py",
+    "what": "filter-injection ultrasonic probe: lock onto structure by reading return-vs-injected in clr space; scalar common-mode (coupling/source) cancels exactly.",
+    "D_bands": 24,
+    "geometry_band": 6,
+    "flaw_band": 17,
+    "receipt_sha256": "50b090f83c6df461"
+  },
+  "structure_recovery": {
+    "rmse_vs_true_clr_structure": 0.01918,
+    "geometry_lock_band_modal": 6,
+    "geometry_lock_correct": true,
+    "common_mode_rejection_dB_vs_absolute": 31.3
+  },
+  "flaw_detection_under_varying_coupling": {
+    "Hs_differential_separability": 53.76,
+    "absolute_read_separability": 1.44,
+    "verdict": "Hs locks the flaw; absolute read is swamped by coupling variation"
+  },
+  "non_invasive": "injected known + read-only; the probe imprints nothing (inert)"
+}

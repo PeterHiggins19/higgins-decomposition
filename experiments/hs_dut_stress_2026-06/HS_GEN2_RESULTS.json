@@ -1,0 +1,45 @@
+{
+  "_meta": {
+    "tool": "hs_gen2.py",
+    "stepping_stone": "G-248 stress test, receipt e395fa38af43be4e",
+    "what": "Gen-2 improvements (ilr-balance discriminant + margin gate; memory diversity gate) re-tested on the exact failing cases",
+    "receipt_sha256": "f56abdb6ffa1f577"
+  },
+  "FIX1_discriminant_lowD": {
+    "D=2": {
+      "gen1_invariance": 0.577,
+      "gen2_invariance_on_confident": 1.0,
+      "gen2_confident_fraction": 0.967
+    },
+    "D=3": {
+      "gen1_invariance": 1.0,
+      "gen2_invariance_on_confident": 1.0,
+      "gen2_confident_fraction": 0.85
+    },
+    "D=4": {
+      "gen1_invariance": 1.0,
+      "gen2_invariance_on_confident": 1.0,
+      "gen2_confident_fraction": 0.433
+    },
+    "D=8": {
+      "gen1_invariance": 1.0,
+      "gen2_invariance_on_confident": 1.0,
+      "gen2_confident_fraction": 0.833
+    }
+  },
+  "FIX2_memory_recall": {
+    "geology_D4_nearduplicate": {
+      "gen1_clr_euclid": 0.26,
+      "gen2_whitened_mahalanobis": 0.24,
+      "min_pairwise_clr_separation": 0.003,
+      "gen2_diversity_gate": "NEAR-DUPLICATE BANK -> recall flagged unreliable (correct: cannot recall apart near-identical compositions)"
+    },
+    "synthetic_D4_diverse": {
+      "gen1_clr_euclid": 1.0,
+      "gen2_whitened_mahalanobis": 0.995,
+      "min_pairwise_clr_separation": 0.087,
+      "gen2_diversity_gate": "NEAR-DUPLICATE BANK -> recall flagged unreliable (correct: cannot recall apart near-identical compositions)"
+    }
+  },
+  "verdict": "FIX1 KEPT: the ilr/balance discriminant + margin gate fixes the D=2 degeneracy (invariance 0.58->1.0 on confident, with honest withholds). FIX2: Mahalanobis whitening does NOT help near-duplicate recall (0.26->0.24); the honest fix is DETECTION -- the diversity gate flags a near-duplicate bank as unreliable (correct, not a failure). Refinements kept only where they help; the rest replaced by honest detection."
+}

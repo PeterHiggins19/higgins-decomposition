@@ -1,0 +1,26 @@
+{
+  "standard": "HS-GOLD-1",
+  "title": "Hs golden conformance fixture set (known-hash, future-proof)",
+  "version": "1.0",
+  "frozen": "2026-06-23",
+  "author": "Peter Higgins; AI-assisted per HUF-STD-001",
+  "purpose": "A frozen, deterministic test/proof standard. Any future build re-runs hs_gold_fixtures.py --verify; identical hashes prove identical meaning. Hashes cover platform-STABLE rounded signal + structure/pass flags, never IEEE-floor residuals. Extends HS-EPS-1.",
+  "tolerances": {"signal_round_dp": 10, "angle_round_dp": 9, "pass_flag_residual": "< 1e-9 (1e-12 for the D=4 sandwich, 1e-10 for the dual-quaternion round-trip)"},
+  "fixtures": {
+    "F1_D4_rung": "fixed 4-part composition [0.4,0.3,0.2,0.1]; ILR; Aitchison sandwich == SO(3) rotation",
+    "F2_SOn_ladder": "exact SO(n) generated at n=3,4,8,16; rotation angles recovered from the spectrum",
+    "F3_dualquat_pose": "fixed SE(3) pose encoded as a dual quaternion; translation recovered exactly",
+    "F4_blindness_faces": "n=8 rotation-only vs size-only steps separate exactly (suite calibration)",
+    "F5_backblaze_anchor": "real public fleet telemetry: day0/dayN ILR + the rotation angle between them"
+  },
+  "per_fixture_sha256": {
+    "F1_D4_rung": "0ff1bc3c640bbf4854788e58141ec3a2f016cbd9dca71b047b8147825e2b6d0a",
+    "F2_SOn_ladder": "df7772b2d686c9a9999b1d22e2fcc84614b0e7f81eb95e1c66a55e4b3d43c1e6",
+    "F3_dualquat_pose": "701b6b4d67640c4f122005a75cbf8ce63e48f35ac019b517a53f9c33cba6b117",
+    "F4_blindness_faces": "d2e8539303273c6b1399b2d4a72ef152a266a51cd939f15ce741c8a91cea73ca",
+    "F5_backblaze_anchor": "0d3a78bb6c7d5c2e665f265d29fee23e3ecf052c00561d0e139301a8267096f9"
+  },
+  "MASTER_sha256": "d7ac6530dc056ecbfde0be7b4aaed052fe13b0fa68bbf0c934b8944d501cf197",
+  "reproduced": "stable across repeated runs (PCG64 seeds platform-independent; signal rounded above float jitter)",
+  "governance": "instrument-not-data; public data read never copied; nothing posted; Peter is the sole gate"
+}

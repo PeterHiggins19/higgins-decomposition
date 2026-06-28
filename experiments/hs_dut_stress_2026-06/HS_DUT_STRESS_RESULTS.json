@@ -1,0 +1,189 @@
+{
+  "_meta": {
+    "tool": "hs_dut_stress.py",
+    "dut": "the Hs compositional system",
+    "dimension_ladder": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1000
+    ],
+    "engine_version": "Hs-DUT-v1.f6bebfb2",
+    "what": "full stress sheet across all dimensions under deformation, Hs-on-Hs",
+    "receipt_sha256": "e395fa38af43be4e"
+  },
+  "per_dimension": {
+    "D=2": {
+      "source": "seeded",
+      "clr_roundtrip": 2.22e-16,
+      "cm_reject_extreme": 4.44e-16,
+      "codec_clr_maxerr": 0.0471,
+      "locked_disc_invariance": 0.5383,
+      "memory_recall": 0.4917,
+      "conveyor_nondisrupt": 0.0465,
+      "conveyor_deterministic": 1.0
+    },
+    "D=3": {
+      "source": "real",
+      "clr_roundtrip": 1.11e-16,
+      "cm_reject_extreme": 4.44e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 0.55,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=4": {
+      "source": "real",
+      "clr_roundtrip": 1.11e-16,
+      "cm_reject_extreme": 5.55e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 0.2083,
+      "conveyor_nondisrupt": 0.0471,
+      "conveyor_deterministic": 1.0
+    },
+    "D=5": {
+      "source": "seeded",
+      "clr_roundtrip": 1.67e-16,
+      "cm_reject_extreme": 8.88e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0471,
+      "conveyor_deterministic": 1.0
+    },
+    "D=7": {
+      "source": "real",
+      "clr_roundtrip": 3.33e-16,
+      "cm_reject_extreme": 1.33e-15,
+      "codec_clr_maxerr": 0.0493,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0493,
+      "conveyor_deterministic": 1.0
+    },
+    "D=8": {
+      "source": "seeded",
+      "clr_roundtrip": 8.33e-17,
+      "cm_reject_extreme": 8.88e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0471,
+      "conveyor_deterministic": 1.0
+    },
+    "D=16": {
+      "source": "seeded",
+      "clr_roundtrip": 8.33e-17,
+      "cm_reject_extreme": 8.94e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=32": {
+      "source": "seeded",
+      "clr_roundtrip": 4.16e-17,
+      "cm_reject_extreme": 9.99e-16,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=64": {
+      "source": "seeded",
+      "clr_roundtrip": 2.08e-17,
+      "cm_reject_extreme": 1.18e-15,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=128": {
+      "source": "seeded",
+      "clr_roundtrip": 1.04e-17,
+      "cm_reject_extreme": 1.11e-15,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=256": {
+      "source": "seeded",
+      "clr_roundtrip": 5.2e-18,
+      "cm_reject_extreme": 1.22e-15,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=512": {
+      "source": "seeded",
+      "clr_roundtrip": 3.47e-18,
+      "cm_reject_extreme": 1.11e-15,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    },
+    "D=1000": {
+      "source": "seeded",
+      "clr_roundtrip": 1.73e-18,
+      "cm_reject_extreme": 1.11e-15,
+      "codec_clr_maxerr": 0.0472,
+      "locked_disc_invariance": 1.0,
+      "memory_recall": 1.0,
+      "conveyor_nondisrupt": 0.0472,
+      "conveyor_deterministic": 1.0
+    }
+  },
+  "envelope": {
+    "deterministic_core_passes_all_D": true,
+    "statistical_layer_failures": [
+      [
+        "D=2",
+        "locked_disc_invariance",
+        0.5383
+      ],
+      [
+        "D=2",
+        "memory_recall",
+        0.4917
+      ],
+      [
+        "D=3",
+        "memory_recall",
+        0.55
+      ],
+      [
+        "D=4",
+        "memory_recall",
+        0.2083
+      ]
+    ],
+    "Hs_on_Hs_closest_to_limit_spec": "codec_clr_maxerr",
+    "worst_residual_by_test": {
+      "clr_roundtrip": 3.33e-16,
+      "cm_reject_extreme": 1.33e-15,
+      "codec_clr_maxerr": 0.0493
+    }
+  },
+  "fences": "closure/clr specs hold at ANY D; EXACT quaternion reconstruction is D in {1,2,4,8} (Hurwitz), tiled above (~1e-12, cited); the 313 dB-class rejection is numerical, NOT a Shannon-beating claim; only multiplicative common-mode cancels.",
+  "MASTER_RECEIPT": "e395fa38af43be4e"
+}

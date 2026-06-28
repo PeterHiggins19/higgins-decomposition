@@ -1,0 +1,220 @@
+{
+  "_meta": {
+    "tool": "canada_energy_governance.py",
+    "source": "EMBER public generation data (TWh by source)",
+    "n_countries": 10,
+    "receipt_sha256": "267cc816e653e176"
+  },
+  "A_where_each_stands_and_direction": {
+    "AUS": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 242.2,
+      "dominant_source": "Coal",
+      "fossil_share": 0.569,
+      "clean_share": 0.431,
+      "effective_dimension": 3.75,
+      "directedness": 0.335,
+      "motion_helmsman": "Other Fossil"
+    },
+    "CAN": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 652.4,
+      "dominant_source": "Hydro",
+      "fossil_share": 0.23,
+      "clean_share": 0.77,
+      "effective_dimension": 4.16,
+      "directedness": 0.625,
+      "motion_helmsman": "Solar"
+    },
+    "CHN": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 10583.4,
+      "dominant_source": "Coal",
+      "fossil_share": 0.583,
+      "clean_share": 0.417,
+      "effective_dimension": 4.27,
+      "directedness": 0.657,
+      "motion_helmsman": "Solar"
+    },
+    "DEU": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 500.5,
+      "dominant_source": "Wind",
+      "fossil_share": 0.409,
+      "clean_share": 0.591,
+      "effective_dimension": 5.85,
+      "directedness": 0.43,
+      "motion_helmsman": "Other Renewables"
+    },
+    "FRA": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 570.0,
+      "dominant_source": "Nuclear",
+      "fossil_share": 0.051,
+      "clean_share": 0.949,
+      "effective_dimension": 3.11,
+      "directedness": 0.558,
+      "motion_helmsman": "Solar"
+    },
+    "GBR": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 292.3,
+      "dominant_source": "Gas",
+      "fossil_share": 0.356,
+      "clean_share": 0.644,
+      "effective_dimension": 5.25,
+      "directedness": 0.387,
+      "motion_helmsman": "Other Renewables"
+    },
+    "IND": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 2081.6,
+      "dominant_source": "Coal",
+      "fossil_share": 0.733,
+      "clean_share": 0.267,
+      "effective_dimension": 2.92,
+      "directedness": 0.647,
+      "motion_helmsman": "Solar"
+    },
+    "JPN": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 1029.9,
+      "dominant_source": "Gas",
+      "fossil_share": 0.673,
+      "clean_share": 0.327,
+      "effective_dimension": 5.3,
+      "directedness": 0.127,
+      "motion_helmsman": "Nuclear"
+    },
+    "USA": {
+      "years": [
+        2001,
+        2025
+      ],
+      "generation_TWh_latest": 4519.8,
+      "dominant_source": "Gas",
+      "fossil_share": 0.571,
+      "clean_share": 0.429,
+      "effective_dimension": 5.31,
+      "directedness": 0.875,
+      "motion_helmsman": "Solar"
+    },
+    "WLD": {
+      "years": [
+        2000,
+        2025
+      ],
+      "generation_TWh_latest": 31772.4,
+      "dominant_source": "Coal",
+      "fossil_share": 0.574,
+      "clean_share": 0.426,
+      "effective_dimension": 6.1,
+      "directedness": 0.953,
+      "motion_helmsman": "Solar"
+    }
+  },
+  "CANADA_focus": {
+    "years": [
+      2000,
+      2025
+    ],
+    "generation_TWh_latest": 652.4,
+    "dominant_source": "Hydro",
+    "fossil_share": 0.23,
+    "clean_share": 0.77,
+    "effective_dimension": 4.16,
+    "directedness": 0.625,
+    "motion_helmsman": "Solar"
+  },
+  "B_grid_steering_manifold": {
+    "current_mix": {
+      "generation_TWh": 652.4,
+      "fossil_share": 0.23,
+      "clean_share": 0.77,
+      "dominant": "Hydro"
+    },
+    "levers_ranked_by_efficiency": [
+      {
+        "lever": "+15 TWh Solar",
+        "result": {
+          "generation_TWh": 667.4,
+          "fossil_share": 0.225,
+          "clean_share": 0.775,
+          "dominant": "Hydro"
+        },
+        "fossil_share_delta": -0.005,
+        "compositional_move": 0.8544,
+        "efficiency_move_per_TWh": 0.05696
+      },
+      {
+        "lever": "+10 Solar +10 Wind -15 Gas",
+        "result": {
+          "generation_TWh": 657.4,
+          "fossil_share": 0.206,
+          "clean_share": 0.794,
+          "dominant": "Hydro"
+        },
+        "fossil_share_delta": -0.024,
+        "compositional_move": 0.6793,
+        "efficiency_move_per_TWh": 0.01941
+      },
+      {
+        "lever": "+15 TWh Wind",
+        "result": {
+          "generation_TWh": 667.4,
+          "fossil_share": 0.225,
+          "clean_share": 0.775,
+          "dominant": "Hydro"
+        },
+        "fossil_share_delta": -0.005,
+        "compositional_move": 0.2411,
+        "efficiency_move_per_TWh": 0.01607
+      },
+      {
+        "lever": "-15 TWh Gas",
+        "result": {
+          "generation_TWh": 637.4,
+          "fossil_share": 0.212,
+          "clean_share": 0.788,
+          "dominant": "Hydro"
+        },
+        "fossil_share_delta": -0.018,
+        "compositional_move": 0.1307,
+        "efficiency_move_per_TWh": 0.00871
+      }
+    ],
+    "reading": "efficiency = compositional move per TWh acted -- the deterministic control manifold"
+  },
+  "value": {
+    "method_marginal_cost": "~0 (reads data already collected)",
+    "canada_generation_TWh": 652.4,
+    "price_assumption_USD_per_MWh": 50.0,
+    "steerable_system_flow_USD_billion_per_year": 32.6,
+    "framing": "a $ on the SCALE of the system better steering acts on -- NOT a claimed saving"
+  },
+  "fence": "Public EMBER data; $ figures ILLUSTRATIVE with a STATED price (not a forecast/guaranteed saving); simulator is a deterministic COMPOSITIONAL what-if (no grid-physics/reliability/price-response model); Ontario/provincial needs the public IESO provincial-generation plug-in (named pilot). Direction measured; the policy choice is the operator's leap (Breaker 16). Peter is the sole gate; nothing posted."
+}

@@ -1,0 +1,20 @@
+{
+  "_meta": {
+    "tool": "ilr_incorporation.py",
+    "n_units": 219,
+    "D": 4,
+    "ally_idea": "isometric log-ratio (ilr) / balances",
+    "citation": "Egozcue, Pawlowsky-Glahn, Mateu-Figueras & Barcelo-Vidal (2003), Mathematical Geology 35(3):279-300, DOI 10.1023/A:1023818214614; Aitchison (1986)",
+    "receipt_sha256": "74e8e6e544108759"
+  },
+  "test_1_ilr_is_an_isometry": {
+    "max_aitchison_vs_ilr_distance_error": 3.33e-16,
+    "verdict": "CONFIRMED -- ilr Euclidean distance = Aitchison distance to the numerical floor"
+  },
+  "test_2_locked_discriminant_in_ilr": {
+    "invariance_rate_under_nuisance_group": 1.0,
+    "draws": 4380,
+    "verdict": "CONFIRMED -- the Locked-Discriminant Principle holds in ilr (balance) coordinates (rate 1.0)"
+  },
+  "what_this_gives_the_community": "a determinism+receipt discipline and the lock=invariance criterion, expressed directly on the balances they already use -- adopt with no change of coordinates."
+}

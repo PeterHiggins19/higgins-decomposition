@@ -1,0 +1,81 @@
+{
+  "_meta": {
+    "tool": "system_specs.py",
+    "what": "consolidated specification test of the compositional system",
+    "D_test": 8,
+    "receipt_sha256": "dbe4690effd6d2f5",
+    "receipt_note": "receipt hashes the deterministic specs; throughput excluded (wall-clock)"
+  },
+  "specifications": {
+    "determinism_bit_identical": {
+      "value": true,
+      "tier": "T1"
+    },
+    "clr_roundtrip_residual": {
+      "value": 8.33e-17,
+      "unit": "composition",
+      "tier": "T1"
+    },
+    "common_mode_rejection_exact_residual": {
+      "value": 8.88e-16,
+      "tier": "T1"
+    },
+    "coherence_law_dB": {
+      "value": {
+        "rho=0.9": 10.0,
+        "rho=0.99": 20.0,
+        "rho=0.999": 30.0
+      },
+      "tier": "T1"
+    },
+    "codec_7bit_clr_maxerr": {
+      "value": {
+        "gas": 0.0472,
+        "water": 0.0493
+      },
+      "tier": "T1",
+      "note": "near-lossless in clr"
+    },
+    "codec_7bit_linear_maxerr": {
+      "value": {
+        "gas": 0.383,
+        "water": 7.13
+      },
+      "tier": "T1",
+      "note": "FAILS on high dynamic range -> use clr"
+    },
+    "memory_recall_scale_invariant": {
+      "value": {
+        "compositional": 1.0,
+        "raw_magnitude": 0.36
+      },
+      "tier": "T1"
+    },
+    "conveyor": {
+      "value": {
+        "bytes_per_unit": 4,
+        "nondisruption_roundtrip_maxerr": 0.0472,
+        "within_7bit_floor": true,
+        "deterministic_tags": true
+      },
+      "tier": "T1"
+    },
+    "locked_discriminant_invariance": {
+      "value": {
+        "centred_contrast_LOCKED": 1.0,
+        "static_argmax_clr": 0.615
+      },
+      "tier": "T1"
+    },
+    "effective_dimension_read_water_D7": {
+      "value": 2.64,
+      "tier": "T1"
+    },
+    "throughput_units_per_sec_singlethread_py": {
+      "value": 95007,
+      "tier": "T2",
+      "note": "single-thread CPython, O(D)/unit; not optimized"
+    }
+  },
+  "fences": "Exactness is the IEEE numerical floor (not infinite precision); common-mode rejection is numerical, does NOT beat Shannon channel capacity / rate-distortion; throughput is unoptimized single-thread Python; the 7-bit codec is near-lossless ONLY in clr coordinates."
+}

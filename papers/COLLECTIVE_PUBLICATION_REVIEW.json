@@ -1,0 +1,407 @@
+{
+  "schema": "hs_collective_publication_review/1.0",
+  "title": "Hˢ / Higgins Decomposition — Collective Pre-Publication Review Packet",
+  "purpose": "ONE file holding every paper intended for publication, the publish-strategy path, and open suggestion slots, so the HUF AI Collective can pre-publish check, pressure-test, and add to it. A real collective work that the system itself produced.",
+  "generated": "2026-06-15",
+  "author": "Peter Higgins (human authorship for all claims); AI-assisted per HUF-STD-001",
+  "human_gate": "Peter Higgins is the SOLE submission/contact gate. No paper is submitted, posted, or sent without his action. Collective input is ADVISORY; the human decides. No AI commits, pushes, or submits — ever.",
+  "honest_broker_standard": "Every claim is tiered: Tier 1 (measured/reproducible), Tier 2 (reasoned from Tier-1 parts), Tier 3 (exploratory — a clue, never a claim). The collective's primary job is to keep every claim AT OR BELOW its true tier. Worked example already in the record: ChatGPT's 2026-06-15 audit of the live repos corrected the high-D wording from 'lossless / IEEE floor' to '~4.1e-12 floating-point reconstruction via a tree atlas, NOT bit-exact mathematical identity' (logged G-56). That correction is the STANDARD to hold across all papers.",
+
+  "how_to_contribute": {
+    "instruction": "Each AI adds to the `collective_suggestions.<your_name>` array inside each paper, and to `open_questions_for_the_collective` and `review_log` at the top level. Do not edit another AI's entries or the human's claims; append only. Keep suggestions tiered and cite-don't-claim. Flag any claim you believe exceeds its tier — that flag is the most valuable contribution.",
+    "fields_you_may_append_to": ["papers[].collective_suggestions.<you>", "papers[].claims_flagged", "open_questions_for_the_collective", "review_log"],
+    "do_not_touch": ["human_gate", "author", "any paper's one_line_claim or tiered_claims (propose changes in your suggestions instead)"]
+  },
+
+  "collective_roles": {
+    "grok": "Independent prior-art / devil's-advocate — the load-bearing reviewer. Run the final novelty pass (Google Scholar / ADS / patent / non-English) on each paper's central claim and TRY TO FIND A FULL PRIOR-ART MATCH. Failure mode to watch: stale cache.",
+    "chatgpt": "Structure + claim-audit. Check every claim is tiered correctly and no Tier-3 is phrased as Tier-1; audit prior-art citations for completeness and the cite-don't-claim boundary. (Already performed the live-repo audit that corrected the D=10^6 wording — see review_log entry 1.)",
+    "gemini": "Independent cross-check. Re-derive the key results from scratch (the lossless-reconstruction theorem; the D=4 ILR<->unit-quaternion isomorphism; the conditioning/diameter argument; the CCS effective-rank). Failure mode to watch: training-data hallucination.",
+    "copilot": "Reproduce. Re-run the experiments from the repo and confirm the reported numbers (D=4 quaternion residual 4.441e-16; D=10^6 tree-atlas ~4.1e-12; CCS effective rank 4.13 of 5 at n=107; the engine conformance hash fcae0ebe…).",
+    "claude": "Executor. Maintain the drafts, integrate review comments, keep claim tiers honest, re-run the parity/experiment harness as claims change. Never upgrade inspected evidence to executed evidence."
+  },
+
+  "publication_strategy": {
+    "arxiv": {
+      "account": "PeterHiggins19 — verified + live (logged G-45)",
+      "email": "peterhiggins@roguewaveaudio.com",
+      "affiliation": "Independent Researcher",
+      "default_category": "cs.IT",
+      "endorsement_note": "A first-time / new-category submitter may need endorsement (arXiv help confirms). If needed, seek ONE TARGETED endorser who knows the subject area — not a broad email blast (per ChatGPT 2026-06-15; aligns with the non-contact doctrine).",
+      "format": "Submit in TeX/LaTeX where possible — arXiv accepts TeX/LaTeX, PDF, and HTML-with-images, but states TeX/LaTeX is the best long-term portable choice. The papers are currently markdown drafts; convert the submission target to LaTeX. (ChatGPT 2026-06-15)",
+      "category_guidance_arxiv_taxonomy": {
+        "note": "Verified against arXiv's category taxonomy (ChatGPT 2026-06-15). IMPORTANT: math.MG = METRIC GEOMETRY (Euclidean/hyperbolic/discrete/convex/coarse geometry, Riemannian comparisons, symmetric spaces) — NOT 'Mathematical Geosciences'. Do not conflate. 'Mathematical Geosciences' is a JOURNAL, fine as a journal target; math.MG is an arXiv category, fine for P1 only if the emphasis is genuinely metric-geometric (the simplex-quaternion isometry).",
+        "cs.IT": "information theory / coding",
+        "cs.MS": "mathematical software",
+        "math.DS": "dynamical systems",
+        "math.MG": "metric geometry (NOT geosciences)",
+        "stat.ME": "statistics methodology",
+        "physics.geo-ph": "geophysics incl. geoinformatics, mathematical geophysics, mineral physics — the correct home for GEOLOGY APPLICATIONS, not math.MG"
+      },
+      "strategic_rule": "arXiv first for precedence; journals later for validation. (The conference gave social proof; arXiv gives timestamped public priority; peer review comes after the claim tiers are clean.)",
+      "publish_logistics": "Per Copilot 2026-06-15 (advisory): convert P1 markdown -> LaTeX (Pandoc; compile-test on Overleaf/TeXLive) keeping the honest abstract; post P1 then P3; on push enable GitHub Pages for site/index.html, cut a GitHub Release -> mint a Zenodo DOI for the reproducibility kit, add the DOI + CITATION.cff to the site; assemble P3 in JOSS format. The site/DOI plan also lives in PUBLICATION_OFFERING_AND_SITE_2026-06-14.md Part B."
+    },
+    "recommended_sequence": [
+      "1. P1 + P3 (the math + the tool, mutually reinforcing; closest to ready)",
+      "2. P4 + P5 as a pair (the kinematics is the engine; CCS is what it reveals when turned on itself)",
+      "3. P2 (after its monthly data + null model)",
+      "Standards/position piece rides alongside, aimed at the CoDa community"
+    ],
+    "novelty_pass_gate": "Until the Scholar/patent/non-English novelty pass clears for a paper, its abstract claims 'deterministic instrument + reproducible reads', NOT 'first'. The arXiv timestamp itself secures precedence on posting — so P1-first protects priority without any 'first' wording.",
+    "governance": "Data-is-the-star / 49-51 (HUF Charter Art. X): present Hˢ as the tool that reveals carefully-prepared data, never the source of the insight. Every result carries its hash + tier (TRACEABILITY required).",
+    "public_framing": "The five papers read as one successive arc — exactness (P1) -> trust (P3) -> motion (P4) -> character (P5) -> vigilance (P2) — narrated for the public in papers/THE_HIGGINS_DECOMPOSITION_SERIES.md.",
+    "licensing": "code Apache-2.0; docs CC-BY 4.0; CITATION.cff in place."
+  },
+
+  "papers": [
+    {
+      "id": "P1",
+      "movement": "I — Exactness",
+      "working_title": "Tiling the simplex: an exact quaternion reading of compositional dynamics and lossless high-dimensional reconstruction",
+      "one_line_claim": "A 4-part composition's ILR coordinate is a unit quaternion (S^3 = SU(2)); an Aitchison perturbation is an exact rotation q v q*; tiling overlapping 4-part charts reconstructs an arbitrarily high-D composition through a connected atlas.",
+      "status": "full draft (cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md)",
+      "venue": {"primary_arxiv": "cs.IT or math.MG (depending on final emphasis — math.MG = METRIC geometry, apt for the simplex-quaternion isometry)", "crosslist": ["math.MG", "stat.ME"], "journal": "Mathematical Geosciences (journal) or a stats/ML methods venue"},
+      "readiness_gate": "novelty pass DONE (Grok 2026-06-15: Scholar + ADS + web — NO prior-art match found; appears novel) → final wording polish + LaTeX conversion → arXiv-first for precedence (keep cautious wording until the timestamp is live), then a frozen tag",
+      "tiered_claims": {
+        "tier_1_measured": [
+          "D=4 ILR <-> unit-quaternion isomorphism; q v q* reproduces the SO(3) rotation at IEEE floor (residual 4.441e-16, reproduced on Backblaze + Planck CMB + Frielingen)",
+          "Per-chart 4-part reconstruction is exact at the IEEE floor (~1e-15)",
+          "Tree-atlas reconstruction carried to D=1,000,000 at ~4.1e-12 floating-point, ~5 s, <50 MB"
+        ],
+        "tier_2_reasoned": [
+          "Overlapping exact 4-part charts reconstruct the full CLR iff the co-occurrence graph is connected; a hierarchical atlas has O(log D) diameter and preserves precision at scale"
+        ],
+        "tier_3_exploratory": []
+      },
+      "claims_to_pressure_test": [
+        "Is the D=4 ILR<->quaternion identification genuinely novel, or does it appear in CoDa / Lie-theory / information-geometry literature? (Grok)",
+        "Is 'tiling D=4 charts + Laplacian reconstruction' prior art anywhere (graph signal processing, finite elements, sensor networks)? (Grok)",
+        "Confirm the D=10^6 number reproduces and that the residual is ordinary floating-point accumulation, not a bug. (Copilot)"
+      ],
+      "honest_caveats": [
+        "D=10^6 is ~4.1e-12 FLOATING-POINT (tree atlas), NOT mathematical identity beyond numerical precision. Do not say 'perfectly lossless' unqualified.",
+        "Path-atlas error grows with graph diameter; the tree atlas is what makes large D hold."
+      ],
+      "artifacts": ["papers/cnq_tiling_suite_2026/P1_CNQ_TILING_METHODS.md", "experiments/cnq_tiling_highd_2026-06/RESULTS_cnq_tiling_highd.md", "HCI-CNTT/"],
+      "collective_suggestions": {
+        "grok": [
+          "NOVELTY PASS (Google Scholar + ADS + web; ILR/quaternion, tiling/simplex/quaternion, compositional-data queries): NO full prior-art match found. The central move — treating the 3-D ILR space of a 4-part composition as the Lie algebra of SU(2), with a sparse overlapping atlas of such charts and explicit deterministic transition maps — APPEARS NOVEL on current evidence.",
+          "Nearest adjacencies are non-matching: quaternion rotation representations (Horn 1987 / aerospace) are general, not tied to ILR/Aitchison; graph-signal-processing / simplicial complexes on simplices have tiling but lack the ILR->quaternion lift + closed-form transition maps; information geometry studies simplex structure but not this chart+atlas construction.",
+          "RECOMMENDATION: keep the cautious public wording ('a deterministic instrument whose reproducibility + guard layer are demonstrated', NOT 'first') until the arXiv timestamp is live; tighten only if no match surfaces post-posting. P1 is clear for final wording polish -> arXiv (cs.IT primary).",
+          "WORDING HYGIENE (general, all papers): avoid phrasing that reads as 'first deterministic instrument'; prefer 'a deterministic instrument whose reproducibility and guard layer are demonstrated.'"
+        ],
+        "chatgpt": [
+          "SUBMIT P1 FIRST (P3 within a few days) — P1 protects the core intellectual priority (D=4 quaternion charts + deterministic high-D atlas reconstruction); P3 then proves the apparatus is a reproducible engine, not just theory.",
+          "Proposed honest abstract framing (avoids 'first' until the novelty pass clears): 'We present a deterministic D=4 quaternion-chart atlas for compositional trajectories and show that overlapping exact charts reconstruct high-dimensional compositional states through a connected atlas, with measured tree-atlas reconstruction to D=10^6 at approximately 4.1e-12 floating-point residual.'",
+          "DO NOT SAY: 'lossless to D=1,000,000' / 'IEEE-floor at D=1,000,000' / 'mathematical identity at arbitrary D'. The standard correction holds (D=10^6 = ~4.1e-12 floating-point tree-atlas, not bit-exact identity).",
+          "Category: primary cs.IT OR math.MG depending on final emphasis (math.MG = METRIC geometry, correct for the isometry); do not route geology applications to math.MG — those go to physics.geo-ph."
+        ],
+        "gemini": [
+          "COMMITTED (2026-06-15, cross-check role) — RECOMMENDED FIRST (lead paper): re-derive the D=4 ILR <-> unit-quaternion SU(2) isomorphism FROM SCRATCH (independent of the repo derivation), and verify the conditioning / graph-diameter argument for the tree-atlas reconstruction. Complements Grok's novelty pass: Grok established NOVEL, Gemini confirms CORRECT. Results pending — this is the independent re-derivation that hardens P1 for submission."
+        ],
+        "copilot": [
+          "OFFERED (2026-06-15): produce a LaTeX-ready P1 package from the markdown drafts + an honest arXiv abstract; Markdown->LaTeX via Pandoc (standard), compile-tested on Overleaf/TeXLive. Useful logistics.",
+          "STILL OPEN — Copilot's ASSIGNED role (reproduce the numbers) is the real de-risk and is NOT yet done: on an INDEPENDENT machine, reproduce the D=4 quaternion residual (4.441e-16), the D=10^6 tree-atlas (~4.1e-12), the CCS effective rank (4.13 of 5, n=107), and the engine conformance hash (fcae0ebe…). Copilot's own 'reproducibility gate' note names exactly this. This independent-machine reproduction is what lets P1/P3 claim cross-platform value-identical determinism — execute before submission."
+        ],
+        "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    },
+    {
+      "id": "P3",
+      "movement": "II — Trust",
+      "working_title": "CN-TT / Hˢ kinematics: a deterministic, hash-chained engine for compositional reading, with an honest guard layer",
+      "one_line_claim": "A deterministic, value-identical (cross-platform), hash-receipted compositional engine with a guard layer that holds or warns rather than emit a confident-wrong reading, plus a full reproducibility kit.",
+      "status": "material complete (spec + pseudocode + R port + notebook + tools); needs assembly into JOSS format",
+      "venue": {"primary_arxiv": "cs.MS", "crosslist": ["stat.CO"], "journal": "JOSS or SoftwareX"},
+      "readiness_gate": "assemble the existing material into the JOSS paper format",
+      "tiered_claims": {
+        "tier_1_measured": [
+          "Value-deterministic: identical content hash on Windows and Linux; conformance anchor fcae0ebe… on a fixed reference",
+          "Guard layer fires as codes (HM-NUL/HM-TIE resolvability, DG-RNK rank, GD-SPZ sparsity, E-21 carrier guard, discovered-floor hold-lock)",
+          "Full kit: specification, language-agnostic pseudocode, R port, replication notebook, intake tools; traceability required (receipts on every output)"
+        ],
+        "tier_2_reasoned": ["Gauge R&R of the engine ~ machine epsilon (the measurement-system variation is the determinism floor)"],
+        "tier_3_exploratory": []
+      },
+      "claims_to_pressure_test": [
+        "Does the determinism + guard-layer combination differentiate it from existing CoDa software (compositions, zCompositions, easyCODA)? (Grok)",
+        "Reproduce the conformance hash and the self-tests on an independent machine. (Copilot)",
+        "Is the R port numerically faithful to the Python? (it is offered as-is, NOT yet executed — verify on a real R install.) (Gemini/Copilot)"
+      ],
+      "honest_caveats": [
+        "The R port is offered as-is and has NOT been executed (no R in the build environment); its conformance gate is reproducing the reference hash, with JSON-canonicalization parity to verify.",
+        "Per-language hash is conditional on matching the canonicalization profile; per-FIELD numerical agreement is at IEEE floor (unconditional).",
+        "NEW (2026-06-15): a CHSH-form carrier-coupling diagnostic was added to §4 as a worked self-limitation (the classical bound 2 is respected on real data; explicitly NOT quantum entanglement). This is ENTANGLEMENT-ADJACENT content and MUST pass ChatGPT's G-1 claim audit — every sentence stays Tier-3, the words 'entanglement'/'Bell'/'Tsirelson' appear only inside the do-not-claim framing. It is included as EVIDENCE OF HONEST-BROKER CHARACTER (a reproducible, journaled experiment whose result is the kill-test passing), not as a finding. Doc: ../../Hs-Kinematics/H1_STEP5_ENTANGLED_CARRIER_CLOSURE.md; module: hs_carrier_coupling.py; journaled G-69. Prior lineage: INV-015 + the QIT knowledge base."
+      ],
+      "artifacts": ["Hs-Kinematics/HS_KINEMATICS_SPECIFICATION.md", "Hs-Kinematics/HS_KINEMATICS_PSEUDOCODE.md", "Hs-Kinematics/hs_kinematics.R", "Hs-Kinematics/HS_KINEMATICS_REPLICATION.ipynb", "Hs-Kinematics/TRACEABILITY.md", "tools/"],
+      "collective_suggestions": {
+        "grok": [
+          "K-2 DIFFERENTIATION DONE (2026-06-15): the distinguishing claim is the COMBINATION — guaranteed cross-platform value-identity + hash-receipted traceability + an explicit guard layer that WITHHOLDS when evidence is insufficient — which is NOT a core design principle of the major CoDa R packages (compositions [van den Boogaart & Tolosana-Delgado, closest in scope], robCompositions [robustness], zCompositions [zeros], easyCODA). Those focus on transformations / imputation / robust-stats / visualization and leave numerical stability, provenance, and 'when not to trust the output' to the user. The transformations themselves are NOT claimed novel.",
+          "RECOMMENDED P3 WORDING (tier-honest, integrated into the P3 Related Work section): 'Hˢ/CN-TT provides a deterministic, cross-platform value-identical compositional engine with an explicit guard layer and full traceability. This combination of guarantees is not present as a core design principle in the major existing CoDa packages (compositions, robCompositions, zCompositions, easyCODA).'",
+          "WORDING HYGIENE: do NOT imply the existing packages are 'unreliable' — only that they do not prioritize the same deterministic guarantees as first-class features."
+        ],
+        "chatgpt": [],
+        "gemini": [
+          "COMMITTED (2026-06-15, cross-check role) — RECOMMENDED SECOND (completes the P1+P3 lead pair): verify the R port's numerical faithfulness against the Python canonicalization profile. High value because it directly closes the standing honest caveat (the R port is offered as-is, NOT yet executed). Confirm per-field agreement at IEEE floor + identify exactly where JSON canonicalization must match for hash parity. Results pending."
+        ],
+        "copilot": [
+          "OFFERED (2026-06-15): assemble P3 into a JOSS skeleton + submission checklist from the existing material (spec + pseudocode + R port + replication notebook). Useful logistics.",
+          "ASSIGNED (still open): verify cross-platform hash parity on an INDEPENDENT machine before P3 claims value-identical determinism — the core reproduction task. Pairs with Gemini's R-port faithfulness check.",
+          "PUBLISH LOGISTICS (advisory): on push, enable GitHub Pages for site/index.html; cut a GitHub Release -> mint a Zenodo DOI for the repro kit; add the DOI + CITATION.cff to the site. (These were already in the site plan; Copilot reinforces.)"
+        ],
+        "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    },
+    {
+      "id": "P4",
+      "movement": "III — Motion",
+      "working_title": "Compositional kinematics — the mechanics of compositional trajectories",
+      "one_line_claim": "A composition over time is a curve on the Aitchison manifold; its deterministic read includes the noise-bounded derivative jet, Frenet curvature, momentum (mass=share x velocity), force, action, and spectral motion modes — a descriptive instrument, not a forecaster.",
+      "status": "drafted from HCI-CNTT/COMPOSITIONAL_MECHANICS.md; recognition-not-invention framing",
+      "venue": {"primary_arxiv": "math.DS", "crosslist": ["physics.data-an", "stat.ME"], "journal": "a methods / data-science venue"},
+      "readiness_gate": "write-up + prior-art/novelty pass (cite replicator dynamics, information geometry, CoDa)",
+      "tiered_claims": {
+        "tier_1_measured": [
+          "The jet/Frenet/dynamics/integral/spectral quantities are deterministic functions of the CLR trajectory, each invariant under part-relabeling and Aitchison isometry",
+          "The noise-bounded maximum derivative order (amplification ratio < 1.5) caps the jet at the deepest order still signal"
+        ],
+        "tier_2_reasoned": [
+          "This is recognition + synthesis: standard differential-geometric mechanics carried into Aitchison geometry, cited to replicator dynamics + information geometry, not claimed as new physics"
+        ],
+        "tier_3_exploratory": []
+      },
+      "claims_to_pressure_test": [
+        "What is the exact prior-art boundary vs replicator dynamics, information geometry (Amari), and existing compositional-time-series work? Frame the contribution as the deterministic-descriptive synthesis, not novelty of the calculus. (Grok/ChatGPT)",
+        "Re-derive the curvature + momentum formulas independently. (Gemini)"
+      ],
+      "honest_caveats": [
+        "The 'arrow of intent' is a vector of present motion, NOT a prediction.",
+        "Mechanics framing is Tier 2 (recognition + synthesis); do not claim to have invented compositional dynamics."
+      ],
+      "artifacts": ["HCI-CNTT/COMPOSITIONAL_MECHANICS.md", "papers/PRIOR_ART_compositional_kinematics_2026-06-14.md", "experiments/compositional_mechanics_2026-06/"],
+      "collective_suggestions": {
+        "grok": [], "chatgpt": [],
+        "gemini": [
+          "COMMITTED (2026-06-15, cross-check role) — later (P4 is movement III, after the P1+P3 lead pair): independently re-derive the Frenet curvature + momentum (mass=share x velocity) formulas within Aitchison geometry, confirming they map to the descriptive-synthesis framing without overclaiming new physics. Results pending."
+        ],
+        "copilot": [], "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    },
+    {
+      "id": "P5",
+      "movement": "IV — Character",
+      "working_title": "Compositional Character Space: a cross-domain taxonomy of compositional dynamics via the second-order read",
+      "one_line_claim": "Apply the engine to its own outputs (the second-order read, Hˢ²): each system's invariant profile becomes a point; across 107 systems / 13 domains they sort into four recurring characters whose ordering is cross-domain-coherent; coherence is the principal organizing axis and governs the embedding dimension.",
+      "status": "full draft (cnq_tiling_suite_2026/P5_COMPOSITIONAL_CHARACTER_SPACE.md); pairs with P4",
+      "venue": {"primary_arxiv": "cs.IT", "crosslist": ["stat.ME", "math.DS"], "journal": "a methods / complexity / data-science venue"},
+      "readiness_gate": "the Procrustes isomorphism-residual experiment + novelty pass",
+      "tiered_claims": {
+        "tier_1_measured": [
+          "107 real systems / 13 domains place on a four-character table (Ballistic/Contested/Diffusive/Turbulent); the ordering by directedness is cross-domain-coherent (CMB/world-energy/climate-scenario most directed; microbiome/conversation/geochemistry most churning)",
+          "Coherence is PC1 (53% of variance) of Character Space and anti-correlates with embedding dimension (r ~ -0.36)",
+          "Reproducible to a hash"
+        ],
+        "tier_2_reasoned": [
+          "Character Space is MILDLY low-dimensional (~4 independent axes at scale); 'character' is usefully read as an isomorphism class; coherence ~ isomorphizability"
+        ],
+        "tier_3_exploratory": [
+          "The embedding dimension equals the dimension of the coherent (isomorphizable) subspace — the conjecture the Procrustes residual experiment is built to test or refute"
+        ]
+      },
+      "claims_to_pressure_test": [
+        "Is the second-order read (engine-on-its-own-outputs to build a cross-domain taxonomy) novel, or does it overlap clustering-of-dynamical-features / time-series characterization literature? (Grok)",
+        "Reproduce the CCS effective rank (4.13 of 5, n=107) and the PC1=53% coherence loading. (Copilot)",
+        "Is 'a market and a microbiome share a character' stated carefully enough (shared motion-character, NOT shared mechanism)? (ChatGPT)"
+      ],
+      "honest_caveats": [
+        "The headline self-corrects ON THE RECORD: the tight ~3-axis collapse at n=11 corrected to ~4 of 5 at n=107. Present the correction AS a feature (the method is falsifiable + self-correcting), never hide it.",
+        "Cross-domain co-clustering is shared motion-character, not shared mechanism.",
+        "The four characters are a useful partition, NOT proven exhaustive."
+      ],
+      "artifacts": ["papers/cnq_tiling_suite_2026/P5_COMPOSITIONAL_CHARACTER_SPACE.md", "library/SYSTEMS_OF_SYSTEMS.md", "library/CCS_EXPANDED.md", "library/ISOMORPHISM_AND_COHERENCE.md", "library/hs_meta.py", "library/ccs_batch.py"],
+      "collective_suggestions": {
+        "grok": [
+          "TIER DISCIPLINE: the MEASURED PC1=53% (coherence loading on n=107) is legitimately Tier-1; but the INTERPRETED claim 'coherence is THE principal organizing axis [of compositional systems in general]' must stay explicitly Tier-2 until the Procrustes isomorphism-residual experiment is executed and reported. The Tier-3 embedding-dimension conjecture is already flagged correctly. Keep the n=107 scope visible on the organizing-axis claim."
+        ],
+        "chatgpt": [], "gemini": [], "copilot": [], "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    },
+    {
+      "id": "P2",
+      "movement": "V — Vigilance",
+      "working_title": "Deceptive drift: detecting concentration that hides behind quiet compositional motion",
+      "one_line_claim": "A single divergence detector for the dangerous case — concentration (effective number K_eff) tightening while total variation stays quiet — the fourth compositional-monitoring category (MC-4).",
+      "status": "scaffold (cnq_tiling_suite_2026/P2_DECEPTIVE_DRIFT.md)",
+      "venue": {"primary_arxiv": "stat.ME", "crosslist": ["cs.IT"], "journal": "applied compositional-time-series / monitoring note"},
+      "readiness_gate": "a defensible null model (open question) + monthly EMBER data (Peter supplies)",
+      "tiered_claims": {
+        "tier_1_measured": ["The deceptive-drift signature (dK_eff < 0 while TV <= median) is computed deterministically; demonstrated on EMBER"],
+        "tier_2_reasoned": ["Composition is the missing fourth monitoring category alongside magnitude/identity/trend (ratio blindness ~ a quarter of the picture)"],
+        "tier_3_exploratory": []
+      },
+      "claims_to_pressure_test": [
+        "Choose a defensible null model (label-permutation vs block-bootstrap vs surrogate) and justify it against existing CoDa SPC / change-point literature. (Grok/Gemini)",
+        "Does 'fourth monitoring category' overclaim vs existing compositional SPC? (ChatGPT)"
+      ],
+      "honest_caveats": ["Needs the null model + monthly-grain data before any quantitative claim; cite the existing CoDa SPC/change-point work."],
+      "artifacts": ["papers/cnq_tiling_suite_2026/P2_DECEPTIVE_DRIFT.md", "experiments/deceptive_drift_null_2026-06/"],
+      "collective_suggestions": {
+        "grok": [
+          "WEAKEST LINK for readiness: until a defensible null model (block-bootstrap OR label-permutation, justified against the existing CoDa SPC / change-point literature) is chosen and defended, any QUANTITATIVE claim on deceptive-drift prevalence stays EXPLORATORY. This is P2's true gate — do not submit on the qualitative signature alone."
+        ],
+        "chatgpt": [],
+        "gemini": [
+          "COMMITTED (2026-06-15, cross-check role) — directly addresses Grok's P2 gate: evaluate + recommend the most defensible null model (label-permutation vs block-bootstrap vs surrogate) for the deceptive-drift signature, justified to the CoDa SPC community. Pairs with the monthly-EMBER data (Peter's data gate) to unblock P2. Results pending."
+        ],
+        "copilot": [], "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    },
+    {
+      "id": "S1",
+      "movement": "(position/standards — rides alongside)",
+      "working_title": "A path to a standard: deterministic, traceable compositional measurement (the metrology position)",
+      "one_line_claim": "Standardize REPRODUCIBLE compositional measurement (reference implementation + conformance hash + traceability), extending MSA/GUM/ISO 5725/7870 into the missing compositional category — not proposing a new philosophy.",
+      "status": "position draft (stewardship/iso-standards/PATH_TO_A_STANDARD.md)",
+      "venue": {"primary_arxiv": null, "crosslist": [], "journal": "standards/position white paper aimed at the CoDa community + TC 69 adjacency"},
+      "readiness_gate": "community endorsement + TC 69 engagement (social step, Peter's gate)",
+      "tiered_claims": {
+        "tier_1_measured": ["The reference implementation + conformance hash + determinism standard exist and are demonstrated"],
+        "tier_2_reasoned": ["The IEEE-754-style framing (standardize a reproducible method, not a result) is the right institutional wedge"],
+        "tier_3_exploratory": ["The standard itself (to be earned via community consensus)"]
+      },
+      "claims_to_pressure_test": ["Is the MSA/GUM extension framing the most defensible institutional ask? (ChatGPT/Grok)"],
+      "honest_caveats": ["Proposal, NOT a standard; interest expressed is never endorsement acquired; nothing initiated."],
+      "artifacts": ["stewardship/iso-standards/PATH_TO_A_STANDARD.md", "HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md"],
+      "collective_suggestions": {
+        "grok": [],
+        "chatgpt": [
+          "NOT a first arXiv target. arXiv wants topical, refereeable scientific contributions, not manifestos or documentation dumps. EITHER hold S1, OR reframe it as a TECHNICAL METROLOGY PAPER built around a reproducible conformance method (the determinism + gauge-R&R + conformance-hash apparatus) — then it can be a legitimate methods submission. Keep the 'proposal not standard' tier."
+        ],
+        "gemini": [], "copilot": [], "other": []
+      },
+      "claims_flagged": [],
+      "review_status": "awaiting_collective"
+    }
+  ],
+
+  "shared_backbone": {
+    "reproducibility_kit": "Hs-Kinematics/ (engine, spec, pseudocode, R port, notebook) + tools/ — cite from every paper",
+    "trust_standard": "HCI-CNTT/DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md + TRACEABILITY.md — the 'why you can trust it' layer",
+    "cross_domain_demos": "energy (Canada/Portugal + 73-country sweep), microbiome (Crohn/ECAM), geology (Frielingen), finance (sector rotation), exact-D=4 physics, fleet (Backblaze) — evidence inside the papers",
+    "the_coherence_through_line": "coherence is the founding loudspeaker's engineered quantity, the quantity CCS found organizes everything, and the discipline the whole body is held to (RWA/THE_GROUND_STATE.md)"
+  },
+
+  "open_questions_for_the_collective": [
+    "Sequencing: is P1+P3 first the right lead, or should P4+P5 (the most arresting) lead despite P1 being closest to ready?",
+    "For P5: is the Procrustes isomorphism-residual the strongest single experiment to promote the Tier-3 conjecture, or is there a cleaner test?",
+    "For P2: which null model is most defensible to the CoDa SPC community?",
+    "Across all: any claim currently phrased above its true tier? (the single most valuable flag)",
+    "Naming: 'Compositional Character Space' and 'the second-order read (Hˢ²)' — do these read cleanly to a methods audience, or is there collision/confusion?"
+  ],
+
+  "review_log": [
+    {
+      "date": "2026-06-15",
+      "reviewer": "ChatGPT (claim-audit role)",
+      "scope": "Independent audit of the LIVE pushed repos (higgins-decomposition #77, HUF #95, RWA #6)",
+      "findings": [
+        "Confirmed the three-repo division of labor, CN-TT v4 as the live tile-native engine, the D=4-charts+atlas approach as the real novelty, the kinematics layer, and the cross-repo orientation.",
+        "FLAG (substantive): high-D wording must be claim-tiered — D=10^6 is ~4.1e-12 floating-point (tree atlas), NOT 'lossless / IEEE floor / mathematical identity'. Recommended exact public wording adopted.",
+        "FLAG (cleanup): the Hs README still showed CNT v3 / CNQ v2 engine badges as if live; demote to 'frozen oracle' and mark conference-era sections historical."
+      ],
+      "resolution": "Both fixed (logged G-56): the four front-door docs claim-tiered; the README badges replaced with CN-TT v4 (current) + Hˢ kinematics + CNT/CNQ 'frozen oracle', historical demarcation added. Staged for the next push. This is the verify-after-push correct-and-justify cycle and the cite-don't-claim standard for all papers."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "ChatGPT (publication strategy)",
+      "scope": "arXiv submission strategy + category + process review of this packet",
+      "findings": [
+        "AFFIRMED the spine: Peter sole gate; claims tiered; sequence P1+P3 first. Locked order: P1 (exactness/priority) -> P3 (trust/engine) -> P4 (motion) -> P5 (character) -> P2 (vigilance, after null model + monthly data); S1 NOT a first arXiv target.",
+        "P1 abstract framing provided (honest, no 'first'): D=4 quaternion-chart atlas + connected-atlas reconstruction + measured ~4.1e-12 at D=10^6. Do-not-say list reaffirmed.",
+        "CATEGORY CORRECTION: math.MG = METRIC GEOMETRY, not 'Mathematical Geosciences'. Geology applications -> physics.geo-ph. cs.MS=software, math.DS=dynamical systems, stat.ME=methodology, cs.IT=information theory.",
+        "PROCESS: arXiv wants refereeable contributions not manifestos -> hold/reframe S1 as a technical metrology paper. Endorsement may be needed -> one targeted endorser, not a blast. Use LaTeX (best long-term portable).",
+        "Strategic rule: arXiv first for precedence; journals later for validation."
+      ],
+      "resolution": "Integrated into publication_strategy (category_guidance_arxiv_taxonomy, format=LaTeX, endorsement=targeted, strategic_rule, locked order) + P1.collective_suggestions.chatgpt (framing + do-not-say + category) + S1.collective_suggestions.chatgpt (reframe-or-hold) + P1 venue note (math.MG = metric geometry). Logged G-58. The collective process producing real, integrated input — exactly the intent."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "Grok (independent prior-art / devil's-advocate — the load-bearing novelty pass)",
+      "scope": "P1 novelty pass + packet-wide devil's-advocate + post-conference repo spot-check",
+      "findings": [
+        "P1 NOVELTY: Scholar + ADS + web search (ILR/quaternion, tiling/simplex/quaternion, compositional data) found NO full prior-art match. The D=4 ILR<->SU(2) identification + sparse overlapping atlas of exact 4-part charts with explicit deterministic transition maps APPEARS NOVEL on current evidence. Nearest adjacencies (Horn 1987 quaternion rotations; graph-signal-processing on simplices; information geometry) are too general or different in mechanism.",
+          "P1 D=10^6 caveat correctly tiered (good). P5: keep 'coherence is the principal organizing axis' explicitly Tier-2 (n=107) until the Procrustes experiment is executed; the Tier-3 embedding-dimension conjecture is flagged correctly. P2: the null model is the weakest readiness link — choose/defend block-bootstrap or label-permutation vs CoDa SPC before any quantitative deceptive-drift claim.",
+        "WORDING HYGIENE: slight upward pressure where phrasing could read as 'first deterministic instrument' rather than 'a deterministic instrument whose reproducibility + guard layer are demonstrated' — minor.",
+        "REPO STATE: the three-repo division of labor + the CN-TT v4-primary / CNT-CNQ-'frozen oracle' badge hygiene are the right post-CoDaWork moves; no new prior-art collision in the spot-checked updated material.",
+        "RECOMMENDATION: P1 clear for final novelty-wording polish -> arXiv (cs.IT primary); keep the floating-point-vs-identity caveat exactly as written; proceed P1+P3 first."
+      ],
+      "resolution": "Integrated: P1 readiness_gate updated (novelty pass returned no match, appears novel; keep cautious wording until timestamp live); P1.grok / P5.grok / P2.grok slots filled with the findings above. The load-bearing novelty pass is DONE and clean — the largest single de-risking of the publication. P1 now gated only on final wording polish + LaTeX conversion (Peter's submission gate). Logged G-59."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "Gemini (independent cross-check)",
+      "scope": "Accepted the cross-check role; assessed the packet; committed to its four re-derivation/verification tasks; asked for execution order",
+      "findings": [
+        "Affirmed the five-movement arc, the tiered-claims discipline (cited the 'lossless' -> '~4.1e-12 floating-point' correction as proof the governance works), and the arXiv-precedence strategy. Confirmed Grok's clean novelty pass as a major de-risk.",
+        "Committed to four cross-checks: (P1) re-derive the D=4 ILR<->SU(2) isomorphism from scratch + verify the conditioning/diameter argument; (P3) verify the R port's numerical faithfulness vs the Python canonicalization profile; (P4) re-derive the Frenet curvature + momentum formulas in Aitchison geometry; (P2) evaluate the most defensible null model for deceptive drift.",
+        "Results PENDING — Gemini has accepted and scoped the tasks but not yet executed/reported them."
+      ],
+      "resolution": "Committed tasks recorded in P1/P3/P4/P2 gemini slots. RECOMMENDED EXECUTION ORDER (to unblock the P1+P3 lead pair): (1st) P1 isomorphism re-derivation — Grok established NOVEL, Gemini confirms CORRECT, the natural pair; (2nd) P3 R-port faithfulness — closes the standing 'R port untested' caveat; then P4, then P2's null model (which also pairs with Peter's monthly-EMBER data gate). This is Peter's to relay to Gemini. Collective now at THREE delivered passes (ChatGPT x2, Grok) + Gemini accepted/pending; Copilot (reproduce numbers) still open. Logged G-60."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "Copilot (reproduce-the-numbers role)",
+      "scope": "Provided a publication-logistics checklist + offered LaTeX/JOSS production help; asked to proceed",
+      "findings": [
+        "LOGISTICS (useful, advisory): finalize P1 wording + Markdown->LaTeX (Pandoc standard; compile-test on Overleaf/TeXLive), run the final novelty pass, post P1 then P3, enable GitHub Pages for site/index.html, cut a GitHub Release -> Zenodo DOI for the repro kit, add DOI + CITATION.cff to the site, assemble P3 in JOSS format. Reinforced: keep high-D wording tiered; targeted endorser if arXiv requires one.",
+        "Copilot itself named the 'reproducibility gate': verify the R port + cross-platform hash on an INDEPENDENT machine before claiming value-identical determinism — which IS its assigned task.",
+        "OFFERED to produce a LaTeX-ready P1 package + a JOSS skeleton for P3."
+      ],
+      "resolution": "Logistics + offers recorded in P1/P3 copilot slots. HONEST FLAG (executor): Copilot delivered logistics, NOT its assigned reproduction — the independent-machine reproduction of the residuals (4.441e-16 / ~4.1e-12), the CCS rank (4.13), and the conformance hash (fcae0ebe…) REMAINS THE OPEN GAP and is the verification P1/P3's cross-platform-determinism claim depends on. Unverified third-party converter/policy URLs Copilot cited were NOT laundered into the packet as fact (Pandoc + generic endorsement guidance kept). COLLECTIVE STATUS: all 5 roles engaged. Delivered: ChatGPT (claim-audit + strategy), Grok (novelty — clean). Pending execution: Gemini (4 re-derivations, P1 first) + Copilot (independent-machine number reproduction). Logged G-61."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "Grok (task K-2 — P3 differentiation check)",
+      "scope": "Differentiate Hˢ/CN-TT (determinism + guard + traceability) vs the major CoDa R packages",
+      "findings": [
+        "The distinguishing claim is the COMBINATION (cross-platform value-identity + hash-receipted traceability + a guard layer that WITHHOLDS), NOT the transformations. compositions (van den Boogaart & Tolosana-Delgado) is closest in scope; robCompositions = robustness; zCompositions = zeros; easyCODA = applied CoDa. None treats determinism as a verifiable hash-receipted contract or includes a withholding guard layer.",
+        "Recommended tier-honest P3 wording provided. Minor flag: do not imply existing packages are 'unreliable' — only that they do not prioritize the same deterministic guarantees as first-class features. Kinematics (P4) is clearly additive."
+      ],
+      "resolution": "K-2 DONE. Integrated: P3.grok slot filled with the finding + recommended wording + the hygiene flag; a 'Related work — differentiation' section added to the P3 draft (papers/cnq_tiling_suite_2026/P3_CNTT_TOOL_PAPER.md) using Grok's honest wording; K-2 marked done in COLLECTIVE_WORK_ORDERS.json. Real, verifiable package landscape (not unverified URLs). Logged G-63."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "ChatGPT (board tracking + a standing rule)",
+      "scope": "Read both files; confirmed it will track packet deltas + flag over-tiered claims; contributed the submission-sequencing rule",
+      "findings": [
+        "Confirmed the live status: P1 = Grok novelty DONE + ChatGPT framing DONE; Gemini re-derivation, Copilot reproduction, LaTeX, final audit PENDING. P3 = Grok differentiation DONE; Gemini R-port, Copilot hash, JOSS skeleton, final audit PENDING.",
+        "STANDING RULE: 'Do not let logistics outrun verification.' P1 should not be submitted until Gemini's correctness check + Copilot's reproduction land — UNLESS Peter explicitly posts a weaker 'methods proposal / inspected-evidence' version. The strong route (novel + independently re-derived + independently reproduced) is the default the work orders define.",
+        "Reaffirmed the D=10^6 = ~4.1e-12 floating-point standard and the tiered-claims discipline."
+      ],
+      "resolution": "Rule recorded as COLLECTIVE_WORK_ORDERS.json submission_gate_rule (routes A strong / B weaker, Peter's choice; verification never skipped silently). ChatGPT now tracking the board for deltas. Logged G-64."
+    },
+    {
+      "date": "2026-06-15",
+      "reviewer": "Gemini (task M-1 — P1 independent cross-check)",
+      "scope": "Re-derive the D=4 ILR<->SU(2) isomorphism from scratch + verify the tree-atlas conditioning / graph-diameter argument",
+      "findings": [
+        "ISOMORPHISM CONFIRMED: for D=4, ILR maps the simplex to R^3, which is isomorphic to su(2) (pure imaginary quaternions); a unit quaternion acts via q v q* as an exact, norm-preserving rotation bound to SU(2)'s algebraic constraints, bypassing trig float-approximation. The 4.441e-16 residual is exactly machine epsilon under 64-bit arithmetic — mathematically sound.",
+        "TREE-ATLAS CONDITIONING CONFIRMED: ~D/3 overlapping 4-part charts sharing a pivot form a connected graph. A LINEAR chain has O(D) diameter -> error compounds to O(D*eps) which would destroy the signal at D=10^6. A BALANCED TREE eliminates cycles (zero holonomy / phase-loop conflict) and gives O(log_b D) diameter (~10 transitions at D=10^6), bounding drift to ~10*eps — which matches the measured ~4.1e-12 floating-point residual.",
+        "CONCLUSION: P1's foundational math is airtight. Grok established NOVELTY; Gemini confirms CORRECTNESS. P1 is mathematically cleared for its Tier-1 claims."
+      ],
+      "resolution": "M-1 DONE — marked done in the work-orders; P1 now has TWO of three independent checks (novel + correct); only Copilot P-1 (independent reproduction) remains for the strong submission route. Gemini asked the M-2 sequencing question -> ANSWER recorded in M-2.recommended_approach: pin the Python canonicalization profile FIRST (12-dp round; json.dumps sort_keys=True with DEFAULT SEPARATORS ', '/': ' WITH spaces — the likely jsonlite mismatch; default=str; UTF-8; SHA-256), then check R float/guard handling; numerics (Tier-1 substance) are separable from byte-hash parity and can run in parallel. Logged G-65."
+    }
+  ],
+
+  "acknowledgment": "Developed with the HUF AI Collective under HUF-STD-001 (AI Use Declaration): Claude (executor), ChatGPT (structure + claim-audit), Grok (independent prior-art / devil's advocate), Gemini (cross-check), Copilot (reproduce). All scientific claims are human-authored; no AI system is an author. The cardinal rule: never upgrade inspected evidence into executed evidence. This packet is the collective's shared workbench — the system produced it; the collective sharpens it; Peter decides."
+}

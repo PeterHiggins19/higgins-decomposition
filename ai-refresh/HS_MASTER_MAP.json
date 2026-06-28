@@ -1,0 +1,86 @@
+{
+  "schema": "hs_master_map/1.0",
+  "_reconciliation_2026_06_16": {
+    "note": "Current-state overlay (session G-72..G-95). The map below is canonical; these are the honest deltas vs it as of 2026-06-16, all WORKING-TREE/post-push, Peter sole gate.",
+    "P1.gates.LaTeX_package_Claude_C1": "DONE — papers/cnq_tiling_suite_2026/latex/main.tex + refs.bib COMPILE clean (pdflatex+bibtex+pdflatex x2 -> main.pdf, no errors/undefined refs); abstract = the approved locked wording; title corrected to drop 'lossless'; su(2) appendix uses the sign-corrected [Gi,Gj]=+2 eps Gk.",
+    "P1.gates.Independent_re_derivation_Gemini_M1": "DONE + integrated (D=4 ILR<->SU(2) re-derived from scratch; tree-atlas conditioning confirmed).",
+    "P1.gates.Novelty_pass": "PARTIAL — Grok's prior-art/novelty SEARCH is done; the FINAL Scholar/ADS/patent + non-English pass remains the Tier-3 gate. Do NOT use 'first' until that clears AND the arXiv timestamp is live (matches novelty_rule).",
+    "P3.gates.R_port_faithfulness_Gemini_M2": "DELIVERED + integrated WITH 2 CORRECTIONS -> Hs-Kinematics/TRACEABILITY.md R-recipe: adopt auto_unbox=TRUE + NA-vs-NaN trap + E-21-before-coercion; CORRECT whitespace (keep Python default ', '/': ' spaces, do NOT strip) + float (round-12dp then match Python repr).",
+    "ChatGPT.G1_claim_audit": "Live-repo audit delivered; its valid overclaim catch FIXED (front-door 'lossless to D=1e6' -> '~4.1e-12 floating-point, not bit-exact identity'). Formal per-paper G-1 tier audit still open.",
+    "Grok.Lie_theory_thread": "Triaged (G-93): su(2) algebra verified + sign-corrected (+2 not -2); the curvature/Chern/instanton/index tower QUARANTINED (and provably trivial=0 over a contractible base).",
+    "Copilot.architecture_map": "Integrated (G-94) with corrections: 3rd repo is RWA not industrial-instruments (a folder in Hs); engine is HCI-CNTT not the frozen HCI-CNT oracle; CCS is now 107 systems/13 domains; R port flagged untested.",
+    "still_open_spine": ["Copilot P-1 (P1 independent reproduction)", "Copilot P-2 (P3 cross-platform hash)", "Claude C-2 (P3 JOSS skeleton)", "ChatGPT G-1 (per-paper claim audit)", "P1 final novelty pass", "P2 defensible null model"],
+    "finance_P6": "NEW this session (industrial-instruments/financial/, hash 5b2a32d6; P6 draft); a key paper sequenced AFTER P1+P3; needs a stronger citable dataset before it travels."
+  },
+  "human_gate": "Peter Higgins is the sole submission/contact/commit gate. No AI submits, posts, pushes, or contacts anyone.",
+  "principles": {
+    "honest_broker": "Every claim is tiered (1 measured, 2 reasoned, 3 exploratory). No claim may exceed its tier.",
+    "data_is_the_star": "Hs is the lens, never the source of the insight.",
+    "no_upgrade_rule": "Never upgrade inspected evidence into executed evidence.",
+    "highD_standard": "Say '~4.1e-12 floating-point reconstruction via a tree atlas', NOT 'lossless / IEEE-floor / mathematical identity'.",
+    "novelty_rule": "Until the novelty pass clears AND the arXiv timestamp is live, do not use 'first'.",
+    "submission_gate_rule": "Verification precedes logistics. Submission waits on independent reproduction + independent re-derivation."
+  },
+  "repos": {
+    "higgins_decomposition": {
+      "role": "The live scientific instrument: engines, kinematics, reproducibility kit, experiments, papers.",
+      "subtrees": {
+        "HCI-CNTT": "CN-TT v4 deterministic engine, quaternion implementation, complete specification.",
+        "Hs-Kinematics": "Kinematics platform, spec, pseudocode, R port, replication notebook, traceability.",
+        "papers": "P1-P5 drafts, S1, review packet, work orders, public arc.",
+        "experiments": "High-D atlas, kinematics, deceptive drift, CCS.",
+        "industrial_instruments": "Applied layer: canonical JSON, paged reports, domain demos.",
+        "ai-refresh": "Tracking logs, reconciliation documents, governance alignment."
+      }
+    },
+    "HUF": {
+      "role": "Governance, lineage, discovery registry, doctrine.",
+      "contents": ["HUF_GOVERNANCE_CHARTER.md", "THE_DATA_IS_THE_STAR.md", "CARRIER_FILTER_DOCTRINE.md", "Discovery registry (structure theorems, EITT lineage)"]
+    },
+    "RWA": {
+      "role": "Origin physics: the loudspeaker ground state, the D=4/8/16 ladder.",
+      "contents": ["THE_GROUND_STATE.md"]
+    }
+  },
+  "papers": {
+    "P1": {"movement": "I - Exactness", "claim": "D=4 ILR <-> unit quaternion; exact per-chart reconstruction; high-D atlas reconstruction.",
+      "tiered_claims": {"tier_1": ["D=4 ILR <-> unit-quaternion isomorphism; q v q* exact to IEEE floor (~4.441e-16).", "Per-chart 4-part reconstruction exact at ~1e-15.", "Tree-atlas reconstruction to D=1e6 at ~4.1e-12 floating-point, ~5s, <50MB."], "tier_2": ["Connected overlapping charts reconstruct full CLR iff co-occurrence graph connected.", "Hierarchical atlas has O(log D) diameter and preserves precision."], "tier_3": []},
+      "gates": ["Novelty pass (SEARCH done; final Scholar/ADS/patent pass owed).", "Independent re-derivation (Gemini M-1) DONE.", "Independent reproduction (Copilot P-1) OPEN.", "LaTeX package (Claude C-1) DONE.", "Claim-tier audit (ChatGPT G-1) OPEN."],
+      "deliverables": {"latex": "papers/cnq_tiling_suite_2026/latex/main.tex (compiles; main.pdf built).", "abstract": "Deterministic D=4 quaternion-chart atlas ... ~4.1e-12 floating-point residual."}},
+    "P3": {"movement": "II - Trust", "claim": "Deterministic, hash-chained compositional engine with guard layer + reproducibility kit.",
+      "tiered_claims": {"tier_1": ["Value-deterministic: identical hash on Windows/Linux; conformance anchor fcae0ebe.", "Guard layer codes: HM-NUL, HM-TIE, DG-RNK, GD-SPZ, E-21, discovered-floor lock.", "Full reproducibility kit: spec, pseudocode, R port, notebook, tools."], "tier_2": ["Gauge R&R ~ machine epsilon."], "tier_3": []},
+      "gates": ["R-port numerical faithfulness (Gemini M-2) DELIVERED+corrected.", "Cross-platform hash reproduction (Copilot P-2) OPEN.", "JOSS skeleton (Claude C-2) OPEN.", "Claim-tier audit (ChatGPT G-1) OPEN."]},
+    "P4": {"movement": "III - Motion", "claim": "Deterministic compositional kinematics: jet, curvature, momentum, action, spectral modes.",
+      "tiered_claims": {"tier_1": ["All quantities deterministic functions of CLR trajectory.", "Noise-bounded derivative order determined by amplification ratio < 1.5."], "tier_2": ["Recognition + synthesis: differential geometry carried into Aitchison geometry."], "tier_3": []},
+      "gates": ["Write-up.", "Prior-art pass (replicator dynamics, information geometry).", "Independent re-derivation of curvature/momentum (Gemini)."]},
+    "P5": {"movement": "IV - Character", "claim": "Second-order read (Hs^2): systems sort into four characters; coherence is PC1.",
+      "tiered_claims": {"tier_1": ["107 systems / 13 domains -> four-character table.", "PC1 = 53% variance; effective rank ~4.13/5.", "Reproducible to a hash."], "tier_2": ["Character = isomorphism class; coherence ~ isomorphizability."], "tier_3": ["Embedding dimension equals dimension of coherent subspace (conjecture)."]},
+      "gates": ["Procrustes isomorphism-residual experiment.", "Novelty pass.", "Reproduction of CCS rank + PC1 (Copilot)."]},
+    "P2": {"movement": "V - Vigilance", "claim": "Deceptive drift detector (MC-4): concentration tightening while motion quiet.",
+      "tiered_claims": {"tier_1": ["Signature deterministic; demonstrated on EMBER."], "tier_2": ["Composition is the missing fourth monitoring category."], "tier_3": []},
+      "gates": ["Defensible null model (label-permutation vs block-bootstrap vs surrogate).", "Monthly EMBER data.", "Prior-art justification vs CoDa SPC."]},
+    "S1": {"movement": "Standards", "claim": "Proposal for deterministic, traceable compositional measurement.",
+      "tiered_claims": {"tier_1": ["Reference implementation + conformance hash exist."], "tier_2": ["IEEE-754-style framing is the right institutional wedge."], "tier_3": ["The standard itself (requires community consensus)."]},
+      "gates": ["Community endorsement.", "TC 69 engagement.", "Optional reframing as technical metrology paper."]}
+  },
+  "collective_roles": {
+    "Grok": "Prior-art search; devil's advocate; novelty pass.",
+    "ChatGPT": "Claim-tier audit; structure; wording hygiene.",
+    "Gemini": "Independent re-derivation; R-port verification.",
+    "Copilot": "Independent reproduction of numbers; cross-platform hash.",
+    "Claude": "Executor; LaTeX; JOSS skeleton; integration."
+  },
+  "work_orders": {
+    "P1": {"Gemini": "Re-derive ILR<->SU(2); verify tree-atlas conditioning. [DONE]", "Copilot": "Reproduce D=4 residual + D=1e6 residual. [OPEN]", "Claude": "Produce compiling LaTeX package. [DONE]", "ChatGPT": "Final claim-tier audit. [OPEN]"},
+    "P3": {"Gemini": "Verify R-port numerical faithfulness. [DONE+corrected]", "Copilot": "Reproduce conformance hash. [OPEN]", "Claude": "Assemble JOSS skeleton. [OPEN - next]", "ChatGPT": "Final claim-tier audit. [OPEN]"}
+  },
+  "site_structure": {
+    "home": "Five-movement arc; one-sentence promise; try-it link.",
+    "papers": "P1-P5 + S1 pages; abstracts; readiness; arXiv links.",
+    "instrument": "Engine spec, pseudocode, R port, notebook, traceability.",
+    "demos": "Energy, microbiome, geology, finance, physics, fleet.",
+    "standards": "Metrology position; governance; reproducibility doctrine.",
+    "history": "Loudspeaker origin; tracking log; lineage.",
+    "ai": "Roles, packets, work orders, onboarding."
+  }
+}

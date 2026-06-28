@@ -1,0 +1,188 @@
+{
+  "_meta": {
+    "tool": "family_census.py",
+    "what": "how many systems are bound by one coherence + Q",
+    "verdict": "ONE FAMILY, MANY SYSTEMS: 17 unrelated systems across 7 lineages -- energy grids, minerals, nuclei, metals, manufactured-solution manifolds, exact SO(n) objects -- are bound by the SAME coherence (relational read exactly scale-invariant, 10/10 strictly-positive at ~1e-15) and the same Q (17/17 concentrate). The realm is one family; Hs is the node that binds it.",
+    "receipt_sha256": "f092f88726305205"
+  },
+  "census": {
+    "n_systems": 17,
+    "n_families": 7,
+    "families": [
+      "Compositional data: energy",
+      "Compositional data: geochemistry",
+      "Compositional data: markets",
+      "Compositional data: nuclear",
+      "Division algebras: ladder",
+      "Verification: manufactured solutions",
+      "Verification: reference objects"
+    ],
+    "coherence_binding": "10/10 strictly-positive systems bound EXACTLY (~1e-15)",
+    "Q_concentration": "17/17 concentrate (structure + helmsman exist)",
+    "structural_zero_systems": [
+      "Energy grid CAN",
+      "Energy grid DEU",
+      "Energy grid GBR",
+      "Energy grid JPN",
+      "Energy grid USA",
+      "Mineralogy (oxides)",
+      "Atomic nuclei (SEMF terms)"
+    ]
+  },
+  "systems": [
+    {
+      "system": "Energy grid AUS",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid CAN",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 0.8,
+      "exactly_bound": false,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid CHN",
+      "family": "Compositional data: energy",
+      "D": 8,
+      "binding_residual": 1e-15,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid DEU",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 1.0,
+      "exactly_bound": false,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid FRA",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 1e-15,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid GBR",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 0.5,
+      "exactly_bound": false,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid IND",
+      "family": "Compositional data: energy",
+      "D": 8,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid JPN",
+      "family": "Compositional data: energy",
+      "D": 8,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid USA",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Energy grid WLD",
+      "family": "Compositional data: energy",
+      "D": 9,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Mineralogy (oxides)",
+      "family": "Compositional data: geochemistry",
+      "D": 10,
+      "binding_residual": 2.0,
+      "exactly_bound": false,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Atomic nuclei (SEMF terms)",
+      "family": "Compositional data: nuclear",
+      "D": 5,
+      "binding_residual": 0.4,
+      "exactly_bound": false,
+      "strictly_positive": false,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Precious metals (Au/Ag)",
+      "family": "Compositional data: markets",
+      "D": 2,
+      "binding_residual": 4e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Engineering manifold (fluid regimes)",
+      "family": "Verification: manufactured solutions",
+      "D": 3,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Isotope spectrum (exposures)",
+      "family": "Verification: reference objects",
+      "D": 12,
+      "binding_residual": 5e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Exact SO(4) test object",
+      "family": "Division algebras: ladder",
+      "D": 4,
+      "binding_residual": 4e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    },
+    {
+      "system": "Exact SO(8) test object",
+      "family": "Division algebras: ladder",
+      "D": 8,
+      "binding_residual": 9e-16,
+      "exactly_bound": true,
+      "strictly_positive": true,
+      "concentrates_Q": true
+    }
+  ],
+  "fence": "Binding is EXACT only for strictly-positive compositions; structural zeros show the locked discriminant's PRECONDITION (E-21), not a failure. A measured REGULARITY across THIS census, not a metaphysical claim. Peter is the sole gate; nothing posted."
+}

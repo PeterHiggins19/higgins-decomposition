@@ -1,0 +1,12 @@
+{
+  "instrument": "Hs financial — deterministic kinematic reading of a financial system's composition",
+  "not": "statistics, forecast, model, or investment advice",
+  "input": {"file": "sp500_sectors.csv", "rows_dates": 252, "parts_D": 10,
+    "parts": ["Information Tech", "Health Care", "Financials", "Cons Discretionary", "Comm Services", "Industrials", "Cons Staples", "Energy", "Utilities", "Materials"]},
+  "arrow_of_intent": {"to": ["Comm Services", "Information Tech", "Materials"], "from": ["Financials", "Health Care", "Cons Discretionary"], "coherence": 0.048},
+  "path_efficiency": 0.066,
+  "effective_dimensionality": 4.88,
+  "regime_changes": [32, 72, 182, 209, 246],
+  "content_hash": "5b2a32d60a32a78a32240058c58a6eed46eb8e7ffacf32ddec70406ae7227d7e",
+  "reproduce": "python3 run_financial.py   (numpy + stdlib; deterministic; same data -> same hash)"
+}

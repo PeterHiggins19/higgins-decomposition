@@ -649,11 +649,11 @@ Thank you. Questions.
 </tr>
 <tr>
 <td>**Is there a manifold underneath this?**</td>
-<td>Yes — layered. Smooth underlying object (open simplex with Aitchison structure; CNQ phase space S³ ≅ SU(2)); discrete sampling and HTML rendering are piecewise-linear; regime taxonomy is topological-invariant. Working note `MANIFOLD_CATEGORY_OF_Hs_PROJECTION.md`.</td>
+<td>Yes — layered. Smooth underlying object (open simplex with Aitchison structure; CNQ phase space S³ ≅ SU(2)); discrete sampling and HTML rendering are piecewise-linear; regime taxonomy is topological-invariant.</td>
 </tr>
 <tr>
 <td>**Is this gauge theory?**</td>
-<td>Substantial gauge-theoretic structure is present in pieces. Closure (Σpᵢ = 1) is a Ward identity; CLR is gauge fixing of the ℝ₊ rescaling symmetry; CNQ's S³ ≅ SU(2) is the simplest non-abelian gauge group. Consolidated in `papers/in_progress/GAUGE_THEORY_AND_Hs.md`.</td>
+<td>Substantial gauge-theoretic structure is present in pieces. Closure (Σpᵢ = 1) is a Ward identity; CLR is gauge fixing of the ℝ₊ rescaling symmetry; CNQ's S³ ≅ SU(2) is the simplest non-abelian gauge group.</td>
 </tr>
 <tr>
 <td>**If the question is hostile or sweeping…**</td>

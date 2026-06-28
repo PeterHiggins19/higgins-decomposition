@@ -1,0 +1,62 @@
+{
+  "_meta": {
+    "tool": "contact_length_model.py",
+    "tier": "T3 HYPOTHESIS (falsifiable)",
+    "what": "ratio-blindness falls with contact time past a 'seeing' threshold = the knowable-sample floor",
+    "receipt_sha256": "e6536dcdb8863667"
+  },
+  "seeing_threshold_t_star": 6.0,
+  "contact_comprehension_curve": [
+    {
+      "contact_t": 0.5,
+      "comprehension": 0.025,
+      "ratio_blindness": 0.975,
+      "phase": "mountain (glazed)"
+    },
+    {
+      "contact_t": 1,
+      "comprehension": 0.034,
+      "ratio_blindness": 0.966,
+      "phase": "mountain (glazed)"
+    },
+    {
+      "contact_t": 2,
+      "comprehension": 0.065,
+      "ratio_blindness": 0.935,
+      "phase": "mountain (glazed)"
+    },
+    {
+      "contact_t": 4,
+      "comprehension": 0.209,
+      "ratio_blindness": 0.791,
+      "phase": "basics useful"
+    },
+    {
+      "contact_t": 6,
+      "comprehension": 0.5,
+      "ratio_blindness": 0.5,
+      "phase": "steps useful / SEEING"
+    },
+    {
+      "contact_t": 8,
+      "comprehension": 0.791,
+      "ratio_blindness": 0.209,
+      "phase": "steps useful / SEEING"
+    },
+    {
+      "contact_t": 12,
+      "comprehension": 0.982,
+      "ratio_blindness": 0.018,
+      "phase": "sees (blindness fallen)"
+    },
+    {
+      "contact_t": 20,
+      "comprehension": 1.0,
+      "ratio_blindness": 0.0,
+      "phase": "sees (blindness fallen)"
+    }
+  ],
+  "design_objective": "maximize P(contact reaches t_star): the words/steps that keep a user engaged THROUGH the slow mountain phase are the lever -- contact length is the key.",
+  "tie_in": "the threshold is the same knowable-sample floor measured elsewhere (language demo 5%->noise / 20%+->lock; max-power D*(N)); 'seeing' = the comprehension signature locking above the floor.",
+  "falsifier": "measure real contact-time vs comprehension; if no threshold exists, or it is not preceded by a slow phase, the theory is wrong."
+}

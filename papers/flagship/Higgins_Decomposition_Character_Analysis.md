@@ -399,7 +399,21 @@ This Character Analysis is the DUT diagnostic for the pipeline itself. It does n
 
 ---
 
-*Hˢ — The instrument reads. The expert decides. The loop stays open.*
+## 14. Addendum (2026‑06) — the character read now includes its own confidence
+
+*The v3.0 analysis above stands. Since it was written, the v4 engine (`HCI-CNTT/`) gained an additive guard/resolvability/control layer that changes the DUT's character in one specific way: **the instrument now reads the boundary of what it can honestly resolve, and can act behind breakers.** Full delta: `HCI-CNTT/ENGINE_CAPABILITIES_DELTA_2026-06.md`; codes: `HCI-CNTT/CNTT_DIAGNOSTIC_CODES.md §7`; spec: `HCI-CNTT/CNTT_COMPLETE_SPECIFICATION.md §6b`. In brief, the character now also includes:*
+
+- **Honest resolvability** — at rest the helmsman returns `None` (`HM‑NUL‑WRN`) instead of a noise leader; a tie returns `TIE` (`HM‑TIE‑WRN`) instead of an index pick; a coherent (pairwise‑log‑ratio) helmsman that doesn't move when an irrelevant carrier is added.
+- **Degeneracy & sparsity awareness** — rank‑collapse (`DG‑RNK‑WRN`) and high‑sparsity δ‑dominance (`GD‑SPZ‑WRN`) are announced, not silently mis‑read; the E‑21 zero registry replaces silent `nan` on a degenerate carrier.
+- **Self‑calibrating structural detection** — a hold‑lock with hysteresis discovers its trigger from `max(system, engine)` noise floor and ties down near‑zero drift, announcing the held state (`L4‑HLD‑INF`) — the calibration‑cycle character of a live instrument, replacing the static `mean+k·std` boundary.
+- **The loop may now close — safely.** The v3.0 motto was "the loop stays open." That remains the default, but `SafeLoop` (`engine/loop_control.py`) now permits a bounded closed loop behind mandatory breakers (`LC‑TRIP‑*` + `LC‑ESTOP` + a time‑boxed window). The instrument can act — only where a breaker can stop it.
+- **A certifiable metrology** — gauge R&R ≈ machine epsilon, conformance‑testable, with a 6σ/9σ decision gate (`DETERMINISM_GAUGE_RR_AND_CONFIDENCE.md`).
+
+The seven‑operator pipeline, the 12 steps, the structural modes, and the fingerprint are unchanged. What is new is that the engine now says, in codes, *"I cannot honestly resolve this"* when that is the truth — which is the most important character a measuring instrument can have.
+
+---
+
+*Hˢ — The instrument reads. The expert decides. The loop stays open — and now, behind breakers, may close.*
 
 *Character Analysis v3.0 — Peter Higgins, April 2026*
 *STATUS: OPEN TO FURTHER DEVELOPMENT*

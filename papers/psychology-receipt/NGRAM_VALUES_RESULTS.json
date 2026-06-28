@@ -1,0 +1,80 @@
+{
+  "_meta": {
+    "tool": "ngram_values_receipt.py",
+    "what": "proof of concept: a psychology-relevant compositional claim with a reproducible hash receipt, on public data",
+    "master_receipt": "8ec3ae8d5623c5d7",
+    "verdict": "VIRTUE read: the 6-term composition is directed 0.172 over 120 yr; the recent motion-helmsman is 'responsibility'. Per-term recent direction: responsibility falling, courage rising, honesty rising, humility rising, gratitude rising, discipline falling. ORDER<->CHAOS read: directed 0.565; 'order' share 0.9609 now -> 0.9334 on the 20-yr cast (the recent motion-helmsman is 'chaos'). These are MEASURED on public data and reproduce to the data fingerprints below; the cast is a what-if, not a forecast."
+  },
+  "virtue_vocabulary": {
+    "composition": "Virtue vocabulary (6 terms)",
+    "n_years": 120,
+    "D_parts": 6,
+    "effective_dimension": 3.805,
+    "trajectory_directedness": 0.172,
+    "motion_helmsman_recent": "responsibility",
+    "parts": {
+      "responsibility": {
+        "share_now": 0.4409,
+        "share_cast_20y": 0.2973,
+        "recent_direction": "falling"
+      },
+      "courage": {
+        "share_now": 0.1757,
+        "share_cast_20y": 0.2581,
+        "recent_direction": "rising"
+      },
+      "honesty": {
+        "share_now": 0.051,
+        "share_cast_20y": 0.0614,
+        "recent_direction": "rising"
+      },
+      "humility": {
+        "share_now": 0.0469,
+        "share_cast_20y": 0.0788,
+        "recent_direction": "rising"
+      },
+      "gratitude": {
+        "share_now": 0.0971,
+        "share_cast_20y": 0.1498,
+        "recent_direction": "rising"
+      },
+      "discipline": {
+        "share_now": 0.1884,
+        "share_cast_20y": 0.1546,
+        "recent_direction": "falling"
+      }
+    },
+    "data_fingerprint": "56546d3ab316f732",
+    "receipt": "b608c2b02f8eb0e9"
+  },
+  "order_chaos": {
+    "composition": "Order <-> Chaos polarity",
+    "n_years": 120,
+    "D_parts": 2,
+    "effective_dimension": 1.079,
+    "trajectory_directedness": 0.565,
+    "motion_helmsman_recent": "chaos",
+    "parts": {
+      "order": {
+        "share_now": 0.9609,
+        "share_cast_20y": 0.9334,
+        "recent_direction": "falling"
+      },
+      "chaos": {
+        "share_now": 0.0391,
+        "share_cast_20y": 0.0666,
+        "recent_direction": "rising"
+      }
+    },
+    "data_fingerprint": "2935d3b5f31ac2f6",
+    "receipt": "84898c27a308327e"
+  },
+  "checks": {
+    "both_compositions_loaded": true,
+    "valid_compositions": true,
+    "directedness_measured": true,
+    "data_fingerprint_present": true
+  },
+  "the_leap": "psychology rarely ships a hash receipt; here a value/virtue claim does. Anyone can re-pull the documented public Ngram queries, recompute, and obtain the SAME data fingerprints and receipt -- determinism applied to a field defined by its reproducibility problem.",
+  "fence": "Book word-frequency = cultural-attention PROXY, NOT individual psychology and NOT the prevalence of the things named. 'order'/'chaos' are polysemous (chaos-theory inflates 'chaos' post-1975) -- that arm is illustrative. Descriptive, not causal; corpus has genre/OCR bias; the cast is an extrapolation. The contribution is METHODOLOGICAL (determinism + receipt). Peter is the sole gate; nothing posted."
+}

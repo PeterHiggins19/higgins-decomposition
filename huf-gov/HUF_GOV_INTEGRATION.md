@@ -7,6 +7,8 @@
 
 ## The framing
 
+**Safety is the first principle of this doctrine — dominant and absolute, ahead of capability:** the operator holds the last breaker (SAFE‑001 / LOOP‑001), *full automation is never possible at any scale*, and coherence is **offered, never imposed**. Everything below specializes that primacy into rules — a powerful compositional system is admitted only behind governance.
+
 Hs Change Control v1.0 (INV-063 STAGED) is **not a Hs invention.** It is a fast-research-codebase specialization of the parent HUF-GOV pipeline. The parent doctrine — published in the companion [Higgins-Unity-Framework](https://github.com/PeterHiggins19/Higgins-Unity-Framework) repository at `huf-gov/` — established the principles in April 2026. Hs Change Control v1.0 instantiated those principles for the specific operating regime of a multi-AI-collaborated codebase moving through 40+ pushes inside two months while maintaining doctrinal coherence.
 
 The traceability is the integration. Without it, the Hs-side rules look like local invention. With it, they read as specializations of a broader doctrine that has been published, peer-reviewed across the HUF AI Collective, and exercised across the parent pipeline.
@@ -213,6 +215,19 @@ The HUF Governance Charter is the parent doctrine. Several other HUF-GOV documen
 - Honoring EITT's published kill conditions per KILL-001 (proportional data required; sufficient carrier dimensionality required; mathematical conservation not domain prediction; external forcing events invisible).
 
 **Authoring lineage.** EITT, like all HUF science, is *"Peter Higgins / Rogue Wave Audio, with the HUF AI Collective: Claude (Anthropic), ChatGPT (OpenAI), Copilot (Microsoft), Gemini (Google), Grok (xAI)."* The canonical explanation was Peter-confirmed on 2026-05-12 with the directive *"exactly correct as I see it"* — the same confirmation that authorized this folder's structural addition.
+
+### COMPONENT-REQUEST-ESCALATION — the upward, lossless request channel (2026-06-22 refinement)
+
+**Source text.** `huf-gov/COMPONENT_REQUEST_ESCALATION_DOCTRINE.md`.
+
+**What it adds.** The breaker inventory is written operator‑down; this refinement names the **upward**
+direction — every component keeps a **voice** (the right to *request* about its own state) even when it has
+no **authority** to act on itself; the request is **never lost** (Article VI generalized from data to control
+requests); authority is **class‑scoped** (governance = full breakers; closed‑loop passes its breaker up as a
+request; open‑loop passes up to the user); and **reactivation is a governance act**. No 17th breaker — it
+describes the path a request travels through the sixteen. Trace: Article III + Article VI + SAFE‑001 P3/P5 +
+LOOP‑001. The collective instance (peer/translator review, the four ordered seats incl. the conservative
+*elder*) is in `../library/FOR_THE_NEXT_EXPLORER.md`.
 
 ---
 

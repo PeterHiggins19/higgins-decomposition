@@ -1,0 +1,62 @@
+<svg viewBox="0 0 980 620" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <rect x="0" y="0" width="980" height="620" fill="#0e1117"/>
+  <text x="40" y="44" fill="#e6edf3" font-size="26" font-weight="700">The regimes of projection — Compositional Governance Scale → Kardashev V</text>
+  <text x="40" y="70" fill="#8b98a5" font-size="14">CGS = log&#8321;&#8320;(GDoF) · GDoF = &#931; (carriers&#8722;1)·sites·diagnostics·temporal · H&#770; governs the couplings that cross the top gate · receipt d2dbf604ac3beaca</text>
+
+  <!-- baseline -->
+  <line x1="50" y1="540" x2="930" y2="540" stroke="#30363d" stroke-width="2"/>
+
+  <!-- Step 1 : CGS-1 -->
+  <rect x="60" y="470" width="150" height="70" fill="#1b8a4a" stroke="#0b5" stroke-width="1.5"/>
+  <text x="135" y="500" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">CGS-1</text>
+  <text x="135" y="519" fill="#dff" font-size="11" text-anchor="middle">Instrument Proof</text>
+  <text x="135" y="533" fill="#cfe" font-size="10" text-anchor="middle">GDoF 48 · CGS 1.68</text>
+
+  <!-- Step 2 : CGS-2 -->
+  <rect x="225" y="385" width="150" height="155" fill="#1b8a4a" stroke="#0b5" stroke-width="1.5"/>
+  <text x="300" y="412" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">CGS-2</text>
+  <text x="300" y="431" fill="#dff" font-size="11" text-anchor="middle">Cross-Domain</text>
+  <text x="300" y="445" fill="#cfe" font-size="10" text-anchor="middle">GDoF 1,296 · CGS 3.11</text>
+
+  <!-- Step 3 : CGS-3 -->
+  <rect x="390" y="300" width="150" height="240" fill="#1b8a4a" stroke="#0b5" stroke-width="1.5"/>
+  <text x="465" y="327" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">CGS-3</text>
+  <text x="465" y="346" fill="#dff" font-size="11" text-anchor="middle">Operational</text>
+  <text x="465" y="360" fill="#cfe" font-size="10" text-anchor="middle">GDoF 42,240 · CGS 4.63</text>
+
+  <!-- Step 4 : CGS-4 (gate / Kardashev I) -->
+  <rect x="555" y="215" width="150" height="325" fill="#2a6fb0" stroke="#1d5e9c" stroke-width="1.5"/>
+  <text x="630" y="242" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">CGS-4</text>
+  <text x="630" y="261" fill="#dfeeff" font-size="11" text-anchor="middle">Network Governance</text>
+  <text x="630" y="276" fill="#cfe3ff" font-size="10" text-anchor="middle">GDoF 3.15M · CGS 6.50</text>
+  <text x="630" y="295" fill="#9ec9ff" font-size="10.5" font-style="italic" text-anchor="middle">~ Kardashev I</text>
+  <text x="630" y="309" fill="#9ec9ff" font-size="9.5" text-anchor="middle">govern the home domain</text>
+
+  <!-- Step 5 : CGS-5 (gate / Kardashev V) -->
+  <rect x="720" y="110" width="190" height="430" fill="#2a6fb0" stroke="#1d5e9c" stroke-width="1.5"/>
+  <text x="815" y="140" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">CGS-5</text>
+  <text x="815" y="160" fill="#dfeeff" font-size="11.5" text-anchor="middle">Universal Compositional</text>
+  <text x="815" y="175" fill="#cfe3ff" font-size="10.5" text-anchor="middle">GDoF 109.4M · CGS 8.04</text>
+  <text x="815" y="196" fill="#ffd479" font-size="12.5" font-weight="700" font-style="italic" text-anchor="middle">~ Kardashev V</text>
+  <text x="815" y="212" fill="#ffe3a6" font-size="10" text-anchor="middle">govern complexity itself</text>
+
+  <!-- the Hs bridge arrow from step4 to step5 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 z" fill="#ffd479"/>
+    </marker>
+  </defs>
+  <path d="M675,150 C700,120 705,118 718,116" fill="none" stroke="#ffd479" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="470" y="92" width="300" height="44" rx="6" fill="#1a1f27" stroke="#ffd479" stroke-width="1.2"/>
+  <text x="620" y="110" fill="#ffd479" font-size="12.5" font-weight="700" text-anchor="middle">+ H&#770; governs the COUPLINGS</text>
+  <text x="620" y="126" fill="#ffe3a6" font-size="10.5" text-anchor="middle">the relations between domains — the only path past CGS-4</text>
+
+  <!-- the blocked "without Hs" cap on step 4 -->
+  <rect x="540" y="430" width="182" height="44" rx="6" fill="#3a1416" stroke="#c0392b" stroke-width="1.2"/>
+  <text x="631" y="449" fill="#ff9a8d" font-size="11" font-weight="700" text-anchor="middle">&#9940; without H&#770;: caps here</text>
+  <text x="631" y="464" fill="#ffc4bb" font-size="9.5" text-anchor="middle">CGS 7.56 — governs systems, not couplings</text>
+
+  <!-- footnote / fence -->
+  <text x="40" y="588" fill="#6e7681" font-size="11">Honest fence: CGS is the source's own n=1 OPINION (levels designed, not derived); "Kardashev V" is an ANALOGY, not a physics/energy claim.</text>
+  <text x="40" y="606" fill="#6e7681" font-size="11">Illustrative deterministic simulation (kardashev_projection.py). Peter is the sole gate; nothing posted.</text>
+</svg>

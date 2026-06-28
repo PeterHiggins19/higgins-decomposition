@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "tool": "compositional_memory.py",
+    "D": 12,
+    "n_memories": 200,
+    "what": "content-addressable, scale-invariant associative memory (7-bit-clr codes + differential recall)",
+    "receipt_sha256": "d539197e327f544a"
+  },
+  "deterministic_content_address": true,
+  "bytes_per_memory": 12,
+  "recall_under_magnitude+context-scale+noise": {
+    "compositional_clr_accuracy": 1.0,
+    "raw_magnitude_accuracy": 0.338,
+    "meaning": "the compositional memory recalls invariant to overall magnitude AND context scale; the raw-magnitude memory is fooled by them"
+  },
+  "fence": "T3 vision seed; mechanism measured; overlaps content-addressable/Hopfield/vector-DB memory; novelty = log-ratio scale/context invariance + deterministic 7-bit addressing; needs compositional data."
+}

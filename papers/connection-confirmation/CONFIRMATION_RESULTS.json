@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "tool": "confirm_suspicious.py",
+    "what": "test the AI-candidate suspicious connections to confirmation where runnable; honest remainder otherwise.",
+    "receipt_sha256": "09fff0925dd49fab"
+  },
+  "results": {
+    "C2_one_theorem": {
+      "clr_common_mode_residual": 8.88e-16,
+      "coherence_law_dB_at_rhos": {
+        "0.0": -0.0,
+        "0.5": 3.0,
+        "0.9": 10.0,
+        "0.99": 20.0,
+        "0.999": 30.0,
+        "0.9999": 40.0
+      },
+      "rho_to_1_is_the_313dB_floor_measured": 313.0,
+      "verdict": "CONFIRMED -- the exact cancellation clr(g x)=clr(x) is the theorem; the coherence law -10log10(1-rho) is its rho-parameterized corollary; 313/310 dB are the rho->1 floor. One result, three costumes."
+    },
+    "C4_info_theory": {
+      "shared_divergence_as_rho_to_1": "both ~ -ln(1-rho)",
+      "S_uses": "(1-rho)",
+      "MI_uses": "(1-rho^2)=(1-rho)(1+rho)",
+      "limit_ratio_S_over_MIform_at_0.999": 2.223,
+      "verdict": "PARTIAL -- the law shares the EXACT log-singularity of the Gaussian MI bound at rho->1 (a real information-theoretic kinship), but differs by the (1+rho) factor at finite rho. NOT identical; same divergence structure."
+    },
+    "C5_coupled_compositions": {
+      "GDP_effdim_2009_2023": [
+        7.3,
+        6.2
+      ],
+      "reserve_effdim_old_new": [
+        2.47,
+        3.5
+      ],
+      "anti_correlation_holds_on_these_2_layers": true,
+      "verdict": "PARTIAL-CONFIRMED -- on the 2 measured layers the weight (GDP) CONCENTRATES (eff-dim 7.3->6.2) while the denomination (reserves) DIVERSIFIES (eff-dim 2.47->3.50): the anti-correlation HOLDS. The general LAW needs more layers (trade, equity, broad money) -- the remainder to earn."
+    },
+    "C7_centrality": {
+      "spearman_R_vs_weighted_degree": 0.998,
+      "verdict": "CONFIRMED (identity) -- R = contacts x drift IS weighted-degree centrality when drift is the edge weight (Spearman 0.998 vs a noisy estimate). The 'highest-contact = highest-leverage' doctrine is a known centrality."
+    },
+    "not_quick_testable": {
+      "C1_blindness_completeness": "needs a formal proof that a finite complete face-basis exists for given D (or that it is provably open). MATH, not a run. stays T3.",
+      "C3_capacity_vs_facecount": "needs a derived capacity(D) and face-count(D) + a real-data track. partially formal. stays T3.",
+      "C6_EITT_is_RG_fixedpoint": "needs the invariance derived from a coarse-graining (RG) operator. MATH. stays T3.",
+      "C8_data_is_carrier_MDL": "needs a formal compositional-coding vs MDL bound. MATH. stays T3.",
+      "C9_D4_rung_Hurwitz": "speculative; needs a classification of which real datasets admit an exact rung. fence hard. stays T3."
+    }
+  }
+}

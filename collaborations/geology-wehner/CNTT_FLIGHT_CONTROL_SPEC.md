@@ -35,7 +35,7 @@ This is also exactly what NASA flight-software assurance (NPR 7150.2) and the "n
 | `SET_ZERO_TREATMENT` | structural-drop vs multiplicative replacement | new zeros encountered |
 | `FREEZE` / `UNFREEZE` / `ROLLBACK` | lock state, or revert to a prior hash-stamped config | safe-mode / audit |
 
-**Matthew develops the geological decision logic** — *when* and *why* to invoke these — as an uplinkable rule/command table. Each GPCC command is bounds-validated (rejected if out of range), versioned, hash-stamped, and logged. Structure-altering commands take an authorised (two-key) path.
+**The geoscience domain collaborator develops the geological decision logic** — *when* and *why* to invoke these — as an uplinkable rule/command table. Each GPCC command is bounds-validated (rejected if out of range), versioned, hash-stamped, and logged. Structure-altering commands take an authorised (two-key) path.
 
 **cFS mapping:** the GPCC is delivered as cFS **Table Services** (parameter tables) + the **Stored Command** app (command sequences), bounds-enforced by the **Limit Checker** app, ingested via **Command Ingest** over CCSDS telecommand. Nothing exotic — it is the standard reconfigurable-flight-software pattern, with Hs's hash-chain added.
 
@@ -74,13 +74,13 @@ Determinism + hash provenance + fixed-size vector-space kernels + a **built-in c
 
 ## 8 · Division of labour
 - **Hs provides:** the bounded primitive set, the coherence/consistency math, the determinism + hash-provenance contract, the fixed kernels.
-- **Matthew (domain) provides:** the geological control logic atop the primitives, and the calibration that sets reliability weights and delta-corrections.
+- **The domain collaborator provides:** the geological control logic atop the primitives, and the calibration that sets reliability weights and delta-corrections.
 - **The agency provides:** the flight platform (cFS / rad-hard processor), the redundancy harness, and the mission requirements.
 
 ## 9 · Honest tiering
 - **Determinism-preserving adaptation (versioned hash-stamped configs):** sound by construction — **confirmed in principle**; the primitive set is small and deterministic.
 - **The cFS / TMR / NPR-7150.2 mapping:** an accurate fit to established flight practice — **design, to be implemented and certified**.
-- **A working flight engine and the "above current standard" onsite performance:** **to be earned** — prototype, validate with Matthew, then TRL-raise with the agency.
+- **A working flight engine and the "above current standard" onsite performance:** **to be earned** — prototype, validate with a domain collaborator, then TRL-raise with the agency.
 
 ## Sources
 - NASA core Flight System (cFS): [coreflightsystem.net](https://www.coreflightsystem.net/) · [nasa/cFS (GitHub)](https://github.com/nasa/cFS) · [GSFC cFS](https://etd.gsfc.nasa.gov/capabilities/core-flight-system/)

@@ -1,0 +1,140 @@
+{
+  "_meta": {
+    "tool": "rerun_all.py",
+    "what": "re-run key experiments on the new engine + the governing discipline",
+    "n_experiments": 7,
+    "master_receipt": "e61e6193a100787c"
+  },
+  "experiments": [
+    {
+      "experiment": "Backblaze fleet (drives)",
+      "n_rows": 108,
+      "D_parts": 4,
+      "effective_dimension": 2.039,
+      "dominant_part": "Errors",
+      "concentrates": true,
+      "strictly_positive": true,
+      "scale_invariance_residual": 6.7e-16,
+      "invariance_exact": true,
+      "trajectory_directedness": 0.274,
+      "helmsman_of_motion": "Mechanical",
+      "receipt": "4c99d571e2d247cd"
+    },
+    {
+      "experiment": "Energy DEU (EMBER)",
+      "n_rows": 26,
+      "D_parts": 9,
+      "effective_dimension": 5.732,
+      "dominant_part": "Coal",
+      "concentrates": true,
+      "strictly_positive": false,
+      "scale_invariance_residual": 1.2,
+      "invariance_exact": false,
+      "trajectory_directedness": 0.43,
+      "helmsman_of_motion": "Other Renewables",
+      "receipt": "529282fe888280ad"
+    },
+    {
+      "experiment": "Energy USA (EMBER)",
+      "n_rows": 25,
+      "D_parts": 9,
+      "effective_dimension": 4.824,
+      "dominant_part": "Coal",
+      "concentrates": true,
+      "strictly_positive": false,
+      "scale_invariance_residual": 8.9e-16,
+      "invariance_exact": true,
+      "trajectory_directedness": 0.875,
+      "helmsman_of_motion": "Solar",
+      "receipt": "4650f86a2ab4956b"
+    },
+    {
+      "experiment": "Energy WORLD (EMBER)",
+      "n_rows": 26,
+      "D_parts": 9,
+      "effective_dimension": 5.291,
+      "dominant_part": "Coal",
+      "concentrates": true,
+      "strictly_positive": true,
+      "scale_invariance_residual": 1.3e-15,
+      "invariance_exact": true,
+      "trajectory_directedness": 0.953,
+      "helmsman_of_motion": "Solar",
+      "receipt": "4de01a5d24a6e94b"
+    },
+    {
+      "experiment": "Geochemistry (ball oxides)",
+      "n_rows": 26266,
+      "D_parts": 10,
+      "effective_dimension": 5.043,
+      "dominant_part": "SiO2",
+      "concentrates": true,
+      "strictly_positive": false,
+      "scale_invariance_residual": 2.0,
+      "invariance_exact": false,
+      "receipt": "d0099a522b2c9e6a"
+    },
+    {
+      "experiment": "Nuclear SEMF (binding terms)",
+      "n_rows": 118,
+      "D_parts": 5,
+      "effective_dimension": 2.543,
+      "dominant_part": "B_volume",
+      "concentrates": true,
+      "strictly_positive": false,
+      "scale_invariance_residual": 1.1,
+      "invariance_exact": false,
+      "receipt": "ea17caff33e2a466"
+    },
+    {
+      "experiment": "Commodities (gold/silver)",
+      "n_rows": 624,
+      "D_parts": 2,
+      "effective_dimension": 1.146,
+      "dominant_part": "Gold",
+      "concentrates": true,
+      "strictly_positive": true,
+      "scale_invariance_residual": 8.9e-16,
+      "invariance_exact": true,
+      "receipt": "9d2238dace247563"
+    }
+  ],
+  "THE_TREAT": {
+    "governing_discipline_from_the_data": "CONCENTRATION + SCALE-INVARIANT RELATIONAL STRUCTURE. Every system CONCENTRATES (eff dim < parts, 7/7) -- none uniform, a dominant part always exists; and meaning lives in the RATIOS, EXACTLY invariant to totals (3/3 strictly-positive sets ~1e-15). The structural-zero sets show the locked discriminant's PRECONDITION (positivity / E-21), not a failure. The controlling discipline: read the proportions, invariant to scale, under closure; handle the zeros where parts vanish.",
+    "where_is_it_going": "Differs by system; the data names each trajectory's motion-helmsman. The US + WORLD energy mix is strongly DIRECTED (0.88, 0.95) -- a real transition helmed by SOLAR remaking the grid; Germany + the drive fleet are LOW-directedness (0.43, 0.27) -- homeostatic within their budget. 'Where it is going' reads, per system, as the part currently remaking the whole; the destination's meaning is the operator's leap (Breaker 16).",
+    "n": 7,
+    "concentrate": "7/7",
+    "inv_exact_pos": "3/3",
+    "zero_bounded": [
+      "Energy DEU (EMBER)",
+      "Energy USA (EMBER)",
+      "Geochemistry (ball oxides)",
+      "Nuclear SEMF (binding terms)"
+    ],
+    "directed": [
+      [
+        "Energy USA (EMBER)",
+        0.875,
+        "Solar"
+      ],
+      [
+        "Energy WORLD (EMBER)",
+        0.953,
+        "Solar"
+      ]
+    ],
+    "homeostatic": [
+      [
+        "Backblaze fleet (drives)",
+        0.274,
+        "Mechanical"
+      ],
+      [
+        "Energy DEU (EMBER)",
+        0.43,
+        "Other Renewables"
+      ]
+    ]
+  },
+  "fence": "Real public/derived datasets; structural zeros floored (E-21). Scale-invariance EXACT only for strictly-positive sets; zero sets show the precondition, not a failure. Reports what RECURS across THIS set, not a universal law; the destination's meaning is the operator's leap. Peter is the sole gate; nothing posted."
+}

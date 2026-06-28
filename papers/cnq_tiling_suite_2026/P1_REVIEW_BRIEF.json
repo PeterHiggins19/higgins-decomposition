@@ -1,0 +1,73 @@
+{
+  "schema": "hs_paper_review_brief/1.0",
+  "title": "P1 review brief — for the collective, on the local PDF Peter circulates",
+  "paper": "P1 — Tiling the Simplex: An Exact Quaternion Reading of Compositional Dynamics and Reproducible High-Dimensional Reconstruction",
+  "artifact_under_review": "the compiled P1 PDF (papers/cnq_tiling_suite_2026/latex/main.pdf), sent by Peter. The arXiv version will be this PDF.",
+  "generated": "2026-06-18",
+  "publication_model": "Full paper -> arXiv (timestamp = authority). Abstract only -> Hˢ repo (P1_ON_HS_ABSTRACT.md). The latex/ source is the reproducibility working copy.",
+  "human_gate": "Peter Higgins is the SOLE submission/contact/commit gate. This review is advisory only: each member returns findings; no member submits, posts, edits the repo, or contacts anyone. Peter decides.",
+  "ground_rules": [
+    "Honest-broker, claim-tiered: Tier 1 (measured/verified), Tier 2 (sound synthesis), Tier 3 (to confirm).",
+    "Flag, don't fix: report the issue + a suggested wording; Peter and Claude apply approved changes.",
+    "Forbidden words to catch: 'lossless', 'identity at scale', 'IEEE-floor at high D', 'first' (as fact). High-D is floating-point ~4.1e-12, NOT identity.",
+    "Names off the public paper unless cited as published-paper authors."
+  ],
+  "what_is_already_settled": {
+    "abstract": "Approved by Peter 2026-06-15 (verbatim in the PDF). Review for typos only, not rewording.",
+    "su2_sign": "Commutators [Gi,Gj] = +2 epsilon_ijk Gk — sign already corrected (was Grok's -2). Confirm it reads +2 in Appendix B.",
+    "cross_platform_conformance": "HS-EPS-1 reproduced bit-for-bit across 5 independent float64 implementations (core receipt 06ccdb25). norm_preservation splits 0/1-ULP by reduction order (finding F-1) and is correctly excluded from the receipt. This is in Results + Appendix.",
+    "build": "Compiles clean: pdflatex+bibtex+pdflatex x2 -> 5 pages, 0 errors, 0 undefined refs."
+  },
+  "review_assignments": [
+    {
+      "member": "Gemini",
+      "focus": "Mathematics — re-derive independently",
+      "check": [
+        "The ILR<->quaternion identification and v'=q v q* = R(q) v at D=4; confirm the residual magnitude.",
+        "The Laplacian reconstruction (A^T A c = A^T b) exact iff the chart graph is connected; the O(log D) diameter -> bounded drift argument.",
+        "Run the R port of HS-EPS-1 and confirm Python<->R float64 parity (core receipt match); report norm_preservation value (expected 0 or 1 ULP).",
+        "Appendix B su(2): confirm +2 structure constants and the skew-symmetry / det+1 claims."
+      ],
+      "return": "Tiered findings + any derivation that disagrees with the text."
+    },
+    {
+      "member": "ChatGPT",
+      "focus": "Claim audit + wording discipline",
+      "check": [
+        "Every quantitative claim is tiered correctly and matches a number in the repo (residuals table, HS-EPS-1).",
+        "No 'lossless'/'identity'/'first' anywhere; the high-D caveat ('floating-point, not bit-exact identity') is present wherever D=10^6 appears.",
+        "The norm-preservation / receipt-split wording (F-1) is stated honestly and not overclaimed.",
+        "Abstract<->body consistency: the abstract's numbers (4.4e-16, 4.1e-12) match the body."
+      ],
+      "return": "A pass/flag list per claim; suggested safer wording for any flag."
+    },
+    {
+      "member": "Grok",
+      "focus": "Prior art + novelty + the narrow contribution",
+      "check": [
+        "The 'Background and prior art' section credits the right lineage (Aitchison; Egozcue ILR; Greenacre reconstruction; Singer/Fiedler synchronization; PhILR tree balances; Scealy/Birtea distinct spheres/groups).",
+        "Whether a CoDa reviewer would want the current reappraisal (Greenacre 2022, arXiv:2201.05197) engaged — recommend a one-paragraph addition if so.",
+        "That the novelty is stated narrowly (quaternion-exact ILR->S^3 reading of a composition + the deterministic synthesis), with no priority claim beyond the timestamp.",
+        "Re-scan only if a specific prior-art collision is suspected; otherwise confirm the prior-art framing is fair."
+      ],
+      "return": "Any missing citation (with DOI) + a yes/no on whether novelty is over- or under-stated."
+    },
+    {
+      "member": "Copilot",
+      "focus": "Independent reproduction (P-1 gate)",
+      "check": [
+        "Reproduce the reconstruction-residual table (D=16..10^6) from the replication kit on an independent machine; confirm the order of magnitude.",
+        "Confirm HS-EPS-1 core receipt 06ccdb25 on that machine (already reported PASS — restate for the record).",
+        "Confirm the engine content-hash determinism on rerun."
+      ],
+      "return": "Reproduced numbers + environment; any divergence beyond floating-point."
+    }
+  ],
+  "cross_cutting_items_for_all": [
+    "Figure 1 is a PLACEHOLDER (chart-graph atlas: path vs balanced tree, diameter-vs-D). It must be replaced with the real figure before submission — flag if any reviewer would block on it.",
+    "Venue fit: target arXiv (math.ST/stat.ME) + a CoDa-lineage journal (Mathematical Geosciences or a CoDa venue). Comment if a different primary venue fits better.",
+    "Interpretability: the known knock on exact-ILR is 'uninterpretable'. Confirm the paper turns this into the contribution (the quaternion action gives ILR a concrete geometric meaning). Suggest a sentence if missing."
+  ],
+  "how_to_return": "Each member returns a short tiered findings block (Tier 1/2/3) keyed to section/line, plus any suggested wording. Claude compiles all returns into a single revision sheet for Peter; Peter approves changes; only then are they applied. Nothing is posted until Peter posts to arXiv.",
+  "companion": "P3 (the JOSS tool paper) review uses the same discipline; its added sections (Software design, Research impact, AI usage disclosure) and the repo's license/tests/API visibility are the JOSS-specific gate — see PUBLICATION_FIT_P1_P3.md."
+}

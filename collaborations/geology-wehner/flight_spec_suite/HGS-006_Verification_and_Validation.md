@@ -12,7 +12,7 @@ Validated against the ConOps scenarios (HGS-001 §4): S1 field (geologist + grab
 |---|---|---|---|
 | SYS-001 navigation correct | T | L-7 (now) | reproducible Frielingen-9 demo |
 | SYS-002 one CNT per sensor | T | L-7 | geosensing simulation |
-| SYS-003 reliability-weighted fusion | T,D | L-6 | field calibration w/ Matthew |
+| SYS-003 reliability-weighted fusion | T,D | L-6 | field calibration w/ a domain collaborator |
 | SYS-004 GPCC bounds-checked | T | L-4/L-3 | command-table tests |
 | SYS-007 determinism (bit-identical) | T | L-7→L-2 | hash reproduction; twin parity |
 | SYS-008 hash provenance | I,T | L-7 | content_sha256 in outputs |

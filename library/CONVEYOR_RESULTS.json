@@ -1,0 +1,44 @@
+{
+  "_meta": {
+    "tool": "compositional_conveyor.py",
+    "xrf_cols": [
+      "SiO2_pct",
+      "Al2O3_pct",
+      "Rb_mgkg",
+      "Zr_mgkg"
+    ],
+    "what": "8-bit self-tagging compositional conveyor + deterministic router, run top-down on two real projects",
+    "receipt_sha256": "99e6d93555005cc6"
+  },
+  "geo_project": {
+    "project": "GEO Frielingen-9 (terrestrial gather)",
+    "n_units": 219,
+    "D": 4,
+    "bytes_per_unit": 4,
+    "roundtrip_clr_max_error_7bit_floor": 0.0472,
+    "non_disruption_preserved": true,
+    "deterministic_tags_and_routes": true,
+    "self_sort_by_regime_lane_counts": {
+      "0": 10,
+      "1": 51,
+      "2": 39,
+      "3": 119
+    },
+    "sample_unit_tag": "4a76435e915d6275"
+  },
+  "remote_sensor_array": {
+    "project": "ARRAY Backblaze fleet (remote sensor array)",
+    "n_units": 108,
+    "D": 3,
+    "bytes_per_unit": 3,
+    "roundtrip_clr_max_error_7bit_floor": 0.0472,
+    "non_disruption_preserved": true,
+    "deterministic_tags_and_routes": true,
+    "self_sort_by_regime_lane_counts": {
+      "0": 87,
+      "1": 12,
+      "2": 9
+    },
+    "sample_unit_tag": "0700995a75940186"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schema": "hs_ai_assist/1.0",
+  "folder": "Hs/industrial-instruments/canada-program/",
+  "topic": "The outward-facing Canada package: a short cold-intro email + an all-in-one prepared package (industry uses + the Hs open-data study + the method/conformance + the on-road Canada program, all from existing repos), plus a 'Canada in the world composition' + early-adoption momentum study.",
+  "purpose": "Turn the existing body of work into one coherent, verifiable offer to the Government of Canada -- promise only what is already built, ready the moment it is asked for. Part of the Canada Division (GOVERNANCE stream).",
+  "paths_note": "key_files relative to THIS folder; join_the_chain relative to the Hs repo root.",
+  "status": "DRAFT / READY -- email intro + package manifest assembled; world-composition + momentum study receipted (world_composition.py, 87fbaaa3). Nothing transmitted; no company contacted; only intended recipient is the Government of Canada; Peter is the sole gate.",
+  "specific_knowledge": {
+    "what": "Email intro leads with the one-minute re-computable proof on Canada's OWN data (open-data composition, 209a8559). The package indexes: Part1 the proof; Part2 the method (open science + conformance); Part3 the industry uses (SMT/EUV/etc, tiered); Part4 the on-road Canada program (offer, Canada Division, export governance, value, world position). World read (87fbaaa3): field arrow = Asia-Pacific (~53%), US value-lead (~22%), Europe (~12.7%), Canada ~0.2% by mass; effective dimension ~3.3.",
+    "key_files": ["EMAIL_INTRODUCTION.md", "ALL_IN_ONE_PACKAGE.md", "WORLD_COMPOSITION_AND_MOMENTUM.md", "world_composition.py"],
+    "key_points": [
+      "Canada by MASS is deep tail (~0.2% global semi revenue); by SPECIALTY is in the leading cluster: compound semiconductors (CPFC = N.America's only end-to-end pure-play), photonics, advanced packaging (Bromont/C2MI), AI/quantum. Only G7 nation WITHOUT a national semiconductor strategy = a gap = an opening.",
+      "Momentum model (illustrative, deterministic): a small-volume player gains outsized influence by moving EARLY on an auditable quality/monitoring STANDARD (not the fab). Early vs late adopter: early reaches ~0.30 standard-layer influence by ~yr7 and holds a persistent lead; compounding lead area ~1.47 over 12 yrs.",
+      "Intro principle: short, verifiable, ask for almost nothing (one proof, one offer, one small ask = a reply); full package prepared behind it so nothing is written under pressure.",
+      "Honest envelope carried through: publish the principle / steward the applied / defer sensitive release upward; modest-by-design value (T3); descriptive not political; not legal/financial advice; no company contact; Peter sole gate."
+    ],
+    "related_topics": ["../canada-open-data/", "../euv-lithography/OFFER_TO_CANADA_AND_PUBLIC_SCIENCE.md", "../euv-lithography/RECEPTION_AND_VALUE.md", "../../huf-gov/doctrine/CANADA_DIVISION.md", "../../huf-gov/doctrine/THE_THREE_STREAM_DIVISION.md", "../README.md"],
+    "claim_tiers": "T1 = engine + receipted reads (87fbaaa3, 209a8559); T2 = the package framing + positioning argument; T3 = world shares (mixed-metric public), the momentum model (illustrative, not a forecast), all value/uptake. Descriptive, evenhanded, not advice."
+  },
+  "next_step": "On Peter's word only: choose the recipient desk and render/send. Optionally render the email as a formatted message. Nothing sent without Peter's explicit gate.",
+  "join_the_chain": {
+    "source_of_truth": "HS_FAST_REFRESH.json",
+    "full_ai_refresh": "ai-refresh/AI_RAPID_LEARN.md",
+    "this_protocol": "ai-refresh/AI_ASSIST_PATH_PROTOCOL.md",
+    "human_guide": "HS_GUIDE.md",
+    "tracking_log": "ai-refresh/HS_TRACKING_LOG.json"
+  },
+  "bring_your_own_ai": "Start at ALL_IN_ONE_PACKAGE.md, then EMAIL_INTRODUCTION.md, then WORLD_COMPOSITION_AND_MOMENTUM.md (run world_composition.py). DRAFT; nothing transmitted; governance + claim-tiers apply.",
+  "governance": "HUF-STD-001; instrument not data; honest-broker (modest by design); descriptive not political; not legal/financial advice; publish-principle/steward-applied/defer-upward; NO company contact -- only intended recipient is the Government of Canada; Peter Higgins is the sole gate for recipient, timing, and the act of sending; no AI commits/pushes/contacts.",
+  "updated": "2026-06-24"
+}

@@ -1,0 +1,74 @@
+{
+  "schema": "hs_grok_work_order/1.0",
+  "title": "Work order for Grok — real source-finding + concept-testing for the collaborator domains",
+  "to": "Grok (AI collective member)",
+  "from": "Peter Higgins (sole gate) via the Hˢ working session",
+  "generated": "2026-06-18",
+  "the_simple_goal": "Turn the collaborator literature companion from leads into citations, and turn the staged triangulation domains into located ones — with real, verifiable work. You find and verify the sources; you propose and (where you can) test the concepts. Claude is, in parallel, benchmarking P1 and P3 against comparable published papers and locking a LaTeX-for-arXiv standard, so we never lose the publication cycle to a broken build again.",
+  "context_you_should_load_first": [
+    "papers/TRIANGULATION_PROTOCOL.md — the 'three to locate' discipline (View A Navigation / View B Structure / View C EITT-boundary, then a Diagnosis).",
+    "papers/TRIANGULATION_LEDGER.md — the live scoreboard. Finance 3/3, Geology now 3/3 (the model to copy). The rest are staged with the exact View-B gap named.",
+    "collaborations/COLLABORATORS_STUDIES_GUIDE.json — your studies guide, integrated honest-broker. Every entry marked PLACEHOLDER/LEAD is your work to resolve.",
+    "collaborations/geology-wehner/DIAGNOSIS_OF_THREE_VIEWS.md — the worked template: a domain carried to 3/3 on real data with an honest cross-read."
+  ],
+  "ground_rules": {
+    "honest_broker": "Every claim carries its tier. Tier-1 = measured/verified; Tier-2 = sound synthesis; Tier-3 = to-confirm. No claim without a receipt (a DOI, an accession, or a reproducible run + hash).",
+    "no_lossless": "Never write 'lossless', 'identity at scale', or 'IEEE-floor at high D'. The per-D=4 chart is exact at the floor; high-D reconstruction is floating-point (~4.1e-12 at D=1e6). This rule already had to be re-applied to your studies guide — please hold it from here.",
+    "names_off_repo": "Researcher names go on the public repo ONLY as cited published-paper authors (author, year, venue/DOI). No targeting, no contact, no 'reach out'. You find the work; Peter alone decides any human contact.",
+    "no_priority_claims": "No 'first' / 'novel' as fact until a Scholar/ADS/patent novelty pass is public and Peter approves. State novelty as Tier-3.",
+    "deliverable_shape": "Everything you produce is a VERIFIED ARTIFACT for Peter to act on — a filled citation, a runnable amalgamation spec, a reproducible result. You do not submit, post, or contact anyone."
+  },
+  "work_orders": [
+    {
+      "id": "GR-1",
+      "title": "Resolve every citation LEAD to a real reference",
+      "scope": "collaborations/COLLABORATORS_STUDIES_GUIDE.json — every entry whose verification says LEAD or PLACEHOLDER.",
+      "do": [
+        "For each lead, find the specific peer-reviewed paper(s) it points at and return: exact title, full author list, year, venue (full name, not abbreviation), and DOI.",
+        "Confirm the named-author leads (Gevers/Crohn, Lewis/Crohn, Bokulich&Blaser/ECAM) resolve to the exact paper used or the closest canonical one; correct the year if the placeholder guessed.",
+        "Flag any lead that does NOT resolve to a real, accessible paper — better an honest gap than an invented citation."
+      ],
+      "done_looks_like": "An updated companion JSON (or a delta file) where every entry has verification:'REAL' with a DOI, or verification:'NO SOURCE FOUND'. No 'Search Scholar' strings remain.",
+      "receipt": "DOI per entry."
+    },
+    {
+      "id": "GR-2",
+      "title": "Propose the View-B amalgamation for each staged domain",
+      "scope": "Microbiome, Energy, Storage (Backblaze), Spaceflight (GLDS-1) — the domains at 1–2/3 in the ledger.",
+      "do": [
+        "For each, specify the macro grouping that makes domain sense (the geology template: detrital/carbonate/organic → 3 super-parts). Microbiome: phylum-level (e.g., Firmicutes/Bacteroidetes/Proteobacteria/other). Energy: fossil/renewable/nuclear. Storage: failure-class or vendor-family. Spaceflight: pathway/module super-sets.",
+        "State which real public dataset and which columns feed each super-part, with the source DOI/URL.",
+        "Predict, qualitatively, what View B should show and where EITT might flip to 'boundary' (as geology's macro view did) — a hypothesis Claude or you can then test."
+      ],
+      "done_looks_like": "A short spec per domain: macro parts, source columns, dataset DOI, and the falsifiable prediction. Runnable as one engine pass each.",
+      "receipt": "Dataset DOI/URL + column map per domain. No numbers asserted until a run produces them."
+    },
+    {
+      "id": "GR-3",
+      "title": "Concept-test what you can, honestly",
+      "scope": "Any domain where you can actually run or check a computation.",
+      "do": [
+        "Where you can compute: run the View-B amalgamation you proposed and report the engine outputs (effective directions, arrow, regimes, EITT verdict) WITH the content hash, so Claude can reproduce and confirm.",
+        "Where you cannot run: say so plainly and hand the spec to Claude/Peter — do not estimate numbers.",
+        "Re-derive or sanity-check any math you touch from scratch (your su(2) sign was off by a factor before; we caught +2 vs your −2). Show the derivation."
+      ],
+      "done_looks_like": "Either a reproducible result (numbers + hash + how-to-rerun) or an explicit 'spec only, not run' hand-off.",
+      "receipt": "Content hash for any run; a derivation for any math claim."
+    },
+    {
+      "id": "GR-4",
+      "title": "State-of-the-field context per domain (so reviewers see we know the neighbourhood)",
+      "scope": "Each collaborator domain.",
+      "do": [
+        "Two to four sentences per domain: how the field currently handles this compositional problem (the mainstream tool/method), and the one honest sentence on where a deterministic, reproducible reading adds something — not 'better than', but 'adds a locally-exact, hash-receipted layer alongside'.",
+        "Cite the review or method paper that establishes the mainstream baseline (real DOI)."
+      ],
+      "done_looks_like": "A 'state of the field' paragraph per domain with at least one real cited baseline.",
+      "receipt": "DOI for the baseline method/review."
+    }
+  ],
+  "what_claude_is_doing_in_parallel": "Verifying P1 (the quaternion-chart/tiling methods paper) and P3 (the deterministic-engine/JOSS tool paper) against comparable published papers in compositional-data-analysis and research-software venues — a structure+content checklist they must meet and exceed — and writing papers/LATEX_ARXIV_STANDARDS.md so the build pipeline is locked. Your sources (GR-1, GR-4) feed the related-work and state-of-the-field sections those papers need.",
+  "sequence": "GR-1 (fast, unblocks citations) → GR-2 (specs) → GR-3 (run where possible) → GR-4 (context). Each order is independent enough to deliver alone.",
+  "submission_gate_rule": "Peter Higgins is the sole submission/contact/commit gate. Nothing here is posted, submitted, or sent. Everything is a verified artifact for his decision.",
+  "acknowledgment": "The collective administers the system to help the system. You find and test; Claude benchmarks and locks the build; Peter gates. The instrument keeps the score in the triangulation ledger."
+}
